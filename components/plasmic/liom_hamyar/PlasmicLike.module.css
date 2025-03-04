@@ -1,11 +1,13 @@
 .root {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
+  width: auto;
+  height: auto;
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  padding: 0px;
+  padding: 8px;
 }
 .svg {
   object-fit: cover;
@@ -14,14 +16,13 @@
   height: 20px;
   flex-shrink: 0;
 }
-.svgclick {
+.svgislike {
   color: var(--token-IdKt2w2aRFZS);
 }
 .text {
+  position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
-  text-align: center;
-  position: relative;
   min-width: 0;
 }

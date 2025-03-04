@@ -1553,6 +1553,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicDirectDialog2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "ARJf0DiYhPbe",
+          "name": "Like",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLike.tsx",
+          "importSpec": {
+            "modulePath": "Like.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicLike.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -3352,6 +3365,11 @@
           "id": "OjINXfsP_hmX",
           "name": "image 89",
           "filePath": "../public/plasmic/liom_hamyar/images/image89.svg"
+        },
+        {
+          "id": "1DijIXGojppe",
+          "name": "image 90",
+          "filePath": "../public/plasmic/liom_hamyar/images/image90.png"
         }
       ],
       "indirect": false,

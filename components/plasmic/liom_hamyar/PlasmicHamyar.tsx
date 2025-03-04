@@ -639,20 +639,7 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "name",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return "";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "loadingshop",
@@ -11978,7 +11965,29 @@ function PlasmicHamyar__RenderFunc(props: {
                       throw e;
                     }
                   })()
-                : undefined
+                : (() => {
+                    try {
+                      return {
+                        r: $state.r || "",
+                        m: $state.m || "",
+                        userId:
+                          (($ctx?.query?.userId ?? "").trim() === ""
+                            ? new URLSearchParams(window.location.search).get(
+                                "userId"
+                              )
+                            : $ctx.query.userId
+                          )?.slice(4, -4) || ""
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
             }
             className={classNames("__wab_instance", sty.user, {
               [sty.userlackOfCourseInformation]: hasVariant(
@@ -11990,7 +11999,7 @@ function PlasmicHamyar__RenderFunc(props: {
             config={{ headers: { "Content-Type": "application/json" } }}
             errorDisplay={null}
             loadingDisplay={null}
-            method={"GET"}
+            method={"POST"}
             onError={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["user", "error"]).apply(
                 null,
@@ -15647,6 +15656,25 @@ function PlasmicHamyar__RenderFunc(props: {
               </Button>
             </Stack__>
           </Dialog>
+          <div className={classNames(projectcss.all, sty.freeBox__ivbKb)}>
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img___7Yg9F)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"auto"}
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image90.png",
+                fullWidth: 830,
+                fullHeight: 350,
+                aspectRatio: undefined
+              }}
+            />
+          </div>
         </div>
       </div>
     </React.Fragment>

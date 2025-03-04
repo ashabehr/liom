@@ -7228,3 +7228,29 @@
   bottom: auto;
   display: none;
 }
+.freeBox__ivbKb {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background: var(--token-R_Rsn0nP9oIv);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  padding: 0px;
+}
+.img___7Yg9F {
+  object-fit: cover;
+  max-width: 100%;
+  position: relative;
+  left: auto;
+  top: auto;
+}
+.img___7Yg9F > picture > img {
+  object-fit: cover;
+}

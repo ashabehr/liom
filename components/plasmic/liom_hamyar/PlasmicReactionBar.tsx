@@ -59,7 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import SocialIcon from "../../SocialIcon"; // plasmic-import: lWxUKYG03CLw/component
+import Like from "../../Like"; // plasmic-import: ARJf0DiYhPbe/component
 import Save from "../../Save"; // plasmic-import: _x22uBJ4ZqC9/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -104,7 +104,7 @@ export const PlasmicReactionBar__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicReactionBar__OverridesType = {
   root?: Flex__<"div">;
-  socialIcon?: Flex__<typeof SocialIcon>;
+  like?: Flex__<typeof Like>;
   save?: Flex__<typeof Save>;
 };
 
@@ -165,56 +165,6 @@ function PlasmicReactionBar__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.like
-      },
-      {
-        path: "socialIcon.click",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.cick;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "socialIcon.unnamedVariant",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.animio;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "socialIcon.cick",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "socialIcon.animio",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -244,88 +194,11 @@ function PlasmicReactionBar__RenderFunc(props: {
         { [sty.rootlike]: hasVariant($state, "like", "like") }
       )}
     >
-      <SocialIcon
-        data-plasmic-name={"socialIcon"}
-        data-plasmic-override={overrides.socialIcon}
-        animio={generateStateValueProp($state, ["socialIcon", "animio"])}
-        cick={generateStateValueProp($state, ["socialIcon", "cick"])}
-        className={classNames("__wab_instance", sty.socialIcon, {
-          [sty.socialIconlike]: hasVariant($state, "like", "like")
-        })}
-        click={generateStateValueProp($state, ["socialIcon", "click"])}
-        likecount={(() => {
-          try {
-            return $props.likecount;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
-          }
-        })()}
-        onAnimioChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["socialIcon", "animio"]).apply(
-            null,
-            eventArgs
-          );
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-        onCickChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["socialIcon", "cick"]).apply(
-            null,
-            eventArgs
-          );
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-        onClickChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["socialIcon", "click"]).apply(
-            null,
-            eventArgs
-          );
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-        onUnnamedVariantChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, [
-            "socialIcon",
-            "unnamedVariant"
-          ]).apply(null, eventArgs);
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-        unnamedVariant={generateStateValueProp($state, [
-          "socialIcon",
-          "unnamedVariant"
-        ])}
+      <Like
+        data-plasmic-name={"like"}
+        data-plasmic-override={overrides.like}
+        className={classNames("__wab_instance", sty.like)}
+        likecount={args.likecount}
       />
 
       <div className={classNames(projectcss.all, sty.freeBox__wtyMg)}>
@@ -444,8 +317,8 @@ function PlasmicReactionBar__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "socialIcon", "save"],
-  socialIcon: ["socialIcon"],
+  root: ["root", "like", "save"],
+  like: ["like"],
   save: ["save"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -453,7 +326,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  socialIcon: typeof SocialIcon;
+  like: typeof Like;
   save: typeof Save;
 };
 
@@ -517,7 +390,7 @@ export const PlasmicReactionBar = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    socialIcon: makeNodeComponent("socialIcon"),
+    like: makeNodeComponent("like"),
     save: makeNodeComponent("save"),
 
     // Metadata about props expected for PlasmicReactionBar

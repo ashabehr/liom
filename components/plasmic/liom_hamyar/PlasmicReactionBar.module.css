@@ -14,7 +14,7 @@
   border-top: 2px solid #f2f2f2;
   border-bottom: 2px solid #f2f2f2;
 }
-.socialIcon:global(.__wab_instance) {
+.like:global(.__wab_instance) {
   position: relative;
 }
 .freeBox__wtyMg {
