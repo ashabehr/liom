@@ -8897,7 +8897,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         className={
                                           "plasmic_default__all plasmic_default__span"
                                         }
-                                        style={{ color: "#000000" }}
+                                        style={{ color: "#FFFFFF" }}
                                       >
                                         {
                                           "\u062e\u0637\u0631\u0646\u0627\u06a9\u0647 \u06cc\u0627\u0646\u0647!"
