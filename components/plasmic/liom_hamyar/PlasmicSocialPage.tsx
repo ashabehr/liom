@@ -681,6 +681,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                         placement={"bottomLeft"}
                         popoverScopeClassName={sty["popover2__popover"]}
                         title={null}
+                        trigger={"click"}
                       >
                         <Icon146Icon
                           className={classNames(projectcss.all, sty.svg__jVevt)}
@@ -917,6 +918,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                 placement={"bottom"}
                 popoverScopeClassName={sty["popover__popover"]}
                 title={null}
+                trigger={"click"}
               >
                 <div
                   className={classNames(

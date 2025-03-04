@@ -81,10 +81,14 @@ type VariantPropType = keyof PlasmicLike__VariantsArgs;
 export const PlasmicLike__VariantProps = new Array<VariantPropType>("islike");
 
 export type PlasmicLike__ArgsType = {
+  onIslikeChange?: (val: any) => void;
   likeCountForBar?: string;
 };
 type ArgPropType = keyof PlasmicLike__ArgsType;
-export const PlasmicLike__ArgProps = new Array<ArgPropType>("likeCountForBar");
+export const PlasmicLike__ArgProps = new Array<ArgPropType>(
+  "onIslikeChange",
+  "likeCountForBar"
+);
 
 export type PlasmicLike__OverridesType = {
   root?: Flex__<"div">;
@@ -93,6 +97,7 @@ export type PlasmicLike__OverridesType = {
 };
 
 export interface DefaultLikeProps {
+  onIslikeChange?: (val: any) => void;
   likeCountForBar?: string;
   islike?: SingleBooleanChoiceArg<"islike">;
   className?: string;
@@ -118,7 +123,9 @@ function PlasmicLike__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          likeCountForBar: "100"
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -142,9 +149,11 @@ function PlasmicLike__RenderFunc(props: {
     () => [
       {
         path: "islike",
-        type: "private",
+        type: "writable",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.islike
+
+        valueProp: "islike",
+        onChangeProp: "onIslikeChange"
       },
       {
         path: "likeCountForLikeBar",
@@ -189,7 +198,8 @@ function PlasmicLike__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        { [sty.rootislike]: hasVariant($state, "islike", "islike") }
       )}
       onClick={async event => {
         const $steps = {};
@@ -202,7 +212,7 @@ function PlasmicLike__RenderFunc(props: {
                   variablePath: ["islike"]
                 },
                 operation: 0,
-                value: true
+                value: !$state.islike
               };
               return (({ variable, value, startIndex, deleteCount }) => {
                 if (!variable) {
@@ -232,9 +242,7 @@ function PlasmicLike__RenderFunc(props: {
                 },
                 operation: 0,
                 value: (() => {
-                  if ($state.islike) {
-                    return ($state.likeCountForLikeBar += 1);
-                  }
+                  return ($state.likeCountForLikeBar += $state.islike ? -1 : 1);
                 })()
               };
               return (({ variable, value, startIndex, deleteCount }) => {
@@ -254,36 +262,6 @@ function PlasmicLike__RenderFunc(props: {
           typeof $steps["updateIslike2"].then === "function"
         ) {
           $steps["updateIslike2"] = await $steps["updateIslike2"];
-        }
-
-        $steps["updateLikeCountForLikeBar"] = true
-          ? (() => {
-              const actionArgs = {
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["likeCountForLikeBar"]
-                },
-                operation: 0
-              };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
-
-                $stateSet(objRoot, variablePath, value);
-                return value;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateLikeCountForLikeBar"] != null &&
-          typeof $steps["updateLikeCountForLikeBar"] === "object" &&
-          typeof $steps["updateLikeCountForLikeBar"].then === "function"
-        ) {
-          $steps["updateLikeCountForLikeBar"] = await $steps[
-            "updateLikeCountForLikeBar"
-          ];
         }
       }}
     >
@@ -307,7 +285,7 @@ function PlasmicLike__RenderFunc(props: {
         <React.Fragment>
           {(() => {
             try {
-              return $props.likeCountForBar;
+              return $state.likeCountForLikeBar;
             } catch (e) {
               if (
                 e instanceof TypeError ||

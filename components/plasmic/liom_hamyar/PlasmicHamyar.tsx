@@ -11970,13 +11970,12 @@ function PlasmicHamyar__RenderFunc(props: {
                       return {
                         r: $state.r || "",
                         m: $state.m || "",
-                        userId:
-                          (($ctx?.query?.userId ?? "").trim() === ""
+                        token:
+                          (($ctx?.query?.token ?? "").trim() === ""
                             ? new URLSearchParams(window.location.search).get(
-                                "userId"
+                                "token"
                               )
-                            : $ctx.query.userId
-                          )?.slice(4, -4) || ""
+                            : $ctx.query.token) || ""
                       };
                     } catch (e) {
                       if (

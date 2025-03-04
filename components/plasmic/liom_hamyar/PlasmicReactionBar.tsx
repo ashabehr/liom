@@ -104,7 +104,7 @@ export const PlasmicReactionBar__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicReactionBar__OverridesType = {
   root?: Flex__<"div">;
-  like?: Flex__<typeof Like>;
+  like2?: Flex__<typeof Like>;
   save?: Flex__<typeof Save>;
 };
 
@@ -165,6 +165,12 @@ function PlasmicReactionBar__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.like
+      },
+      {
+        path: "like2.islike",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -195,9 +201,10 @@ function PlasmicReactionBar__RenderFunc(props: {
       )}
     >
       <Like
-        data-plasmic-name={"like"}
-        data-plasmic-override={overrides.like}
-        className={classNames("__wab_instance", sty.like)}
+        data-plasmic-name={"like2"}
+        data-plasmic-override={overrides.like2}
+        className={classNames("__wab_instance", sty.like2)}
+        islike={generateStateValueProp($state, ["like2", "islike"])}
         likeCountForBar={(() => {
           try {
             return $props.likeCount;
@@ -211,9 +218,56 @@ function PlasmicReactionBar__RenderFunc(props: {
             throw e;
           }
         })()}
+        onIslikeChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["like2", "islike"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
       />
 
-      <div className={classNames(projectcss.all, sty.freeBox__wtyMg)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__wtyMg)}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["updateLike2Islike"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["like2", "islike"]
+                  },
+                  operation: 0
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateLike2Islike"] != null &&
+            typeof $steps["updateLike2Islike"] === "object" &&
+            typeof $steps["updateLike2Islike"].then === "function"
+          ) {
+            $steps["updateLike2Islike"] = await $steps["updateLike2Islike"];
+          }
+        }}
+      >
         <Icon150Icon
           className={classNames(projectcss.all, sty.svg__akMaT)}
           role={"img"}
@@ -329,8 +383,8 @@ function PlasmicReactionBar__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "like", "save"],
-  like: ["like"],
+  root: ["root", "like2", "save"],
+  like2: ["like2"],
   save: ["save"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -338,7 +392,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  like: typeof Like;
+  like2: typeof Like;
   save: typeof Save;
 };
 
@@ -402,7 +456,7 @@ export const PlasmicReactionBar = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    like: makeNodeComponent("like"),
+    like2: makeNodeComponent("like2"),
     save: makeNodeComponent("save"),
 
     // Metadata about props expected for PlasmicReactionBar

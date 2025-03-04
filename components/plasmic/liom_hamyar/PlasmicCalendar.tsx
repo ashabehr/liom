@@ -89,6 +89,7 @@ import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import Subscription from "../../Subscription"; // plasmic-import: RkqUeSl2AMb8/component
 import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -162,7 +163,6 @@ export type PlasmicCalendar__OverridesType = {
   tooltip?: Flex__<typeof AntdTooltip>;
   heart?: Flex__<typeof Heart>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
-  section?: Flex__<"section">;
   dialog?: Flex__<typeof Dialog>;
   shopDialog?: Flex__<typeof ApiRequest>;
   dialogTitle?: Flex__<typeof DialogTitle>;
@@ -180,6 +180,7 @@ export type PlasmicCalendar__OverridesType = {
   button20?: Flex__<typeof Button>;
   button21?: Flex__<typeof Button>;
   directDialog?: Flex__<typeof DirectDialog2>;
+  headerLiom?: Flex__<typeof HeaderLiom>;
 };
 
 export interface DefaultCalendarProps {}
@@ -29800,11 +29801,7 @@ function PlasmicCalendar__RenderFunc(props: {
             }}
           />
 
-          <section
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
-          >
+          <section className={classNames(projectcss.all, sty.section__n9Zt)}>
             <div
               className={classNames(projectcss.all, sty.freeBox__uxnS, {
                 [sty.freeBoxlackOfCourseInformation__uxnS75X41]: hasVariant(
@@ -32608,6 +32605,14 @@ function PlasmicCalendar__RenderFunc(props: {
             })()}
             type={"special_advice"}
           />
+
+          <section className={classNames(projectcss.all, sty.section__stFKh)}>
+            <HeaderLiom
+              data-plasmic-name={"headerLiom"}
+              data-plasmic-override={overrides.headerLiom}
+              className={classNames("__wab_instance", sty.headerLiom)}
+            />
+          </section>
         </div>
       </div>
     </React.Fragment>
@@ -32644,7 +32649,6 @@ const PlasmicDescendants = {
     "tooltip",
     "heart",
     "pullToRefresh",
-    "section",
     "dialog",
     "shopDialog",
     "dialogTitle",
@@ -32661,7 +32665,8 @@ const PlasmicDescendants = {
     "warning",
     "button20",
     "button21",
-    "directDialog"
+    "directDialog",
+    "headerLiom"
   ],
   user: [
     "user",
@@ -32717,7 +32722,6 @@ const PlasmicDescendants = {
   tooltip: ["tooltip", "heart"],
   heart: ["heart"],
   pullToRefresh: ["pullToRefresh"],
-  section: ["section"],
   dialog: [
     "dialog",
     "shopDialog",
@@ -32751,7 +32755,8 @@ const PlasmicDescendants = {
   warning: ["warning", "button20", "button21"],
   button20: ["button20"],
   button21: ["button21"],
-  directDialog: ["directDialog"]
+  directDialog: ["directDialog"],
+  headerLiom: ["headerLiom"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -32785,7 +32790,6 @@ type NodeDefaultElementType = {
   tooltip: typeof AntdTooltip;
   heart: typeof Heart;
   pullToRefresh: typeof PullToRefresh;
-  section: "section";
   dialog: typeof Dialog;
   shopDialog: typeof ApiRequest;
   dialogTitle: typeof DialogTitle;
@@ -32803,6 +32807,7 @@ type NodeDefaultElementType = {
   button20: typeof Button;
   button21: typeof Button;
   directDialog: typeof DirectDialog2;
+  headerLiom: typeof HeaderLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -32917,7 +32922,6 @@ export const PlasmicCalendar = Object.assign(
     tooltip: makeNodeComponent("tooltip"),
     heart: makeNodeComponent("heart"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
-    section: makeNodeComponent("section"),
     dialog: makeNodeComponent("dialog"),
     shopDialog: makeNodeComponent("shopDialog"),
     dialogTitle: makeNodeComponent("dialogTitle"),
@@ -32935,6 +32939,7 @@ export const PlasmicCalendar = Object.assign(
     button20: makeNodeComponent("button20"),
     button21: makeNodeComponent("button21"),
     directDialog: makeNodeComponent("directDialog"),
+    headerLiom: makeNodeComponent("headerLiom"),
 
     // Metadata about props expected for PlasmicCalendar
     internalVariantProps: PlasmicCalendar__VariantProps,

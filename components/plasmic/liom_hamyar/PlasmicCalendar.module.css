@@ -4753,7 +4753,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.section {
+.section__n9Zt {
   display: grid;
   position: fixed;
   align-content: flex-start;
@@ -4778,11 +4778,11 @@
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
   padding: 0px;
 }
-.section > * {
+.section__n9Zt > * {
   grid-column: 4;
 }
 @media (max-width: 640px) {
-  .section {
+  .section__n9Zt {
     width: 100%;
     z-index: 10;
     grid-column-start: 1 !important;
@@ -4790,7 +4790,7 @@
   }
 }
 @media (max-width: 640px) {
-  .section > * {
+  .section__n9Zt > * {
     grid-column: 4;
   }
 }
@@ -6036,4 +6036,78 @@
   left: 0px;
   top: 0px;
   position: sticky;
+}
+.section__stFKh {
+  display: grid;
+  position: fixed;
+  align-content: flex-start;
+  justify-items: center;
+  width: auto;
+  padding-left: 0;
+  padding-right: 0;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  right: 0;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+}
+.section__stFKh > * {
+  grid-column: 4;
+}
+.headerLiom:global(.__wab_instance) {
+  max-width: 100%;
+}
+.freeBox__wdmxm {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: auto;
+  height: 35px;
+  max-width: 100%;
+  padding: 0px 0px 0px 8px;
+}
+.freeBox__wdmxm > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-left: calc(0px - 16px);
+  width: calc(100% + 16px);
+}
+.freeBox__wdmxm > :global(.__wab_flex-container) > *,
+.freeBox__wdmxm > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__wdmxm > :global(.__wab_flex-container) > picture > img,
+.freeBox__wdmxm
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 16px;
+}
+.img___8IkRt {
+  object-fit: fill;
+  max-width: 100%;
+  width: 20px;
+  flex-shrink: 0;
+}
+.img___8IkRt > picture > img {
+  object-fit: fill;
+}
+.text___1WTqc {
+  position: relative;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--token-BIuTS8zmWD0f);
+  white-space: pre-wrap;
+  min-height: 0;
+  padding: 8px 8px 0px 16px;
 }
