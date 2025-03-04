@@ -82,9 +82,13 @@ export const PlasmicLike__VariantProps = new Array<VariantPropType>("islike");
 
 export type PlasmicLike__ArgsType = {
   likecount?: string;
+  propForLike?: string;
 };
 type ArgPropType = keyof PlasmicLike__ArgsType;
-export const PlasmicLike__ArgProps = new Array<ArgPropType>("likecount");
+export const PlasmicLike__ArgProps = new Array<ArgPropType>(
+  "likecount",
+  "propForLike"
+);
 
 export type PlasmicLike__OverridesType = {
   root?: Flex__<"div">;
@@ -94,6 +98,7 @@ export type PlasmicLike__OverridesType = {
 
 export interface DefaultLikeProps {
   likecount?: string;
+  propForLike?: string;
   islike?: SingleBooleanChoiceArg<"islike">;
   className?: string;
 }
@@ -172,6 +177,69 @@ function PlasmicLike__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root
       )}
+      onClick={async event => {
+        const $steps = {};
+
+        $steps["updateIslike"] = true
+          ? (() => {
+              const actionArgs = {
+                variable: {
+                  objRoot: $state,
+                  variablePath: ["islike"]
+                },
+                operation: 0,
+                value: true
+              };
+              return (({ variable, value, startIndex, deleteCount }) => {
+                if (!variable) {
+                  return;
+                }
+                const { objRoot, variablePath } = variable;
+
+                $stateSet(objRoot, variablePath, value);
+                return value;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateIslike"] != null &&
+          typeof $steps["updateIslike"] === "object" &&
+          typeof $steps["updateIslike"].then === "function"
+        ) {
+          $steps["updateIslike"] = await $steps["updateIslike"];
+        }
+
+        $steps["updateIslike2"] = true
+          ? (() => {
+              const actionArgs = {
+                variable: {
+                  objRoot: $state,
+                  variablePath: ["islike"]
+                },
+                operation: 0,
+                value: (() => {
+                  if ($state.islike) return ($state.likecount += 1);
+                })()
+              };
+              return (({ variable, value, startIndex, deleteCount }) => {
+                if (!variable) {
+                  return;
+                }
+                const { objRoot, variablePath } = variable;
+
+                $stateSet(objRoot, variablePath, value);
+                return value;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateIslike2"] != null &&
+          typeof $steps["updateIslike2"] === "object" &&
+          typeof $steps["updateIslike2"].then === "function"
+        ) {
+          $steps["updateIslike2"] = await $steps["updateIslike2"];
+        }
+      }}
     >
       <PlasmicIcon__
         data-plasmic-name={"svg"}

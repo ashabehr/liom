@@ -792,9 +792,9 @@ function PlasmicSocialPage__RenderFunc(props: {
                       throw e;
                     }
                   })()}
-                  likecount={(() => {
+                  propForReactionBar={(() => {
                     try {
-                      return $state.getInfo.data.result.details.likeCount;
+                      return $state.getInfo.data;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||

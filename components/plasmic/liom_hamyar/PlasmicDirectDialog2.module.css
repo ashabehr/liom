@@ -1,15 +1,16 @@
 .root {
-  display: flex;
-  flex-direction: column;
+  display: block;
   position: relative;
   width: 100%;
   height: auto;
-  justify-content: flex-start;
-  align-items: center;
   min-width: 0;
 }
 .dialog:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
+  z-index: 100;
+  position: absolute;
+  left: 0px;
+  top: 0px;
 }
 .shopDialog:global(.__wab_instance) {
   max-width: 100%;
@@ -581,6 +582,7 @@
 }
 .dialog2:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
+  z-index: 101;
 }
 .freeBox__ishG {
   display: flex;

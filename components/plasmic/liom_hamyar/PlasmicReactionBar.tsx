@@ -87,19 +87,19 @@ export const PlasmicReactionBar__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicReactionBar__ArgsType = {
-  likecount?: string;
   commet?: string;
   shair?: string;
   bookMarkCount?: string;
   viewcount?: string;
+  propForReactionBar?: string;
 };
 type ArgPropType = keyof PlasmicReactionBar__ArgsType;
 export const PlasmicReactionBar__ArgProps = new Array<ArgPropType>(
-  "likecount",
   "commet",
   "shair",
   "bookMarkCount",
-  "viewcount"
+  "viewcount",
+  "propForReactionBar"
 );
 
 export type PlasmicReactionBar__OverridesType = {
@@ -109,11 +109,11 @@ export type PlasmicReactionBar__OverridesType = {
 };
 
 export interface DefaultReactionBarProps {
-  likecount?: string;
   commet?: string;
   shair?: string;
   bookMarkCount?: string;
   viewcount?: string;
+  propForReactionBar?: string;
   like?: SingleBooleanChoiceArg<"like">;
   className?: string;
 }
@@ -198,7 +198,32 @@ function PlasmicReactionBar__RenderFunc(props: {
         data-plasmic-name={"like"}
         data-plasmic-override={overrides.like}
         className={classNames("__wab_instance", sty.like)}
-        likecount={args.likecount}
+        likecount={(() => {
+          try {
+            return $props.propForReactionBar.result.details.likeCount;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
+        propForLike={(() => {
+          try {
+            return $props.propForReactionBar;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
       />
 
       <div className={classNames(projectcss.all, sty.freeBox__wtyMg)}>

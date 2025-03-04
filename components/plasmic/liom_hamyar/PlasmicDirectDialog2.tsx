@@ -336,6 +336,7 @@ function PlasmicDirectDialog2__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root
       )}
+      style={{ position: "absolute", "z-index": 300 }}
     >
       <Dialog3
         data-plasmic-name={"dialog"}
