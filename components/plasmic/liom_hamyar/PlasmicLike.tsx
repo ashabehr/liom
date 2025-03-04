@@ -80,15 +80,9 @@ export type PlasmicLike__VariantsArgs = {
 type VariantPropType = keyof PlasmicLike__VariantsArgs;
 export const PlasmicLike__VariantProps = new Array<VariantPropType>("islike");
 
-export type PlasmicLike__ArgsType = {
-  likecount?: string;
-  propForLike?: string;
-};
+export type PlasmicLike__ArgsType = {};
 type ArgPropType = keyof PlasmicLike__ArgsType;
-export const PlasmicLike__ArgProps = new Array<ArgPropType>(
-  "likecount",
-  "propForLike"
-);
+export const PlasmicLike__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicLike__OverridesType = {
   root?: Flex__<"div">;
@@ -97,8 +91,6 @@ export type PlasmicLike__OverridesType = {
 };
 
 export interface DefaultLikeProps {
-  likecount?: string;
-  propForLike?: string;
   islike?: SingleBooleanChoiceArg<"islike">;
   className?: string;
 }
@@ -261,7 +253,7 @@ function PlasmicLike__RenderFunc(props: {
         <React.Fragment>
           {(() => {
             try {
-              return $props.likecount;
+              return undefined;
             } catch (e) {
               if (
                 e instanceof TypeError ||
