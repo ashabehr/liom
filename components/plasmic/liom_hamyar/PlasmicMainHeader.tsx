@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -70,13 +71,26 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicMainHeader.module.css"; // plasmic-import: 1YQK_N8j3twT/css
 
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
+import Icon188Icon from "./icons/PlasmicIcon__Icon188"; // plasmic-import: Ap0CNp82zKxk/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon189Icon from "./icons/PlasmicIcon__Icon189"; // plasmic-import: V52xqNaFzp42/icon
+import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
+import Icon190Icon from "./icons/PlasmicIcon__Icon190"; // plasmic-import: tsFhlLw3Wre3/icon
+import Icon187Icon from "./icons/PlasmicIcon__Icon187"; // plasmic-import: TGEaylyFP26z/icon
 
 createPlasmicElementProxy;
 
-export type PlasmicMainHeader__VariantMembers = {};
-export type PlasmicMainHeader__VariantsArgs = {};
+export type PlasmicMainHeader__VariantMembers = {
+  userinfo: "userinfo";
+};
+export type PlasmicMainHeader__VariantsArgs = {
+  userinfo?: SingleBooleanChoiceArg<"userinfo">;
+};
 type VariantPropType = keyof PlasmicMainHeader__VariantsArgs;
-export const PlasmicMainHeader__VariantProps = new Array<VariantPropType>();
+export const PlasmicMainHeader__VariantProps = new Array<VariantPropType>(
+  "userinfo"
+);
 
 export type PlasmicMainHeader__ArgsType = {
   children?: React.ReactNode;
@@ -91,12 +105,14 @@ export const PlasmicMainHeader__ArgProps = new Array<ArgPropType>(
 export type PlasmicMainHeader__OverridesType = {
   root?: Flex__<"div">;
   drawer?: Flex__<typeof AntdDrawer>;
+  button?: Flex__<typeof Button>;
   embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultMainHeaderProps {
   children?: React.ReactNode;
   slot?: React.ReactNode;
+  userinfo?: SingleBooleanChoiceArg<"userinfo">;
   className?: string;
 }
 
@@ -147,6 +163,18 @@ function PlasmicMainHeader__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "white"
+      },
+      {
+        path: "userinfo",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.userinfo
       }
     ],
     [$props, $ctx, $refs]
@@ -172,7 +200,8 @@ function PlasmicMainHeader__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        { [sty.rootuserinfo]: hasVariant($state, "userinfo", "userinfo") }
       )}
     >
       {renderPlasmicSlot({
@@ -224,6 +253,7 @@ function PlasmicMainHeader__RenderFunc(props: {
           plasmic_antd_5_hostless_css.plasmic_tokens,
           plasmic_plasmic_rich_components_css.plasmic_tokens
         )}
+        drawerBodyClassName={classNames({ [sty["pcls_IN1eJ6efbZad"]]: true })}
         drawerHeaderClassName={classNames({ [sty["pcls_j4A6aygAPpw-"]]: true })}
         drawerScopeClassName={sty["drawer__drawer"]}
         drawerTitleClassName={classNames({ [sty["pcls_hmJ-h55TsUV1"]]: true })}
@@ -238,24 +268,32 @@ function PlasmicMainHeader__RenderFunc(props: {
         title={
           <div className={classNames(projectcss.all, sty.freeBox__yxJdj)}>
             <div className={classNames(projectcss.all, sty.freeBox__qO33Y)}>
-              <div className={classNames(projectcss.all, sty.freeBox__aMfd1)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__yvPVb
-                  )}
-                >
-                  {"Enter some text"}
+              <div className={classNames(projectcss.all, sty.freeBox__pywp4)}>
+                <div className={classNames(projectcss.all, sty.freeBox__aMfd1)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__yvPVb
+                    )}
+                  >
+                    {"Enter some text"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__j6RPw
+                    )}
+                  >
+                    {"Enter some text"}
+                  </div>
                 </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__j6RPw
-                  )}
-                >
-                  {"Enter some text"}
+                <div className={classNames(projectcss.all, sty.freeBox__iSqL)}>
+                  <Icon187Icon
+                    className={classNames(projectcss.all, sty.svg__bTKo)}
+                    role={"img"}
+                  />
                 </div>
               </div>
               <Embed
@@ -264,29 +302,156 @@ function PlasmicMainHeader__RenderFunc(props: {
                 className={classNames("__wab_instance", sty.embedHtml)}
                 code={"<hr></hr>"}
               />
+
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__nq9Fh)}
+              >
+                <Icon188Icon
+                  className={classNames(projectcss.all, sty.svg__l51C0)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__xyhef
+                  )}
+                >
+                  {
+                    "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0641\u0639\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u06cc!"
+                  }
+                </div>
+              </Stack__>
             </div>
           </div>
         }
       >
-        <div className={classNames(projectcss.all, sty.freeBox__b3Xdd)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__bfHvh
-            )}
-          >
-            {"Drawer content"}
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__b3Xdd)}
+        >
+          <div className={classNames(projectcss.all, sty.freeBox__v9VFd)}>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__xcm9E)}
+            >
+              <Icon188Icon
+                className={classNames(projectcss.all, sty.svg__jw7Zc)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__rt55J
+                )}
+              >
+                {
+                  "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0633\u0644\u0627\u0645\u062a"
+                }
+              </div>
+            </Stack__>
+            <Button
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
+              className={classNames("__wab_instance", sty.button)}
+              color={generateStateValueProp($state, ["button", "color"])}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              size={"minimal"}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__pjbda
+                )}
+              >
+                {"\u062e\u0631\u06cc\u062f"}
+              </div>
+            </Button>
           </div>
-        </div>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__uiHmz)}
+          >
+            <Icon189Icon
+              className={classNames(projectcss.all, sty.svg__hSoM5)}
+              role={"img"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__tsCgJ
+              )}
+            >
+              {
+                "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
+              }
+            </div>
+            <ChevronLeftIcon
+              className={classNames(projectcss.all, sty.svg___3OeW0)}
+              role={"img"}
+            />
+          </Stack__>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__nngrk)}
+          >
+            <Icon190Icon
+              className={classNames(projectcss.all, sty.svg__yq9O)}
+              role={"img"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__nh9B5
+              )}
+            >
+              {
+                "\u0639\u0644\u0627\u0626\u0645 \u0642\u0627\u0639\u062f\u06af\u06cc"
+              }
+            </div>
+            <ChevronLeftIcon
+              className={classNames(projectcss.all, sty.svg__yasxJ)}
+              role={"img"}
+            />
+          </Stack__>
+        </Stack__>
       </AntdDrawer>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "drawer", "embedHtml"],
-  drawer: ["drawer", "embedHtml"],
+  root: ["root", "drawer", "button", "embedHtml"],
+  drawer: ["drawer", "button", "embedHtml"],
+  button: ["button"],
   embedHtml: ["embedHtml"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -295,6 +460,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   drawer: typeof AntdDrawer;
+  button: typeof Button;
   embedHtml: typeof Embed;
 };
 
@@ -359,6 +525,7 @@ export const PlasmicMainHeader = Object.assign(
   {
     // Helper components rendering sub-elements
     drawer: makeNodeComponent("drawer"),
+    button: makeNodeComponent("button"),
     embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicMainHeader

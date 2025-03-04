@@ -89,7 +89,7 @@ import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import Subscription from "../../Subscription"; // plasmic-import: RkqUeSl2AMb8/component
 import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
-import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -116,6 +116,7 @@ import Icon137Icon from "./icons/PlasmicIcon__Icon137"; // plasmic-import: DXdLI
 import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import Icon140Icon from "./icons/PlasmicIcon__Icon140"; // plasmic-import: KzO15XHeI3j-/icon
+import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
 
 createPlasmicElementProxy;
 
@@ -180,7 +181,7 @@ export type PlasmicCalendar__OverridesType = {
   button20?: Flex__<typeof Button>;
   button21?: Flex__<typeof Button>;
   directDialog?: Flex__<typeof DirectDialog2>;
-  headerLiom?: Flex__<typeof HeaderLiom>;
+  mainHeader?: Flex__<typeof MainHeader>;
 };
 
 export interface DefaultCalendarProps {}
@@ -32607,10 +32608,10 @@ function PlasmicCalendar__RenderFunc(props: {
           />
 
           <section className={classNames(projectcss.all, sty.section__stFKh)}>
-            <HeaderLiom
-              data-plasmic-name={"headerLiom"}
-              data-plasmic-override={overrides.headerLiom}
-              className={classNames("__wab_instance", sty.headerLiom)}
+            <MainHeader
+              data-plasmic-name={"mainHeader"}
+              data-plasmic-override={overrides.mainHeader}
+              className={classNames("__wab_instance", sty.mainHeader)}
             />
           </section>
         </div>
@@ -32666,7 +32667,7 @@ const PlasmicDescendants = {
     "button20",
     "button21",
     "directDialog",
-    "headerLiom"
+    "mainHeader"
   ],
   user: [
     "user",
@@ -32756,7 +32757,7 @@ const PlasmicDescendants = {
   button20: ["button20"],
   button21: ["button21"],
   directDialog: ["directDialog"],
-  headerLiom: ["headerLiom"]
+  mainHeader: ["mainHeader"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -32807,7 +32808,7 @@ type NodeDefaultElementType = {
   button20: typeof Button;
   button21: typeof Button;
   directDialog: typeof DirectDialog2;
-  headerLiom: typeof HeaderLiom;
+  mainHeader: typeof MainHeader;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -32939,7 +32940,7 @@ export const PlasmicCalendar = Object.assign(
     button20: makeNodeComponent("button20"),
     button21: makeNodeComponent("button21"),
     directDialog: makeNodeComponent("directDialog"),
-    headerLiom: makeNodeComponent("headerLiom"),
+    mainHeader: makeNodeComponent("mainHeader"),
 
     // Metadata about props expected for PlasmicCalendar
     internalVariantProps: PlasmicCalendar__VariantProps,

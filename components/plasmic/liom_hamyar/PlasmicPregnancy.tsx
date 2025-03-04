@@ -686,7 +686,9 @@ function PlasmicPregnancy__RenderFunc(props: {
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
+            className={classNames(projectcss.all, sty.section, {
+              [sty.sectiondarkMod]: hasVariant($state, "darkMod", "darkMod")
+            })}
           >
             <div
               className={classNames(projectcss.all, sty.freeBox__uy8D7, {
@@ -6365,7 +6367,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                         hasGap={true}
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__brt1W
+                          sty.freeBox__brt1W,
+                          {
+                            [sty.freeBoxdarkMod__brt1WoQOo]: hasVariant(
+                              $state,
+                              "darkMod",
+                              "darkMod"
+                            )
+                          }
                         )}
                         id={"my-scroll-list"}
                       >
@@ -6396,7 +6405,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                               data-plasmic-override={overrides.tabWeek}
                               className={classNames(
                                 "__wab_instance",
-                                sty.tabWeek
+                                sty.tabWeek,
+                                {
+                                  [sty.tabWeekdarkMod]: hasVariant(
+                                    $state,
+                                    "darkMod",
+                                    "darkMod"
+                                  )
+                                }
                               )}
                               currentItem={(() => {
                                 try {
@@ -6428,20 +6444,57 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   throw e;
                                 }
                               })()}
-                              dark={(() => {
-                                try {
-                                  return false;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
-                                  }
-                                  throw e;
-                                }
-                              })()}
+                              dark={
+                                hasVariant($state, "darkMod", "darkMod")
+                                  ? (() => {
+                                      try {
+                                        return true;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return [];
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  : (() => {
+                                      try {
+                                        return false;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return [];
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                              }
+                              darkSelected={
+                                hasVariant($state, "darkMod", "darkMod")
+                                  ? (() => {
+                                      try {
+                                        return (
+                                          currentItem == $state.selectedWeek
+                                        );
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return [];
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  : undefined
+                              }
                               key={currentIndex}
                               onClick={async event => {
                                 const $steps = {};
@@ -6907,7 +6960,17 @@ function PlasmicPregnancy__RenderFunc(props: {
                       </Stack__>
                     </div>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__j56U7)}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__j56U7,
+                        {
+                          [sty.freeBoxdarkMod__j56U7OQOo]: hasVariant(
+                            $state,
+                            "darkMod",
+                            "darkMod"
+                          )
+                        }
+                      )}
                     >
                       <div
                         className={classNames(
@@ -8581,7 +8644,17 @@ function PlasmicPregnancy__RenderFunc(props: {
                       </div>
                     ) : null}
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__diDkn)}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__diDkn,
+                        {
+                          [sty.freeBoxdarkMod__diDknoQOo]: hasVariant(
+                            $state,
+                            "darkMod",
+                            "darkMod"
+                          )
+                        }
+                      )}
                     >
                       {(() => {
                         try {
@@ -8724,7 +8797,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                               bordered: true,
                               className: classNames(
                                 "__wab_instance",
-                                sty.collapseDanger
+                                sty.collapseDanger,
+                                {
+                                  [sty.collapseDangerdarkMod]: hasVariant(
+                                    $state,
+                                    "darkMod",
+                                    "darkMod"
+                                  )
+                                }
                               ),
                               expandIcon: (
                                 <React.Fragment>
@@ -12253,7 +12333,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                           bordered: true,
                           className: classNames(
                             "__wab_instance",
-                            sty.collapseBaby
+                            sty.collapseBaby,
+                            {
+                              [sty.collapseBabydarkMod]: hasVariant(
+                                $state,
+                                "darkMod",
+                                "darkMod"
+                              )
+                            }
                           ),
                           expandIcon: (
                             <React.Fragment>
@@ -12338,21 +12425,43 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text___1SHcs
+                                  sty.text___1SHcs,
+                                  {
+                                    [sty.textdarkMod___1SHcsOQOo]: hasVariant(
+                                      $state,
+                                      "darkMod",
+                                      "darkMod"
+                                    )
+                                  }
                                 )}
                               >
-                                <React.Fragment>
-                                  <span
-                                    className={
-                                      "plasmic_default__all plasmic_default__span"
-                                    }
-                                    style={{ color: "#000000" }}
-                                  >
-                                    {
-                                      "\u062a\u0648\u0636\u06cc\u062d \u0631\u0627\u062c\u0628 \u0628\u0686\u0647"
-                                    }
-                                  </span>
-                                </React.Fragment>
+                                {hasVariant($state, "darkMod", "darkMod") ? (
+                                  <React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ color: "#FFFFFF" }}
+                                    >
+                                      {
+                                        "\u062a\u0648\u0636\u06cc\u062d \u0631\u0627\u062c\u0628 \u0628\u0686\u0647"
+                                      }
+                                    </span>
+                                  </React.Fragment>
+                                ) : (
+                                  <React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ color: "#000000" }}
+                                    >
+                                      {
+                                        "\u062a\u0648\u0636\u06cc\u062d \u0631\u0627\u062c\u0628 \u0628\u0686\u0647"
+                                      }
+                                    </span>
+                                  </React.Fragment>
+                                )}
                               </div>
                               {(() => {
                                 try {
@@ -12526,7 +12635,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__ghfVc
+                                    sty.text__ghfVc,
+                                    {
+                                      [sty.textdarkMod__ghfVcoQOo]: hasVariant(
+                                        $state,
+                                        "darkMod",
+                                        "darkMod"
+                                      )
+                                    }
                                   )}
                                 >
                                   <React.Fragment>
@@ -13184,7 +13300,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                           bordered: true,
                           className: classNames(
                             "__wab_instance",
-                            sty.collapseMother
+                            sty.collapseMother,
+                            {
+                              [sty.collapseMotherdarkMod]: hasVariant(
+                                $state,
+                                "darkMod",
+                                "darkMod"
+                              )
+                            }
                           ),
                           expandIcon: (
                             <React.Fragment>
@@ -13267,21 +13390,43 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__gVw8Q
+                                  sty.text__gVw8Q,
+                                  {
+                                    [sty.textdarkMod__gVw8QOQOo]: hasVariant(
+                                      $state,
+                                      "darkMod",
+                                      "darkMod"
+                                    )
+                                  }
                                 )}
                               >
-                                <React.Fragment>
-                                  <span
-                                    className={
-                                      "plasmic_default__all plasmic_default__span"
-                                    }
-                                    style={{ color: "#000000" }}
-                                  >
-                                    {
-                                      "\u0635\u062d\u0628\u062a \u0628\u0627 \u0645\u0627\u062f\u0631"
-                                    }
-                                  </span>
-                                </React.Fragment>
+                                {hasVariant($state, "darkMod", "darkMod") ? (
+                                  <React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ color: "#FFFFFF" }}
+                                    >
+                                      {
+                                        "\u0635\u062d\u0628\u062a \u0628\u0627 \u0645\u0627\u062f\u0631"
+                                      }
+                                    </span>
+                                  </React.Fragment>
+                                ) : (
+                                  <React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ color: "#000000" }}
+                                    >
+                                      {
+                                        "\u0635\u062d\u0628\u062a \u0628\u0627 \u0645\u0627\u062f\u0631"
+                                      }
+                                    </span>
+                                  </React.Fragment>
+                                )}
                               </div>
                               {(() => {
                                 try {
@@ -13469,7 +13614,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__wx2FW
+                                    sty.text__wx2FW,
+                                    {
+                                      [sty.textdarkMod__wx2FWoQOo]: hasVariant(
+                                        $state,
+                                        "darkMod",
+                                        "darkMod"
+                                      )
+                                    }
                                   )}
                                 >
                                   <React.Fragment>
@@ -14127,7 +14279,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                           bordered: true,
                           className: classNames(
                             "__wab_instance",
-                            sty.collapseHealth
+                            sty.collapseHealth,
+                            {
+                              [sty.collapseHealthdarkMod]: hasVariant(
+                                $state,
+                                "darkMod",
+                                "darkMod"
+                              )
+                            }
                           ),
                           disabled: false,
                           expandIcon: (
@@ -14211,21 +14370,43 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__lexW8
+                                  sty.text__lexW8,
+                                  {
+                                    [sty.textdarkMod__lexW8OQOo]: hasVariant(
+                                      $state,
+                                      "darkMod",
+                                      "darkMod"
+                                    )
+                                  }
                                 )}
                               >
-                                <React.Fragment>
-                                  <span
-                                    className={
-                                      "plasmic_default__all plasmic_default__span"
-                                    }
-                                    style={{ color: "#000000" }}
-                                  >
-                                    {
-                                      "\u067e\u06cc\u0634\u0646\u0647\u0627\u062f\u0647\u0627\u06cc \u0633\u0644\u0627\u0645\u062a\u06cc"
-                                    }
-                                  </span>
-                                </React.Fragment>
+                                {hasVariant($state, "darkMod", "darkMod") ? (
+                                  <React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ color: "#FFFFFF" }}
+                                    >
+                                      {
+                                        "\u067e\u06cc\u0634\u0646\u0647\u0627\u062f\u0647\u0627\u06cc \u0633\u0644\u0627\u0645\u062a\u06cc"
+                                      }
+                                    </span>
+                                  </React.Fragment>
+                                ) : (
+                                  <React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ color: "#000000" }}
+                                    >
+                                      {
+                                        "\u067e\u06cc\u0634\u0646\u0647\u0627\u062f\u0647\u0627\u06cc \u0633\u0644\u0627\u0645\u062a\u06cc"
+                                      }
+                                    </span>
+                                  </React.Fragment>
+                                )}
                               </div>
                               {(() => {
                                 try {
@@ -14400,7 +14581,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__fZm1M
+                                    sty.text__fZm1M,
+                                    {
+                                      [sty.textdarkMod__fZm1MOQOo]: hasVariant(
+                                        $state,
+                                        "darkMod",
+                                        "darkMod"
+                                      )
+                                    }
                                   )}
                                 >
                                   <React.Fragment>

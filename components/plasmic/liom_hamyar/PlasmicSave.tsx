@@ -81,10 +81,10 @@ type VariantPropType = keyof PlasmicSave__VariantsArgs;
 export const PlasmicSave__VariantProps = new Array<VariantPropType>("click");
 
 export type PlasmicSave__ArgsType = {
-  save?: string;
+  bokmarkcount?: string;
 };
 type ArgPropType = keyof PlasmicSave__ArgsType;
-export const PlasmicSave__ArgProps = new Array<ArgPropType>("save");
+export const PlasmicSave__ArgProps = new Array<ArgPropType>("bokmarkcount");
 
 export type PlasmicSave__OverridesType = {
   root?: Flex__<"div">;
@@ -93,7 +93,7 @@ export type PlasmicSave__OverridesType = {
 };
 
 export interface DefaultSaveProps {
-  save?: string;
+  bokmarkcount?: string;
   click?: SingleBooleanChoiceArg<"click">;
   className?: string;
 }
@@ -118,7 +118,9 @@ function PlasmicSave__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          bokmarkcount: "00"
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -147,19 +149,19 @@ function PlasmicSave__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.click
       },
       {
-        path: "likeCount",
+        path: "bookmarkcount",
         type: "private",
-        variableType: "text",
+        variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return $state.bookmarkcount;
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return undefined;
+                return 0;
               }
               throw e;
             }
@@ -192,6 +194,69 @@ function PlasmicSave__RenderFunc(props: {
         sty.root,
         { [sty.rootclick]: hasVariant($state, "click", "click") }
       )}
+      onClick={async event => {
+        const $steps = {};
+
+        $steps["updateClick"] = true
+          ? (() => {
+              const actionArgs = {
+                variable: {
+                  objRoot: $state,
+                  variablePath: ["click"]
+                },
+                operation: 0,
+                value: !$state.click
+              };
+              return (({ variable, value, startIndex, deleteCount }) => {
+                if (!variable) {
+                  return;
+                }
+                const { objRoot, variablePath } = variable;
+
+                $stateSet(objRoot, variablePath, value);
+                return value;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateClick"] != null &&
+          typeof $steps["updateClick"] === "object" &&
+          typeof $steps["updateClick"].then === "function"
+        ) {
+          $steps["updateClick"] = await $steps["updateClick"];
+        }
+
+        $steps["updateBookmarkcount"] = true
+          ? (() => {
+              const actionArgs = {
+                variable: {
+                  objRoot: $state,
+                  variablePath: ["bookmarkcount"]
+                },
+                operation: 0,
+                value: (() => {
+                  return ($state.bookmarkcount += $state.click ? 1 : -1);
+                })()
+              };
+              return (({ variable, value, startIndex, deleteCount }) => {
+                if (!variable) {
+                  return;
+                }
+                const { objRoot, variablePath } = variable;
+
+                $stateSet(objRoot, variablePath, value);
+                return value;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateBookmarkcount"] != null &&
+          typeof $steps["updateBookmarkcount"] === "object" &&
+          typeof $steps["updateBookmarkcount"].then === "function"
+        ) {
+          $steps["updateBookmarkcount"] = await $steps["updateBookmarkcount"];
+        }
+      }}
     >
       <PlasmicIcon__
         data-plasmic-name={"svg"}
@@ -212,21 +277,39 @@ function PlasmicSave__RenderFunc(props: {
           [sty.textclick]: hasVariant($state, "click", "click")
         })}
       >
-        <React.Fragment>
-          {(() => {
-            try {
-              return $props.save;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "43";
+        {hasVariant($state, "click", "click") ? (
+          <React.Fragment>
+            {(() => {
+              try {
+                return $state.bookmarkcount;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "43";
+                }
+                throw e;
               }
-              throw e;
-            }
-          })()}
-        </React.Fragment>
+            })()}
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.bokmarkcount;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "43";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        )}
       </div>
     </div>
   ) as React.ReactElement | null;

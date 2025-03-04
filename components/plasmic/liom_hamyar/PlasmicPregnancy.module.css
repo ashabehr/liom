@@ -37,6 +37,9 @@
 .section > * {
   grid-column: 4;
 }
+.sectiondarkMod > * {
+  grid-column: 4;
+}
 .freeBox__uy8D7 {
   display: flex;
   height: 100%;
@@ -1331,6 +1334,9 @@
   border-radius: 8px;
   padding: 8px;
 }
+.freeBoxdarkMod__j56U7OQOo {
+  background: var(--token-w7oYmzqeGvkw);
+}
 .freeBox__hrMgY {
   display: flex;
   flex-direction: row;
@@ -1890,6 +1896,9 @@
   min-width: 0;
   border-radius: 8px;
 }
+.freeBoxdarkMod__diDknoQOo {
+  background: var(--token-w7oYmzqeGvkw);
+}
 .todoList:global(.__wab_instance) {
   width: 100%;
   height: auto;
@@ -2401,6 +2410,9 @@
   font-size: 12px;
   min-width: 0;
 }
+.collapseBabydarkMod:global(.__wab_instance) {
+  background: var(--token-w7oYmzqeGvkw);
+}
 .freeBox__sLph {
   display: flex;
   flex-direction: row;
@@ -2437,6 +2449,9 @@
   color: #000000;
   min-width: 0;
 }
+.textdarkMod___1SHcsOQOo {
+  color: #ffffff;
+}
 .text__wo3Or {
   position: relative;
   width: auto;
@@ -2471,6 +2486,9 @@
   text-align: right;
   font-size: 15px;
   min-width: 0;
+}
+.textdarkMod__ghfVcoQOo {
+  color: #898989;
 }
 .freeBox__i6CBe {
   flex-direction: row;
@@ -2532,6 +2550,9 @@
   font-size: 12px;
   min-width: 0;
 }
+.collapseMotherdarkMod:global(.__wab_instance) {
+  background: var(--token-w7oYmzqeGvkw);
+}
 .freeBox__tCobt {
   display: flex;
   flex-direction: row;
@@ -2554,6 +2575,9 @@
   font-weight: 700;
   color: #000000;
   min-width: 0;
+}
+.textdarkMod__gVw8QOQOo {
+  color: #ffffff;
 }
 .text__x99N2 {
   position: relative;
@@ -2589,6 +2613,9 @@
   text-align: right;
   font-size: 15px;
   min-width: 0;
+}
+.textdarkMod__wx2FWoQOo {
+  color: #898989;
 }
 .freeBox__uTmAc {
   flex-direction: row;
@@ -2650,6 +2677,9 @@
   font-size: 12px;
   min-width: 0;
 }
+.collapseHealthdarkMod:global(.__wab_instance) {
+  background: var(--token-w7oYmzqeGvkw);
+}
 .freeBox__vbtvw {
   display: flex;
   flex-direction: row;
@@ -2707,6 +2737,9 @@
   text-align: right;
   font-size: 15px;
   min-width: 0;
+}
+.textdarkMod__fZm1MOQOo {
+  color: #898989;
 }
 .lottie__vXoj5:global(.__wab_instance) {
   max-width: 100%;

@@ -65,6 +65,8 @@ import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/compo
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import Post from "../../Post"; // plasmic-import: PIFHnFLcunkZ/component
 import ReactionBar from "../../ReactionBar"; // plasmic-import: 4BabvpvQ8lyP/component
+import Like from "../../Like"; // plasmic-import: ARJf0DiYhPbe/component
+import Save from "../../Save"; // plasmic-import: _x22uBJ4ZqC9/component
 import Comment from "../../Comment"; // plasmic-import: Q00r5f4C3XYv/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -85,6 +87,9 @@ import Icon181Icon from "./icons/PlasmicIcon__Icon181"; // plasmic-import: wyvhR
 import Icon182Icon from "./icons/PlasmicIcon__Icon182"; // plasmic-import: lYF_tL7tdQDG/icon
 import Icon183Icon from "./icons/PlasmicIcon__Icon183"; // plasmic-import: 4xKMWXb86jEA/icon
 import Icon177Icon from "./icons/PlasmicIcon__Icon177"; // plasmic-import: I0EM88peJVoH/icon
+import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: 4NJq6NYKqIPu/icon
+import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: bJ7kVZQK3ovZ/icon
+import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: 2SO3BEHlRKXI/icon
 import Icon184Icon from "./icons/PlasmicIcon__Icon184"; // plasmic-import: qyxzNL8K38N5/icon
 import Icon175Icon from "./icons/PlasmicIcon__Icon175"; // plasmic-import: Lt-K75cYDcq0/icon
 import Icon176Icon from "./icons/PlasmicIcon__Icon176"; // plasmic-import: elrgas2UYaHC/icon
@@ -106,6 +111,8 @@ export type PlasmicSocialPage__OverridesType = {
   popover2?: Flex__<typeof AntdPopover>;
   post?: Flex__<typeof Post>;
   reactionBar?: Flex__<typeof ReactionBar>;
+  like2?: Flex__<typeof Like>;
+  save?: Flex__<typeof Save>;
   popover?: Flex__<typeof AntdPopover>;
   comment?: Flex__<typeof Comment>;
   textArea?: Flex__<typeof AntdTextArea>;
@@ -200,6 +207,12 @@ function PlasmicSocialPage__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "like2.islike",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -766,7 +779,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                 <ReactionBar
                   data-plasmic-name={"reactionBar"}
                   data-plasmic-override={overrides.reactionBar}
-                  bookMarkCount={(() => {
+                  bokmarkcountbar={(() => {
                     try {
                       return $state.getInfo.data.result.details.bookmarkCount;
                     } catch (e) {
@@ -832,7 +845,186 @@ function PlasmicSocialPage__RenderFunc(props: {
                       throw e;
                     }
                   })()}
-                />
+                >
+                  <Like
+                    data-plasmic-name={"like2"}
+                    data-plasmic-override={overrides.like2}
+                    className={classNames("__wab_instance", sty.like2)}
+                    islike={generateStateValueProp($state, ["like2", "islike"])}
+                    likeCountForBar={(() => {
+                      try {
+                        return $state.getInfo.data.result.details.likeCount;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    onIslikeChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "like2",
+                        "islike"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                  />
+
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__j8Fxf)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  var comment =
+                                    document.getElementById("focus_comment");
+                                  return comment.firstElementChild.focus();
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                  >
+                    <Icon150Icon
+                      className={classNames(projectcss.all, sty.svg__aGDjN)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__qeuue
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.getInfo.data.result.details
+                              .commentCount;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "432";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__o60Q)}
+                  >
+                    <Icon149Icon
+                      className={classNames(projectcss.all, sty.svg___5NYq0)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__mUyto
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.getInfo.data.result.details
+                              .shareCount;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "32";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </div>
+                  <Save
+                    data-plasmic-name={"save"}
+                    data-plasmic-override={overrides.save}
+                    bokmarkcount={(() => {
+                      try {
+                        return $state.getInfo.data.result.details.bookmarkCount;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    className={classNames("__wab_instance", sty.save)}
+                  />
+
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__iRoM)}
+                  >
+                    <Icon147Icon
+                      className={classNames(projectcss.all, sty.svg__qcFwa)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__eiBcm
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.getInfo.data.result.details.viewCount;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "143";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </div>
+                </ReactionBar>
               </div>
             </div>
             <Stack__
@@ -1151,6 +1343,8 @@ const PlasmicDescendants = {
     "popover2",
     "post",
     "reactionBar",
+    "like2",
+    "save",
     "popover",
     "comment",
     "textArea",
@@ -1159,7 +1353,9 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom"],
   popover2: ["popover2"],
   post: ["post"],
-  reactionBar: ["reactionBar"],
+  reactionBar: ["reactionBar", "like2", "save"],
+  like2: ["like2"],
+  save: ["save"],
   popover: ["popover"],
   comment: ["comment"],
   textArea: ["textArea"],
@@ -1174,6 +1370,8 @@ type NodeDefaultElementType = {
   popover2: typeof AntdPopover;
   post: typeof Post;
   reactionBar: typeof ReactionBar;
+  like2: typeof Like;
+  save: typeof Save;
   popover: typeof AntdPopover;
   comment: typeof Comment;
   textArea: typeof AntdTextArea;
@@ -1269,6 +1467,8 @@ export const PlasmicSocialPage = Object.assign(
     popover2: makeNodeComponent("popover2"),
     post: makeNodeComponent("post"),
     reactionBar: makeNodeComponent("reactionBar"),
+    like2: makeNodeComponent("like2"),
+    save: makeNodeComponent("save"),
     popover: makeNodeComponent("popover"),
     comment: makeNodeComponent("comment"),
     textArea: makeNodeComponent("textArea"),

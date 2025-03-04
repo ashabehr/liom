@@ -89,31 +89,32 @@ export const PlasmicReactionBar__VariantProps = new Array<VariantPropType>(
 export type PlasmicReactionBar__ArgsType = {
   commet?: string;
   shair?: string;
-  bookMarkCount?: string;
   viewcount?: string;
   likeCount?: string;
+  children?: React.ReactNode;
+  bokmarkcountbar?: string;
 };
 type ArgPropType = keyof PlasmicReactionBar__ArgsType;
 export const PlasmicReactionBar__ArgProps = new Array<ArgPropType>(
   "commet",
   "shair",
-  "bookMarkCount",
   "viewcount",
-  "likeCount"
+  "likeCount",
+  "children",
+  "bokmarkcountbar"
 );
 
 export type PlasmicReactionBar__OverridesType = {
   root?: Flex__<"div">;
-  like2?: Flex__<typeof Like>;
-  save?: Flex__<typeof Save>;
 };
 
 export interface DefaultReactionBarProps {
   commet?: string;
   shair?: string;
-  bookMarkCount?: string;
   viewcount?: string;
   likeCount?: string;
+  children?: React.ReactNode;
+  bokmarkcountbar?: string;
   like?: SingleBooleanChoiceArg<"like">;
   className?: string;
 }
@@ -165,12 +166,6 @@ function PlasmicReactionBar__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.like
-      },
-      {
-        path: "like2.islike",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -200,195 +195,163 @@ function PlasmicReactionBar__RenderFunc(props: {
         { [sty.rootlike]: hasVariant($state, "like", "like") }
       )}
     >
-      <Like
-        data-plasmic-name={"like2"}
-        data-plasmic-override={overrides.like2}
-        className={classNames("__wab_instance", sty.like2)}
-        islike={generateStateValueProp($state, ["like2", "islike"])}
-        likeCountForBar={(() => {
-          try {
-            return $props.likeCount;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
-          }
-        })()}
-        onIslikeChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["like2", "islike"]).apply(
-            null,
-            eventArgs
-          );
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-      />
-
-      <div
-        className={classNames(projectcss.all, sty.freeBox__wtyMg)}
-        onClick={async event => {
-          const $steps = {};
-
-          $steps["runCode"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return (() => {
-                      var comment = document.getElementById("focus_comment");
-                      return comment.firstElementChild.focus();
-                    })();
+      {renderPlasmicSlot({
+        defaultContents: (
+          <React.Fragment>
+            <Like
+              className={classNames("__wab_instance", sty.like__n51R5)}
+              likeCountForBar={(() => {
+                try {
+                  return $props.likeCount;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
                   }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["runCode"] != null &&
-            typeof $steps["runCode"] === "object" &&
-            typeof $steps["runCode"].then === "function"
-          ) {
-            $steps["runCode"] = await $steps["runCode"];
-          }
-        }}
-      >
-        <Icon150Icon
-          className={classNames(projectcss.all, sty.svg__akMaT)}
-          role={"img"}
-        />
-
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__dfrJr
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.commet;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "432";
+                  throw e;
                 }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
-      </div>
-      <div className={classNames(projectcss.all, sty.freeBox__npWqs)}>
-        <Icon149Icon
-          className={classNames(projectcss.all, sty.svg__nI0Lk)}
-          role={"img"}
-        />
+              })()}
+            />
 
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__fhzUy
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.shair;
-              } catch (e) {
+            <div
+              className={classNames(projectcss.all, sty.freeBox__nmWwr)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            var comment =
+                              document.getElementById("focus_comment");
+                            return comment.firstElementChild.focus();
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
                 if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  return "32";
+                  $steps["runCode"] = await $steps["runCode"];
                 }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
-      </div>
-      <Save
-        data-plasmic-name={"save"}
-        data-plasmic-override={overrides.save}
-        className={classNames("__wab_instance", sty.save, {
-          [sty.savelike]: hasVariant($state, "like", "like")
-        })}
-        save={(() => {
-          try {
-            return $props.bookMarkCount;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
-          }
-        })()}
-      />
+              }}
+            >
+              <Icon150Icon
+                className={classNames(projectcss.all, sty.svg__n56Df)}
+                role={"img"}
+              />
 
-      <div className={classNames(projectcss.all, sty.freeBox__kKk6V)}>
-        <Icon147Icon
-          className={classNames(projectcss.all, sty.svg__pa8Vp)}
-          role={"img"}
-        />
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__dreMr
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.commet;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "432";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__bF70U)}>
+              <Icon149Icon
+                className={classNames(projectcss.all, sty.svg__btzVf)}
+                role={"img"}
+              />
 
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__wEof0
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.viewcount;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "143";
-                }
-                throw e;
-              }
-            })()}
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__nD5Tl
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.shair;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "32";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            </div>
+            <Save className={classNames("__wab_instance", sty.save__st7AA)} />
+
+            <div className={classNames(projectcss.all, sty.freeBox__biwE)}>
+              <Icon147Icon
+                className={classNames(projectcss.all, sty.svg__rgMH)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__fBrRk
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.viewcount;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "143";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            </div>
           </React.Fragment>
-        </div>
-      </div>
+        ),
+        value: args.children
+      })}
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "like2", "save"],
-  like2: ["like2"],
-  save: ["save"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  like2: typeof Like;
-  save: typeof Save;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -451,8 +414,6 @@ export const PlasmicReactionBar = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    like2: makeNodeComponent("like2"),
-    save: makeNodeComponent("save"),
 
     // Metadata about props expected for PlasmicReactionBar
     internalVariantProps: PlasmicReactionBar__VariantProps,
