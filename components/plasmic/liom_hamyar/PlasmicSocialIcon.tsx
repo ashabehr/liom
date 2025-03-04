@@ -93,6 +93,7 @@ export type PlasmicSocialIcon__ArgsType = {
   animio?: boolean;
   onAnimioChange?: (val: string) => void;
   onClick?: (event: any) => void;
+  likecount?: string;
 };
 type ArgPropType = keyof PlasmicSocialIcon__ArgsType;
 export const PlasmicSocialIcon__ArgProps = new Array<ArgPropType>(
@@ -102,7 +103,8 @@ export const PlasmicSocialIcon__ArgProps = new Array<ArgPropType>(
   "onCickChange",
   "animio",
   "onAnimioChange",
-  "onClick"
+  "onClick",
+  "likecount"
 );
 
 export type PlasmicSocialIcon__OverridesType = {
@@ -119,6 +121,7 @@ export interface DefaultSocialIconProps {
   animio?: boolean;
   onAnimioChange?: (val: string) => void;
   onClick?: (event: any) => void;
+  likecount?: string;
   click?: SingleBooleanChoiceArg<"click">;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   className?: string;
@@ -256,7 +259,21 @@ function PlasmicSocialIcon__RenderFunc(props: {
         data-plasmic-override={overrides.text}
         className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
       >
-        {"1000"}
+        <React.Fragment>
+          {(() => {
+            try {
+              return $props.likecount;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "1000";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__me3Cg, {

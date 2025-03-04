@@ -97,6 +97,7 @@
   color: #00c371;
   background: none;
   align-self: center;
+  white-space: pre;
   border-radius: 50%;
   padding: 2px;
 }
@@ -139,6 +140,7 @@
   font-size: 14px;
   top: auto;
   left: auto;
+  white-space: pre;
   min-width: 0;
 }
 @media (max-width: 640px) {

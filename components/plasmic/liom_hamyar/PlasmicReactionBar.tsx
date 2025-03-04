@@ -86,9 +86,21 @@ export const PlasmicReactionBar__VariantProps = new Array<VariantPropType>(
   "like"
 );
 
-export type PlasmicReactionBar__ArgsType = {};
+export type PlasmicReactionBar__ArgsType = {
+  likecount?: string;
+  commet?: string;
+  shair?: string;
+  bookMarkCount?: string;
+  viewcount?: string;
+};
 type ArgPropType = keyof PlasmicReactionBar__ArgsType;
-export const PlasmicReactionBar__ArgProps = new Array<ArgPropType>();
+export const PlasmicReactionBar__ArgProps = new Array<ArgPropType>(
+  "likecount",
+  "commet",
+  "shair",
+  "bookMarkCount",
+  "viewcount"
+);
 
 export type PlasmicReactionBar__OverridesType = {
   root?: Flex__<"div">;
@@ -97,6 +109,11 @@ export type PlasmicReactionBar__OverridesType = {
 };
 
 export interface DefaultReactionBarProps {
+  likecount?: string;
+  commet?: string;
+  shair?: string;
+  bookMarkCount?: string;
+  viewcount?: string;
   like?: SingleBooleanChoiceArg<"like">;
   className?: string;
 }
@@ -138,8 +155,6 @@ function PlasmicReactionBar__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -238,6 +253,19 @@ function PlasmicReactionBar__RenderFunc(props: {
           [sty.socialIconlike]: hasVariant($state, "like", "like")
         })}
         click={generateStateValueProp($state, ["socialIcon", "click"])}
+        likecount={(() => {
+          try {
+            return $props.likecount;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
         onAnimioChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["socialIcon", "animio"]).apply(
             null,
@@ -264,118 +292,6 @@ function PlasmicReactionBar__RenderFunc(props: {
             eventArgs[1]._plasmic_state_init_
           ) {
             return;
-          }
-        }}
-        onClick={async event => {
-          const $steps = {};
-
-          $steps["updateSocialIconClick2"] = true
-            ? (() => {
-                const actionArgs = {
-                  variable: {
-                    objRoot: $state,
-                    variablePath: ["socialIcon", "animio"]
-                  },
-                  operation: 0,
-                  value: true
-                };
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
-                  }
-                  const { objRoot, variablePath } = variable;
-
-                  $stateSet(objRoot, variablePath, value);
-                  return value;
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["updateSocialIconClick2"] != null &&
-            typeof $steps["updateSocialIconClick2"] === "object" &&
-            typeof $steps["updateSocialIconClick2"].then === "function"
-          ) {
-            $steps["updateSocialIconClick2"] = await $steps[
-              "updateSocialIconClick2"
-            ];
-          }
-
-          $steps["invokeGlobalAction"] = true
-            ? (() => {
-                const actionArgs = { args: [300] };
-                return $globalActions["Fragment.wait"]?.apply(null, [
-                  ...actionArgs.args
-                ]);
-              })()
-            : undefined;
-          if (
-            $steps["invokeGlobalAction"] != null &&
-            typeof $steps["invokeGlobalAction"] === "object" &&
-            typeof $steps["invokeGlobalAction"].then === "function"
-          ) {
-            $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
-          }
-
-          $steps["updateSocialIconAnimio"] = true
-            ? (() => {
-                const actionArgs = {
-                  variable: {
-                    objRoot: $state,
-                    variablePath: ["socialIcon", "animio"]
-                  },
-                  operation: 0,
-                  value: false
-                };
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
-                  }
-                  const { objRoot, variablePath } = variable;
-
-                  $stateSet(objRoot, variablePath, value);
-                  return value;
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["updateSocialIconAnimio"] != null &&
-            typeof $steps["updateSocialIconAnimio"] === "object" &&
-            typeof $steps["updateSocialIconAnimio"].then === "function"
-          ) {
-            $steps["updateSocialIconAnimio"] = await $steps[
-              "updateSocialIconAnimio"
-            ];
-          }
-
-          $steps["updateSocialIconCick"] = true
-            ? (() => {
-                const actionArgs = {
-                  variable: {
-                    objRoot: $state,
-                    variablePath: ["socialIcon", "cick"]
-                  },
-                  operation: 4
-                };
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
-                  }
-                  const { objRoot, variablePath } = variable;
-
-                  const oldValue = $stateGet(objRoot, variablePath);
-                  $stateSet(objRoot, variablePath, !oldValue);
-                  return !oldValue;
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["updateSocialIconCick"] != null &&
-            typeof $steps["updateSocialIconCick"] === "object" &&
-            typeof $steps["updateSocialIconCick"].then === "function"
-          ) {
-            $steps["updateSocialIconCick"] = await $steps[
-              "updateSocialIconCick"
-            ];
           }
         }}
         onClickChange={async (...eventArgs: any) => {
@@ -425,7 +341,21 @@ function PlasmicReactionBar__RenderFunc(props: {
             sty.text__dfrJr
           )}
         >
-          {"432"}
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.commet;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "432";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
         </div>
       </div>
       <div className={classNames(projectcss.all, sty.freeBox__npWqs)}>
@@ -441,7 +371,21 @@ function PlasmicReactionBar__RenderFunc(props: {
             sty.text__fhzUy
           )}
         >
-          {"32"}
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.shair;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "32";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
         </div>
       </div>
       <Save
@@ -450,6 +394,19 @@ function PlasmicReactionBar__RenderFunc(props: {
         className={classNames("__wab_instance", sty.save, {
           [sty.savelike]: hasVariant($state, "like", "like")
         })}
+        save={(() => {
+          try {
+            return $props.bookMarkCount;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
       />
 
       <div className={classNames(projectcss.all, sty.freeBox__kKk6V)}>
@@ -465,7 +422,21 @@ function PlasmicReactionBar__RenderFunc(props: {
             sty.text__wEof0
           )}
         >
-          {"143"}
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.viewcount;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "143";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
         </div>
       </div>
     </div>

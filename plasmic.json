@@ -2760,6 +2760,11 @@
           "id": "4xKMWXb86jEA",
           "name": "Icon183Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon183.tsx"
+        },
+        {
+          "id": "qyxzNL8K38N5",
+          "name": "Icon184Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon184.tsx"
         }
       ],
       "images": [

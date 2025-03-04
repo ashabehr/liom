@@ -1633,6 +1633,12 @@ function PlasmicCalendar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "directDialog.selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -2334,8 +2340,9 @@ function PlasmicCalendar__RenderFunc(props: {
             params={(() => {
               try {
                 return (() => {
-                  let urlParams = new URLSearchParams(window.location.search);
-                  let tokenFromUrl = urlParams.get("token");
+                  let tokenFromUrl =
+                    $ctx.query.token ||
+                    new URLSearchParams(window.location.search).get("token");
                   if (tokenFromUrl) {
                     tokenFromUrl = tokenFromUrl.slice(
                       6,
@@ -26276,7 +26283,7 @@ function PlasmicCalendar__RenderFunc(props: {
                                         return (() => {
                                           switch ($state.cyclebox.cycle) {
                                             case "white":
-                                              return "عادی";
+                                              return "معمولی";
                                             case "fertility":
                                               return "تخمک گذاری";
                                             case "pms":
@@ -26927,35 +26934,61 @@ function PlasmicCalendar__RenderFunc(props: {
                                             onClick={async event => {
                                               const $steps = {};
 
-                                              $steps["runCode"] = true
-                                                ? (() => {
-                                                    const actionArgs = {
-                                                      customFunction:
-                                                        async () => {
-                                                          return window.open(
-                                                            "/shop",
-                                                            "_self"
-                                                          );
+                                              $steps["updateDirectDialogOpen"] =
+                                                true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        variable: {
+                                                          objRoot: $state,
+                                                          variablePath: [
+                                                            "directDialog",
+                                                            "open"
+                                                          ]
+                                                        },
+                                                        operation: 0,
+                                                        value: true
+                                                      };
+                                                      return (({
+                                                        variable,
+                                                        value,
+                                                        startIndex,
+                                                        deleteCount
+                                                      }) => {
+                                                        if (!variable) {
+                                                          return;
                                                         }
-                                                    };
-                                                    return (({
-                                                      customFunction
-                                                    }) => {
-                                                      return customFunction();
-                                                    })?.apply(null, [
-                                                      actionArgs
-                                                    ]);
-                                                  })()
-                                                : undefined;
+                                                        const {
+                                                          objRoot,
+                                                          variablePath
+                                                        } = variable;
+
+                                                        $stateSet(
+                                                          objRoot,
+                                                          variablePath,
+                                                          value
+                                                        );
+                                                        return value;
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
                                               if (
-                                                $steps["runCode"] != null &&
-                                                typeof $steps["runCode"] ===
-                                                  "object" &&
-                                                typeof $steps["runCode"]
-                                                  .then === "function"
+                                                $steps[
+                                                  "updateDirectDialogOpen"
+                                                ] != null &&
+                                                typeof $steps[
+                                                  "updateDirectDialogOpen"
+                                                ] === "object" &&
+                                                typeof $steps[
+                                                  "updateDirectDialogOpen"
+                                                ].then === "function"
                                               ) {
-                                                $steps["runCode"] =
-                                                  await $steps["runCode"];
+                                                $steps[
+                                                  "updateDirectDialogOpen"
+                                                ] = await $steps[
+                                                  "updateDirectDialogOpen"
+                                                ];
                                               }
                                             }}
                                           >
@@ -27565,7 +27598,7 @@ function PlasmicCalendar__RenderFunc(props: {
                                       return (() => {
                                         switch ($state.cyclebox.cycle) {
                                           case "white":
-                                            return "";
+                                            return "معمولی";
                                           case "fertility":
                                             return "yellow";
                                           case "pms":
@@ -32511,6 +32544,9 @@ function PlasmicCalendar__RenderFunc(props: {
             data-plasmic-name={"directDialog"}
             data-plasmic-override={overrides.directDialog}
             className={classNames("__wab_instance", sty.directDialog)}
+            desc={
+              "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0648 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u062a\u0648\u0635\u06cc\u0647\u060c \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062a\u0647\u06cc\u0647 \u0646\u0645\u0627\u06cc\u06cc\u062f."
+            }
             onOpenChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["directDialog", "open"]).apply(
                 null,
@@ -32525,7 +32561,52 @@ function PlasmicCalendar__RenderFunc(props: {
                 return;
               }
             }}
+            onSelectShopChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "directDialog",
+                "selectShop"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
             open={generateStateValueProp($state, ["directDialog", "open"])}
+            redirectUrl={(() => {
+              try {
+                return `https://apps.liom.app/shopResult?buyId=${
+                  $state.directDialog.selectShop.id
+                }&?offCode=&token=hjk812${localStorage.getItem(
+                  "token"
+                )}jkp&redirectUrl=${window.location.href}`;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            token={(() => {
+              try {
+                return localStorage.getItem("token");
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            type={"special_advice"}
           />
         </div>
       </div>

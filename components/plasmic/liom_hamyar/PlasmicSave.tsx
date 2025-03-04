@@ -80,9 +80,11 @@ export type PlasmicSave__VariantsArgs = {
 type VariantPropType = keyof PlasmicSave__VariantsArgs;
 export const PlasmicSave__VariantProps = new Array<VariantPropType>("click");
 
-export type PlasmicSave__ArgsType = {};
+export type PlasmicSave__ArgsType = {
+  save?: string;
+};
 type ArgPropType = keyof PlasmicSave__ArgsType;
-export const PlasmicSave__ArgProps = new Array<ArgPropType>();
+export const PlasmicSave__ArgProps = new Array<ArgPropType>("save");
 
 export type PlasmicSave__OverridesType = {
   root?: Flex__<"div">;
@@ -91,6 +93,7 @@ export type PlasmicSave__OverridesType = {
 };
 
 export interface DefaultSaveProps {
+  save?: string;
   click?: SingleBooleanChoiceArg<"click">;
   className?: string;
 }
@@ -209,7 +212,21 @@ function PlasmicSave__RenderFunc(props: {
           [sty.textclick]: hasVariant($state, "click", "click")
         })}
       >
-        {"43"}
+        <React.Fragment>
+          {(() => {
+            try {
+              return $props.save;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "43";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
       </div>
     </div>
   ) as React.ReactElement | null;

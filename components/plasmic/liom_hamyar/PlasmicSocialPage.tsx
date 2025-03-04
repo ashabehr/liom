@@ -85,6 +85,7 @@ import Icon181Icon from "./icons/PlasmicIcon__Icon181"; // plasmic-import: wyvhR
 import Icon182Icon from "./icons/PlasmicIcon__Icon182"; // plasmic-import: lYF_tL7tdQDG/icon
 import Icon183Icon from "./icons/PlasmicIcon__Icon183"; // plasmic-import: 4xKMWXb86jEA/icon
 import Icon177Icon from "./icons/PlasmicIcon__Icon177"; // plasmic-import: I0EM88peJVoH/icon
+import Icon184Icon from "./icons/PlasmicIcon__Icon184"; // plasmic-import: qyxzNL8K38N5/icon
 import Icon175Icon from "./icons/PlasmicIcon__Icon175"; // plasmic-import: Lt-K75cYDcq0/icon
 import Icon176Icon from "./icons/PlasmicIcon__Icon176"; // plasmic-import: elrgas2UYaHC/icon
 
@@ -764,7 +765,72 @@ function PlasmicSocialPage__RenderFunc(props: {
                 <ReactionBar
                   data-plasmic-name={"reactionBar"}
                   data-plasmic-override={overrides.reactionBar}
+                  bookMarkCount={(() => {
+                    try {
+                      return $state.getInfo.data.result.details.bookmarkCount;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                   className={classNames("__wab_instance", sty.reactionBar)}
+                  commet={(() => {
+                    try {
+                      return $state.getInfo.data.result.details.commentCount;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  likecount={(() => {
+                    try {
+                      return $state.getInfo.data.result.details.likeCount;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  shair={(() => {
+                    try {
+                      return $state.getInfo.data.result.details.shareCount;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  viewcount={(() => {
+                    try {
+                      return $state.getInfo.data.result.details.viewCount;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                 />
               </div>
             </div>
@@ -773,7 +839,7 @@ function PlasmicSocialPage__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox___6AbeA)}
             >
-              <svg
+              <Icon184Icon
                 className={classNames(projectcss.all, sty.svg__dDsbb)}
                 role={"img"}
               />
@@ -873,7 +939,7 @@ function PlasmicSocialPage__RenderFunc(props: {
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
-                    return (x = $state.getInfo.data.result.comments[0].comment);
+                    return $state.getInfo.data.result.details.commentCount;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
