@@ -1014,46 +1014,51 @@ function PlasmicSocialPage__RenderFunc(props: {
                     role={"img"}
                   />
 
-                  {(() => {
-                    const child$Props = {
-                      autoSize: true,
-                      className: classNames("__wab_instance", sty.textArea),
-                      onChange: async (...eventArgs: any) => {
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "value",
-                          ["textArea", "value"],
-                          AntdTextArea_Helpers
-                        ).apply(null, eventArgs);
-                      },
-                      placeholder:
-                        "\u06a9\u0627\u0645\u0646\u062a \u0631\u0648 \u0628\u0646\u0648\u06cc\u0633",
-                      value: generateStateValueProp($state, [
-                        "textArea",
-                        "value"
-                      ])
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "value",
-                          plasmicStateName: "textArea.value"
-                        }
-                      ],
-                      [],
-                      AntdTextArea_Helpers ?? {},
-                      child$Props
-                    );
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___8LXcp)}
+                    id={"focus_comment"}
+                  >
+                    {(() => {
+                      const child$Props = {
+                        autoSize: true,
+                        className: classNames("__wab_instance", sty.textArea),
+                        onChange: async (...eventArgs: any) => {
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "value",
+                            ["textArea", "value"],
+                            AntdTextArea_Helpers
+                          ).apply(null, eventArgs);
+                        },
+                        placeholder:
+                          "\u06a9\u0627\u0645\u0646\u062a \u0631\u0648 \u0628\u0646\u0648\u06cc\u0633",
+                        value: generateStateValueProp($state, [
+                          "textArea",
+                          "value"
+                        ])
+                      };
+                      initializeCodeComponentStates(
+                        $state,
+                        [
+                          {
+                            name: "value",
+                            plasmicStateName: "textArea.value"
+                          }
+                        ],
+                        [],
+                        AntdTextArea_Helpers ?? {},
+                        child$Props
+                      );
 
-                    return (
-                      <AntdTextArea
-                        data-plasmic-name={"textArea"}
-                        data-plasmic-override={overrides.textArea}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
+                      return (
+                        <AntdTextArea
+                          data-plasmic-name={"textArea"}
+                          data-plasmic-override={overrides.textArea}
+                          {...child$Props}
+                        />
+                      );
+                    })()}
+                  </div>
                   <Icon176Icon
                     className={classNames(projectcss.all, sty.svg__o8F2W)}
                     role={"img"}

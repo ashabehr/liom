@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -90,7 +91,7 @@ export const PlasmicMainHeader__ArgProps = new Array<ArgPropType>(
 export type PlasmicMainHeader__OverridesType = {
   root?: Flex__<"div">;
   drawer?: Flex__<typeof AntdDrawer>;
-  text?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultMainHeaderProps {
@@ -234,16 +235,45 @@ function PlasmicMainHeader__RenderFunc(props: {
           );
         }}
         open={generateStateValueProp($state, ["drawer", "open"])}
-        title={null}
+        title={
+          <div className={classNames(projectcss.all, sty.freeBox__yxJdj)}>
+            <div className={classNames(projectcss.all, sty.freeBox__qO33Y)}>
+              <div className={classNames(projectcss.all, sty.freeBox__aMfd1)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__yvPVb
+                  )}
+                >
+                  {"Enter some text"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__j6RPw
+                  )}
+                >
+                  {"Enter some text"}
+                </div>
+              </div>
+              <Embed
+                data-plasmic-name={"embedHtml"}
+                data-plasmic-override={overrides.embedHtml}
+                className={classNames("__wab_instance", sty.embedHtml)}
+                code={"<hr></hr>"}
+              />
+            </div>
+          </div>
+        }
       >
         <div className={classNames(projectcss.all, sty.freeBox__b3Xdd)}>
           <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text
+              sty.text__bfHvh
             )}
           >
             {"Drawer content"}
@@ -255,9 +285,9 @@ function PlasmicMainHeader__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "drawer", "text"],
-  drawer: ["drawer", "text"],
-  text: ["text"]
+  root: ["root", "drawer", "embedHtml"],
+  drawer: ["drawer", "embedHtml"],
+  embedHtml: ["embedHtml"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -265,7 +295,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   drawer: typeof AntdDrawer;
-  text: "div";
+  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -329,7 +359,7 @@ export const PlasmicMainHeader = Object.assign(
   {
     // Helper components rendering sub-elements
     drawer: makeNodeComponent("drawer"),
-    text: makeNodeComponent("text"),
+    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicMainHeader
     internalVariantProps: PlasmicMainHeader__VariantProps,

@@ -11952,8 +11952,14 @@ function PlasmicHamyar__RenderFunc(props: {
                 ? (() => {
                     try {
                       return {
-                        refCode: $state.r,
-                        mobile: $state.m
+                        r: $state.r || "",
+                        m: $state.m || "",
+                        token:
+                          (($ctx?.query?.token ?? "").trim() === ""
+                            ? new URLSearchParams(window.location.search).get(
+                                "token"
+                              )
+                            : $ctx.query.token) || ""
                       };
                     } catch (e) {
                       if (
@@ -12401,29 +12407,6 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
-            params={(() => {
-              try {
-                return {
-                  r: $state.r || "",
-                  m: $state.m || "",
-                  userId:
-                    (($ctx?.query?.userId ?? "").trim() === ""
-                      ? new URLSearchParams(window.location.search).get(
-                          "userId"
-                        )
-                      : $ctx.query.userId
-                    )?.slice(4, -4) || ""
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
             url={
               hasVariant(globalVariants, "screen", "mobile")
                 ? "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"

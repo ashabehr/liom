@@ -239,32 +239,27 @@ function PlasmicReactionBar__RenderFunc(props: {
         onClick={async event => {
           const $steps = {};
 
-          $steps["updateLike2Islike"] = true
+          $steps["runCode"] = true
             ? (() => {
                 const actionArgs = {
-                  variable: {
-                    objRoot: $state,
-                    variablePath: ["like2", "islike"]
-                  },
-                  operation: 0
-                };
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
+                  customFunction: async () => {
+                    return (() => {
+                      var comment = document.getElementById("focus_comment");
+                      return comment.firstElementChild.focus();
+                    })();
                   }
-                  const { objRoot, variablePath } = variable;
-
-                  $stateSet(objRoot, variablePath, value);
-                  return value;
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
                 })?.apply(null, [actionArgs]);
               })()
             : undefined;
           if (
-            $steps["updateLike2Islike"] != null &&
-            typeof $steps["updateLike2Islike"] === "object" &&
-            typeof $steps["updateLike2Islike"].then === "function"
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
           ) {
-            $steps["updateLike2Islike"] = await $steps["updateLike2Islike"];
+            $steps["runCode"] = await $steps["runCode"];
           }
         }}
       >
