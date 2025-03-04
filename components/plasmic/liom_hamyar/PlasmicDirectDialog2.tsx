@@ -860,6 +860,19 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                         throw e;
                       }
                     })()}
+                    loading={(() => {
+                      try {
+                        return $state.loading;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
                     onClick={async event => {
                       const $steps = {};
 
@@ -1066,19 +1079,6 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                         return;
                       }
                     }}
-                    unnamedVariant={(() => {
-                      try {
-                        return $state.loading;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()}
                   >
                     <div
                       className={classNames(
@@ -1517,6 +1517,19 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                loading={(() => {
+                  try {
+                    return $state.loading;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
                 onClick={async event => {
                   const $steps = {};
 
@@ -1716,19 +1729,6 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                     return;
                   }
                 }}
-                unnamedVariant={(() => {
-                  try {
-                    return $state.loading;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()}
               >
                 <div
                   className={classNames(

@@ -198,6 +198,19 @@ function PlasmicReactionBar__RenderFunc(props: {
         data-plasmic-name={"like"}
         data-plasmic-override={overrides.like}
         className={classNames("__wab_instance", sty.like)}
+        likeCountForBar={(() => {
+          try {
+            return $props.likeCount;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
       />
 
       <div className={classNames(projectcss.all, sty.freeBox__wtyMg)}>

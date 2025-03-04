@@ -7229,6 +7229,7 @@
   display: none;
 }
 .freeBox__ivbKb {
+  display: flex;
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -7241,7 +7242,6 @@
   align-items: center;
   justify-content: center;
   right: 0;
-  display: none;
   padding: 0px;
 }
 .img___7Yg9F {
