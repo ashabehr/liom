@@ -101,6 +101,13 @@
   outline: none;
   padding: 0px;
 }
+.drawer__drawer :global(.ant-drawer-close) {
+  width: 0px;
+  height: 0px;
+  outline: none;
+  padding: 0px;
+  margin: 0px;
+}
 .freeBox__b3Xdd {
   display: flex;
   flex-direction: column;
@@ -139,6 +146,7 @@
   height: auto;
   max-width: 100%;
   background: linear-gradient(90deg, #03c175 0%, #5c76f6 100%);
+  cursor: pointer;
   min-width: 0;
   border-radius: 16px;
   padding: 8px 8px 16px;
@@ -185,7 +193,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--token-R_Rsn0nP9oIv);
   min-width: 0;
@@ -227,6 +235,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  cursor: pointer;
   min-width: 0;
   padding: 0px;
 }
@@ -283,6 +292,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  cursor: pointer;
   min-width: 0;
   padding: 0px;
 }

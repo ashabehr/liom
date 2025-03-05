@@ -1133,7 +1133,8 @@ function PlasmicSocialPage__RenderFunc(props: {
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
-                    return $state.getInfo.data.result.details.commentCount;
+                    return $state.getInfo.data.result.details.commentCount
+                      .valueOf;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

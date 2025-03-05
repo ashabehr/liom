@@ -6731,7 +6731,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           "&userId=" +
                                           ($ctx?.query?.userId ?? "") +
                                           "&version=" +
-                                          $ctx.query.version
+                                          $ctx.query.version +
+                                          "&theme=" +
+                                          $ctx.query.theme
                                         );
                                       } catch (e) {
                                         if (
@@ -6789,7 +6791,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                             "&userId=" +
                                             ($ctx?.query?.userId ?? "") +
                                             "&version=" +
-                                            $ctx.query.version;
+                                            $ctx.query.version +
+                                            "&theme=" +
+                                            $ctx.query.theme;
                                         } else {
                                           link =
                                             "https://tools.liom.app/self-medication/?type=danger&inApp=true&token=" +
@@ -6799,7 +6803,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                             "&userId=" +
                                             ($ctx?.query?.userId ?? "") +
                                             "&version=" +
-                                            $ctx.query.version;
+                                            $ctx.query.version +
+                                            "&theme=" +
+                                            $ctx.query.theme;
                                         }
                                         return window.FlutterChannel.postMessage(
                                           "#inAppWebView**@@** ابزار خطرناکه یانه! **@@**" +

@@ -118,9 +118,7 @@ function PlasmicSave__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {
-          bokmarkcount: "00"
-        },
+        {},
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -155,7 +153,7 @@ function PlasmicSave__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.bookmarkcount;
+              return $props.bokmarkcount;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -229,14 +227,12 @@ function PlasmicSave__RenderFunc(props: {
         $steps["updateBookmarkcount"] = true
           ? (() => {
               const actionArgs = {
+                operation: 0,
+                value: ($state.bookmarkcount += $state.click ? 1 : -1),
                 variable: {
                   objRoot: $state,
                   variablePath: ["bookmarkcount"]
-                },
-                operation: 0,
-                value: (() => {
-                  return ($state.bookmarkcount += $state.click ? 1 : -1);
-                })()
+                }
               };
               return (({ variable, value, startIndex, deleteCount }) => {
                 if (!variable) {
@@ -297,7 +293,7 @@ function PlasmicSave__RenderFunc(props: {
           <React.Fragment>
             {(() => {
               try {
-                return $props.bokmarkcount;
+                return $state.bookmarkcount;
               } catch (e) {
                 if (
                   e instanceof TypeError ||

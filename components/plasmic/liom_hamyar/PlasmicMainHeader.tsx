@@ -81,23 +81,21 @@ import Icon187Icon from "./icons/PlasmicIcon__Icon187"; // plasmic-import: TGEay
 
 createPlasmicElementProxy;
 
-export type PlasmicMainHeader__VariantMembers = {
-  userinfo: "userinfo";
-};
-export type PlasmicMainHeader__VariantsArgs = {
-  userinfo?: SingleBooleanChoiceArg<"userinfo">;
-};
+export type PlasmicMainHeader__VariantMembers = {};
+export type PlasmicMainHeader__VariantsArgs = {};
 type VariantPropType = keyof PlasmicMainHeader__VariantsArgs;
-export const PlasmicMainHeader__VariantProps = new Array<VariantPropType>(
-  "userinfo"
-);
+export const PlasmicMainHeader__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicMainHeader__ArgsType = {
+  userinfo?: any;
+  token?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicMainHeader__ArgsType;
 export const PlasmicMainHeader__ArgProps = new Array<ArgPropType>(
+  "userinfo",
+  "token",
   "children",
   "slot"
 );
@@ -110,9 +108,10 @@ export type PlasmicMainHeader__OverridesType = {
 };
 
 export interface DefaultMainHeaderProps {
+  userinfo?: any;
+  token?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
-  userinfo?: SingleBooleanChoiceArg<"userinfo">;
   className?: string;
 }
 
@@ -136,7 +135,49 @@ function PlasmicMainHeader__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          userinfo: {
+            mobile: false,
+            username: "guest_3DiroEaKCW",
+            name: "jjjj",
+            last_time: {
+              year: 2025,
+              month: 2,
+              day: 9,
+              hour: 0,
+              minute: 0,
+              second: 0,
+              nanosecond: 0,
+              timeZoneOffsetSeconds: 0
+            },
+            cycle: 20,
+            length: 5,
+            image: "https://liom-app.ir/data/profile/default.png",
+            biorhythm: {
+              date: "2025-03-05T05:32:07.747Z",
+              advice:
+                "- \u0628\u0647 \u06a9\u0633\u06cc \u06a9\u0647 \u062e\u06cc\u0644\u06cc \u062f\u0648\u0633\u062a\u0634 \u062f\u0627\u0631\u06cc \u0632\u0646\u06af \u0628\u0632\u0646 \u06cc\u0627 \u067e\u06cc\u0627\u0645 \u0628\u062f\u0647.\n- \u0627\u06af\u0647 \u0627\u0645\u0631\u0648\u0632 \u0627\u062d\u0633\u0627\u0633 \u0628\u06cc \u062d\u0627\u0644\u06cc \u0648 \u06a9\u0633\u0627\u0644\u062a \u062f\u0627\u0631\u06cc \u0648 \u062f\u0644\u062a \u0646\u0645\u06cc\u062e\u0648\u0627\u062f \u0641\u0639\u0627\u0644\u06cc\u062a \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0627\u0634\u06a9\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc \u0645\u062f\u06cc\u062a\u06cc\u0634\u0646 \u06a9\u0646\u06cc \u062a\u0627 \u0627\u062d\u0633\u0627\u0633 \u062e\u0648\u0628\u06cc \u067e\u06cc\u062f\u0627 \u06a9\u0646\u06cc.\n- \u0627\u0645\u0631\u0648\u0632 \u0632\u0645\u0627\u0646 \u062e\u0648\u0628\u06cc \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u0648 \u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u06a9\u0631\u062f\u0646\u0647.\n",
+              avg: 13,
+              physical: -100,
+              emotional: 43,
+              intellectual: 95
+            },
+            id: "ee975e9c-19dd-42fc-b7d7-8822f621b4f8",
+            healthStatus: "period",
+            birthDate: {
+              year: 2002,
+              month: 1,
+              day: 7,
+              hour: 0,
+              minute: 0,
+              second: 0,
+              nanosecond: 0,
+              timeZoneOffsetSeconds: 0
+            }
+          },
+          token:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyYWRlNjBlLWYyZTEtNDIwNi05NzNiLTIwNDYzYjhlM2FmNCIsImlhdCI6MTczODgzNzg3Nn0.iaZlGzwVEN5P0kQMgdTy2sNsBIbJai8WAG1sSDhqpL4"
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -162,19 +203,13 @@ function PlasmicMainHeader__RenderFunc(props: {
         path: "drawer.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "button.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "white"
-      },
-      {
-        path: "userinfo",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.userinfo
       }
     ],
     [$props, $ctx, $refs]
@@ -200,8 +235,7 @@ function PlasmicMainHeader__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root,
-        { [sty.rootuserinfo]: hasVariant($state, "userinfo", "userinfo") }
+        sty.root
       )}
     >
       {renderPlasmicSlot({
@@ -213,6 +247,43 @@ function PlasmicMainHeader__RenderFunc(props: {
           >
             <Icon185Icon
               className={classNames(projectcss.all, sty.svg__lyXjc)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateDrawerOpen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["drawer", "open"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDrawerOpen"] != null &&
+                  typeof $steps["updateDrawerOpen"] === "object" &&
+                  typeof $steps["updateDrawerOpen"].then === "function"
+                ) {
+                  $steps["updateDrawerOpen"] = await $steps["updateDrawerOpen"];
+                }
+              }}
               role={"img"}
             />
 
@@ -245,6 +316,7 @@ function PlasmicMainHeader__RenderFunc(props: {
         data-plasmic-name={"drawer"}
         data-plasmic-override={overrides.drawer}
         className={classNames("__wab_instance", sty.drawer)}
+        closeButtonClassName={classNames({ [sty["pcls_lqSQHfqD67bF"]]: true })}
         defaultStylesClassName={classNames(
           projectcss.root_reset,
           projectcss.plasmic_default_styles,
@@ -277,7 +349,21 @@ function PlasmicMainHeader__RenderFunc(props: {
                       sty.text__yvPVb
                     )}
                   >
-                    {"Enter some text"}
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $props.userinfo.name;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
                   </div>
                   <div
                     className={classNames(
@@ -286,10 +372,68 @@ function PlasmicMainHeader__RenderFunc(props: {
                       sty.text__j6RPw
                     )}
                   >
-                    {"Enter some text"}
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $props.userinfo.username;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__iSqL)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__iSqL)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return `/edit-profile?token=${$props.token}`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return `/edit-profile`;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
+                >
                   <Icon187Icon
                     className={classNames(projectcss.all, sty.svg__bTKo)}
                     role={"img"}
@@ -334,7 +478,34 @@ function PlasmicMainHeader__RenderFunc(props: {
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__b3Xdd)}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__v9VFd)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__v9VFd)}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return window.open("/shop", "_self");
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          >
             <Stack__
               as={"div"}
               hasGap={true}
@@ -394,6 +565,48 @@ function PlasmicMainHeader__RenderFunc(props: {
             as={"div"}
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__uiHmz)}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["goToPage"] = true
+                ? (() => {
+                    const actionArgs = {
+                      destination: (() => {
+                        try {
+                          return `/status-day?userId=${$props.userinfo.id}`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return `/status-day`;
+                          }
+                          throw e;
+                        }
+                      })()
+                    };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goToPage"] != null &&
+                typeof $steps["goToPage"] === "object" &&
+                typeof $steps["goToPage"].then === "function"
+              ) {
+                $steps["goToPage"] = await $steps["goToPage"];
+              }
+            }}
           >
             <Icon189Icon
               className={classNames(projectcss.all, sty.svg__hSoM5)}
@@ -420,6 +633,48 @@ function PlasmicMainHeader__RenderFunc(props: {
             as={"div"}
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__nngrk)}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["goToPage"] = true
+                ? (() => {
+                    const actionArgs = {
+                      destination: (() => {
+                        try {
+                          return `/Signs-page?token=${$props.token}`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return `/Signs-page`;
+                          }
+                          throw e;
+                        }
+                      })()
+                    };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goToPage"] != null &&
+                typeof $steps["goToPage"] === "object" &&
+                typeof $steps["goToPage"].then === "function"
+              ) {
+                $steps["goToPage"] = await $steps["goToPage"];
+              }
+            }}
           >
             <Icon190Icon
               className={classNames(projectcss.all, sty.svg__yq9O)}

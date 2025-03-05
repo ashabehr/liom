@@ -26285,7 +26285,7 @@ function PlasmicCalendar__RenderFunc(props: {
                                         return (() => {
                                           switch ($state.cyclebox.cycle) {
                                             case "white":
-                                              return "معمولی";
+                                              return "عادی";
                                             case "fertility":
                                               return "تخمک گذاری";
                                             case "pms":
@@ -32612,6 +32612,32 @@ function PlasmicCalendar__RenderFunc(props: {
               data-plasmic-name={"mainHeader"}
               data-plasmic-override={overrides.mainHeader}
               className={classNames("__wab_instance", sty.mainHeader)}
+              token={(() => {
+                try {
+                  return localStorage.getItem("token");
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              userinfo={(() => {
+                try {
+                  return $state.user.data.result.user;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             />
           </section>
         </div>
