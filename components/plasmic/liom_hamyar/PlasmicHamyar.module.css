@@ -5397,10 +5397,6 @@
     width: 30px;
   }
 }
-.todo:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
 .tooltip:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -6131,15 +6127,19 @@
   max-width: 100%;
   object-fit: cover;
 }
+.advice:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.todo:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .favicon:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
 .pullToRefresh:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.advice:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
