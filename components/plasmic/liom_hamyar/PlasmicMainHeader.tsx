@@ -77,6 +77,8 @@ import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld
 import Icon189Icon from "./icons/PlasmicIcon__Icon189"; // plasmic-import: V52xqNaFzp42/icon
 import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
 import Icon190Icon from "./icons/PlasmicIcon__Icon190"; // plasmic-import: tsFhlLw3Wre3/icon
+import Icon193Icon from "./icons/PlasmicIcon__Icon193"; // plasmic-import: mQViEY5IKL9R/icon
+import Icon194Icon from "./icons/PlasmicIcon__Icon194"; // plasmic-import: uU66A14xTk1C/icon
 import Icon187Icon from "./icons/PlasmicIcon__Icon187"; // plasmic-import: TGEaylyFP26z/icon
 
 createPlasmicElementProxy;
@@ -104,7 +106,6 @@ export type PlasmicMainHeader__OverridesType = {
   root?: Flex__<"div">;
   drawer?: Flex__<typeof AntdDrawer>;
   button?: Flex__<typeof Button>;
-  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultMainHeaderProps {
@@ -441,9 +442,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                 </div>
               </div>
               <Embed
-                data-plasmic-name={"embedHtml"}
-                data-plasmic-override={overrides.embedHtml}
-                className={classNames("__wab_instance", sty.embedHtml)}
+                className={classNames("__wab_instance", sty.embedHtml__mao6I)}
                 code={"<hr></hr>"}
               />
 
@@ -697,6 +696,117 @@ function PlasmicMainHeader__RenderFunc(props: {
               role={"img"}
             />
           </Stack__>
+          <Embed
+            className={classNames("__wab_instance", sty.embedHtml__xr84P)}
+            code={"<hr></hr>"}
+          />
+
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__pk8S)}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["goToAboutUs"] = true
+                ? (() => {
+                    const actionArgs = { destination: `/about-us` };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goToAboutUs"] != null &&
+                typeof $steps["goToAboutUs"] === "object" &&
+                typeof $steps["goToAboutUs"].then === "function"
+              ) {
+                $steps["goToAboutUs"] = await $steps["goToAboutUs"];
+              }
+            }}
+          >
+            <Icon193Icon
+              className={classNames(projectcss.all, sty.svg__f8NU)}
+              role={"img"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___1IMnQ
+              )}
+            >
+              {"\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
+            </div>
+            <ChevronLeftIcon
+              className={classNames(projectcss.all, sty.svg__v0Is6)}
+              role={"img"}
+            />
+          </Stack__>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__sLwd)}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["goToContactUs"] = true
+                ? (() => {
+                    const actionArgs = { destination: `/contact-us` };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goToContactUs"] != null &&
+                typeof $steps["goToContactUs"] === "object" &&
+                typeof $steps["goToContactUs"].then === "function"
+              ) {
+                $steps["goToContactUs"] = await $steps["goToContactUs"];
+              }
+            }}
+          >
+            <Icon194Icon
+              className={classNames(projectcss.all, sty.svg__f53AR)}
+              role={"img"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__xkR9L
+              )}
+            >
+              {
+                "\u062a\u0645\u0627\u0633 \u0628\u0627 \u0645\u0627 \u0648 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc"
+              }
+            </div>
+            <ChevronLeftIcon
+              className={classNames(projectcss.all, sty.svg__qoZqU)}
+              role={"img"}
+            />
+          </Stack__>
         </Stack__>
       </AntdDrawer>
     </div>
@@ -704,10 +814,9 @@ function PlasmicMainHeader__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "drawer", "button", "embedHtml"],
-  drawer: ["drawer", "button", "embedHtml"],
-  button: ["button"],
-  embedHtml: ["embedHtml"]
+  root: ["root", "drawer", "button"],
+  drawer: ["drawer", "button"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -716,7 +825,6 @@ type NodeDefaultElementType = {
   root: "div";
   drawer: typeof AntdDrawer;
   button: typeof Button;
-  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -781,7 +889,6 @@ export const PlasmicMainHeader = Object.assign(
     // Helper components rendering sub-elements
     drawer: makeNodeComponent("drawer"),
     button: makeNodeComponent("button"),
-    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicMainHeader
     internalVariantProps: PlasmicMainHeader__VariantProps,

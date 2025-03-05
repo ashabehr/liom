@@ -1606,6 +1606,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicVigetLiom3.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "k978n3llkb2s",
+          "name": "AboutUs",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicAboutUs.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/about-us.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicAboutUs.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/about-us"
         }
       ],
       "icons": [
@@ -2858,6 +2872,16 @@
           "id": "4j3NxLGconGE",
           "name": "Icon192Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon192.tsx"
+        },
+        {
+          "id": "mQViEY5IKL9R",
+          "name": "Icon193Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon193.tsx"
+        },
+        {
+          "id": "uU66A14xTk1C",
+          "name": "Icon194Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon194.tsx"
         }
       ],
       "images": [

@@ -168,7 +168,7 @@ function PlasmicShopResult2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.query.status == "false";
+              return window.location.href.includes("status=false");
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -231,7 +231,7 @@ function PlasmicShopResult2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.query.status == "true";
+              return window.location.href.includes("status=true");
             } catch (e) {
               if (
                 e instanceof TypeError ||
