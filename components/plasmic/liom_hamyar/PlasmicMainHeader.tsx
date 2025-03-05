@@ -63,6 +63,8 @@ import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -204,7 +206,8 @@ function PlasmicMainHeader__RenderFunc(props: {
         path: "drawer.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
       },
       {
         path: "button.color",
@@ -220,6 +223,10 @@ function PlasmicMainHeader__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
   });
 
   return (

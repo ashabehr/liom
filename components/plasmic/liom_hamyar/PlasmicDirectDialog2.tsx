@@ -458,6 +458,55 @@ function PlasmicDirectDialog2__RenderFunc(props: {
               className={classNames(projectcss.all, sty.freeBox___6W2XF)}
               dir={"rtl"}
             >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__ren6L)}
+              >
+                <PlasmicImg__
+                  data-plasmic-name={"img"}
+                  data-plasmic-override={overrides.img}
+                  alt={""}
+                  className={classNames(sty.img)}
+                  displayHeight={"15px"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/liom_hamyar/images/image89.svg",
+                    fullWidth: 22,
+                    fullHeight: 20,
+                    aspectRatio: 1.1
+                  }}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__iYTiN
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $props.desc;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </Stack__>
               <div
                 className={classNames(
                   projectcss.all,
@@ -513,55 +562,6 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                   }}
                 />
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__ren6L)}
-              >
-                <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
-                  alt={""}
-                  className={classNames(sty.img)}
-                  displayHeight={"15px"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"auto"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image89.svg",
-                    fullWidth: 22,
-                    fullHeight: 20,
-                    aspectRatio: 1.1
-                  }}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__iYTiN
-                  )}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return $props.desc;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "";
-                        }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </div>
-              </Stack__>
             </Stack__>
             <Stack__
               as={"div"}

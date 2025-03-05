@@ -294,7 +294,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                     loading={"lazy"}
                     src={(() => {
                       try {
-                        return "https://liom-app.ir/data/userUpload/images/Sep-2022/image_8871662560833.jpg";
+                        return "https://storage.c2.liara.space/liom/2024-12/avatar/2024-12-25-709fafb4-ecf3-4e3a-ba5e-7bec52cb4500.jpg";
                       } catch (e) {
                         if (
                           e instanceof TypeError ||

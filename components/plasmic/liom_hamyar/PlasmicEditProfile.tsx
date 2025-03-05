@@ -709,12 +709,13 @@ function PlasmicEditProfile__RenderFunc(props: {
             try {
               return (() => {
                 const birthDateObject = $state.dateOfBrith;
-                var jalaaliDate = window.jalaali.toJalaali(
-                  birthDateObject.gy,
-                  birthDateObject.gm,
-                  birthDateObject.gd
-                );
-                return jalaaliDate;
+                if (Object.keys($state.dateOfBrith).length !== 0) {
+                  var jalaaliDate = window.jalaali.toJalaali(
+                    birthDateObject.gy,
+                    birthDateObject.gm,
+                    birthDateObject.gd
+                  );
+                }
               })();
             } catch (e) {
               if (
@@ -2529,26 +2530,27 @@ function PlasmicEditProfile__RenderFunc(props: {
               className={classNames("__wab_instance", sty.headerLiom)}
             >
               <div className={classNames(projectcss.all, sty.freeBox__iiKPg)}>
-                <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
-                  alt={""}
-                  className={classNames(sty.img)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"20px"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image38.svg",
-                    fullWidth: 24,
-                    fullHeight: 24,
-                    aspectRatio: 1
-                  }}
-                />
-
+                <div className={classNames(projectcss.all, sty.freeBox__b1RW4)}>
+                  <PlasmicImg__
+                    data-plasmic-name={"img"}
+                    data-plasmic-override={overrides.img}
+                    alt={""}
+                    className={classNames(sty.img)}
+                    displayHeight={"25px"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"25px"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image38.svg",
+                      fullWidth: 24,
+                      fullHeight: 24,
+                      aspectRatio: 1
+                    }}
+                  />
+                </div>
                 <div
                   className={classNames(
                     projectcss.all,

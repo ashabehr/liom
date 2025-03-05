@@ -8903,7 +8903,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         className={
                                           "plasmic_default__all plasmic_default__span"
                                         }
-                                        style={{ color: "#FFFFFF" }}
+                                        style={{
+                                          color: "var(--token-R_Rsn0nP9oIv)"
+                                        }}
                                       >
                                         {
                                           "\u062e\u0637\u0631\u0646\u0627\u06a9\u0647 \u06cc\u0627\u0646\u0647!"
@@ -10301,7 +10303,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         className={
                                           "plasmic_default__all plasmic_default__span"
                                         }
-                                        style={{ color: "#FFFFFF" }}
+                                        style={{
+                                          color: "var(--token-R_Rsn0nP9oIv)"
+                                        }}
                                       >
                                         {
                                           "\u0645\u06a9\u0645\u0644 \u0648 \u0648\u06cc\u062a\u0627\u0645\u06cc\u0646\u200c\u0647\u0627"
@@ -11375,7 +11379,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         className={
                                           "plasmic_default__all plasmic_default__span"
                                         }
-                                        style={{ color: "#FFFFFF" }}
+                                        style={{
+                                          color: "var(--token-R_Rsn0nP9oIv)"
+                                        }}
                                       >
                                         {
                                           "\u063a\u0631\u0628\u0627\u0644\u06af\u0631\u06cc\u060c \u0622\u0632\u0645\u0627\u06cc\u0634 \u0648 \u0633\u0648\u0646\u0648\u06af\u0631\u0627\u0641\u06cc"

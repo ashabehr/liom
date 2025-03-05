@@ -108,6 +108,11 @@
   padding: 0px;
   margin: 0px;
 }
+@media (max-width: 640px) {
+  .drawer:global(.__wab_instance) {
+    width: 80%;
+  }
+}
 .freeBox__b3Xdd {
   display: flex;
   flex-direction: column;
