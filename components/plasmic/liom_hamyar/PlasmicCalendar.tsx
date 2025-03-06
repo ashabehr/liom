@@ -26633,7 +26633,9 @@ function PlasmicCalendar__RenderFunc(props: {
                                         $state.sing.result.psychological
                                       ];
 
-                                      let combinedArray = [].concat(...result);
+                                      let combinedArray = result
+                                        .filter(item => item != "")
+                                        .join(",");
                                       return {
                                         gender: "female",
                                         status:
@@ -26670,21 +26672,30 @@ function PlasmicCalendar__RenderFunc(props: {
                                 >
                                   {(() => {
                                     try {
-                                      return (
-                                        $state.sing.result.before.length == 0 &&
-                                        $state.sing.result.current.length ==
-                                          0 &&
-                                        $state.sing.result.vaginal.length ==
-                                          0 &&
-                                        $state.sing.result.venereal.length ==
-                                          0 &&
-                                        $state.sing.result.womans.length == 0 &&
-                                        $state.sing.result.hereditary.length ==
-                                          0 &&
-                                        $state.sing.result.others.length == 0 &&
-                                        $state.sing.result.psychological
-                                          .length == 0
-                                      );
+                                      return (() => {
+                                        try {
+                                          return (
+                                            $state.sing.result.before.length ==
+                                              0 &&
+                                            $state.sing.result.current.length ==
+                                              0 &&
+                                            $state.sing.result.vaginal.length ==
+                                              0 &&
+                                            $state.sing.result.venereal
+                                              .length == 0 &&
+                                            $state.sing.result.womans.length ==
+                                              0 &&
+                                            $state.sing.result.hereditary
+                                              .length == 0 &&
+                                            $state.sing.result.others.length ==
+                                              0 &&
+                                            $state.sing.result.psychological
+                                              .length == 0
+                                          );
+                                        } catch (error) {
+                                          return false;
+                                        }
+                                      })();
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
