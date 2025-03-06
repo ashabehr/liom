@@ -8,10 +8,10 @@
   max-width: 100%;
   background: #ffffff;
   position: relative;
-  border-bottom-width: 2px;
+  border-bottom-width: 1px;
   border-bottom-style: solid;
   min-width: 0;
-  padding: 8px 8px 8px 16px;
+  padding: 12px 16px;
 }
 .freeBox__tlDKw {
   display: flex;

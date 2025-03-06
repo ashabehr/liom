@@ -62370,7 +62370,69 @@ function PlasmicCalendar__RenderFunc(props: {
                   throw e;
                 }
               })()}
-            />
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__ezu1E)}
+              >
+                <Icon185Icon
+                  className={classNames(projectcss.all, sty.svg__fNcvF)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDrawerOpen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["drawer", "open"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDrawerOpen"] != null &&
+                      typeof $steps["updateDrawerOpen"] === "object" &&
+                      typeof $steps["updateDrawerOpen"].then === "function"
+                    ) {
+                      $steps["updateDrawerOpen"] = await $steps[
+                        "updateDrawerOpen"
+                      ];
+                    }
+                  }}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__qwB
+                  )}
+                >
+                  {
+                    "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                  }
+                </div>
+              </Stack__>
+            </MainHeader>
           </section>
         </div>
       </div>

@@ -1115,6 +1115,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                     const child$Props = {
                       bordered: false,
                       className: classNames("__wab_instance", sty.antdInput3),
+                      id: "inputMobile",
                       onChange: async (...eventArgs: any) => {
                         generateStateOnChangePropForCodeComponents(
                           $state,
@@ -2874,9 +2875,23 @@ function PlasmicEditProfile__RenderFunc(props: {
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__iiKPg)}>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__b1RW4)}
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__lNOax)}
+              >
+                <PlasmicImg__
+                  data-plasmic-name={"img"}
+                  data-plasmic-override={overrides.img}
+                  alt={""}
+                  className={classNames(sty.img)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"20px"}
+                  loading={"lazy"}
                   onClick={async event => {
                     const $steps = {};
 
@@ -2884,7 +2899,9 @@ function PlasmicEditProfile__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return window.history.back(-1);
+                              return (() => {
+                                return window.history.back();
+                              })();
                             }
                           };
                           return (({ customFunction }) => {
@@ -2900,39 +2917,26 @@ function PlasmicEditProfile__RenderFunc(props: {
                       $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
-                >
-                  <PlasmicImg__
-                    data-plasmic-name={"img"}
-                    data-plasmic-override={overrides.img}
-                    alt={""}
-                    className={classNames(sty.img)}
-                    displayHeight={"25px"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"25px"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image38.svg",
-                      fullWidth: 24,
-                      fullHeight: 24,
-                      aspectRatio: 1
-                    }}
-                  />
-                </div>
+                  src={{
+                    src: "/plasmic/liom_hamyar/images/image38.svg",
+                    fullWidth: 24,
+                    fullHeight: 24,
+                    aspectRatio: 1
+                  }}
+                />
+
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__xfz84
+                    sty.text__dAyyN
                   )}
                 >
                   {
-                    "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u067e\u0631\u0648\u0641\u0627\u06cc\u0644\n"
+                    "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u067e\u0631\u0648\u0641\u0627\u06cc\u0644"
                   }
                 </div>
-              </div>
+              </Stack__>
             </HeaderLiom>
           </section>
           <Dialog
