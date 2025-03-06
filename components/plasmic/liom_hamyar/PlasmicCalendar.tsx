@@ -165,6 +165,7 @@ export type PlasmicCalendar__OverridesType = {
   button7?: Flex__<typeof Button>;
   tooltip?: Flex__<typeof AntdTooltip>;
   heart?: Flex__<typeof Heart>;
+  button3?: Flex__<typeof Button>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   dialog?: Flex__<typeof Dialog>;
   shopDialog?: Flex__<typeof ApiRequest>;
@@ -1669,6 +1670,12 @@ function PlasmicCalendar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -59386,6 +59393,108 @@ function PlasmicCalendar__RenderFunc(props: {
                 </AntdTooltip>
               </div>
             ) : null}
+            {(() => {
+              try {
+                return $state.user.loading == false && $state.name == "";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__d4HZv)}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__rVz6G)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__nAur7
+                    )}
+                  >
+                    {
+                      "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0639\u0646 \u0634\u0648\u06cc\u062f."
+                    }
+                  </div>
+                </div>
+                <Button
+                  data-plasmic-name={"button3"}
+                  data-plasmic-override={overrides.button3}
+                  className={classNames("__wab_instance", sty.button3)}
+                  color={generateStateValueProp($state, ["button3", "color"])}
+                  endIcon={
+                    <Icon144Icon
+                      className={classNames(projectcss.all, sty.svg__knJ8X)}
+                      role={"img"}
+                    />
+                  }
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["refreshData"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            queryInvalidation: ["plasmic_refresh_all"]
+                          };
+                          return (async ({ queryInvalidation }) => {
+                            if (!queryInvalidation) {
+                              return;
+                            }
+                            await plasmicInvalidate(queryInvalidation);
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["refreshData"] != null &&
+                      typeof $steps["refreshData"] === "object" &&
+                      typeof $steps["refreshData"].then === "function"
+                    ) {
+                      $steps["refreshData"] = await $steps["refreshData"];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button3", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  startIcon={
+                    <ChevronRightIcon
+                      className={classNames(projectcss.all, sty.svg___8Xy25)}
+                      role={"img"}
+                    />
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__edGzl
+                    )}
+                  >
+                    {
+                      "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
+                    }
+                  </div>
+                </Button>
+              </Stack__>
+            ) : null}
           </ApiRequest>
           <PullToRefresh
             data-plasmic-name={"pullToRefresh"}
@@ -62292,6 +62401,7 @@ const PlasmicDescendants = {
     "button7",
     "tooltip",
     "heart",
+    "button3",
     "pullToRefresh",
     "dialog",
     "shopDialog",
@@ -62340,7 +62450,8 @@ const PlasmicDescendants = {
     "modal3",
     "button7",
     "tooltip",
-    "heart"
+    "heart",
+    "button3"
   ],
   button: ["button"],
   button18: ["button18"],
@@ -62376,6 +62487,7 @@ const PlasmicDescendants = {
   button7: ["button7"],
   tooltip: ["tooltip", "heart"],
   heart: ["heart"],
+  button3: ["button3"],
   pullToRefresh: ["pullToRefresh"],
   dialog: [
     "dialog",
@@ -62446,6 +62558,7 @@ type NodeDefaultElementType = {
   button7: typeof Button;
   tooltip: typeof AntdTooltip;
   heart: typeof Heart;
+  button3: typeof Button;
   pullToRefresh: typeof PullToRefresh;
   dialog: typeof Dialog;
   shopDialog: typeof ApiRequest;
@@ -62580,6 +62693,7 @@ export const PlasmicCalendar = Object.assign(
     button7: makeNodeComponent("button7"),
     tooltip: makeNodeComponent("tooltip"),
     heart: makeNodeComponent("heart"),
+    button3: makeNodeComponent("button3"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     dialog: makeNodeComponent("dialog"),
     shopDialog: makeNodeComponent("shopDialog"),
