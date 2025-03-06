@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import UploudeTime from "../../UploudeTime"; // plasmic-import: aUO_fJR7ceN4/component
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import Post from "../../Post"; // plasmic-import: PIFHnFLcunkZ/component
 import ReactionBar from "../../ReactionBar"; // plasmic-import: 4BabvpvQ8lyP/component
@@ -108,6 +109,7 @@ export const PlasmicSocialPage__ArgProps = new Array<ArgPropType>();
 export type PlasmicSocialPage__OverridesType = {
   root?: Flex__<"div">;
   headerLiom?: Flex__<typeof HeaderLiom>;
+  uploudeTime?: Flex__<typeof UploudeTime>;
   popover2?: Flex__<typeof AntdPopover>;
   post?: Flex__<typeof Post>;
   reactionBar?: Flex__<typeof ReactionBar>;
@@ -428,21 +430,12 @@ function PlasmicSocialPage__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__lYbCo)}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__cCsst)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___0ZQha
-                        )}
-                      >
-                        {
-                          "\u0632\u0645\u0627\u0646 \u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc "
-                        }
-                      </div>
-                    </div>
+                    <UploudeTime
+                      data-plasmic-name={"uploudeTime"}
+                      data-plasmic-override={overrides.uploudeTime}
+                      className={classNames("__wab_instance", sty.uploudeTime)}
+                    />
+
                     <Stack__
                       as={"div"}
                       hasGap={true}
@@ -1342,6 +1335,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "headerLiom",
+    "uploudeTime",
     "popover2",
     "post",
     "reactionBar",
@@ -1353,6 +1347,7 @@ const PlasmicDescendants = {
     "getInfo"
   ],
   headerLiom: ["headerLiom"],
+  uploudeTime: ["uploudeTime"],
   popover2: ["popover2"],
   post: ["post"],
   reactionBar: ["reactionBar", "like2", "save"],
@@ -1369,6 +1364,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   headerLiom: typeof HeaderLiom;
+  uploudeTime: typeof UploudeTime;
   popover2: typeof AntdPopover;
   post: typeof Post;
   reactionBar: typeof ReactionBar;
@@ -1466,6 +1462,7 @@ export const PlasmicSocialPage = Object.assign(
   {
     // Helper components rendering sub-elements
     headerLiom: makeNodeComponent("headerLiom"),
+    uploudeTime: makeNodeComponent("uploudeTime"),
     popover2: makeNodeComponent("popover2"),
     post: makeNodeComponent("post"),
     reactionBar: makeNodeComponent("reactionBar"),

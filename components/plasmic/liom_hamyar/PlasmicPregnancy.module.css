@@ -17,6 +17,9 @@
     padding: 0px;
   }
 }
+.rootdarkMod {
+  background: #0f0f0f;
+}
 .section {
   display: grid;
   position: relative;

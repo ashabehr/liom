@@ -1620,6 +1620,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/about-us"
+        },
+        {
+          "id": "aUO_fJR7ceN4",
+          "name": "UploudeTime",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicUploudeTime.tsx",
+          "importSpec": {
+            "modulePath": "UploudeTime.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicUploudeTime.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2882,6 +2895,16 @@
           "id": "uU66A14xTk1C",
           "name": "Icon194Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon194.tsx"
+        },
+        {
+          "id": "HPNFZtI0eL0r",
+          "name": "Icon195Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon195.tsx"
+        },
+        {
+          "id": "p6EuiZHVxSoQ",
+          "name": "Icon196Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon196.tsx"
         }
       ],
       "images": [
