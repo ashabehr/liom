@@ -1201,7 +1201,8 @@
 }
 @media (max-width: 640px) {
   .selectionChoise___5XjO:global(.__wab_instance) {
-    flex-shrink: 0;
+    width: 100%;
+    min-width: 0;
   }
 }
 .verticalForProbabilityOfGettingPregnant {
@@ -1866,6 +1867,11 @@
 .section__kGaIk > * {
   grid-column: 4;
 }
+@media (max-width: 640px) {
+  .section__kGaIk > * {
+    grid-column: 4;
+  }
+}
 .freeBox___4Pyp3 {
   display: flex;
   flex-direction: row;
@@ -1952,6 +1958,13 @@
   right: auto;
   width: 100%;
   min-width: 0;
+}
+@media (max-width: 640px) {
+  .headerLiom:global(.__wab_instance) {
+    width: 100%;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
+  }
 }
 .freeBox__iiKPg {
   display: flex;

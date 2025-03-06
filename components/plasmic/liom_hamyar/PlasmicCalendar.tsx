@@ -26679,30 +26679,24 @@ function PlasmicCalendar__RenderFunc(props: {
                                 >
                                   {(() => {
                                     try {
-                                      return (() => {
-                                        try {
-                                          return (
-                                            $state.sing.result.before.length ==
-                                              0 &&
-                                            $state.sing.result.current.length ==
-                                              0 &&
-                                            $state.sing.result.vaginal.length ==
-                                              0 &&
-                                            $state.sing.result.venereal
-                                              .length == 0 &&
-                                            $state.sing.result.womans.length ==
-                                              0 &&
-                                            $state.sing.result.hereditary
-                                              .length == 0 &&
-                                            $state.sing.result.others.length ==
-                                              0 &&
-                                            $state.sing.result.psychological
-                                              .length == 0
-                                          );
-                                        } catch (error) {
-                                          return false;
-                                        }
-                                      })();
+                                      return (
+                                        $state.sing?.result?.before?.length ==
+                                          0 &&
+                                        $state.sing?.result?.current.length ==
+                                          0 &&
+                                        $state.sing?.result?.vaginal.length ==
+                                          0 &&
+                                        $state.sing?.result?.venereal.length ==
+                                          0 &&
+                                        $state.sing?.result?.womans.length ==
+                                          0 &&
+                                        $state.sing?.result?.hereditary
+                                          .length == 0 &&
+                                        $state.sing?.result?.others.length ==
+                                          0 &&
+                                        $state.sing?.result?.psychological
+                                          .length == 0
+                                      );
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -26796,22 +26790,28 @@ function PlasmicCalendar__RenderFunc(props: {
                                             "screen",
                                             "mobile"
                                           ) ? (
-                                            <React.Fragment>
-                                              {(() => {
-                                                try {
-                                                  return currentItem.title;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return "";
+                                            <div
+                                              className={
+                                                projectcss.__wab_expr_html_text
+                                              }
+                                              dangerouslySetInnerHTML={{
+                                                __html: (() => {
+                                                  try {
+                                                    return `تو <b> پریود</b> و <b> PMS </b> چه علائمی داری؟ <br> با ثبت آنها توصیه مناسب با <b> حالت </b> دریافت کن
+`;
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return "";
+                                                    }
+                                                    throw e;
                                                   }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            </React.Fragment>
+                                                })()
+                                              }}
+                                            />
                                           ) : (
                                             <div
                                               className={
@@ -48863,16 +48863,16 @@ function PlasmicCalendar__RenderFunc(props: {
                                   {(() => {
                                     try {
                                       return (() => {
-                                        try {
-                                          var today = new Date();
-                                          today = `${today.getFullYear()}-${(
-                                            today.getMonth() + 1
-                                          )
-                                            .toString()
-                                            .padStart(2, "0")}-${today
-                                            .getDate()
-                                            .toString()
-                                            .padStart(2, "0")}`;
+                                        var today = new Date();
+                                        today = `${today.getFullYear()}-${(
+                                          today.getMonth() + 1
+                                        )
+                                          .toString()
+                                          .padStart(2, "0")}-${today
+                                          .getDate()
+                                          .toString()
+                                          .padStart(2, "0")}`;
+                                        if ($state.day && $state.day.data) {
                                           var data = JSON.parse(
                                             $state.day.data
                                           );
@@ -48881,9 +48881,7 @@ function PlasmicCalendar__RenderFunc(props: {
                                           )
                                             ? false
                                             : true;
-                                        } catch (error) {
-                                          return false;
-                                        }
+                                        } else return true;
                                       })();
                                     } catch (e) {
                                       if (
@@ -48976,22 +48974,32 @@ function PlasmicCalendar__RenderFunc(props: {
                                             "screen",
                                             "mobile"
                                           ) ? (
-                                            <React.Fragment>
-                                              {(() => {
-                                                try {
-                                                  return currentItem.title;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return "";
+                                            <div
+                                              className={
+                                                projectcss.__wab_expr_html_text
+                                              }
+                                              dangerouslySetInnerHTML={{
+                                                __html: (() => {
+                                                  try {
+                                                    return `وضعیت <b> امروزت </b>رو ثبت نکردیا؟<br>
+
+ثبتش کن تا روزت نظم
+
+بگیره و منم تو<b> توصیه ها </b>بتونم کمکت کنم.
+`;
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return "";
+                                                    }
+                                                    throw e;
                                                   }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            </React.Fragment>
+                                                })()
+                                              }}
+                                            />
                                           ) : (
                                             <div
                                               className={
