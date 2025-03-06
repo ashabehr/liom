@@ -1599,7 +1599,7 @@ function PlasmicStatusDay__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                const daysOfWeek = ["ش", "ی", "د", "س", "چ", "پ", "ج"];
+                const daysOfWeek = ["ی", "د", "س", "چ", "پ", "ج", "ش"];
 
                 const daysInMonth = window.jalaali.jalaaliMonthLength(
                   $state.jalali.jy,
@@ -1901,13 +1901,13 @@ function PlasmicStatusDay__RenderFunc(props: {
                         return (() => {
                           var today = new Date();
                           const daysOfWeekFull = [
-                            "شنبه",
                             "یکشنبه",
                             "دوشنبه",
                             "سه‌شنبه",
                             "چهارشنبه",
                             "پنجشنبه",
-                            "جمعه"
+                            "جمعه",
+                            "شنبه"
                           ];
 
                           if (

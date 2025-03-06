@@ -26621,20 +26621,34 @@ function PlasmicCalendar__RenderFunc(props: {
                                 }}
                                 params={(() => {
                                   try {
-                                    return {
-                                      gender: "female",
-                                      status:
-                                        $state.cyclebox.cycle === "blood"
-                                          ? "period"
-                                          : $state.cyclebox.cycle ===
-                                            "fertility"
-                                          ? "pregnancy"
-                                          : $state.cyclebox.cycle,
-                                      maritalStatus: "singel",
-                                      education: "",
-                                      job: "",
-                                      keyWord: ""
-                                    };
+                                    return (() => {
+                                      let result = [
+                                        $state.sing.result.before,
+                                        $state.sing.result.current,
+                                        $state.sing.result.vaginal,
+                                        $state.sing.result.venereal,
+                                        $state.sing.result.womans,
+                                        $state.sing.result.hereditary,
+                                        $state.sing.result.others,
+                                        $state.sing.result.psychological
+                                      ];
+
+                                      let combinedArray = [].concat(...result);
+                                      return {
+                                        gender: "female",
+                                        status:
+                                          $state.cyclebox.cycle === "blood"
+                                            ? "period"
+                                            : $state.cyclebox.cycle ===
+                                              "fertility"
+                                            ? "pregnancy"
+                                            : $state.cyclebox.cycle,
+                                        maritalStatus: "singel",
+                                        education: "",
+                                        job: "",
+                                        keyWord: combinedArray
+                                      };
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -48831,21 +48845,27 @@ function PlasmicCalendar__RenderFunc(props: {
                                   {(() => {
                                     try {
                                       return (() => {
-                                        var today = new Date();
-                                        today = `${today.getFullYear()}-${(
-                                          today.getMonth() + 1
-                                        )
-                                          .toString()
-                                          .padStart(2, "0")}-${today
-                                          .getDate()
-                                          .toString()
-                                          .padStart(2, "0")}`;
-                                        var data = JSON.parse($state.day.data);
-                                        return data.find(
-                                          item => item.date === today
-                                        )
-                                          ? false
-                                          : true;
+                                        try {
+                                          var today = new Date();
+                                          today = `${today.getFullYear()}-${(
+                                            today.getMonth() + 1
+                                          )
+                                            .toString()
+                                            .padStart(2, "0")}-${today
+                                            .getDate()
+                                            .toString()
+                                            .padStart(2, "0")}`;
+                                          var data = JSON.parse(
+                                            $state.day.data
+                                          );
+                                          return data.find(
+                                            item => item.date === today
+                                          )
+                                            ? false
+                                            : true;
+                                        } catch (error) {
+                                          return false;
+                                        }
                                       })();
                                     } catch (e) {
                                       if (
