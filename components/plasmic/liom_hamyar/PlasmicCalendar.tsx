@@ -150,11 +150,12 @@ export type PlasmicCalendar__OverridesType = {
   lineClomp4?: Flex__<typeof LineClomp>;
   button2?: Flex__<typeof Button>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
-  advice?: Flex__<typeof ApiRequest>;
+  advices?: Flex__<"div">;
   button23?: Flex__<typeof Button>;
   button25?: Flex__<typeof Button>;
   button17?: Flex__<typeof Button>;
   button22?: Flex__<typeof Button>;
+  advicesLoading?: Flex__<"div">;
   collapseMother2?: Flex__<typeof AntdSingleCollapse>;
   collapseMother3?: Flex__<typeof AntdSingleCollapse>;
   useful?: Flex__<typeof Useful>;
@@ -599,24 +600,6 @@ function PlasmicCalendar__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "advice.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "advice.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "advice.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "variable",
@@ -1676,6 +1659,18 @@ function PlasmicCalendar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "advace",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "userId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -2373,6 +2368,40 @@ function PlasmicCalendar__RenderFunc(props: {
                   $steps["goToExpired"] = await $steps["goToExpired"];
                 }
 
+                $steps["updateUserId"] = $state.user?.data?.result?.user?.id
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["userId"]
+                        },
+                        operation: 0,
+                        value: $state.user.data.result.user.id
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateUserId"] != null &&
+                  typeof $steps["updateUserId"] === "object" &&
+                  typeof $steps["updateUserId"].then === "function"
+                ) {
+                  $steps["updateUserId"] = await $steps["updateUserId"];
+                }
+
                 $steps["invokeGlobalAction"] = true
                   ? (() => {
                       const actionArgs = {
@@ -2446,35 +2475,34 @@ function PlasmicCalendar__RenderFunc(props: {
                   $steps["updateSing"] = await $steps["updateSing"];
                 }
 
-                $steps["invokeGlobalAction2"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          undefined,
-                          "https://n8n.staas.ir/webhook/status_day",
-                          (() => {
-                            try {
-                              return {
-                                userId: $state.user.data.result.user.id
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
+                $steps["invokeGlobalAction2"] =
+                  $state.userId != ""
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "https://n8n.staas.ir/webhook/status_day",
+                            (() => {
+                              try {
+                                return { userId: $state.userId };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
                 if (
                   $steps["invokeGlobalAction2"] != null &&
                   typeof $steps["invokeGlobalAction2"] === "object" &&
@@ -2485,7 +2513,9 @@ function PlasmicCalendar__RenderFunc(props: {
                   ];
                 }
 
-                $steps["updateDay"] = true
+                $steps["updateDay"] = (
+                  $steps.invokeGlobalAction2?.data ? true : false
+                )
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -2517,6 +2547,140 @@ function PlasmicCalendar__RenderFunc(props: {
                   typeof $steps["updateDay"].then === "function"
                 ) {
                   $steps["updateDay"] = await $steps["updateDay"];
+                }
+
+                $steps["invokeGlobalAction3"] =
+                  $state.sing.success == true && $state.day.success == true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "https://n8n.staas.ir/webhook/advices",
+                            (() => {
+                              try {
+                                return (() => {
+                                  var today = new Date();
+                                  let result = [];
+                                  today = `${today.getFullYear()}-${(
+                                    today.getMonth() + 1
+                                  )
+                                    .toString()
+                                    .padStart(2, "0")}-${today
+                                    .getDate()
+                                    .toString()
+                                    .padStart(2, "0")}`;
+                                  if ($state?.day?.data) {
+                                    try {
+                                      var data = $state.day.data;
+                                      var day = data.find(
+                                        item => item.date == today
+                                      );
+                                      if (day) {
+                                        result = [
+                                          day.color,
+                                          day.Intensity,
+                                          day.Discharge,
+                                          day.Status,
+                                          day.sex
+                                        ];
+                                      }
+                                    } catch (error) {
+                                      console.error(
+                                        "Error parsing JSON data:",
+                                        error
+                                      );
+                                    }
+                                  }
+                                  result.push(
+                                    $state?.sing?.result?.before || "",
+                                    $state?.sing?.result?.current || "",
+                                    $state?.sing?.result?.vaginal || "",
+                                    $state?.sing?.result?.venereal || "",
+                                    $state?.sing?.result?.womans || "",
+                                    $state?.sing?.result?.hereditary || "",
+                                    $state?.sing?.result?.others || "",
+                                    $state?.sing?.result?.psychological || ""
+                                  );
+                                  let combinedArray = result
+                                    .filter(item => item != "")
+                                    .join(",");
+                                  return {
+                                    gender: "female",
+                                    status:
+                                      $state?.cyclebox?.cycle === "blood"
+                                        ? "period"
+                                        : $state?.cyclebox?.cycle ===
+                                          "fertility"
+                                        ? "pregnancy"
+                                        : $state?.cyclebox?.cycle || "unknown",
+                                    maritalStatus: "single",
+                                    education: "",
+                                    job: "",
+                                    keyWord: combinedArray || ""
+                                  };
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                if (
+                  $steps["invokeGlobalAction3"] != null &&
+                  typeof $steps["invokeGlobalAction3"] === "object" &&
+                  typeof $steps["invokeGlobalAction3"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction3"] = await $steps[
+                    "invokeGlobalAction3"
+                  ];
+                }
+
+                $steps["updateAdvace"] = (
+                  $steps.invokeGlobalAction3?.data ? true : false
+                )
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["advace"]
+                        },
+                        operation: 0,
+                        value: $steps.invokeGlobalAction3.data
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateAdvace"] != null &&
+                  typeof $steps["updateAdvace"] === "object" &&
+                  typeof $steps["updateAdvace"].then === "function"
+                ) {
+                  $steps["updateAdvace"] = await $steps["updateAdvace"];
                 }
               }).apply(null, eventArgs);
             }}
@@ -26550,131 +26714,26 @@ function PlasmicCalendar__RenderFunc(props: {
                                 sty.freeBox__mh1Qv
                               )}
                             >
-                              <ApiRequest
-                                data-plasmic-name={"advice"}
-                                data-plasmic-override={overrides.advice}
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.advice
-                                )}
-                                errorDisplay={null}
-                                loadingDisplay={
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox___1SqS
-                                    )}
-                                  >
-                                    {(_par =>
-                                      !_par
-                                        ? []
-                                        : Array.isArray(_par)
-                                        ? _par
-                                        : [_par])(
-                                      (() => {
-                                        try {
-                                          return [1, 2, 3, 4, 5];
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return [];
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    ).map(
-                                      (__plasmic_item_0, __plasmic_idx_0) => {
-                                        const currentItem = __plasmic_item_0;
-                                        const currentIndex = __plasmic_idx_0;
-                                        return (
-                                          <Stack__
-                                            as={"div"}
-                                            hasGap={true}
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.freeBox__g4SHo,
-                                              "shimmer"
-                                            )}
-                                            key={currentIndex}
-                                          />
-                                        );
-                                      }
-                                    )}
-                                  </Stack__>
-                                }
-                                method={"GET"}
-                                onError={async (...eventArgs: any) => {
-                                  generateStateOnChangeProp($state, [
-                                    "advice",
-                                    "error"
-                                  ]).apply(null, eventArgs);
-                                }}
-                                onLoading={async (...eventArgs: any) => {
-                                  generateStateOnChangeProp($state, [
-                                    "advice",
-                                    "loading"
-                                  ]).apply(null, eventArgs);
-                                }}
-                                onSuccess={async (...eventArgs: any) => {
-                                  generateStateOnChangeProp($state, [
-                                    "advice",
-                                    "data"
-                                  ]).apply(null, eventArgs);
-                                }}
-                                params={(() => {
-                                  try {
-                                    return (() => {
-                                      let result = [
-                                        $state.sing.result.before,
-                                        $state.sing.result.current,
-                                        $state.sing.result.vaginal,
-                                        $state.sing.result.venereal,
-                                        $state.sing.result.womans,
-                                        $state.sing.result.hereditary,
-                                        $state.sing.result.others,
-                                        $state.sing.result.psychological
-                                      ];
-
-                                      let combinedArray = result
-                                        .filter(item => item != "")
-                                        .join(",");
-                                      return {
-                                        gender: "female",
-                                        status:
-                                          $state.cyclebox.cycle === "blood"
-                                            ? "period"
-                                            : $state.cyclebox.cycle ===
-                                              "fertility"
-                                            ? "pregnancy"
-                                            : $state.cyclebox.cycle,
-                                        maritalStatus: "singel",
-                                        education: "",
-                                        job: "",
-                                        keyWord: combinedArray
-                                      };
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
+                              {(() => {
+                                try {
+                                  return $state.advace?.data ? true : false;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
                                   }
-                                })()}
-                                url={"https://n8n.staas.ir/webhook/advices"}
-                              >
+                                  throw e;
+                                }
+                              })() ? (
                                 <div
+                                  data-plasmic-name={"advices"}
+                                  data-plasmic-override={overrides.advices}
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox___6KEq7
+                                    sty.advices
                                   )}
                                 >
                                   {(() => {
@@ -48872,10 +48931,8 @@ function PlasmicCalendar__RenderFunc(props: {
                                           .getDate()
                                           .toString()
                                           .padStart(2, "0")}`;
-                                        if ($state.day && $state.day.data) {
-                                          var data = JSON.parse(
-                                            $state.day.data
-                                          );
+                                        if ($state.day.success) {
+                                          var data = $state.day.data;
                                           return data.find(
                                             item => item.date === today
                                           )
@@ -56118,7 +56175,7 @@ function PlasmicCalendar__RenderFunc(props: {
                                       : [_par])(
                                     (() => {
                                       try {
-                                        return $state.advice.data.data.filter(
+                                        return $state.advace.data.filter(
                                           item => item.isVip == 0
                                         );
                                       } catch (e) {
@@ -56334,7 +56391,7 @@ function PlasmicCalendar__RenderFunc(props: {
                                       : [_par])(
                                     (() => {
                                       try {
-                                        return $state.advice.data.data.filter(
+                                        return $state.advace.data.filter(
                                           item => item.isVip == 1
                                         );
                                       } catch (e) {
@@ -56663,7 +56720,71 @@ function PlasmicCalendar__RenderFunc(props: {
                                     );
                                   })}
                                 </div>
-                              </ApiRequest>
+                              ) : null}
+                              {(() => {
+                                try {
+                                  return $state.advace.data ? false : true;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <Stack__
+                                  as={"div"}
+                                  data-plasmic-name={"advicesLoading"}
+                                  data-plasmic-override={
+                                    overrides.advicesLoading
+                                  }
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.advicesLoading
+                                  )}
+                                >
+                                  {(_par =>
+                                    !_par
+                                      ? []
+                                      : Array.isArray(_par)
+                                      ? _par
+                                      : [_par])(
+                                    (() => {
+                                      try {
+                                        return [1, 2, 3, 4, 5];
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return [];
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                    const currentItem = __plasmic_item_0;
+                                    const currentIndex = __plasmic_idx_0;
+                                    return (
+                                      <Stack__
+                                        as={"div"}
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__g4SHo,
+                                          "shimmer"
+                                        )}
+                                        key={currentIndex}
+                                      />
+                                    );
+                                  })}
+                                </Stack__>
+                              ) : null}
                             </div>
                           </AntdSingleCollapse>
                         );
@@ -62456,11 +62577,12 @@ const PlasmicDescendants = {
     "lineClomp4",
     "button2",
     "collapseMother",
-    "advice",
+    "advices",
     "button23",
     "button25",
     "button17",
     "button22",
+    "advicesLoading",
     "collapseMother2",
     "collapseMother3",
     "useful",
@@ -62506,11 +62628,12 @@ const PlasmicDescendants = {
     "lineClomp4",
     "button2",
     "collapseMother",
-    "advice",
+    "advices",
     "button23",
     "button25",
     "button17",
     "button22",
+    "advicesLoading",
     "collapseMother2",
     "collapseMother3",
     "useful",
@@ -62536,17 +62659,19 @@ const PlasmicDescendants = {
   button2: ["button2"],
   collapseMother: [
     "collapseMother",
-    "advice",
+    "advices",
     "button23",
     "button25",
     "button17",
-    "button22"
+    "button22",
+    "advicesLoading"
   ],
-  advice: ["advice", "button23", "button25", "button17", "button22"],
+  advices: ["advices", "button23", "button25", "button17", "button22"],
   button23: ["button23"],
   button25: ["button25"],
   button17: ["button17"],
   button22: ["button22"],
+  advicesLoading: ["advicesLoading"],
   collapseMother2: ["collapseMother2"],
   collapseMother3: ["collapseMother3", "useful", "harmful"],
   useful: ["useful"],
@@ -62613,11 +62738,12 @@ type NodeDefaultElementType = {
   lineClomp4: typeof LineClomp;
   button2: typeof Button;
   collapseMother: typeof AntdSingleCollapse;
-  advice: typeof ApiRequest;
+  advices: "div";
   button23: typeof Button;
   button25: typeof Button;
   button17: typeof Button;
   button22: typeof Button;
+  advicesLoading: "div";
   collapseMother2: typeof AntdSingleCollapse;
   collapseMother3: typeof AntdSingleCollapse;
   useful: typeof Useful;
@@ -62748,11 +62874,12 @@ export const PlasmicCalendar = Object.assign(
     lineClomp4: makeNodeComponent("lineClomp4"),
     button2: makeNodeComponent("button2"),
     collapseMother: makeNodeComponent("collapseMother"),
-    advice: makeNodeComponent("advice"),
+    advices: makeNodeComponent("advices"),
     button23: makeNodeComponent("button23"),
     button25: makeNodeComponent("button25"),
     button17: makeNodeComponent("button17"),
     button22: makeNodeComponent("button22"),
+    advicesLoading: makeNodeComponent("advicesLoading"),
     collapseMother2: makeNodeComponent("collapseMother2"),
     collapseMother3: makeNodeComponent("collapseMother3"),
     useful: makeNodeComponent("useful"),

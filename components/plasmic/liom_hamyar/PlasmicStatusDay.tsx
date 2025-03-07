@@ -4100,7 +4100,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         },
                         operation: 0,
                         value: $state.getSign.data?.data
-                          ? JSON.parse($state.getSign.data.data)
+                          ? $state.getSign.data.data
                           : [] || []
                       };
                       return (({
