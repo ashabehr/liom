@@ -3113,7 +3113,7 @@
     {
       "name": "hint",
       "type": "color",
-      "value": "#8F8F8F",
+      "value": "#8F8F8F80",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",

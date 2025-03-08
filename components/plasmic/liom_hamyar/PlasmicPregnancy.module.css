@@ -2047,7 +2047,7 @@
   max-width: 100%;
   min-width: 0;
   padding: 8px 0px;
-  border-bottom: 1px solid var(--token-BIuTS8zmWD0f);
+  border-bottom: 1px solid var(--token-tSCEojfAiHXN);
 }
 .text__uBuR0 {
   position: relative;
@@ -2077,19 +2077,16 @@
   height: auto;
   max-width: 100%;
   font-size: 13px;
-  color: var(--token-BIuTS8zmWD0f);
+  color: var(--token-55cSeNPovQFh);
   font-weight: 500;
   text-decoration-line: underline;
   margin-top: 2px;
 }
-.img__dteKm {
+.svg {
   object-fit: cover;
   max-width: 100%;
-  width: 12px;
-  flex-shrink: 0;
-}
-.img__dteKm > picture > img {
-  object-fit: cover;
+  color: var(--token-55cSeNPovQFh);
+  height: 1em;
 }
 .lottie___71IZ:global(.__wab_instance) {
   max-width: 100%;
@@ -2261,6 +2258,9 @@
   min-width: 0;
   padding: 0px;
 }
+.freeBoxdarkMod___56WkwOQOo {
+  display: flex;
+}
 .img__xP2T {
   object-fit: cover;
   max-width: 100%;
@@ -2411,6 +2411,9 @@
   max-width: 100%;
   min-width: 0;
   padding: 0px;
+}
+.freeBoxdarkMod__q6UM8OQOo {
+  display: flex;
 }
 .img___9N1R0 {
   object-fit: cover;

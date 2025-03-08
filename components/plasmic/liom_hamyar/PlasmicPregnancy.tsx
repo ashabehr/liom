@@ -93,6 +93,7 @@ import sty from "./PlasmicPregnancy.module.css"; // plasmic-import: PDbEkiKHzqMX
 
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
 
 createPlasmicElementProxy;
 
@@ -126,6 +127,7 @@ export type PlasmicPregnancy__OverridesType = {
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
   todoList?: Flex__<typeof TodoList>;
   collapseDanger?: Flex__<typeof AntdSingleCollapse>;
+  svg?: Flex__<"svg">;
   collapseMedicine2?: Flex__<typeof AntdSingleCollapse>;
   collapseTest?: Flex__<typeof AntdSingleCollapse>;
   collapseBaby?: Flex__<typeof AntdSingleCollapse>;
@@ -9574,24 +9576,16 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     "\u0645\u0634\u0627\u0647\u062f\u0647"
                                                   }
                                                 </div>
-                                                <PlasmicImg__
-                                                  alt={""}
+                                                <ChevronLeftIcon
+                                                  data-plasmic-name={"svg"}
+                                                  data-plasmic-override={
+                                                    overrides.svg
+                                                  }
                                                   className={classNames(
-                                                    sty.img__dteKm
+                                                    projectcss.all,
+                                                    sty.svg
                                                   )}
-                                                  displayHeight={"auto"}
-                                                  displayMaxHeight={"none"}
-                                                  displayMaxWidth={"100%"}
-                                                  displayMinHeight={"0"}
-                                                  displayMinWidth={"0"}
-                                                  displayWidth={"12px"}
-                                                  loading={"lazy"}
-                                                  src={{
-                                                    src: "/plasmic/liom_hamyar/images/image32.svg",
-                                                    fullWidth: 16,
-                                                    fullHeight: 16,
-                                                    aspectRatio: 1
-                                                  }}
+                                                  role={"img"}
                                                 />
                                               </div>
                                             </div>
@@ -11381,35 +11375,69 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     />
                                   ) : null}
                                 </div>
-                                {(() => {
-                                  try {
-                                    return (() => {
-                                      const allowance =
-                                        $state?.getUserInfo?.data?.[0]?.result
-                                          ?.allowance || [];
-                                      const filteredItem = allowance.find(
-                                        item => item.type.includes("danger")
-                                      );
-                                      const active = filteredItem
-                                        ? filteredItem.active
-                                        : false;
-                                      return !$state.loadingAdvice && !active;
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return false;
-                                    }
-                                    throw e;
-                                  }
-                                })() ? (
+                                {(
+                                  hasVariant($state, "darkMod", "darkMod")
+                                    ? (() => {
+                                        try {
+                                          return (
+                                            // const allowance = $state?.getUserInfo?.data?.[0]?.result?.allowance || [];
+                                            // const filteredItem = allowance.find(item => item.type.includes("danger"));
+                                            // const active = filteredItem ? filteredItem.active : false;
+                                            // !$state.loadingAdvice && !active
+                                            true
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return false;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    : (() => {
+                                        try {
+                                          return (() => {
+                                            const allowance =
+                                              $state?.getUserInfo?.data?.[0]
+                                                ?.result?.allowance || [];
+                                            const filteredItem = allowance.find(
+                                              item =>
+                                                item.type.includes("danger")
+                                            );
+                                            const active = filteredItem
+                                              ? filteredItem.active
+                                              : false;
+                                            return (
+                                              !$state.loadingAdvice && !active
+                                            );
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return false;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                ) ? (
                                   <div
                                     className={classNames(
                                       projectcss.all,
-                                      sty.freeBox___56Wkw
+                                      sty.freeBox___56Wkw,
+                                      {
+                                        [sty.freeBoxdarkMod___56WkwOQOo]:
+                                          hasVariant(
+                                            $state,
+                                            "darkMod",
+                                            "darkMod"
+                                          )
+                                      }
                                     )}
                                     onClick={async event => {
                                       const $steps = {};
@@ -11418,7 +11446,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     <BuyComponenct
                                       className={classNames(
                                         "__wab_instance",
-                                        sty.buyComponenct__lQlcS
+                                        sty.buyComponenct__lQlcS,
+                                        {
+                                          [sty.buyComponenctdarkMod__lQlcSoQOo]:
+                                            hasVariant(
+                                              $state,
+                                              "darkMod",
+                                              "darkMod"
+                                            )
+                                        }
                                       )}
                                     />
                                   </div>
@@ -12511,35 +12547,69 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     />
                                   ) : null}
                                 </div>
-                                {(() => {
-                                  try {
-                                    return (() => {
-                                      const allowance =
-                                        $state?.getUserInfo?.data?.[0]?.result
-                                          ?.allowance || [];
-                                      const filteredItem = allowance.find(
-                                        item => item.type.includes("danger")
-                                      );
-                                      const active = filteredItem
-                                        ? filteredItem.active
-                                        : false;
-                                      return !$state.loadingAdvice && !active;
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return false;
-                                    }
-                                    throw e;
-                                  }
-                                })() ? (
+                                {(
+                                  hasVariant($state, "darkMod", "darkMod")
+                                    ? (() => {
+                                        try {
+                                          return (
+                                            // const allowance = $state?.getUserInfo?.data?.[0]?.result?.allowance || [];
+                                            // const filteredItem = allowance.find(item => item.type.includes("danger"));
+                                            // const active = filteredItem ? filteredItem.active : false;
+                                            // !$state.loadingAdvice && !active
+                                            true
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return false;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    : (() => {
+                                        try {
+                                          return (() => {
+                                            const allowance =
+                                              $state?.getUserInfo?.data?.[0]
+                                                ?.result?.allowance || [];
+                                            const filteredItem = allowance.find(
+                                              item =>
+                                                item.type.includes("danger")
+                                            );
+                                            const active = filteredItem
+                                              ? filteredItem.active
+                                              : false;
+                                            return (
+                                              !$state.loadingAdvice && !active
+                                            );
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return false;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                ) ? (
                                   <div
                                     className={classNames(
                                       projectcss.all,
-                                      sty.freeBox__q6UM8
+                                      sty.freeBox__q6UM8,
+                                      {
+                                        [sty.freeBoxdarkMod__q6UM8OQOo]:
+                                          hasVariant(
+                                            $state,
+                                            "darkMod",
+                                            "darkMod"
+                                          )
+                                      }
                                     )}
                                   >
                                     <BuyComponenct
@@ -15496,6 +15566,7 @@ const PlasmicDescendants = {
     "collapseAdvice",
     "todoList",
     "collapseDanger",
+    "svg",
     "collapseMedicine2",
     "collapseTest",
     "collapseBaby",
@@ -15516,6 +15587,7 @@ const PlasmicDescendants = {
     "collapseAdvice",
     "todoList",
     "collapseDanger",
+    "svg",
     "collapseMedicine2",
     "collapseTest",
     "collapseBaby",
@@ -15533,7 +15605,8 @@ const PlasmicDescendants = {
   sideEffect: ["sideEffect"],
   collapseAdvice: ["collapseAdvice"],
   todoList: ["todoList"],
-  collapseDanger: ["collapseDanger"],
+  collapseDanger: ["collapseDanger", "svg"],
+  svg: ["svg"],
   collapseMedicine2: ["collapseMedicine2"],
   collapseTest: ["collapseTest"],
   collapseBaby: ["collapseBaby"],
@@ -15558,6 +15631,7 @@ type NodeDefaultElementType = {
   collapseAdvice: typeof AntdSingleCollapse;
   todoList: typeof TodoList;
   collapseDanger: typeof AntdSingleCollapse;
+  svg: "svg";
   collapseMedicine2: typeof AntdSingleCollapse;
   collapseTest: typeof AntdSingleCollapse;
   collapseBaby: typeof AntdSingleCollapse;
@@ -15663,6 +15737,7 @@ export const PlasmicPregnancy = Object.assign(
     collapseAdvice: makeNodeComponent("collapseAdvice"),
     todoList: makeNodeComponent("todoList"),
     collapseDanger: makeNodeComponent("collapseDanger"),
+    svg: makeNodeComponent("svg"),
     collapseMedicine2: makeNodeComponent("collapseMedicine2"),
     collapseTest: makeNodeComponent("collapseTest"),
     collapseBaby: makeNodeComponent("collapseBaby"),
