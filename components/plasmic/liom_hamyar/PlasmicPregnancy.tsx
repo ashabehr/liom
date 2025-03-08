@@ -8941,23 +8941,51 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__ytS0
+                                      sty.text__ytS0,
+                                      {
+                                        [sty.textdarkMod__ytS0OQOo]: hasVariant(
+                                          $state,
+                                          "darkMod",
+                                          "darkMod"
+                                        )
+                                      }
                                     )}
                                   >
-                                    <React.Fragment>
-                                      <span
-                                        className={
-                                          "plasmic_default__all plasmic_default__span"
-                                        }
-                                        style={{
-                                          color: "var(--token-R_Rsn0nP9oIv)"
-                                        }}
-                                      >
-                                        {
-                                          "\u062e\u0637\u0631\u0646\u0627\u06a9\u0647 \u06cc\u0627\u0646\u0647!"
-                                        }
-                                      </span>
-                                    </React.Fragment>
+                                    {hasVariant(
+                                      $state,
+                                      "darkMod",
+                                      "darkMod"
+                                    ) ? (
+                                      <React.Fragment>
+                                        <span
+                                          className={
+                                            "plasmic_default__all plasmic_default__span"
+                                          }
+                                          style={{
+                                            color: "var(--token-R_Rsn0nP9oIv)"
+                                          }}
+                                        >
+                                          {
+                                            "\u062e\u0637\u0631\u0646\u0627\u06a9\u0647 \u06cc\u0627\u0646\u0647!"
+                                          }
+                                        </span>
+                                      </React.Fragment>
+                                    ) : (
+                                      <React.Fragment>
+                                        <span
+                                          className={
+                                            "plasmic_default__all plasmic_default__span"
+                                          }
+                                          style={{
+                                            color: "var(--token-ODBUExjR6VEF)"
+                                          }}
+                                        >
+                                          {
+                                            "\u062e\u0637\u0631\u0646\u0627\u06a9\u0647 \u06cc\u0627\u0646\u0647!"
+                                          }
+                                        </span>
+                                      </React.Fragment>
+                                    )}
                                   </div>
                                   {(() => {
                                     try {
@@ -9181,21 +9209,32 @@ function PlasmicPregnancy__RenderFunc(props: {
                                             <div
                                               className={classNames(
                                                 projectcss.all,
-                                                sty.freeBox__yYOhA
+                                                sty.freeBox__yYOhA,
+                                                {
+                                                  [sty.freeBoxdarkMod__yYOhAoQOo]:
+                                                    hasVariant(
+                                                      $state,
+                                                      "darkMod",
+                                                      "darkMod"
+                                                    )
+                                                }
                                               )}
                                               key={currentIndex}
                                               onClick={async event => {
                                                 const $steps = {};
 
                                                 $steps["goToPage"] = (() => {
-                                                  const allowance =
-                                                    $state?.getUser?.data?.[0]
-                                                      ?.result?.allowance || [];
+                                                  var allowance =
+                                                    $state?.user[0].allowance ||
+                                                    [];
+                                                  allowance =
+                                                    JSON.parse(allowance);
                                                   const filteredItem =
-                                                    allowance.find(item =>
-                                                      item.type.includes(
-                                                        $ctx.query.type
-                                                      )
+                                                    allowance["allowance"].find(
+                                                      item =>
+                                                        item.type.includes(
+                                                          "danger"
+                                                        )
                                                     );
                                                   const active = filteredItem
                                                     ? filteredItem.active
@@ -9217,8 +9256,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                               currentItem.stepId +
                                                               "&style=" +
                                                               currentItem.styleType +
-                                                              "&type=" +
-                                                              $ctx.query.type +
+                                                              "&type=danger" +
                                                               "&token=" +
                                                               $ctx.query.token +
                                                               "&inApp=" +
@@ -9227,9 +9265,17 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                               $ctx.query
                                                                 .userId +
                                                               "&selectStep=" +
-                                                              $state.selectedStep +
+                                                              $state.selectedWeek +
                                                               "&version=" +
-                                                              $ctx.query.version
+                                                              $ctx.query
+                                                                .version +
+                                                              "&title=" +
+                                                              currentItem.title +
+                                                              "|" +
+                                                              "هفته " +
+                                                              ($state.selectedWeek +
+                                                                1) +
+                                                              " اُم"
                                                             );
                                                           } catch (e) {
                                                             if (
@@ -9284,7 +9330,119 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     await $steps["goToPage"];
                                                 }
 
-                                                $steps["runCode"] = true
+                                                $steps["runCode2"] = (() => {
+                                                  var allowance =
+                                                    $state?.user[0].allowance ||
+                                                    [];
+                                                  allowance =
+                                                    JSON.parse(allowance);
+                                                  const filteredItem =
+                                                    allowance["allowance"].find(
+                                                      item =>
+                                                        item.type.includes(
+                                                          "danger"
+                                                        )
+                                                    );
+                                                  const active = filteredItem
+                                                    ? filteredItem.active
+                                                    : false;
+                                                  return (
+                                                    (active ||
+                                                      !currentItem.vip) &&
+                                                    $ctx.query.inApp == "true"
+                                                  );
+                                                })()
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        customFunction:
+                                                          async () => {
+                                                            return (() => {
+                                                              var link =
+                                                                "https://tools.liom.app/self-medication-step/?secId=" +
+                                                                currentItem.id +
+                                                                "&stepId=" +
+                                                                currentItem.stepId +
+                                                                "&style=" +
+                                                                currentItem.styleType +
+                                                                "&type=danger" +
+                                                                "&token=" +
+                                                                $ctx.query
+                                                                  .token +
+                                                                "&inApp=" +
+                                                                $ctx.query
+                                                                  .inApp +
+                                                                "&userId=" +
+                                                                $ctx.query
+                                                                  .userId +
+                                                                "&selectStep=" +
+                                                                $state.selectedWeek +
+                                                                "&version=" +
+                                                                $ctx.query
+                                                                  .version +
+                                                                "&title=" +
+                                                                currentItem.title +
+                                                                "|" +
+                                                                "هفته " +
+                                                                ($state.selectedWeek +
+                                                                  1) +
+                                                                " اُم";
+                                                              return window.FlutterChannel.postMessage(
+                                                                "#inAppWebView**@@**" +
+                                                                  currentItem.title +
+                                                                  "|" +
+                                                                  "هفته " +
+                                                                  ($state.selectedWeek +
+                                                                    1) +
+                                                                  " اُم" +
+                                                                  "**@@**" +
+                                                                  link
+                                                              );
+                                                            })();
+                                                          }
+                                                      };
+                                                      return (({
+                                                        customFunction
+                                                      }) => {
+                                                        return customFunction();
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                                if (
+                                                  $steps["runCode2"] != null &&
+                                                  typeof $steps["runCode2"] ===
+                                                    "object" &&
+                                                  typeof $steps["runCode2"]
+                                                    .then === "function"
+                                                ) {
+                                                  $steps["runCode2"] =
+                                                    await $steps["runCode2"];
+                                                }
+
+                                                $steps["runCode"] = (() => {
+                                                  var allowance =
+                                                    $state?.user[0].allowance ||
+                                                    [];
+                                                  allowance =
+                                                    JSON.parse(allowance);
+                                                  const filteredItem =
+                                                    allowance["allowance"].find(
+                                                      item =>
+                                                        item.type.includes(
+                                                          "danger"
+                                                        )
+                                                    );
+                                                  const active = filteredItem
+                                                    ? filteredItem.active
+                                                    : false;
+                                                  return (
+                                                    $ctx.query.inApp ==
+                                                      "true" &&
+                                                    !active &&
+                                                    currentItem.vip == 1
+                                                  );
+                                                })()
                                                   ? (() => {
                                                       const actionArgs = {
                                                         customFunction:
@@ -9315,14 +9473,17 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 }
 
                                                 $steps["showToast"] = (() => {
-                                                  const allowance =
-                                                    $state?.getUser?.data?.[0]
-                                                      ?.result?.allowance || [];
+                                                  var allowance =
+                                                    $state?.user[0].allowance ||
+                                                    [];
+                                                  allowance =
+                                                    JSON.parse(allowance);
                                                   const filteredItem =
-                                                    allowance.find(item =>
-                                                      item.type.includes(
-                                                        $ctx.query.type
-                                                      )
+                                                    allowance["allowance"].find(
+                                                      item =>
+                                                        item.type.includes(
+                                                          "danger"
+                                                        )
                                                     );
                                                   const active = filteredItem
                                                     ? filteredItem.active
@@ -9358,95 +9519,21 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   $steps["showToast"] =
                                                     await $steps["showToast"];
                                                 }
-
-                                                $steps["runCode2"] = (() => {
-                                                  const allowance =
-                                                    $state?.getUser?.data?.[0]
-                                                      ?.result?.allowance || [];
-                                                  const filteredItem =
-                                                    allowance.find(item =>
-                                                      item.type.includes(
-                                                        $ctx.query.type
-                                                      )
-                                                    );
-                                                  const active = filteredItem
-                                                    ? filteredItem.active
-                                                    : false;
-                                                  return (
-                                                    (active ||
-                                                      !currentItem.vip) &&
-                                                    $ctx.query.inApp == "true"
-                                                  );
-                                                })()
-                                                  ? (() => {
-                                                      const actionArgs = {
-                                                        customFunction:
-                                                          async () => {
-                                                            return (() => {
-                                                              var link =
-                                                                "https://tools.liom.app/self-medication-step/?secId=" +
-                                                                currentItem.id +
-                                                                "&stepId=" +
-                                                                currentItem.stepId +
-                                                                "&style=" +
-                                                                currentItem.styleType +
-                                                                "&type=" +
-                                                                $ctx.query
-                                                                  .type +
-                                                                "&token=" +
-                                                                $ctx.query
-                                                                  .token +
-                                                                "&inApp=" +
-                                                                $ctx.query
-                                                                  .inApp +
-                                                                "&userId=" +
-                                                                $ctx.query
-                                                                  .userId +
-                                                                "&selectStep=" +
-                                                                $state.selectedStep +
-                                                                "&version=" +
-                                                                $ctx.query
-                                                                  .version;
-                                                              return window.FlutterChannel.postMessage(
-                                                                "#inAppWebView**@@**" +
-                                                                  currentItem.title +
-                                                                  "|" +
-                                                                  "هفته " +
-                                                                  ($state.selectedStep +
-                                                                    1) +
-                                                                  " اُم" +
-                                                                  "**@@**" +
-                                                                  link
-                                                              );
-                                                            })();
-                                                          }
-                                                      };
-                                                      return (({
-                                                        customFunction
-                                                      }) => {
-                                                        return customFunction();
-                                                      })?.apply(null, [
-                                                        actionArgs
-                                                      ]);
-                                                    })()
-                                                  : undefined;
-                                                if (
-                                                  $steps["runCode2"] != null &&
-                                                  typeof $steps["runCode2"] ===
-                                                    "object" &&
-                                                  typeof $steps["runCode2"]
-                                                    .then === "function"
-                                                ) {
-                                                  $steps["runCode2"] =
-                                                    await $steps["runCode2"];
-                                                }
                                               }}
                                             >
                                               <div
                                                 className={classNames(
                                                   projectcss.all,
                                                   projectcss.__wab_text,
-                                                  sty.text__uBuR0
+                                                  sty.text__uBuR0,
+                                                  {
+                                                    [sty.textdarkMod__uBuR0OQOo]:
+                                                      hasVariant(
+                                                        $state,
+                                                        "darkMod",
+                                                        "darkMod"
+                                                      )
+                                                  }
                                                 )}
                                               >
                                                 <React.Fragment>
@@ -10252,7 +10339,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                               bordered: true,
                               className: classNames(
                                 "__wab_instance",
-                                sty.collapseMedicine2
+                                sty.collapseMedicine2,
+                                {
+                                  [sty.collapseMedicine2darkMod]: hasVariant(
+                                    $state,
+                                    "darkMod",
+                                    "darkMod"
+                                  )
+                                }
                               ),
                               expandIcon: (
                                 <React.Fragment>
@@ -10341,23 +10435,50 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__wmciC
+                                      sty.text__wmciC,
+                                      {
+                                        [sty.textdarkMod__wmciCoQOo]:
+                                          hasVariant(
+                                            $state,
+                                            "darkMod",
+                                            "darkMod"
+                                          )
+                                      }
                                     )}
                                   >
-                                    <React.Fragment>
-                                      <span
-                                        className={
-                                          "plasmic_default__all plasmic_default__span"
-                                        }
-                                        style={{
-                                          color: "var(--token-R_Rsn0nP9oIv)"
-                                        }}
-                                      >
-                                        {
-                                          "\u0645\u06a9\u0645\u0644 \u0648 \u0648\u06cc\u062a\u0627\u0645\u06cc\u0646\u200c\u0647\u0627"
-                                        }
-                                      </span>
-                                    </React.Fragment>
+                                    {hasVariant(
+                                      $state,
+                                      "darkMod",
+                                      "darkMod"
+                                    ) ? (
+                                      <React.Fragment>
+                                        <span
+                                          className={
+                                            "plasmic_default__all plasmic_default__span"
+                                          }
+                                          style={{ color: "#FFFFFF" }}
+                                        >
+                                          {
+                                            "\u0645\u06a9\u0645\u0644 \u0648 \u0648\u06cc\u062a\u0627\u0645\u06cc\u0646\u200c\u0647\u0627"
+                                          }
+                                        </span>
+                                      </React.Fragment>
+                                    ) : (
+                                      <React.Fragment>
+                                        <span
+                                          className={
+                                            "plasmic_default__all plasmic_default__span"
+                                          }
+                                          style={{
+                                            color: "var(--token-ODBUExjR6VEF)"
+                                          }}
+                                        >
+                                          {
+                                            "\u0645\u06a9\u0645\u0644 \u0648 \u0648\u06cc\u062a\u0627\u0645\u06cc\u0646\u200c\u0647\u0627"
+                                          }
+                                        </span>
+                                      </React.Fragment>
+                                    )}
                                   </div>
                                   {(() => {
                                     try {
@@ -10553,7 +10674,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       className={classNames(
                                         projectcss.all,
                                         projectcss.__wab_text,
-                                        sty.text__xsR0
+                                        sty.text__xsR0,
+                                        {
+                                          [sty.textdarkMod__xsR0OQOo]:
+                                            hasVariant(
+                                              $state,
+                                              "darkMod",
+                                              "darkMod"
+                                            )
+                                        }
                                       )}
                                     >
                                       <div
@@ -11332,7 +11461,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                               bordered: true,
                               className: classNames(
                                 "__wab_instance",
-                                sty.collapseTest
+                                sty.collapseTest,
+                                {
+                                  [sty.collapseTestdarkMod]: hasVariant(
+                                    $state,
+                                    "darkMod",
+                                    "darkMod"
+                                  )
+                                }
                               ),
                               expandIcon: (
                                 <React.Fragment>
@@ -11417,23 +11553,52 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__nnPza
+                                      sty.text__nnPza,
+                                      {
+                                        [sty.textdarkMod__nnPzaoQOo]:
+                                          hasVariant(
+                                            $state,
+                                            "darkMod",
+                                            "darkMod"
+                                          )
+                                      }
                                     )}
                                   >
-                                    <React.Fragment>
-                                      <span
-                                        className={
-                                          "plasmic_default__all plasmic_default__span"
-                                        }
-                                        style={{
-                                          color: "var(--token-R_Rsn0nP9oIv)"
-                                        }}
-                                      >
-                                        {
-                                          "\u063a\u0631\u0628\u0627\u0644\u06af\u0631\u06cc\u060c \u0622\u0632\u0645\u0627\u06cc\u0634 \u0648 \u0633\u0648\u0646\u0648\u06af\u0631\u0627\u0641\u06cc"
-                                        }
-                                      </span>
-                                    </React.Fragment>
+                                    {hasVariant(
+                                      $state,
+                                      "darkMod",
+                                      "darkMod"
+                                    ) ? (
+                                      <React.Fragment>
+                                        <span
+                                          className={
+                                            "plasmic_default__all plasmic_default__span"
+                                          }
+                                          style={{
+                                            color: "var(--token-R_Rsn0nP9oIv)"
+                                          }}
+                                        >
+                                          {
+                                            "\u063a\u0631\u0628\u0627\u0644\u06af\u0631\u06cc\u060c \u0622\u0632\u0645\u0627\u06cc\u0634 \u0648 \u0633\u0648\u0646\u0648\u06af\u0631\u0627\u0641\u06cc"
+                                          }
+                                        </span>
+                                      </React.Fragment>
+                                    ) : (
+                                      <React.Fragment>
+                                        <span
+                                          className={
+                                            "plasmic_default__all plasmic_default__span"
+                                          }
+                                          style={{
+                                            color: "var(--token-ODBUExjR6VEF)"
+                                          }}
+                                        >
+                                          {
+                                            "\u063a\u0631\u0628\u0627\u0644\u06af\u0631\u06cc\u060c \u0622\u0632\u0645\u0627\u06cc\u0634 \u0648 \u0633\u0648\u0646\u0648\u06af\u0631\u0627\u0641\u06cc"
+                                          }
+                                        </span>
+                                      </React.Fragment>
+                                    )}
                                   </div>
                                   {(() => {
                                     try {
@@ -11622,7 +11787,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       className={classNames(
                                         projectcss.all,
                                         projectcss.__wab_text,
-                                        sty.text__co626
+                                        sty.text__co626,
+                                        {
+                                          [sty.textdarkMod__co626OQOo]:
+                                            hasVariant(
+                                              $state,
+                                              "darkMod",
+                                              "darkMod"
+                                            )
+                                        }
                                       )}
                                     >
                                       <React.Fragment>
