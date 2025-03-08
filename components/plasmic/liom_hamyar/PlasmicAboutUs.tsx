@@ -74,6 +74,7 @@ import sty from "./PlasmicAboutUs.module.css"; // plasmic-import: k978n3llkb2s/c
 
 import Icon191Icon from "./icons/PlasmicIcon__Icon191"; // plasmic-import: 1Veg0GvVjfgl/icon
 import Icon192Icon from "./icons/PlasmicIcon__Icon192"; // plasmic-import: 4j3NxLGconGE/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
 
@@ -90,7 +91,6 @@ export type PlasmicAboutUs__OverridesType = {
   root?: Flex__<"div">;
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
-  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultAboutUsProps {}
@@ -351,20 +351,10 @@ function PlasmicAboutUs__RenderFunc(props: {
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__jQuvi)}
+                className={classNames(projectcss.all, sty.freeBox__xt3Vz)}
               >
-                <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
-                  alt={""}
-                  className={classNames(sty.img)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"20px"}
-                  loading={"lazy"}
+                <XIcon
+                  className={classNames(projectcss.all, sty.svg__ijpVy)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -373,7 +363,7 @@ function PlasmicAboutUs__RenderFunc(props: {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                return window.history.go(-1);
+                                return window.history.back();
                               })();
                             }
                           };
@@ -390,19 +380,14 @@ function PlasmicAboutUs__RenderFunc(props: {
                       $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image38.svg",
-                    fullWidth: 24,
-                    fullHeight: 24,
-                    aspectRatio: 1
-                  }}
+                  role={"img"}
                 />
 
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text___6F9X5
+                    sty.text__psJTo
                   )}
                 >
                   {"\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
@@ -417,10 +402,9 @@ function PlasmicAboutUs__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "headerLiom", "img"],
-  section: ["section", "headerLiom", "img"],
-  headerLiom: ["headerLiom", "img"],
-  img: ["img"]
+  root: ["root", "section", "headerLiom"],
+  section: ["section", "headerLiom"],
+  headerLiom: ["headerLiom"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -429,7 +413,6 @@ type NodeDefaultElementType = {
   root: "div";
   section: "section";
   headerLiom: typeof HeaderLiom;
-  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -519,7 +502,6 @@ export const PlasmicAboutUs = Object.assign(
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
-    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicAboutUs
     internalVariantProps: PlasmicAboutUs__VariantProps,

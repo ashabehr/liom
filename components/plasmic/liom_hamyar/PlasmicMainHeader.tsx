@@ -736,7 +736,7 @@ function PlasmicMainHeader__RenderFunc(props: {
               )}
             >
               {
-                "\u0639\u0644\u0627\u0626\u0645 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                "\u0646\u0634\u0627\u0646\u0647\u200c\u0647\u0627\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc"
               }
             </div>
             <ChevronLeftIcon

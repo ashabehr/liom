@@ -9,7 +9,7 @@
   justify-content: flex-start;
   align-items: center;
   background: #f8f8f8;
-  padding-top: 64px;
+  padding-top: 70px;
   min-width: 0;
   min-height: 0;
   grid-template-columns:
@@ -27,6 +27,7 @@
   .root {
     justify-items: center;
     align-content: flex-start;
+    padding-top: 70px;
   }
 }
 @media (max-width: 640px) {
@@ -71,7 +72,7 @@
     margin-top: 0px;
     height: auto;
     max-height: 100%;
-    padding-top: 12px;
+    padding-top: 0px;
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
   }
@@ -86,7 +87,7 @@
   background: none;
   min-width: 0;
   min-height: 0;
-  padding: 16px 0px 0px;
+  padding: 0px;
 }
 .freeBox__zh21 > :global(.__wab_flex-container) {
   flex-direction: column;
@@ -915,7 +916,7 @@
     margin-top: 0px;
     height: auto;
     max-height: 100%;
-    padding-top: 12px;
+    padding-top: 0px;
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
     display: flex;
@@ -6457,7 +6458,7 @@
   text-align: center;
   font-weight: 700;
   font-size: 16px;
-  color: var(--token-BIuTS8zmWD0f);
+  color: #919191;
   white-space: pre-wrap;
   min-height: 0;
   padding: 8px 0px 0px 16px;

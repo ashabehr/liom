@@ -1685,7 +1685,7 @@ function PlasmicCalendar__RenderFunc(props: {
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return true;
+                return false;
               }
               throw e;
             }
@@ -2177,6 +2177,12 @@ function PlasmicCalendar__RenderFunc(props: {
                             localStorage.setItem(
                               "userinfo",
                               JSON.stringify($state.user.data.result)
+                            );
+                            localStorage.setItem(
+                              "birthDate",
+                              JSON.stringify(
+                                $state.user.data.result.user.birthDate
+                              )
                             );
                             return ($state.name =
                               $state.user.data.result.user.name);
@@ -48996,7 +49002,7 @@ function PlasmicCalendar__RenderFunc(props: {
                                               const actionArgs = {
                                                 destination: (() => {
                                                   try {
-                                                    return `/status-day?userId=${$state.user.data.result.user.id}`;
+                                                    return `/status-day?userId=${$state.user.data.result.user.id}&close=true`;
                                                   } catch (e) {
                                                     if (
                                                       e instanceof TypeError ||

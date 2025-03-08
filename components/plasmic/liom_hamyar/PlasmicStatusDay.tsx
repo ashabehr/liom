@@ -91,6 +91,7 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicStatusDay.module.css"; // plasmic-import: PI7WftNbPWTI/css
 
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: rjflJ2D4OoXB/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -120,7 +121,6 @@ export const PlasmicStatusDay__ArgProps = new Array<ArgPropType>();
 export type PlasmicStatusDay__OverridesType = {
   root?: Flex__<"div">;
   headerLiom?: Flex__<typeof HeaderLiom>;
-  img?: Flex__<typeof PlasmicImg__>;
   number2?: Flex__<typeof AntdModal>;
   textInput?: Flex__<typeof TextInput>;
   antdInput?: Flex__<typeof Input>;
@@ -1836,25 +1836,14 @@ function PlasmicStatusDay__RenderFunc(props: {
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
-              slot={null}
             >
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__upa1J)}
+                className={classNames(projectcss.all, sty.freeBox___4N6A)}
               >
-                <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
-                  alt={""}
-                  className={classNames(sty.img)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"20px"}
-                  loading={"lazy"}
+                <XIcon
+                  className={classNames(projectcss.all, sty.svg__nal9E)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -1880,19 +1869,14 @@ function PlasmicStatusDay__RenderFunc(props: {
                       $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image38.svg",
-                    fullWidth: 24,
-                    fullHeight: 24,
-                    aspectRatio: 1
-                  }}
+                  role={"img"}
                 />
 
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__tlOS
+                    sty.text__p77Xf
                   )}
                 >
                   <React.Fragment>
@@ -1936,7 +1920,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return "\u0648\u0636\u0639\u06cc\u062a \u0627\u0645\u0631\u0648\u0632";
+                          return "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647";
                         }
                         throw e;
                       }
@@ -6315,6 +6299,29 @@ function PlasmicStatusDay__RenderFunc(props: {
                           "invokeGlobalAction3"
                         ];
                       }
+
+                      $steps["runCode"] =
+                        $ctx.query.close == "true"
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return window.history.back();
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
                     }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
@@ -7949,7 +7956,6 @@ const PlasmicDescendants = {
   root: [
     "root",
     "headerLiom",
-    "img",
     "number2",
     "textInput",
     "antdInput",
@@ -8011,8 +8017,7 @@ const PlasmicDescendants = {
     "jobinput",
     "button13"
   ],
-  headerLiom: ["headerLiom", "img"],
-  img: ["img"],
+  headerLiom: ["headerLiom"],
   number2: ["number2", "textInput", "antdInput", "button2"],
   textInput: ["textInput", "antdInput"],
   antdInput: ["antdInput"],
@@ -8117,7 +8122,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   headerLiom: typeof HeaderLiom;
-  img: typeof PlasmicImg__;
   number2: typeof AntdModal;
   textInput: typeof TextInput;
   antdInput: typeof Input;
@@ -8266,7 +8270,6 @@ export const PlasmicStatusDay = Object.assign(
   {
     // Helper components rendering sub-elements
     headerLiom: makeNodeComponent("headerLiom"),
-    img: makeNodeComponent("img"),
     number2: makeNodeComponent("number2"),
     textInput: makeNodeComponent("textInput"),
     antdInput: makeNodeComponent("antdInput"),

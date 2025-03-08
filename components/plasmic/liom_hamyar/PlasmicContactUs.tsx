@@ -77,6 +77,7 @@ import Icon191Icon from "./icons/PlasmicIcon__Icon191"; // plasmic-import: 1Veg0
 import Icon192Icon from "./icons/PlasmicIcon__Icon192"; // plasmic-import: 4j3NxLGconGE/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
 
@@ -95,7 +96,6 @@ export type PlasmicContactUs__OverridesType = {
   button6?: Flex__<typeof Button>;
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
-  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultContactUsProps {}
@@ -536,20 +536,10 @@ function PlasmicContactUs__RenderFunc(props: {
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__huc8K)}
+                className={classNames(projectcss.all, sty.freeBox__t6Qk)}
               >
-                <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
-                  alt={""}
-                  className={classNames(sty.img)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"20px"}
-                  loading={"lazy"}
+                <XIcon
+                  className={classNames(projectcss.all, sty.svg__klDkm)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -558,7 +548,7 @@ function PlasmicContactUs__RenderFunc(props: {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                return window.history.go(-1);
+                                return window.history.back();
                               })();
                             }
                           };
@@ -575,19 +565,14 @@ function PlasmicContactUs__RenderFunc(props: {
                       $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image38.svg",
-                    fullWidth: 24,
-                    fullHeight: 24,
-                    aspectRatio: 1
-                  }}
+                  role={"img"}
                 />
 
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__hWpCp
+                    sty.text__eXIiG
                   )}
                 >
                   {
@@ -604,12 +589,11 @@ function PlasmicContactUs__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button5", "button6", "section", "headerLiom", "img"],
+  root: ["root", "button5", "button6", "section", "headerLiom"],
   button5: ["button5"],
   button6: ["button6"],
-  section: ["section", "headerLiom", "img"],
-  headerLiom: ["headerLiom", "img"],
-  img: ["img"]
+  section: ["section", "headerLiom"],
+  headerLiom: ["headerLiom"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -620,7 +604,6 @@ type NodeDefaultElementType = {
   button6: typeof Button;
   section: "section";
   headerLiom: typeof HeaderLiom;
-  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -712,7 +695,6 @@ export const PlasmicContactUs = Object.assign(
     button6: makeNodeComponent("button6"),
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
-    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicContactUs
     internalVariantProps: PlasmicContactUs__VariantProps,

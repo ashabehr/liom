@@ -66,6 +66,8 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicHeaderLiom.module.css"; // plasmic-import: wNUwxS5tO1GX/css
 
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
+
 createPlasmicElementProxy;
 
 export type PlasmicHeaderLiom__VariantMembers = {};
@@ -158,22 +160,34 @@ function PlasmicHeaderLiom__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__gpOb)}
           >
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__jXXjY)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"20px"}
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_hamyar/images/image38.svg",
-                fullWidth: 24,
-                fullHeight: 24,
-                aspectRatio: 1
+            <XIcon
+              className={classNames(projectcss.all, sty.svg__rLTdt)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return window.history.back();
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
               }}
+              role={"img"}
             />
 
             <div

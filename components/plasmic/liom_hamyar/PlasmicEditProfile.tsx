@@ -89,6 +89,7 @@ import Icon67Icon from "./icons/PlasmicIcon__Icon67"; // plasmic-import: hIAuvrX
 import RulerIcSvgIcon from "./icons/PlasmicIcon__RulerIcSvg"; // plasmic-import: 9iZxfHzH83kz/icon
 import WeightmeterIcSvgIcon from "./icons/PlasmicIcon__WeightmeterIcSvg"; // plasmic-import: _rOaaxGTo0Hj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
 
@@ -149,7 +150,6 @@ export type PlasmicEditProfile__OverridesType = {
   weight2?: Flex__<"div">;
   button19?: Flex__<typeof Button>;
   headerLiom?: Flex__<typeof HeaderLiom>;
-  img?: Flex__<typeof PlasmicImg__>;
   dialogNumberOfDaysOfBleeding?: Flex__<typeof Dialog>;
   pickersForNumberOfDaysOfBleeding?: Flex__<typeof Pickers>;
   button6?: Flex__<typeof Button>;
@@ -2878,20 +2878,10 @@ function PlasmicEditProfile__RenderFunc(props: {
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__lNOax)}
+                className={classNames(projectcss.all, sty.freeBox__oE1R)}
               >
-                <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
-                  alt={""}
-                  className={classNames(sty.img)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"20px"}
-                  loading={"lazy"}
+                <XIcon
+                  className={classNames(projectcss.all, sty.svg__oTw7R)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -2917,19 +2907,14 @@ function PlasmicEditProfile__RenderFunc(props: {
                       $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image38.svg",
-                    fullWidth: 24,
-                    fullHeight: 24,
-                    aspectRatio: 1
-                  }}
+                  role={"img"}
                 />
 
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__dAyyN
+                    sty.text__j6K8O
                   )}
                 >
                   {
@@ -4158,7 +4143,6 @@ const PlasmicDescendants = {
     "weight2",
     "button19",
     "headerLiom",
-    "img",
     "dialogNumberOfDaysOfBleeding",
     "pickersForNumberOfDaysOfBleeding",
     "button6",
@@ -4359,8 +4343,7 @@ const PlasmicDescendants = {
   weight: ["weight", "weight2"],
   weight2: ["weight2"],
   button19: ["button19"],
-  headerLiom: ["headerLiom", "img"],
-  img: ["img"],
+  headerLiom: ["headerLiom"],
   dialogNumberOfDaysOfBleeding: [
     "dialogNumberOfDaysOfBleeding",
     "pickersForNumberOfDaysOfBleeding",
@@ -4445,7 +4428,6 @@ type NodeDefaultElementType = {
   weight2: "div";
   button19: typeof Button;
   headerLiom: typeof HeaderLiom;
-  img: typeof PlasmicImg__;
   dialogNumberOfDaysOfBleeding: typeof Dialog;
   pickersForNumberOfDaysOfBleeding: typeof Pickers;
   button6: typeof Button;
@@ -4599,7 +4581,6 @@ export const PlasmicEditProfile = Object.assign(
     weight2: makeNodeComponent("weight2"),
     button19: makeNodeComponent("button19"),
     headerLiom: makeNodeComponent("headerLiom"),
-    img: makeNodeComponent("img"),
     dialogNumberOfDaysOfBleeding: makeNodeComponent(
       "dialogNumberOfDaysOfBleeding"
     ),
