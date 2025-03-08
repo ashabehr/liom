@@ -357,9 +357,12 @@ function PlasmicPregnancy__RenderFunc(props: {
               let differenceInDays = Math.floor(
                 differenceInTime / (1000 * 60 * 60 * 24)
               );
-              return parseInt((differenceInDays + 1) / 7) == 0
-                ? 1
-                : parseInt((differenceInDays + 1) / 7) + 1;
+              var week =
+                parseInt((differenceInDays + 1) / 7) == 0
+                  ? 1
+                  : parseInt((differenceInDays + 1) / 7) + 1;
+              if (week > 40) week = 40;
+              return week;
             } else {
               return 0;
             }
@@ -692,13 +695,23 @@ function PlasmicPregnancy__RenderFunc(props: {
           >
             {(() => {
               try {
-                return true;
+                return (
+                  // const dateString = $state.user[0].dueDate;
+                  // const givenDate = new Date(dateString);
+                  // const now = new Date();
+
+                  // const differenceInMs = now - givenDate;
+                  // const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+
+                  // differenceInDays <= 0 && $ctx.query.userId == 147813698
+                  false
+                );
               } catch (e) {
                 if (
                   e instanceof TypeError ||
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  return true;
+                  return false;
                 }
                 throw e;
               }
