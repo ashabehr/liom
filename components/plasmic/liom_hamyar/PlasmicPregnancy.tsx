@@ -9277,7 +9277,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                               "هفته " +
                                                               ($state.selectedWeek +
                                                                 1) +
-                                                              " اُم"
+                                                              " اُم" +
+                                                              "&theme=" +
+                                                              $ctx.query.theme
                                                             );
                                                           } catch (e) {
                                                             if (
@@ -9387,7 +9389,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                                 "هفته " +
                                                                 ($state.selectedWeek +
                                                                   1) +
-                                                                " اُم";
+                                                                " اُم" +
+                                                                "&theme=" +
+                                                                $ctx.query
+                                                                  .theme;
                                                               return window.FlutterChannel.postMessage(
                                                                 "#inAppWebView**@@**" +
                                                                   currentItem.title +
