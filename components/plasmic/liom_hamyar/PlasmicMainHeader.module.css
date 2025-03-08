@@ -98,6 +98,7 @@
   padding: 0px;
 }
 .drawer__drawer :global(.ant-drawer-body) {
+  box-shadow: none;
   outline: none;
   padding: 0px;
 }

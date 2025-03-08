@@ -879,7 +879,15 @@ function PlasmicShopResult2__RenderFunc(props: {
                                       6,
                                       -3
                                     ),
-                                    redirectUrl: `https://apps.liom.app/shopResult?buyId=${$ctx.query.buyId}&?offCode=${$ctx.query.offCode}&token=hjk812${$ctx.query.token}jkp&redirectUrl=${$ctx.query.redirectUrl}`
+                                    redirectUrl: `https://apps.liom.app/shopResult?buyId=${
+                                      $ctx.query.buyId
+                                    }&?offCode=${
+                                      $ctx.query.offCode
+                                    }&token=hjk812${
+                                      $ctx.query.token
+                                    }jkp&redirectUrl=${encodeURIComponent(
+                                      $ctx.query.redirectUrl
+                                    )}`
                                   };
                                 } catch (e) {
                                   if (

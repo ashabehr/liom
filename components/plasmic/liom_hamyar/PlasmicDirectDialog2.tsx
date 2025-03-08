@@ -1027,9 +1027,7 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                                 (() => {
                                   try {
                                     return {
-                                      id: $state.shopDialog.data.result.shopList.find(
-                                        item => item.selected == 1
-                                      ).id,
+                                      id: $state.topShop.id,
                                       offCode: "",
                                       redirectUrl: $props.redirectUrl,
                                       authorization: $props.token

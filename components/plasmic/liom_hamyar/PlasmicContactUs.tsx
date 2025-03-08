@@ -251,6 +251,48 @@ function PlasmicContactUs__RenderFunc(props: {
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__qGoQs)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return `https://www.instagram.com/liom.app?igsh=MTRtZG1xZWI2MzFkMA==`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
                 >
                   <Icon191Icon
                     className={classNames(projectcss.all, sty.svg__dIwVm)}

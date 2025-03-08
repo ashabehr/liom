@@ -342,6 +342,7 @@ function PlasmicMainHeader__RenderFunc(props: {
         )}
         drawerBodyClassName={classNames({ [sty["pcls_IN1eJ6efbZad"]]: true })}
         drawerHeaderClassName={classNames({ [sty["pcls_j4A6aygAPpw-"]]: true })}
+        drawerMaskClassName={classNames({ [sty["pcls_jxC0SG3FaIWz"]]: true })}
         drawerScopeClassName={sty["drawer__drawer"]}
         drawerTitleClassName={classNames({ [sty["pcls_hmJ-h55TsUV1"]]: true })}
         forceRender={false}

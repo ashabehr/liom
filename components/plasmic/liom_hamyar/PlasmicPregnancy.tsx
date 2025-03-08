@@ -80,10 +80,7 @@ import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import BuyComponenct from "../../BuyComponenct"; // plasmic-import: Ww7_RchUYDdQ/component
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
-import DirectDialog from "../../DirectDialog"; // plasmic-import: fU-uyZuVAszJ/component
-import { DialogTitle } from "@plasmicpkgs/radix-ui";
-import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -99,8 +96,6 @@ import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasm
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon188Icon from "./icons/PlasmicIcon__Icon188"; // plasmic-import: Ap0CNp82zKxk/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
-import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
-import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 
 createPlasmicElementProxy;
 
@@ -139,7 +134,7 @@ export type PlasmicPregnancy__OverridesType = {
   collapseBaby?: Flex__<typeof AntdSingleCollapse>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
-  directDialog?: Flex__<typeof DirectDialog>;
+  directDialog2?: Flex__<typeof DirectDialog2>;
 };
 
 export interface DefaultPregnancyProps {}
@@ -652,48 +647,16 @@ function PlasmicPregnancy__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
       {
-        path: "directDialog.opendialog",
+        path: "directDialog2.selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "directDialog2.open",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "apiRequest.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "input.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
-      },
-      {
-        path: "button3.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button2.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -11507,63 +11470,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           )
                                       }
                                     )}
-                                    onClick={async event => {
-                                      const $steps = {};
-
-                                      $steps["updateDirectDialogOpendialog"] =
-                                        true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: [
-                                                    "directDialog",
-                                                    "opendialog"
-                                                  ]
-                                                },
-                                                operation: 0,
-                                                value: true
-                                              };
-                                              return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
-                                              }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                      if (
-                                        $steps[
-                                          "updateDirectDialogOpendialog"
-                                        ] != null &&
-                                        typeof $steps[
-                                          "updateDirectDialogOpendialog"
-                                        ] === "object" &&
-                                        typeof $steps[
-                                          "updateDirectDialogOpendialog"
-                                        ].then === "function"
-                                      ) {
-                                        $steps["updateDirectDialogOpendialog"] =
-                                          await $steps[
-                                            "updateDirectDialogOpendialog"
-                                          ];
-                                      }
-                                    }}
                                   >
                                     <BuyComponenct
                                       className={classNames(
@@ -12725,63 +12631,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           )
                                       }
                                     )}
-                                    onClick={async event => {
-                                      const $steps = {};
-
-                                      $steps["updateDirectDialogOpendialog"] =
-                                        true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: [
-                                                    "directDialog",
-                                                    "opendialog"
-                                                  ]
-                                                },
-                                                operation: 0,
-                                                value: true
-                                              };
-                                              return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
-                                              }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                      if (
-                                        $steps[
-                                          "updateDirectDialogOpendialog"
-                                        ] != null &&
-                                        typeof $steps[
-                                          "updateDirectDialogOpendialog"
-                                        ] === "object" &&
-                                        typeof $steps[
-                                          "updateDirectDialogOpendialog"
-                                        ].then === "function"
-                                      ) {
-                                        $steps["updateDirectDialogOpendialog"] =
-                                          await $steps[
-                                            "updateDirectDialogOpendialog"
-                                          ];
-                                      }
-                                    }}
                                   >
                                     <BuyComponenct
                                       className={classNames(
@@ -15714,30 +15563,41 @@ function PlasmicPregnancy__RenderFunc(props: {
                 </div>
               ) : null}
             </div>
-          </section>
-          <DirectDialog
-            data-plasmic-name={"directDialog"}
-            data-plasmic-override={overrides.directDialog}
-            className={classNames("__wab_instance", sty.directDialog)}
-            onOpendialogChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "directDialog",
-                "opendialog"
-              ]).apply(null, eventArgs);
+            <DirectDialog2
+              data-plasmic-name={"directDialog2"}
+              data-plasmic-override={overrides.directDialog2}
+              className={classNames("__wab_instance", sty.directDialog2)}
+              onOpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "directDialog2",
+                  "open"
+                ]).apply(null, eventArgs);
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            opendialog={generateStateValueProp($state, [
-              "directDialog",
-              "opendialog"
-            ])}
-          />
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onSelectShopChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "directDialog2",
+                  "selectShop"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              open={generateStateValueProp($state, ["directDialog2", "open"])}
+            />
+          </section>
         </div>
       </div>
     </React.Fragment>
@@ -15765,7 +15625,7 @@ const PlasmicDescendants = {
     "collapseBaby",
     "collapseMother",
     "collapseHealth",
-    "directDialog"
+    "directDialog2"
   ],
   section: [
     "section",
@@ -15785,7 +15645,8 @@ const PlasmicDescendants = {
     "collapseTest",
     "collapseBaby",
     "collapseMother",
-    "collapseHealth"
+    "collapseHealth",
+    "directDialog2"
   ],
   button: ["button"],
   favIcone: ["favIcone"],
@@ -15804,7 +15665,7 @@ const PlasmicDescendants = {
   collapseBaby: ["collapseBaby"],
   collapseMother: ["collapseMother"],
   collapseHealth: ["collapseHealth"],
-  directDialog: ["directDialog"]
+  directDialog2: ["directDialog2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -15829,7 +15690,7 @@ type NodeDefaultElementType = {
   collapseBaby: typeof AntdSingleCollapse;
   collapseMother: typeof AntdSingleCollapse;
   collapseHealth: typeof AntdSingleCollapse;
-  directDialog: typeof DirectDialog;
+  directDialog2: typeof DirectDialog2;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -15935,7 +15796,7 @@ export const PlasmicPregnancy = Object.assign(
     collapseBaby: makeNodeComponent("collapseBaby"),
     collapseMother: makeNodeComponent("collapseMother"),
     collapseHealth: makeNodeComponent("collapseHealth"),
-    directDialog: makeNodeComponent("directDialog"),
+    directDialog2: makeNodeComponent("directDialog2"),
 
     // Metadata about props expected for PlasmicPregnancy
     internalVariantProps: PlasmicPregnancy__VariantProps,
