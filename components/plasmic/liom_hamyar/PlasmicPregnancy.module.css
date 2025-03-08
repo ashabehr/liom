@@ -43,6 +43,25 @@
 .sectiondarkMod > * {
   grid-column: 4;
 }
+.freeBox__eGfAu {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.img__c4Cc {
+  object-fit: cover;
+  max-width: 100%;
+}
+.img__c4Cc > picture > img {
+  object-fit: cover;
+}
 .freeBox__uy8D7 {
   display: flex;
   height: 100%;

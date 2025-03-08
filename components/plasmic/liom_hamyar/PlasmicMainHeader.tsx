@@ -63,8 +63,6 @@ import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
-import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -93,6 +91,8 @@ export const PlasmicMainHeader__VariantProps = new Array<VariantPropType>();
 export type PlasmicMainHeader__ArgsType = {
   userinfo?: any;
   token?: string;
+  dopen?: boolean;
+  onDopenChange?: (val: string) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
@@ -100,6 +100,8 @@ type ArgPropType = keyof PlasmicMainHeader__ArgsType;
 export const PlasmicMainHeader__ArgProps = new Array<ArgPropType>(
   "userinfo",
   "token",
+  "dopen",
+  "onDopenChange",
   "children",
   "slot"
 );
@@ -113,6 +115,8 @@ export type PlasmicMainHeader__OverridesType = {
 export interface DefaultMainHeaderProps {
   userinfo?: any;
   token?: string;
+  dopen?: boolean;
+  onDopenChange?: (val: string) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   className?: string;
@@ -206,14 +210,21 @@ function PlasmicMainHeader__RenderFunc(props: {
         path: "drawer.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? false : false
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props["dopen"]
       },
       {
         path: "button.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "white"
+      },
+      {
+        path: "dopen",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "dopen",
+        onChangeProp: "onDopenChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -223,10 +234,6 @@ function PlasmicMainHeader__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
-  });
-
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6BytLjmha8VC()
   });
 
   return (
@@ -343,6 +350,39 @@ function PlasmicMainHeader__RenderFunc(props: {
             null,
             eventArgs
           );
+
+          (async open => {
+            const $steps = {};
+
+            $steps["updateDopen"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["dopen"]
+                    },
+                    operation: 0,
+                    value: $state.drawer.open
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateDopen"] != null &&
+              typeof $steps["updateDopen"] === "object" &&
+              typeof $steps["updateDopen"].then === "function"
+            ) {
+              $steps["updateDopen"] = await $steps["updateDopen"];
+            }
+          }).apply(null, eventArgs);
         }}
         open={generateStateValueProp($state, ["drawer", "open"])}
         title={

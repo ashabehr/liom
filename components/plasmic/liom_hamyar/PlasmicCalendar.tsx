@@ -1671,6 +1671,12 @@ function PlasmicCalendar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "mainHeader.dopen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2569,20 +2575,22 @@ function PlasmicCalendar__RenderFunc(props: {
                                     .getDate()
                                     .toString()
                                     .padStart(2, "0")}`;
-                                  if ($state?.day?.data) {
+                                  if ($state && $state.day && $state.day.data) {
                                     try {
                                       var data = $state.day.data;
-                                      var day = data.find(
-                                        item => item.date == today
-                                      );
-                                      if (day) {
-                                        result = [
-                                          day.color,
-                                          day.Intensity,
-                                          day.Discharge,
-                                          day.Status,
-                                          day.sex
-                                        ];
+                                      if (Array.isArray(data)) {
+                                        var day = data.find(
+                                          item => item.date == today
+                                        );
+                                        if (day) {
+                                          result = [
+                                            day.color || "",
+                                            day.Intensity || "",
+                                            day.Discharge || "",
+                                            day.Status || "",
+                                            day.sex || ""
+                                          ];
+                                        }
                                       }
                                     } catch (error) {
                                       console.error(
@@ -2591,26 +2599,35 @@ function PlasmicCalendar__RenderFunc(props: {
                                       );
                                     }
                                   }
-                                  result.push(
-                                    $state?.sing?.result?.before || "",
-                                    $state?.sing?.result?.current || "",
-                                    $state?.sing?.result?.vaginal || "",
-                                    $state?.sing?.result?.venereal || "",
-                                    $state?.sing?.result?.womans || "",
-                                    $state?.sing?.result?.hereditary || "",
-                                    $state?.sing?.result?.others || "",
-                                    $state?.sing?.result?.psychological || ""
-                                  );
+                                  if (
+                                    $state &&
+                                    $state.sing &&
+                                    $state.sing.result
+                                  ) {
+                                    result.push(
+                                      $state.sing.result.before || "",
+                                      $state.sing.result.current || "",
+                                      $state.sing.result.vaginal || "",
+                                      $state.sing.result.venereal || "",
+                                      $state.sing.result.womans || "",
+                                      $state.sing.result.hereditary || "",
+                                      $state.sing.result.others || "",
+                                      $state.sing.result.psychological || ""
+                                    );
+                                  }
                                   let combinedArray = result
                                     .filter(item => item != "")
                                     .join(",");
                                   return {
                                     gender: "female",
                                     status:
-                                      $state?.cyclebox?.cycle === "blood"
+                                      $state &&
+                                      $state.cyclebox &&
+                                      $state.cyclebox.cycle === "blood"
                                         ? "period"
-                                        : $state?.cyclebox?.cycle ===
-                                          "fertility"
+                                        : $state &&
+                                          $state.cyclebox &&
+                                          $state.cyclebox.cycle === "fertility"
                                         ? "pregnancy"
                                         : $state?.cyclebox?.cycle || "unknown",
                                     maritalStatus: "single",
@@ -62465,6 +62482,21 @@ function PlasmicCalendar__RenderFunc(props: {
               data-plasmic-name={"mainHeader"}
               data-plasmic-override={overrides.mainHeader}
               className={classNames("__wab_instance", sty.mainHeader)}
+              dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
+              onDopenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainHeader",
+                  "dopen"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               token={(() => {
                 try {
                   return localStorage.getItem("token");
@@ -62502,12 +62534,12 @@ function PlasmicCalendar__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["updateDrawerOpen"] = true
+                    $steps["updateMainHeaderDopen"] = true
                       ? (() => {
                           const actionArgs = {
                             variable: {
                               objRoot: $state,
-                              variablePath: ["drawer", "open"]
+                              variablePath: ["mainHeader", "dopen"]
                             },
                             operation: 0,
                             value: true
@@ -62529,12 +62561,12 @@ function PlasmicCalendar__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      $steps["updateDrawerOpen"] != null &&
-                      typeof $steps["updateDrawerOpen"] === "object" &&
-                      typeof $steps["updateDrawerOpen"].then === "function"
+                      $steps["updateMainHeaderDopen"] != null &&
+                      typeof $steps["updateMainHeaderDopen"] === "object" &&
+                      typeof $steps["updateMainHeaderDopen"].then === "function"
                     ) {
-                      $steps["updateDrawerOpen"] = await $steps[
-                        "updateDrawerOpen"
+                      $steps["updateMainHeaderDopen"] = await $steps[
+                        "updateMainHeaderDopen"
                       ];
                     }
                   }}

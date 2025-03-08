@@ -690,6 +690,39 @@ function PlasmicPregnancy__RenderFunc(props: {
               [sty.sectiondarkMod]: hasVariant($state, "darkMod", "darkMod")
             })}
           >
+            {(() => {
+              try {
+                return true;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__eGfAu)}>
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__c4Cc)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/liom_hamyar/images/_72508101Png.png",
+                    fullWidth: 491,
+                    fullHeight: 450,
+                    aspectRatio: undefined
+                  }}
+                />
+              </div>
+            ) : null}
             <div
               className={classNames(projectcss.all, sty.freeBox__uy8D7, {
                 [sty.freeBoxdarkMod__uy8D7OQOo]: hasVariant(
