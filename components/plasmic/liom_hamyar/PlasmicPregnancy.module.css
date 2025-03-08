@@ -1399,7 +1399,7 @@
   flex-direction: column;
   min-width: 0;
   padding: 8px;
-  border-bottom: 1px solid var(--token-BIuTS8zmWD0f);
+  border-bottom: 1px solid var(--token-rGxK1TpZE_rW);
 }
 @media (max-width: 640px) {
   .freeBox__g8VH {
@@ -1482,7 +1482,7 @@
   margin-top: 6px;
   min-width: 0;
   padding: 0px;
-  border-bottom: 1px solid var(--token-BIuTS8zmWD0f);
+  border-bottom: 1px solid #e5e7eb;
 }
 @media (max-width: 640px) {
   .freeBox__j66VY {
