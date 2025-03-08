@@ -80,6 +80,10 @@ import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import BuyComponenct from "../../BuyComponenct"; // plasmic-import: Ww7_RchUYDdQ/component
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
+import DirectDialog from "../../DirectDialog"; // plasmic-import: fU-uyZuVAszJ/component
+import { DialogTitle } from "@plasmicpkgs/radix-ui";
+import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -93,7 +97,10 @@ import sty from "./PlasmicPregnancy.module.css"; // plasmic-import: PDbEkiKHzqMX
 
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon188Icon from "./icons/PlasmicIcon__Icon188"; // plasmic-import: Ap0CNp82zKxk/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
+import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 
 createPlasmicElementProxy;
 
@@ -127,12 +134,12 @@ export type PlasmicPregnancy__OverridesType = {
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
   todoList?: Flex__<typeof TodoList>;
   collapseDanger?: Flex__<typeof AntdSingleCollapse>;
-  svg?: Flex__<"svg">;
   collapseMedicine2?: Flex__<typeof AntdSingleCollapse>;
   collapseTest?: Flex__<typeof AntdSingleCollapse>;
   collapseBaby?: Flex__<typeof AntdSingleCollapse>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
+  directDialog?: Flex__<typeof DirectDialog>;
 };
 
 export interface DefaultPregnancyProps {}
@@ -643,6 +650,50 @@ function PlasmicPregnancy__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
+      },
+      {
+        path: "directDialog.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -9208,7 +9259,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           const currentItem = __plasmic_item_0;
                                           const currentIndex = __plasmic_idx_0;
                                           return (
-                                            <div
+                                            <Stack__
+                                              as={"div"}
+                                              hasGap={true}
                                               className={classNames(
                                                 projectcss.all,
                                                 sty.freeBox__yYOhA,
@@ -9564,6 +9617,28 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   })()}
                                                 </React.Fragment>
                                               </div>
+                                              {(() => {
+                                                try {
+                                                  return currentItem.vip == 1;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return true;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })() ? (
+                                                <Icon188Icon
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.svg__fiC9
+                                                  )}
+                                                  role={"img"}
+                                                />
+                                              ) : null}
                                               <div
                                                 className={classNames(
                                                   projectcss.all,
@@ -9582,18 +9657,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   }
                                                 </div>
                                                 <ChevronLeftIcon
-                                                  data-plasmic-name={"svg"}
-                                                  data-plasmic-override={
-                                                    overrides.svg
-                                                  }
                                                   className={classNames(
                                                     projectcss.all,
-                                                    sty.svg
+                                                    sty.svg__khz4C
                                                   )}
                                                   role={"img"}
                                                 />
                                               </div>
-                                            </div>
+                                            </Stack__>
                                           );
                                         }
                                       )}
@@ -11404,21 +11475,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       })()
                                     : (() => {
                                         try {
-                                          return (() => {
-                                            const allowance =
-                                              $state?.getUserInfo?.data?.[0]
-                                                ?.result?.allowance || [];
-                                            const filteredItem = allowance.find(
-                                              item =>
-                                                item.type.includes("danger")
-                                            );
-                                            const active = filteredItem
-                                              ? filteredItem.active
-                                              : false;
-                                            return (
-                                              !$state.loadingAdvice && !active
-                                            );
-                                          })();
+                                          return (
+                                            // const allowance = $state?.getUserInfo?.data?.[0]?.result?.allowance || [];
+                                            // const filteredItem = allowance.find(item => item.type.includes("danger"));
+                                            // const active = filteredItem ? filteredItem.active : false;
+                                            // !$state.loadingAdvice && !active
+                                            true
+                                          );
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -11446,6 +11509,60 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     )}
                                     onClick={async event => {
                                       const $steps = {};
+
+                                      $steps["updateDirectDialogOpendialog"] =
+                                        true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "directDialog",
+                                                    "opendialog"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: true
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                      if (
+                                        $steps[
+                                          "updateDirectDialogOpendialog"
+                                        ] != null &&
+                                        typeof $steps[
+                                          "updateDirectDialogOpendialog"
+                                        ] === "object" &&
+                                        typeof $steps[
+                                          "updateDirectDialogOpendialog"
+                                        ].then === "function"
+                                      ) {
+                                        $steps["updateDirectDialogOpendialog"] =
+                                          await $steps[
+                                            "updateDirectDialogOpendialog"
+                                          ];
+                                      }
                                     }}
                                   >
                                     <BuyComponenct
@@ -12576,21 +12693,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       })()
                                     : (() => {
                                         try {
-                                          return (() => {
-                                            const allowance =
-                                              $state?.getUserInfo?.data?.[0]
-                                                ?.result?.allowance || [];
-                                            const filteredItem = allowance.find(
-                                              item =>
-                                                item.type.includes("danger")
-                                            );
-                                            const active = filteredItem
-                                              ? filteredItem.active
-                                              : false;
-                                            return (
-                                              !$state.loadingAdvice && !active
-                                            );
-                                          })();
+                                          return (
+                                            // const allowance = $state?.getUserInfo?.data?.[0]?.result?.allowance || [];
+                                            // const filteredItem = allowance.find(item => item.type.includes("danger"));
+                                            // const active = filteredItem ? filteredItem.active : false;
+                                            // !$state.loadingAdvice && !active
+                                            true
+                                          );
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -12616,6 +12725,63 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           )
                                       }
                                     )}
+                                    onClick={async event => {
+                                      const $steps = {};
+
+                                      $steps["updateDirectDialogOpendialog"] =
+                                        true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "directDialog",
+                                                    "opendialog"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: true
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                      if (
+                                        $steps[
+                                          "updateDirectDialogOpendialog"
+                                        ] != null &&
+                                        typeof $steps[
+                                          "updateDirectDialogOpendialog"
+                                        ] === "object" &&
+                                        typeof $steps[
+                                          "updateDirectDialogOpendialog"
+                                        ].then === "function"
+                                      ) {
+                                        $steps["updateDirectDialogOpendialog"] =
+                                          await $steps[
+                                            "updateDirectDialogOpendialog"
+                                          ];
+                                      }
+                                    }}
                                   >
                                     <BuyComponenct
                                       className={classNames(
@@ -15549,6 +15715,29 @@ function PlasmicPregnancy__RenderFunc(props: {
               ) : null}
             </div>
           </section>
+          <DirectDialog
+            data-plasmic-name={"directDialog"}
+            data-plasmic-override={overrides.directDialog}
+            className={classNames("__wab_instance", sty.directDialog)}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "directDialog",
+                "opendialog"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            opendialog={generateStateValueProp($state, [
+              "directDialog",
+              "opendialog"
+            ])}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -15571,12 +15760,12 @@ const PlasmicDescendants = {
     "collapseAdvice",
     "todoList",
     "collapseDanger",
-    "svg",
     "collapseMedicine2",
     "collapseTest",
     "collapseBaby",
     "collapseMother",
-    "collapseHealth"
+    "collapseHealth",
+    "directDialog"
   ],
   section: [
     "section",
@@ -15592,7 +15781,6 @@ const PlasmicDescendants = {
     "collapseAdvice",
     "todoList",
     "collapseDanger",
-    "svg",
     "collapseMedicine2",
     "collapseTest",
     "collapseBaby",
@@ -15610,13 +15798,13 @@ const PlasmicDescendants = {
   sideEffect: ["sideEffect"],
   collapseAdvice: ["collapseAdvice"],
   todoList: ["todoList"],
-  collapseDanger: ["collapseDanger", "svg"],
-  svg: ["svg"],
+  collapseDanger: ["collapseDanger"],
   collapseMedicine2: ["collapseMedicine2"],
   collapseTest: ["collapseTest"],
   collapseBaby: ["collapseBaby"],
   collapseMother: ["collapseMother"],
-  collapseHealth: ["collapseHealth"]
+  collapseHealth: ["collapseHealth"],
+  directDialog: ["directDialog"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -15636,12 +15824,12 @@ type NodeDefaultElementType = {
   collapseAdvice: typeof AntdSingleCollapse;
   todoList: typeof TodoList;
   collapseDanger: typeof AntdSingleCollapse;
-  svg: "svg";
   collapseMedicine2: typeof AntdSingleCollapse;
   collapseTest: typeof AntdSingleCollapse;
   collapseBaby: typeof AntdSingleCollapse;
   collapseMother: typeof AntdSingleCollapse;
   collapseHealth: typeof AntdSingleCollapse;
+  directDialog: typeof DirectDialog;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -15742,12 +15930,12 @@ export const PlasmicPregnancy = Object.assign(
     collapseAdvice: makeNodeComponent("collapseAdvice"),
     todoList: makeNodeComponent("todoList"),
     collapseDanger: makeNodeComponent("collapseDanger"),
-    svg: makeNodeComponent("svg"),
     collapseMedicine2: makeNodeComponent("collapseMedicine2"),
     collapseTest: makeNodeComponent("collapseTest"),
     collapseBaby: makeNodeComponent("collapseBaby"),
     collapseMother: makeNodeComponent("collapseMother"),
     collapseHealth: makeNodeComponent("collapseHealth"),
+    directDialog: makeNodeComponent("directDialog"),
 
     // Metadata about props expected for PlasmicPregnancy
     internalVariantProps: PlasmicPregnancy__VariantProps,
