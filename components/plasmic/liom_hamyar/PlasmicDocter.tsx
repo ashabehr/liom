@@ -2141,7 +2141,11 @@ function PlasmicDocter__RenderFunc(props: {
                           key={currentIndex}
                           style={(() => {
                             try {
-                              return undefined;
+                              return {
+                                "background-color":
+                                  $state.getList.list[currentIndex].backColor +
+                                  "a1"
+                              };
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
