@@ -5032,21 +5032,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                   {(() => {
                     try {
                       return (
-                        $ctx?.query?.inApp == "true" &&
-                        !(
-                          (JSON.parse($state.user[0].allowance).allowance.find(
-                            item => item.type == "pregnancy_sub_become_father"
-                          ).active ??
-                            false) &&
-                          (JSON.parse($state.user[0].allowance).allowance.find(
-                            item => item.type == "pregnancy_sub_baby_growth"
-                          ).active ??
-                            false) &&
-                          (JSON.parse($state.user[0].allowance).allowance.find(
-                            item => item.type == "pregnancy_sub_better_relation"
-                          ).active ??
-                            false)
-                        )
+                        // !(
+                        //   (JSON.parse($state.user[0].allowance).allowance.find(item => item.type == 'pregnancy_sub_become_father').active ?? false) &&
+                        //   (JSON.parse($state.user[0].allowance).allowance.find(item => item.type == 'pregnancy_sub_baby_growth').active ?? false) &&
+                        //   (JSON.parse($state.user[0].allowance).allowance.find(item => item.type == 'pregnancy_sub_better_relation').active ?? false)
+                        // )
+
+                        false
                       );
                     } catch (e) {
                       if (
@@ -14840,7 +14832,19 @@ function PlasmicPregnancy__RenderFunc(props: {
               ) : null}
               {(
                 hasVariant(globalVariants, "screen", "mobile")
-                  ? true
+                  ? (() => {
+                      try {
+                        return $state.loading;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()
                   : (() => {
                       try {
                         return $state.loading;

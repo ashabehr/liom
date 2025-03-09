@@ -837,6 +837,7 @@ function PlasmicClinic__RenderFunc(props: {
               <Video
                 data-plasmic-name={"htmlVideo"}
                 data-plasmic-override={overrides.htmlVideo}
+                autoPlay={true}
                 className={classNames("__wab_instance", sty.htmlVideo)}
                 controls={true}
                 playsInline={true}

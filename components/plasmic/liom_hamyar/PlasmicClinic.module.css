@@ -205,6 +205,7 @@
   height: auto;
   max-width: 100%;
   object-fit: cover;
+  box-shadow: 0px 4px 16px 0px #0000001a;
   border-radius: 16px;
 }
 @media (max-width: 640px) {
@@ -450,8 +451,8 @@
 }
 @media (max-width: 640px) {
   .freeBox___1U1Cf {
-    grid-column-gap: 8px;
-    grid-row-gap: 8px;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
   }
 }
 .card6 {
