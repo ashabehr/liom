@@ -989,6 +989,8 @@
   .freeBox__ygc61 {
     align-items: center;
     justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
 }
 .text___9GcI9 {
@@ -1034,7 +1036,6 @@
 @media (max-width: 640px) {
   .freeBox___7Rejf {
     width: 100vw;
-    flex-shrink: 0;
   }
 }
 @media (max-width: 640px) {
