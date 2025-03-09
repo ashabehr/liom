@@ -3634,554 +3634,324 @@ function PlasmicPregnancy__RenderFunc(props: {
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__e4MeM
+                            sty.freeBox__anXyd
                           )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["runCode"] =
-                              $state.getUserInfo.data[0].result.hamyars
-                                .length == 0
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return window.FlutterChannel.postMessage(
-                                          "#hamyarInfo"
-                                        );
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-
-                            $steps["runCode2"] =
-                              $state.getUserInfo.data[0].result.hamyars.some(
-                                item => !item.rel.statusSms
-                              )
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return window.FlutterChannel.postMessage(
-                                          "#hamyarInfo"
-                                        );
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                            if (
-                              $steps["runCode2"] != null &&
-                              typeof $steps["runCode2"] === "object" &&
-                              typeof $steps["runCode2"].then === "function"
-                            ) {
-                              $steps["runCode2"] = await $steps["runCode2"];
-                            }
-
-                            $steps["invokeGlobalAction"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      "POST",
-                                      "https://api.liom.app/service/log",
-                                      undefined,
-                                      (() => {
-                                        try {
-                                          return (() => {
-                                            var action =
-                                              $state.getUserInfo.data[0].result
-                                                .hamyars.length == 0
-                                                ? "addHamyar"
-                                                : "activeHamyarSms";
-                                            return {
-                                              userId: $ctx.query.userId.slice(
-                                                4,
-                                                $ctx.query.userId.length - 4
-                                              ),
-                                              pageName: "mainPage_pregnancy",
-                                              action: action,
-                                              extraData: {}
-                                            };
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })(),
-                                      (() => {
-                                        try {
-                                          return {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                            }
-                                          };
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "Fragment.apiRequest"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["invokeGlobalAction"] != null &&
-                              typeof $steps["invokeGlobalAction"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction"].then ===
-                                "function"
-                            ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
-                            }
-                          }}
                         >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__anXyd
-                            )}
-                          >
-                            {(() => {
-                              try {
-                                return (() => {
-                                  if ($state.user[0].hamyarData == "{}")
-                                    return true;
-                                  else
-                                    return (
-                                      JSON.parse($state.user[0].hamyarData)
-                                        .hamyarsData.length == 0
-                                    );
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return false;
-                                }
-                                throw e;
-                              }
-                            })() ? (
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__jFCl
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text___29GzI
-                                  )}
-                                >
-                                  {
-                                    "\u0647\u0645\u06cc\u0627\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
-                                  }
-                                </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__fZiIw
-                                  )}
-                                >
-                                  {
-                                    "\u0647\u0645\u0633\u0631\u062a \u0631\u0648  \u062a\u0648\u06cc \u0645\u0633\u06cc\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0647\u0645\u0631\u0627\u0647 \u062e\u0648\u062f\u062a \u06a9\u0646!"
-                                  }
-                                </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__swRnX
-                                  )}
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__ekOvx
-                                    )}
-                                  >
-                                    {
-                                      "\u0627\u0641\u0632\u0648\u062f\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0647\u0645\u06cc\u0627\u0631"
-                                    }
-                                  </div>
-                                </div>
-                              </Stack__>
-                            ) : null}
-                            {(() => {
-                              try {
-                                return (
-                                  !JSON.parse($state.user[0].hamyarData)
-                                    .hamyarsData[0].statusSms &&
-                                  $ctx?.query?.inApp == "true" &&
-                                  !(
-                                    (JSON.parse(
-                                      $state.user[0].allowance
-                                    ).allowance.find(
+                          {(() => {
+                            try {
+                              return (() => {
+                                const allowance =
+                                  $state?.getUserInfo?.data?.[0]?.result
+                                    ?.allowance || [];
+                                var become_father = allowance.find(
+                                  item =>
+                                    item.type == "pregnancy_sub_become_father"
+                                )
+                                  ? allowance.find(
                                       item =>
                                         item.type ==
                                         "pregnancy_sub_become_father"
-                                    ).active ??
-                                      false) &&
-                                    (JSON.parse(
-                                      $state.user[0].allowance
-                                    ).allowance.find(
+                                    ).active
+                                  : false;
+                                var baby_growth = allowance.find(
+                                  item =>
+                                    item.type == "pregnancy_sub_baby_growth"
+                                )
+                                  ? allowance.find(
                                       item =>
                                         item.type == "pregnancy_sub_baby_growth"
-                                    ).active ??
-                                      false) &&
-                                    (JSON.parse(
-                                      $state.user[0].allowance
-                                    ).allowance.find(
+                                    ).active
+                                  : false;
+                                var better_relation = allowance.find(
+                                  item =>
+                                    item.type == "pregnancy_sub_better_relation"
+                                )
+                                  ? allowance.find(
                                       item =>
                                         item.type ==
                                         "pregnancy_sub_better_relation"
-                                    ).active ??
-                                      false)
-                                  )
+                                    ).active
+                                  : false;
+                                return !(
+                                  become_father &&
+                                  baby_growth &&
+                                  better_relation
                                 );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return false;
-                                }
-                                throw e;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
                               }
-                            })() ? (
+                              throw e;
+                            }
+                          })() ? (
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ekpIz
+                              )}
+                            >
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__fuRwW
+                                  projectcss.__wab_text,
+                                  sty.text___3J0TA
+                                )}
+                              >
+                                {
+                                  "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 "
+                                }
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__gxMd
+                                )}
+                              >
+                                {
+                                  "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0628\u0647 \u0628\u0631\u0646\u0627\u0645\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
+                                }
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__bcFt
                                 )}
                               >
                                 <div
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__sxoJx
+                                    sty.text__putVl
                                   )}
                                 >
                                   {
-                                    "\u0647\u0645\u06cc\u0627\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                                    "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0644\u06cc\u0648\u0645"
                                   }
                                 </div>
+                              </div>
+                            </Stack__>
+                          ) : null}
+                          {(() => {
+                            try {
+                              return (() => {
+                                if ($state.user[0].hamyarData == "{}")
+                                  return true;
+                                else
+                                  return (
+                                    JSON.parse($state.user[0].hamyarData)
+                                      .hamyarsData.length == 0
+                                  );
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__jFCl
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___29GzI
+                                )}
+                              >
+                                {
+                                  "\u0647\u0645\u06cc\u0627\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                                }
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__fZiIw
+                                )}
+                              >
+                                {
+                                  "\u0647\u0645\u0633\u0631\u062a \u0631\u0648  \u062a\u0648\u06cc \u0645\u0633\u06cc\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0647\u0645\u0631\u0627\u0647 \u062e\u0648\u062f\u062a \u06a9\u0646!"
+                                }
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__swRnX
+                                )}
+                              >
                                 <div
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text___9GcI9
+                                    sty.text__ekOvx
                                   )}
                                 >
                                   {
-                                    "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u062a\u0648\u0646\u06cc\u0645 \u0647\u0645\u0633\u0631\u062a \u0631\u0648 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062a\u0648 \u0648 \u0641\u0632\u0631\u0646\u062f\u062a \u0645\u0637\u0644\u0639 \u06a9\u0646\u06cc\u0645"
+                                    "\u0627\u0641\u0632\u0648\u062f\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0647\u0645\u06cc\u0627\u0631"
                                   }
                                 </div>
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox___7Rejf
-                                  )}
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__e67NZ
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      <React.Fragment>
-                                        {"\u0627\u0631\u0633\u0627\u0644 "}
-                                      </React.Fragment>
-                                      <span
-                                        className={
-                                          "plasmic_default__all plasmic_default__span"
-                                        }
-                                        style={{ fontWeight: 700 }}
-                                      >
-                                        {"\u067e\u06cc\u0627\u0645\u06a9"}
-                                      </span>
-                                      <React.Fragment>
-                                        {
-                                          " \u0628\u0647 \u0647\u0645\u06cc\u0627\u0631"
-                                        }
-                                      </React.Fragment>
-                                    </React.Fragment>
-                                  </div>
-                                  <Switchbest
-                                    data-plasmic-name={"switchbest"}
-                                    data-plasmic-override={overrides.switchbest}
-                                    children={null}
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.switchbest
-                                    )}
-                                    isChecked={
-                                      generateStateValueProp($state, [
-                                        "switchbest",
-                                        "isChecked"
-                                      ]) ?? false
-                                    }
-                                    onChange={async (...eventArgs: any) => {
-                                      ((...eventArgs) => {
-                                        generateStateOnChangeProp($state, [
-                                          "switchbest",
-                                          "isChecked"
-                                        ])(eventArgs[0]);
-                                      }).apply(null, eventArgs);
-
-                                      if (
-                                        eventArgs.length > 1 &&
-                                        eventArgs[1] &&
-                                        eventArgs[1]._plasmic_state_init_
-                                      ) {
-                                        return;
-                                      }
-                                    }}
-                                  />
-                                </Stack__>
                               </div>
-                            ) : null}
-                          </div>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__bcQKk
-                          )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return window.FlutterChannel.postMessage(
-                                        "#hamyarInfo"
-                                      );
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-
-                            $steps["invokeGlobalAction"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      "POST",
-                                      "https://api.liom.app/service/log",
-                                      undefined,
-                                      (() => {
-                                        try {
-                                          return {
-                                            userId: $ctx.query.userId.slice(
-                                              4,
-                                              $ctx.query.userId.length - 4
-                                            ),
-                                            pageName: "mainPage_pregnancy",
-                                            action: "click_buy_sub",
-                                            extraData: {}
-                                          };
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })(),
-                                      (() => {
-                                        try {
-                                          return {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                            }
-                                          };
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "Fragment.apiRequest"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["invokeGlobalAction"] != null &&
-                              typeof $steps["invokeGlobalAction"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction"].then ===
-                                "function"
-                            ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
-                            }
-                          }}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__eGaBd
-                            )}
-                          >
-                            {(() => {
-                              try {
-                                return (
-                                  $ctx?.query?.inApp == "true" &&
+                            </Stack__>
+                          ) : null}
+                          {(() => {
+                            try {
+                              return (
+                                !JSON.parse($state.user[0].hamyarData)
+                                  .hamyarsData[0].statusSms &&
+                                $ctx?.query?.inApp == "true" &&
+                                !(
                                   (JSON.parse(
                                     $state.user[0].allowance
                                   ).allowance.find(
                                     item =>
-                                      item.type != "pregnancy_sub_become_father"
+                                      item.type == "pregnancy_sub_become_father"
                                   ).active ??
                                     false) &&
                                   (JSON.parse(
                                     $state.user[0].allowance
                                   ).allowance.find(
                                     item =>
-                                      item.type != "pregnancy_sub_baby_growth"
+                                      item.type == "pregnancy_sub_baby_growth"
                                   ).active ??
                                     false) &&
                                   (JSON.parse(
                                     $state.user[0].allowance
                                   ).allowance.find(
                                     item =>
-                                      item.type !=
+                                      item.type ==
                                       "pregnancy_sub_better_relation"
                                   ).active ??
                                     false)
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return false;
-                                }
-                                throw e;
+                                )
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
                               }
-                            })() ? (
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__fuRwW
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__sxoJx
+                                )}
+                              >
+                                {
+                                  "\u0647\u0645\u06cc\u0627\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                                }
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___9GcI9
+                                )}
+                              >
+                                {
+                                  "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u062a\u0648\u0646\u06cc\u0645 \u0647\u0645\u0633\u0631\u062a \u0631\u0648 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062a\u0648 \u0648 \u0641\u0632\u0631\u0646\u062f\u062a \u0645\u0637\u0644\u0639 \u06a9\u0646\u06cc\u0645"
+                                }
+                              </div>
                               <Stack__
                                 as={"div"}
                                 hasGap={true}
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__ekpIz
+                                  sty.freeBox___7Rejf
                                 )}
                               >
                                 <div
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text___3J0TA
+                                    sty.text__e67NZ
                                   )}
                                 >
-                                  {
-                                    "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 "
-                                  }
+                                  <React.Fragment>
+                                    <React.Fragment>
+                                      {"\u0627\u0631\u0633\u0627\u0644 "}
+                                    </React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ fontWeight: 700 }}
+                                    >
+                                      {"\u067e\u06cc\u0627\u0645\u06a9"}
+                                    </span>
+                                    <React.Fragment>
+                                      {
+                                        " \u0628\u0647 \u0647\u0645\u06cc\u0627\u0631"
+                                      }
+                                    </React.Fragment>
+                                  </React.Fragment>
                                 </div>
-                                <div
+                                <Switchbest
+                                  data-plasmic-name={"switchbest"}
+                                  data-plasmic-override={overrides.switchbest}
+                                  children={null}
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__gxMd
+                                    "__wab_instance",
+                                    sty.switchbest
                                   )}
-                                >
-                                  {
-                                    "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0628\u0647 \u0628\u0631\u0646\u0627\u0645\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
+                                  isChecked={
+                                    generateStateValueProp($state, [
+                                      "switchbest",
+                                      "isChecked"
+                                    ]) ?? false
                                   }
-                                </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__bcFt
-                                  )}
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__putVl
-                                    )}
-                                  >
-                                    {
-                                      "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0644\u06cc\u0648\u0645"
+                                  onChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "switchbest",
+                                        "isChecked"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
                                     }
-                                  </div>
-                                </div>
+                                  }}
+                                />
                               </Stack__>
-                            ) : null}
-                          </div>
+                            </div>
+                          ) : null}
                         </div>
                         {(() => {
                           try {
                             return (
-                              //parseInt($ctx.query.version ?? 0) > 286
-                              true
+                              // parseInt($ctx.query.version ?? 0) > 286
+                              false
                             );
                           } catch (e) {
                             if (
@@ -4196,164 +3966,125 @@ function PlasmicPregnancy__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__uS0Es
+                              sty.freeBox__bdwnf
                             )}
-                          >
-                            {(() => {
-                              try {
-                                return (
-                                  // parseInt($ctx.query.version ?? 0) > 286
-                                  false
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return false;
-                                }
-                                throw e;
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          const element =
+                                            document.getElementById("advice");
+                                          return element.scrollIntoView({
+                                            behavior: "smooth",
+                                            block: "start"
+                                          });
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
                               }
-                            })() ? (
+
+                              $steps["updateCollapseAdviceOpen"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["collapseAdvice", "open"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateCollapseAdviceOpen"] != null &&
+                                typeof $steps["updateCollapseAdviceOpen"] ===
+                                  "object" &&
+                                typeof $steps["updateCollapseAdviceOpen"]
+                                  .then === "function"
+                              ) {
+                                $steps["updateCollapseAdviceOpen"] =
+                                  await $steps["updateCollapseAdviceOpen"];
+                              }
+                            }}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ggFd2
+                              )}
+                            >
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__bdwnf
+                                  projectcss.__wab_text,
+                                  sty.text__awUgl
                                 )}
-                                onClick={async event => {
-                                  const $steps = {};
-
-                                  $steps["runCode"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          customFunction: async () => {
-                                            return (() => {
-                                              const element =
-                                                document.getElementById(
-                                                  "advice"
-                                                );
-                                              return element.scrollIntoView({
-                                                behavior: "smooth",
-                                                block: "start"
-                                              });
-                                            })();
-                                          }
-                                        };
-                                        return (({ customFunction }) => {
-                                          return customFunction();
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["runCode"] != null &&
-                                    typeof $steps["runCode"] === "object" &&
-                                    typeof $steps["runCode"].then === "function"
-                                  ) {
-                                    $steps["runCode"] = await $steps["runCode"];
-                                  }
-
-                                  $steps["updateCollapseAdviceOpen"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: [
-                                              "collapseAdvice",
-                                              "open"
-                                            ]
-                                          },
-                                          operation: 0,
-                                          value: true
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateCollapseAdviceOpen"] !=
-                                      null &&
-                                    typeof $steps[
-                                      "updateCollapseAdviceOpen"
-                                    ] === "object" &&
-                                    typeof $steps["updateCollapseAdviceOpen"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["updateCollapseAdviceOpen"] =
-                                      await $steps["updateCollapseAdviceOpen"];
-                                  }
-                                }}
                               >
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__ggFd2
-                                  )}
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__awUgl
-                                    )}
-                                  >
-                                    {
-                                      "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632 \u0628\u0647 \u067e\u0627\u06cc\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u0646\u062a\u0642\u0644 \u0634\u062f."
-                                    }
-                                  </div>
-                                  <PlasmicImg__
-                                    alt={""}
-                                    className={classNames(sty.img__ilr51)}
-                                    displayHeight={"auto"}
-                                    displayMaxHeight={"none"}
-                                    displayMaxWidth={"100%"}
-                                    displayMinHeight={"0"}
-                                    displayMinWidth={"0"}
-                                    displayWidth={"20px"}
-                                    loading={"lazy"}
-                                    src={{
-                                      src: "/plasmic/liom_hamyar/images/image36.svg",
-                                      fullWidth: 24,
-                                      fullHeight: 24,
-                                      aspectRatio: 1
-                                    }}
-                                  />
-                                </Stack__>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__xQrsL
-                                  )}
-                                >
-                                  {hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobile"
-                                  )
-                                    ? "\u0645\u0634\u0627\u0647\u062f\u0647 \u062a\u0648\u0635\u06cc\u0647"
-                                    : "\u0645\u0634\u0627\u0647\u062f\u0647 \u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650 \u062a\u0648"}
-                                </div>
+                                {
+                                  "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632 \u0628\u0647 \u067e\u0627\u06cc\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u0646\u062a\u0642\u0644 \u0634\u062f."
+                                }
                               </div>
-                            ) : null}
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__ilr51)}
+                                displayHeight={"auto"}
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={"20px"}
+                                loading={"lazy"}
+                                src={{
+                                  src: "/plasmic/liom_hamyar/images/image36.svg",
+                                  fullWidth: 24,
+                                  fullHeight: 24,
+                                  aspectRatio: 1
+                                }}
+                              />
+                            </Stack__>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__xQrsL
+                              )}
+                            >
+                              {hasVariant(globalVariants, "screen", "mobile")
+                                ? "\u0645\u0634\u0627\u0647\u062f\u0647 \u062a\u0648\u0635\u06cc\u0647"
+                                : "\u0645\u0634\u0627\u0647\u062f\u0647 \u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650 \u062a\u0648"}
+                            </div>
                           </div>
                         ) : null}
                       </div>
@@ -5029,167 +4760,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                       </div>
                     </div>
                   </div>
-                  {(() => {
-                    try {
-                      return (
-                        // !(
-                        //   (JSON.parse($state.user[0].allowance).allowance.find(item => item.type == 'pregnancy_sub_become_father').active ?? false) &&
-                        //   (JSON.parse($state.user[0].allowance).allowance.find(item => item.type == 'pregnancy_sub_baby_growth').active ?? false) &&
-                        //   (JSON.parse($state.user[0].allowance).allowance.find(item => item.type == 'pregnancy_sub_better_relation').active ?? false)
-                        // )
-
-                        false
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return false;
-                      }
-                      throw e;
-                    }
-                  })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__d05E)}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["runCode"] = (() => {
-                          if ($ctx.query?.inApp == "true") return true;
-                          else return false;
-                        })()
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return window.FlutterChannel.postMessage(
-                                    "#healthSubscription"
-                                  );
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
-
-                        $steps["runCode2"] = (() => {
-                          if ($ctx.query?.inApp == "true") return false;
-                          else return true;
-                        })()
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return console.log("aaaa");
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode2"] != null &&
-                          typeof $steps["runCode2"] === "object" &&
-                          typeof $steps["runCode2"].then === "function"
-                        ) {
-                          $steps["runCode2"] = await $steps["runCode2"];
-                        }
-
-                        $steps["invokeGlobalAction"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://api.liom.app/service/log",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        userId: $ctx.query.userId.slice(
-                                          4,
-                                          $ctx.query.userId.length - 4
-                                        ),
-                                        pageName: "buy_banner",
-                                        action: "clickOpen",
-                                        extraData: {}
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })(),
-                                  (() => {
-                                    try {
-                                      return {
-                                        headers: {
-                                          "Content-Type": "application/json",
-                                          Authorization:
-                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                        }
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
-                      }}
-                    >
-                      <PlasmicImg__
-                        alt={""}
-                        className={classNames(sty.img__bski5)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        loading={"lazy"}
-                        src={{
-                          src: "/plasmic/liom_hamyar/images/image74.png",
-                          fullWidth: 985,
-                          fullHeight: 344,
-                          aspectRatio: undefined
-                        }}
-                      />
-                    </div>
-                  ) : null}
                   <div
                     className={classNames(projectcss.all, sty.freeBox__d784V)}
                   >
@@ -6719,6 +6289,190 @@ function PlasmicPregnancy__RenderFunc(props: {
                       );
                     })}
                   </div>
+                  {(() => {
+                    try {
+                      return (
+                        // const allowance = ($state?.getUserInfo?.data?.[0]?.result?.allowance || []);
+                        // var become_father = allowance.find(item => item.type =="pregnancy_sub_become_father") ? allowance.find(item => item.type =="pregnancy_sub_become_father") .active : false;
+                        // var baby_growth = allowance.find(item => item.type == "pregnancy_sub_baby_growth") ? allowance.find(item => item.type == "pregnancy_sub_baby_growth").active : false;
+                        // var better_relation = allowance.find(item => item.type == "pregnancy_sub_better_relation") ? allowance.find(item => item.type == "pregnancy_sub_better_relation").active : false;
+
+                        // return !(become_father && baby_growth && better_relation)
+
+                        false
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__d05E)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] =
+                          $ctx.query?.inApp == "true"
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return window.FlutterChannel.postMessage(
+                                      "#healthSubscription"
+                                    );
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["runCode2"] =
+                          $ctx.query?.inApp != "true"
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: (() => {
+                                    try {
+                                      return (
+                                        "https://apps.liom.app/shop/?token=" +
+                                        $ctx.query.token.slice(
+                                          6,
+                                          $ctx.query.token.length - 3
+                                        )
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                };
+                                return (({ destination }) => {
+                                  if (
+                                    typeof destination === "string" &&
+                                    destination.startsWith("#")
+                                  ) {
+                                    document
+                                      .getElementById(destination.substr(1))
+                                      .scrollIntoView({ behavior: "smooth" });
+                                  } else {
+                                    __nextRouter?.push(destination);
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["runCode2"] != null &&
+                          typeof $steps["runCode2"] === "object" &&
+                          typeof $steps["runCode2"].then === "function"
+                        ) {
+                          $steps["runCode2"] = await $steps["runCode2"];
+                        }
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/service/log",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        userId: $ctx.query.userId.slice(
+                                          4,
+                                          $ctx.query.userId.length - 4
+                                        ),
+                                        pageName: "buy_banner",
+                                        action: "clickOpen",
+                                        extraData: {}
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return {
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization:
+                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                        }
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+                      }}
+                    >
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__bski5)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/liom_hamyar/images/image74.png",
+                          fullWidth: 985,
+                          fullHeight: 344,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </div>
+                  ) : null}
                   <div
                     className={classNames(projectcss.all, sty.freeBox__mQHgs)}
                   >
@@ -16231,6 +15985,19 @@ function PlasmicPregnancy__RenderFunc(props: {
                 }
               }}
               open={generateStateValueProp($state, ["directDialog2", "open"])}
+              token={(() => {
+                try {
+                  return $ctx.query.token.slice(6, $ctx.query.token.length - 3);
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             />
           </section>
         </div>

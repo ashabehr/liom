@@ -840,6 +840,7 @@ function PlasmicClinic__RenderFunc(props: {
                 autoPlay={true}
                 className={classNames("__wab_instance", sty.htmlVideo)}
                 controls={true}
+                muted={true}
                 playsInline={true}
                 poster={"/plasmic/liom_hamyar/images/macBookAir1Png2.png"}
                 src={
@@ -1030,7 +1031,7 @@ function PlasmicClinic__RenderFunc(props: {
                 )}
               >
                 {
-                  "\u062f\u0633\u062a\u0647 \u0628\u0646\u062f\u06cc \u0647\u0627"
+                  " \u0645\u0648\u0636\u0648\u0639 \u0645\u0634\u0627\u0648\u0631\u0647 \u062e\u0648\u062f \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f."
                 }
               </div>
               <div

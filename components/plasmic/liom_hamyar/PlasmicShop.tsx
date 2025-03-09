@@ -811,7 +811,10 @@ function PlasmicShop__RenderFunc(props: {
                 return {
                   section: "hamyarSub",
                   type: "drawn",
-                  authorization: localStorage.getItem("token")
+                  authorization:
+                    localStorage.getItem("token") ||
+                    $ctx.query.token ||
+                    new URLSearchParams(window.location.search).get("token")
                 };
               } catch (e) {
                 if (
