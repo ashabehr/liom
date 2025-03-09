@@ -123,6 +123,7 @@ export type PlasmicDocter__OverridesType = {
   monSat0830Am?: Flex__<"div">;
   speciality4?: Flex__<"div">;
   lineClomp2?: Flex__<typeof LineClomp>;
+  card15?: Flex__<"div">;
   button?: Flex__<typeof Button>;
   dialog?: Flex__<typeof Dialog>;
   input3?: Flex__<typeof AntdInput>;
@@ -2109,6 +2110,92 @@ function PlasmicDocter__RenderFunc(props: {
                       )}
                     </div>
                   </LineClomp>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__lcYk9)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.getList.list;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <Stack__
+                          as={"div"}
+                          data-plasmic-name={"card15"}
+                          data-plasmic-override={overrides.card15}
+                          hasGap={true}
+                          className={classNames(projectcss.all, sty.card15)}
+                          key={currentIndex}
+                          style={(() => {
+                            try {
+                              return undefined;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__lgIiO
+                            )}
+                            style={(() => {
+                              try {
+                                return {
+                                  color: currentItem.textColor
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.text;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0645\u0634\u06a9\u0644\u0627\u062a \u062c\u0646\u0633\u06cc ";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </Stack__>
+                      );
+                    })}
+                  </div>
                 </Stack__>
               </Stack__>
               <section
@@ -3007,6 +3094,7 @@ const PlasmicDescendants = {
     "monSat0830Am",
     "speciality4",
     "lineClomp2",
+    "card15",
     "button",
     "dialog",
     "input3",
@@ -3036,6 +3124,7 @@ const PlasmicDescendants = {
     "monSat0830Am",
     "speciality4",
     "lineClomp2",
+    "card15",
     "button",
     "dialog",
     "input3",
@@ -3067,6 +3156,7 @@ const PlasmicDescendants = {
     "monSat0830Am",
     "speciality4",
     "lineClomp2",
+    "card15",
     "button",
     "dialog",
     "input3",
@@ -3079,8 +3169,9 @@ const PlasmicDescendants = {
   drBellamyNicholas: ["drBellamyNicholas"],
   workingTime: ["workingTime", "monSat0830Am"],
   monSat0830Am: ["monSat0830Am"],
-  speciality4: ["speciality4", "lineClomp2"],
+  speciality4: ["speciality4", "lineClomp2", "card15"],
   lineClomp2: ["lineClomp2"],
+  card15: ["card15"],
   button: ["button"],
   dialog: ["dialog", "input3", "button10", "button11"],
   input3: ["input3"],
@@ -3114,6 +3205,7 @@ type NodeDefaultElementType = {
   monSat0830Am: "div";
   speciality4: "div";
   lineClomp2: typeof LineClomp;
+  card15: "div";
   button: typeof Button;
   dialog: typeof Dialog;
   input3: typeof AntdInput;
@@ -3228,6 +3320,7 @@ export const PlasmicDocter = Object.assign(
     monSat0830Am: makeNodeComponent("monSat0830Am"),
     speciality4: makeNodeComponent("speciality4"),
     lineClomp2: makeNodeComponent("lineClomp2"),
+    card15: makeNodeComponent("card15"),
     button: makeNodeComponent("button"),
     dialog: makeNodeComponent("dialog"),
     input3: makeNodeComponent("input3"),

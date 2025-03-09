@@ -11652,7 +11652,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       const $steps = {};
 
                                       $steps["runCode"] =
-                                        $ctx.query.inApp == "true"
+                                        $ctx.query.inApp == "true" && false
                                           ? (() => {
                                               const actionArgs = {
                                                 customFunction: async () => {
@@ -11678,7 +11678,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       }
 
                                       $steps["updateDirectDialog2Open"] =
-                                        $ctx.query.inApp != "true"
+                                        //$ctx.query.inApp != "true"
+                                        true
                                           ? (() => {
                                               const actionArgs = {
                                                 variable: {
@@ -11746,7 +11747,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                             .length - 4
                                                         ),
                                                       pageName: "mainPage",
-                                                      action: "open-buyDialog",
+                                                      action:
+                                                        "buyDialog-danger",
                                                       extraData: {}
                                                     };
                                                   } catch (e) {
@@ -12966,7 +12968,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       const $steps = {};
 
                                       $steps["runCode"] =
-                                        $ctx.query.inApp == "true"
+                                        $ctx.query.inApp == "true" && false
                                           ? (() => {
                                               const actionArgs = {
                                                 customFunction: async () => {
@@ -12992,7 +12994,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       }
 
                                       $steps["updateDirectDialog2Open"] =
-                                        $ctx.query.inApp != "true"
+                                        //$ctx.query.inApp != "true"
+                                        true
                                           ? (() => {
                                               const actionArgs = {
                                                 variable: {
@@ -13060,7 +13063,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                             .length - 4
                                                         ),
                                                       pageName: "mainPage",
-                                                      action: "open-buyDialog",
+                                                      action:
+                                                        "buyDialog-danger",
                                                       extraData: {}
                                                     };
                                                   } catch (e) {

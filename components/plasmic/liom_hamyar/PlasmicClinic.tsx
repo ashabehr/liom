@@ -87,7 +87,6 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicClinic.module.css"; // plasmic-import: YAtLxskjvTM0/css
 
-import Icon74Icon from "./icons/PlasmicIcon__Icon74"; // plasmic-import: ARDSibiJTpV7/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon104Icon from "./icons/PlasmicIcon__Icon104"; // plasmic-import: 6Kx4mXYQvykk/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
@@ -123,9 +122,6 @@ export type PlasmicClinic__OverridesType = {
   rectangle2?: Flex__<"div">;
   ا?: Flex__<"div">;
   ا2?: Flex__<"div">;
-  rectangle?: Flex__<"div">;
-  findSuitableSpecia?: Flex__<"div">;
-  rectangle3?: Flex__<"div">;
   speciality?: Flex__<"div">;
   card6?: Flex__<"div">;
   iconClinic?: Flex__<typeof IconClinic>;
@@ -992,124 +988,6 @@ function PlasmicClinic__RenderFunc(props: {
                     aspectRatio: undefined
                   }}
                 />
-              </div>
-            </div>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__nTa7N, {
-                [sty.freeBox_1_chatviow__nTa7NaYJmT]: hasVariant(
-                  $state,
-                  "_1",
-                  "chatviow"
-                ),
-                [sty.freeBox_1_docter__nTa7N8Ddm8]: hasVariant(
-                  $state,
-                  "_1",
-                  "docter"
-                ),
-                [sty.freeBox_1_docters__nTa7Npv2Kd]: hasVariant(
-                  $state,
-                  "_1",
-                  "docters"
-                )
-              })}
-            >
-              <div
-                data-plasmic-name={"rectangle"}
-                data-plasmic-override={overrides.rectangle}
-                className={classNames(projectcss.all, sty.rectangle, {
-                  [sty.rectangle_1_chatviow]: hasVariant(
-                    $state,
-                    "_1",
-                    "chatviow"
-                  ),
-                  [sty.rectangle_1_docter]: hasVariant($state, "_1", "docter"),
-                  [sty.rectangle_1_docters]: hasVariant($state, "_1", "docters")
-                })}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return `/chatviow?gender=${new URLSearchParams(
-                                new URL(window.location.href).search
-                              ).get("gender")}`;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return `/chatviow`;
-                              }
-                              throw e;
-                            }
-                          })()
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
-                  ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
-                  }
-                }}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__ygX2U)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__vG1Fu
-                    )}
-                  >
-                    {
-                      "\u0648\u06cc\u0632\u06cc\u062a\u200c\u0647\u0627\u06cc \u0645\u0646"
-                    }
-                  </div>
-                  <div
-                    data-plasmic-name={"findSuitableSpecia"}
-                    data-plasmic-override={overrides.findSuitableSpecia}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.findSuitableSpecia
-                    )}
-                  >
-                    {
-                      "\u067e\u06cc\u0627\u0645\u200c\u0647\u0627\u06cc \u0631\u062f \u0648 \u0628\u062f\u0644 \u0634\u062f\u0647 \u0628\u0627 \u067e\u0632\u0634\u06a9\u0627\u0646"
-                    }
-                  </div>
-                </Stack__>
-                <div
-                  data-plasmic-name={"rectangle3"}
-                  data-plasmic-override={overrides.rectangle3}
-                  className={classNames(projectcss.all, sty.rectangle3)}
-                >
-                  <Icon74Icon
-                    className={classNames(projectcss.all, sty.svg___1S0X3)}
-                    role={"img"}
-                  />
-                </div>
               </div>
             </div>
             <Stack__
@@ -7790,9 +7668,6 @@ const PlasmicDescendants = {
     "rectangle2",
     "\u0627",
     "\u06272",
-    "rectangle",
-    "findSuitableSpecia",
-    "rectangle3",
     "speciality",
     "card6",
     "iconClinic",
@@ -7859,9 +7734,6 @@ const PlasmicDescendants = {
   rectangle2: ["rectangle2", "\u0627", "\u06272"],
   ا: ["\u0627"],
   ا2: ["\u06272"],
-  rectangle: ["rectangle", "findSuitableSpecia", "rectangle3"],
-  findSuitableSpecia: ["findSuitableSpecia"],
-  rectangle3: ["rectangle3"],
   speciality: ["speciality", "card6", "iconClinic"],
   card6: ["card6", "iconClinic"],
   iconClinic: ["iconClinic"],
@@ -7988,9 +7860,6 @@ type NodeDefaultElementType = {
   rectangle2: "div";
   ا: "div";
   ا2: "div";
-  rectangle: "div";
-  findSuitableSpecia: "div";
-  rectangle3: "div";
   speciality: "div";
   card6: "div";
   iconClinic: typeof IconClinic;
@@ -8143,9 +8012,6 @@ export const PlasmicClinic = Object.assign(
     rectangle2: makeNodeComponent("rectangle2"),
     ا: makeNodeComponent("\u0627"),
     ا2: makeNodeComponent("\u06272"),
-    rectangle: makeNodeComponent("rectangle"),
-    findSuitableSpecia: makeNodeComponent("findSuitableSpecia"),
-    rectangle3: makeNodeComponent("rectangle3"),
     speciality: makeNodeComponent("speciality"),
     card6: makeNodeComponent("card6"),
     iconClinic: makeNodeComponent("iconClinic"),
