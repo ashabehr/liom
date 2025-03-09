@@ -439,20 +439,9 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (
-                              "https://apps.liom.app/pregnancy/?token=+ " +
-                              $ctx.query.token +
-                              "&userId=" +
-                              $ctx.query.userId +
-                              "&theme=" +
-                              $ctx.query.theme +
-                              "&inAp=" +
-                              $ctx.query.inApp +
-                              "&inBot" +
-                              $ctx.query.inBot +
-                              "&version=" +
-                              $ctx.query.versio
-                            );
+                            return (() => {
+                              return window.history.back();
+                            })();
                           }
                         };
                         return (({ customFunction }) => {

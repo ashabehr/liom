@@ -6807,7 +6807,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         }
 
                         $steps["goToPage"] =
-                          $ctx.query.inApp == "false"
+                          ($ctx.query?.inApp ?? "") != "true"
                             ? (() => {
                                 const actionArgs = {
                                   destination: (() => {
