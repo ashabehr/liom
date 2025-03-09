@@ -95,6 +95,7 @@ export const PlasmicChatviow__ArgProps = new Array<ArgPropType>();
 export type PlasmicChatviow__OverridesType = {
   root?: Flex__<"div">;
   favicon?: Flex__<typeof Embed>;
+  section?: Flex__<"section">;
   svg?: Flex__<"svg">;
   search?: Flex__<typeof Search>;
   antdInput?: Flex__<typeof Input>;
@@ -340,289 +341,297 @@ function PlasmicChatviow__RenderFunc(props: {
             }
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__pEej)}
+          <section
+            data-plasmic-name={"section"}
+            data-plasmic-override={overrides.section}
+            className={classNames(projectcss.all, sty.section)}
           >
-            <ChevronRightIcon
-              data-plasmic-name={"svg"}
-              data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["goToPage"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return `/clinic?gender=${new URLSearchParams(
-                              new URL(window.location.href).search
-                            ).get("gender")}`;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return `/clinic`;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
-                ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
-                }
-              }}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___375C6
-              )}
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__pEej)}
             >
-              {"\u06af\u0641\u062a\u06af\u0648 \u0647\u0627"}
-            </div>
-            {(
-              hasVariant(globalVariants, "screen", "mobile")
-                ? true
-                : (() => {
-                    try {
-                      return !$state.loadingPage;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })()
-            ) ? (
-              <Search
-                data-plasmic-name={"search"}
-                data-plasmic-override={overrides.search}
-                antdInput2={(() => {
-                  const child$Props = {
-                    bordered: false,
-                    className: classNames("__wab_instance", sty.antdInput),
-                    id: hasVariant(globalVariants, "screen", "mobile")
-                      ? "inputMobile"
-                      : "inputMobile",
-                    onChange: async (...eventArgs: any) => {
-                      generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "value",
-                        ["antdInput", "value"],
-                        Input_Helpers
-                      ).apply(null, eventArgs);
-
-                      (async event => {
-                        const $steps = {};
-
-                        $steps["updateFilter"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["filter"]
-                                },
-                                operation: 0,
-                                value: (() => {
-                                  return $state.chat.data.list.filter(
-                                    item =>
-                                      item.text.includes(
-                                        $state.antdInput.value
-                                      ) ||
-                                      item.subList_name.includes(
-                                        $state.antdInput.value
-                                      ) ||
-                                      item.doctor.name.includes(
-                                        $state.antdInput.value
-                                      )
-                                  );
-                                })()
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateFilter"] != null &&
-                          typeof $steps["updateFilter"] === "object" &&
-                          typeof $steps["updateFilter"].then === "function"
-                        ) {
-                          $steps["updateFilter"] = await $steps["updateFilter"];
-                        }
-                      }).apply(null, eventArgs);
-                    },
-                    value: generateStateValueProp($state, [
-                      "antdInput",
-                      "value"
-                    ])
-                  };
-                  initializeCodeComponentStates(
-                    $state,
-                    [
-                      {
-                        name: "value",
-                        plasmicStateName: "antdInput.value"
-                      }
-                    ],
-                    [],
-                    Input_Helpers ?? {},
-                    child$Props
-                  );
-
-                  return (
-                    <Input
-                      data-plasmic-name={"antdInput"}
-                      data-plasmic-override={overrides.antdInput}
-                      {...child$Props}
-                    />
-                  );
-                })()}
-                className={classNames("__wab_instance", sty.search)}
+              <ChevronRightIcon
+                data-plasmic-name={"svg"}
+                data-plasmic-override={overrides.svg}
+                className={classNames(projectcss.all, sty.svg)}
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["updateAntdInputValue"] = true
+                  $steps["goToPage"] = true
                     ? (() => {
                         const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["antdInput", "value"]
-                          },
-                          operation: 0,
-                          value: ""
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateAntdInputValue"] != null &&
-                    typeof $steps["updateAntdInputValue"] === "object" &&
-                    typeof $steps["updateAntdInputValue"].then === "function"
-                  ) {
-                    $steps["updateAntdInputValue"] = await $steps[
-                      "updateAntdInputValue"
-                    ];
-                  }
-
-                  $steps["updateFilter"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["filter"]
-                          },
-                          operation: 0,
-                          value: (() => {
-                            return $state.chat.data.list.filter(
-                              item =>
-                                item.text.includes($state.antdInput.value) ||
-                                item.subList_name.includes(
-                                  $state.antdInput.value
-                                ) ||
-                                item.doctor.name.includes(
-                                  $state.antdInput.value
-                                )
-                            );
+                          destination: (() => {
+                            try {
+                              return `/clinic?gender=${new URLSearchParams(
+                                new URL(window.location.href).search
+                              ).get("gender")}`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return `/clinic`;
+                              }
+                              throw e;
+                            }
                           })()
                         };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
                           }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
                   if (
-                    $steps["updateFilter"] != null &&
-                    typeof $steps["updateFilter"] === "object" &&
-                    typeof $steps["updateFilter"].then === "function"
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
                   ) {
-                    $steps["updateFilter"] = await $steps["updateFilter"];
+                    $steps["goToPage"] = await $steps["goToPage"];
                   }
                 }}
-                onVariableChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___375C6
+                )}
+              >
+                {"\u06af\u0641\u062a\u06af\u0648 \u0647\u0627"}
+              </div>
+              {(
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? true
+                  : (() => {
+                      try {
+                        return !$state.loadingPage;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
+              ) ? (
+                <Search
+                  data-plasmic-name={"search"}
+                  data-plasmic-override={overrides.search}
+                  antdInput2={(() => {
+                    const child$Props = {
+                      bordered: false,
+                      className: classNames("__wab_instance", sty.antdInput),
+                      id: hasVariant(globalVariants, "screen", "mobile")
+                        ? "inputMobile"
+                        : "inputMobile",
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["antdInput", "value"],
+                          Input_Helpers
+                        ).apply(null, eventArgs);
+
+                        (async event => {
+                          const $steps = {};
+
+                          $steps["updateFilter"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["filter"]
+                                  },
+                                  operation: 0,
+                                  value: (() => {
+                                    return $state.chat.data.list.filter(
+                                      item =>
+                                        item.text.includes(
+                                          $state.antdInput.value
+                                        ) ||
+                                        item.subList_name.includes(
+                                          $state.antdInput.value
+                                        ) ||
+                                        item.doctor.name.includes(
+                                          $state.antdInput.value
+                                        )
+                                    );
+                                  })()
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateFilter"] != null &&
+                            typeof $steps["updateFilter"] === "object" &&
+                            typeof $steps["updateFilter"].then === "function"
+                          ) {
+                            $steps["updateFilter"] = await $steps[
+                              "updateFilter"
+                            ];
+                          }
+                        }).apply(null, eventArgs);
+                      },
+                      value: generateStateValueProp($state, [
+                        "antdInput",
+                        "value"
+                      ])
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "value",
+                          plasmicStateName: "antdInput.value"
+                        }
+                      ],
+                      [],
+                      Input_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <Input
+                        data-plasmic-name={"antdInput"}
+                        data-plasmic-override={overrides.antdInput}
+                        {...child$Props}
+                      />
+                    );
+                  })()}
+                  className={classNames("__wab_instance", sty.search)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateAntdInputValue"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["antdInput", "value"]
+                            },
+                            operation: 0,
+                            value: ""
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateAntdInputValue"] != null &&
+                      typeof $steps["updateAntdInputValue"] === "object" &&
+                      typeof $steps["updateAntdInputValue"].then === "function"
+                    ) {
+                      $steps["updateAntdInputValue"] = await $steps[
+                        "updateAntdInputValue"
+                      ];
+                    }
+
+                    $steps["updateFilter"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["filter"]
+                            },
+                            operation: 0,
+                            value: (() => {
+                              return $state.chat.data.list.filter(
+                                item =>
+                                  item.text.includes($state.antdInput.value) ||
+                                  item.subList_name.includes(
+                                    $state.antdInput.value
+                                  ) ||
+                                  item.doctor.name.includes(
+                                    $state.antdInput.value
+                                  )
+                              );
+                            })()
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateFilter"] != null &&
+                      typeof $steps["updateFilter"] === "object" &&
+                      typeof $steps["updateFilter"].then === "function"
+                    ) {
+                      $steps["updateFilter"] = await $steps["updateFilter"];
+                    }
+                  }}
+                  onVariableChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "search",
+                      "variable"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  variable={generateStateValueProp($state, [
                     "search",
                     "variable"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                variable={generateStateValueProp($state, [
-                  "search",
-                  "variable"
-                ])}
-              />
-            ) : null}
-          </Stack__>
+                  ])}
+                />
+              ) : null}
+            </Stack__>
+          </section>
           <ApiRequest
             data-plasmic-name={"chat"}
             data-plasmic-override={overrides.chat}
@@ -1229,6 +1238,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "favicon",
+    "section",
     "svg",
     "search",
     "antdInput",
@@ -1239,6 +1249,7 @@ const PlasmicDescendants = {
     "lineClomp"
   ],
   favicon: ["favicon"],
+  section: ["section", "svg", "search", "antdInput"],
   svg: ["svg"],
   search: ["search", "antdInput"],
   antdInput: ["antdInput"],
@@ -1254,6 +1265,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   favicon: typeof Embed;
+  section: "section";
   svg: "svg";
   search: typeof Search;
   antdInput: typeof Input;
@@ -1350,6 +1362,7 @@ export const PlasmicChatviow = Object.assign(
   {
     // Helper components rendering sub-elements
     favicon: makeNodeComponent("favicon"),
+    section: makeNodeComponent("section"),
     svg: makeNodeComponent("svg"),
     search: makeNodeComponent("search"),
     antdInput: makeNodeComponent("antdInput"),

@@ -80,7 +80,7 @@
   top: auto;
   left: auto;
   min-width: 0;
-  padding: 60px 0px 0px;
+  padding: 50px 0px 0px;
 }
 .freeBox__bliL > :global(.__wab_flex-container) {
   flex-direction: column;
@@ -5381,7 +5381,7 @@
   text-align: center;
   color: #919191;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   min-height: 0;
   padding: 8px 0px 0px 16px;
 }

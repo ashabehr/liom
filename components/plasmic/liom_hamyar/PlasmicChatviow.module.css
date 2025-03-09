@@ -39,20 +39,44 @@
   max-width: 100%;
   object-fit: cover;
 }
+.section {
+  display: grid;
+  position: fixed;
+  align-content: flex-start;
+  justify-items: center;
+  width: auto;
+  padding-left: 0;
+  padding-right: 0;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  right: 0;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+}
+.section > * {
+  grid-column: 4;
+}
 .freeBox__pEej {
   display: flex;
   flex-direction: row;
-  position: fixed;
-  width: auto;
+  position: relative;
+  width: 100%;
   height: auto;
   max-width: 100%;
-  left: 0;
-  top: 0;
+  left: auto;
+  top: auto;
   z-index: 2;
-  right: 0;
+  right: auto;
   background: #ffffff;
   border-bottom-width: 2px;
   border-bottom-style: solid;
+  min-width: 0;
   padding: 16px;
   margin: 0px;
 }
@@ -60,6 +84,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  min-width: 0;
   margin-left: calc(0px - 8px);
   width: calc(100% + 8px);
 }
@@ -81,7 +106,9 @@
     position: fixed;
     background: #ffffff;
     right: 0;
-    width: auto;
+    width: 100%;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
   }
 }
 @media (max-width: 640px) {
@@ -94,8 +121,8 @@
   object-fit: cover;
   max-width: 100%;
   align-self: auto;
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
   cursor: pointer;
   mix-blend-mode: darken;
   flex-shrink: 0;
@@ -113,16 +140,17 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 700;
-  color: var(--token-64O07uLgKimi);
-  align-self: center;
+  color: #919191;
+  align-self: flex-end;
   min-width: 0;
   padding: 0px;
 }
 @media (max-width: 640px) {
   .text___375C6 {
     font-size: 18px;
+    color: #919191;
   }
 }
 .search:global(.__wab_instance) {
