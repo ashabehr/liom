@@ -6766,6 +6766,187 @@ function PlasmicPregnancy__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__ytpw0)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToPage"] =
+                          $ctx.query.inApp == "false"
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: (() => {
+                                    try {
+                                      return (
+                                        "https://tools.liom.app/self-medication/?type=danger&inApp=false" +
+                                        "&token=" +
+                                        $ctx.query.token +
+                                        "&selectStep=" +
+                                        ($state.weeksPregnant - 1) +
+                                        "&userId=" +
+                                        ($ctx?.query?.userId ?? "") +
+                                        "&version=" +
+                                        $ctx.query.version +
+                                        "&theme=" +
+                                        $ctx.query.theme
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                };
+                                return (({ destination }) => {
+                                  if (
+                                    typeof destination === "string" &&
+                                    destination.startsWith("#")
+                                  ) {
+                                    document
+                                      .getElementById(destination.substr(1))
+                                      .scrollIntoView({ behavior: "smooth" });
+                                  } else {
+                                    __nextRouter?.push(destination);
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+
+                        $steps["runCode"] =
+                          $ctx.query.inApp == "true"
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      var link;
+                                      if (
+                                        $ctx.query.userId.slice(
+                                          4,
+                                          $ctx.query.userId.length - 4
+                                        ) ==
+                                        "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                      ) {
+                                        link =
+                                          "https://tools.liom.app/self-medication/?type=irregular&inApp=true&token=" +
+                                          $ctx.query.token +
+                                          "&selectStep=" +
+                                          "0" +
+                                          "&userId=" +
+                                          ($ctx?.query?.userId ?? "") +
+                                          "&version=" +
+                                          $ctx.query.version +
+                                          "&theme=" +
+                                          $ctx.query.theme;
+                                      } else {
+                                        link =
+                                          "https://tools.liom.app/self-medication/?type=danger&inApp=true&token=" +
+                                          $ctx.query.token +
+                                          "&selectStep=" +
+                                          ($state.weeksPregnant - 1) +
+                                          "&userId=" +
+                                          ($ctx?.query?.userId ?? "") +
+                                          "&version=" +
+                                          $ctx.query.version +
+                                          "&theme=" +
+                                          $ctx.query.theme;
+                                      }
+                                      return window.FlutterChannel.postMessage(
+                                        "#inAppWebView**@@** ابزار خطرناکه یانه! **@@**" +
+                                          link
+                                      );
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/service/log",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        userId: $ctx.query.userId.slice(
+                                          4,
+                                          $ctx.query.userId.length - 4
+                                        ),
+                                        pageName: "selfTreatment_danger",
+                                        action: "clickOpenPage",
+                                        extraData: {}
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return {
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization:
+                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                        }
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+                      }}
                     >
                       <Stack__
                         as={"div"}
@@ -6778,7 +6959,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                           const $steps = {};
 
                           $steps["goToPage"] =
-                            $ctx.query.inApp == "false"
+                            $ctx.query.inApp == "false" ||
+                            new URLSearchParams(window.location.search).get(
+                              "inApp"
+                            ) == "false"
                               ? (() => {
                                   const actionArgs = {
                                     destination: (() => {
@@ -6832,7 +7016,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                           }
 
                           $steps["runCode"] =
-                            $ctx.query.inApp == "true"
+                            $ctx.query.inApp == "true" ||
+                            new URLSearchParams(window.location.search).get(
+                              "inApp"
+                            ) == "false"
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
@@ -6889,71 +7076,62 @@ function PlasmicPregnancy__RenderFunc(props: {
                             $steps["runCode"] = await $steps["runCode"];
                           }
 
-                          $steps["invokeGlobalAction"] =
-                            $ctx.query.userId.slice(
-                              4,
-                              $ctx.query.userId.length - 4
-                            ) != "314149" &&
-                            $ctx.query.userId.slice(
-                              4,
-                              $ctx.query.userId.length - 4
-                            ) != "1"
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      "POST",
-                                      "https://api.liom.app/service/log",
-                                      undefined,
-                                      (() => {
-                                        try {
-                                          return {
-                                            userId: $ctx.query.userId.slice(
-                                              4,
-                                              $ctx.query.userId.length - 4
-                                            ),
-                                            pageName: "selfTreatment_danger",
-                                            action: "clickOpenPage",
-                                            extraData: {}
-                                          };
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
+                          $steps["invokeGlobalAction"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/service/log",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          userId: $ctx.query.userId.slice(
+                                            4,
+                                            $ctx.query.userId.length - 4
+                                          ),
+                                          pageName: "selfTreatment_danger",
+                                          action: "clickOpenPage",
+                                          extraData: {}
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
                                         }
-                                      })(),
-                                      (() => {
-                                        try {
-                                          return {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                            }
-                                          };
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
+                                        throw e;
+                                      }
+                                    })(),
+                                    (() => {
+                                      try {
+                                        return {
+                                          headers: {
+                                            "Content-Type": "application/json",
+                                            Authorization:
+                                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
                                           }
-                                          throw e;
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
                                         }
-                                      })()
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "Fragment.apiRequest"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
                           if (
                             $steps["invokeGlobalAction"] != null &&
                             typeof $steps["invokeGlobalAction"] === "object" &&
@@ -11470,6 +11648,159 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           )
                                       }
                                     )}
+                                    onClick={async event => {
+                                      const $steps = {};
+
+                                      $steps["runCode"] =
+                                        $ctx.query.inApp == "true"
+                                          ? (() => {
+                                              const actionArgs = {
+                                                customFunction: async () => {
+                                                  return window.FlutterChannel.postMessage(
+                                                    "#directDialog-pregnancy_danger_sub"
+                                                  );
+                                                }
+                                              };
+                                              return (({ customFunction }) => {
+                                                return customFunction();
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                      if (
+                                        $steps["runCode"] != null &&
+                                        typeof $steps["runCode"] === "object" &&
+                                        typeof $steps["runCode"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["runCode"] = await $steps[
+                                          "runCode"
+                                        ];
+                                      }
+
+                                      $steps["updateDirectDialog2Open"] =
+                                        $ctx.query.inApp != "true"
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "directDialog2",
+                                                    "open"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: true
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                      if (
+                                        $steps["updateDirectDialog2Open"] !=
+                                          null &&
+                                        typeof $steps[
+                                          "updateDirectDialog2Open"
+                                        ] === "object" &&
+                                        typeof $steps["updateDirectDialog2Open"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["updateDirectDialog2Open"] =
+                                          await $steps[
+                                            "updateDirectDialog2Open"
+                                          ];
+                                      }
+
+                                      $steps["invokeGlobalAction"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              args: [
+                                                "POST",
+                                                "https://api.liom.app/service/log",
+                                                undefined,
+                                                (() => {
+                                                  try {
+                                                    return {
+                                                      userId:
+                                                        $ctx.query.userId.slice(
+                                                          4,
+                                                          $ctx.query.userId
+                                                            .length - 4
+                                                        ),
+                                                      pageName: "mainPage",
+                                                      action: "open-buyDialog",
+                                                      extraData: {}
+                                                    };
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return undefined;
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })(),
+                                                (() => {
+                                                  try {
+                                                    return {
+                                                      headers: {
+                                                        "Content-Type":
+                                                          "application/json",
+                                                        Authorization:
+                                                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                      }
+                                                    };
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return undefined;
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()
+                                              ]
+                                            };
+                                            return $globalActions[
+                                              "Fragment.apiRequest"
+                                            ]?.apply(null, [
+                                              ...actionArgs.args
+                                            ]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["invokeGlobalAction"] != null &&
+                                        typeof $steps["invokeGlobalAction"] ===
+                                          "object" &&
+                                        typeof $steps["invokeGlobalAction"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["invokeGlobalAction"] =
+                                          await $steps["invokeGlobalAction"];
+                                      }
+                                    }}
                                   >
                                     <BuyComponenct
                                       className={classNames(
@@ -12621,9 +12952,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   <div
                                     className={classNames(
                                       projectcss.all,
-                                      sty.freeBox__q6UM8,
+                                      sty.freeBox__j3RC0,
                                       {
-                                        [sty.freeBoxdarkMod__q6UM8OQOo]:
+                                        [sty.freeBoxdarkMod__j3RC0OQOo]:
                                           hasVariant(
                                             $state,
                                             "darkMod",
@@ -12631,11 +12962,172 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           )
                                       }
                                     )}
+                                    onClick={async event => {
+                                      const $steps = {};
+
+                                      $steps["runCode"] =
+                                        $ctx.query.inApp == "true"
+                                          ? (() => {
+                                              const actionArgs = {
+                                                customFunction: async () => {
+                                                  return window.FlutterChannel.postMessage(
+                                                    "#directDialog-pregnancy_danger_sub"
+                                                  );
+                                                }
+                                              };
+                                              return (({ customFunction }) => {
+                                                return customFunction();
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                      if (
+                                        $steps["runCode"] != null &&
+                                        typeof $steps["runCode"] === "object" &&
+                                        typeof $steps["runCode"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["runCode"] = await $steps[
+                                          "runCode"
+                                        ];
+                                      }
+
+                                      $steps["updateDirectDialog2Open"] =
+                                        $ctx.query.inApp != "true"
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "directDialog2",
+                                                    "open"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: true
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                      if (
+                                        $steps["updateDirectDialog2Open"] !=
+                                          null &&
+                                        typeof $steps[
+                                          "updateDirectDialog2Open"
+                                        ] === "object" &&
+                                        typeof $steps["updateDirectDialog2Open"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["updateDirectDialog2Open"] =
+                                          await $steps[
+                                            "updateDirectDialog2Open"
+                                          ];
+                                      }
+
+                                      $steps["invokeGlobalAction"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              args: [
+                                                "POST",
+                                                "https://api.liom.app/service/log",
+                                                undefined,
+                                                (() => {
+                                                  try {
+                                                    return {
+                                                      userId:
+                                                        $ctx.query.userId.slice(
+                                                          4,
+                                                          $ctx.query.userId
+                                                            .length - 4
+                                                        ),
+                                                      pageName: "mainPage",
+                                                      action: "open-buyDialog",
+                                                      extraData: {}
+                                                    };
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return undefined;
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })(),
+                                                (() => {
+                                                  try {
+                                                    return {
+                                                      headers: {
+                                                        "Content-Type":
+                                                          "application/json",
+                                                        Authorization:
+                                                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                      }
+                                                    };
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return undefined;
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()
+                                              ]
+                                            };
+                                            return $globalActions[
+                                              "Fragment.apiRequest"
+                                            ]?.apply(null, [
+                                              ...actionArgs.args
+                                            ]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["invokeGlobalAction"] != null &&
+                                        typeof $steps["invokeGlobalAction"] ===
+                                          "object" &&
+                                        typeof $steps["invokeGlobalAction"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["invokeGlobalAction"] =
+                                          await $steps["invokeGlobalAction"];
+                                      }
+                                    }}
                                   >
                                     <BuyComponenct
                                       className={classNames(
                                         "__wab_instance",
-                                        sty.buyComponenct__or6OV
+                                        sty.buyComponenct__lub4M,
+                                        {
+                                          [sty.buyComponenctdarkMod__lub4MOQOo]:
+                                            hasVariant(
+                                              $state,
+                                              "darkMod",
+                                              "darkMod"
+                                            )
+                                        }
                                       )}
                                     />
                                   </div>
