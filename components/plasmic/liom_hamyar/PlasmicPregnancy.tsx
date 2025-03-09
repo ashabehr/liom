@@ -70,8 +70,8 @@ import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
-import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
+import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
@@ -120,8 +120,8 @@ export type PlasmicPregnancy__OverridesType = {
   button?: Flex__<typeof Button>;
   favIcone?: Flex__<typeof Embed>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
-  switchbest?: Flex__<typeof Switchbest>;
   progress?: Flex__<typeof AntdProgress>;
+  switchbest?: Flex__<typeof Switchbest>;
   tabWeek?: Flex__<typeof TabWeek>;
   sideEffect?: Flex__<typeof SideEffect>;
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
@@ -3631,322 +3631,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                             </div>
                           </div>
                         ) : null}
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__anXyd
-                          )}
-                        >
-                          {(() => {
-                            try {
-                              return (() => {
-                                const allowance =
-                                  $state?.getUserInfo?.data?.[0]?.result
-                                    ?.allowance || [];
-                                var become_father = allowance.find(
-                                  item =>
-                                    item.type == "pregnancy_sub_become_father"
-                                )
-                                  ? allowance.find(
-                                      item =>
-                                        item.type ==
-                                        "pregnancy_sub_become_father"
-                                    ).active
-                                  : false;
-                                var baby_growth = allowance.find(
-                                  item =>
-                                    item.type == "pregnancy_sub_baby_growth"
-                                )
-                                  ? allowance.find(
-                                      item =>
-                                        item.type == "pregnancy_sub_baby_growth"
-                                    ).active
-                                  : false;
-                                var better_relation = allowance.find(
-                                  item =>
-                                    item.type == "pregnancy_sub_better_relation"
-                                )
-                                  ? allowance.find(
-                                      item =>
-                                        item.type ==
-                                        "pregnancy_sub_better_relation"
-                                    ).active
-                                  : false;
-                                return !(
-                                  become_father &&
-                                  baby_growth &&
-                                  better_relation
-                                );
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return false;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__ekpIz
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text___3J0TA
-                                )}
-                              >
-                                {
-                                  "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 "
-                                }
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__gxMd
-                                )}
-                              >
-                                {
-                                  "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0628\u0647 \u0628\u0631\u0646\u0627\u0645\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
-                                }
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__bcFt
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__putVl
-                                  )}
-                                >
-                                  {
-                                    "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0644\u06cc\u0648\u0645"
-                                  }
-                                </div>
-                              </div>
-                            </Stack__>
-                          ) : null}
-                          {(() => {
-                            try {
-                              return (() => {
-                                if ($state.user[0].hamyarData == "{}")
-                                  return true;
-                                else
-                                  return (
-                                    JSON.parse($state.user[0].hamyarData)
-                                      .hamyarsData.length == 0
-                                  );
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return false;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__jFCl
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text___29GzI
-                                )}
-                              >
-                                {
-                                  "\u0647\u0645\u06cc\u0627\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
-                                }
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__fZiIw
-                                )}
-                              >
-                                {
-                                  "\u0647\u0645\u0633\u0631\u062a \u0631\u0648  \u062a\u0648\u06cc \u0645\u0633\u06cc\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0647\u0645\u0631\u0627\u0647 \u062e\u0648\u062f\u062a \u06a9\u0646!"
-                                }
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__swRnX
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__ekOvx
-                                  )}
-                                >
-                                  {
-                                    "\u0627\u0641\u0632\u0648\u062f\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0647\u0645\u06cc\u0627\u0631"
-                                  }
-                                </div>
-                              </div>
-                            </Stack__>
-                          ) : null}
-                          {(() => {
-                            try {
-                              return (
-                                !JSON.parse($state.user[0].hamyarData)
-                                  .hamyarsData[0].statusSms &&
-                                $ctx?.query?.inApp == "true" &&
-                                !(
-                                  (JSON.parse(
-                                    $state.user[0].allowance
-                                  ).allowance.find(
-                                    item =>
-                                      item.type == "pregnancy_sub_become_father"
-                                  ).active ??
-                                    false) &&
-                                  (JSON.parse(
-                                    $state.user[0].allowance
-                                  ).allowance.find(
-                                    item =>
-                                      item.type == "pregnancy_sub_baby_growth"
-                                  ).active ??
-                                    false) &&
-                                  (JSON.parse(
-                                    $state.user[0].allowance
-                                  ).allowance.find(
-                                    item =>
-                                      item.type ==
-                                      "pregnancy_sub_better_relation"
-                                  ).active ??
-                                    false)
-                                )
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return false;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__fuRwW
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__sxoJx
-                                )}
-                              >
-                                {
-                                  "\u0647\u0645\u06cc\u0627\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
-                                }
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text___9GcI9
-                                )}
-                              >
-                                {
-                                  "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u062a\u0648\u0646\u06cc\u0645 \u0647\u0645\u0633\u0631\u062a \u0631\u0648 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062a\u0648 \u0648 \u0641\u0632\u0631\u0646\u062f\u062a \u0645\u0637\u0644\u0639 \u06a9\u0646\u06cc\u0645"
-                                }
-                              </div>
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox___7Rejf
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__e67NZ
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    <React.Fragment>
-                                      {"\u0627\u0631\u0633\u0627\u0644 "}
-                                    </React.Fragment>
-                                    <span
-                                      className={
-                                        "plasmic_default__all plasmic_default__span"
-                                      }
-                                      style={{ fontWeight: 700 }}
-                                    >
-                                      {"\u067e\u06cc\u0627\u0645\u06a9"}
-                                    </span>
-                                    <React.Fragment>
-                                      {
-                                        " \u0628\u0647 \u0647\u0645\u06cc\u0627\u0631"
-                                      }
-                                    </React.Fragment>
-                                  </React.Fragment>
-                                </div>
-                                <Switchbest
-                                  data-plasmic-name={"switchbest"}
-                                  data-plasmic-override={overrides.switchbest}
-                                  children={null}
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.switchbest
-                                  )}
-                                  isChecked={
-                                    generateStateValueProp($state, [
-                                      "switchbest",
-                                      "isChecked"
-                                    ]) ?? false
-                                  }
-                                  onChange={async (...eventArgs: any) => {
-                                    ((...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "switchbest",
-                                        "isChecked"
-                                      ])(eventArgs[0]);
-                                    }).apply(null, eventArgs);
-
-                                    if (
-                                      eventArgs.length > 1 &&
-                                      eventArgs[1] &&
-                                      eventArgs[1]._plasmic_state_init_
-                                    ) {
-                                      return;
-                                    }
-                                  }}
-                                />
-                              </Stack__>
-                            </div>
-                          ) : null}
-                        </div>
                         {(() => {
                           try {
                             return (
@@ -4759,6 +4443,324 @@ function PlasmicPregnancy__RenderFunc(props: {
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__anXyd)}
+                  >
+                    {(() => {
+                      try {
+                        return (
+                          // const allowance = ($state?.getUserInfo?.data?.[0]?.result?.allowance || []);
+                          // var become_father = allowance.find(item => item.type =="pregnancy_sub_become_father") ? allowance.find(item => item.type =="pregnancy_sub_become_father") .active : false;
+                          // var baby_growth = allowance.find(item => item.type == "pregnancy_sub_baby_growth") ? allowance.find(item => item.type == "pregnancy_sub_baby_growth").active : false;
+                          // var better_relation = allowance.find(item => item.type == "pregnancy_sub_better_relation") ? allowance.find(item => item.type == "pregnancy_sub_better_relation").active : false;
+
+                          // return !(become_father && baby_growth && better_relation)
+
+                          false
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__ekpIz
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___3J0TA
+                          )}
+                        >
+                          {
+                            "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 "
+                          }
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__gxMd
+                          )}
+                        >
+                          {
+                            "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0628\u0647 \u0628\u0631\u0646\u0627\u0645\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
+                          }
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__bcFt
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__putVl
+                            )}
+                          >
+                            {
+                              "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0644\u06cc\u0648\u0645"
+                            }
+                          </div>
+                        </div>
+                      </Stack__>
+                    ) : null}
+                    {(() => {
+                      try {
+                        return (() => {
+                          if ($ctx.query.inApp == "true") {
+                            if ($state.user[0].hamyarData == "{}") return true;
+                            else if (
+                              JSON.parse($state.user[0].hamyarData).hamyarsData
+                                .length == 0
+                            )
+                              return true;
+                            else if (
+                              !JSON.parse($state.user?.[0]?.hamyarData)
+                                .hamyarsData[0].statusSms
+                            )
+                              return true;
+                          } else return false;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__pfAe
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__fuRwW
+                          )}
+                        >
+                          {(() => {
+                            try {
+                              return (() => {
+                                if ($state.user[0].hamyarData == "{}")
+                                  return true;
+                                else
+                                  return (
+                                    JSON.parse($state.user[0].hamyarData)
+                                      .hamyarsData.length == 0
+                                  );
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__jFCl
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__fZiIw
+                                )}
+                              >
+                                {
+                                  "\u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u06cc\u0647 \u0645\u0627\u062c\u0631\u0627\u062c\u0648\u06cc\u06cc\u0647 \u062f\u0648\u0646\u0641\u0631\u0647\u200c\u0633\u062a\u060c \u0647\u0645\u0633\u0631\u062a\u0648 \u0647\u0645 \u0647\u0645\u0631\u0627\u0647 \u06a9\u0646! \ud83d\udc91"
+                                }
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__swRnX
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__ekOvx
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{
+                                        color: "var(--token-0xHMxyAHbOos)"
+                                      }}
+                                    >
+                                      {
+                                        "\u0627\u0641\u0632\u0648\u062f\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0647\u0645\u06cc\u0627\u0631"
+                                      }
+                                    </span>
+                                  </React.Fragment>
+                                </div>
+                              </div>
+                            </Stack__>
+                          ) : null}
+                          {(() => {
+                            try {
+                              return (
+                                !JSON.parse($state.user?.[0]?.hamyarData)
+                                  .hamyarsData[0].statusSms &&
+                                $ctx.query.inApp == "true"
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ygc61
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return window.FlutterChannel.postMessage(
+                                            "#hamyarInfo"
+                                          );
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+                              }}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___9GcI9
+                                )}
+                              >
+                                {
+                                  "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u062a\u0648\u0646\u06cc\u0645 \u0647\u0645\u0633\u0631\u062a \u0631\u0648 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062a\u0648 \u0648 \u0641\u0632\u0631\u0646\u062f\u062a \u0645\u0637\u0644\u0639 \u06a9\u0646\u06cc\u0645"
+                                }
+                              </div>
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox___7Rejf
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__e67NZ
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    <React.Fragment>
+                                      {
+                                        "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0631\u0633\u0627\u0644 "
+                                      }
+                                    </React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ fontWeight: 700 }}
+                                    >
+                                      {"\u067e\u06cc\u0627\u0645\u06a9"}
+                                    </span>
+                                    <React.Fragment>
+                                      {
+                                        " \u0628\u0647 \u0647\u0645\u06cc\u0627\u0631"
+                                      }
+                                    </React.Fragment>
+                                  </React.Fragment>
+                                </div>
+                                <Switchbest
+                                  data-plasmic-name={"switchbest"}
+                                  data-plasmic-override={overrides.switchbest}
+                                  children={null}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.switchbest
+                                  )}
+                                  isChecked={
+                                    generateStateValueProp($state, [
+                                      "switchbest",
+                                      "isChecked"
+                                    ]) ?? false
+                                  }
+                                  onChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "switchbest",
+                                        "isChecked"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                />
+                              </Stack__>
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__d784V)}
@@ -6291,16 +6293,37 @@ function PlasmicPregnancy__RenderFunc(props: {
                   </div>
                   {(() => {
                     try {
-                      return (
-                        // const allowance = ($state?.getUserInfo?.data?.[0]?.result?.allowance || []);
-                        // var become_father = allowance.find(item => item.type =="pregnancy_sub_become_father") ? allowance.find(item => item.type =="pregnancy_sub_become_father") .active : false;
-                        // var baby_growth = allowance.find(item => item.type == "pregnancy_sub_baby_growth") ? allowance.find(item => item.type == "pregnancy_sub_baby_growth").active : false;
-                        // var better_relation = allowance.find(item => item.type == "pregnancy_sub_better_relation") ? allowance.find(item => item.type == "pregnancy_sub_better_relation").active : false;
-
-                        // return !(become_father && baby_growth && better_relation)
-
-                        false
-                      );
+                      return (() => {
+                        const allowance =
+                          $state?.getUserInfo?.data?.[0]?.result?.allowance ||
+                          [];
+                        var become_father = allowance.find(
+                          item => item.type == "pregnancy_sub_become_father"
+                        )
+                          ? allowance.find(
+                              item => item.type == "pregnancy_sub_become_father"
+                            ).active
+                          : false;
+                        var baby_growth = allowance.find(
+                          item => item.type == "pregnancy_sub_baby_growth"
+                        )
+                          ? allowance.find(
+                              item => item.type == "pregnancy_sub_baby_growth"
+                            ).active
+                          : false;
+                        var better_relation = allowance.find(
+                          item => item.type == "pregnancy_sub_better_relation"
+                        )
+                          ? allowance.find(
+                              item =>
+                                item.type == "pregnancy_sub_better_relation"
+                            ).active
+                          : false;
+                        return (
+                          !(become_father && baby_growth && better_relation) &&
+                          $ctx.query.inApp == "true"
+                        );
+                      })();
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -16013,8 +16036,8 @@ const PlasmicDescendants = {
     "button",
     "favIcone",
     "pullToRefresh",
-    "switchbest",
     "progress",
+    "switchbest",
     "tabWeek",
     "sideEffect",
     "collapseAdvice",
@@ -16034,8 +16057,8 @@ const PlasmicDescendants = {
     "button",
     "favIcone",
     "pullToRefresh",
-    "switchbest",
     "progress",
+    "switchbest",
     "tabWeek",
     "sideEffect",
     "collapseAdvice",
@@ -16053,8 +16076,8 @@ const PlasmicDescendants = {
   button: ["button"],
   favIcone: ["favIcone"],
   pullToRefresh: ["pullToRefresh"],
-  switchbest: ["switchbest"],
   progress: ["progress"],
+  switchbest: ["switchbest"],
   tabWeek: ["tabWeek"],
   sideEffect: ["sideEffect"],
   collapseAdvice: ["collapseAdvice"],
@@ -16078,8 +16101,8 @@ type NodeDefaultElementType = {
   button: typeof Button;
   favIcone: typeof Embed;
   pullToRefresh: typeof PullToRefresh;
-  switchbest: typeof Switchbest;
   progress: typeof AntdProgress;
+  switchbest: typeof Switchbest;
   tabWeek: typeof TabWeek;
   sideEffect: typeof SideEffect;
   collapseAdvice: typeof AntdSingleCollapse;
@@ -16184,8 +16207,8 @@ export const PlasmicPregnancy = Object.assign(
     button: makeNodeComponent("button"),
     favIcone: makeNodeComponent("favIcone"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
-    switchbest: makeNodeComponent("switchbest"),
     progress: makeNodeComponent("progress"),
+    switchbest: makeNodeComponent("switchbest"),
     tabWeek: makeNodeComponent("tabWeek"),
     sideEffect: makeNodeComponent("sideEffect"),
     collapseAdvice: makeNodeComponent("collapseAdvice"),

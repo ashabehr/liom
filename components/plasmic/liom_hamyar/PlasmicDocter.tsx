@@ -2961,6 +2961,58 @@ function PlasmicDocter__RenderFunc(props: {
                                 "invokeGlobalAction2"
                               ];
                             }
+
+                            $steps["invokeGlobalAction3"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/service/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            userId: new URLSearchParams(
+                                              window.location.search
+                                            ).get("userId"),
+                                            pageName: "clinic",
+                                            action: "buy",
+                                            extraData: {
+                                              gender:
+                                                new URLSearchParams(
+                                                  window.location.search
+                                                ).get("gender") || "female"
+                                            }
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction3"] != null &&
+                              typeof $steps["invokeGlobalAction3"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction3"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction3"] = await $steps[
+                                "invokeGlobalAction3"
+                              ];
+                            }
                           }}
                           onColorChange={async (...eventArgs: any) => {
                             ((...eventArgs) => {

@@ -61,6 +61,7 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Video } from "@plasmicpkgs/plasmic-basic-components";
 import IconClinic from "../../IconClinic"; // plasmic-import: TdNZ6qWfkqbt/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -121,6 +122,7 @@ export const PlasmicClinic__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicClinic__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   bg?: Flex__<"div">;
   htmlVideo?: Flex__<typeof Video>;
   rectangle2?: Flex__<"div">;
@@ -778,6 +780,66 @@ function PlasmicClinic__RenderFunc(props: {
             }
           }}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://api.liom.app/service/log",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              userId:
+                                $ctx.query.userId ||
+                                new URLSearchParams(window.location.search).get(
+                                  "userId"
+                                ),
+                              pageName: "clinic",
+                              action: "loadePage",
+                              extraData: {
+                                gender:
+                                  new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender") || "female"
+                              }
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+            }}
+          />
+
           <Stack__
             as={"div"}
             hasGap={true}
@@ -834,179 +896,216 @@ function PlasmicClinic__RenderFunc(props: {
               data-plasmic-override={overrides.bg}
               className={classNames(projectcss.all, sty.bg)}
             >
-              <Video
-                data-plasmic-name={"htmlVideo"}
-                data-plasmic-override={overrides.htmlVideo}
-                autoPlay={true}
-                className={classNames("__wab_instance", sty.htmlVideo)}
-                controls={true}
-                muted={true}
-                playsInline={true}
-                poster={"/plasmic/liom_hamyar/images/macBookAir1Png2.png"}
-                src={
-                  "https://checkup.liom-app.ir/view/dist/video/moshavere.mp4"
-                }
-              />
-
-              <div
-                data-plasmic-name={"rectangle2"}
-                data-plasmic-override={overrides.rectangle2}
-                className={classNames(projectcss.all, sty.rectangle2)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return `/docters?gender=${new URLSearchParams(
-                                new URL(window.location.href).search
-                              ).get("gender")}`;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return `/docters`;
-                              }
-                              throw e;
-                            }
-                          })()
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+              {(() => {
+                try {
+                  return (
+                    ($ctx.query.gender ||
+                      new URLSearchParams(window.location.search).get(
+                        "gender"
+                      )) != "male"
+                  );
+                } catch (e) {
                   if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
+                    return true;
                   }
-                }}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__hj9MX)}
+                  throw e;
+                }
+              })() ? (
+                <Video
+                  data-plasmic-name={"htmlVideo"}
+                  data-plasmic-override={overrides.htmlVideo}
+                  autoPlay={true}
+                  className={classNames("__wab_instance", sty.htmlVideo)}
+                  controls={true}
+                  muted={true}
+                  playsInline={true}
+                  poster={"/plasmic/liom_hamyar/images/macBookAir1Png2.png"}
+                  src={
+                    "https://checkup.liom-app.ir/view/dist/video/moshavere.mp4"
+                  }
+                />
+              ) : null}
+              {(() => {
+                try {
+                  return (
+                    ($ctx.query.gender ||
+                      new URLSearchParams(window.location.search).get(
+                        "gender"
+                      )) == "male"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  data-plasmic-name={"rectangle2"}
+                  data-plasmic-override={overrides.rectangle2}
+                  className={classNames(projectcss.all, sty.rectangle2)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return `/docters?gender=${new URLSearchParams(
+                                  new URL(window.location.href).search
+                                ).get("gender")}`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return `/docters`;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
                 >
-                  <div
-                    data-plasmic-name={"\u0627"}
-                    data-plasmic-override={overrides.ا}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.ا
-                    )}
-                  >
-                    {hasVariant(globalVariants, "screen", "mobile")
-                      ? "\u062f\u0633\u062a\u0631\u0633\u06cc \u0622\u0633\u0627\u0646 \u0628\u0647 \u067e\u0632\u0634\u06a9\u060c \u0647\u0631 \u0632\u0645\u0627\u0646 \u0648 \u0647\u0631 \u06a9\u062c\u0627"
-                      : "\u0647\u0631 \u06a9\u062c\u0627 \u06a9\u0647 \u0647\u0633\u062a\u06cc \u0648 \u0647\u0631 \u0632\u0645\u0627\u0646\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u060c \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0628\u0647 \u067e\u0632\u0634\u06a9 \u062f\u0633\u062a\u0631\u0633\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634."}
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__pW0Ww)}
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__hj9MX)}
                   >
                     <div
-                      data-plasmic-name={"\u06272"}
-                      data-plasmic-override={overrides.ا2}
+                      data-plasmic-name={"\u0627"}
+                      data-plasmic-override={overrides.ا}
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.ا2,
-                        {
-                          [sty.ا2_1_docters]: hasVariant(
-                            $state,
-                            "_1",
-                            "docters"
-                          )
-                        }
+                        sty.ا
                       )}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["goToPage"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                destination: (() => {
-                                  try {
-                                    return `/docters?gender=${new URLSearchParams(
-                                      new URL(window.location.href).search
-                                    ).get("gender")}`;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return `/docters`;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["goToPage"] != null &&
-                          typeof $steps["goToPage"] === "object" &&
-                          typeof $steps["goToPage"].then === "function"
-                        ) {
-                          $steps["goToPage"] = await $steps["goToPage"];
-                        }
-                      }}
                     >
-                      {
-                        "\u0644\u06cc\u0633\u062a \u06a9\u0627\u0645\u0644 \u067e\u0632\u0634\u06a9\u0627\u0646  >"
-                      }
+                      {hasVariant(globalVariants, "screen", "mobile")
+                        ? "\u062f\u0633\u062a\u0631\u0633\u06cc \u0622\u0633\u0627\u0646 \u0628\u0647 \u067e\u0632\u0634\u06a9\u060c \u0647\u0631 \u0632\u0645\u0627\u0646 \u0648 \u0647\u0631 \u06a9\u062c\u0627"
+                        : "\u0647\u0631 \u06a9\u062c\u0627 \u06a9\u0647 \u0647\u0633\u062a\u06cc \u0648 \u0647\u0631 \u0632\u0645\u0627\u0646\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u060c \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0628\u0647 \u067e\u0632\u0634\u06a9 \u062f\u0633\u062a\u0631\u0633\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634."}
                     </div>
-                  </div>
-                </Stack__>
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img__eYiNj)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? "80px"
-                      : "200px"
-                  }
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image62.png",
-                    fullWidth: 450,
-                    fullHeight: 450,
-                    aspectRatio: undefined
-                  }}
-                />
-              </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__pW0Ww)}
+                    >
+                      <div
+                        data-plasmic-name={"\u06272"}
+                        data-plasmic-override={overrides.ا2}
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.ا2,
+                          {
+                            [sty.ا2_1_docters]: hasVariant(
+                              $state,
+                              "_1",
+                              "docters"
+                            )
+                          }
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["goToPage"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: (() => {
+                                    try {
+                                      return `/docters?gender=${new URLSearchParams(
+                                        new URL(window.location.href).search
+                                      ).get("gender")}`;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return `/docters`;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                };
+                                return (({ destination }) => {
+                                  if (
+                                    typeof destination === "string" &&
+                                    destination.startsWith("#")
+                                  ) {
+                                    document
+                                      .getElementById(destination.substr(1))
+                                      .scrollIntoView({ behavior: "smooth" });
+                                  } else {
+                                    __nextRouter?.push(destination);
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["goToPage"] != null &&
+                            typeof $steps["goToPage"] === "object" &&
+                            typeof $steps["goToPage"].then === "function"
+                          ) {
+                            $steps["goToPage"] = await $steps["goToPage"];
+                          }
+                        }}
+                      >
+                        {
+                          "\u0644\u06cc\u0633\u062a \u06a9\u0627\u0645\u0644 \u067e\u0632\u0634\u06a9\u0627\u0646  >"
+                        }
+                      </div>
+                    </div>
+                  </Stack__>
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__eYiNj)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? "80px"
+                        : "200px"
+                    }
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image62.png",
+                      fullWidth: 450,
+                      fullHeight: 450,
+                      aspectRatio: undefined
+                    }}
+                  />
+                </div>
+              ) : null}
             </div>
             <Stack__
               as={"div"}
@@ -1090,8 +1189,10 @@ function PlasmicClinic__RenderFunc(props: {
                                     return `/docter?id=${
                                       currentItem.id
                                     }&gender=${new URLSearchParams(
-                                      new URL(window.location.href).search
-                                    ).get("gender")}`;
+                                      window.location.search
+                                    ).get("gender")}&userId=${
+                                      $ctx.query.userId
+                                    }`;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -1177,9 +1278,10 @@ function PlasmicClinic__RenderFunc(props: {
             {(() => {
               try {
                 return (
-                  new URLSearchParams(new URL(window.location.href).search).get(
-                    "gender"
-                  ) != "male"
+                  ($ctx.query.gender ||
+                    new URLSearchParams(window.location.search).get(
+                      "gender"
+                    )) != "male"
                 );
               } catch (e) {
                 if (
@@ -1732,9 +1834,10 @@ function PlasmicClinic__RenderFunc(props: {
             {(() => {
               try {
                 return (
-                  new URLSearchParams(new URL(window.location.href).search).get(
-                    "gender"
-                  ) == "male"
+                  ($ctx.query.gender ||
+                    new URLSearchParams(window.location.search).get(
+                      "gender"
+                    )) == "male"
                 );
               } catch (e) {
                 if (
@@ -1824,7 +1927,7 @@ function PlasmicClinic__RenderFunc(props: {
                               destination: (() => {
                                 try {
                                   return `/docter?id=7&gender=${new URLSearchParams(
-                                    new URL(window.location.href).search
+                                    window.location.search
                                   ).get("gender")}`;
                                 } catch (e) {
                                   if (
@@ -1978,7 +2081,7 @@ function PlasmicClinic__RenderFunc(props: {
                               destination: (() => {
                                 try {
                                   return `/docter?id=7&gender=${new URLSearchParams(
-                                    new URL(window.location.href).search
+                                    window.location.search
                                   ).get("gender")}`;
                                 } catch (e) {
                                   if (
@@ -2139,7 +2242,7 @@ function PlasmicClinic__RenderFunc(props: {
                               destination: (() => {
                                 try {
                                   return `/docter?id=7&gender=${new URLSearchParams(
-                                    new URL(window.location.href).search
+                                    window.location.search
                                   ).get("gender")}`;
                                 } catch (e) {
                                   if (
@@ -2300,9 +2403,10 @@ function PlasmicClinic__RenderFunc(props: {
             {(() => {
               try {
                 return (
-                  new URLSearchParams(new URL(window.location.href).search).get(
-                    "gender"
-                  ) != "male"
+                  ($ctx.query.gender ||
+                    new URLSearchParams(window.location.search).get(
+                      "gender"
+                    )) != "male"
                 );
               } catch (e) {
                 if (
@@ -7602,6 +7706,7 @@ function PlasmicClinic__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "bg",
     "htmlVideo",
     "rectangle2",
@@ -7669,6 +7774,7 @@ const PlasmicDescendants = {
     "search",
     "antdInput"
   ],
+  sideEffect: ["sideEffect"],
   bg: ["bg", "htmlVideo", "rectangle2", "\u0627", "\u06272"],
   htmlVideo: ["htmlVideo"],
   rectangle2: ["rectangle2", "\u0627", "\u06272"],
@@ -7795,6 +7901,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   bg: "div";
   htmlVideo: typeof Video;
   rectangle2: "div";
@@ -7948,6 +8055,7 @@ export const PlasmicClinic = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     bg: makeNodeComponent("bg"),
     htmlVideo: makeNodeComponent("htmlVideo"),
     rectangle2: makeNodeComponent("rectangle2"),
