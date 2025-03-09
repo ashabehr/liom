@@ -87,7 +87,7 @@ import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzm
 import Icon77Icon from "./icons/PlasmicIcon__Icon77"; // plasmic-import: wjMNvLG8jaXy/icon
 import Icon120Icon from "./icons/PlasmicIcon__Icon120"; // plasmic-import: lWsc7Ggg4B53/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
-import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
+import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
 
 createPlasmicElementProxy;
 
@@ -3062,7 +3062,7 @@ function PlasmicDocter__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__qqt21)}
               >
-                <XIcon
+                <ChevronRightIcon
                   className={classNames(projectcss.all, sty.svg__abeh4)}
                   onClick={async event => {
                     const $steps = {};

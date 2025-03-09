@@ -61,6 +61,7 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { Video } from "@plasmicpkgs/plasmic-basic-components";
 import IconClinic from "../../IconClinic"; // plasmic-import: TdNZ6qWfkqbt/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
@@ -74,6 +75,7 @@ import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import Search from "../../Search"; // plasmic-import: fmyovDT1Cvc-/component
 import { Input as Input2 } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input2_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
@@ -98,8 +100,9 @@ import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: r-c9byRGfifF/icon
-import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon102Icon from "./icons/PlasmicIcon__Icon102"; // plasmic-import: 9fS9dn8xohZT/icon
+import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
 
 createPlasmicElementProxy;
 
@@ -119,6 +122,7 @@ export const PlasmicClinic__ArgProps = new Array<ArgPropType>();
 export type PlasmicClinic__OverridesType = {
   root?: Flex__<"div">;
   bg?: Flex__<"div">;
+  htmlVideo?: Flex__<typeof Video>;
   rectangle2?: Flex__<"div">;
   ا?: Flex__<"div">;
   ا2?: Flex__<"div">;
@@ -166,7 +170,6 @@ export type PlasmicClinic__OverridesType = {
   lineClomp2?: Flex__<typeof LineClomp>;
   card15?: Flex__<"div">;
   button9?: Flex__<typeof Button>;
-  section?: Flex__<"section">;
   button?: Flex__<typeof Button>;
   dialog?: Flex__<typeof Dialog>;
   shop?: Flex__<typeof ApiRequest>;
@@ -180,7 +183,8 @@ export type PlasmicClinic__OverridesType = {
   shop2?: Flex__<typeof ApiRequest>;
   button12?: Flex__<typeof Button>;
   favicon?: Flex__<typeof Embed>;
-  button2?: Flex__<typeof Button>;
+  headerLiom?: Flex__<typeof HeaderLiom>;
+  button16?: Flex__<typeof Button>;
   search?: Flex__<typeof Search>;
   antdInput?: Flex__<typeof Input2>;
 };
@@ -260,12 +264,6 @@ function PlasmicClinic__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
-      },
-      {
-        path: "button2.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "line"
       },
       {
         path: "variable",
@@ -529,6 +527,12 @@ function PlasmicClinic__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button16.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "line"
       }
     ],
     [$props, $ctx, $refs]
@@ -830,6 +834,18 @@ function PlasmicClinic__RenderFunc(props: {
               data-plasmic-override={overrides.bg}
               className={classNames(projectcss.all, sty.bg)}
             >
+              <Video
+                data-plasmic-name={"htmlVideo"}
+                data-plasmic-override={overrides.htmlVideo}
+                className={classNames("__wab_instance", sty.htmlVideo)}
+                controls={true}
+                playsInline={true}
+                poster={"/plasmic/liom_hamyar/images/macBookAir1Png2.png"}
+                src={
+                  "https://checkup.liom-app.ir/view/dist/video/moshavere.mp4"
+                }
+              />
+
               <div
                 data-plasmic-name={"rectangle2"}
                 data-plasmic-override={overrides.rectangle2}
@@ -5745,10 +5761,12 @@ function PlasmicClinic__RenderFunc(props: {
                 </Stack__>
               </Stack__>
               <section
-                data-plasmic-name={"section"}
-                data-plasmic-override={overrides.section}
-                className={classNames(projectcss.all, sty.section, {
-                  [sty.section_1_docter]: hasVariant($state, "_1", "docter")
+                className={classNames(projectcss.all, sty.section__sNIjY, {
+                  [sty.section_1_docter__sNIjY8Ddm8]: hasVariant(
+                    $state,
+                    "_1",
+                    "docter"
+                  )
                 })}
               >
                 <Button
@@ -7118,100 +7136,134 @@ function PlasmicClinic__RenderFunc(props: {
             }
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox___8MoGl, {
-              [sty.freeBox_1_chatviow___8MoGlaYJmT]: hasVariant(
-                $state,
-                "_1",
-                "chatviow"
-              ),
-              [sty.freeBox_1_docter___8MoGl8Ddm8]: hasVariant(
-                $state,
-                "_1",
-                "docter"
-              ),
-              [sty.freeBox_1_docters___8MoGlpv2Kd]: hasVariant(
-                $state,
-                "_1",
-                "docters"
-              )
-            })}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__cJh7K, {
-                [sty.freeBox_1_chatviow__cJh7KaYJmT]: hasVariant(
-                  $state,
-                  "_1",
-                  "chatviow"
-                ),
-                [sty.freeBox_1_docter__cJh7K8Ddm8]: hasVariant(
-                  $state,
-                  "_1",
-                  "docter"
-                ),
-                [sty.freeBox_1_docters__cJh7Kpv2Kd]: hasVariant(
-                  $state,
-                  "_1",
-                  "docters"
-                )
-              })}
-            >
-              {(
-                hasVariant($state, "_1", "docter")
-                  ? true
-                  : hasVariant($state, "_1", "docters") &&
-                    hasVariant(globalVariants, "screen", "mobile")
-                  ? true
-                  : hasVariant($state, "_1", "docters")
-                  ? true
-                  : (() => {
-                      try {
-                        return window.history.length > 1;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
+          <section className={classNames(projectcss.all, sty.section__fsKaa)}>
+            <HeaderLiom
+              data-plasmic-name={"headerLiom"}
+              data-plasmic-override={overrides.headerLiom}
+              className={classNames("__wab_instance", sty.headerLiom)}
+              slot={
+                (
+                  hasVariant($state, "_1", "docter")
+                    ? true
+                    : hasVariant($state, "_1", "docters")
+                    ? true
+                    : (() => {
+                        try {
+                          return !$state.loadingPage;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
                         }
-                        throw e;
+                      })()
+                ) ? (
+                  <Button
+                    data-plasmic-name={"button16"}
+                    data-plasmic-override={overrides.button16}
+                    className={classNames("__wab_instance", sty.button16, {
+                      [sty.button16_1_docter]: hasVariant(
+                        $state,
+                        "_1",
+                        "docter"
+                      ),
+                      [sty.button16_1_docters]: hasVariant(
+                        $state,
+                        "_1",
+                        "docters"
+                      )
+                    })}
+                    color={generateStateValueProp($state, [
+                      "button16",
+                      "color"
+                    ])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return `/chatviow?gender=${new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender")}`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
-                    })()
-              ) ? (
-                <PlasmicIcon__
-                  PlasmicIconType={
-                    hasVariant($state, "_1", "chatviow")
-                      ? ChevronRightIcon
-                      : hasVariant($state, "_1", "docter")
-                      ? ChevronRightIcon
-                      : hasVariant($state, "_1", "docters") &&
-                        hasVariant(globalVariants, "screen", "mobile")
-                      ? ChevronRightIcon
-                      : hasVariant($state, "_1", "docters")
-                      ? ChevronRightIcon
-                      : Icon22Icon
-                  }
-                  className={classNames(projectcss.all, sty.svg__no9Yv, {
-                    [sty.svg_1_chatviow__no9YVaYJmT]: hasVariant(
-                      $state,
-                      "_1",
-                      "chatviow"
-                    ),
-                    [sty.svg_1_docter__no9Yv8Ddm8]: hasVariant(
-                      $state,
-                      "_1",
-                      "docter"
-                    ),
-                    [sty.svg_1_docters__no9YVpv2Kd]: hasVariant(
-                      $state,
-                      "_1",
-                      "docters"
-                    )
-                  })}
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button16",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    showStartIcon={true}
+                    size={"compact"}
+                    startIcon={
+                      <Icon102Icon
+                        className={classNames(projectcss.all, sty.svg__rTb4G)}
+                        role={"img"}
+                      />
+                    }
+                  >
+                    {
+                      "\u0648\u06cc\u0632\u06cc\u062a \u0647\u0627\u06cc \u0645\u0646"
+                    }
+                  </Button>
+                ) : null
+              }
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___8QInJ)}
+              >
+                <XIcon
+                  className={classNames(projectcss.all, sty.svg__wD4U)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -7240,137 +7292,21 @@ function PlasmicClinic__RenderFunc(props: {
                   }}
                   role={"img"}
                 />
-              ) : null}
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__qMam7,
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__p2JDc
+                  )}
+                >
                   {
-                    [sty.text_1_chatviow__qMam7AYJmT]: hasVariant(
-                      $state,
-                      "_1",
-                      "chatviow"
-                    ),
-                    [sty.text_1_docter__qMam78Ddm8]: hasVariant(
-                      $state,
-                      "_1",
-                      "docter"
-                    ),
-                    [sty.text_1_docters__qMam7Pv2Kd]: hasVariant(
-                      $state,
-                      "_1",
-                      "docters"
-                    )
+                    "\u06a9\u0644\u06cc\u0646\u06cc\u06a9 \u0644\u06cc\u0648\u0645"
                   }
-                )}
-              >
-                {
-                  "\u06a9\u0644\u06cc\u0646\u06cc\u06a9 \u0644\u06cc\u0648\u0645"
-                }
-              </div>
-            </Stack__>
-            {(
-              hasVariant($state, "_1", "docter")
-                ? true
-                : hasVariant($state, "_1", "docters")
-                ? true
-                : (() => {
-                    try {
-                      return !$state.loadingPage;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })()
-            ) ? (
-              <Button
-                data-plasmic-name={"button2"}
-                data-plasmic-override={overrides.button2}
-                className={classNames("__wab_instance", sty.button2, {
-                  [sty.button2_1_docter]: hasVariant($state, "_1", "docter"),
-                  [sty.button2_1_docters]: hasVariant($state, "_1", "docters")
-                })}
-                color={generateStateValueProp($state, ["button2", "color"])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return `/chatviow?gender=${new URLSearchParams(
-                                new URL(window.location.href).search
-                              ).get("gender")}`;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
-                  ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
-                  }
-                }}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                showStartIcon={true}
-                size={"compact"}
-                startIcon={
-                  <Icon102Icon
-                    className={classNames(projectcss.all, sty.svg___8EYhu)}
-                    role={"img"}
-                  />
-                }
-              >
-                {
-                  "\u0648\u06cc\u0632\u06cc\u062a \u0647\u0627\u06cc \u0645\u0646"
-                }
-              </Button>
-            ) : null}
-          </Stack__>
+                </div>
+              </Stack__>
+            </HeaderLiom>
+          </section>
           {(() => {
             try {
               return $state.loadingPage;
@@ -7665,6 +7601,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "bg",
+    "htmlVideo",
     "rectangle2",
     "\u0627",
     "\u06272",
@@ -7712,7 +7649,6 @@ const PlasmicDescendants = {
     "lineClomp2",
     "card15",
     "button9",
-    "section",
     "button",
     "dialog",
     "shop",
@@ -7726,11 +7662,13 @@ const PlasmicDescendants = {
     "shop2",
     "button12",
     "favicon",
-    "button2",
+    "headerLiom",
+    "button16",
     "search",
     "antdInput"
   ],
-  bg: ["bg", "rectangle2", "\u0627", "\u06272"],
+  bg: ["bg", "htmlVideo", "rectangle2", "\u0627", "\u06272"],
+  htmlVideo: ["htmlVideo"],
   rectangle2: ["rectangle2", "\u0627", "\u06272"],
   ا: ["\u0627"],
   ا2: ["\u06272"],
@@ -7806,7 +7744,6 @@ const PlasmicDescendants = {
     "lineClomp2",
     "card15",
     "button9",
-    "section",
     "button",
     "dialog",
     "shop",
@@ -7825,7 +7762,6 @@ const PlasmicDescendants = {
   lineClomp2: ["lineClomp2"],
   card15: ["card15", "button9"],
   button9: ["button9"],
-  section: ["section", "button"],
   button: ["button"],
   dialog: [
     "dialog",
@@ -7847,7 +7783,8 @@ const PlasmicDescendants = {
   shop2: ["shop2", "button12"],
   button12: ["button12"],
   favicon: ["favicon"],
-  button2: ["button2"],
+  headerLiom: ["headerLiom", "button16"],
+  button16: ["button16"],
   search: ["search", "antdInput"],
   antdInput: ["antdInput"]
 } as const;
@@ -7857,6 +7794,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   bg: "div";
+  htmlVideo: typeof Video;
   rectangle2: "div";
   ا: "div";
   ا2: "div";
@@ -7904,7 +7842,6 @@ type NodeDefaultElementType = {
   lineClomp2: typeof LineClomp;
   card15: "div";
   button9: typeof Button;
-  section: "section";
   button: typeof Button;
   dialog: typeof Dialog;
   shop: typeof ApiRequest;
@@ -7918,7 +7855,8 @@ type NodeDefaultElementType = {
   shop2: typeof ApiRequest;
   button12: typeof Button;
   favicon: typeof Embed;
-  button2: typeof Button;
+  headerLiom: typeof HeaderLiom;
+  button16: typeof Button;
   search: typeof Search;
   antdInput: typeof Input2;
 };
@@ -8009,6 +7947,7 @@ export const PlasmicClinic = Object.assign(
   {
     // Helper components rendering sub-elements
     bg: makeNodeComponent("bg"),
+    htmlVideo: makeNodeComponent("htmlVideo"),
     rectangle2: makeNodeComponent("rectangle2"),
     ا: makeNodeComponent("\u0627"),
     ا2: makeNodeComponent("\u06272"),
@@ -8056,7 +7995,6 @@ export const PlasmicClinic = Object.assign(
     lineClomp2: makeNodeComponent("lineClomp2"),
     card15: makeNodeComponent("card15"),
     button9: makeNodeComponent("button9"),
-    section: makeNodeComponent("section"),
     button: makeNodeComponent("button"),
     dialog: makeNodeComponent("dialog"),
     shop: makeNodeComponent("shop"),
@@ -8070,7 +8008,8 @@ export const PlasmicClinic = Object.assign(
     shop2: makeNodeComponent("shop2"),
     button12: makeNodeComponent("button12"),
     favicon: makeNodeComponent("favicon"),
-    button2: makeNodeComponent("button2"),
+    headerLiom: makeNodeComponent("headerLiom"),
+    button16: makeNodeComponent("button16"),
     search: makeNodeComponent("search"),
     antdInput: makeNodeComponent("antdInput"),
 

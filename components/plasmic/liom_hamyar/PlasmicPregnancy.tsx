@@ -709,201 +709,6 @@ function PlasmicPregnancy__RenderFunc(props: {
               [sty.sectiondarkMod]: hasVariant($state, "darkMod", "darkMod")
             })}
           >
-            {(
-              hasVariant(globalVariants, "screen", "mobile")
-                ? true
-                : (() => {
-                    try {
-                      return $state.loading && !$state.isTimer;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return false;
-                      }
-                      throw e;
-                    }
-                  })()
-            ) ? (
-              <div className={classNames(projectcss.all, sty.freeBox__vg0Ol)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__x2Cgb)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__sc9Ny)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___8MBq8,
-                        "shimmer"
-                      )}
-                    />
-
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__q91Xe)}
-                    >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__smSdh,
-                          "shimmer"
-                        )}
-                      />
-
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__lhaUs,
-                          "shimmer"
-                        )}
-                      />
-                    </Stack__>
-                  </Stack__>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__sD1KZ)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___9NwF,
-                        "shimmer"
-                      )}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__yuyQ)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__yy3Uh,
-                        "shimmer"
-                      )}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___5Vjzd)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__lCEw,
-                        "shimmer"
-                      )}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__jjk52)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__vNt8R,
-                        "shimmer"
-                      )}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___9LpWm)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__pZWk,
-                        "shimmer"
-                      )}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__z31Di)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__giOM,
-                        "shimmer"
-                      )}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__f4M9B)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___8IqoB,
-                        "shimmer"
-                      )}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__udOgh)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__f5JF7,
-                        "shimmer"
-                      )}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___7KboP)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__nE8Ia,
-                        "shimmer"
-                      )}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ks1R)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__aYuCo,
-                        "shimmer"
-                      )}
-                    />
-                  </div>
-                </Stack__>
-              </div>
-            ) : null}
             {(() => {
               try {
                 return (
@@ -1064,6 +869,213 @@ function PlasmicPregnancy__RenderFunc(props: {
                 }}
               />
 
+              {(
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? true
+                  : (() => {
+                      try {
+                        return $state.loading;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()
+              ) ? (
+                <div className={classNames(projectcss.all, sty.freeBox__vg0Ol)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__x2Cgb)}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__sc9Ny)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___8MBq8,
+                          "shimmer"
+                        )}
+                      />
+
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__q91Xe
+                        )}
+                      >
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__smSdh,
+                            "shimmer"
+                          )}
+                        />
+
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__lhaUs,
+                            "shimmer"
+                          )}
+                        />
+                      </Stack__>
+                    </Stack__>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__sD1KZ)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___9NwF,
+                          "shimmer"
+                        )}
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__yuyQ)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__yy3Uh,
+                          "shimmer"
+                        )}
+                      />
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___5Vjzd
+                      )}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__lCEw,
+                          "shimmer"
+                        )}
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__jjk52)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__vNt8R,
+                          "shimmer"
+                        )}
+                      />
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___9LpWm
+                      )}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__pZWk,
+                          "shimmer"
+                        )}
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__z31Di)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__giOM,
+                          "shimmer"
+                        )}
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__f4M9B)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___8IqoB,
+                          "shimmer"
+                        )}
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__udOgh)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__f5JF7,
+                          "shimmer"
+                        )}
+                      />
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___7KboP
+                      )}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__nE8Ia,
+                          "shimmer"
+                        )}
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__ks1R)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__aYuCo,
+                          "shimmer"
+                        )}
+                      />
+                    </div>
+                  </Stack__>
+                </div>
+              ) : null}
               {(() => {
                 try {
                   return false;
