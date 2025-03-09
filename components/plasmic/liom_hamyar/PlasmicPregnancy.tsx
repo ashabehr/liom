@@ -977,48 +977,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                       />
                     </div>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__jjk52)}
-                    >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__vNt8R,
-                          "shimmer"
-                        )}
-                      />
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___9LpWm
-                      )}
-                    >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__pZWk,
-                          "shimmer"
-                        )}
-                      />
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__z31Di)}
-                    >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__giOM,
-                          "shimmer"
-                        )}
-                      />
-                    </div>
-                    <div
                       className={classNames(projectcss.all, sty.freeBox__f4M9B)}
                     >
                       <Stack__
@@ -1027,35 +985,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___8IqoB,
-                          "shimmer"
-                        )}
-                      />
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__udOgh)}
-                    >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__f5JF7,
-                          "shimmer"
-                        )}
-                      />
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___7KboP
-                      )}
-                    >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__nE8Ia,
                           "shimmer"
                         )}
                       />
