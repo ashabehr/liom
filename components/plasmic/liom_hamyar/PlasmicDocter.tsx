@@ -68,6 +68,7 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -82,11 +83,11 @@ import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld
 import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: r-c9byRGfifF/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
-import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import Icon77Icon from "./icons/PlasmicIcon__Icon77"; // plasmic-import: wjMNvLG8jaXy/icon
 import Icon120Icon from "./icons/PlasmicIcon__Icon120"; // plasmic-import: lWsc7Ggg4B53/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
 
@@ -130,6 +131,7 @@ export type PlasmicDocter__OverridesType = {
   input3?: Flex__<typeof AntdInput>;
   button10?: Flex__<typeof Button>;
   button11?: Flex__<typeof Button>;
+  headerLiom?: Flex__<typeof HeaderLiom>;
 };
 
 export interface DefaultDocterProps {}
@@ -827,70 +829,6 @@ function PlasmicDocter__RenderFunc(props: {
             }
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__uT62)}
-          >
-            <ChevronRightIcon
-              className={classNames(projectcss.all, sty.svg__zkh52)}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["goToPage"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return `/clinic?gender=${new URLSearchParams(
-                              new URL(window.location.href).search
-                            ).get("gender")}`;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return `/clinic`;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
-                ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
-                }
-              }}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__d0Pv3
-              )}
-            >
-              {"\u06a9\u0644\u06cc\u0646\u06cc\u06a9 \u0644\u06cc\u0648\u0645"}
-            </div>
-          </Stack__>
           <ApiRequest
             data-plasmic-name={"shop"}
             data-plasmic-override={overrides.shop}
@@ -3082,6 +3020,111 @@ function PlasmicDocter__RenderFunc(props: {
               </Dialog>
             </Stack__>
           </ApiRequest>
+          <section className={classNames(projectcss.all, sty.section___9RcgN)}>
+            <HeaderLiom
+              data-plasmic-name={"headerLiom"}
+              data-plasmic-override={overrides.headerLiom}
+              className={classNames("__wab_instance", sty.headerLiom)}
+              slot={
+                <div className={classNames(projectcss.all, sty.freeBox__fhiW)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___6SwGm
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            "اعتبار : " +
+                            parseInt(localStorage.getItem("userAllowance")) +
+                            " تومان "
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </div>
+              }
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__qqt21)}
+              >
+                <XIcon
+                  className={classNames(projectcss.all, sty.svg__abeh4)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return `/clinic?gender=${new URLSearchParams(
+                                  new URL(window.location.href).search
+                                ).get("gender")}`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__d2R7
+                  )}
+                >
+                  {
+                    "\u06a9\u0644\u06cc\u0646\u06cc\u06a9 \u0644\u06cc\u0648\u0645"
+                  }
+                </div>
+              </Stack__>
+            </HeaderLiom>
+          </section>
         </div>
       </div>
     </React.Fragment>
@@ -3119,7 +3162,8 @@ const PlasmicDescendants = {
     "dialog",
     "input3",
     "button10",
-    "button11"
+    "button11",
+    "headerLiom"
   ],
   dialog2: ["dialog2", "shop2", "button12"],
   shop2: ["shop2", "button12"],
@@ -3207,7 +3251,8 @@ const PlasmicDescendants = {
   dialog: ["dialog", "input3", "button10", "button11"],
   input3: ["input3"],
   button10: ["button10"],
-  button11: ["button11"]
+  button11: ["button11"],
+  headerLiom: ["headerLiom"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3243,6 +3288,7 @@ type NodeDefaultElementType = {
   input3: typeof AntdInput;
   button10: typeof Button;
   button11: typeof Button;
+  headerLiom: typeof HeaderLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3359,6 +3405,7 @@ export const PlasmicDocter = Object.assign(
     input3: makeNodeComponent("input3"),
     button10: makeNodeComponent("button10"),
     button11: makeNodeComponent("button11"),
+    headerLiom: makeNodeComponent("headerLiom"),
 
     // Metadata about props expected for PlasmicDocter
     internalVariantProps: PlasmicDocter__VariantProps,
