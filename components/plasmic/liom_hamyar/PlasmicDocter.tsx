@@ -68,7 +68,6 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -87,6 +86,7 @@ import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import Icon77Icon from "./icons/PlasmicIcon__Icon77"; // plasmic-import: wjMNvLG8jaXy/icon
 import Icon120Icon from "./icons/PlasmicIcon__Icon120"; // plasmic-import: lWsc7Ggg4B53/icon
+import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
 
 createPlasmicElementProxy;
 
@@ -111,19 +111,20 @@ export type PlasmicDocter__OverridesType = {
   bg3?: Flex__<"div">;
   dialog3?: Flex__<typeof Dialog>;
   shop3?: Flex__<typeof ApiRequest>;
+  dialogTitle?: Flex__<typeof DialogTitle>;
+  h5?: Flex__<"h5">;
   input4?: Flex__<typeof AntdInput>;
   button13?: Flex__<typeof Button>;
   button14?: Flex__<typeof Button>;
   doctorsDetails?: Flex__<"div">;
   bg2?: Flex__<"div">;
-  img?: Flex__<typeof PlasmicImg__>;
   about?: Flex__<"div">;
   drBellamyNicholas?: Flex__<"div">;
   workingTime?: Flex__<"div">;
   monSat0830Am?: Flex__<"div">;
   speciality4?: Flex__<"div">;
-  lineClomp2?: Flex__<typeof LineClomp>;
   card15?: Flex__<"div">;
+  card16?: Flex__<"div">;
   button?: Flex__<typeof Button>;
   dialog?: Flex__<typeof Dialog>;
   input3?: Flex__<typeof AntdInput>;
@@ -380,12 +381,6 @@ function PlasmicDocter__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "lineClomp2.line",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "apiRequest.data",
@@ -1128,16 +1123,20 @@ function PlasmicDocter__RenderFunc(props: {
                         />
 
                         <DialogTitle
+                          data-plasmic-name={"dialogTitle"}
+                          data-plasmic-override={overrides.dialogTitle}
                           className={classNames(
                             "__wab_instance",
-                            sty.dialogTitle__vEjq
+                            sty.dialogTitle
                           )}
                         >
                           <h5
+                            data-plasmic-name={"h5"}
+                            data-plasmic-override={overrides.h5}
                             className={classNames(
                               projectcss.all,
                               projectcss.h5,
-                              sty.h5__nDoEy
+                              sty.h5
                             )}
                           >
                             <div
@@ -1838,10 +1837,8 @@ function PlasmicDocter__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.bg2)}
               >
                 <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
                   alt={""}
-                  className={classNames(sty.img)}
+                  className={classNames(sty.img__ozomw)}
                   displayHeight={"100px"}
                   displayMaxHeight={"none"}
                   displayMaxWidth={"100%"}
@@ -2037,79 +2034,6 @@ function PlasmicDocter__RenderFunc(props: {
                       "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 ..."
                     }
                   </div>
-                  <LineClomp
-                    data-plasmic-name={"lineClomp2"}
-                    data-plasmic-override={overrides.lineClomp2}
-                    className={classNames("__wab_instance", sty.lineClomp2)}
-                    more={
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? true
-                        : true
-                    }
-                    numberOfLine={
-                      hasVariant(globalVariants, "screen", "mobile") ? 2 : 2
-                    }
-                    onLineChange={async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "lineClomp2",
-                        "line"
-                      ]).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__q62Cd
-                      )}
-                    >
-                      {hasVariant(globalVariants, "screen", "mobile") ? (
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return $state.getList.list
-                                .map(item => item.text)
-                                .join("، ");
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 ...";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      ) : (
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return $state.getList.list
-                                .map(item => item.text)
-                                .join("، ");
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "...";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      )}
-                    </div>
-                  </LineClomp>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__lcYk9)}
                   >
@@ -2139,34 +2063,142 @@ function PlasmicDocter__RenderFunc(props: {
                           hasGap={true}
                           className={classNames(projectcss.all, sty.card15)}
                           key={currentIndex}
-                          style={(() => {
-                            try {
-                              return {
-                                "background-color":
-                                  $state.getList.list[currentIndex].backColor +
-                                  "a1"
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateDialogOpendialog"] =
+                              parseInt(localStorage.getItem("userAllowance")) <
+                              $state.shop.data.item.price / 1000
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["dialog", "opendialog"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["updateDialogOpendialog"] != null &&
+                              typeof $steps["updateDialogOpendialog"] ===
+                                "object" &&
+                              typeof $steps["updateDialogOpendialog"].then ===
+                                "function"
+                            ) {
+                              $steps["updateDialogOpendialog"] = await $steps[
+                                "updateDialogOpendialog"
+                              ];
                             }
-                          })()}
+
+                            $steps["updateSublist"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["sublist"]
+                                    },
+                                    operation: 0,
+                                    value: currentItem.id
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateSublist"] != null &&
+                              typeof $steps["updateSublist"] === "object" &&
+                              typeof $steps["updateSublist"].then === "function"
+                            ) {
+                              $steps["updateSublist"] = await $steps[
+                                "updateSublist"
+                              ];
+                            }
+
+                            $steps["goToPage"] =
+                              parseInt(localStorage.getItem("userAllowance")) >=
+                              $state.shop.data.item.price / 1000
+                                ? (() => {
+                                    const actionArgs = {
+                                      destination: (() => {
+                                        try {
+                                          return `/chat?listID=${$ctx.query.id}&subList=${$state.sublist}&doctorID=${$state.getList.doctor.id}&gender=${$ctx.query.gender}`;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["goToPage"] != null &&
+                              typeof $steps["goToPage"] === "object" &&
+                              typeof $steps["goToPage"].then === "function"
+                            ) {
+                              $steps["goToPage"] = await $steps["goToPage"];
+                            }
+                          }}
                         >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__lgIiO
-                            )}
+                          <Stack__
+                            as={"div"}
+                            data-plasmic-name={"card16"}
+                            data-plasmic-override={overrides.card16}
+                            hasGap={true}
+                            className={classNames(projectcss.all, sty.card16)}
                             style={(() => {
                               try {
                                 return {
-                                  color: currentItem.textColor
+                                  "background-color":
+                                    $state.getList.list[currentIndex].backColor
                                 };
                               } catch (e) {
                                 if (
@@ -2178,6 +2210,14 @@ function PlasmicDocter__RenderFunc(props: {
                                 throw e;
                               }
                             })()}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__lgIiO
+                            )}
                           >
                             <React.Fragment>
                               {(() => {
@@ -2196,6 +2236,13 @@ function PlasmicDocter__RenderFunc(props: {
                               })()}
                             </React.Fragment>
                           </div>
+                          <ChevronLeftIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__snH1H
+                            )}
+                            role={"img"}
+                          />
                         </Stack__>
                       );
                     })}
@@ -2389,51 +2436,37 @@ function PlasmicDocter__RenderFunc(props: {
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__iA5Qv)}
-                    dir={"rtl"}
+                    className={classNames(projectcss.all, sty.freeBox___3Tf8G)}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__dc4Ug)}
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img___5AKw)}
+                      displayHeight={"15px"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"auto"}
+                      loading={"lazy"}
+                      src={{
+                        src: "/plasmic/liom_hamyar/images/image89.svg",
+                        fullWidth: 22,
+                        fullHeight: 20,
+                        aspectRatio: 1.1
+                      }}
                     />
 
-                    <DialogTitle
+                    <div
                       className={classNames(
-                        "__wab_instance",
-                        sty.dialogTitle__j9Za
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__awz1C
                       )}
                     >
-                      <h5
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h5,
-                          sty.h5__ooO5V
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__q1Uyn
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return undefined;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "Dialog title";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      </h5>
-                    </DialogTitle>
+                      {
+                        "\u0628\u0631\u0627\u06cc \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0645\u0634\u0627\u0648\u0647 \u0646\u06cc\u0627\u0632 \u0627\u0633\u062a \u0627\u0628\u062a\u062f\u0627 \u0627\u0642\u062f\u0627\u0645 \u0628\u0647 \u062e\u0631\u06cc\u062f \u06a9\u0646\u06cc\u062f. "
+                      }
+                    </div>
                   </Stack__>
                   <Stack__
                     as={"div"}
@@ -2475,24 +2508,6 @@ function PlasmicDocter__RenderFunc(props: {
                           sty.freeBox__fh38F
                         )}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__grqhr
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__gq49K
-                            )}
-                          >
-                            {
-                              "\ud83c\udf39 \u0628\u0647 \u0635\u0631\u0641\u0647 \u062a\u0631\u06cc\u0646 \ud83c\udf39"
-                            }
-                          </div>
-                        </div>
                         <div
                           className={classNames(
                             projectcss.all,
@@ -3086,19 +3101,20 @@ const PlasmicDescendants = {
     "bg3",
     "dialog3",
     "shop3",
+    "dialogTitle",
+    "h5",
     "input4",
     "button13",
     "button14",
     "doctorsDetails",
     "bg2",
-    "img",
     "about",
     "drBellamyNicholas",
     "workingTime",
     "monSat0830Am",
     "speciality4",
-    "lineClomp2",
     "card15",
+    "card16",
     "button",
     "dialog",
     "input3",
@@ -3116,19 +3132,20 @@ const PlasmicDescendants = {
     "bg3",
     "dialog3",
     "shop3",
+    "dialogTitle",
+    "h5",
     "input4",
     "button13",
     "button14",
     "doctorsDetails",
     "bg2",
-    "img",
     "about",
     "drBellamyNicholas",
     "workingTime",
     "monSat0830Am",
     "speciality4",
-    "lineClomp2",
     "card15",
+    "card16",
     "button",
     "dialog",
     "input3",
@@ -3140,42 +3157,52 @@ const PlasmicDescendants = {
     "bg3",
     "dialog3",
     "shop3",
+    "dialogTitle",
+    "h5",
     "input4",
     "button13",
     "button14"
   ],
   bg3: ["bg3"],
-  dialog3: ["dialog3", "shop3", "input4", "button13", "button14"],
-  shop3: ["shop3", "input4", "button13", "button14"],
+  dialog3: [
+    "dialog3",
+    "shop3",
+    "dialogTitle",
+    "h5",
+    "input4",
+    "button13",
+    "button14"
+  ],
+  shop3: ["shop3", "dialogTitle", "h5", "input4", "button13", "button14"],
+  dialogTitle: ["dialogTitle", "h5"],
+  h5: ["h5"],
   input4: ["input4"],
   button13: ["button13"],
   button14: ["button14"],
   doctorsDetails: [
     "doctorsDetails",
     "bg2",
-    "img",
     "about",
     "drBellamyNicholas",
     "workingTime",
     "monSat0830Am",
     "speciality4",
-    "lineClomp2",
     "card15",
+    "card16",
     "button",
     "dialog",
     "input3",
     "button10",
     "button11"
   ],
-  bg2: ["bg2", "img"],
-  img: ["img"],
+  bg2: ["bg2"],
   about: ["about", "drBellamyNicholas"],
   drBellamyNicholas: ["drBellamyNicholas"],
   workingTime: ["workingTime", "monSat0830Am"],
   monSat0830Am: ["monSat0830Am"],
-  speciality4: ["speciality4", "lineClomp2", "card15"],
-  lineClomp2: ["lineClomp2"],
-  card15: ["card15"],
+  speciality4: ["speciality4", "card15", "card16"],
+  card15: ["card15", "card16"],
+  card16: ["card16"],
   button: ["button"],
   dialog: ["dialog", "input3", "button10", "button11"],
   input3: ["input3"],
@@ -3197,19 +3224,20 @@ type NodeDefaultElementType = {
   bg3: "div";
   dialog3: typeof Dialog;
   shop3: typeof ApiRequest;
+  dialogTitle: typeof DialogTitle;
+  h5: "h5";
   input4: typeof AntdInput;
   button13: typeof Button;
   button14: typeof Button;
   doctorsDetails: "div";
   bg2: "div";
-  img: typeof PlasmicImg__;
   about: "div";
   drBellamyNicholas: "div";
   workingTime: "div";
   monSat0830Am: "div";
   speciality4: "div";
-  lineClomp2: typeof LineClomp;
   card15: "div";
+  card16: "div";
   button: typeof Button;
   dialog: typeof Dialog;
   input3: typeof AntdInput;
@@ -3312,19 +3340,20 @@ export const PlasmicDocter = Object.assign(
     bg3: makeNodeComponent("bg3"),
     dialog3: makeNodeComponent("dialog3"),
     shop3: makeNodeComponent("shop3"),
+    dialogTitle: makeNodeComponent("dialogTitle"),
+    h5: makeNodeComponent("h5"),
     input4: makeNodeComponent("input4"),
     button13: makeNodeComponent("button13"),
     button14: makeNodeComponent("button14"),
     doctorsDetails: makeNodeComponent("doctorsDetails"),
     bg2: makeNodeComponent("bg2"),
-    img: makeNodeComponent("img"),
     about: makeNodeComponent("about"),
     drBellamyNicholas: makeNodeComponent("drBellamyNicholas"),
     workingTime: makeNodeComponent("workingTime"),
     monSat0830Am: makeNodeComponent("monSat0830Am"),
     speciality4: makeNodeComponent("speciality4"),
-    lineClomp2: makeNodeComponent("lineClomp2"),
     card15: makeNodeComponent("card15"),
+    card16: makeNodeComponent("card16"),
     button: makeNodeComponent("button"),
     dialog: makeNodeComponent("dialog"),
     input3: makeNodeComponent("input3"),

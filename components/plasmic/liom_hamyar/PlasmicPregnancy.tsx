@@ -67,18 +67,18 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { LottieWrapper } from "@plasmicpkgs/lottie-react";
+import BuyComponenct from "../../BuyComponenct"; // plasmic-import: Ww7_RchUYDdQ/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
-import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
-import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
-import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
-import BuyComponenct from "../../BuyComponenct"; // plasmic-import: Ww7_RchUYDdQ/component
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
 import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -118,6 +118,7 @@ export type PlasmicPregnancy__OverridesType = {
   root?: Flex__<"div">;
   section?: Flex__<"section">;
   button?: Flex__<typeof Button>;
+  collapseMedicine2?: Flex__<typeof AntdSingleCollapse>;
   favIcone?: Flex__<typeof Embed>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   timer?: Flex__<typeof Timer>;
@@ -129,7 +130,6 @@ export type PlasmicPregnancy__OverridesType = {
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
   todoList?: Flex__<typeof TodoList>;
   collapseDanger?: Flex__<typeof AntdSingleCollapse>;
-  collapseMedicine2?: Flex__<typeof AntdSingleCollapse>;
   collapseTest?: Flex__<typeof AntdSingleCollapse>;
   collapseBaby?: Flex__<typeof AntdSingleCollapse>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
@@ -829,6 +829,1231 @@ function PlasmicPregnancy__RenderFunc(props: {
                   }
                 </Button>
               </Stack__>
+              {(() => {
+                try {
+                  return (
+                    $ctx.query.userId.slice(4, $ctx.query.userId.length - 4) ==
+                    "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div className={classNames(projectcss.all, sty.freeBox__veeyn)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__vg0Ol)}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__x2Cgb)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__sc9Ny
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___8MBq8,
+                            "shimmer"
+                          )}
+                        />
+
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__q91Xe
+                          )}
+                        >
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__smSdh,
+                              "shimmer"
+                            )}
+                          />
+
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__lhaUs,
+                              "shimmer"
+                            )}
+                          />
+                        </Stack__>
+                      </Stack__>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__sD1KZ
+                        )}
+                      >
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___9NwF,
+                            "shimmer"
+                          )}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___5Vjzd
+                        )}
+                      >
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__lCEw,
+                            "shimmer"
+                          )}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__jjk52
+                        )}
+                      >
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__vNt8R,
+                            "shimmer"
+                          )}
+                        />
+                      </div>
+                    </Stack__>
+                  </div>
+                  {(() => {
+                    const child$Props = {
+                      bordered: true,
+                      className: classNames(
+                        "__wab_instance",
+                        sty.collapseMedicine2,
+                        {
+                          [sty.collapseMedicine2darkMod]: hasVariant(
+                            $state,
+                            "darkMod",
+                            "darkMod"
+                          )
+                        }
+                      ),
+                      expandIcon: (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.collapseMedicine2.open != true;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__xP2T)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"15px"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/liom_hamyar/images/image32.svg",
+                                fullWidth: 16,
+                                fullHeight: 16,
+                                aspectRatio: 1
+                              }}
+                            />
+                          ) : null}
+                          {(() => {
+                            try {
+                              return $state.collapseMedicine2.open == true;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__cYJbc)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"25px"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/liom_hamyar/images/image31.svg",
+                                fullWidth: 16,
+                                fullHeight: 16,
+                                aspectRatio: 1
+                              }}
+                            />
+                          ) : null}
+                        </React.Fragment>
+                      ),
+                      expandIconPosition: "end",
+                      ghost: true,
+                      label2: (
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__pWfZv
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__wmciC,
+                              {
+                                [sty.textdarkMod__wmciCoQOo]: hasVariant(
+                                  $state,
+                                  "darkMod",
+                                  "darkMod"
+                                )
+                              }
+                            )}
+                          >
+                            {hasVariant($state, "darkMod", "darkMod") ? (
+                              <React.Fragment>
+                                <span
+                                  className={
+                                    "plasmic_default__all plasmic_default__span"
+                                  }
+                                  style={{ color: "#FFFFFF" }}
+                                >
+                                  {
+                                    "\u0645\u06a9\u0645\u0644 \u0648 \u0648\u06cc\u062a\u0627\u0645\u06cc\u0646\u200c\u0647\u0627"
+                                  }
+                                </span>
+                              </React.Fragment>
+                            ) : (
+                              <React.Fragment>
+                                <span
+                                  className={
+                                    "plasmic_default__all plasmic_default__span"
+                                  }
+                                  style={{ color: "var(--token-ODBUExjR6VEF)" }}
+                                >
+                                  {
+                                    "\u0645\u06a9\u0645\u0644 \u0648 \u0648\u06cc\u062a\u0627\u0645\u06cc\u0646\u200c\u0647\u0627"
+                                  }
+                                </span>
+                              </React.Fragment>
+                            )}
+                          </div>
+                          {(() => {
+                            try {
+                              return $state.collapseMedicine2.open;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___5FoHx
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return "هفته " + $state.selectedWeek;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          ) : null}
+                        </Stack__>
+                      ),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "open",
+                          ["collapseMedicine2", "open"],
+                          AntdSingleCollapse_Helpers
+                        ).apply(null, eventArgs);
+
+                        (async activeIds => {
+                          const $steps = {};
+
+                          $steps["invokeGlobalAction"] =
+                            ($state.collapseMedicine2.open ? true : false) &&
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) != "314149" &&
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) != "1"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/service/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            userId:
+                                              $ctx.query.userId?.length > 0
+                                                ? $ctx.query.userId.slice(
+                                                    4,
+                                                    $ctx.query.userId.length - 4
+                                                  )
+                                                : "guest",
+                                            pageName: "weekByWeekPage",
+                                            action: "clickOpen-medicineAdvice",
+                                            extraData: {}
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      {
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization:
+                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                        }
+                                      }
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+                        }).apply(null, eventArgs);
+                      },
+                      open: generateStateValueProp($state, [
+                        "collapseMedicine2",
+                        "open"
+                      ]),
+                      showArrow: true,
+                      size: "large"
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "open",
+                          plasmicStateName: "collapseMedicine2.open"
+                        }
+                      ],
+                      [],
+                      AntdSingleCollapse_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <AntdSingleCollapse
+                        data-plasmic-name={"collapseMedicine2"}
+                        data-plasmic-override={overrides.collapseMedicine2}
+                        {...child$Props}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__xJGs
+                          )}
+                        >
+                          {(() => {
+                            try {
+                              return (() => {
+                                const allowance =
+                                  $state?.getUserInfo?.data?.[0]?.result
+                                    ?.allowance || [];
+                                const filteredItem = allowance.find(item =>
+                                  item.type.includes("danger")
+                                );
+                                const active = filteredItem
+                                  ? filteredItem.active
+                                  : false;
+                                return (
+                                  !$state.loadingAdvice &&
+                                  (active || $state.selectedWeek < 12)
+                                );
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__xsR0,
+                                {
+                                  [sty.textdarkMod__xsR0OQOo]: hasVariant(
+                                    $state,
+                                    "darkMod",
+                                    "darkMod"
+                                  )
+                                }
+                              )}
+                            >
+                              <div
+                                className={projectcss.__wab_expr_html_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: (() => {
+                                    try {
+                                      return (() => {
+                                        var supplement = "";
+                                        const advice = $state?.getAdvice;
+                                        var filteredItem;
+                                        filteredItem = advice.find(item =>
+                                          item.type.includes("supplement")
+                                        );
+                                        supplement = filteredItem?.text ?? "";
+                                        return supplement;
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                }}
+                              />
+                            </div>
+                          ) : null}
+                          {(() => {
+                            try {
+                              return $state.loadingAdvice;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <LottieWrapper
+                              animationData={{
+                                nm: "Loading Dots",
+                                ddd: 0,
+                                h: 50,
+                                w: 100,
+                                meta: { g: "@lottiefiles/toolkit-js 0.33.2" },
+                                layers: [
+                                  {
+                                    ty: 4,
+                                    nm: "Dot4",
+                                    sr: 1,
+                                    st: 0,
+                                    op: 360,
+                                    ip: 0,
+                                    hd: false,
+                                    ddd: 0,
+                                    bm: 0,
+                                    hasMask: false,
+                                    ao: 0,
+                                    ks: {
+                                      a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                                      s: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [2.61, 2.32, 100],
+                                            t: 25
+                                          },
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [3.91, 3.47, 100],
+                                            t: 39
+                                          },
+                                          { s: [2.61, 2.32, 100], t: 55 }
+                                        ],
+                                        ix: 6
+                                      },
+                                      sk: { a: 0, k: 0 },
+                                      p: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [59.48, 25, 0],
+                                            t: 25
+                                          },
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [59.48, 23.15, 0],
+                                            t: 39
+                                          },
+                                          { s: [59.48, 25, 0], t: 55 }
+                                        ],
+                                        ix: 2
+                                      },
+                                      r: { a: 0, k: 0, ix: 10 },
+                                      sa: { a: 0, k: 0 },
+                                      o: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [25],
+                                            t: 25
+                                          },
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [100],
+                                            t: 39
+                                          },
+                                          { s: [25], t: 55 }
+                                        ],
+                                        ix: 11
+                                      }
+                                    },
+                                    ef: [],
+                                    shapes: [
+                                      {
+                                        ty: "gr",
+                                        bm: 0,
+                                        hd: false,
+                                        mn: "ADBE Vector Group",
+                                        nm: "Ellipse 1",
+                                        ix: 1,
+                                        cix: 2,
+                                        np: 3,
+                                        it: [
+                                          {
+                                            ty: "el",
+                                            bm: 0,
+                                            hd: false,
+                                            mn: "ADBE Vector Shape - Ellipse",
+                                            nm: "Ellipse Path 1",
+                                            d: 1,
+                                            p: { a: 0, k: [0, 0], ix: 3 },
+                                            s: { a: 0, k: [120, 120], ix: 2 }
+                                          },
+                                          {
+                                            ty: "fl",
+                                            bm: 0,
+                                            hd: false,
+                                            mn: "ADBE Vector Graphic - Fill",
+                                            nm: "Fill 1",
+                                            c: {
+                                              a: 0,
+                                              k: [0.5098, 0.3294, 0.7765],
+                                              ix: 4
+                                            },
+                                            r: 1,
+                                            o: { a: 0, k: 100, ix: 5 }
+                                          },
+                                          {
+                                            ty: "tr",
+                                            a: { a: 0, k: [0, 0], ix: 1 },
+                                            s: { a: 0, k: [100, 100], ix: 3 },
+                                            sk: { a: 0, k: 0, ix: 4 },
+                                            p: { a: 0, k: [-284, 92], ix: 2 },
+                                            r: { a: 0, k: 0, ix: 6 },
+                                            sa: { a: 0, k: 0, ix: 5 },
+                                            o: { a: 0, k: 100, ix: 7 }
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    ind: 1
+                                  },
+                                  {
+                                    ty: 4,
+                                    nm: "Dot3",
+                                    sr: 1,
+                                    st: 0,
+                                    op: 360,
+                                    ip: 0,
+                                    hd: false,
+                                    ddd: 0,
+                                    bm: 0,
+                                    hasMask: false,
+                                    ao: 0,
+                                    ks: {
+                                      a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                                      s: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [2.61, 2.32, 100],
+                                            t: 17
+                                          },
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [3.91, 3.47, 100],
+                                            t: 31
+                                          },
+                                          { s: [2.61, 2.32, 100], t: 47 }
+                                        ],
+                                        ix: 6
+                                      },
+                                      sk: { a: 0, k: 0 },
+                                      p: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [53.23, 25, 0],
+                                            t: 17
+                                          },
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [53.23, 23.15, 0],
+                                            t: 31
+                                          },
+                                          { s: [53.23, 25, 0], t: 47 }
+                                        ],
+                                        ix: 2
+                                      },
+                                      r: { a: 0, k: 0, ix: 10 },
+                                      sa: { a: 0, k: 0 },
+                                      o: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [25],
+                                            t: 17
+                                          },
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [100],
+                                            t: 31
+                                          },
+                                          { s: [25], t: 47 }
+                                        ],
+                                        ix: 11
+                                      }
+                                    },
+                                    ef: [],
+                                    shapes: [
+                                      {
+                                        ty: "gr",
+                                        bm: 0,
+                                        hd: false,
+                                        mn: "ADBE Vector Group",
+                                        nm: "Ellipse 1",
+                                        ix: 1,
+                                        cix: 2,
+                                        np: 3,
+                                        it: [
+                                          {
+                                            ty: "el",
+                                            bm: 0,
+                                            hd: false,
+                                            mn: "ADBE Vector Shape - Ellipse",
+                                            nm: "Ellipse Path 1",
+                                            d: 1,
+                                            p: { a: 0, k: [0, 0], ix: 3 },
+                                            s: { a: 0, k: [120, 120], ix: 2 }
+                                          },
+                                          {
+                                            ty: "fl",
+                                            bm: 0,
+                                            hd: false,
+                                            mn: "ADBE Vector Graphic - Fill",
+                                            nm: "Fill 1",
+                                            c: {
+                                              a: 0,
+                                              k: [0.5098, 0.3294, 0.7765],
+                                              ix: 4
+                                            },
+                                            r: 1,
+                                            o: { a: 0, k: 100, ix: 5 }
+                                          },
+                                          {
+                                            ty: "tr",
+                                            a: { a: 0, k: [0, 0], ix: 1 },
+                                            s: { a: 0, k: [100, 100], ix: 3 },
+                                            sk: { a: 0, k: 0, ix: 4 },
+                                            p: { a: 0, k: [-284, 92], ix: 2 },
+                                            r: { a: 0, k: 0, ix: 6 },
+                                            sa: { a: 0, k: 0, ix: 5 },
+                                            o: { a: 0, k: 100, ix: 7 }
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    ind: 2
+                                  },
+                                  {
+                                    ty: 4,
+                                    nm: "Dot2",
+                                    sr: 1,
+                                    st: 0,
+                                    op: 360,
+                                    ip: 0,
+                                    hd: false,
+                                    ddd: 0,
+                                    bm: 0,
+                                    hasMask: false,
+                                    ao: 0,
+                                    ks: {
+                                      a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                                      s: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [2.61, 2.32, 100],
+                                            t: 9
+                                          },
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [3.91, 3.47, 100],
+                                            t: 23
+                                          },
+                                          { s: [2.61, 2.32, 100], t: 39 }
+                                        ],
+                                        ix: 6
+                                      },
+                                      sk: { a: 0, k: 0 },
+                                      p: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [46.98, 25, 0],
+                                            t: 9
+                                          },
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [46.98, 23.15, 0],
+                                            t: 23
+                                          },
+                                          { s: [46.98, 25, 0], t: 39 }
+                                        ],
+                                        ix: 2
+                                      },
+                                      r: { a: 0, k: 0, ix: 10 },
+                                      sa: { a: 0, k: 0 },
+                                      o: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [25],
+                                            t: 9
+                                          },
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [100],
+                                            t: 23
+                                          },
+                                          { s: [25], t: 39 }
+                                        ],
+                                        ix: 11
+                                      }
+                                    },
+                                    ef: [],
+                                    shapes: [
+                                      {
+                                        ty: "gr",
+                                        bm: 0,
+                                        hd: false,
+                                        mn: "ADBE Vector Group",
+                                        nm: "Ellipse 1",
+                                        ix: 1,
+                                        cix: 2,
+                                        np: 3,
+                                        it: [
+                                          {
+                                            ty: "el",
+                                            bm: 0,
+                                            hd: false,
+                                            mn: "ADBE Vector Shape - Ellipse",
+                                            nm: "Ellipse Path 1",
+                                            d: 1,
+                                            p: { a: 0, k: [0, 0], ix: 3 },
+                                            s: { a: 0, k: [120, 120], ix: 2 }
+                                          },
+                                          {
+                                            ty: "fl",
+                                            bm: 0,
+                                            hd: false,
+                                            mn: "ADBE Vector Graphic - Fill",
+                                            nm: "Fill 1",
+                                            c: {
+                                              a: 0,
+                                              k: [0.5098, 0.3294, 0.7765],
+                                              ix: 4
+                                            },
+                                            r: 1,
+                                            o: { a: 0, k: 100, ix: 5 }
+                                          },
+                                          {
+                                            ty: "tr",
+                                            a: { a: 0, k: [0, 0], ix: 1 },
+                                            s: { a: 0, k: [100, 100], ix: 3 },
+                                            sk: { a: 0, k: 0, ix: 4 },
+                                            p: { a: 0, k: [-284, 92], ix: 2 },
+                                            r: { a: 0, k: 0, ix: 6 },
+                                            sa: { a: 0, k: 0, ix: 5 },
+                                            o: { a: 0, k: 100, ix: 7 }
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    ind: 3
+                                  },
+                                  {
+                                    ty: 4,
+                                    nm: "Dot1",
+                                    sr: 1,
+                                    st: 0,
+                                    op: 360,
+                                    ip: 0,
+                                    hd: false,
+                                    ddd: 0,
+                                    bm: 0,
+                                    hasMask: false,
+                                    ao: 0,
+                                    ks: {
+                                      a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                                      s: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [2.61, 2.32, 100],
+                                            t: 0
+                                          },
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [3.91, 3.47, 100],
+                                            t: 14
+                                          },
+                                          { s: [2.61, 2.32, 100], t: 30 }
+                                        ],
+                                        ix: 6
+                                      },
+                                      sk: { a: 0, k: 0 },
+                                      p: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [40.73, 25, 0],
+                                            t: 0
+                                          },
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [40.73, 23.15, 0],
+                                            t: 14
+                                          },
+                                          { s: [40.73, 25, 0], t: 30 }
+                                        ],
+                                        ix: 2
+                                      },
+                                      r: { a: 0, k: 0, ix: 10 },
+                                      sa: { a: 0, k: 0 },
+                                      o: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [25],
+                                            t: 0
+                                          },
+                                          {
+                                            o: { x: 0.333, y: 0 },
+                                            i: { x: 0.667, y: 1 },
+                                            s: [100],
+                                            t: 14
+                                          },
+                                          { s: [25], t: 30 }
+                                        ],
+                                        ix: 11
+                                      }
+                                    },
+                                    ef: [],
+                                    shapes: [
+                                      {
+                                        ty: "gr",
+                                        bm: 0,
+                                        hd: false,
+                                        mn: "ADBE Vector Group",
+                                        nm: "Ellipse 1",
+                                        ix: 1,
+                                        cix: 2,
+                                        np: 3,
+                                        it: [
+                                          {
+                                            ty: "el",
+                                            bm: 0,
+                                            hd: false,
+                                            mn: "ADBE Vector Shape - Ellipse",
+                                            nm: "Ellipse Path 1",
+                                            d: 1,
+                                            p: { a: 0, k: [0, 0], ix: 3 },
+                                            s: { a: 0, k: [120, 120], ix: 2 }
+                                          },
+                                          {
+                                            ty: "fl",
+                                            bm: 0,
+                                            hd: false,
+                                            mn: "ADBE Vector Graphic - Fill",
+                                            nm: "Fill 1",
+                                            c: {
+                                              a: 0,
+                                              k: [0.5098, 0.3294, 0.7765],
+                                              ix: 4
+                                            },
+                                            r: 1,
+                                            o: { a: 0, k: 100, ix: 5 }
+                                          },
+                                          {
+                                            ty: "tr",
+                                            a: { a: 0, k: [0, 0], ix: 1 },
+                                            s: { a: 0, k: [100, 100], ix: 3 },
+                                            sk: { a: 0, k: 0, ix: 4 },
+                                            p: { a: 0, k: [-284, 92], ix: 2 },
+                                            r: { a: 0, k: 0, ix: 6 },
+                                            sa: { a: 0, k: 0, ix: 5 },
+                                            o: { a: 0, k: 100, ix: 7 }
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    ind: 4
+                                  }
+                                ],
+                                v: "5.7.11",
+                                fr: 60,
+                                op: 81,
+                                ip: 0,
+                                assets: []
+                              }}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.lottie__eCr6
+                              )}
+                              preview={true}
+                            />
+                          ) : null}
+                        </div>
+                        {(
+                          hasVariant($state, "darkMod", "darkMod")
+                            ? (() => {
+                                try {
+                                  return (
+                                    // const allowance = $state?.getUserInfo?.data?.[0]?.result?.allowance || [];
+                                    // const filteredItem = allowance.find(item => item.type.includes("danger"));
+                                    // const active = filteredItem ? filteredItem.active : false;
+                                    // !$state.loadingAdvice && !active
+                                    true
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : (() => {
+                                try {
+                                  return (
+                                    // const allowance = $state?.getUserInfo?.data?.[0]?.result?.allowance || [];
+                                    // const filteredItem = allowance.find(item => item.type.includes("danger"));
+                                    // const active = filteredItem ? filteredItem.active : false;
+                                    // !$state.loadingAdvice && !active
+                                    true
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                        ) ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___56Wkw,
+                              {
+                                [sty.freeBoxdarkMod___56WkwOQOo]: hasVariant(
+                                  $state,
+                                  "darkMod",
+                                  "darkMod"
+                                )
+                              }
+                            )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] =
+                                $ctx.query.inApp == "true" && false
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return window.FlutterChannel.postMessage(
+                                            "#directDialog-pregnancy_danger_sub"
+                                          );
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+
+                              $steps["updateDirectDialog2Open"] =
+                                //$ctx.query.inApp != "true"
+                                true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: [
+                                            "directDialog2",
+                                            "open"
+                                          ]
+                                        },
+                                        operation: 0,
+                                        value: true
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["updateDirectDialog2Open"] != null &&
+                                typeof $steps["updateDirectDialog2Open"] ===
+                                  "object" &&
+                                typeof $steps["updateDirectDialog2Open"]
+                                  .then === "function"
+                              ) {
+                                $steps["updateDirectDialog2Open"] =
+                                  await $steps["updateDirectDialog2Open"];
+                              }
+
+                              $steps["invokeGlobalAction"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "POST",
+                                        "https://api.liom.app/service/log",
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return {
+                                              userId: $ctx.query.userId.slice(
+                                                4,
+                                                $ctx.query.userId.length - 4
+                                              ),
+                                              pageName: "mainPage",
+                                              action: "buyDialog-danger",
+                                              extraData: {}
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })(),
+                                        (() => {
+                                          try {
+                                            return {
+                                              headers: {
+                                                "Content-Type":
+                                                  "application/json",
+                                                Authorization:
+                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                              }
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] = await $steps[
+                                  "invokeGlobalAction"
+                                ];
+                              }
+                            }}
+                          >
+                            <BuyComponenct
+                              className={classNames(
+                                "__wab_instance",
+                                sty.buyComponenct__lQlcS,
+                                {
+                                  [sty.buyComponenctdarkMod__lQlcSoQOo]:
+                                    hasVariant($state, "darkMod", "darkMod")
+                                }
+                              )}
+                            />
+                          </div>
+                        ) : null}
+                      </AntdSingleCollapse>
+                    );
+                  })()}
+                </div>
+              ) : null}
               <Embed
                 data-plasmic-name={"favIcone"}
                 data-plasmic-override={overrides.favIcone}
@@ -6769,43 +7994,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["invokeGlobalAction2"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return $ctx.query.inApp;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.showToast"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction2"] != null &&
-                          typeof $steps["invokeGlobalAction2"] === "object" &&
-                          typeof $steps["invokeGlobalAction2"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
-                        }
-
                         $steps["goToPage"] =
                           ($ctx.query?.inApp ?? "") != "true"
                             ? (() => {
@@ -10557,1312 +11745,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__d0ZUc)}
-                    >
-                      {(() => {
-                        try {
-                          return (
-                            $ctx.query.userId.slice(
-                              4,
-                              $ctx.query.userId.length - 4
-                            ) == "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return false;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__veeyn
-                          )}
-                        >
-                          {(() => {
-                            const child$Props = {
-                              bordered: true,
-                              className: classNames(
-                                "__wab_instance",
-                                sty.collapseMedicine2,
-                                {
-                                  [sty.collapseMedicine2darkMod]: hasVariant(
-                                    $state,
-                                    "darkMod",
-                                    "darkMod"
-                                  )
-                                }
-                              ),
-                              expandIcon: (
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return (
-                                        $state.collapseMedicine2.open != true
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return false;
-                                      }
-                                      throw e;
-                                    }
-                                  })() ? (
-                                    <PlasmicImg__
-                                      alt={""}
-                                      className={classNames(sty.img__xP2T)}
-                                      displayHeight={"auto"}
-                                      displayMaxHeight={"none"}
-                                      displayMaxWidth={"100%"}
-                                      displayMinHeight={"0"}
-                                      displayMinWidth={"0"}
-                                      displayWidth={"15px"}
-                                      loading={"lazy"}
-                                      src={{
-                                        src: "/plasmic/liom_hamyar/images/image32.svg",
-                                        fullWidth: 16,
-                                        fullHeight: 16,
-                                        aspectRatio: 1
-                                      }}
-                                    />
-                                  ) : null}
-                                  {(() => {
-                                    try {
-                                      return (
-                                        $state.collapseMedicine2.open == true
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return true;
-                                      }
-                                      throw e;
-                                    }
-                                  })() ? (
-                                    <PlasmicImg__
-                                      alt={""}
-                                      className={classNames(sty.img__cYJbc)}
-                                      displayHeight={"auto"}
-                                      displayMaxHeight={"none"}
-                                      displayMaxWidth={"100%"}
-                                      displayMinHeight={"0"}
-                                      displayMinWidth={"0"}
-                                      displayWidth={"25px"}
-                                      loading={"lazy"}
-                                      src={{
-                                        src: "/plasmic/liom_hamyar/images/image31.svg",
-                                        fullWidth: 16,
-                                        fullHeight: 16,
-                                        aspectRatio: 1
-                                      }}
-                                    />
-                                  ) : null}
-                                </React.Fragment>
-                              ),
-                              expandIconPosition: "end",
-                              ghost: true,
-                              label2: (
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__pWfZv
-                                  )}
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__wmciC,
-                                      {
-                                        [sty.textdarkMod__wmciCoQOo]:
-                                          hasVariant(
-                                            $state,
-                                            "darkMod",
-                                            "darkMod"
-                                          )
-                                      }
-                                    )}
-                                  >
-                                    {hasVariant(
-                                      $state,
-                                      "darkMod",
-                                      "darkMod"
-                                    ) ? (
-                                      <React.Fragment>
-                                        <span
-                                          className={
-                                            "plasmic_default__all plasmic_default__span"
-                                          }
-                                          style={{ color: "#FFFFFF" }}
-                                        >
-                                          {
-                                            "\u0645\u06a9\u0645\u0644 \u0648 \u0648\u06cc\u062a\u0627\u0645\u06cc\u0646\u200c\u0647\u0627"
-                                          }
-                                        </span>
-                                      </React.Fragment>
-                                    ) : (
-                                      <React.Fragment>
-                                        <span
-                                          className={
-                                            "plasmic_default__all plasmic_default__span"
-                                          }
-                                          style={{
-                                            color: "var(--token-ODBUExjR6VEF)"
-                                          }}
-                                        >
-                                          {
-                                            "\u0645\u06a9\u0645\u0644 \u0648 \u0648\u06cc\u062a\u0627\u0645\u06cc\u0646\u200c\u0647\u0627"
-                                          }
-                                        </span>
-                                      </React.Fragment>
-                                    )}
-                                  </div>
-                                  {(() => {
-                                    try {
-                                      return $state.collapseMedicine2.open;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return false;
-                                      }
-                                      throw e;
-                                    }
-                                  })() ? (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text___5FoHx
-                                      )}
-                                    >
-                                      <React.Fragment>
-                                        {(() => {
-                                          try {
-                                            return (
-                                              "هفته " + $state.selectedWeek
-                                            );
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return "";
-                                            }
-                                            throw e;
-                                          }
-                                        })()}
-                                      </React.Fragment>
-                                    </div>
-                                  ) : null}
-                                </Stack__>
-                              ),
-                              onChange: async (...eventArgs: any) => {
-                                generateStateOnChangePropForCodeComponents(
-                                  $state,
-                                  "open",
-                                  ["collapseMedicine2", "open"],
-                                  AntdSingleCollapse_Helpers
-                                ).apply(null, eventArgs);
+                    />
 
-                                (async activeIds => {
-                                  const $steps = {};
-
-                                  $steps["invokeGlobalAction"] =
-                                    ($state.collapseMedicine2.open
-                                      ? true
-                                      : false) &&
-                                    $ctx.query.userId.slice(
-                                      4,
-                                      $ctx.query.userId.length - 4
-                                    ) != "314149" &&
-                                    $ctx.query.userId.slice(
-                                      4,
-                                      $ctx.query.userId.length - 4
-                                    ) != "1"
-                                      ? (() => {
-                                          const actionArgs = {
-                                            args: [
-                                              "POST",
-                                              "https://api.liom.app/service/log",
-                                              undefined,
-                                              (() => {
-                                                try {
-                                                  return {
-                                                    userId:
-                                                      $ctx.query.userId
-                                                        ?.length > 0
-                                                        ? $ctx.query.userId.slice(
-                                                            4,
-                                                            $ctx.query.userId
-                                                              .length - 4
-                                                          )
-                                                        : "guest",
-                                                    pageName: "weekByWeekPage",
-                                                    action:
-                                                      "clickOpen-medicineAdvice",
-                                                    extraData: {}
-                                                  };
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })(),
-                                              {
-                                                headers: {
-                                                  "Content-Type":
-                                                    "application/json",
-                                                  Authorization:
-                                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                                }
-                                              }
-                                            ]
-                                          };
-                                          return $globalActions[
-                                            "Fragment.apiRequest"
-                                          ]?.apply(null, [...actionArgs.args]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction"] != null &&
-                                    typeof $steps["invokeGlobalAction"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["invokeGlobalAction"] = await $steps[
-                                      "invokeGlobalAction"
-                                    ];
-                                  }
-                                }).apply(null, eventArgs);
-                              },
-                              open: generateStateValueProp($state, [
-                                "collapseMedicine2",
-                                "open"
-                              ]),
-                              showArrow: true,
-                              size: "large"
-                            };
-                            initializeCodeComponentStates(
-                              $state,
-                              [
-                                {
-                                  name: "open",
-                                  plasmicStateName: "collapseMedicine2.open"
-                                }
-                              ],
-                              [],
-                              AntdSingleCollapse_Helpers ?? {},
-                              child$Props
-                            );
-
-                            return (
-                              <AntdSingleCollapse
-                                data-plasmic-name={"collapseMedicine2"}
-                                data-plasmic-override={
-                                  overrides.collapseMedicine2
-                                }
-                                {...child$Props}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__xJGs
-                                  )}
-                                >
-                                  {(() => {
-                                    try {
-                                      return (() => {
-                                        const allowance =
-                                          $state?.getUserInfo?.data?.[0]?.result
-                                            ?.allowance || [];
-                                        const filteredItem = allowance.find(
-                                          item => item.type.includes("danger")
-                                        );
-                                        const active = filteredItem
-                                          ? filteredItem.active
-                                          : false;
-                                        return (
-                                          !$state.loadingAdvice &&
-                                          (active || $state.selectedWeek < 12)
-                                        );
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return false;
-                                      }
-                                      throw e;
-                                    }
-                                  })() ? (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__xsR0,
-                                        {
-                                          [sty.textdarkMod__xsR0OQOo]:
-                                            hasVariant(
-                                              $state,
-                                              "darkMod",
-                                              "darkMod"
-                                            )
-                                        }
-                                      )}
-                                    >
-                                      <div
-                                        className={
-                                          projectcss.__wab_expr_html_text
-                                        }
-                                        dangerouslySetInnerHTML={{
-                                          __html: (() => {
-                                            try {
-                                              return (() => {
-                                                var supplement = "";
-                                                const advice =
-                                                  $state?.getAdvice;
-                                                var filteredItem;
-                                                filteredItem = advice.find(
-                                                  item =>
-                                                    item.type.includes(
-                                                      "supplement"
-                                                    )
-                                                );
-                                                supplement =
-                                                  filteredItem?.text ?? "";
-                                                return supplement;
-                                              })();
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "";
-                                              }
-                                              throw e;
-                                            }
-                                          })()
-                                        }}
-                                      />
-                                    </div>
-                                  ) : null}
-                                  {(() => {
-                                    try {
-                                      return $state.loadingAdvice;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return false;
-                                      }
-                                      throw e;
-                                    }
-                                  })() ? (
-                                    <LottieWrapper
-                                      animationData={{
-                                        nm: "Loading Dots",
-                                        ddd: 0,
-                                        h: 50,
-                                        w: 100,
-                                        meta: {
-                                          g: "@lottiefiles/toolkit-js 0.33.2"
-                                        },
-                                        layers: [
-                                          {
-                                            ty: 4,
-                                            nm: "Dot4",
-                                            sr: 1,
-                                            st: 0,
-                                            op: 360,
-                                            ip: 0,
-                                            hd: false,
-                                            ddd: 0,
-                                            bm: 0,
-                                            hasMask: false,
-                                            ao: 0,
-                                            ks: {
-                                              a: {
-                                                a: 0,
-                                                k: [-284, 92, 0],
-                                                ix: 1
-                                              },
-                                              s: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 25
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [3.91, 3.47, 100],
-                                                    t: 39
-                                                  },
-                                                  {
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 55
-                                                  }
-                                                ],
-                                                ix: 6
-                                              },
-                                              sk: { a: 0, k: 0 },
-                                              p: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [59.48, 25, 0],
-                                                    t: 25
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [59.48, 23.15, 0],
-                                                    t: 39
-                                                  },
-                                                  { s: [59.48, 25, 0], t: 55 }
-                                                ],
-                                                ix: 2
-                                              },
-                                              r: { a: 0, k: 0, ix: 10 },
-                                              sa: { a: 0, k: 0 },
-                                              o: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [25],
-                                                    t: 25
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [100],
-                                                    t: 39
-                                                  },
-                                                  { s: [25], t: 55 }
-                                                ],
-                                                ix: 11
-                                              }
-                                            },
-                                            ef: [],
-                                            shapes: [
-                                              {
-                                                ty: "gr",
-                                                bm: 0,
-                                                hd: false,
-                                                mn: "ADBE Vector Group",
-                                                nm: "Ellipse 1",
-                                                ix: 1,
-                                                cix: 2,
-                                                np: 3,
-                                                it: [
-                                                  {
-                                                    ty: "el",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Shape - Ellipse",
-                                                    nm: "Ellipse Path 1",
-                                                    d: 1,
-                                                    p: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 3
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [120, 120],
-                                                      ix: 2
-                                                    }
-                                                  },
-                                                  {
-                                                    ty: "fl",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Graphic - Fill",
-                                                    nm: "Fill 1",
-                                                    c: {
-                                                      a: 0,
-                                                      k: [
-                                                        0.5098, 0.3294, 0.7765
-                                                      ],
-                                                      ix: 4
-                                                    },
-                                                    r: 1,
-                                                    o: { a: 0, k: 100, ix: 5 }
-                                                  },
-                                                  {
-                                                    ty: "tr",
-                                                    a: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 1
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [100, 100],
-                                                      ix: 3
-                                                    },
-                                                    sk: { a: 0, k: 0, ix: 4 },
-                                                    p: {
-                                                      a: 0,
-                                                      k: [-284, 92],
-                                                      ix: 2
-                                                    },
-                                                    r: { a: 0, k: 0, ix: 6 },
-                                                    sa: { a: 0, k: 0, ix: 5 },
-                                                    o: { a: 0, k: 100, ix: 7 }
-                                                  }
-                                                ]
-                                              }
-                                            ],
-                                            ind: 1
-                                          },
-                                          {
-                                            ty: 4,
-                                            nm: "Dot3",
-                                            sr: 1,
-                                            st: 0,
-                                            op: 360,
-                                            ip: 0,
-                                            hd: false,
-                                            ddd: 0,
-                                            bm: 0,
-                                            hasMask: false,
-                                            ao: 0,
-                                            ks: {
-                                              a: {
-                                                a: 0,
-                                                k: [-284, 92, 0],
-                                                ix: 1
-                                              },
-                                              s: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 17
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [3.91, 3.47, 100],
-                                                    t: 31
-                                                  },
-                                                  {
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 47
-                                                  }
-                                                ],
-                                                ix: 6
-                                              },
-                                              sk: { a: 0, k: 0 },
-                                              p: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [53.23, 25, 0],
-                                                    t: 17
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [53.23, 23.15, 0],
-                                                    t: 31
-                                                  },
-                                                  { s: [53.23, 25, 0], t: 47 }
-                                                ],
-                                                ix: 2
-                                              },
-                                              r: { a: 0, k: 0, ix: 10 },
-                                              sa: { a: 0, k: 0 },
-                                              o: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [25],
-                                                    t: 17
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [100],
-                                                    t: 31
-                                                  },
-                                                  { s: [25], t: 47 }
-                                                ],
-                                                ix: 11
-                                              }
-                                            },
-                                            ef: [],
-                                            shapes: [
-                                              {
-                                                ty: "gr",
-                                                bm: 0,
-                                                hd: false,
-                                                mn: "ADBE Vector Group",
-                                                nm: "Ellipse 1",
-                                                ix: 1,
-                                                cix: 2,
-                                                np: 3,
-                                                it: [
-                                                  {
-                                                    ty: "el",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Shape - Ellipse",
-                                                    nm: "Ellipse Path 1",
-                                                    d: 1,
-                                                    p: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 3
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [120, 120],
-                                                      ix: 2
-                                                    }
-                                                  },
-                                                  {
-                                                    ty: "fl",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Graphic - Fill",
-                                                    nm: "Fill 1",
-                                                    c: {
-                                                      a: 0,
-                                                      k: [
-                                                        0.5098, 0.3294, 0.7765
-                                                      ],
-                                                      ix: 4
-                                                    },
-                                                    r: 1,
-                                                    o: { a: 0, k: 100, ix: 5 }
-                                                  },
-                                                  {
-                                                    ty: "tr",
-                                                    a: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 1
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [100, 100],
-                                                      ix: 3
-                                                    },
-                                                    sk: { a: 0, k: 0, ix: 4 },
-                                                    p: {
-                                                      a: 0,
-                                                      k: [-284, 92],
-                                                      ix: 2
-                                                    },
-                                                    r: { a: 0, k: 0, ix: 6 },
-                                                    sa: { a: 0, k: 0, ix: 5 },
-                                                    o: { a: 0, k: 100, ix: 7 }
-                                                  }
-                                                ]
-                                              }
-                                            ],
-                                            ind: 2
-                                          },
-                                          {
-                                            ty: 4,
-                                            nm: "Dot2",
-                                            sr: 1,
-                                            st: 0,
-                                            op: 360,
-                                            ip: 0,
-                                            hd: false,
-                                            ddd: 0,
-                                            bm: 0,
-                                            hasMask: false,
-                                            ao: 0,
-                                            ks: {
-                                              a: {
-                                                a: 0,
-                                                k: [-284, 92, 0],
-                                                ix: 1
-                                              },
-                                              s: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 9
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [3.91, 3.47, 100],
-                                                    t: 23
-                                                  },
-                                                  {
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 39
-                                                  }
-                                                ],
-                                                ix: 6
-                                              },
-                                              sk: { a: 0, k: 0 },
-                                              p: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [46.98, 25, 0],
-                                                    t: 9
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [46.98, 23.15, 0],
-                                                    t: 23
-                                                  },
-                                                  { s: [46.98, 25, 0], t: 39 }
-                                                ],
-                                                ix: 2
-                                              },
-                                              r: { a: 0, k: 0, ix: 10 },
-                                              sa: { a: 0, k: 0 },
-                                              o: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [25],
-                                                    t: 9
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [100],
-                                                    t: 23
-                                                  },
-                                                  { s: [25], t: 39 }
-                                                ],
-                                                ix: 11
-                                              }
-                                            },
-                                            ef: [],
-                                            shapes: [
-                                              {
-                                                ty: "gr",
-                                                bm: 0,
-                                                hd: false,
-                                                mn: "ADBE Vector Group",
-                                                nm: "Ellipse 1",
-                                                ix: 1,
-                                                cix: 2,
-                                                np: 3,
-                                                it: [
-                                                  {
-                                                    ty: "el",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Shape - Ellipse",
-                                                    nm: "Ellipse Path 1",
-                                                    d: 1,
-                                                    p: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 3
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [120, 120],
-                                                      ix: 2
-                                                    }
-                                                  },
-                                                  {
-                                                    ty: "fl",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Graphic - Fill",
-                                                    nm: "Fill 1",
-                                                    c: {
-                                                      a: 0,
-                                                      k: [
-                                                        0.5098, 0.3294, 0.7765
-                                                      ],
-                                                      ix: 4
-                                                    },
-                                                    r: 1,
-                                                    o: { a: 0, k: 100, ix: 5 }
-                                                  },
-                                                  {
-                                                    ty: "tr",
-                                                    a: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 1
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [100, 100],
-                                                      ix: 3
-                                                    },
-                                                    sk: { a: 0, k: 0, ix: 4 },
-                                                    p: {
-                                                      a: 0,
-                                                      k: [-284, 92],
-                                                      ix: 2
-                                                    },
-                                                    r: { a: 0, k: 0, ix: 6 },
-                                                    sa: { a: 0, k: 0, ix: 5 },
-                                                    o: { a: 0, k: 100, ix: 7 }
-                                                  }
-                                                ]
-                                              }
-                                            ],
-                                            ind: 3
-                                          },
-                                          {
-                                            ty: 4,
-                                            nm: "Dot1",
-                                            sr: 1,
-                                            st: 0,
-                                            op: 360,
-                                            ip: 0,
-                                            hd: false,
-                                            ddd: 0,
-                                            bm: 0,
-                                            hasMask: false,
-                                            ao: 0,
-                                            ks: {
-                                              a: {
-                                                a: 0,
-                                                k: [-284, 92, 0],
-                                                ix: 1
-                                              },
-                                              s: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 0
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [3.91, 3.47, 100],
-                                                    t: 14
-                                                  },
-                                                  {
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 30
-                                                  }
-                                                ],
-                                                ix: 6
-                                              },
-                                              sk: { a: 0, k: 0 },
-                                              p: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [40.73, 25, 0],
-                                                    t: 0
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [40.73, 23.15, 0],
-                                                    t: 14
-                                                  },
-                                                  { s: [40.73, 25, 0], t: 30 }
-                                                ],
-                                                ix: 2
-                                              },
-                                              r: { a: 0, k: 0, ix: 10 },
-                                              sa: { a: 0, k: 0 },
-                                              o: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [25],
-                                                    t: 0
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [100],
-                                                    t: 14
-                                                  },
-                                                  { s: [25], t: 30 }
-                                                ],
-                                                ix: 11
-                                              }
-                                            },
-                                            ef: [],
-                                            shapes: [
-                                              {
-                                                ty: "gr",
-                                                bm: 0,
-                                                hd: false,
-                                                mn: "ADBE Vector Group",
-                                                nm: "Ellipse 1",
-                                                ix: 1,
-                                                cix: 2,
-                                                np: 3,
-                                                it: [
-                                                  {
-                                                    ty: "el",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Shape - Ellipse",
-                                                    nm: "Ellipse Path 1",
-                                                    d: 1,
-                                                    p: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 3
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [120, 120],
-                                                      ix: 2
-                                                    }
-                                                  },
-                                                  {
-                                                    ty: "fl",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Graphic - Fill",
-                                                    nm: "Fill 1",
-                                                    c: {
-                                                      a: 0,
-                                                      k: [
-                                                        0.5098, 0.3294, 0.7765
-                                                      ],
-                                                      ix: 4
-                                                    },
-                                                    r: 1,
-                                                    o: { a: 0, k: 100, ix: 5 }
-                                                  },
-                                                  {
-                                                    ty: "tr",
-                                                    a: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 1
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [100, 100],
-                                                      ix: 3
-                                                    },
-                                                    sk: { a: 0, k: 0, ix: 4 },
-                                                    p: {
-                                                      a: 0,
-                                                      k: [-284, 92],
-                                                      ix: 2
-                                                    },
-                                                    r: { a: 0, k: 0, ix: 6 },
-                                                    sa: { a: 0, k: 0, ix: 5 },
-                                                    o: { a: 0, k: 100, ix: 7 }
-                                                  }
-                                                ]
-                                              }
-                                            ],
-                                            ind: 4
-                                          }
-                                        ],
-                                        v: "5.7.11",
-                                        fr: 60,
-                                        op: 81,
-                                        ip: 0,
-                                        assets: []
-                                      }}
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.lottie__eCr6
-                                      )}
-                                      preview={true}
-                                    />
-                                  ) : null}
-                                </div>
-                                {(
-                                  hasVariant($state, "darkMod", "darkMod")
-                                    ? (() => {
-                                        try {
-                                          return (
-                                            // const allowance = $state?.getUserInfo?.data?.[0]?.result?.allowance || [];
-                                            // const filteredItem = allowance.find(item => item.type.includes("danger"));
-                                            // const active = filteredItem ? filteredItem.active : false;
-                                            // !$state.loadingAdvice && !active
-                                            true
-                                          );
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return false;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    : (() => {
-                                        try {
-                                          return (
-                                            // const allowance = $state?.getUserInfo?.data?.[0]?.result?.allowance || [];
-                                            // const filteredItem = allowance.find(item => item.type.includes("danger"));
-                                            // const active = filteredItem ? filteredItem.active : false;
-                                            // !$state.loadingAdvice && !active
-                                            true
-                                          );
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return false;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                ) ? (
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox___56Wkw,
-                                      {
-                                        [sty.freeBoxdarkMod___56WkwOQOo]:
-                                          hasVariant(
-                                            $state,
-                                            "darkMod",
-                                            "darkMod"
-                                          )
-                                      }
-                                    )}
-                                    onClick={async event => {
-                                      const $steps = {};
-
-                                      $steps["runCode"] =
-                                        $ctx.query.inApp == "true" && false
-                                          ? (() => {
-                                              const actionArgs = {
-                                                customFunction: async () => {
-                                                  return window.FlutterChannel.postMessage(
-                                                    "#directDialog-pregnancy_danger_sub"
-                                                  );
-                                                }
-                                              };
-                                              return (({ customFunction }) => {
-                                                return customFunction();
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                      if (
-                                        $steps["runCode"] != null &&
-                                        typeof $steps["runCode"] === "object" &&
-                                        typeof $steps["runCode"].then ===
-                                          "function"
-                                      ) {
-                                        $steps["runCode"] = await $steps[
-                                          "runCode"
-                                        ];
-                                      }
-
-                                      $steps["updateDirectDialog2Open"] =
-                                        //$ctx.query.inApp != "true"
-                                        true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: [
-                                                    "directDialog2",
-                                                    "open"
-                                                  ]
-                                                },
-                                                operation: 0,
-                                                value: true
-                                              };
-                                              return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
-                                              }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                      if (
-                                        $steps["updateDirectDialog2Open"] !=
-                                          null &&
-                                        typeof $steps[
-                                          "updateDirectDialog2Open"
-                                        ] === "object" &&
-                                        typeof $steps["updateDirectDialog2Open"]
-                                          .then === "function"
-                                      ) {
-                                        $steps["updateDirectDialog2Open"] =
-                                          await $steps[
-                                            "updateDirectDialog2Open"
-                                          ];
-                                      }
-
-                                      $steps["invokeGlobalAction"] = true
-                                        ? (() => {
-                                            const actionArgs = {
-                                              args: [
-                                                "POST",
-                                                "https://api.liom.app/service/log",
-                                                undefined,
-                                                (() => {
-                                                  try {
-                                                    return {
-                                                      userId:
-                                                        $ctx.query.userId.slice(
-                                                          4,
-                                                          $ctx.query.userId
-                                                            .length - 4
-                                                        ),
-                                                      pageName: "mainPage",
-                                                      action:
-                                                        "buyDialog-danger",
-                                                      extraData: {}
-                                                    };
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return undefined;
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })(),
-                                                (() => {
-                                                  try {
-                                                    return {
-                                                      headers: {
-                                                        "Content-Type":
-                                                          "application/json",
-                                                        Authorization:
-                                                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                                      }
-                                                    };
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return undefined;
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()
-                                              ]
-                                            };
-                                            return $globalActions[
-                                              "Fragment.apiRequest"
-                                            ]?.apply(null, [
-                                              ...actionArgs.args
-                                            ]);
-                                          })()
-                                        : undefined;
-                                      if (
-                                        $steps["invokeGlobalAction"] != null &&
-                                        typeof $steps["invokeGlobalAction"] ===
-                                          "object" &&
-                                        typeof $steps["invokeGlobalAction"]
-                                          .then === "function"
-                                      ) {
-                                        $steps["invokeGlobalAction"] =
-                                          await $steps["invokeGlobalAction"];
-                                      }
-                                    }}
-                                  >
-                                    <BuyComponenct
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.buyComponenct__lQlcS,
-                                        {
-                                          [sty.buyComponenctdarkMod__lQlcSoQOo]:
-                                            hasVariant(
-                                              $state,
-                                              "darkMod",
-                                              "darkMod"
-                                            )
-                                        }
-                                      )}
-                                    />
-                                  </div>
-                                ) : null}
-                              </AntdSingleCollapse>
-                            );
-                          })()}
-                        </div>
-                      ) : null}
-                    </div>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__bq40T)}
                     >
@@ -16142,6 +16026,7 @@ const PlasmicDescendants = {
     "root",
     "section",
     "button",
+    "collapseMedicine2",
     "favIcone",
     "pullToRefresh",
     "timer",
@@ -16153,7 +16038,6 @@ const PlasmicDescendants = {
     "collapseAdvice",
     "todoList",
     "collapseDanger",
-    "collapseMedicine2",
     "collapseTest",
     "collapseBaby",
     "collapseMother",
@@ -16163,6 +16047,7 @@ const PlasmicDescendants = {
   section: [
     "section",
     "button",
+    "collapseMedicine2",
     "favIcone",
     "pullToRefresh",
     "timer",
@@ -16174,7 +16059,6 @@ const PlasmicDescendants = {
     "collapseAdvice",
     "todoList",
     "collapseDanger",
-    "collapseMedicine2",
     "collapseTest",
     "collapseBaby",
     "collapseMother",
@@ -16182,6 +16066,7 @@ const PlasmicDescendants = {
     "directDialog2"
   ],
   button: ["button"],
+  collapseMedicine2: ["collapseMedicine2"],
   favIcone: ["favIcone"],
   pullToRefresh: ["pullToRefresh"],
   timer: ["timer"],
@@ -16193,7 +16078,6 @@ const PlasmicDescendants = {
   collapseAdvice: ["collapseAdvice"],
   todoList: ["todoList"],
   collapseDanger: ["collapseDanger"],
-  collapseMedicine2: ["collapseMedicine2"],
   collapseTest: ["collapseTest"],
   collapseBaby: ["collapseBaby"],
   collapseMother: ["collapseMother"],
@@ -16207,6 +16091,7 @@ type NodeDefaultElementType = {
   root: "div";
   section: "section";
   button: typeof Button;
+  collapseMedicine2: typeof AntdSingleCollapse;
   favIcone: typeof Embed;
   pullToRefresh: typeof PullToRefresh;
   timer: typeof Timer;
@@ -16218,7 +16103,6 @@ type NodeDefaultElementType = {
   collapseAdvice: typeof AntdSingleCollapse;
   todoList: typeof TodoList;
   collapseDanger: typeof AntdSingleCollapse;
-  collapseMedicine2: typeof AntdSingleCollapse;
   collapseTest: typeof AntdSingleCollapse;
   collapseBaby: typeof AntdSingleCollapse;
   collapseMother: typeof AntdSingleCollapse;
@@ -16313,6 +16197,7 @@ export const PlasmicPregnancy = Object.assign(
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
     button: makeNodeComponent("button"),
+    collapseMedicine2: makeNodeComponent("collapseMedicine2"),
     favIcone: makeNodeComponent("favIcone"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     timer: makeNodeComponent("timer"),
@@ -16324,7 +16209,6 @@ export const PlasmicPregnancy = Object.assign(
     collapseAdvice: makeNodeComponent("collapseAdvice"),
     todoList: makeNodeComponent("todoList"),
     collapseDanger: makeNodeComponent("collapseDanger"),
-    collapseMedicine2: makeNodeComponent("collapseMedicine2"),
     collapseTest: makeNodeComponent("collapseTest"),
     collapseBaby: makeNodeComponent("collapseBaby"),
     collapseMother: makeNodeComponent("collapseMother"),
