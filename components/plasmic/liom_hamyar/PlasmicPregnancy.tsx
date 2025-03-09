@@ -6769,33 +6769,32 @@ function PlasmicPregnancy__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["invokeGlobalAction2"] =
-                          $state.user[0].userId == "11113141490000"
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return $ctx.query.inApp;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
+                        $steps["invokeGlobalAction2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return $ctx.query.inApp;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
                                       }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.showToast"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
                         if (
                           $steps["invokeGlobalAction2"] != null &&
                           typeof $steps["invokeGlobalAction2"] === "object" &&
