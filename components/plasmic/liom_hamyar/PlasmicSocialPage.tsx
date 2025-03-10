@@ -327,60 +327,59 @@ function PlasmicSocialPage__RenderFunc(props: {
                       }
                     })()}
                   />
-
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__iV3Z6)}
+                </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__iV3Z6)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zv2Av
+                    )}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__zv2Av
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.getInfo.data.result.details.user.name;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "name";
-                            }
-                            throw e;
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.getInfo.data.result.details.user.name;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "name";
                           }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__zdN81
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.getInfo.data.result.details.user
-                              .username;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "username";
-                            }
-                            throw e;
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zdN81
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.getInfo.data.result.details.user
+                            .username;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "username";
                           }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                  </Stack__>
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__qtk4Z)}
                   >
@@ -439,7 +438,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Stack__>
                 <div className={classNames(projectcss.all, sty.freeBox__uC3N)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__lYbCo)}

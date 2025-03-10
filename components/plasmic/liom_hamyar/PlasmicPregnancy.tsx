@@ -8802,6 +8802,90 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 $steps["showToast"] =
                                                   await $steps["showToast"];
                                               }
+
+                                              $steps["invokeGlobalAction"] =
+                                                true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        args: [
+                                                          "POST",
+                                                          "https://api.liom.app/service/log",
+                                                          undefined,
+                                                          (() => {
+                                                            try {
+                                                              return {
+                                                                userId:
+                                                                  $ctx.query.userId.slice(
+                                                                    4,
+                                                                    $ctx.query
+                                                                      .userId
+                                                                      .length -
+                                                                      4
+                                                                  ),
+                                                                pageName:
+                                                                  "mainPage_pregnancy",
+                                                                action:
+                                                                  "buyDialog-danger",
+                                                                extraData: {}
+                                                              };
+                                                            } catch (e) {
+                                                              if (
+                                                                e instanceof
+                                                                  TypeError ||
+                                                                e?.plasmicType ===
+                                                                  "PlasmicUndefinedDataError"
+                                                              ) {
+                                                                return undefined;
+                                                              }
+                                                              throw e;
+                                                            }
+                                                          })(),
+                                                          (() => {
+                                                            try {
+                                                              return {
+                                                                headers: {
+                                                                  "Content-Type":
+                                                                    "application/json",
+                                                                  Authorization:
+                                                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                                }
+                                                              };
+                                                            } catch (e) {
+                                                              if (
+                                                                e instanceof
+                                                                  TypeError ||
+                                                                e?.plasmicType ===
+                                                                  "PlasmicUndefinedDataError"
+                                                              ) {
+                                                                return undefined;
+                                                              }
+                                                              throw e;
+                                                            }
+                                                          })()
+                                                        ]
+                                                      };
+                                                      return $globalActions[
+                                                        "Fragment.apiRequest"
+                                                      ]?.apply(null, [
+                                                        ...actionArgs.args
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["invokeGlobalAction"] !=
+                                                  null &&
+                                                typeof $steps[
+                                                  "invokeGlobalAction"
+                                                ] === "object" &&
+                                                typeof $steps[
+                                                  "invokeGlobalAction"
+                                                ].then === "function"
+                                              ) {
+                                                $steps["invokeGlobalAction"] =
+                                                  await $steps[
+                                                    "invokeGlobalAction"
+                                                  ];
+                                              }
                                             }}
                                           >
                                             {(() => {
@@ -10877,7 +10961,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         ),
                                                       pageName: "mainPage",
                                                       action:
-                                                        "buyDialog-danger",
+                                                        "buyDialog-supplement",
                                                       extraData: {}
                                                     };
                                                   } catch (e) {
@@ -12273,8 +12357,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                             .length - 4
                                                         ),
                                                       pageName: "mainPage",
-                                                      action:
-                                                        "buyDialog-danger",
+                                                      action: "buyDialog-test",
                                                       extraData: {}
                                                     };
                                                   } catch (e) {

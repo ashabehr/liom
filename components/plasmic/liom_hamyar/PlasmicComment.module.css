@@ -124,11 +124,11 @@
 }
 .text__gBxae {
   position: relative;
-  width: auto;
   height: auto;
   max-width: 100%;
   white-space: pre;
   font-size: 8px;
+  width: auto;
 }
 .freeBox__ewqKl {
   display: flex;
