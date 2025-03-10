@@ -6769,8 +6769,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   const actionArgs = {
                                     customFunction: async () => {
                                       return (() => {
-                                        return window.openUrlInFlutter(
-                                          "https://survey.porsline.ir/s/ako96o4"
+                                        var link =
+                                          "https://survey.porsline.ir/s/ako96o4";
+                                        return window.FlutterChannel.postMessage(
+                                          "#inAppWebView**@@** پرسشنامه بارداری **@@**" +
+                                            link
                                         );
                                       })();
                                     }
