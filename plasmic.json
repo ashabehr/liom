@@ -1633,6 +1633,34 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicUploudeTime.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "XwX6W3jU5LyW",
+          "name": "AddToHome",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicAddToHome.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/add-to-home.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicAddToHome.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/add-to-home"
+        },
+        {
+          "id": "sTeH_IDX5T87",
+          "name": "SelfCare",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSelfCare.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/Self-care.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSelfCare.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/Self-care"
         }
       ],
       "icons": [
@@ -2905,6 +2933,46 @@
           "id": "p6EuiZHVxSoQ",
           "name": "Icon196Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon196.tsx"
+        },
+        {
+          "id": "_VwvhFU142T6",
+          "name": "LogoIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Logo.tsx"
+        },
+        {
+          "id": "BMTNDruxiQcD",
+          "name": "Icon197Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon197.tsx"
+        },
+        {
+          "id": "o6Ovz1ve_6P4",
+          "name": "Icon198Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon198.tsx"
+        },
+        {
+          "id": "zpzpIRvgYEQm",
+          "name": "Icon199Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon199.tsx"
+        },
+        {
+          "id": "qkTJqbqfH3U9",
+          "name": "Icon200Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon200.tsx"
+        },
+        {
+          "id": "bZAKVvQLLi6A",
+          "name": "Icon201Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon201.tsx"
+        },
+        {
+          "id": "lD6NOJADOGZx",
+          "name": "Icon202Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon202.tsx"
+        },
+        {
+          "id": "j3RSrwNtLtoK",
+          "name": "Icon203Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon203.tsx"
         }
       ],
       "images": [
@@ -3512,6 +3580,11 @@
           "id": "I5n1fNqpO8y1",
           "name": "MacBook-Air---1.png 2",
           "filePath": "../public/plasmic/liom_hamyar/images/macBookAir1Png2.png"
+        },
+        {
+          "id": "WlF1hu0vGpWo",
+          "name": "Icons/li-logo",
+          "filePath": "../public/plasmic/liom_hamyar/images/iconsLiLogo.svg"
         }
       ],
       "indirect": false,

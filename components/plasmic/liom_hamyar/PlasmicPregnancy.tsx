@@ -131,6 +131,7 @@ export type PlasmicPregnancy__OverridesType = {
   collapseTest?: Flex__<typeof AntdSingleCollapse>;
   collapseBaby?: Flex__<typeof AntdSingleCollapse>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
+  switchbest2?: Flex__<typeof Switchbest>;
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
   timer?: Flex__<typeof Timer>;
   getUserInfo?: Flex__<typeof ApiRequest>;
@@ -657,6 +658,12 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "switchbest2.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -13657,6 +13664,283 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   preview={true}
                                 />
                               ) : null}
+                              {(() => {
+                                try {
+                                  return (() => {
+                                    if (
+                                      $ctx.query.inApp == "true" &&
+                                      $ctx.query.userId.slice(
+                                        6,
+                                        $ctx.query.userId
+                                      ) ==
+                                        "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                    ) {
+                                      if ($state.user[0].hamyarData == "{}")
+                                        return true;
+                                      else if (
+                                        JSON.parse($state.user[0].hamyarData)
+                                          .hamyarsData.length == 0
+                                      )
+                                        return true;
+                                      else if (
+                                        !JSON.parse(
+                                          $state.user?.[0]?.hamyarData
+                                        ).hamyarsData[0].statusSms
+                                      )
+                                        return true;
+                                    } else return false;
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__l8Vv4
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__wO0Ah
+                                    )}
+                                  >
+                                    <Stack__
+                                      as={"div"}
+                                      hasGap={true}
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__oy1Vw
+                                      )}
+                                      onClick={async event => {
+                                        const $steps = {};
+
+                                        $steps["runCode"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                customFunction: async () => {
+                                                  return window.FlutterChannel.postMessage(
+                                                    "#hamyarInfo"
+                                                  );
+                                                }
+                                              };
+                                              return (({ customFunction }) => {
+                                                return customFunction();
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["runCode"] != null &&
+                                          typeof $steps["runCode"] ===
+                                            "object" &&
+                                          typeof $steps["runCode"].then ===
+                                            "function"
+                                        ) {
+                                          $steps["runCode"] = await $steps[
+                                            "runCode"
+                                          ];
+                                        }
+                                      }}
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__fJgyv
+                                        )}
+                                      >
+                                        <div
+                                          className={
+                                            projectcss.__wab_expr_html_text
+                                          }
+                                          dangerouslySetInnerHTML={{
+                                            __html: (() => {
+                                              if (
+                                                $state.user[0].hamyarData ==
+                                                "{}"
+                                              )
+                                                return "آرامش تو مهمه\u060C ما به همسرت یادآوری می‌کنیم چطور کنارت باشه! \uD83D\uDC8C <br> همین حالا همسرت رو به لیوم <strong>دعوت</strong> کن";
+                                              else if (
+                                                JSON.parse(
+                                                  $state.user[0].hamyarData
+                                                ).hamyarsData.length == 0
+                                              )
+                                                return "آرامش تو مهمه\u060C ما به همسرت یادآوری می‌کنیم چطور کنارت باشه! \uD83D\uDC8C <br> همین حالا همسرت رو به لیوم <strong>دعوت</strong> کن";
+                                              else if (
+                                                !JSON.parse(
+                                                  $state.user?.[0]?.hamyarData
+                                                ).hamyarsData[0].statusSms
+                                              )
+                                                return "آرامش تو مهمه\u060C ما به همسرت یادآوری می‌کنیم چطور کنارت باشه! \uD83D\uDC8C <br> همین حالا گزینه <strong>ارسال پیامک</strong> رو براش فعال کن";
+                                              else
+                                                return "آرامش تو مهمه\u060C ما به همسرت یادآوری می‌کنیم چطور کنارت باشه! \uD83D\uDC8C";
+                                            })()
+                                          }}
+                                        />
+                                      </div>
+                                      {(() => {
+                                        try {
+                                          return (() => {
+                                            if (
+                                              $state.user[0].hamyarData == "{}"
+                                            )
+                                              return true;
+                                            else
+                                              return (
+                                                JSON.parse(
+                                                  $state.user[0].hamyarData
+                                                ).hamyarsData.length == 0
+                                              );
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return false;
+                                          }
+                                          throw e;
+                                        }
+                                      })() ? (
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__yPy5E
+                                          )}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__toyXo
+                                            )}
+                                          >
+                                            <React.Fragment>
+                                              <span
+                                                className={
+                                                  "plasmic_default__all plasmic_default__span"
+                                                }
+                                                style={{
+                                                  color:
+                                                    "var(--token-R_Rsn0nP9oIv)"
+                                                }}
+                                              >
+                                                {
+                                                  "\u0627\u0641\u0632\u0648\u062f\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0647\u0645\u06cc\u0627\u0631"
+                                                }
+                                              </span>
+                                            </React.Fragment>
+                                          </div>
+                                        </div>
+                                      ) : null}
+                                      {(() => {
+                                        try {
+                                          return (
+                                            !JSON.parse(
+                                              $state.user?.[0]?.hamyarData
+                                            ).hamyarsData[0].statusSms &&
+                                            $ctx.query.inApp == "true"
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return false;
+                                          }
+                                          throw e;
+                                        }
+                                      })() ? (
+                                        <Stack__
+                                          as={"div"}
+                                          hasGap={true}
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__xpUu7
+                                          )}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__sxseo
+                                            )}
+                                          >
+                                            <React.Fragment>
+                                              <React.Fragment>
+                                                {
+                                                  "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0631\u0633\u0627\u0644 "
+                                                }
+                                              </React.Fragment>
+                                              <span
+                                                className={
+                                                  "plasmic_default__all plasmic_default__span"
+                                                }
+                                                style={{ fontWeight: 700 }}
+                                              >
+                                                {
+                                                  "\u067e\u06cc\u0627\u0645\u06a9"
+                                                }
+                                              </span>
+                                              <React.Fragment>
+                                                {
+                                                  " \u0628\u0647 \u0647\u0645\u06cc\u0627\u0631"
+                                                }
+                                              </React.Fragment>
+                                            </React.Fragment>
+                                          </div>
+                                          <Switchbest
+                                            data-plasmic-name={"switchbest2"}
+                                            data-plasmic-override={
+                                              overrides.switchbest2
+                                            }
+                                            children={null}
+                                            className={classNames(
+                                              "__wab_instance",
+                                              sty.switchbest2
+                                            )}
+                                            isChecked={
+                                              generateStateValueProp($state, [
+                                                "switchbest2",
+                                                "isChecked"
+                                              ]) ?? false
+                                            }
+                                            onChange={async (
+                                              ...eventArgs: any
+                                            ) => {
+                                              ((...eventArgs) => {
+                                                generateStateOnChangeProp(
+                                                  $state,
+                                                  ["switchbest2", "isChecked"]
+                                                )(eventArgs[0]);
+                                              }).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1] &&
+                                                eventArgs[1]
+                                                  ._plasmic_state_init_
+                                              ) {
+                                                return;
+                                              }
+                                            }}
+                                          />
+                                        </Stack__>
+                                      ) : null}
+                                    </Stack__>
+                                  </div>
+                                </div>
+                              ) : null}
                             </div>
                           </AntdSingleCollapse>
                         );
@@ -16072,6 +16356,7 @@ const PlasmicDescendants = {
     "collapseTest",
     "collapseBaby",
     "collapseMother",
+    "switchbest2",
     "collapseHealth",
     "timer",
     "getUserInfo",
@@ -16093,6 +16378,7 @@ const PlasmicDescendants = {
     "collapseTest",
     "collapseBaby",
     "collapseMother",
+    "switchbest2",
     "collapseHealth",
     "timer",
     "getUserInfo",
@@ -16111,7 +16397,8 @@ const PlasmicDescendants = {
   collapseMedicine2: ["collapseMedicine2"],
   collapseTest: ["collapseTest"],
   collapseBaby: ["collapseBaby"],
-  collapseMother: ["collapseMother"],
+  collapseMother: ["collapseMother", "switchbest2"],
+  switchbest2: ["switchbest2"],
   collapseHealth: ["collapseHealth"],
   timer: ["timer"],
   getUserInfo: ["getUserInfo"],
@@ -16137,6 +16424,7 @@ type NodeDefaultElementType = {
   collapseTest: typeof AntdSingleCollapse;
   collapseBaby: typeof AntdSingleCollapse;
   collapseMother: typeof AntdSingleCollapse;
+  switchbest2: typeof Switchbest;
   collapseHealth: typeof AntdSingleCollapse;
   timer: typeof Timer;
   getUserInfo: typeof ApiRequest;
@@ -16243,6 +16531,7 @@ export const PlasmicPregnancy = Object.assign(
     collapseTest: makeNodeComponent("collapseTest"),
     collapseBaby: makeNodeComponent("collapseBaby"),
     collapseMother: makeNodeComponent("collapseMother"),
+    switchbest2: makeNodeComponent("switchbest2"),
     collapseHealth: makeNodeComponent("collapseHealth"),
     timer: makeNodeComponent("timer"),
     getUserInfo: makeNodeComponent("getUserInfo"),

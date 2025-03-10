@@ -68,7 +68,7 @@
   background: var(--token-4RAe7M2gInqR);
 }
 .rootcolor_sand {
-  background: #717069cc;
+  background: var(--token-gonRSCNFEy7u);
 }
 .rootcolor_white {
   background: #ffffff;
@@ -347,7 +347,7 @@
   color: #ffffff;
 }
 .slotTargetChildrencolor_sand {
-  color: #ffffff;
+  color: var(--token-kjnzcds1FoVY);
 }
 .slotTargetChildrencolor_white {
   color: #1b1b18;

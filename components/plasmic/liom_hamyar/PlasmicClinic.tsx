@@ -104,6 +104,9 @@ import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquare
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon102Icon from "./icons/PlasmicIcon__Icon102"; // plasmic-import: 9fS9dn8xohZT/icon
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
+import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: liLrwe8fcuIp/icon
+import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
+import Icon203Icon from "./icons/PlasmicIcon__Icon203"; // plasmic-import: j3RSrwNtLtoK/icon
 
 createPlasmicElementProxy;
 
@@ -7697,6 +7700,176 @@ function PlasmicClinic__RenderFunc(props: {
               />
             ) : null}
           </Stack__>
+          {(() => {
+            try {
+              return (
+                ($ctx.query.gender ||
+                  new URLSearchParams(window.location.search).get("gender")) ==
+                "male"
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <section className={classNames(projectcss.all, sty.section__fywj)}>
+              <div className={classNames(projectcss.all, sty.freeBox__mftDq)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox___9MhU3)}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__mi3Ew)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return `/hamyar?token=fghjub${window.localStorage.getItem(
+                                    "token"
+                                  )}bjk`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <Icon6Icon
+                      className={classNames(projectcss.all, sty.svg__mSagz)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rlO0P
+                      )}
+                    >
+                      {"\u0647\u0645\u06cc\u0627\u0631"}
+                    </div>
+                  </div>
+                  <div
+                    aria-pressed={undefined}
+                    className={classNames(projectcss.all, sty.freeBox__abzQv)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToBioritm"] = true
+                        ? (() => {
+                            const actionArgs = { destination: `/bioritm` };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToBioritm"] != null &&
+                        typeof $steps["goToBioritm"] === "object" &&
+                        typeof $steps["goToBioritm"].then === "function"
+                      ) {
+                        $steps["goToBioritm"] = await $steps["goToBioritm"];
+                      }
+                    }}
+                  >
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? Icon23Icon
+                          : Icon23Icon
+                      }
+                      className={classNames(projectcss.all, sty.svg__upNda)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__j63U
+                      )}
+                    >
+                      {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
+                    </div>
+                  </div>
+                  <div
+                    aria-pressed={undefined}
+                    className={classNames(projectcss.all, sty.freeBox___5GMoW)}
+                    onClick={async event => {
+                      const $steps = {};
+                    }}
+                  >
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? Icon203Icon
+                          : Icon203Icon
+                      }
+                      className={classNames(projectcss.all, sty.svg__dkXmr)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pZtym
+                      )}
+                    >
+                      {"\u06a9\u0644\u06cc\u0646\u06cc\u06a9"}
+                    </div>
+                  </div>
+                </Stack__>
+              </div>
+            </section>
+          ) : null}
         </div>
       </div>
     </React.Fragment>

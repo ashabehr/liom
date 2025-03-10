@@ -113,6 +113,7 @@ import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzm
 import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: UbRafB34Z-K-/icon
 import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
 import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
+import Icon202Icon from "./icons/PlasmicIcon__Icon202"; // plasmic-import: lD6NOJADOGZx/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -12782,6 +12783,33 @@ function PlasmicHamyar__RenderFunc(props: {
                     </div>
                   </div>
                 ) : null}
+                <div
+                  aria-pressed={undefined}
+                  className={classNames(projectcss.all, sty.freeBox__wi1Kk)}
+                  onClick={async event => {
+                    const $steps = {};
+                  }}
+                >
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? Icon202Icon
+                        : Icon202Icon
+                    }
+                    className={classNames(projectcss.all, sty.svg__qquGr)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___8HQk6
+                    )}
+                  >
+                    {"\u06a9\u0644\u06cc\u0646\u06cc\u06a9"}
+                  </div>
+                </div>
               </Stack__>
             </div>
           </section>
