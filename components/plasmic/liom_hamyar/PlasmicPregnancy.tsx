@@ -6726,9 +6726,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
-                                    return window.FlutterChannel.postMessage(
-                                      "https://survey.porsline.ir/s/ako96o4"
-                                    );
+                                    return (() => {
+                                      return window.openUrlInFlutter(
+                                        "https://survey.porsline.ir/s/ako96o4"
+                                      );
+                                    })();
                                   }
                                 };
                                 return (({ customFunction }) => {
