@@ -1611,10 +1611,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
-                                      return window.open(
-                                        "https://survey.porsline.ir/s/ako96o4",
-                                        "_system"
-                                      );
+                                      return (() => {
+                                        return setTimeout(function () {
+                                          window.location.href =
+                                            "https://survey.porsline.ir/s/ako96o4";
+                                        }, 100);
+                                      })();
                                     }
                                   };
                                   return (({ customFunction }) => {
