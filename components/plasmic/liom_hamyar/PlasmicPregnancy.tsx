@@ -708,6 +708,9 @@ function PlasmicPregnancy__RenderFunc(props: {
             sty.root,
             { [sty.rootdarkMod]: hasVariant($state, "darkMod", "darkMod") }
           )}
+          onLoad={async event => {
+            const $steps = {};
+          }}
         >
           <section
             data-plasmic-name={"section"}
@@ -1097,7 +1100,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                               .then(response => response.json())
                               .then(data => {
                                 console.log("get step");
-
                                 fetch(
                                   "https://n8n.staas.ir/webhook/selfTreatment/?stepId=" +
                                     data.data[$state.weeksPregnant - 1].id +
@@ -6710,6 +6712,236 @@ function PlasmicPregnancy__RenderFunc(props: {
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__pViWz)}
+                  >
+                    {(() => {
+                      try {
+                        return (() => {
+                          if ($ctx.query.inApp == "true") {
+                            if ($state.user[0].hamyarData == "{}") return true;
+                            else if (
+                              JSON.parse($state.user[0].hamyarData).hamyarsData
+                                .length == 0
+                            )
+                              return true;
+                            else if (
+                              !JSON.parse($state.user?.[0]?.hamyarData)
+                                .hamyarsData[0].statusSms
+                            )
+                              return true;
+                          } else return false;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__t3Uaq
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return "https://survey.porsline.ir/s/ako96o4";
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___0MD4N
+                          )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/service/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return (() => {
+                                            var action = "";
+                                            if (
+                                              $state.user[0].hamyarData == "{}"
+                                            )
+                                              action = "addHamyar";
+                                            else if (
+                                              JSON.parse(
+                                                $state.user[0].hamyarData
+                                              ).hamyarsData.length == 0
+                                            )
+                                              action = "addHamyar";
+                                            else if (
+                                              !JSON.parse(
+                                                $state.user?.[0]?.hamyarData
+                                              ).hamyarsData[0].statusSms &&
+                                              $ctx.query.inApp == "true"
+                                            )
+                                              action = "activeHamyarSms";
+                                            return {
+                                              userId: $ctx.query.userId.slice(
+                                                4,
+                                                $ctx.query.userId.length - 4
+                                              ),
+                                              pageName: "mainPage_pregnancy",
+                                              action: action,
+                                              extraData: {}
+                                            };
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return {
+                                            headers: {
+                                              "Content-Type":
+                                                "application/json",
+                                              Authorization:
+                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                            }
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
+                            }
+                          }}
+                        >
+                          {(() => {
+                            try {
+                              return (() => {
+                                if ($state.user[0].hamyarData == "{}")
+                                  return true;
+                                else
+                                  return (
+                                    JSON.parse($state.user[0].hamyarData)
+                                      .hamyarsData.length == 0
+                                  );
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__w0EG9
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__a73Ab
+                                )}
+                              >
+                                {
+                                  "\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632\u060c \u0686\u06cc\u0632\u06cc \u06a9\u0647 \u062a\u0648 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc \u0628\u0631\u0627\u06cc \u0645\u0627 \u062e\u06cc\u0644\u06cc \u0645\u0647\u0645\u0647! \ud83e\udd30\u2728 \n\u0686\u0646\u062f \u062f\u0642\u06cc\u0642\u0647 \u0648\u0642\u062a \u0628\u0630\u0627\u0631 \u0648 \u0628\u0647 \u0627\u06cc\u0646 \u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647 \u067e\u0627\u0633\u062e \u0628\u062f\u0647 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0647\u0645\u0631\u0627\u0647 \u0628\u0647\u062a\u0631\u06cc \u0628\u0631\u0627\u062a \u0628\u0627\u0634\u06cc\u0645."
+                                }
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__jM0Bd
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__wnODc
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ color: "#FFFFFF" }}
+                                    >
+                                      {
+                                        "\u0648\u0631\u0648\u062f \u0628\u0647 \u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"
+                                      }
+                                    </span>
+                                  </React.Fragment>
+                                </div>
+                              </div>
+                            </Stack__>
+                          ) : null}
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__wxfFc, {
