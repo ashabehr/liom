@@ -13759,14 +13759,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               {(() => {
                                 try {
                                   return (() => {
-                                    if (
-                                      $ctx.query.inApp == "true" &&
-                                      $ctx.query.userId.slice(
-                                        4,
-                                        $ctx.query.userId.length - 4
-                                      ) ==
-                                        "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                                    ) {
+                                    if ($ctx.query.inApp == "true") {
                                       if ($state.user[0].hamyarData == "{}")
                                         return true;
                                       else if (

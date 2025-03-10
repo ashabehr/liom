@@ -94,6 +94,8 @@ import Icon101Icon from "./icons/PlasmicIcon__Icon101"; // plasmic-import: eTM5S
 import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: liLrwe8fcuIp/icon
 import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5Pd9666/icon
 import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
+import Icon202Icon from "./icons/PlasmicIcon__Icon202"; // plasmic-import: lD6NOJADOGZx/icon
+import Icon203Icon from "./icons/PlasmicIcon__Icon203"; // plasmic-import: j3RSrwNtLtoK/icon
 
 createPlasmicElementProxy;
 
@@ -6837,6 +6839,74 @@ function PlasmicBioritm__RenderFunc(props: {
                 </div>
               </div>
             ) : null}
+            <div
+              aria-pressed={undefined}
+              className={classNames(projectcss.all, sty.freeBox__iqLEv)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["goToPage"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return `/clinic?token=${localStorage.getItem(
+                              "token"
+                            )}&userId=${$state.userInfo.r}&gender=male`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+              }}
+            >
+              <PlasmicIcon__
+                PlasmicIconType={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? Icon203Icon
+                    : Icon202Icon
+                }
+                className={classNames(projectcss.all, sty.svg__zUn5B)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__xHbQk
+                )}
+              >
+                {"\u06a9\u0644\u06cc\u0646\u06cc\u06a9"}
+              </div>
+            </div>
           </Stack__>
         </section>
       </div>

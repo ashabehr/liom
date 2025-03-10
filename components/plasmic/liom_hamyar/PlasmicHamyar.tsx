@@ -12798,7 +12798,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                 try {
                                   return `/clinic?token=${window.localStorage.getItem(
                                     "token"
-                                  )}&userId=${$state.user.data}&gender=male`;
+                                  )}&userId=${$state.user.data.r}&gender=male`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
