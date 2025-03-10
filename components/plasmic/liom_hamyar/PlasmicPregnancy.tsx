@@ -1582,16 +1582,39 @@ function PlasmicPregnancy__RenderFunc(props: {
                           onClick={async event => {
                             const $steps = {};
 
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      undefined,
+                                      "\u0633\u0634\u0633\u0633\u06cc\u0633"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.showToast"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
+                            }
+
                             $steps["runCode"] = true
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
-                                      return (() => {
-                                        return window.open(
-                                          "https://your-url.com",
-                                          "_blank"
-                                        );
-                                      })();
+                                      return window.open(
+                                        "https://survey.porsline.ir/s/ako96o4",
+                                        "_blank"
+                                      );
                                     }
                                   };
                                   return (({ customFunction }) => {
