@@ -4564,6 +4564,98 @@ function PlasmicPregnancy__RenderFunc(props: {
                             projectcss.all,
                             sty.freeBox__fuRwW
                           )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/service/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return (() => {
+                                            var action = "";
+                                            if (
+                                              $state.user[0].hamyarData == "{}"
+                                            )
+                                              action = "addHamyar";
+                                            else if (
+                                              JSON.parse(
+                                                $state.user[0].hamyarData
+                                              ).hamyarsData.length == 0
+                                            )
+                                              action = "addHamyar";
+                                            else if (
+                                              !JSON.parse(
+                                                $state.user?.[0]?.hamyarData
+                                              ).hamyarsData[0].statusSms &&
+                                              $ctx.query.inApp == "true"
+                                            )
+                                              action = "activeHamyarSms";
+                                            return {
+                                              userId: $ctx.query.userId.slice(
+                                                4,
+                                                $ctx.query.userId.length - 4
+                                              ),
+                                              pageName: "mainPage_pregnancy",
+                                              action: action,
+                                              extraData: {}
+                                            };
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return {
+                                            headers: {
+                                              "Content-Type":
+                                                "application/json",
+                                              Authorization:
+                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                            }
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
+                            }
+                          }}
                         >
                           {(() => {
                             try {
@@ -13670,8 +13762,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     if (
                                       $ctx.query.inApp == "true" &&
                                       $ctx.query.userId.slice(
-                                        6,
-                                        $ctx.query.userId
+                                        4,
+                                        $ctx.query.userId.length - 4
                                       ) ==
                                         "4ddd1fab-100c-49f0-b843-e70bff8add34"
                                     ) {
@@ -13706,6 +13798,105 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     projectcss.all,
                                     sty.freeBox__l8Vv4
                                   )}
+                                  onClick={async event => {
+                                    const $steps = {};
+
+                                    $steps["invokeGlobalAction"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              "POST",
+                                              "https://api.liom.app/service/log",
+                                              undefined,
+                                              (() => {
+                                                try {
+                                                  return (() => {
+                                                    var action = "";
+                                                    if (
+                                                      $state.user[0]
+                                                        .hamyarData == "{}"
+                                                    )
+                                                      action = "addHamyar";
+                                                    else if (
+                                                      JSON.parse(
+                                                        $state.user[0]
+                                                          .hamyarData
+                                                      ).hamyarsData.length == 0
+                                                    )
+                                                      action = "addHamyar";
+                                                    else if (
+                                                      !JSON.parse(
+                                                        $state.user?.[0]
+                                                          ?.hamyarData
+                                                      ).hamyarsData[0]
+                                                        .statusSms &&
+                                                      $ctx.query.inApp == "true"
+                                                    )
+                                                      action =
+                                                        "activeHamyarSms";
+                                                    return {
+                                                      userId:
+                                                        $ctx.query.userId.slice(
+                                                          4,
+                                                          $ctx.query.userId
+                                                            .length - 4
+                                                        ),
+                                                      pageName:
+                                                        "mainPage_pregnancy",
+                                                      action: action,
+                                                      extraData: {}
+                                                    };
+                                                  })();
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })(),
+                                              (() => {
+                                                try {
+                                                  return {
+                                                    headers: {
+                                                      "Content-Type":
+                                                        "application/json",
+                                                      Authorization:
+                                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                    }
+                                                  };
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.apiRequest"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["invokeGlobalAction"] != null &&
+                                      typeof $steps["invokeGlobalAction"] ===
+                                        "object" &&
+                                      typeof $steps["invokeGlobalAction"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["invokeGlobalAction"] =
+                                        await $steps["invokeGlobalAction"];
+                                    }
+                                  }}
                                 >
                                   <div
                                     className={classNames(

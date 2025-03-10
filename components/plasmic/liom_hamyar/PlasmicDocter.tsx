@@ -1784,9 +1784,19 @@ function PlasmicDocter__RenderFunc(props: {
                   displayMinWidth={"0"}
                   displayWidth={"100px"}
                   loading={"lazy"}
-                  src={
-                    "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
-                  }
+                  src={(() => {
+                    try {
+                      return "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg";
+                      }
+                      throw e;
+                    }
+                  })()}
                 />
 
                 <Stack__
