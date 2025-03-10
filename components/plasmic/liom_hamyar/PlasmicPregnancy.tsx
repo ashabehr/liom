@@ -1613,7 +1613,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     customFunction: async () => {
                                       return window.open(
                                         "https://survey.porsline.ir/s/ako96o4",
-                                        "_blank"
+                                        "_system"
                                       );
                                     }
                                   };
