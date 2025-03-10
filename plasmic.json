@@ -1661,6 +1661,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/Self-care"
+        },
+        {
+          "id": "wOOFf0E7TUt2",
+          "name": "Commentlikebutton",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCommentlikebutton.tsx",
+          "importSpec": {
+            "modulePath": "Commentlikebutton.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCommentlikebutton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2973,6 +2986,11 @@
           "id": "j3RSrwNtLtoK",
           "name": "Icon203Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon203.tsx"
+        },
+        {
+          "id": "MBg4kuRqoYgZ",
+          "name": "Icon204Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon204.tsx"
         }
       ],
       "images": [
