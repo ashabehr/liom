@@ -117,6 +117,7 @@ export type PlasmicSocialPage__OverridesType = {
   save?: Flex__<typeof Save>;
   popover?: Flex__<typeof AntdPopover>;
   comment?: Flex__<typeof Comment>;
+  coment?: Flex__<"div">;
   textArea?: Flex__<typeof AntdTextArea>;
   getInfo?: Flex__<typeof ApiRequest>;
 };
@@ -1139,8 +1140,7 @@ function PlasmicSocialPage__RenderFunc(props: {
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
-                    return $state.getInfo.data.result.details.commentCount
-                      .valueOf;
+                    return $state.getInfo.data.result.comments[1];
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1160,48 +1160,84 @@ function PlasmicSocialPage__RenderFunc(props: {
                     data-plasmic-override={overrides.comment}
                     className={classNames("__wab_instance", sty.comment)}
                     key={currentIndex}
-                    name={(() => {
-                      try {
-                        return $state.getInfo.data.result.comments[0].user.name;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    text={(() => {
-                      try {
-                        return $state.getInfo.data.result.comments[0].comment
-                          .text_fa;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    userName={(() => {
-                      try {
-                        return $state.getInfo.data.result.comments[0].user
-                          .username;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                  />
+                    slot={
+                      <div
+                        data-plasmic-name={"coment"}
+                        data-plasmic-override={overrides.coment}
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.coment
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.getInfo.data.result.comments[0]
+                                .comment.text;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    }
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__hsl0H
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.getInfo.data.result.comments[0].user
+                              .name;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "name";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__x2IIv
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.getInfo.data.result.comments[0].user
+                              .username;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "username";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Comment>
                 );
               })}
               <section
@@ -1272,7 +1308,7 @@ function PlasmicSocialPage__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  postId: "798941",
+                  postId: "3",
 
                   commentId: "string",
                   orderBy: "newest",
@@ -1356,6 +1392,7 @@ const PlasmicDescendants = {
     "save",
     "popover",
     "comment",
+    "coment",
     "textArea",
     "getInfo"
   ],
@@ -1367,7 +1404,8 @@ const PlasmicDescendants = {
   like2: ["like2"],
   save: ["save"],
   popover: ["popover"],
-  comment: ["comment"],
+  comment: ["comment", "coment"],
+  coment: ["coment"],
   textArea: ["textArea"],
   getInfo: ["getInfo"]
 } as const;
@@ -1385,6 +1423,7 @@ type NodeDefaultElementType = {
   save: typeof Save;
   popover: typeof AntdPopover;
   comment: typeof Comment;
+  coment: "div";
   textArea: typeof AntdTextArea;
   getInfo: typeof ApiRequest;
 };
@@ -1483,6 +1522,7 @@ export const PlasmicSocialPage = Object.assign(
     save: makeNodeComponent("save"),
     popover: makeNodeComponent("popover"),
     comment: makeNodeComponent("comment"),
+    coment: makeNodeComponent("coment"),
     textArea: makeNodeComponent("textArea"),
     getInfo: makeNodeComponent("getInfo"),
 

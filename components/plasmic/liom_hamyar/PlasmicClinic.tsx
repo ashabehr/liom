@@ -1088,20 +1088,20 @@ function PlasmicClinic__RenderFunc(props: {
                   </Stack__>
                   <PlasmicImg__
                     alt={""}
-                    className={classNames(sty.img__eYiNj)}
-                    displayHeight={"auto"}
+                    className={classNames(sty.img__yk6QY)}
+                    displayHeight={"50%"}
                     displayMaxHeight={"none"}
                     displayMaxWidth={"100%"}
                     displayMinHeight={"0"}
                     displayMinWidth={"0"}
                     displayWidth={
                       hasVariant(globalVariants, "screen", "mobile")
-                        ? "80px"
-                        : "200px"
+                        ? "40%"
+                        : "25%"
                     }
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/liom_hamyar/images/image62.png",
+                      src: "/plasmic/liom_hamyar/images/image92.png",
                       fullWidth: 450,
                       fullHeight: 450,
                       aspectRatio: undefined

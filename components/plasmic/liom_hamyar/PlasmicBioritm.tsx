@@ -95,7 +95,6 @@ import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: liLrwe8fc
 import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5Pd9666/icon
 import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
 import Icon202Icon from "./icons/PlasmicIcon__Icon202"; // plasmic-import: lD6NOJADOGZx/icon
-import Icon203Icon from "./icons/PlasmicIcon__Icon203"; // plasmic-import: j3RSrwNtLtoK/icon
 
 createPlasmicElementProxy;
 
@@ -6890,7 +6889,7 @@ function PlasmicBioritm__RenderFunc(props: {
               <PlasmicIcon__
                 PlasmicIconType={
                   hasVariant(globalVariants, "screen", "mobile")
-                    ? Icon203Icon
+                    ? Icon202Icon
                     : Icon202Icon
                 }
                 className={classNames(projectcss.all, sty.svg__zUn5B)}

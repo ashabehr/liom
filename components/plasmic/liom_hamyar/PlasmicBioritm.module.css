@@ -3026,7 +3026,7 @@
 }
 @media (max-width: 640px) {
   .freeBox__iqLEv {
-    background: #7444bc1a;
+    background: none;
     align-items: center;
     justify-content: center;
     align-self: center;
@@ -3047,7 +3047,7 @@
   .svg__zUn5B {
     width: 25px;
     height: 20px;
-    color: var(--token-55cSeNPovQFh);
+    color: var(--token-y50Rafqey4Ec);
     flex-shrink: 0;
   }
 }
@@ -3064,7 +3064,7 @@
 @media (max-width: 640px) {
   .text__xHbQk {
     align-self: center;
-    color: var(--token-55cSeNPovQFh);
+    color: var(--token-y50Rafqey4Ec);
     font-size: 12px;
   }
 }

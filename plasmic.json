@@ -3585,6 +3585,11 @@
           "id": "WlF1hu0vGpWo",
           "name": "Icons/li-logo",
           "filePath": "../public/plasmic/liom_hamyar/images/iconsLiLogo.svg"
+        },
+        {
+          "id": "SVVrxS9gCI64",
+          "name": "image 92",
+          "filePath": "../public/plasmic/liom_hamyar/images/image92.png"
         }
       ],
       "indirect": false,

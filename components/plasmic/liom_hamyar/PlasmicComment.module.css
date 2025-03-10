@@ -76,7 +76,7 @@
   > img {
   margin-left: 5px;
 }
-.text___3Z12B {
+.text___1WCfw {
   position: relative;
   width: auto;
   height: auto;
@@ -86,7 +86,7 @@
   font-weight: 700;
   white-space: pre;
 }
-.text__q2Vv {
+.text__c8Wle {
   position: relative;
   width: auto;
   height: auto;
@@ -172,7 +172,7 @@
   min-width: 0;
   padding: 8px 0px 12px 8px;
 }
-.coment {
+.text__vPuuN {
   position: relative;
   width: 100%;
   height: auto;
@@ -195,6 +195,7 @@
   z-index: 1;
   right: 90px;
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
   border-radius: 50%;
   padding: 8px;
   border: 0.5px solid var(--token-R_Rsn0nP9oIv);
@@ -246,6 +247,7 @@
   top: 120px;
   right: 10px;
   box-shadow: 0px 4px 16px 0px var(--token-LNIzKl5AGPPT);
+  margin-top: 30px;
   border-radius: 50%;
   padding: 8px;
   border: 0.5px solid var(--token-R_Rsn0nP9oIv);
