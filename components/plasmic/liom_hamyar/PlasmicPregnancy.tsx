@@ -1612,10 +1612,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   const actionArgs = {
                                     customFunction: async () => {
                                       return (() => {
-                                        return setTimeout(function () {
-                                          window.location.href =
-                                            "intent://your-url.com#Intent;action=android.intent.action.VIEW;scheme=https;end;";
-                                        }, 100);
+                                        var newWindow = window.open(
+                                          "https://your-url.com",
+                                          "_blank"
+                                        );
+                                        if (newWindow) {
+                                          return (newWindow.opener = null);
+                                        }
                                       })();
                                     }
                                   };
