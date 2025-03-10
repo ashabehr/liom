@@ -1612,13 +1612,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   const actionArgs = {
                                     customFunction: async () => {
                                       return (() => {
-                                        var newWindow = window.open(
-                                          "https://your-url.com",
-                                          "_blank"
+                                        var link =
+                                          "https://survey.porsline.ir/s/ako96o4";
+                                        return window.FlutterChannel.postMessage(
+                                          "#inAppWebView**@@**" +
+                                            "پرسشنامه بارداری" +
+                                            "**@@**" +
+                                            link
                                         );
-                                        if (newWindow) {
-                                          return (newWindow.opener = null);
-                                        }
                                       })();
                                     }
                                   };
