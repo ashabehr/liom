@@ -170,12 +170,19 @@ function PlasmicComment__RenderFunc(props: {
             displayMinWidth={"0"}
             displayWidth={"48px"}
             loading={"lazy"}
-            src={{
-              src: "/plasmic/liom_hamyar/images/image10.ico",
-              fullWidth: 256,
-              fullHeight: 256,
-              aspectRatio: undefined
-            }}
+            src={(() => {
+              try {
+                return undefined;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           />
 
           <Stack__
@@ -298,29 +305,6 @@ function PlasmicComment__RenderFunc(props: {
         as={"div"}
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__nHfCa)}
-        onClick={async event => {
-          const $steps = {};
-
-          $steps["updateStateVariable"] = true
-            ? (() => {
-                const actionArgs = {};
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
-                  }
-                  const { objRoot, variablePath } = variable;
-                  undefined;
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["updateStateVariable"] != null &&
-            typeof $steps["updateStateVariable"] === "object" &&
-            typeof $steps["updateStateVariable"].then === "function"
-          ) {
-            $steps["updateStateVariable"] = await $steps["updateStateVariable"];
-          }
-        }}
       >
         <div
           className={classNames(

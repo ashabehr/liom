@@ -1140,7 +1140,7 @@ function PlasmicSocialPage__RenderFunc(props: {
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
-                    return $state.getInfo.data.result.comments[1];
+                    return $state.getInfo.data.result.comments;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1173,8 +1173,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                         <React.Fragment>
                           {(() => {
                             try {
-                              return $state.getInfo.data.result.comments[0]
-                                .comment.text;
+                              return currentItem.comment.text;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1199,8 +1198,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.getInfo.data.result.comments[0].user
-                              .name;
+                            return currentItem.user.name;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1223,8 +1221,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.getInfo.data.result.comments[0].user
-                              .username;
+                            return currentItem.user.username;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
