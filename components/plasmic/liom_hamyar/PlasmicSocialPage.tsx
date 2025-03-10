@@ -1245,7 +1245,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text___51NZy
+                          sty.text__xwU5
                         )}
                       >
                         <React.Fragment>
@@ -1257,7 +1257,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                                 e instanceof TypeError ||
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return "username";
+                                return "";
                               }
                               throw e;
                             }

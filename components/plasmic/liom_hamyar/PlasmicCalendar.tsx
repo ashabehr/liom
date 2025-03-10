@@ -66,6 +66,7 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -137,6 +138,7 @@ export const PlasmicCalendar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicCalendar__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   user?: Flex__<typeof ApiRequest>;
   button?: Flex__<typeof Button>;
   button18?: Flex__<typeof Button>;
@@ -1690,6 +1692,12 @@ function PlasmicCalendar__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "profile",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1792,6 +1800,120 @@ function PlasmicCalendar__RenderFunc(props: {
             }
           }}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/calendar/rest/user/profile/edit",
+                        (() => {
+                          try {
+                            return (() => {
+                              let tokenFromUrl =
+                                $ctx.query.token ||
+                                new URLSearchParams(window.location.search).get(
+                                  "token"
+                                );
+                              if (tokenFromUrl) {
+                                tokenFromUrl = tokenFromUrl.slice(
+                                  6,
+                                  tokenFromUrl.length - 3
+                                );
+                              }
+                              let token =
+                                tokenFromUrl || localStorage.getItem("token");
+                              return { authorization: token };
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["updateProfile"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["profile"]
+                      },
+                      operation: 0,
+                      value: $steps.invokeGlobalAction.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateProfile"] != null &&
+                typeof $steps["updateProfile"] === "object" &&
+                typeof $steps["updateProfile"].then === "function"
+              ) {
+                $steps["updateProfile"] = await $steps["updateProfile"];
+              }
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return localStorage.setItem(
+                            "allowanceUser",
+                            JSON.stringify($state.profile.result.allowance)
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          />
+
           <Embed
             className={classNames("__wab_instance", sty.embedHtml__pUMct)}
             code={
@@ -62615,6 +62737,7 @@ function PlasmicCalendar__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "user",
     "button",
     "button18",
@@ -62665,6 +62788,7 @@ const PlasmicDescendants = {
     "directDialog",
     "mainHeader"
   ],
+  sideEffect: ["sideEffect"],
   user: [
     "user",
     "button",
@@ -62776,6 +62900,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   user: typeof ApiRequest;
   button: typeof Button;
   button18: typeof Button;
@@ -62912,6 +63037,7 @@ export const PlasmicCalendar = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     user: makeNodeComponent("user"),
     button: makeNodeComponent("button"),
     button18: makeNodeComponent("button18"),

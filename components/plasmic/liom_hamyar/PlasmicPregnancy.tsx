@@ -5848,51 +5848,50 @@ function PlasmicPregnancy__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["goToPage"] =
-                          ($ctx.query?.inApp ?? "") != "true"
-                            ? (() => {
-                                const actionArgs = {
-                                  destination: (() => {
-                                    try {
-                                      return (
-                                        "https://tools.liom.app/self-medication/?type=danger&inApp=false" +
-                                        "&token=" +
-                                        $ctx.query.token +
-                                        "&selectStep=" +
-                                        ($state.weeksPregnant - 1) +
-                                        "&userId=" +
-                                        ($ctx?.query?.userId ?? "") +
-                                        "&version=" +
-                                        $ctx.query.version +
-                                        "&theme=" +
-                                        $ctx.query.theme
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
+                        $steps["goToPage"] = false
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return (
+                                      "https://tools.liom.app/self-medication/?type=danger&inApp=false" +
+                                      "&token=" +
+                                      $ctx.query.token +
+                                      "&selectStep=" +
+                                      ($state.weeksPregnant - 1) +
+                                      "&userId=" +
+                                      ($ctx?.query?.userId ?? "") +
+                                      "&version=" +
+                                      $ctx.query.version +
+                                      "&theme=" +
+                                      $ctx.query.theme
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
                                     }
-                                  })()
-                                };
-                                return (({ destination }) => {
-                                  if (
-                                    typeof destination === "string" &&
-                                    destination.startsWith("#")
-                                  ) {
-                                    document
-                                      .getElementById(destination.substr(1))
-                                      .scrollIntoView({ behavior: "smooth" });
-                                  } else {
-                                    __nextRouter?.push(destination);
+                                    throw e;
                                   }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
                         if (
                           $steps["goToPage"] != null &&
                           typeof $steps["goToPage"] === "object" &&
@@ -5957,6 +5956,34 @@ function PlasmicPregnancy__RenderFunc(props: {
                           typeof $steps["runCode"].then === "function"
                         ) {
                           $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["runCode2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    document
+                                      .getElementById("collapseDanger")
+                                      .scrollIntoView({
+                                        behavior: "smooth",
+                                        block: "start"
+                                      });
+                                    return ($state.collapseDanger.open = true);
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode2"] != null &&
+                          typeof $steps["runCode2"] === "object" &&
+                          typeof $steps["runCode2"].then === "function"
+                        ) {
+                          $steps["runCode2"] = await $steps["runCode2"];
                         }
 
                         $steps["invokeGlobalAction"] = true
@@ -6034,194 +6061,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                           projectcss.all,
                           sty.freeBox__ev9TG
                         )}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["goToPage"] =
-                            $ctx.query.inApp == "false" ||
-                            new URLSearchParams(window.location.search).get(
-                              "inApp"
-                            ) == "false"
-                              ? (() => {
-                                  const actionArgs = {
-                                    destination: (() => {
-                                      try {
-                                        return (
-                                          "https://tools.liom.app/self-medication/?type=danger&inApp=false" +
-                                          "&token=" +
-                                          $ctx.query.token +
-                                          "&selectStep=" +
-                                          ($state.weeksPregnant - 1) +
-                                          //  "0"
-                                          "&userId=" +
-                                          ($ctx?.query?.userId ?? "") +
-                                          "&version=" +
-                                          $ctx.query.version +
-                                          "&theme=" +
-                                          $ctx.query.theme
-                                        );
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
-                                    }
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["goToPage"] != null &&
-                            typeof $steps["goToPage"] === "object" &&
-                            typeof $steps["goToPage"].then === "function"
-                          ) {
-                            $steps["goToPage"] = await $steps["goToPage"];
-                          }
-
-                          $steps["runCode"] =
-                            $ctx.query.inApp == "true" ||
-                            new URLSearchParams(window.location.search).get(
-                              "inApp"
-                            ) == "false"
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        var link;
-                                        if (
-                                          $ctx.query.userId.slice(
-                                            4,
-                                            $ctx.query.userId.length - 4
-                                          ) ==
-                                          "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                                        ) {
-                                          link =
-                                            "https://tools.liom.app/self-medication/?type=irregular&inApp=true&token=" +
-                                            $ctx.query.token +
-                                            "&selectStep=" +
-                                            "0" +
-                                            "&userId=" +
-                                            ($ctx?.query?.userId ?? "") +
-                                            "&version=" +
-                                            $ctx.query.version +
-                                            "&theme=" +
-                                            $ctx.query.theme;
-                                        } else {
-                                          link =
-                                            "https://tools.liom.app/self-medication/?type=danger&inApp=true&token=" +
-                                            $ctx.query.token +
-                                            "&selectStep=" +
-                                            ($state.weeksPregnant - 1) +
-                                            "&userId=" +
-                                            ($ctx?.query?.userId ?? "") +
-                                            "&version=" +
-                                            $ctx.query.version +
-                                            "&theme=" +
-                                            $ctx.query.theme;
-                                        }
-                                        return window.FlutterChannel.postMessage(
-                                          "#inAppWebView**@@** ابزار خطرناکه یانه! **@@**" +
-                                            link
-                                        );
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-
-                          $steps["invokeGlobalAction"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "POST",
-                                    "https://api.liom.app/service/log",
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return {
-                                          userId: $ctx.query.userId.slice(
-                                            4,
-                                            $ctx.query.userId.length - 4
-                                          ),
-                                          pageName: "selfTreatment_danger",
-                                          action: "clickOpenPage",
-                                          extraData: {}
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })(),
-                                    (() => {
-                                      try {
-                                        return {
-                                          headers: {
-                                            "Content-Type": "application/json",
-                                            Authorization:
-                                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                          }
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["invokeGlobalAction"] != null &&
-                            typeof $steps["invokeGlobalAction"] === "object" &&
-                            typeof $steps["invokeGlobalAction"].then ===
-                              "function"
-                          ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
-                          }
-                        }}
                       >
                         <div
                           className={classNames(
@@ -8297,6 +8136,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         projectcss.all,
                         sty.freeBox___3OXv1
                       )}
+                      id={"collapseDanger"}
                     >
                       {(() => {
                         try {
