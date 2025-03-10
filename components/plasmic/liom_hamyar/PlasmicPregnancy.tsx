@@ -1587,12 +1587,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   const actionArgs = {
                                     customFunction: async () => {
                                       return (() => {
-                                        document.getElementById(
-                                          "reloadButton"
-                                        ).style.display = "block";
-                                        return (document.getElementById(
-                                          "main"
-                                        ).style.display = "none");
+                                        return window.open(
+                                          "https://your-url.com",
+                                          "_blank"
+                                        );
                                       })();
                                     }
                                   };
@@ -6785,25 +6783,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                           typeof $steps["goToPage"].then === "function"
                         ) {
                           $steps["goToPage"] = await $steps["goToPage"];
-                        }
-
-                        $steps["invokeGlobalAction"] = true
-                          ? (() => {
-                              const actionArgs = { args: [undefined, "sasas"] };
-                              return $globalActions[
-                                "Fragment.showToast"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
                         }
                       }}
                     >
