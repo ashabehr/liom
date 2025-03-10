@@ -636,3 +636,13 @@
   font-size: 12px;
   min-width: 0;
 }
+.text__azfXx {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: 12px;
+  color: var(--token-G-IZ_XhVdlqp);
+  min-width: 0;
+}

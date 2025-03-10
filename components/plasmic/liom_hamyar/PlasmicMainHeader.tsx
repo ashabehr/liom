@@ -63,6 +63,8 @@ import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -225,6 +227,25 @@ function PlasmicMainHeader__RenderFunc(props: {
 
         valueProp: "dopen",
         onChangeProp: "onDopenChange"
+      },
+      {
+        path: "allowanceUser",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return JSON.parse(localStorage.getItem("allowanceUser"));
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -234,6 +255,10 @@ function PlasmicMainHeader__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
   });
 
   return (
@@ -504,17 +529,68 @@ function PlasmicMainHeader__RenderFunc(props: {
                   role={"img"}
                 />
 
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xyhef
-                  )}
-                >
-                  {
-                    "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0641\u0639\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u06cc!"
+                {(() => {
+                  try {
+                    return $state.allowanceUser.length == 0;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
                   }
-                </div>
+                })() ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__xyhef
+                    )}
+                  >
+                    {
+                      "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0641\u0639\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u06cc!"
+                    }
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.allowanceUser.length > 0;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__azfXx
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return `اشتراک های فعال شما: ${$state.allowanceUser.length}`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0641\u0639\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u06cc!";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                ) : null}
               </Stack__>
             </div>
           </div>

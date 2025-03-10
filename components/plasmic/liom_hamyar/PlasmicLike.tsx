@@ -241,7 +241,9 @@ function PlasmicLike__RenderFunc(props: {
                   variablePath: ["likeCountForLikeBar"]
                 },
                 operation: 0,
-                value: ($state.likeCountForLikeBar += $state.islike ? -1 : 1)
+                value: ($state.likeCountForLikeBar =
+                  parseInt($state.likeCountForLikeBar) +
+                  ($state.islike ? -1 : 1))
               };
               return (({ variable, value, startIndex, deleteCount }) => {
                 if (!variable) {
