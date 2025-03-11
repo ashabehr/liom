@@ -89,7 +89,7 @@
   --plasmic-token-dark: var(--token-g4c3GPshSjp1);
   --token-ZvaN7zB_BbvY: 0.5rem;
   --plasmic-token-size-8: var(--token-ZvaN7zB_BbvY);
-  --token-ODBUExjR6VEF: #030712;
+  --token-ODBUExjR6VEF: var(--token-kjnzcds1FoVY);
   --plasmic-token-basic-text-primary: var(--token-ODBUExjR6VEF);
   --token-2lDfJHYaD05G: Inter;
   --plasmic-token-sans-serif: var(--token-2lDfJHYaD05G);

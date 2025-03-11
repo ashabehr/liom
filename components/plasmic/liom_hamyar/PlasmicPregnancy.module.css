@@ -238,7 +238,7 @@
   position: relative;
   align-items: center;
   justify-content: space-evenly;
-  width: 60%;
+  width: 45%;
   height: 100%;
   max-width: 100%;
   box-shadow: 0px 4px 16px 0px #12121214;
@@ -301,7 +301,7 @@
   flex-shrink: 0;
   flex-basis: auto;
   flex-grow: 0;
-  font-size: 18px;
+  font-size: 17px;
 }
 .textdarkMod__oYhiioQOo {
   color: var(--token-jgohepLVeKvh);
@@ -314,7 +314,7 @@
   flex-shrink: 1;
   flex-basis: auto;
   flex-grow: 0;
-  font-size: 18px;
+  font-size: 17px;
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
@@ -386,7 +386,7 @@
   color: #535353;
   font-weight: 700;
   margin-top: 12px;
-  font-size: 17px;
+  font-size: 14px;
   min-width: 0;
 }
 .textdarkMod__lCreOQOo {
@@ -493,13 +493,8 @@
   flex-grow: 0;
   color: var(--token-0xHMxyAHbOos);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   min-width: 0;
-}
-@media (max-width: 640px) {
-  .text___87SG2 {
-    font-size: 18px;
-  }
 }
 .textdarkMod___87SG2OQOo {
   color: #8254c6;
@@ -521,13 +516,8 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 15px;
+  font-size: 17px;
   min-width: 0;
-}
-@media (max-width: 640px) {
-  .text__sa683 {
-    font-size: 16px;
-  }
 }
 .textdarkMod__sa683OQOo {
   color: var(--token-jgohepLVeKvh);
@@ -637,7 +627,7 @@
   background: #ffffff;
   min-width: 0;
   border-radius: 8px;
-  padding: 16px 8px;
+  padding: 16px 0px;
 }
 .freeBoxdarkMod__hl6BMoQOo {
   background: var(--token-w7oYmzqeGvkw);
@@ -652,14 +642,11 @@
   flex-basis: auto;
   flex-grow: 0;
   color: #dd911e;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
+  padding-left: 8px;
+  padding-right: 8px;
   min-width: 0;
-}
-@media (max-width: 640px) {
-  .text__r55Mz {
-    font-size: 18px;
-  }
 }
 .freeBox__vSrpC {
   display: flex;
@@ -679,13 +666,10 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 15px;
+  font-size: 17px;
+  padding-left: 8px;
+  padding-right: 8px;
   min-width: 0;
-}
-@media (max-width: 640px) {
-  .text__nDlQy {
-    font-size: 15px;
-  }
 }
 .textdarkMod__nDlQyOQOo {
   color: var(--token-jgohepLVeKvh);
@@ -696,6 +680,8 @@
   align-self: auto;
   width: 100%;
   margin-top: 8px;
+  font-size: 18px;
+  font-weight: 700;
   min-width: 0;
   padding: 0px;
 }
@@ -1227,24 +1213,22 @@
 }
 @media (max-width: 640px) {
   .text__oKaxs {
-    font-size: 15px;
     white-space: pre-wrap;
   }
 }
 .text___2Shyc {
-  position: relative;
   width: auto;
   height: auto;
   max-width: 100%;
   background: var(--token-55cSeNPovQFh);
   color: var(--token-41VRhDKfihhY);
   font-size: 15px;
+  position: relative;
   border-radius: 8px;
   padding: 4px 16px 2px;
 }
 @media (max-width: 640px) {
   .text___2Shyc {
-    font-size: 12px;
     padding: 2px 6px 0px;
   }
 }
@@ -2166,7 +2150,8 @@
   height: auto;
   max-width: 100%;
   white-space: pre;
-  color: #535353;
+  color: var(--token-kjnzcds1FoVY);
+  font-size: 16px;
 }
 .textdarkMod__uBuR0OQOo {
   color: #898989;
@@ -2187,7 +2172,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--token-55cSeNPovQFh);
   font-weight: 500;
   text-decoration-line: none;
@@ -2376,8 +2361,8 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 15px;
-  color: #535353;
+  font-size: 16px;
+  color: var(--token-kjnzcds1FoVY);
   min-width: 0;
 }
 .textdarkMod__xsR0OQOo {
@@ -2563,8 +2548,8 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 15px;
-  color: #535353;
+  font-size: 16px;
+  color: var(--token-kjnzcds1FoVY);
   min-width: 0;
 }
 .textdarkMod__co626OQOo {
@@ -2707,7 +2692,8 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 15px;
+  font-size: 16px;
+  color: var(--token-kjnzcds1FoVY);
   min-width: 0;
 }
 .textdarkMod__ghfVcoQOo {
@@ -2834,7 +2820,8 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 15px;
+  font-size: 16px;
+  color: var(--token-kjnzcds1FoVY);
   min-width: 0;
 }
 .textdarkMod__wx2FWoQOo {
@@ -3140,7 +3127,8 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 15px;
+  font-size: 16px;
+  color: var(--token-ODBUExjR6VEF);
   min-width: 0;
 }
 .textdarkMod__fZm1MOQOo {

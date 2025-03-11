@@ -6872,7 +6872,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 break;
                                             }
                                             return (
-                                              "جنین در این هفته اندازه یک " +
+                                              "جنین این هفته اندازه یک " +
                                               $state.sizeByFruit[
                                                 $state.selectedWeek
                                               ] +
