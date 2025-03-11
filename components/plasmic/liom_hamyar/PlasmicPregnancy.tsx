@@ -8920,15 +8920,38 @@ function PlasmicPregnancy__RenderFunc(props: {
                                               })()
                                                 ? (() => {
                                                     const actionArgs = {
-                                                      args: [
-                                                        "error",
-                                                        "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f"
-                                                      ]
+                                                      variable: {
+                                                        objRoot: $state,
+                                                        variablePath: [
+                                                          "directDialog2",
+                                                          "open"
+                                                        ]
+                                                      },
+                                                      operation: 0,
+                                                      value: true
                                                     };
-                                                    return $globalActions[
-                                                      "Fragment.showToast"
-                                                    ]?.apply(null, [
-                                                      ...actionArgs.args
+                                                    return (({
+                                                      variable,
+                                                      value,
+                                                      startIndex,
+                                                      deleteCount
+                                                    }) => {
+                                                      if (!variable) {
+                                                        return;
+                                                      }
+                                                      const {
+                                                        objRoot,
+                                                        variablePath
+                                                      } = variable;
+
+                                                      $stateSet(
+                                                        objRoot,
+                                                        variablePath,
+                                                        value
+                                                      );
+                                                      return value;
+                                                    })?.apply(null, [
+                                                      actionArgs
                                                     ]);
                                                   })()
                                                 : undefined;
