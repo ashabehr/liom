@@ -357,7 +357,7 @@ function PlasmicTodoList__RenderFunc(props: {
             },
             open: generateStateValueProp($state, ["collapse", "open"]),
             showArrow: true,
-            size: "small"
+            size: "large"
           };
           initializeCodeComponentStates(
             $state,
