@@ -1370,6 +1370,112 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               $steps["updateWeek"] = await $steps["updateWeek"];
                             }
 
+                            $steps["updateWeek2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["week"]
+                                    },
+                                    operation: 0,
+                                    value: (() => {
+                                      let initialDate = new Date($state.duDate);
+                                      initialDate.setHours(23);
+                                      initialDate.setMinutes(59);
+                                      initialDate.setSeconds(59);
+                                      let daysToSubtract = 280;
+                                      let resultDate = new Date(initialDate);
+                                      resultDate.setDate(
+                                        resultDate.getDate() - daysToSubtract
+                                      );
+                                      let today = new Date();
+                                      let differenceInTime = today - resultDate;
+                                      let differenceInDays = Math.floor(
+                                        differenceInTime / (1000 * 60 * 60 * 24)
+                                      );
+                                      return parseInt(
+                                        (differenceInDays + 1) / 7
+                                      ) == 0
+                                        ? 1
+                                        : parseInt((differenceInDays + 1) / 7);
+                                    })()
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateWeek2"] != null &&
+                              typeof $steps["updateWeek2"] === "object" &&
+                              typeof $steps["updateWeek2"].then === "function"
+                            ) {
+                              $steps["updateWeek2"] = await $steps[
+                                "updateWeek2"
+                              ];
+                            }
+
+                            $steps["updateDay2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["day"]
+                                    },
+                                    operation: 0,
+                                    value: (() => {
+                                      let initialDate = new Date($state.duDate);
+                                      initialDate.setHours(23);
+                                      initialDate.setMinutes(59);
+                                      initialDate.setSeconds(59);
+                                      let daysToSubtract = 280;
+                                      let resultDate = new Date(initialDate);
+                                      resultDate.setDate(
+                                        resultDate.getDate() - daysToSubtract
+                                      );
+                                      let today = new Date();
+                                      let differenceInTime = today - resultDate;
+                                      let differenceInDays = Math.floor(
+                                        differenceInTime / (1000 * 60 * 60 * 24)
+                                      );
+                                      return ((differenceInDays + 1) % 7) + 1;
+                                    })()
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateDay2"] != null &&
+                              typeof $steps["updateDay2"] === "object" &&
+                              typeof $steps["updateDay2"].then === "function"
+                            ) {
+                              $steps["updateDay2"] = await $steps["updateDay2"];
+                            }
+
                             $steps["updateSlideinModalClick"] = true
                               ? (() => {
                                   const actionArgs = {
@@ -1592,6 +1698,36 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       {
                         "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u062f\u0648\u0646\u06cc \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0627\u0644\u0627\u0646 \u062a\u0648\u06cc \u06a9\u062f\u0648\u0645 \u0647\u0641\u062a\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u0647\u060c \u06cc\u06a9\u06cc \u0627\u0632 \u0631\u0648\u0634\u200c\u0647\u0627\u06cc \u0632\u06cc\u0631 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646 \u0648 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646 \u062a\u0627 \u0645\u0627 \u0645\u062d\u0627\u0633\u0628\u0647 \u06a9\u0646\u06cc\u0645! \ud83d\ude0a"
                       }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___9MdlR
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (
+                              $state.duDate[0] +
+                              "-" +
+                              $state.duDate[1] +
+                              "-" +
+                              $state.duDate[2] +
+                              " 10:10:10"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
                     </div>
                     <Stack__
                       as={"div"}

@@ -1248,14 +1248,6 @@ function PlasmicClinic__RenderFunc(props: {
                             throw e;
                           }
                         })()}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___0LZ3U
-                        )}
                       >
                         <React.Fragment>
                           {(() => {
@@ -1266,13 +1258,13 @@ function PlasmicClinic__RenderFunc(props: {
                                 e instanceof TypeError ||
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return "\u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc";
+                                return "";
                               }
                               throw e;
                             }
                           })()}
                         </React.Fragment>
-                      </div>
+                      </IconClinic>
                     </Stack__>
                   );
                 })}

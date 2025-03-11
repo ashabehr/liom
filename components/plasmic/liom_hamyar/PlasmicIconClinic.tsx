@@ -88,15 +88,20 @@ export const PlasmicIconClinic__VariantProps = new Array<VariantPropType>(
   "unnamedGroupOfVariants"
 );
 
-export type PlasmicIconClinic__ArgsType = {};
+export type PlasmicIconClinic__ArgsType = {
+  children?: React.ReactNode;
+};
 type ArgPropType = keyof PlasmicIconClinic__ArgsType;
-export const PlasmicIconClinic__ArgProps = new Array<ArgPropType>();
+export const PlasmicIconClinic__ArgProps = new Array<ArgPropType>("children");
 
 export type PlasmicIconClinic__OverridesType = {
-  root?: Flex__<"svg">;
+  root?: Flex__<"div">;
+  svg?: Flex__<"svg">;
+  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultIconClinicProps {
+  children?: React.ReactNode;
   unnamedGroupOfVariants?: SingleChoiceArg<
     "_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7"
   >;
@@ -163,28 +168,13 @@ function PlasmicIconClinic__RenderFunc(props: {
   });
 
   return (
-    <PlasmicIcon__
+    <Stack__
+      as={"div"}
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      PlasmicIconType={
-        hasVariant($state, "unnamedGroupOfVariants", "_7")
-          ? Icon75Icon
-          : hasVariant($state, "unnamedGroupOfVariants", "_6")
-          ? MindSvgIcon
-          : hasVariant($state, "unnamedGroupOfVariants", "_5")
-          ? Icon75Icon
-          : hasVariant($state, "unnamedGroupOfVariants", "_4")
-          ? BabyBlanketSvgIcon
-          : hasVariant($state, "unnamedGroupOfVariants", "_3")
-          ? DietFoodSvgIcon
-          : hasVariant($state, "unnamedGroupOfVariants", "_2")
-          ? Icon119Icon
-          : hasVariant($state, "unnamedGroupOfVariants", "_1")
-          ? MindSvgIcon
-          : Icon115Icon
-      }
+      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -232,19 +222,166 @@ function PlasmicIconClinic__RenderFunc(props: {
           )
         }
       )}
-      role={"img"}
-    />
+    >
+      <PlasmicIcon__
+        data-plasmic-name={"svg"}
+        data-plasmic-override={overrides.svg}
+        PlasmicIconType={
+          hasVariant($state, "unnamedGroupOfVariants", "_7")
+            ? Icon75Icon
+            : hasVariant($state, "unnamedGroupOfVariants", "_6")
+            ? MindSvgIcon
+            : hasVariant($state, "unnamedGroupOfVariants", "_5")
+            ? Icon75Icon
+            : hasVariant($state, "unnamedGroupOfVariants", "_4")
+            ? BabyBlanketSvgIcon
+            : hasVariant($state, "unnamedGroupOfVariants", "_3")
+            ? DietFoodSvgIcon
+            : hasVariant($state, "unnamedGroupOfVariants", "_2")
+            ? Icon119Icon
+            : hasVariant($state, "unnamedGroupOfVariants", "_1")
+            ? MindSvgIcon
+            : Icon115Icon
+        }
+        className={classNames(projectcss.all, sty.svg, {
+          [sty.svgunnamedGroupOfVariants__1]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_1"
+          ),
+          [sty.svgunnamedGroupOfVariants__2]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_2"
+          ),
+          [sty.svgunnamedGroupOfVariants__3]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_3"
+          ),
+          [sty.svgunnamedGroupOfVariants__4]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_4"
+          ),
+          [sty.svgunnamedGroupOfVariants__5]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_5"
+          ),
+          [sty.svgunnamedGroupOfVariants__6]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_6"
+          ),
+          [sty.svgunnamedGroupOfVariants__7]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_7"
+          )
+        })}
+        role={"img"}
+      />
+
+      <div
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
+        className={classNames(projectcss.all, sty.freeBox, {
+          [sty.freeBoxunnamedGroupOfVariants__1]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_1"
+          ),
+          [sty.freeBoxunnamedGroupOfVariants__2]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_2"
+          ),
+          [sty.freeBoxunnamedGroupOfVariants__3]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_3"
+          ),
+          [sty.freeBoxunnamedGroupOfVariants__4]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_4"
+          ),
+          [sty.freeBoxunnamedGroupOfVariants__5]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_5"
+          ),
+          [sty.freeBoxunnamedGroupOfVariants__6]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_6"
+          ),
+          [sty.freeBoxunnamedGroupOfVariants__7]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_7"
+          )
+        })}
+      >
+        {renderPlasmicSlot({
+          defaultContents: "Enter some text",
+          value: args.children,
+          className: classNames(sty.slotTargetChildren, {
+            [sty.slotTargetChildrenunnamedGroupOfVariants__1]: hasVariant(
+              $state,
+              "unnamedGroupOfVariants",
+              "_1"
+            ),
+            [sty.slotTargetChildrenunnamedGroupOfVariants__2]: hasVariant(
+              $state,
+              "unnamedGroupOfVariants",
+              "_2"
+            ),
+            [sty.slotTargetChildrenunnamedGroupOfVariants__3]: hasVariant(
+              $state,
+              "unnamedGroupOfVariants",
+              "_3"
+            ),
+            [sty.slotTargetChildrenunnamedGroupOfVariants__4]: hasVariant(
+              $state,
+              "unnamedGroupOfVariants",
+              "_4"
+            ),
+            [sty.slotTargetChildrenunnamedGroupOfVariants__5]: hasVariant(
+              $state,
+              "unnamedGroupOfVariants",
+              "_5"
+            ),
+            [sty.slotTargetChildrenunnamedGroupOfVariants__6]: hasVariant(
+              $state,
+              "unnamedGroupOfVariants",
+              "_6"
+            ),
+            [sty.slotTargetChildrenunnamedGroupOfVariants__7]: hasVariant(
+              $state,
+              "unnamedGroupOfVariants",
+              "_7"
+            )
+          })
+        })}
+      </div>
+    </Stack__>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "svg", "freeBox"],
+  svg: ["svg"],
+  freeBox: ["freeBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
-  root: "svg";
+  root: "div";
+  svg: "svg";
+  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -307,6 +444,8 @@ export const PlasmicIconClinic = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    svg: makeNodeComponent("svg"),
+    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicIconClinic
     internalVariantProps: PlasmicIconClinic__VariantProps,
