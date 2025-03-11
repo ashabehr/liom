@@ -392,7 +392,7 @@ function PlasmicPregnancy__RenderFunc(props: {
               let differenceInDays = Math.floor(
                 differenceInTime / (1000 * 60 * 60 * 24)
               );
-              return parseInt(280 - differenceInDays) - 1;
+              return parseInt(280 - differenceInDays) - 2;
             } else return 0;
           })()
       },
@@ -401,28 +401,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            if ($state.user?.[0]?.dueDate) {
-              var gy = parseInt($state.user?.[0]?.dueDate.split("-")[0]);
-              var gm = parseInt($state.user?.[0]?.dueDate.split("-")[1]);
-              var gd = parseInt($state.user?.[0]?.dueDate.split("-")[2]);
-              let initialDate = new Date();
-              initialDate.setFullYear(gy);
-              initialDate.setMonth(gm);
-              initialDate.setDate(gd);
-              initialDate.setDate(initialDate.getDate() - 281);
-              var startJalali = window.jalaali.toJalaali(
-                initialDate.getFullYear(),
-                initialDate.getMonth(),
-                initialDate.getDate()
-              );
-              let todayJalali = window.jalaali.toJalaali(new Date());
-              let passedMonths =
-                (todayJalali.jy - startJalali.jy) * 12 +
-                (todayJalali.jm - startJalali.jm);
-              return passedMonths + 1;
-            } else return 0;
-          })()
+          parseInt(((280 - $state.daysPregnant) / 30.4).toFixed())
       },
       {
         path: "getUserInfo.data",
