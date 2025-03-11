@@ -86,11 +86,13 @@ export const PlasmicComment__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicComment__ArgsType = {
+  likeCountForComment?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
+  "likeCountForComment",
   "children",
   "slot"
 );
@@ -101,6 +103,7 @@ export type PlasmicComment__OverridesType = {
 };
 
 export interface DefaultCommentProps {
+  likeCountForComment?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
@@ -340,6 +343,19 @@ function PlasmicComment__RenderFunc(props: {
             ? true
             : undefined
         }
+        likeCommentCount={(() => {
+          try {
+            return $props.likeCountForComment;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
       />
 
       <div className={classNames(projectcss.all, sty.freeBox__wh247)}>

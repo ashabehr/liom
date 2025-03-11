@@ -69,6 +69,7 @@ import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -1214,170 +1215,466 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u0628\u0627 \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u06cc\u06a9\u06cc \u0627\u0632 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0632\u06cc\u0631 \u0628\u0647 \u0645\u0627 \u062a\u0648\u06cc \u0645\u062d\u0627\u0633\u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u06a9\u0645\u06a9 \u06a9\u0646 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0628\u0647\u062a \u0628\u06af\u06cc\u0645 \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0627\u0644\u0627\u0646 \u0686\u0646\u062f \u0647\u0641\u062a\u0634\u0647 :)"
+                        "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u062f\u0648\u0646\u06cc \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0627\u0644\u0627\u0646 \u062a\u0648\u06cc \u06a9\u062f\u0648\u0645 \u0647\u0641\u062a\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u0647\u060c \u06cc\u06a9\u06cc \u0627\u0632 \u0631\u0648\u0634\u200c\u0647\u0627\u06cc \u0632\u06cc\u0631 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646 \u0648 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646 \u062a\u0627 \u0645\u0627 \u0645\u062d\u0627\u0633\u0628\u0647 \u06a9\u0646\u06cc\u0645! \ud83d\ude0a"
                       }
                     </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__jhTi,
-                        {
-                          [sty.textdark__jhTibkz05]: hasVariant(
-                            $state,
-                            "dark",
-                            "dark"
-                          )
-                        }
-                      )}
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__jxVCa)}
                     >
-                      {
-                        "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646\u061f"
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__oCsPb
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateTypeInterDate"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["typeInterDate"]
+                                  },
+                                  operation: 0,
+                                  value: "dateOfBirth"
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateTypeInterDate"] != null &&
+                            typeof $steps["updateTypeInterDate"] === "object" &&
+                            typeof $steps["updateTypeInterDate"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTypeInterDate"] = await $steps[
+                              "updateTypeInterDate"
+                            ];
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___1YyBe
+                          )}
+                          style={(() => {
+                            try {
+                              return {
+                                "background-color":
+                                  $state.typeInterDate == "dateOfBirth"
+                                    ? "rgb(130, 84, 198 , 0.1)"
+                                    : "rgb(130, 84, 198 , 0)",
+                                color: "#7444BC"
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                        >
+                          {
+                            "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
+                          }
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__nGHhe
+                          )}
+                        >
+                          {
+                            "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
+                          }
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__lhcX
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateTypeInterDate"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["typeInterDate"]
+                                  },
+                                  operation: 0,
+                                  value: "lastTime"
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateTypeInterDate"] != null &&
+                            typeof $steps["updateTypeInterDate"] === "object" &&
+                            typeof $steps["updateTypeInterDate"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTypeInterDate"] = await $steps[
+                              "updateTypeInterDate"
+                            ];
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__vjiLz
+                          )}
+                          style={(() => {
+                            try {
+                              return {
+                                "background-color":
+                                  $state.typeInterDate == "lastTime"
+                                    ? "rgb(130, 84, 198 , 0.1)"
+                                    : "rgb(130, 84, 198 , 0)",
+                                color: "#7444BC"
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                        >
+                          {
+                            "\u0622\u062e\u0631\u06cc\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                          }
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__kOt0T
+                          )}
+                        >
+                          {
+                            "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
+                          }
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__ytjUr
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateTypeInterDate"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["typeInterDate"]
+                                  },
+                                  operation: 0,
+                                  value: "manually"
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateTypeInterDate"] != null &&
+                            typeof $steps["updateTypeInterDate"] === "object" &&
+                            typeof $steps["updateTypeInterDate"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTypeInterDate"] = await $steps[
+                              "updateTypeInterDate"
+                            ];
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__xj4By
+                          )}
+                          style={(() => {
+                            try {
+                              return {
+                                "background-color":
+                                  $state.typeInterDate == "manually"
+                                    ? "rgb(130, 84, 198 , 0.1)"
+                                    : "rgb(130, 84, 198 , 0)",
+                                color: "#7444BC"
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                        >
+                          {
+                            "\u0647\u0641\u062a\u0647 \u0648 \u0631\u0648\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                          }
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__y2YJ7
+                          )}
+                        >
+                          {
+                            "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
+                          }
+                        </div>
+                      </div>
+                    </Stack__>
+                    {(() => {
+                      try {
+                        return $state.typeInterDate == "dateOfBirth";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
                       }
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___1FrZr,
-                        hasVariant($state, "dark", "dark") ? "input-dark" : ``,
-                        {
-                          [sty.freeBoxdark___1FrZrbkz05]: hasVariant(
-                            $state,
-                            "dark",
-                            "dark"
-                          )
-                        }
-                      )}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["updateSlideinModalClick"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["dateModal", "click"]
-                                },
-                                operation: 0,
-                                value: true
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateSlideinModalClick"] != null &&
-                          typeof $steps["updateSlideinModalClick"] ===
-                            "object" &&
-                          typeof $steps["updateSlideinModalClick"].then ===
-                            "function"
-                        ) {
-                          $steps["updateSlideinModalClick"] = await $steps[
-                            "updateSlideinModalClick"
-                          ];
-                        }
-
-                        $steps["updateTypeDate"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["typeInterDate"]
-                                },
-                                operation: 0,
-                                value: "dateOfBirth"
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateTypeDate"] != null &&
-                          typeof $steps["updateTypeDate"] === "object" &&
-                          typeof $steps["updateTypeDate"].then === "function"
-                        ) {
-                          $steps["updateTypeDate"] = await $steps[
-                            "updateTypeDate"
-                          ];
-                        }
-                      }}
-                    >
-                      {(() => {
-                        const child$Props = {
-                          bordered: true,
-                          className: classNames(
-                            "__wab_instance",
-                            sty.dateOfBirthBox,
+                    })() ? (
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__b8Ran
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__jhTi,
                             {
-                              [sty.dateOfBirthBoxdark]: hasVariant(
+                              [sty.textdark__jhTibkz05]: hasVariant(
                                 $state,
                                 "dark",
                                 "dark"
                               )
                             }
-                          ),
-                          onChange: async (...eventArgs: any) => {
-                            generateStateOnChangePropForCodeComponents(
-                              $state,
-                              "value",
-                              ["dateOfBirthBox", "value"],
-                              AntdInput_Helpers
-                            ).apply(null, eventArgs);
-                          },
-                          placeholder:
-                            "\u0645\u062b\u0644\u0627 7 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a 1381",
-                          readOnly: true,
-                          value: generateStateValueProp($state, [
-                            "dateOfBirthBox",
-                            "value"
-                          ])
-                        };
-                        initializeCodeComponentStates(
-                          $state,
-                          [
+                          )}
+                        >
+                          {
+                            "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646 :"
+                          }
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___1FrZr,
+                            hasVariant($state, "dark", "dark")
+                              ? "input-dark"
+                              : ``,
                             {
-                              name: "value",
-                              plasmicStateName: "dateOfBirthBox.value"
+                              [sty.freeBoxdark___1FrZrbkz05]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
                             }
-                          ],
-                          [],
-                          AntdInput_Helpers ?? {},
-                          child$Props
-                        );
+                          )}
+                          onClick={async event => {
+                            const $steps = {};
 
-                        return (
-                          <AntdInput
-                            data-plasmic-name={"dateOfBirthBox"}
-                            data-plasmic-override={overrides.dateOfBirthBox}
-                            {...child$Props}
-                          />
-                        );
-                      })()}
-                    </div>
+                            $steps["updateSlideinModalClick"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["dateModal", "click"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateSlideinModalClick"] != null &&
+                              typeof $steps["updateSlideinModalClick"] ===
+                                "object" &&
+                              typeof $steps["updateSlideinModalClick"].then ===
+                                "function"
+                            ) {
+                              $steps["updateSlideinModalClick"] = await $steps[
+                                "updateSlideinModalClick"
+                              ];
+                            }
+
+                            $steps["updateTypeDate"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["typeInterDate"]
+                                    },
+                                    operation: 0,
+                                    value: "dateOfBirth"
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateTypeDate"] != null &&
+                              typeof $steps["updateTypeDate"] === "object" &&
+                              typeof $steps["updateTypeDate"].then ===
+                                "function"
+                            ) {
+                              $steps["updateTypeDate"] = await $steps[
+                                "updateTypeDate"
+                              ];
+                            }
+                          }}
+                        >
+                          {(() => {
+                            const child$Props = {
+                              bordered: true,
+                              className: classNames(
+                                "__wab_instance",
+                                sty.dateOfBirthBox,
+                                {
+                                  [sty.dateOfBirthBoxdark]: hasVariant(
+                                    $state,
+                                    "dark",
+                                    "dark"
+                                  )
+                                }
+                              ),
+                              onChange: async (...eventArgs: any) => {
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "value",
+                                  ["dateOfBirthBox", "value"],
+                                  AntdInput_Helpers
+                                ).apply(null, eventArgs);
+                              },
+                              placeholder:
+                                "\u0645\u062b\u0644\u0627 7 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a 1381",
+                              readOnly: true,
+                              value: generateStateValueProp($state, [
+                                "dateOfBirthBox",
+                                "value"
+                              ])
+                            };
+                            initializeCodeComponentStates(
+                              $state,
+                              [
+                                {
+                                  name: "value",
+                                  plasmicStateName: "dateOfBirthBox.value"
+                                }
+                              ],
+                              [],
+                              AntdInput_Helpers ?? {},
+                              child$Props
+                            );
+
+                            return (
+                              <AntdInput
+                                data-plasmic-name={"dateOfBirthBox"}
+                                data-plasmic-override={overrides.dateOfBirthBox}
+                                {...child$Props}
+                              />
+                            );
+                          })()}
+                        </div>
+                      </Stack__>
+                    ) : null}
                     <div
                       className={classNames(
                         projectcss.all,
@@ -1419,166 +1716,192 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         {""}
                       </div>
                     </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__hxpdj,
-                        {
-                          [sty.textdark__hxpdJbkz05]: hasVariant(
-                            $state,
-                            "dark",
-                            "dark"
-                          )
+                    {(() => {
+                      try {
+                        return $state.typeInterDate == "lastTime";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
                         }
-                      )}
-                    >
-                      {
-                        "\u0622\u062e\u0631\u06cc\u0646 \u0628\u0627\u0631 \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u06cc\u061f"
+                        throw e;
                       }
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__lChI,
-                        hasVariant($state, "dark", "dark") ? "input-dark" : ``,
-                        {
-                          [sty.freeBoxdark__lChIbkz05]: hasVariant(
-                            $state,
-                            "dark",
-                            "dark"
-                          )
-                        }
-                      )}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["updateSlideinModalClick"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["dateModal", "click"]
-                                },
-                                operation: 0,
-                                value: true
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateSlideinModalClick"] != null &&
-                          typeof $steps["updateSlideinModalClick"] ===
-                            "object" &&
-                          typeof $steps["updateSlideinModalClick"].then ===
-                            "function"
-                        ) {
-                          $steps["updateSlideinModalClick"] = await $steps[
-                            "updateSlideinModalClick"
-                          ];
-                        }
-
-                        $steps["updateTypeDate"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["typeInterDate"]
-                                },
-                                operation: 0,
-                                value: "lastTime"
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateTypeDate"] != null &&
-                          typeof $steps["updateTypeDate"] === "object" &&
-                          typeof $steps["updateTypeDate"].then === "function"
-                        ) {
-                          $steps["updateTypeDate"] = await $steps[
-                            "updateTypeDate"
-                          ];
-                        }
-                      }}
-                    >
-                      {(() => {
-                        const child$Props = {
-                          className: classNames(
-                            "__wab_instance",
-                            sty.lastTimeBox,
+                    })() ? (
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__buwcy
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__hxpdj,
                             {
-                              [sty.lastTimeBoxdark]: hasVariant(
+                              [sty.textdark__hxpdJbkz05]: hasVariant(
                                 $state,
                                 "dark",
                                 "dark"
                               )
                             }
-                          ),
-                          onChange: async (...eventArgs: any) => {
-                            generateStateOnChangePropForCodeComponents(
-                              $state,
-                              "value",
-                              ["lastTimeBox", "value"],
-                              AntdInput_Helpers
-                            ).apply(null, eventArgs);
-                          },
-                          placeholder:
-                            "\u0645\u062b\u0644\u0627 3 \u0627\u0633\u0641\u0646\u062f 1403",
-                          readOnly: true,
-                          value: generateStateValueProp($state, [
-                            "lastTimeBox",
-                            "value"
-                          ])
-                        };
-                        initializeCodeComponentStates(
-                          $state,
-                          [
+                          )}
+                        >
+                          {
+                            "\u062a\u0627\u0631\u06cc\u062e \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0627\u0632 \u0642\u0627\u0639\u062f\u06af\u06cc\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646:"
+                          }
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__lChI,
+                            hasVariant($state, "dark", "dark")
+                              ? "input-dark"
+                              : ``,
                             {
-                              name: "value",
-                              plasmicStateName: "lastTimeBox.value"
+                              [sty.freeBoxdark__lChIbkz05]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
                             }
-                          ],
-                          [],
-                          AntdInput_Helpers ?? {},
-                          child$Props
-                        );
+                          )}
+                          onClick={async event => {
+                            const $steps = {};
 
-                        return (
-                          <AntdInput
-                            data-plasmic-name={"lastTimeBox"}
-                            data-plasmic-override={overrides.lastTimeBox}
-                            {...child$Props}
-                          />
-                        );
-                      })()}
-                    </div>
+                            $steps["updateSlideinModalClick"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["dateModal", "click"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateSlideinModalClick"] != null &&
+                              typeof $steps["updateSlideinModalClick"] ===
+                                "object" &&
+                              typeof $steps["updateSlideinModalClick"].then ===
+                                "function"
+                            ) {
+                              $steps["updateSlideinModalClick"] = await $steps[
+                                "updateSlideinModalClick"
+                              ];
+                            }
+
+                            $steps["updateTypeDate"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["typeInterDate"]
+                                    },
+                                    operation: 0,
+                                    value: "lastTime"
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateTypeDate"] != null &&
+                              typeof $steps["updateTypeDate"] === "object" &&
+                              typeof $steps["updateTypeDate"].then ===
+                                "function"
+                            ) {
+                              $steps["updateTypeDate"] = await $steps[
+                                "updateTypeDate"
+                              ];
+                            }
+                          }}
+                        >
+                          {(() => {
+                            const child$Props = {
+                              className: classNames(
+                                "__wab_instance",
+                                sty.lastTimeBox,
+                                {
+                                  [sty.lastTimeBoxdark]: hasVariant(
+                                    $state,
+                                    "dark",
+                                    "dark"
+                                  )
+                                }
+                              ),
+                              onChange: async (...eventArgs: any) => {
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "value",
+                                  ["lastTimeBox", "value"],
+                                  AntdInput_Helpers
+                                ).apply(null, eventArgs);
+                              },
+                              placeholder:
+                                "\u0645\u062b\u0644\u0627 3 \u0627\u0633\u0641\u0646\u062f 1403",
+                              readOnly: true,
+                              value: generateStateValueProp($state, [
+                                "lastTimeBox",
+                                "value"
+                              ])
+                            };
+                            initializeCodeComponentStates(
+                              $state,
+                              [
+                                {
+                                  name: "value",
+                                  plasmicStateName: "lastTimeBox.value"
+                                }
+                              ],
+                              [],
+                              AntdInput_Helpers ?? {},
+                              child$Props
+                            );
+
+                            return (
+                              <AntdInput
+                                data-plasmic-name={"lastTimeBox"}
+                                data-plasmic-override={overrides.lastTimeBox}
+                                {...child$Props}
+                              />
+                            );
+                          })()}
+                        </div>
+                      </Stack__>
+                    ) : null}
                   </div>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox___8T2M)}>

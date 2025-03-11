@@ -1159,6 +1159,19 @@ function PlasmicSocialPage__RenderFunc(props: {
                     data-plasmic-override={overrides.comment}
                     className={classNames("__wab_instance", sty.comment)}
                     key={currentIndex}
+                    likeCountForComment={(() => {
+                      try {
+                        return currentItem.likeCount;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
                     slot={
                       <div
                         data-plasmic-name={"coment"}

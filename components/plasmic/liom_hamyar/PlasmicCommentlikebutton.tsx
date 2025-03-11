@@ -82,13 +82,11 @@ export const PlasmicCommentlikebutton__VariantProps =
   new Array<VariantPropType>("islikecomment");
 
 export type PlasmicCommentlikebutton__ArgsType = {
-  islikeForNo?: string;
-  getInfoComment?: string;
+  likeCommentCount?: string;
 };
 type ArgPropType = keyof PlasmicCommentlikebutton__ArgsType;
 export const PlasmicCommentlikebutton__ArgProps = new Array<ArgPropType>(
-  "islikeForNo",
-  "getInfoComment"
+  "likeCommentCount"
 );
 
 export type PlasmicCommentlikebutton__OverridesType = {
@@ -98,8 +96,7 @@ export type PlasmicCommentlikebutton__OverridesType = {
 };
 
 export interface DefaultCommentlikebuttonProps {
-  islikeForNo?: string;
-  getInfoComment?: string;
+  likeCommentCount?: string;
   islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
   className?: string;
 }
@@ -151,6 +148,25 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.islikecomment
+      },
+      {
+        path: "variableForLikeCountComment",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.likeCommentCount;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -252,7 +268,21 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
           )
         })}
       >
-        {"0"}
+        <React.Fragment>
+          {(() => {
+            try {
+              return $state.variableForLikeCountComment;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "0";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
       </div>
       <PlasmicIcon__
         data-plasmic-name={"svg"}
