@@ -1107,7 +1107,9 @@ function PlasmicSocialPage__RenderFunc(props: {
                             sty.text__qitKu
                           )}
                         >
-                          {"Enter some text"}
+                          {
+                            "\u062c\u062f\u06cc\u062f \u062a\u0631\u06cc\u0646 \u0647\u0627 "
+                          }
                         </div>
                       </div>
                       <div
@@ -1123,7 +1125,9 @@ function PlasmicSocialPage__RenderFunc(props: {
                             sty.text___8Homq
                           )}
                         >
-                          {"Enter some text"}
+                          {
+                            "\u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0631\u06cc\u067e\u0644\u0627\u06cc"
+                          }
                         </div>
                       </div>
                       <div

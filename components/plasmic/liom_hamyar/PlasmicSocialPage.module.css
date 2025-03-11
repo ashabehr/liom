@@ -811,8 +811,8 @@
 .freeBox___9QlIf {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -824,6 +824,9 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  text-align: right;
+  font-size: 16px;
+  color: var(--token-ODBUExjR6VEF);
   min-width: 0;
 }
 .freeBox__ptukc {
@@ -842,6 +845,8 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  color: var(--token-ODBUExjR6VEF);
+  text-align: center;
   min-width: 0;
 }
 .freeBox__es2Oy {
@@ -860,6 +865,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  color: var(--token-ODBUExjR6VEF);
   min-width: 0;
 }
 .freeBox__sB24Y {

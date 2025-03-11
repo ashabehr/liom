@@ -3376,6 +3376,54 @@ function PlasmicPregnancy__RenderFunc(props: {
                               projectcss.all,
                               sty.freeBox___3EX3U
                             )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          var link;
+                                          if (
+                                            $ctx.query.userId.slice(
+                                              4,
+                                              $ctx.query.userId.length - 4
+                                            ) ==
+                                            "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                          ) {
+                                            link =
+                                              "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
+                                              $ctx.query.token +
+                                              "&selectStep=" +
+                                              "0" +
+                                              "&userId=" +
+                                              ($ctx?.query?.userId ?? "") +
+                                              "&version=" +
+                                              $ctx.query.version +
+                                              "&theme=" +
+                                              $ctx.query.theme;
+                                            return window.FlutterChannel.postMessage(
+                                              "#inAppWebView**@@** ابزار خطرناکه یانه! **@@**" +
+                                                link
+                                            );
+                                          }
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
                           >
                             <div
                               className={classNames(
