@@ -402,17 +402,26 @@ function PlasmicPregnancy__RenderFunc(props: {
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
-            if (
-              parseInt(($state.weeksPregnant / 4).toString().substring(0, 1)) ==
-              0
-            )
-              return parseInt(
-                ($state.weeksPregnant / 4 + 1).toString().substring(0, 1)
+            if ($state.user?.[0]?.dueDate) {
+              var gy = parseInt($state.user?.[0]?.dueDate.split("-")[0]);
+              var gm = parseInt($state.user?.[0]?.dueDate.split("-")[1]);
+              var gd = parseInt($state.user?.[0]?.dueDate.split("-")[2]);
+              let initialDate = new Date();
+              initialDate.setFullYear(gy);
+              initialDate.setMonth(gm);
+              initialDate.setDate(gd);
+              initialDate.setDate(initialDate.getDate() - 281);
+              var startJalali = window.jalaali.toJalaali(
+                initialDate.getFullYear(),
+                initialDate.getMonth(),
+                initialDate.getDate()
               );
-            else
-              return parseInt(
-                ($state.weeksPregnant / 4).toString().substring(0, 1)
-              );
+              let todayJalali = window.jalaali.toJalaali(new Date());
+              let passedMonths =
+                (todayJalali.jy - startJalali.jy) * 12 +
+                (todayJalali.jm - startJalali.jm);
+              return passedMonths + 1;
+            } else return 0;
           })()
       },
       {
@@ -3661,37 +3670,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                             "-"
                                           )[2]
                                         );
-                                        var g_d_m = [
-                                          0, 31, 59, 90, 120, 151, 181, 212,
-                                          243, 273, 304, 334
-                                        ];
-
-                                        var jy = gy <= 1600 ? 0 : 979;
-                                        gy -= gy <= 1600 ? 621 : 1600;
-                                        var gy2 = gm > 2 ? gy + 1 : gy;
-                                        var days =
-                                          365 * gy +
-                                          parseInt((gy2 + 3) / 4) -
-                                          parseInt((gy2 + 99) / 100) +
-                                          parseInt((gy2 + 399) / 400) -
-                                          80 +
-                                          gd +
-                                          g_d_m[gm - 1];
-                                        jy += 33 * parseInt(days / 12053);
-                                        days %= 12053;
-                                        jy += 4 * parseInt(days / 1461);
-                                        days %= 1461;
-                                        jy += parseInt((days - 1) / 365);
-                                        if (days > 365) days = (days - 1) % 365;
-                                        var jm =
-                                          days < 186
-                                            ? 1 + parseInt(days / 31)
-                                            : 7 + parseInt((days - 186) / 30);
-                                        var jd =
-                                          1 +
-                                          (days < 186
-                                            ? days % 31
-                                            : (days - 186) % 30);
+                                        var date = window.jalaali.toJalaali(
+                                          gy,
+                                          gm,
+                                          gd
+                                        );
                                         let months = new Array(
                                           "فروردين",
                                           "ارديبهشت",
@@ -3707,7 +3690,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           "اسفند"
                                         );
                                         return (
-                                          jd + " " + months[jm - 1] + " " + jy
+                                          date.jd +
+                                          " " +
+                                          months[date.jm - 1] +
+                                          " " +
+                                          date.jy
                                         );
                                       })();
                                     } catch (e) {
