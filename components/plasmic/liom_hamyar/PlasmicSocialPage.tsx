@@ -68,6 +68,7 @@ import Post from "../../Post"; // plasmic-import: PIFHnFLcunkZ/component
 import ReactionBar from "../../ReactionBar"; // plasmic-import: 4BabvpvQ8lyP/component
 import Like from "../../Like"; // plasmic-import: ARJf0DiYhPbe/component
 import Save from "../../Save"; // plasmic-import: _x22uBJ4ZqC9/component
+import ButtonSocial from "../../ButtonSocial"; // plasmic-import: 5arXHsXsAsW_/component
 import Comment from "../../Comment"; // plasmic-import: Q00r5f4C3XYv/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -116,6 +117,7 @@ export type PlasmicSocialPage__OverridesType = {
   like2?: Flex__<typeof Like>;
   save?: Flex__<typeof Save>;
   popover?: Flex__<typeof AntdPopover>;
+  buttonSocial?: Flex__<typeof ButtonSocial>;
   comment?: Flex__<typeof Comment>;
   coment?: Flex__<"div">;
   textArea?: Flex__<typeof AntdTextArea>;
@@ -1094,24 +1096,16 @@ function PlasmicSocialPage__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.popover)}
                   content={
                     <React.Fragment>
-                      <div
+                      <ButtonSocial
+                        data-plasmic-name={"buttonSocial"}
+                        data-plasmic-override={overrides.buttonSocial}
                         className={classNames(
-                          projectcss.all,
-                          sty.freeBox___9QlIf
+                          "__wab_instance",
+                          sty.buttonSocial
                         )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__qitKu
-                          )}
-                        >
-                          {
-                            "\u062c\u062f\u06cc\u062f \u062a\u0631\u06cc\u0646 \u0647\u0627 "
-                          }
-                        </div>
-                      </div>
+                        hover={undefined}
+                      />
+
                       <div
                         className={classNames(
                           projectcss.all,
@@ -1143,7 +1137,9 @@ function PlasmicSocialPage__RenderFunc(props: {
                             sty.text__eoSs
                           )}
                         >
-                          {"Enter some text"}
+                          {
+                            "\u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0644\u0627\u06cc\u06a9 "
+                          }
                         </div>
                       </div>
                     </React.Fragment>
@@ -1486,6 +1482,7 @@ const PlasmicDescendants = {
     "like2",
     "save",
     "popover",
+    "buttonSocial",
     "comment",
     "coment",
     "textArea",
@@ -1498,7 +1495,8 @@ const PlasmicDescendants = {
   reactionBar: ["reactionBar", "like2", "save"],
   like2: ["like2"],
   save: ["save"],
-  popover: ["popover"],
+  popover: ["popover", "buttonSocial"],
+  buttonSocial: ["buttonSocial"],
   comment: ["comment", "coment"],
   coment: ["coment"],
   textArea: ["textArea"],
@@ -1517,6 +1515,7 @@ type NodeDefaultElementType = {
   like2: typeof Like;
   save: typeof Save;
   popover: typeof AntdPopover;
+  buttonSocial: typeof ButtonSocial;
   comment: typeof Comment;
   coment: "div";
   textArea: typeof AntdTextArea;
@@ -1616,6 +1615,7 @@ export const PlasmicSocialPage = Object.assign(
     like2: makeNodeComponent("like2"),
     save: makeNodeComponent("save"),
     popover: makeNodeComponent("popover"),
+    buttonSocial: makeNodeComponent("buttonSocial"),
     comment: makeNodeComponent("comment"),
     coment: makeNodeComponent("coment"),
     textArea: makeNodeComponent("textArea"),

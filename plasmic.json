@@ -1674,6 +1674,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicCommentlikebutton.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "5arXHsXsAsW_",
+          "name": "ButtonSocial",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicButtonSocial.tsx",
+          "importSpec": {
+            "modulePath": "ButtonSocial.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicButtonSocial.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
