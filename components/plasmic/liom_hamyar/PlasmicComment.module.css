@@ -198,9 +198,8 @@
 }
 .commentlikebuttonunnamedVariant:global(.__wab_instance) {
   left: 1011px;
-  top: 370px;
+  top: 369px;
   position: sticky;
-  align-self: center;
 }
 .freeBox__wh247 {
   display: flex;
@@ -224,11 +223,10 @@
 }
 .freeBoxunnamedVariant__wh247L2ED {
   left: 1065px;
-  top: 369px;
+  top: 370px;
   z-index: 1;
   position: sticky;
   height: auto;
-  padding-bottom: 8px;
 }
 .text__qZd9C {
   position: relative;
@@ -249,18 +247,17 @@
   align-self: center;
 }
 .freeBox___5YoXf {
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: auto;
   max-width: 100%;
-  margin-right: 65px;
-  margin-top: 4px;
+  margin-right: 70px;
+  margin-top: 40px;
   min-width: 0;
   display: none;
-  padding: 0px 0px 0px 8px;
+  padding: 0px 0px 8px 8px;
   border-right: 2px solid var(--token-LNIzKl5AGPPT);
 }
 .freeBoxunnamedVariant___5YoXfl2ED {

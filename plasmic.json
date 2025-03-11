@@ -780,19 +780,6 @@
           "path": "/birth-confirm"
         },
         {
-          "id": "TdNZ6qWfkqbt",
-          "name": "IconClinic",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicIconClinic.tsx",
-          "importSpec": {
-            "modulePath": "IconClinic.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicIconClinic.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "6XHfwWx1PCn8",
           "name": "Dialog",
           "type": "managed",
@@ -1685,6 +1672,19 @@
             "modulePath": "ButtonSocial.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicButtonSocial.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "-eP7gX44_tLB",
+          "name": "IconClinic2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicIconClinic2.tsx",
+          "importSpec": {
+            "modulePath": "IconClinic2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicIconClinic2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }

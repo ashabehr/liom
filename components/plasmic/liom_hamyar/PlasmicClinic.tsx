@@ -63,7 +63,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Video } from "@plasmicpkgs/plasmic-basic-components";
-import IconClinic from "../../IconClinic"; // plasmic-import: TdNZ6qWfkqbt/component
+import IconClinic2 from "../../IconClinic2"; // plasmic-import: -eP7gX44_tLB/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import Star from "../../Star"; // plasmic-import: i69c2Ujsm_H6/component
@@ -133,7 +133,7 @@ export type PlasmicClinic__OverridesType = {
   ا2?: Flex__<"div">;
   speciality?: Flex__<"div">;
   card6?: Flex__<"div">;
-  iconClinic?: Flex__<typeof IconClinic>;
+  iconClinic2?: Flex__<typeof IconClinic2>;
   speciality2?: Flex__<"div">;
   card9?: Flex__<"div">;
   button3?: Flex__<typeof Button>;
@@ -1231,10 +1231,13 @@ function PlasmicClinic__RenderFunc(props: {
                         }
                       }}
                     >
-                      <IconClinic
-                        data-plasmic-name={"iconClinic"}
-                        data-plasmic-override={overrides.iconClinic}
-                        className={classNames("__wab_instance", sty.iconClinic)}
+                      <IconClinic2
+                        data-plasmic-name={"iconClinic2"}
+                        data-plasmic-override={overrides.iconClinic2}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.iconClinic2
+                        )}
                         unnamedGroupOfVariants={(() => {
                           try {
                             return "_" + currentItem.id.toString();
@@ -1264,7 +1267,7 @@ function PlasmicClinic__RenderFunc(props: {
                             }
                           })()}
                         </React.Fragment>
-                      </IconClinic>
+                      </IconClinic2>
                     </Stack__>
                   );
                 })}
@@ -7882,7 +7885,7 @@ const PlasmicDescendants = {
     "\u06272",
     "speciality",
     "card6",
-    "iconClinic",
+    "iconClinic2",
     "speciality2",
     "card9",
     "button3",
@@ -7948,9 +7951,9 @@ const PlasmicDescendants = {
   rectangle2: ["rectangle2", "\u0627", "\u06272"],
   ا: ["\u0627"],
   ا2: ["\u06272"],
-  speciality: ["speciality", "card6", "iconClinic"],
-  card6: ["card6", "iconClinic"],
-  iconClinic: ["iconClinic"],
+  speciality: ["speciality", "card6", "iconClinic2"],
+  card6: ["card6", "iconClinic2"],
+  iconClinic2: ["iconClinic2"],
   speciality2: [
     "speciality2",
     "card9",
@@ -8077,7 +8080,7 @@ type NodeDefaultElementType = {
   ا2: "div";
   speciality: "div";
   card6: "div";
-  iconClinic: typeof IconClinic;
+  iconClinic2: typeof IconClinic2;
   speciality2: "div";
   card9: "div";
   button3: typeof Button;
@@ -8231,7 +8234,7 @@ export const PlasmicClinic = Object.assign(
     ا2: makeNodeComponent("\u06272"),
     speciality: makeNodeComponent("speciality"),
     card6: makeNodeComponent("card6"),
-    iconClinic: makeNodeComponent("iconClinic"),
+    iconClinic2: makeNodeComponent("iconClinic2"),
     speciality2: makeNodeComponent("speciality2"),
     card9: makeNodeComponent("card9"),
     button3: makeNodeComponent("button3"),

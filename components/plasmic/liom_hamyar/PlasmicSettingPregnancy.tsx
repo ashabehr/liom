@@ -1910,109 +1910,94 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           }
                         </div>
                       </div>
-                      {(() => {
-                        try {
-                          return $ctx.query.userId == "147813698";
-                        } catch (e) {
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__ytjUr
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateTypeInterDate"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["typeInterDate"]
+                                  },
+                                  operation: 0,
+                                  value: "manually"
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
                           if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
+                            $steps["updateTypeInterDate"] != null &&
+                            typeof $steps["updateTypeInterDate"] === "object" &&
+                            typeof $steps["updateTypeInterDate"].then ===
+                              "function"
                           ) {
-                            return false;
+                            $steps["updateTypeInterDate"] = await $steps[
+                              "updateTypeInterDate"
+                            ];
                           }
-                          throw e;
-                        }
-                      })() ? (
+                        }}
+                      >
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__ytjUr
+                            projectcss.__wab_text,
+                            sty.text__xj4By
                           )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["updateTypeInterDate"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["typeInterDate"]
-                                    },
-                                    operation: 0,
-                                    value: "manually"
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateTypeInterDate"] != null &&
-                              typeof $steps["updateTypeInterDate"] ===
-                                "object" &&
-                              typeof $steps["updateTypeInterDate"].then ===
-                                "function"
-                            ) {
-                              $steps["updateTypeInterDate"] = await $steps[
-                                "updateTypeInterDate"
-                              ];
-                            }
-                          }}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__xj4By
-                            )}
-                            style={(() => {
-                              try {
-                                return {
-                                  "background-color":
-                                    $state.typeInterDate == "manually"
-                                      ? "rgb(130, 84, 198 , 0.1)"
-                                      : "rgb(130, 84, 198 , 0)",
-                                  color: "#7444BC"
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
+                          style={(() => {
+                            try {
+                              return {
+                                "background-color":
+                                  $state.typeInterDate == "manually"
+                                    ? "rgb(130, 84, 198 , 0.1)"
+                                    : "rgb(130, 84, 198 , 0)",
+                                color: "#7444BC"
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
                               }
-                            })()}
-                          >
-                            {
-                              "\u0647\u0641\u062a\u0647 \u0648 \u0631\u0648\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                              throw e;
                             }
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__y2YJ7
-                            )}
-                          >
-                            {
-                              "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
-                            }
-                          </div>
+                          })()}
+                        >
+                          {
+                            "\u0647\u0641\u062a\u0647 \u0648 \u0631\u0648\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                          }
                         </div>
-                      ) : null}
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__y2YJ7
+                          )}
+                        >
+                          {
+                            "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
+                          }
+                        </div>
+                      </div>
                     </Stack__>
                     {(() => {
                       try {
