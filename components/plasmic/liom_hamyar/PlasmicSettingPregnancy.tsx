@@ -63,8 +63,8 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
-import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
+import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -105,9 +105,9 @@ export type PlasmicSettingPregnancy__OverridesType = {
   root?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
   dateModal?: Flex__<typeof SlideinModal>;
+  week2?: Flex__<typeof Pickers>;
+  day2?: Flex__<typeof Pickers>;
   datePickers?: Flex__<typeof DatePickers>;
-  pickers?: Flex__<typeof Pickers>;
-  pickers2?: Flex__<typeof Pickers>;
   button?: Flex__<typeof Button>;
   dateOfBirthBox?: Flex__<typeof AntdInput>;
   lastTimeBox?: Flex__<typeof AntdInput>;
@@ -357,13 +357,25 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "pickers.value",
+        path: "week2.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $state.week
+      },
+      {
+        path: "day2.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $state.day
+      },
+      {
+        path: "week",
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
-        path: "pickers2.value",
+        path: "day",
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
@@ -413,7 +425,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
           <Embed
             className={classNames("__wab_instance", sty.embedHtml__yX7Lg)}
             code={
-              "<!-- Hotjar Tracking Code for setting-pregnancy -->\n<script>\n    (function(h,o,t,j,a,r){\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n        h._hjSettings={hjid:5226515,hjsv:6};\n        a=o.getElementsByTagName('head')[0];\n        r=o.createElement('script');r.async=1;\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n        a.appendChild(r);\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\n</script>"
+              "<!-- Hotjar Tracking Code for setting-pregnancy -->\n<script>\n    (function(h,o,t,j,a,r){\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n        h._hjSettings={hjid:5226515,hjsv:6};\n        a=o.getElementsByTagName('head')[0];\n        r=o.createElement('script');r.async=1;\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n        a.appendChild(r);\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\n</script>\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>"
             }
           />
 
@@ -596,6 +608,135 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       >
                         {(() => {
                           try {
+                            return $state.typeInterDate == "manually";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__wjIxG
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__kRjRh
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__hSbHy
+                                )}
+                              >
+                                {"\u0647\u0641\u062a\u0647"}
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__bXcJv
+                                )}
+                              >
+                                <Pickers
+                                  data-plasmic-name={"week2"}
+                                  data-plasmic-override={overrides.week2}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.week2
+                                  )}
+                                  data={(() => {
+                                    let myList = [];
+                                    for (let i = 0; i < 40; i++) {
+                                      myList.push({
+                                        label: `${i}`,
+                                        value: i
+                                      });
+                                    }
+                                    return myList;
+                                  })()}
+                                  initialValue={generateStateValueProp($state, [
+                                    "week2",
+                                    "value"
+                                  ])}
+                                  onChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "week2",
+                                      "value"
+                                    ]).apply(null, eventArgs);
+                                  }}
+                                />
+                              </div>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ygSxx
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__rFRg
+                                )}
+                              >
+                                {"\u0631\u0648\u0632"}
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__ldvI
+                                )}
+                              >
+                                <Pickers
+                                  data-plasmic-name={"day2"}
+                                  data-plasmic-override={overrides.day2}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.day2
+                                  )}
+                                  data={(() => {
+                                    let myList = [];
+                                    for (let i = 0; i < 7; i++) {
+                                      myList.push({
+                                        label: `${i}`,
+                                        value: i
+                                      });
+                                    }
+                                    return myList;
+                                  })()}
+                                  initialValue={generateStateValueProp($state, [
+                                    "day2",
+                                    "value"
+                                  ])}
+                                  onChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "day2",
+                                      "value"
+                                    ]).apply(null, eventArgs);
+                                  }}
+                                />
+                              </div>
+                            </Stack__>
+                          </Stack__>
+                        ) : null}
+                        {(() => {
+                          try {
                             return $state.typeInterDate != "manually";
                           } catch (e) {
                             if (
@@ -644,139 +785,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               "value"
                             ])}
                           />
-                        ) : null}
-                        {(() => {
-                          try {
-                            return $state.typeInterDate == "manually";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return false;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__wjIxG
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__kRjRh
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__hSbHy
-                                )}
-                              >
-                                {"\u0647\u0641\u062a\u0647"}
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__bXcJv
-                                )}
-                              >
-                                <Pickers
-                                  data-plasmic-name={"pickers"}
-                                  data-plasmic-override={overrides.pickers}
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.pickers
-                                  )}
-                                  data={(() => {
-                                    try {
-                                      return (() => {
-                                        let myList = [];
-                                        for (let i = 0; i < 40; i++) {
-                                          myList.push({
-                                            label: `${i}`,
-                                            value: i
-                                          });
-                                        }
-                                        return myList;
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return ["dd", "ggg"];
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                  initialValue={generateStateValueProp($state, [
-                                    "pickers",
-                                    "value"
-                                  ])}
-                                  onChange={async (...eventArgs: any) => {
-                                    generateStateOnChangeProp($state, [
-                                      "pickers",
-                                      "value"
-                                    ]).apply(null, eventArgs);
-                                  }}
-                                />
-                              </div>
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__orlnq
-                              )}
-                            >
-                              <Pickers
-                                data-plasmic-name={"pickers2"}
-                                data-plasmic-override={overrides.pickers2}
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.pickers2
-                                )}
-                                data={(() => {
-                                  try {
-                                    return (() => {
-                                      let myList = [];
-                                      for (let i = 0; i < 6; i++) {
-                                        myList.push({
-                                          label: `${i}`,
-                                          value: i
-                                        });
-                                      }
-                                      return myList;
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return ["dd", "ggg"];
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                                initialValue={generateStateValueProp($state, [
-                                  "pickers2",
-                                  "value"
-                                ])}
-                                onChange={async (...eventArgs: any) => {
-                                  generateStateOnChangeProp($state, [
-                                    "pickers2",
-                                    "value"
-                                  ]).apply(null, eventArgs);
-                                }}
-                              />
-                            </div>
-                          </div>
                         ) : null}
                       </div>
                       <div
@@ -1155,6 +1163,211 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               $steps["updateDateOfBirth2"] = await $steps[
                                 "updateDateOfBirth2"
                               ];
+                            }
+
+                            $steps["updateDateOfBirth3"] =
+                              $state.typeInterDate == "manually"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["dateOfBirth"]
+                                      },
+                                      operation: 0,
+                                      value: (() => {
+                                        const today = new Date();
+                                        const passedDays =
+                                          $state.week2.value * 7 +
+                                          $state.day2.value;
+                                        const remainingDays = 280 - passedDays;
+                                        const dueDate = new Date(today);
+                                        dueDate.setDate(
+                                          today.getDate() + remainingDays - 1
+                                        );
+                                        const formattedDueDate = dueDate
+                                          .toISOString()
+                                          .split("T")[0];
+                                        var dd = window.jalaali.toJalaali(
+                                          parseInt(
+                                            formattedDueDate.split("-")[0]
+                                          ),
+                                          parseInt(
+                                            formattedDueDate.split("-")[1]
+                                          ),
+                                          parseInt(
+                                            formattedDueDate.split("-")[2]
+                                          )
+                                        );
+                                        return {
+                                          day: dd.jd,
+                                          month: dd.jm,
+                                          year: dd.jy
+                                        };
+                                      })()
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["updateDateOfBirth3"] != null &&
+                              typeof $steps["updateDateOfBirth3"] ===
+                                "object" &&
+                              typeof $steps["updateDateOfBirth3"].then ===
+                                "function"
+                            ) {
+                              $steps["updateDateOfBirth3"] = await $steps[
+                                "updateDateOfBirth3"
+                              ];
+                            }
+
+                            $steps["updateLastTime3"] =
+                              $state.typeInterDate == "manually"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["lastTime"]
+                                      },
+                                      operation: 0,
+                                      value: (() => {
+                                        const today = new Date();
+                                        const passedDays =
+                                          $state.week2.value * 7 +
+                                          $state.day2.value;
+                                        const remainingDays = 280 - passedDays;
+                                        const dueDate = new Date(today);
+                                        dueDate.setDate(
+                                          today.getDate() + remainingDays - 280
+                                        );
+                                        const formattedDueDate = dueDate
+                                          .toISOString()
+                                          .split("T")[0];
+                                        var dd = window.jalaali.toJalaali(
+                                          parseInt(
+                                            formattedDueDate.split("-")[0]
+                                          ),
+                                          parseInt(
+                                            formattedDueDate.split("-")[1]
+                                          ),
+                                          parseInt(
+                                            formattedDueDate.split("-")[2]
+                                          )
+                                        );
+                                        return {
+                                          day: dd.jd,
+                                          month: dd.jm,
+                                          year: dd.jy
+                                        };
+                                      })()
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["updateLastTime3"] != null &&
+                              typeof $steps["updateLastTime3"] === "object" &&
+                              typeof $steps["updateLastTime3"].then ===
+                                "function"
+                            ) {
+                              $steps["updateLastTime3"] = await $steps[
+                                "updateLastTime3"
+                              ];
+                            }
+
+                            $steps["updateDay"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["day"]
+                                    },
+                                    operation: 0,
+                                    value: $state.day2.value
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateDay"] != null &&
+                              typeof $steps["updateDay"] === "object" &&
+                              typeof $steps["updateDay"].then === "function"
+                            ) {
+                              $steps["updateDay"] = await $steps["updateDay"];
+                            }
+
+                            $steps["updateWeek"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["week"]
+                                    },
+                                    operation: 0,
+                                    value: $state.week2.value
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateWeek"] != null &&
+                              typeof $steps["updateWeek"] === "object" &&
+                              typeof $steps["updateWeek"].then === "function"
+                            ) {
+                              $steps["updateWeek"] = await $steps["updateWeek"];
                             }
 
                             $steps["updateSlideinModalClick"] = true
@@ -2099,6 +2312,47 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           projectcss.all,
                           sty.freeBox__otCka
                         )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateDateModalClick"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["dateModal", "click"]
+                                  },
+                                  operation: 0,
+                                  value: true
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateDateModalClick"] != null &&
+                            typeof $steps["updateDateModalClick"] ===
+                              "object" &&
+                            typeof $steps["updateDateModalClick"].then ===
+                              "function"
+                          ) {
+                            $steps["updateDateModalClick"] = await $steps[
+                              "updateDateModalClick"
+                            ];
+                          }
+                        }}
                       >
                         <div
                           className={classNames(
@@ -2118,100 +2372,83 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             "\u0647\u0641\u062a\u0647 \u0648 \u0631\u0648\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646:"
                           }
                         </div>
-                        <div
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__tZI,
-                            hasVariant($state, "dark", "dark")
-                              ? "input-dark"
-                              : ``,
-                            {
-                              [sty.freeBoxdark__tZIbkz05]: hasVariant(
-                                $state,
-                                "dark",
-                                "dark"
-                              )
-                            }
+                            sty.freeBox__mfAv5
                           )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["updateSlideinModalClick"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["dateModal", "click"]
-                                    },
-                                    operation: 0,
-                                    value: true
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateSlideinModalClick"] != null &&
-                              typeof $steps["updateSlideinModalClick"] ===
-                                "object" &&
-                              typeof $steps["updateSlideinModalClick"].then ===
-                                "function"
-                            ) {
-                              $steps["updateSlideinModalClick"] = await $steps[
-                                "updateSlideinModalClick"
-                              ];
-                            }
-
-                            $steps["updateTypeDate"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["typeInterDate"]
-                                    },
-                                    operation: 0,
-                                    value: "manually"
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateTypeDate"] != null &&
-                              typeof $steps["updateTypeDate"] === "object" &&
-                              typeof $steps["updateTypeDate"].then ===
-                                "function"
-                            ) {
-                              $steps["updateTypeDate"] = await $steps[
-                                "updateTypeDate"
-                              ];
-                            }
-                          }}
-                        />
+                        >
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__zg24T
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__wn8Ry
+                              )}
+                            >
+                              {"\u0647\u0641\u062a\u0647"}
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__jy9Bs
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__uUBb
+                                )}
+                              >
+                                <React.Fragment>{$state.week}</React.Fragment>
+                              </div>
+                            </div>
+                          </Stack__>
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__jLonn
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__l1Ehf
+                              )}
+                            >
+                              {"\u0631\u0648\u0632"}
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__nD7AD
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__h1Rd
+                                )}
+                              >
+                                <React.Fragment>{$state.day}</React.Fragment>
+                              </div>
+                            </div>
+                          </Stack__>
+                        </Stack__>
                       </Stack__>
                     ) : null}
                   </div>
@@ -3463,9 +3700,9 @@ const PlasmicDescendants = {
     "root",
     "img",
     "dateModal",
+    "week2",
+    "day2",
     "datePickers",
-    "pickers",
-    "pickers2",
     "button",
     "dateOfBirthBox",
     "lastTimeBox",
@@ -3474,10 +3711,10 @@ const PlasmicDescendants = {
     "lottie"
   ],
   img: ["img"],
-  dateModal: ["dateModal", "datePickers", "pickers", "pickers2", "button"],
+  dateModal: ["dateModal", "week2", "day2", "datePickers", "button"],
+  week2: ["week2"],
+  day2: ["day2"],
   datePickers: ["datePickers"],
-  pickers: ["pickers"],
-  pickers2: ["pickers2"],
   button: ["button"],
   dateOfBirthBox: ["dateOfBirthBox"],
   lastTimeBox: ["lastTimeBox"],
@@ -3492,9 +3729,9 @@ type NodeDefaultElementType = {
   root: "div";
   img: typeof PlasmicImg__;
   dateModal: typeof SlideinModal;
+  week2: typeof Pickers;
+  day2: typeof Pickers;
   datePickers: typeof DatePickers;
-  pickers: typeof Pickers;
-  pickers2: typeof Pickers;
   button: typeof Button;
   dateOfBirthBox: typeof AntdInput;
   lastTimeBox: typeof AntdInput;
@@ -3590,9 +3827,9 @@ export const PlasmicSettingPregnancy = Object.assign(
     // Helper components rendering sub-elements
     img: makeNodeComponent("img"),
     dateModal: makeNodeComponent("dateModal"),
+    week2: makeNodeComponent("week2"),
+    day2: makeNodeComponent("day2"),
     datePickers: makeNodeComponent("datePickers"),
-    pickers: makeNodeComponent("pickers"),
-    pickers2: makeNodeComponent("pickers2"),
     button: makeNodeComponent("button"),
     dateOfBirthBox: makeNodeComponent("dateOfBirthBox"),
     lastTimeBox: makeNodeComponent("lastTimeBox"),

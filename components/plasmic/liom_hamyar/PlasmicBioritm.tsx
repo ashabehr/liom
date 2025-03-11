@@ -6709,9 +6709,7 @@ function PlasmicBioritm__RenderFunc(props: {
                       const actionArgs = {
                         destination: (() => {
                           try {
-                            return `/hamyar/?token=1djkml${localStorage.getItem(
-                              "token"
-                            )}dfv`;
+                            return `/hamyar/?r=${$state.userInfo.r}&m=${$state.userInfo.m}`;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||

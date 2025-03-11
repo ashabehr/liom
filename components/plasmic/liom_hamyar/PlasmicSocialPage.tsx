@@ -381,68 +381,65 @@ function PlasmicSocialPage__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
+                  </Stack__>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__qtk4Z)}
+                  >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__qtk4Z)}
+                      className={classNames(projectcss.all, sty.freeBox__h8Wt9)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateTextAreaValue"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["textArea", "value"]
+                                },
+                                operation: 0
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateTextAreaValue"] != null &&
+                          typeof $steps["updateTextAreaValue"] === "object" &&
+                          typeof $steps["updateTextAreaValue"].then ===
+                            "function"
+                        ) {
+                          $steps["updateTextAreaValue"] = await $steps[
+                            "updateTextAreaValue"
+                          ];
+                        }
+                      }}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__h8Wt9
+                          projectcss.__wab_text,
+                          sty.text__gQyB
                         )}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["updateTextAreaValue"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["textArea", "value"]
-                                  },
-                                  operation: 0
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateTextAreaValue"] != null &&
-                            typeof $steps["updateTextAreaValue"] === "object" &&
-                            typeof $steps["updateTextAreaValue"].then ===
-                              "function"
-                          ) {
-                            $steps["updateTextAreaValue"] = await $steps[
-                              "updateTextAreaValue"
-                            ];
-                          }
-                        }}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__gQyB
-                          )}
-                        >
-                          {
-                            "\u062f\u0646\u0628\u0627\u0644 \u06a9\u0631\u062f\u0646 "
-                          }
-                        </div>
+                        {
+                          "\u062f\u0646\u0628\u0627\u0644 \u06a9\u0631\u062f\u0646 "
+                        }
                       </div>
                     </div>
-                  </Stack__>
+                  </div>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__uC3N)}>
                   <div
@@ -1372,11 +1369,11 @@ function PlasmicSocialPage__RenderFunc(props: {
                         />
                       );
                     })()}
+                    <Icon176Icon
+                      className={classNames(projectcss.all, sty.svg__o8F2W)}
+                      role={"img"}
+                    />
                   </div>
-                  <Icon176Icon
-                    className={classNames(projectcss.all, sty.svg__o8F2W)}
-                    role={"img"}
-                  />
                 </div>
               </section>
             </Stack__>

@@ -59,6 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -83,10 +85,12 @@ export const PlasmicCommentlikebutton__VariantProps =
 
 export type PlasmicCommentlikebutton__ArgsType = {
   likeCommentCount?: string;
+  coomentLikeBool?: boolean;
 };
 type ArgPropType = keyof PlasmicCommentlikebutton__ArgsType;
 export const PlasmicCommentlikebutton__ArgProps = new Array<ArgPropType>(
-  "likeCommentCount"
+  "likeCommentCount",
+  "coomentLikeBool"
 );
 
 export type PlasmicCommentlikebutton__OverridesType = {
@@ -97,6 +101,7 @@ export type PlasmicCommentlikebutton__OverridesType = {
 
 export interface DefaultCommentlikebuttonProps {
   likeCommentCount?: string;
+  coomentLikeBool?: boolean;
   islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
   className?: string;
 }
@@ -121,7 +126,9 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          coomentLikeBool: false
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -206,35 +213,6 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
       onClick={async event => {
         const $steps = {};
 
-        $steps["updateIslikecomment"] = true
-          ? (() => {
-              const actionArgs = {
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["islikecomment"]
-                },
-                operation: 0,
-                value: !$state.islikecomment
-              };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
-
-                $stateSet(objRoot, variablePath, value);
-                return value;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateIslikecomment"] != null &&
-          typeof $steps["updateIslikecomment"] === "object" &&
-          typeof $steps["updateIslikecomment"].then === "function"
-        ) {
-          $steps["updateIslikecomment"] = await $steps["updateIslikecomment"];
-        }
-
         $steps["updateIslikecomment2"] = true
           ? (() => {
               const actionArgs = {
@@ -262,6 +240,39 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
           typeof $steps["updateIslikecomment2"].then === "function"
         ) {
           $steps["updateIslikecomment2"] = await $steps["updateIslikecomment2"];
+        }
+
+        $steps["updateVariableForLikeCountComment"] = true
+          ? (() => {
+              const actionArgs = {
+                variable: {
+                  objRoot: $state,
+                  variablePath: ["variableForLikeCountComment"]
+                },
+                operation: 0,
+                value: ($state.variableForLikeCountComment =
+                  parseInt($state.variableForLikeCountComment) +
+                  ($state.islikecomment ? 1 : -1))
+              };
+              return (({ variable, value, startIndex, deleteCount }) => {
+                if (!variable) {
+                  return;
+                }
+                const { objRoot, variablePath } = variable;
+
+                $stateSet(objRoot, variablePath, value);
+                return value;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateVariableForLikeCountComment"] != null &&
+          typeof $steps["updateVariableForLikeCountComment"] === "object" &&
+          typeof $steps["updateVariableForLikeCountComment"].then === "function"
+        ) {
+          $steps["updateVariableForLikeCountComment"] = await $steps[
+            "updateVariableForLikeCountComment"
+          ];
         }
       }}
     >

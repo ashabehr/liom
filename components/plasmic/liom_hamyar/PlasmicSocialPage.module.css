@@ -147,7 +147,7 @@
 }
 .freeBox__iV3Z6 {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
   width: auto;
   height: 67px;
@@ -156,11 +156,11 @@
   padding: 8px 5px 8px 8px;
 }
 .freeBox__iV3Z6 > :global(.__wab_flex-container) {
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: calc(0px - 2px);
-  width: calc(100% + 2px);
+  margin-top: calc(0px - 2px);
+  height: calc(100% + 2px);
 }
 .freeBox__iV3Z6 > :global(.__wab_flex-container) > *,
 .freeBox__iV3Z6 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
@@ -170,7 +170,7 @@
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-left: 2px;
+  margin-top: 2px;
 }
 .text__zv2Av {
   position: relative;
@@ -178,7 +178,7 @@
   max-width: 100%;
   color: var(--token-ODBUExjR6VEF);
   text-align: center;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   padding-left: 0px;
   white-space: pre;
@@ -189,7 +189,7 @@
   height: auto;
   max-width: 100%;
   color: var(--token-LNIzKl5AGPPT);
-  font-size: 8px;
+  font-size: 12px;
   text-align: center;
   white-space: pre;
   min-width: 0;
@@ -198,13 +198,12 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  min-width: 0;
-  padding: 8px 8px 5px;
+  padding: 8px 8px 30px;
 }
 .freeBox__h8Wt9 {
   display: flex;
@@ -213,6 +212,7 @@
   align-items: center;
   justify-content: center;
   max-width: 100%;
+  background: var(--token-Y4frplZPI0IJ);
   border-radius: 8px;
   padding: 0px;
   border-width: 1px;
@@ -225,7 +225,9 @@
   font-weight: 700;
   white-space: pre;
   color: var(--token-fn6i10-y5r1L);
-  font-size: 12px;
+  font-size: 16px;
+  text-align: center;
+  padding-bottom: 0px;
   min-width: 0;
 }
 .freeBox__uC3N {
@@ -856,6 +858,12 @@
 }
 .comment:global(.__wab_instance) {
   position: relative;
+  margin-bottom: 0px;
+}
+@media (max-width: 640px) {
+  .comment:global(.__wab_instance) {
+    margin-bottom: 0px;
+  }
 }
 .coment {
   position: relative;
