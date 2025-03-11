@@ -68,20 +68,16 @@ import sty from "./PlasmicButtonSocial.module.css"; // plasmic-import: 5arXHsXsA
 
 createPlasmicElementProxy;
 
-export type PlasmicButtonSocial__VariantMembers = {
-  hover: "hover";
-};
-export type PlasmicButtonSocial__VariantsArgs = {
-  hover?: SingleBooleanChoiceArg<"hover">;
-};
+export type PlasmicButtonSocial__VariantMembers = {};
+export type PlasmicButtonSocial__VariantsArgs = {};
 type VariantPropType = keyof PlasmicButtonSocial__VariantsArgs;
-export const PlasmicButtonSocial__VariantProps = new Array<VariantPropType>(
-  "hover"
-);
+export const PlasmicButtonSocial__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicButtonSocial__ArgsType = {};
+export type PlasmicButtonSocial__ArgsType = {
+  type?: string;
+};
 type ArgPropType = keyof PlasmicButtonSocial__ArgsType;
-export const PlasmicButtonSocial__ArgProps = new Array<ArgPropType>();
+export const PlasmicButtonSocial__ArgProps = new Array<ArgPropType>("type");
 
 export type PlasmicButtonSocial__OverridesType = {
   root?: Flex__<"div">;
@@ -89,7 +85,7 @@ export type PlasmicButtonSocial__OverridesType = {
 };
 
 export interface DefaultButtonSocialProps {
-  hover?: SingleBooleanChoiceArg<"hover">;
+  type?: string;
   className?: string;
 }
 
@@ -133,24 +129,6 @@ function PlasmicButtonSocial__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
-  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
-    () => [
-      {
-        path: "hover",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.hover
-      }
-    ],
-    [$props, $ctx, $refs]
-  );
-  const $state = useDollarState(stateSpecs, {
-    $props,
-    $ctx,
-    $queries: {},
-    $refs
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -165,8 +143,7 @@ function PlasmicButtonSocial__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root,
-        { [sty.roothover]: hasVariant($state, "hover", "hover") }
+        sty.root
       )}
     >
       <div
@@ -174,7 +151,21 @@ function PlasmicButtonSocial__RenderFunc(props: {
         data-plasmic-override={overrides.text}
         className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
       >
-        {"\u062c\u062f\u06cc\u062f \u062a\u0631\u06cc\u0646 \u0647\u0627 "}
+        <React.Fragment>
+          {(() => {
+            try {
+              return $props.type;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "\u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0631\u06cc\u067e\u0644\u0627\u06cc";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
       </div>
     </div>
   ) as React.ReactElement | null;

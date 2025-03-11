@@ -7734,9 +7734,9 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/hamyar?token=fghjub${window.localStorage.getItem(
+                                  return `/hamyar?token=HYfeYz${localStorage.getItem(
                                     "token"
-                                  )}bjk`;
+                                  )}1Gf`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||

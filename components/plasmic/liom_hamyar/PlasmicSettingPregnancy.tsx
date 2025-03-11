@@ -64,6 +64,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
+import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -105,6 +106,8 @@ export type PlasmicSettingPregnancy__OverridesType = {
   img?: Flex__<typeof PlasmicImg__>;
   dateModal?: Flex__<typeof SlideinModal>;
   datePickers?: Flex__<typeof DatePickers>;
+  pickers?: Flex__<typeof Pickers>;
+  pickers2?: Flex__<typeof Pickers>;
   button?: Flex__<typeof Button>;
   dateOfBirthBox?: Flex__<typeof AntdInput>;
   lastTimeBox?: Flex__<typeof AntdInput>;
@@ -352,6 +355,18 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "pickers.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "pickers2.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -579,43 +594,190 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           }
                         )}
                       >
-                        <DatePickers
-                          data-plasmic-name={"datePickers"}
-                          data-plasmic-override={overrides.datePickers}
-                          SelectedDay={(() => {
-                            if ($state.typeInterDate == "lastTime")
-                              return $state.lastTime.day;
-                            else return $state.dateOfBirth.day;
-                          })()}
-                          SelectedMonth={(() => {
-                            if ($state.typeInterDate == "lastTime")
-                              return $state.lastTime.month;
-                            else return $state.dateOfBirth.month;
-                          })()}
-                          SelectedYear={(() => {
-                            if ($state.typeInterDate == "lastTime")
-                              return $state.lastTime.year;
-                            else return $state.dateOfBirth.year;
-                          })()}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.datePickers
-                          )}
-                          customYears={[
-                            { value: 1403, label: "1403" },
-                            { value: 1404, label: "1404" }
-                          ]}
-                          onChange={async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
+                        {(() => {
+                          try {
+                            return $state.typeInterDate != "manually";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <DatePickers
+                            data-plasmic-name={"datePickers"}
+                            data-plasmic-override={overrides.datePickers}
+                            SelectedDay={(() => {
+                              if ($state.typeInterDate == "lastTime")
+                                return $state.lastTime.day;
+                              else return $state.dateOfBirth.day;
+                            })()}
+                            SelectedMonth={(() => {
+                              if ($state.typeInterDate == "lastTime")
+                                return $state.lastTime.month;
+                              else return $state.dateOfBirth.month;
+                            })()}
+                            SelectedYear={(() => {
+                              if ($state.typeInterDate == "lastTime")
+                                return $state.lastTime.year;
+                              else return $state.dateOfBirth.year;
+                            })()}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.datePickers
+                            )}
+                            customYears={[
+                              { value: 1403, label: "1403" },
+                              { value: 1404, label: "1404" }
+                            ]}
+                            onChange={async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "datePickers",
+                                "value"
+                              ]).apply(null, eventArgs);
+                            }}
+                            selectedValues={generateStateValueProp($state, [
                               "datePickers",
                               "value"
-                            ]).apply(null, eventArgs);
-                          }}
-                          selectedValues={generateStateValueProp($state, [
-                            "datePickers",
-                            "value"
-                          ])}
-                        />
+                            ])}
+                          />
+                        ) : null}
+                        {(() => {
+                          try {
+                            return $state.typeInterDate == "manually";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__wjIxG
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__kRjRh
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__hSbHy
+                                )}
+                              >
+                                {"\u0647\u0641\u062a\u0647"}
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__bXcJv
+                                )}
+                              >
+                                <Pickers
+                                  data-plasmic-name={"pickers"}
+                                  data-plasmic-override={overrides.pickers}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.pickers
+                                  )}
+                                  data={(() => {
+                                    try {
+                                      return (() => {
+                                        let myList = [];
+                                        for (let i = 0; i < 40; i++) {
+                                          myList.push({
+                                            label: `${i}`,
+                                            value: i
+                                          });
+                                        }
+                                        return myList;
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return ["dd", "ggg"];
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                  initialValue={generateStateValueProp($state, [
+                                    "pickers",
+                                    "value"
+                                  ])}
+                                  onChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "pickers",
+                                      "value"
+                                    ]).apply(null, eventArgs);
+                                  }}
+                                />
+                              </div>
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__orlnq
+                              )}
+                            >
+                              <Pickers
+                                data-plasmic-name={"pickers2"}
+                                data-plasmic-override={overrides.pickers2}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.pickers2
+                                )}
+                                data={(() => {
+                                  try {
+                                    return (() => {
+                                      let myList = [];
+                                      for (let i = 0; i < 6; i++) {
+                                        myList.push({
+                                          label: `${i}`,
+                                          value: i
+                                        });
+                                      }
+                                      return myList;
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return ["dd", "ggg"];
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                                initialValue={generateStateValueProp($state, [
+                                  "pickers2",
+                                  "value"
+                                ])}
+                                onChange={async (...eventArgs: any) => {
+                                  generateStateOnChangeProp($state, [
+                                    "pickers2",
+                                    "value"
+                                  ]).apply(null, eventArgs);
+                                }}
+                              />
+                            </div>
+                          </div>
+                        ) : null}
                       </div>
                       <div
                         className={classNames(
@@ -1399,94 +1561,109 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           }
                         </div>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__ytjUr
-                        )}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["updateTypeInterDate"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["typeInterDate"]
-                                  },
-                                  operation: 0,
-                                  value: "manually"
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                      {(() => {
+                        try {
+                          return $ctx.query.userId == "147813698";
+                        } catch (e) {
                           if (
-                            $steps["updateTypeInterDate"] != null &&
-                            typeof $steps["updateTypeInterDate"] === "object" &&
-                            typeof $steps["updateTypeInterDate"].then ===
-                              "function"
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            $steps["updateTypeInterDate"] = await $steps[
-                              "updateTypeInterDate"
-                            ];
+                            return false;
                           }
-                        }}
-                      >
+                          throw e;
+                        }
+                      })() ? (
                         <div
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__xj4By
+                            sty.freeBox__ytjUr
                           )}
-                          style={(() => {
-                            try {
-                              return {
-                                "background-color":
-                                  $state.typeInterDate == "manually"
-                                    ? "rgb(130, 84, 198 , 0.1)"
-                                    : "rgb(130, 84, 198 , 0)",
-                                color: "#7444BC"
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateTypeInterDate"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["typeInterDate"]
+                                    },
+                                    operation: 0,
+                                    value: "manually"
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateTypeInterDate"] != null &&
+                              typeof $steps["updateTypeInterDate"] ===
+                                "object" &&
+                              typeof $steps["updateTypeInterDate"].then ===
+                                "function"
+                            ) {
+                              $steps["updateTypeInterDate"] = await $steps[
+                                "updateTypeInterDate"
+                              ];
                             }
-                          })()}
+                          }}
                         >
-                          {
-                            "\u0647\u0641\u062a\u0647 \u0648 \u0631\u0648\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
-                          }
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__xj4By
+                            )}
+                            style={(() => {
+                              try {
+                                return {
+                                  "background-color":
+                                    $state.typeInterDate == "manually"
+                                      ? "rgb(130, 84, 198 , 0.1)"
+                                      : "rgb(130, 84, 198 , 0)",
+                                  color: "#7444BC"
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                          >
+                            {
+                              "\u0647\u0641\u062a\u0647 \u0648 \u0631\u0648\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                            }
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__y2YJ7
+                            )}
+                          >
+                            {
+                              "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
+                            }
+                          </div>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__y2YJ7
-                          )}
-                        >
-                          {
-                            "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
-                          }
-                        </div>
-                      </div>
+                      ) : null}
                     </Stack__>
                     {(() => {
                       try {
@@ -1900,6 +2077,141 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             );
                           })()}
                         </div>
+                      </Stack__>
+                    ) : null}
+                    {(() => {
+                      try {
+                        return $state.typeInterDate == "manually";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__otCka
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___1Snno,
+                            {
+                              [sty.textdark___1SnnObkz05]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
+                          )}
+                        >
+                          {
+                            "\u0647\u0641\u062a\u0647 \u0648 \u0631\u0648\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646:"
+                          }
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__tZI,
+                            hasVariant($state, "dark", "dark")
+                              ? "input-dark"
+                              : ``,
+                            {
+                              [sty.freeBoxdark__tZIbkz05]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
+                          )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateSlideinModalClick"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["dateModal", "click"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateSlideinModalClick"] != null &&
+                              typeof $steps["updateSlideinModalClick"] ===
+                                "object" &&
+                              typeof $steps["updateSlideinModalClick"].then ===
+                                "function"
+                            ) {
+                              $steps["updateSlideinModalClick"] = await $steps[
+                                "updateSlideinModalClick"
+                              ];
+                            }
+
+                            $steps["updateTypeDate"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["typeInterDate"]
+                                    },
+                                    operation: 0,
+                                    value: "manually"
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateTypeDate"] != null &&
+                              typeof $steps["updateTypeDate"] === "object" &&
+                              typeof $steps["updateTypeDate"].then ===
+                                "function"
+                            ) {
+                              $steps["updateTypeDate"] = await $steps[
+                                "updateTypeDate"
+                              ];
+                            }
+                          }}
+                        />
                       </Stack__>
                     ) : null}
                   </div>
@@ -3152,6 +3464,8 @@ const PlasmicDescendants = {
     "img",
     "dateModal",
     "datePickers",
+    "pickers",
+    "pickers2",
     "button",
     "dateOfBirthBox",
     "lastTimeBox",
@@ -3160,8 +3474,10 @@ const PlasmicDescendants = {
     "lottie"
   ],
   img: ["img"],
-  dateModal: ["dateModal", "datePickers", "button"],
+  dateModal: ["dateModal", "datePickers", "pickers", "pickers2", "button"],
   datePickers: ["datePickers"],
+  pickers: ["pickers"],
+  pickers2: ["pickers2"],
   button: ["button"],
   dateOfBirthBox: ["dateOfBirthBox"],
   lastTimeBox: ["lastTimeBox"],
@@ -3177,6 +3493,8 @@ type NodeDefaultElementType = {
   img: typeof PlasmicImg__;
   dateModal: typeof SlideinModal;
   datePickers: typeof DatePickers;
+  pickers: typeof Pickers;
+  pickers2: typeof Pickers;
   button: typeof Button;
   dateOfBirthBox: typeof AntdInput;
   lastTimeBox: typeof AntdInput;
@@ -3273,6 +3591,8 @@ export const PlasmicSettingPregnancy = Object.assign(
     img: makeNodeComponent("img"),
     dateModal: makeNodeComponent("dateModal"),
     datePickers: makeNodeComponent("datePickers"),
+    pickers: makeNodeComponent("pickers"),
+    pickers2: makeNodeComponent("pickers2"),
     button: makeNodeComponent("button"),
     dateOfBirthBox: makeNodeComponent("dateOfBirthBox"),
     lastTimeBox: makeNodeComponent("lastTimeBox"),

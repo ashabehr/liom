@@ -8,18 +8,18 @@
   max-width: 100%;
   position: relative;
   min-width: 0;
+  border-radius: 8px;
   padding: 8px 16px;
 }
-.roothover {
-  background: var(--token-Y4frplZPI0IJ);
-  border-radius: 5px;
+.root:hover {
+  background: var(--token-7kGpohB21SKn);
 }
 .text {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
-  text-align: right;
+  text-align: center;
   font-size: 16px;
   color: var(--token-ODBUExjR6VEF);
   min-width: 0;

@@ -12796,7 +12796,7 @@ function PlasmicHamyar__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/clinic?token=${window.localStorage.getItem(
+                                  return `/clinic?token=${localStorage.getItem(
                                     "token"
                                   )}&userId=${$state.user.data.r}&gender=male`;
                                 } catch (e) {

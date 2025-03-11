@@ -117,7 +117,6 @@ export type PlasmicSocialPage__OverridesType = {
   like2?: Flex__<typeof Like>;
   save?: Flex__<typeof Save>;
   popover?: Flex__<typeof AntdPopover>;
-  buttonSocial?: Flex__<typeof ButtonSocial>;
   comment?: Flex__<typeof Comment>;
   coment?: Flex__<"div">;
   textArea?: Flex__<typeof AntdTextArea>;
@@ -329,118 +328,122 @@ function PlasmicSocialPage__RenderFunc(props: {
                       }
                     })()}
                   />
-                </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__iV3Z6)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zv2Av
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $state.getInfo.data.result.details.user.name;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "name";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zdN81
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $state.getInfo.data.result.details.user
-                            .username;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "username";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__qtk4Z)}
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__iV3Z6)}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__h8Wt9)}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["updateTextAreaValue"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["textArea", "value"]
-                                },
-                                operation: 0
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateTextAreaValue"] != null &&
-                          typeof $steps["updateTextAreaValue"] === "object" &&
-                          typeof $steps["updateTextAreaValue"].then ===
-                            "function"
-                        ) {
-                          $steps["updateTextAreaValue"] = await $steps[
-                            "updateTextAreaValue"
-                          ];
-                        }
-                      }}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__zv2Av
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.getInfo.data.result.details.user.name;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "name";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__zdN81
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.getInfo.data.result.details.user
+                              .username;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "username";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__qtk4Z)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__gQyB
+                          sty.freeBox__h8Wt9
                         )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateTextAreaValue"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["textArea", "value"]
+                                  },
+                                  operation: 0
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateTextAreaValue"] != null &&
+                            typeof $steps["updateTextAreaValue"] === "object" &&
+                            typeof $steps["updateTextAreaValue"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTextAreaValue"] = await $steps[
+                              "updateTextAreaValue"
+                            ];
+                          }
+                        }}
                       >
-                        {
-                          "\u062f\u0646\u0628\u0627\u0644 \u06a9\u0631\u062f\u0646 "
-                        }
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__gQyB
+                          )}
+                        >
+                          {
+                            "\u062f\u0646\u0628\u0627\u0644 \u06a9\u0631\u062f\u0646 "
+                          }
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Stack__>
+                  </Stack__>
+                </div>
                 <div className={classNames(projectcss.all, sty.freeBox__uC3N)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__lYbCo)}
@@ -1095,54 +1098,39 @@ function PlasmicSocialPage__RenderFunc(props: {
                   arrow={true}
                   className={classNames("__wab_instance", sty.popover)}
                   content={
-                    <React.Fragment>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__hxWiz)}
+                    >
                       <ButtonSocial
-                        data-plasmic-name={"buttonSocial"}
-                        data-plasmic-override={overrides.buttonSocial}
                         className={classNames(
                           "__wab_instance",
-                          sty.buttonSocial
+                          sty.buttonSocial__nHq1P
                         )}
-                        hover={undefined}
+                        type={
+                          "\u062c\u062f\u06cc\u062f \u062a\u0631\u06cc\u0646 \u0647\u0627"
+                        }
                       />
 
-                      <div
+                      <ButtonSocial
                         className={classNames(
-                          projectcss.all,
-                          sty.freeBox__ptukc
+                          "__wab_instance",
+                          sty.buttonSocial__vBXy0
                         )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___8Homq
-                          )}
-                        >
-                          {
-                            "\u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0631\u06cc\u067e\u0644\u0627\u06cc"
-                          }
-                        </div>
-                      </div>
-                      <div
+                        type={
+                          "\u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0631\u06cc\u067e\u0644\u0627\u06cc"
+                        }
+                      />
+
+                      <ButtonSocial
                         className={classNames(
-                          projectcss.all,
-                          sty.freeBox__es2Oy
+                          "__wab_instance",
+                          sty.buttonSocial__xvGb5
                         )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__eoSs
-                          )}
-                        >
-                          {
-                            "\u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0644\u0627\u06cc\u06a9 "
-                          }
-                        </div>
-                      </div>
-                    </React.Fragment>
+                        type={
+                          "\u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0644\u0627\u06cc\u06a9"
+                        }
+                      />
+                    </div>
                   }
                   contentText={"Popover contents"}
                   defaultOpen={false}
@@ -1482,7 +1470,6 @@ const PlasmicDescendants = {
     "like2",
     "save",
     "popover",
-    "buttonSocial",
     "comment",
     "coment",
     "textArea",
@@ -1495,8 +1482,7 @@ const PlasmicDescendants = {
   reactionBar: ["reactionBar", "like2", "save"],
   like2: ["like2"],
   save: ["save"],
-  popover: ["popover", "buttonSocial"],
-  buttonSocial: ["buttonSocial"],
+  popover: ["popover"],
   comment: ["comment", "coment"],
   coment: ["coment"],
   textArea: ["textArea"],
@@ -1515,7 +1501,6 @@ type NodeDefaultElementType = {
   like2: typeof Like;
   save: typeof Save;
   popover: typeof AntdPopover;
-  buttonSocial: typeof ButtonSocial;
   comment: typeof Comment;
   coment: "div";
   textArea: typeof AntdTextArea;
@@ -1615,7 +1600,6 @@ export const PlasmicSocialPage = Object.assign(
     like2: makeNodeComponent("like2"),
     save: makeNodeComponent("save"),
     popover: makeNodeComponent("popover"),
-    buttonSocial: makeNodeComponent("buttonSocial"),
     comment: makeNodeComponent("comment"),
     coment: makeNodeComponent("coment"),
     textArea: makeNodeComponent("textArea"),
