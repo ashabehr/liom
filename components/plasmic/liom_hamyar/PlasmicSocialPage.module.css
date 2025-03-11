@@ -760,6 +760,32 @@
   > img {
   margin-left: 12px;
 }
+.freeBox__xagh6 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 8px;
+}
+.freeBox__xagh6 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: calc(0px - 5px);
+  width: calc(100% + 5px);
+}
+.freeBox__xagh6 > :global(.__wab_flex-container) > *,
+.freeBox__xagh6 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__xagh6 > :global(.__wab_flex-container) > picture > img,
+.freeBox__xagh6
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 5px;
+}
 .svg__dDsbb {
   object-fit: cover;
   max-width: 100%;
@@ -867,7 +893,6 @@
 }
 .comment:global(.__wab_instance) {
   position: relative;
-  margin-bottom: 0px;
 }
 .coment {
   position: relative;

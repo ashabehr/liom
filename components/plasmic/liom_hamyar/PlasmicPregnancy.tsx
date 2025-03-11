@@ -1470,10 +1470,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         const differenceInDays = Math.floor(
                           differenceInMs / (1000 * 60 * 60 * 24)
                         );
-                        return (
-                          differenceInDays <= 0 &&
-                          $ctx.query.userId == 147813698
-                        );
+                        return false;
                       })();
                     } catch (e) {
                       if (
@@ -1519,7 +1516,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         );
                         if ($ctx.query.userId == 147813698) {
                           if (differenceInDays > 0) return true;
-                          else return false;
+                          else return true;
                         } else return true;
                       })();
                     } catch (e) {
@@ -6293,7 +6290,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           "4ddd1fab-100c-49f0-b843-e70bff8add34"
                                         ) {
                                           link =
-                                            "https://tools.liom.app/self-medication/?type=irregular&inApp=true&token=" +
+                                            "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
                                             $ctx.query.token +
                                             "&selectStep=" +
                                             "0" +

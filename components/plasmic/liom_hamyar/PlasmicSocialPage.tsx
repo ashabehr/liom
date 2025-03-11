@@ -1038,98 +1038,149 @@ function PlasmicSocialPage__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox___6AbeA)}
             >
-              <Icon184Icon
-                className={classNames(projectcss.all, sty.svg__dDsbb)}
-                role={"img"}
-              />
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__xagh6)}
+                onClick={async event => {
+                  const $steps = {};
 
-              <AntdPopover
-                data-plasmic-name={"popover"}
-                data-plasmic-override={overrides.popover}
-                arrow={true}
-                className={classNames("__wab_instance", sty.popover)}
-                content={
-                  <React.Fragment>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___9QlIf
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__qitKu
-                        )}
-                      >
-                        {"Enter some text"}
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__ptukc)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___8Homq
-                        )}
-                      >
-                        {"Enter some text"}
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__es2Oy)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__eoSs
-                        )}
-                      >
-                        {"Enter some text"}
-                      </div>
-                    </div>
-                  </React.Fragment>
-                }
-                contentText={"Popover contents"}
-                defaultOpen={false}
-                defaultStylesClassName={classNames(
-                  projectcss.root_reset,
-                  projectcss.plasmic_default_styles,
-                  projectcss.plasmic_mixins,
-                  projectcss.plasmic_tokens,
-                  plasmic_antd_5_hostless_css.plasmic_tokens,
-                  plasmic_plasmic_rich_components_css.plasmic_tokens
-                )}
-                mouseEnterDelay={0}
-                mouseLeaveDelay={0}
-                onOpenChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["popover", "open"]).apply(
-                    null,
-                    eventArgs
-                  );
-                }}
-                open={generateStateValueProp($state, ["popover", "open"])}
-                placement={"bottom"}
-                popoverScopeClassName={sty["popover__popover"]}
-                title={null}
-                trigger={"click"}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ft6Ek
-                  )}
-                >
-                  {
-                    "\u0645\u0631\u062a\u0628 \u0633\u0627\u0632\u06cc \u0628\u0631 \u0627\u0633\u0627\u0633 :"
+                  $steps["updatePopoverOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["popover", "open"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updatePopoverOpen"] != null &&
+                    typeof $steps["updatePopoverOpen"] === "object" &&
+                    typeof $steps["updatePopoverOpen"].then === "function"
+                  ) {
+                    $steps["updatePopoverOpen"] = await $steps[
+                      "updatePopoverOpen"
+                    ];
                   }
-                </div>
-              </AntdPopover>
+                }}
+              >
+                <Icon184Icon
+                  className={classNames(projectcss.all, sty.svg__dDsbb)}
+                  role={"img"}
+                />
+
+                <AntdPopover
+                  data-plasmic-name={"popover"}
+                  data-plasmic-override={overrides.popover}
+                  arrow={true}
+                  className={classNames("__wab_instance", sty.popover)}
+                  content={
+                    <React.Fragment>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___9QlIf
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__qitKu
+                          )}
+                        >
+                          {"Enter some text"}
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__ptukc
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___8Homq
+                          )}
+                        >
+                          {"Enter some text"}
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__es2Oy
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__eoSs
+                          )}
+                        >
+                          {"Enter some text"}
+                        </div>
+                      </div>
+                    </React.Fragment>
+                  }
+                  contentText={"Popover contents"}
+                  defaultOpen={false}
+                  defaultStylesClassName={classNames(
+                    projectcss.root_reset,
+                    projectcss.plasmic_default_styles,
+                    projectcss.plasmic_mixins,
+                    projectcss.plasmic_tokens,
+                    plasmic_antd_5_hostless_css.plasmic_tokens,
+                    plasmic_plasmic_rich_components_css.plasmic_tokens
+                  )}
+                  mouseEnterDelay={0}
+                  mouseLeaveDelay={0}
+                  onOpenChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "popover",
+                      "open"
+                    ]).apply(null, eventArgs);
+                  }}
+                  open={generateStateValueProp($state, ["popover", "open"])}
+                  placement={"bottom"}
+                  popoverScopeClassName={sty["popover__popover"]}
+                  title={null}
+                  trigger={"click"}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ft6Ek
+                    )}
+                  >
+                    {
+                      "\u0645\u0631\u062a\u0628 \u0633\u0627\u0632\u06cc \u0628\u0631 \u0627\u0633\u0627\u0633 :"
+                    }
+                  </div>
+                </AntdPopover>
+              </Stack__>
             </Stack__>
             <Stack__
               as={"div"}
