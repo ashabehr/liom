@@ -11685,7 +11685,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         const $steps = {};
 
                                         $steps["runCode"] =
-                                          $ctx.query.inApp == "true" && false
+                                          $ctx.query.inApp == "true"
                                             ? (() => {
                                                 const actionArgs = {
                                                   customFunction: async () => {
@@ -11714,8 +11714,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         }
 
                                         $steps["updateDirectDialog2Open"] =
-                                          //$ctx.query.inApp != "true"
-                                          true
+                                          $ctx.query.inApp != "true"
                                             ? (() => {
                                                 const actionArgs = {
                                                   variable: {
@@ -13138,7 +13137,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         const $steps = {};
 
                                         $steps["runCode"] =
-                                          $ctx.query.inApp == "true" && false
+                                          $ctx.query.inApp == "true"
                                             ? (() => {
                                                 const actionArgs = {
                                                   customFunction: async () => {
@@ -13167,8 +13166,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         }
 
                                         $steps["updateDirectDialog2Open"] =
-                                          //$ctx.query.inApp != "true"
-                                          true
+                                          $ctx.query.inApp != "true"
                                             ? (() => {
                                                 const actionArgs = {
                                                   variable: {
