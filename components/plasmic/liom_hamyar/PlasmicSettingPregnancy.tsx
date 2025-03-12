@@ -1302,32 +1302,34 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               ];
                             }
 
-                            $steps["updateDay"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["day"]
-                                    },
-                                    operation: 0,
-                                    value: $state.day2.value
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
+                            $steps["updateDay"] =
+                              $state.typeInterDate == "manually"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["day"]
+                                      },
+                                      operation: 0,
+                                      value: $state.day2.value
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
 
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
                             if (
                               $steps["updateDay"] != null &&
                               typeof $steps["updateDay"] === "object" &&
@@ -1336,32 +1338,34 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               $steps["updateDay"] = await $steps["updateDay"];
                             }
 
-                            $steps["updateWeek"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["week"]
-                                    },
-                                    operation: 0,
-                                    value: $state.week2.value
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
+                            $steps["updateWeek"] =
+                              $state.typeInterDate == "manually"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["week"]
+                                      },
+                                      operation: 0,
+                                      value: $state.week2.value
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
 
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
                             if (
                               $steps["updateWeek"] != null &&
                               typeof $steps["updateWeek"] === "object" &&
@@ -1370,52 +1374,60 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               $steps["updateWeek"] = await $steps["updateWeek"];
                             }
 
-                            $steps["updateWeek2"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["week"]
-                                    },
-                                    operation: 0,
-                                    value: (() => {
-                                      let initialDate = new Date($state.duDate);
-                                      initialDate.setHours(23);
-                                      initialDate.setMinutes(59);
-                                      initialDate.setSeconds(59);
-                                      let daysToSubtract = 280;
-                                      let resultDate = new Date(initialDate);
-                                      resultDate.setDate(
-                                        resultDate.getDate() - daysToSubtract
-                                      );
-                                      let today = new Date();
-                                      let differenceInTime = today - resultDate;
-                                      let differenceInDays = Math.floor(
-                                        differenceInTime / (1000 * 60 * 60 * 24)
-                                      );
-                                      return parseInt(
-                                        (differenceInDays + 1) / 7
-                                      ) == 0
-                                        ? 1
-                                        : parseInt((differenceInDays + 1) / 7);
-                                    })()
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
+                            $steps["updateWeek2"] =
+                              $state.typeInterDate != "manually"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["week"]
+                                      },
+                                      operation: 0,
+                                      value: (() => {
+                                        let initialDate = new Date(
+                                          $state.duDate
+                                        );
+                                        initialDate.setHours(23);
+                                        initialDate.setMinutes(59);
+                                        initialDate.setSeconds(59);
+                                        let daysToSubtract = 280;
+                                        let resultDate = new Date(initialDate);
+                                        resultDate.setDate(
+                                          resultDate.getDate() - daysToSubtract
+                                        );
+                                        let today = new Date();
+                                        let differenceInTime =
+                                          today - resultDate;
+                                        let differenceInDays = Math.floor(
+                                          differenceInTime /
+                                            (1000 * 60 * 60 * 24)
+                                        );
+                                        return parseInt(
+                                          (differenceInDays + 1) / 7
+                                        ) == 0
+                                          ? 1
+                                          : parseInt(
+                                              (differenceInDays + 1) / 7
+                                            );
+                                      })()
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
 
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
                             if (
                               $steps["updateWeek2"] != null &&
                               typeof $steps["updateWeek2"] === "object" &&
@@ -1426,48 +1438,54 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               ];
                             }
 
-                            $steps["updateDay2"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["day"]
-                                    },
-                                    operation: 0,
-                                    value: (() => {
-                                      let initialDate = new Date($state.duDate);
-                                      initialDate.setHours(23);
-                                      initialDate.setMinutes(59);
-                                      initialDate.setSeconds(59);
-                                      let daysToSubtract = 280;
-                                      let resultDate = new Date(initialDate);
-                                      resultDate.setDate(
-                                        resultDate.getDate() - daysToSubtract
-                                      );
-                                      let today = new Date();
-                                      let differenceInTime = today - resultDate;
-                                      let differenceInDays = Math.floor(
-                                        differenceInTime / (1000 * 60 * 60 * 24)
-                                      );
-                                      return ((differenceInDays + 1) % 7) + 1;
-                                    })()
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
+                            $steps["updateDay2"] =
+                              $state.typeInterDate != "manually"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["day"]
+                                      },
+                                      operation: 0,
+                                      value: (() => {
+                                        let initialDate = new Date(
+                                          $state.duDate
+                                        );
+                                        initialDate.setHours(23);
+                                        initialDate.setMinutes(59);
+                                        initialDate.setSeconds(59);
+                                        let daysToSubtract = 280;
+                                        let resultDate = new Date(initialDate);
+                                        resultDate.setDate(
+                                          resultDate.getDate() - daysToSubtract
+                                        );
+                                        let today = new Date();
+                                        let differenceInTime =
+                                          today - resultDate;
+                                        let differenceInDays = Math.floor(
+                                          differenceInTime /
+                                            (1000 * 60 * 60 * 24)
+                                        );
+                                        return ((differenceInDays + 1) % 7) + 1;
+                                      })()
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
 
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
                             if (
                               $steps["updateDay2"] != null &&
                               typeof $steps["updateDay2"] === "object" &&

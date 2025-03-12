@@ -76,16 +76,13 @@ createPlasmicElementProxy;
 
 export type PlasmicComment__VariantMembers = {
   islikecomment: "islikecomment";
-  unnamedVariant: "unnamedVariant";
 };
 export type PlasmicComment__VariantsArgs = {
   islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
-  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
 };
 type VariantPropType = keyof PlasmicComment__VariantsArgs;
 export const PlasmicComment__VariantProps = new Array<VariantPropType>(
-  "islikecomment",
-  "unnamedVariant"
+  "islikecomment"
 );
 
 export type PlasmicComment__ArgsType = {
@@ -110,7 +107,6 @@ export interface DefaultCommentProps {
   children?: React.ReactNode;
   slot?: React.ReactNode;
   islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
-  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   className?: string;
 }
 
@@ -161,12 +157,6 @@ function PlasmicComment__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.islikecomment
-      },
-      {
-        path: "unnamedVariant",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant
       }
     ],
     [$props, $ctx, $refs]
@@ -192,25 +182,10 @@ function PlasmicComment__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root,
-        {
-          [sty.rootunnamedVariant]: hasVariant(
-            $state,
-            "unnamedVariant",
-            "unnamedVariant"
-          )
-        }
+        sty.root
       )}
     >
-      <div
-        className={classNames(projectcss.all, sty.freeBox__euKls, {
-          [sty.freeBoxunnamedVariant__euKlsl2ED]: hasVariant(
-            $state,
-            "unnamedVariant",
-            "unnamedVariant"
-          )
-        })}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__euKls)}>
         <div className={classNames(projectcss.all, sty.freeBox__qFvXh)}>
           {renderPlasmicSlot({
             defaultContents: (
@@ -340,6 +315,21 @@ function PlasmicComment__RenderFunc(props: {
           value: args.slot
         })}
       </div>
+      <div className={classNames(projectcss.all, sty.freeBox__vr9Oq)}>
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__zXnXw
+          )}
+        >
+          {"\u067e\u0627\u0633\u062e"}
+        </div>
+        <Icon172Icon
+          className={classNames(projectcss.all, sty.svg__fIrQ9)}
+          role={"img"}
+        />
+      </div>
       <Commentlikebutton
         data-plasmic-name={"commentlikebutton"}
         data-plasmic-override={overrides.commentlikebutton}
@@ -348,11 +338,6 @@ function PlasmicComment__RenderFunc(props: {
             $state,
             "islikecomment",
             "islikecomment"
-          ),
-          [sty.commentlikebuttonunnamedVariant]: hasVariant(
-            $state,
-            "unnamedVariant",
-            "unnamedVariant"
           )
         })}
         islikecomment={
@@ -374,85 +359,6 @@ function PlasmicComment__RenderFunc(props: {
           }
         })()}
       />
-
-      <div
-        className={classNames(projectcss.all, sty.freeBox__wh247, {
-          [sty.freeBoxunnamedVariant__wh247L2ED]: hasVariant(
-            $state,
-            "unnamedVariant",
-            "unnamedVariant"
-          )
-        })}
-        onClick={async event => {
-          const $steps = {};
-
-          $steps["updateStateVariable"] = true
-            ? (() => {
-                const actionArgs = {};
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
-                  }
-                  const { objRoot, variablePath } = variable;
-                  undefined;
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["updateStateVariable"] != null &&
-            typeof $steps["updateStateVariable"] === "object" &&
-            typeof $steps["updateStateVariable"].then === "function"
-          ) {
-            $steps["updateStateVariable"] = await $steps["updateStateVariable"];
-          }
-        }}
-      >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__qZd9C,
-            {
-              [sty.textunnamedVariant__qZd9CL2ED]: hasVariant(
-                $state,
-                "unnamedVariant",
-                "unnamedVariant"
-              )
-            }
-          )}
-        >
-          {"\u067e\u0627\u0633\u062e"}
-        </div>
-        <Icon172Icon
-          className={classNames(projectcss.all, sty.svg__ebdV, {
-            [sty.svgunnamedVariant__ebdVL2ED]: hasVariant(
-              $state,
-              "unnamedVariant",
-              "unnamedVariant"
-            )
-          })}
-          role={"img"}
-        />
-      </div>
-      <div
-        className={classNames(projectcss.all, sty.freeBox__aRtS, {
-          [sty.freeBoxunnamedVariant__aRtSl2ED]: hasVariant(
-            $state,
-            "unnamedVariant",
-            "unnamedVariant"
-          )
-        })}
-      >
-        <div
-          className={classNames(projectcss.all, sty.freeBox___5YoXf, {
-            [sty.freeBoxunnamedVariant___5YoXfl2ED]: hasVariant(
-              $state,
-              "unnamedVariant",
-              "unnamedVariant"
-            )
-          })}
-        />
-      </div>
     </div>
   ) as React.ReactElement | null;
 }
