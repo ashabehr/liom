@@ -12595,15 +12595,22 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 );
                                                 screening =
                                                   filteredItem?.text ?? "";
-                                                return (
-                                                  (test == ""
-                                                    ? ""
-                                                    : test + "\n\n") +
-                                                  (screening == ""
-                                                    ? ""
-                                                    : screening + "\n\n") +
-                                                  ultrasound
-                                                );
+                                                if (
+                                                  screening == test &&
+                                                  test == ultrasound &&
+                                                  screening == ultrasound
+                                                )
+                                                  return ultrasound;
+                                                else
+                                                  return (
+                                                    (test == ""
+                                                      ? ""
+                                                      : test + "\n\n") +
+                                                    (screening == ""
+                                                      ? ""
+                                                      : screening + "\n\n") +
+                                                    ultrasound
+                                                  );
                                               })();
                                             } catch (e) {
                                               if (
