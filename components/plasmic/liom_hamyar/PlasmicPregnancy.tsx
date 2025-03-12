@@ -10675,7 +10675,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       return (
                                         !active &&
                                         $state.collapseMedicine2.open &&
-                                        $state.selectedWeek >= 12
+                                        $state.selectedWeek >= 12 &&
+                                        $ctx.query.inApp != "true"
                                       );
                                     })()
                                       ? (() => {
@@ -10722,6 +10723,45 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     ) {
                                       $steps["updateDirectDialog2Open"] =
                                         await $steps["updateDirectDialog2Open"];
+                                    }
+
+                                    $steps["runCode"] = (() => {
+                                      const allowance =
+                                        $state?.getUserInfo?.data?.[0]?.result
+                                          ?.allowance || [];
+                                      const filteredItem = allowance.find(
+                                        item => item.type.includes("danger")
+                                      );
+                                      const active = filteredItem
+                                        ? filteredItem.active
+                                        : false;
+                                      return (
+                                        !active &&
+                                        $state.collapseMedicine2.open &&
+                                        $state.selectedWeek >= 12 &&
+                                        $ctx.query.inApp == "true"
+                                      );
+                                    })()
+                                      ? (() => {
+                                          const actionArgs = {
+                                            customFunction: async () => {
+                                              return undefined;
+                                            }
+                                          };
+                                          return (({ customFunction }) => {
+                                            return customFunction();
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["runCode"] != null &&
+                                      typeof $steps["runCode"] === "object" &&
+                                      typeof $steps["runCode"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["runCode"] = await $steps[
+                                        "runCode"
+                                      ];
                                     }
 
                                     $steps["invokeGlobalAction"] =
