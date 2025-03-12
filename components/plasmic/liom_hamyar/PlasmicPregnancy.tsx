@@ -662,16 +662,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (() => {
-                const dateString = $state.user[0].dueDate;
-                const givenDate = new Date(dateString);
-                const now = new Date();
-                const differenceInMs = givenDate - now;
-                const differenceInDays = Math.floor(
-                  differenceInMs / (1000 * 60 * 60 * 24)
-                );
-                return differenceInDays <= 0 && $ctx.query.userId == 147813698;
-              })();
+              return false;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1016,7 +1007,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               $state.loadingAdvice = true;
                               return fetch(
                                 "https://n8n.staas.ir/webhook/getAdvice-v2/?weekNumber=" +
-                                  $state.weeksPregnant,
+                                  10,
                                 { method: "GET" }
                               )
                                 .then(response => response.json())
@@ -12604,24 +12595,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 );
                                                 screening =
                                                   filteredItem?.text ?? "";
-                                                if (test == ultrasound)
-                                                  return test;
-                                                else if (test == screening)
-                                                  return test;
-                                                else if (
-                                                  ultrasound == screening
-                                                )
-                                                  return ultrasound;
-                                                else
-                                                  return (
-                                                    (test == ""
-                                                      ? ""
-                                                      : test + "\n\n") +
-                                                    (screening == ""
-                                                      ? ""
-                                                      : screening + "\n\n") +
-                                                    ultrasound
-                                                  );
+                                                return (
+                                                  (test == ""
+                                                    ? ""
+                                                    : test + "\n\n") +
+                                                  (screening == ""
+                                                    ? ""
+                                                    : screening + "\n\n") +
+                                                  ultrasound
+                                                );
                                               })();
                                             } catch (e) {
                                               if (
@@ -17899,156 +17881,103 @@ function PlasmicPregnancy__RenderFunc(props: {
               })()}
             />
           </section>
-          {(() => {
-            const child$Props = {
-              className: classNames("__wab_instance", sty.slideinModal),
-              click: generateStateValueProp($state, ["slideinModal", "click"]),
-              onClickChange: async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "slideinModal",
-                  "click"
-                ]).apply(null, eventArgs);
+          <SlideinModal
+            data-plasmic-name={"slideinModal"}
+            data-plasmic-override={overrides.slideinModal}
+            className={classNames("__wab_instance", sty.slideinModal)}
+            click={generateStateValueProp($state, ["slideinModal", "click"])}
+            onClickChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "slideinModal",
+                "click"
+              ]).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
               }
-            };
+            }}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__uFl1H)} />
 
-            initializePlasmicStates(
-              $state,
-              [
-                {
-                  name: "slideinModal.click",
-                  initFunc: ({ $props, $state, $queries }) =>
-                    (() => {
-                      try {
-                        return (() => {
-                          const dateString = $state.user[0].dueDate;
-                          const givenDate = new Date(dateString);
-                          const now = new Date();
-                          const differenceInMs = givenDate - now;
-                          const differenceInDays = Math.floor(
-                            differenceInMs / (1000 * 60 * 60 * 24)
-                          );
-                          return (
-                            differenceInDays <= 0 &&
-                            $ctx.query.userId == 147813698
-                          );
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()
+            {(() => {
+              try {
+                return (() => {
+                  const dateString = $state.user[0].dueDate;
+                  const givenDate = new Date(dateString);
+                  const now = new Date();
+                  const differenceInMs = givenDate - now;
+                  const differenceInDays = Math.floor(
+                    differenceInMs / (1000 * 60 * 60 * 24)
+                  );
+                  return (
+                    differenceInDays <= 0 && $ctx.query.userId == 147813698
+                  );
+                })();
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
                 }
-              ],
-              []
-            );
-            return (
-              <SlideinModal
-                data-plasmic-name={"slideinModal"}
-                data-plasmic-override={overrides.slideinModal}
-                {...child$Props}
-              >
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__m372N)}>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__uFl1H)}
-                />
-
-                {(() => {
-                  try {
-                    return (() => {
-                      const dateString = $state.user[0].dueDate;
-                      const givenDate = new Date(dateString);
-                      const now = new Date();
-                      const differenceInMs = givenDate - now;
-                      const differenceInDays = Math.floor(
-                        differenceInMs / (1000 * 60 * 60 * 24)
-                      );
-                      return (
-                        differenceInDays <= 0 && $ctx.query.userId == 147813698
-                      );
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__smiw3
+                  )}
+                >
+                  {
+                    "\u0637\u0628\u0642 \u0645\u062d\u0633\u0627\u0628\u0627\u062a \u0645\u0627 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646 \u0634\u0645\u0627 \u0631\u0633\u06cc\u062f\u0647 \u0627\u06af\u0631 \u0647\u0646\u0648\u0632 \u0632\u0627\u06cc\u0645\u0627\u0646 \u0646\u06a9\u0631\u062f\u06cc \u0628\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646\u062a\u0648 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u06a9\u0646 "
                   }
-                })() ? (
+                </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__d8Him)}
+                >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__m372N)}
+                    className={classNames(projectcss.all, sty.freeBox___2LYap)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__smiw3
+                        sty.text__z9CSp
                       )}
                     >
                       {
-                        "\u0637\u0628\u0642 \u0645\u062d\u0633\u0627\u0628\u0627\u062a \u0645\u0627 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646 \u0634\u0645\u0627 \u0631\u0633\u06cc\u062f\u0647 \u0627\u06af\u0631 \u0647\u0646\u0648\u0632 \u0632\u0627\u06cc\u0645\u0627\u0646 \u0646\u06a9\u0631\u062f\u06cc \u0628\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646\u062a\u0648 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u06a9\u0646 "
+                        "\u0632\u0627\u06cc\u0645\u0627\u0646 \u06a9\u0631\u062f\u0645"
                       }
                     </div>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__d8Him)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___2LYap
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__z9CSp
-                          )}
-                        >
-                          {
-                            "\u0632\u0627\u06cc\u0645\u0627\u0646 \u06a9\u0631\u062f\u0645"
-                          }
-                        </div>
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__uVriR
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__rqIj
-                          )}
-                        >
-                          {
-                            "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
-                          }
-                        </div>
-                      </div>
-                    </Stack__>
                   </div>
-                ) : null}
-              </SlideinModal>
-            );
-          })()}
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__uVriR)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rqIj
+                      )}
+                    >
+                      {
+                        "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
+                      }
+                    </div>
+                  </div>
+                </Stack__>
+              </div>
+            ) : null}
+          </SlideinModal>
         </div>
       </div>
     </React.Fragment>

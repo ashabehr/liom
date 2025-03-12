@@ -1657,34 +1657,6 @@ function PlasmicHamyar__RenderFunc(props: {
           )}
           onLoad={async event => {
             const $steps = {};
-
-            $steps["runCode"] = false
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        const urlParams = new URLSearchParams(
-                          window.location.search
-                        );
-                        const r = urlParams.get("r");
-                        const m = urlParams.get("m");
-                        return (window.location.href =
-                          "https://apps.liom.app/intro/?r=" + r + "&m=" + m);
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
           }}
         >
           {(

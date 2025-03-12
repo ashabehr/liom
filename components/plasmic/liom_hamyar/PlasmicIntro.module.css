@@ -3,7 +3,7 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   align-content: flex-start;
   justify-items: center;
   justify-content: center;
@@ -15,8 +15,8 @@
     #e0d8f1 55%,
     #8254c6cc 100%
   );
-  overflow: auto;
   min-width: 0;
+  min-height: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
@@ -24,14 +24,14 @@
       calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
     )
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
-  padding: 32px;
+  padding: 0px 32px 32px;
 }
 .root > * {
   grid-column: 4;
 }
 @media (max-width: 640px) {
   .root {
-    padding: 24px;
+    padding: 0px 16px 16px;
   }
 }
 @media (max-width: 640px) {
@@ -66,7 +66,7 @@
 }
 @media (max-width: 640px) {
   .img__h1Sjj {
-    width: 50px;
+    width: 60px;
   }
 }
 .text__c7Pzm {
@@ -480,7 +480,7 @@
   right: auto;
   bottom: auto;
   min-width: 0;
-  padding: 8px 8px 24px;
+  padding: 8px 8px 60px;
 }
 .freeBox__rmy4S > :global(.__wab_flex-container) {
   flex-direction: row;
@@ -499,6 +499,11 @@
   > picture
   > img {
   margin-left: 8px;
+}
+@media (max-width: 640px) {
+  .freeBox__rmy4S {
+    padding-bottom: 50px;
+  }
 }
 .button5:global(.__wab_instance) {
   max-width: 100%;
