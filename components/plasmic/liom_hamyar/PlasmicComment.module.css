@@ -170,6 +170,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  margin-bottom: 22px;
   min-width: 0;
   padding: 8px 0px 12px 8px;
 }
@@ -183,25 +184,34 @@
   font-size: 16px;
   min-width: 0;
 }
-.freeBox__vr9Oq {
+.commentlikebutton:global(.__wab_instance) {
+  max-width: 100%;
+  position: absolute;
+  left: auto;
+  top: 127px;
+  z-index: 1;
+  bottom: -31px;
+  right: 90px;
+  width: auto;
+}
+.freeBox__d9Vy1 {
   display: flex;
   flex-direction: row;
   position: absolute;
   align-items: center;
   justify-content: center;
-  width: auto;
-  height: auto;
   max-width: 100%;
-  margin-top: 30px;
+  left: 1056px;
+  top: 127px;
   background: var(--token-R_Rsn0nP9oIv);
-  box-shadow: 0px 4px 16px 0px var(--token-LNIzKl5AGPPT);
-  left: 1055px;
-  top: 209px;
+  right: 10px;
+  height: auto;
+  width: auto;
   border-radius: 50%;
   padding: 8px;
-  border: 0.5px solid var(--token-R_Rsn0nP9oIv);
+  border: 2px solid var(--token-Y4frplZPI0IJ);
 }
-.text__zXnXw {
+.text__w1Qlg {
   position: relative;
   width: 100%;
   height: auto;
@@ -209,28 +219,10 @@
   font-size: 16px;
   min-width: 0;
 }
-.svg__fIrQ9 {
+.svg__b5LFg {
   object-fit: cover;
   max-width: 100%;
   width: 25px;
   height: 25px;
-  position: relative;
-  left: auto;
-  top: auto;
   flex-shrink: 0;
-}
-.commentlikebutton:global(.__wab_instance) {
-  position: fixed;
-  margin-top: 30px;
-  left: 1083px;
-  top: 140px;
-  align-self: flex-start;
-  z-index: 1;
-}
-.root .commentlikebutton:global(.__wab_instance) {
-  position: relative;
-  left: auto;
-  top: auto;
-  bottom: auto;
-  right: auto;
 }

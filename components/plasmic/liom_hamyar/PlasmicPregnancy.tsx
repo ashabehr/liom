@@ -81,6 +81,7 @@ import BuyComponenct from "../../BuyComponenct"; // plasmic-import: Ww7_RchUYDdQ
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
+import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -136,6 +137,7 @@ export type PlasmicPregnancy__OverridesType = {
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
   getUserInfo?: Flex__<typeof ApiRequest>;
   directDialog2?: Flex__<typeof DirectDialog2>;
+  slideinModal?: Flex__<typeof SlideinModal>;
 };
 
 export interface DefaultPregnancyProps {}
@@ -392,7 +394,7 @@ function PlasmicPregnancy__RenderFunc(props: {
               let differenceInDays = Math.floor(
                 differenceInTime / (1000 * 60 * 60 * 24)
               );
-              return parseInt(280 - differenceInDays) - 2;
+              return parseInt(280 - differenceInDays) - 1;
             } else return 0;
           })()
       },
@@ -652,6 +654,34 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "slideinModal.click",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                const dateString = $state.user[0].dueDate;
+                const givenDate = new Date(dateString);
+                const now = new Date();
+                const differenceInMs = givenDate - now;
+                const differenceInDays = Math.floor(
+                  differenceInMs / (1000 * 60 * 60 * 24)
+                );
+                return differenceInDays <= 0 && $ctx.query.userId == 147813698;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1448,50 +1478,247 @@ function PlasmicPregnancy__RenderFunc(props: {
                 }
               })() ? (
                 <div className={classNames(projectcss.all, sty.freeBox__g9SBs)}>
-                  {(() => {
-                    try {
-                      return (() => {
-                        const dateString = $state.user[0].dueDate;
-                        const givenDate = new Date(dateString);
-                        const now = new Date();
-                        const differenceInMs = givenDate - now;
-                        const differenceInDays = Math.floor(
-                          differenceInMs / (1000 * 60 * 60 * 24)
-                        );
-                        return false;
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return false;
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__bIoNa)}
+                  >
+                    {(() => {
+                      try {
+                        return (() => {
+                          const dateString = $state.user[0].dueDate;
+                          const givenDate = new Date(dateString);
+                          const now = new Date();
+                          const differenceInMs = givenDate - now;
+                          const differenceInDays = Math.floor(
+                            differenceInMs / (1000 * 60 * 60 * 24)
+                          );
+                          return (
+                            differenceInDays < 0 &&
+                            $ctx.query.userId == 147813698
+                          );
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__eGfAu)}
-                    >
-                      <PlasmicImg__
-                        alt={""}
-                        className={classNames(sty.img__c4Cc)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        loading={"lazy"}
-                        src={{
-                          src: "/plasmic/liom_hamyar/images/_72508101Png.png",
-                          fullWidth: 491,
-                          fullHeight: 450,
-                          aspectRatio: undefined
-                        }}
-                      />
-                    </div>
-                  ) : null}
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__gCbZt
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__mt4Vt
+                          )}
+                        >
+                          {
+                            "\u0637\u0628\u0642 \u0645\u062d\u0633\u0627\u0628\u0627\u062a \u0645\u0627 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646 \u0634\u0645\u0627 \u0631\u0633\u06cc\u062f\u0647 \u0627\u06af\u0631 \u0647\u0646\u0648\u0632 \u0632\u0627\u06cc\u0645\u0627\u0646 \u0646\u06a9\u0631\u062f\u06cc \u0628\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646\u062a\u0648 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u06a9\u0646 ."
+                          }
+                        </div>
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__bQe
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__kcmw6
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__aXha
+                              )}
+                            >
+                              {
+                                "\u0632\u0627\u06cc\u0645\u0627\u0646 \u06a9\u0631\u062f\u0645"
+                              }
+                            </div>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__bwk9F
+                            )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["goToPage"] = (() => {
+                                if ($ctx.query?.inApp == "true") return false;
+                                else return true;
+                              })()
+                                ? (() => {
+                                    const actionArgs = {
+                                      destination: (() => {
+                                        try {
+                                          return (
+                                            "https://apps.liom.app/setting-pregnancy/?token=" +
+                                            $ctx.query.token +
+                                            "&userId=" +
+                                            $ctx.query.userId +
+                                            "&theme=" +
+                                            $ctx.query.theme +
+                                            "&version=" +
+                                            $ctx.query.version
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["goToPage"] != null &&
+                                typeof $steps["goToPage"] === "object" &&
+                                typeof $steps["goToPage"].then === "function"
+                              ) {
+                                $steps["goToPage"] = await $steps["goToPage"];
+                              }
+
+                              $steps["runCode"] = (() => {
+                                if ($ctx.query?.inApp == "true") return true;
+                                else return false;
+                              })()
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          return window.FlutterChannel.postMessage(
+                                            "#healthSettingPage"
+                                          );
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+
+                              $steps["invokeGlobalAction"] =
+                                $ctx.query.userId.slice(
+                                  4,
+                                  $ctx.query.userId.length - 4
+                                ) != "314149" &&
+                                $ctx.query.userId.slice(
+                                  4,
+                                  $ctx.query.userId.length - 4
+                                ) != "1"
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "POST",
+                                          "https://api.liom.app/service/log",
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return {
+                                                userId: $ctx.query.userId.slice(
+                                                  4,
+                                                  $ctx.query.userId.length - 4
+                                                ),
+                                                pageName: "settingPage",
+                                                action: "clickOpen",
+                                                extraData: {}
+                                              };
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })(),
+                                          {
+                                            headers: {
+                                              "Content-Type":
+                                                "application/json",
+                                              Authorization:
+                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                            }
+                                          }
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] = await $steps[
+                                  "invokeGlobalAction"
+                                ];
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__gTFhf
+                              )}
+                            >
+                              {
+                                "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
+                              }
+                            </div>
+                          </div>
+                        </Stack__>
+                      </div>
+                    ) : null}
+                  </div>
                   {(() => {
                     try {
                       return (() => {
@@ -17672,6 +17899,156 @@ function PlasmicPregnancy__RenderFunc(props: {
               })()}
             />
           </section>
+          {(() => {
+            const child$Props = {
+              className: classNames("__wab_instance", sty.slideinModal),
+              click: generateStateValueProp($state, ["slideinModal", "click"]),
+              onClickChange: async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "slideinModal",
+                  "click"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }
+            };
+
+            initializePlasmicStates(
+              $state,
+              [
+                {
+                  name: "slideinModal.click",
+                  initFunc: ({ $props, $state, $queries }) =>
+                    (() => {
+                      try {
+                        return (() => {
+                          const dateString = $state.user[0].dueDate;
+                          const givenDate = new Date(dateString);
+                          const now = new Date();
+                          const differenceInMs = givenDate - now;
+                          const differenceInDays = Math.floor(
+                            differenceInMs / (1000 * 60 * 60 * 24)
+                          );
+                          return (
+                            differenceInDays <= 0 &&
+                            $ctx.query.userId == 147813698
+                          );
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                }
+              ],
+              []
+            );
+            return (
+              <SlideinModal
+                data-plasmic-name={"slideinModal"}
+                data-plasmic-override={overrides.slideinModal}
+                {...child$Props}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__uFl1H)}
+                />
+
+                {(() => {
+                  try {
+                    return (() => {
+                      const dateString = $state.user[0].dueDate;
+                      const givenDate = new Date(dateString);
+                      const now = new Date();
+                      const differenceInMs = givenDate - now;
+                      const differenceInDays = Math.floor(
+                        differenceInMs / (1000 * 60 * 60 * 24)
+                      );
+                      return (
+                        differenceInDays <= 0 && $ctx.query.userId == 147813698
+                      );
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__m372N)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__smiw3
+                      )}
+                    >
+                      {
+                        "\u0637\u0628\u0642 \u0645\u062d\u0633\u0627\u0628\u0627\u062a \u0645\u0627 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646 \u0634\u0645\u0627 \u0631\u0633\u06cc\u062f\u0647 \u0627\u06af\u0631 \u0647\u0646\u0648\u0632 \u0632\u0627\u06cc\u0645\u0627\u0646 \u0646\u06a9\u0631\u062f\u06cc \u0628\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646\u062a\u0648 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u06a9\u0646 "
+                      }
+                    </div>
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__d8Him)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___2LYap
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__z9CSp
+                          )}
+                        >
+                          {
+                            "\u0632\u0627\u06cc\u0645\u0627\u0646 \u06a9\u0631\u062f\u0645"
+                          }
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__uVriR
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__rqIj
+                          )}
+                        >
+                          {
+                            "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
+                          }
+                        </div>
+                      </div>
+                    </Stack__>
+                  </div>
+                ) : null}
+              </SlideinModal>
+            );
+          })()}
         </div>
       </div>
     </React.Fragment>
@@ -17700,7 +18077,8 @@ const PlasmicDescendants = {
     "switchbest2",
     "collapseHealth",
     "getUserInfo",
-    "directDialog2"
+    "directDialog2",
+    "slideinModal"
   ],
   section: [
     "section",
@@ -17742,7 +18120,8 @@ const PlasmicDescendants = {
   switchbest2: ["switchbest2"],
   collapseHealth: ["collapseHealth"],
   getUserInfo: ["getUserInfo"],
-  directDialog2: ["directDialog2"]
+  directDialog2: ["directDialog2"],
+  slideinModal: ["slideinModal"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -17769,6 +18148,7 @@ type NodeDefaultElementType = {
   collapseHealth: typeof AntdSingleCollapse;
   getUserInfo: typeof ApiRequest;
   directDialog2: typeof DirectDialog2;
+  slideinModal: typeof SlideinModal;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -17876,6 +18256,7 @@ export const PlasmicPregnancy = Object.assign(
     collapseHealth: makeNodeComponent("collapseHealth"),
     getUserInfo: makeNodeComponent("getUserInfo"),
     directDialog2: makeNodeComponent("directDialog2"),
+    slideinModal: makeNodeComponent("slideinModal"),
 
     // Metadata about props expected for PlasmicPregnancy
     internalVariantProps: PlasmicPregnancy__VariantProps,

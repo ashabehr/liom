@@ -315,36 +315,10 @@ function PlasmicComment__RenderFunc(props: {
           value: args.slot
         })}
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__vr9Oq)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__zXnXw
-          )}
-        >
-          {"\u067e\u0627\u0633\u062e"}
-        </div>
-        <Icon172Icon
-          className={classNames(projectcss.all, sty.svg__fIrQ9)}
-          role={"img"}
-        />
-      </div>
       <Commentlikebutton
         data-plasmic-name={"commentlikebutton"}
         data-plasmic-override={overrides.commentlikebutton}
-        className={classNames("__wab_instance", sty.commentlikebutton, {
-          [sty.commentlikebuttonislikecomment]: hasVariant(
-            $state,
-            "islikecomment",
-            "islikecomment"
-          )
-        })}
-        islikecomment={
-          hasVariant($state, "islikecomment", "islikecomment")
-            ? true
-            : undefined
-        }
+        className={classNames("__wab_instance", sty.commentlikebutton)}
         likeCommentCount={(() => {
           try {
             return $props.likeCountForComment;
@@ -359,6 +333,22 @@ function PlasmicComment__RenderFunc(props: {
           }
         })()}
       />
+
+      <div className={classNames(projectcss.all, sty.freeBox__d9Vy1)}>
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__w1Qlg
+          )}
+        >
+          {"\u067e\u0627\u0633\u062e"}
+        </div>
+        <Icon172Icon
+          className={classNames(projectcss.all, sty.svg__b5LFg)}
+          role={"img"}
+        />
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
