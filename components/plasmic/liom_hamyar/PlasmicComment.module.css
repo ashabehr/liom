@@ -198,7 +198,7 @@
 }
 .commentlikebuttonunnamedVariant:global(.__wab_instance) {
   left: 1011px;
-  top: 369px;
+  top: 380px;
   position: sticky;
 }
 .freeBox__wh247 {
@@ -223,7 +223,7 @@
 }
 .freeBoxunnamedVariant__wh247L2ED {
   left: 1065px;
-  top: 370px;
+  top: 369px;
   z-index: 1;
   position: sticky;
   height: auto;
@@ -246,6 +246,22 @@
 .svgunnamedVariant__ebdVL2ED {
   align-self: center;
 }
+.freeBox__aRtS {
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0px;
+  min-width: 0;
+  display: none;
+  padding: 0px 8px 8px;
+}
+.freeBoxunnamedVariant__aRtSl2ED {
+  display: flex;
+}
 .freeBox___5YoXf {
   flex-direction: column;
   position: relative;
@@ -254,7 +270,7 @@
   width: 100%;
   max-width: 100%;
   margin-right: 70px;
-  margin-top: 40px;
+  margin-top: 0px;
   min-width: 0;
   display: none;
   padding: 0px 0px 8px 8px;

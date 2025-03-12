@@ -435,14 +435,24 @@ function PlasmicComment__RenderFunc(props: {
         />
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox___5YoXf, {
-          [sty.freeBoxunnamedVariant___5YoXfl2ED]: hasVariant(
+        className={classNames(projectcss.all, sty.freeBox__aRtS, {
+          [sty.freeBoxunnamedVariant__aRtSl2ED]: hasVariant(
             $state,
             "unnamedVariant",
             "unnamedVariant"
           )
         })}
-      />
+      >
+        <div
+          className={classNames(projectcss.all, sty.freeBox___5YoXf, {
+            [sty.freeBoxunnamedVariant___5YoXfl2ED]: hasVariant(
+              $state,
+              "unnamedVariant",
+              "unnamedVariant"
+            )
+          })}
+        />
+      </div>
     </div>
   ) as React.ReactElement | null;
 }

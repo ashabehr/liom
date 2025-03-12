@@ -10745,7 +10745,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       ? (() => {
                                           const actionArgs = {
                                             customFunction: async () => {
-                                              return undefined;
+                                              return window.FlutterChannel.postMessage(
+                                                "#directDialog-pregnancy_danger_sub"
+                                              );
                                             }
                                           };
                                           return (({ customFunction }) => {
@@ -12104,7 +12106,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         ? filteredItem.active
                                         : false;
                                       return (
-                                        !active && $state.collapseTest.open
+                                        !active &&
+                                        $state.collapseTest.open &&
+                                        $ctx.query.inApp != "true"
                                       );
                                     })()
                                       ? (() => {
@@ -12151,6 +12155,46 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     ) {
                                       $steps["updateDirectDialog2Open"] =
                                         await $steps["updateDirectDialog2Open"];
+                                    }
+
+                                    $steps["runCode"] = (() => {
+                                      const allowance =
+                                        $state?.getUserInfo?.data?.[0]?.result
+                                          ?.allowance || [];
+                                      const filteredItem = allowance.find(
+                                        item => item.type.includes("danger")
+                                      );
+                                      const active = filteredItem
+                                        ? filteredItem.active
+                                        : false;
+                                      return (
+                                        !active &&
+                                        $state.collapseTest.open &&
+                                        $ctx.query.inApp == "true"
+                                      );
+                                    })()
+                                      ? (() => {
+                                          const actionArgs = {
+                                            customFunction: async () => {
+                                              return window.FlutterChannel.postMessage(
+                                                "#directDialog-pregnancy_danger_sub"
+                                              );
+                                            }
+                                          };
+                                          return (({ customFunction }) => {
+                                            return customFunction();
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["runCode"] != null &&
+                                      typeof $steps["runCode"] === "object" &&
+                                      typeof $steps["runCode"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["runCode"] = await $steps[
+                                        "runCode"
+                                      ];
                                     }
 
                                     $steps["invokeGlobalAction"] =
