@@ -936,6 +936,34 @@
   text-align: right;
   font-size: 8px;
 }
+.img___0BjZc {
+  object-fit: cover;
+  max-width: 100%;
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+}
+.img___0BjZc > picture > img {
+  object-fit: cover;
+}
+.text__cKnd {
+  position: relative;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  text-align: right;
+  white-space: pre;
+  min-height: 0;
+}
+.text__szWg7 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding-left: 0px;
+  text-align: right;
+  white-space: pre;
+}
 .section__l5Nnd {
   position: fixed;
   padding-right: 0;

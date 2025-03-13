@@ -543,7 +543,20 @@ function PlasmicClinic__RenderFunc(props: {
         path: "gender",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return new URLSearchParams(window.location.search).get("gender");
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -620,6 +633,7 @@ function PlasmicClinic__RenderFunc(props: {
                               chatstart.listID == 6
                             ) {
                               $ctx.query.gender = "male";
+                              $state.gender = "male";
                             }
                             return ($state.status = "false");
                           } else if (status == "true") {
@@ -895,7 +909,7 @@ function PlasmicClinic__RenderFunc(props: {
               {(() => {
                 try {
                   return (
-                    ($ctx.query.gender ||
+                    ($state.gender != "male" ||
                       new URLSearchParams(window.location.search).get(
                         "gender"
                       )) != "male"
@@ -927,7 +941,7 @@ function PlasmicClinic__RenderFunc(props: {
               {(() => {
                 try {
                   return (
-                    ($ctx.query.gender ||
+                    ($state.gender == "male" ||
                       new URLSearchParams(window.location.search).get(
                         "gender"
                       )) == "male"
@@ -1269,7 +1283,7 @@ function PlasmicClinic__RenderFunc(props: {
             {(() => {
               try {
                 return (
-                  ($ctx.query.gender ||
+                  ($state.gender != "male" ||
                     new URLSearchParams(window.location.search).get(
                       "gender"
                     )) != "male"
@@ -1825,7 +1839,7 @@ function PlasmicClinic__RenderFunc(props: {
             {(() => {
               try {
                 return (
-                  ($ctx.query.gender ||
+                  ($state.gender ||
                     new URLSearchParams(window.location.search).get(
                       "gender"
                     )) == "male"
@@ -2394,7 +2408,7 @@ function PlasmicClinic__RenderFunc(props: {
             {(() => {
               try {
                 return (
-                  ($ctx.query.gender ||
+                  ($state.gender != "male" ||
                     new URLSearchParams(window.location.search).get(
                       "gender"
                     )) != "male"

@@ -92,23 +92,25 @@ export type PlasmicComment__ArgsType = {
   likeCountForComment?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
+  slot2?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "likeCountForComment",
   "children",
-  "slot"
+  "slot",
+  "slot2"
 );
 
 export type PlasmicComment__OverridesType = {
   root?: Flex__<"div">;
-  commentlikebutton?: Flex__<typeof Commentlikebutton>;
 };
 
 export interface DefaultCommentProps {
   likeCountForComment?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
+  slot2?: React.ReactNode;
   islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   className?: string;
@@ -198,6 +200,11 @@ function PlasmicComment__RenderFunc(props: {
             $state,
             "islikecomment",
             "islikecomment"
+          ),
+          [sty.rootunnamedVariant]: hasVariant(
+            $state,
+            "unnamedVariant",
+            "unnamedVariant"
           )
         }
       )}
@@ -208,6 +215,11 @@ function PlasmicComment__RenderFunc(props: {
             $state,
             "islikecomment",
             "islikecomment"
+          ),
+          [sty.freeBoxunnamedVariant__euKlSdngOz]: hasVariant(
+            $state,
+            "unnamedVariant",
+            "unnamedVariant"
           )
         })}
       >
@@ -287,7 +299,13 @@ function PlasmicComment__RenderFunc(props: {
         <Stack__
           as={"div"}
           hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__fSs)}
+          className={classNames(projectcss.all, sty.freeBox__fSs, {
+            [sty.freeBoxislikecomment__fSsH1F7E]: hasVariant(
+              $state,
+              "islikecomment",
+              "islikecomment"
+            )
+          })}
         >
           <div
             className={classNames(
@@ -298,14 +316,28 @@ function PlasmicComment__RenderFunc(props: {
           >
             {"5h ago"}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__ewqKl)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__ewqKl, {
+              [sty.freeBoxislikecomment__ewqKlH1F7E]: hasVariant(
+                $state,
+                "islikecomment",
+                "islikecomment"
+              )
+            })}
+          >
             <Icon170Icon
               className={classNames(projectcss.all, sty.svg__btbrw)}
               role={"img"}
             />
           </div>
           <Icon146Icon
-            className={classNames(projectcss.all, sty.svg__ekfpl)}
+            className={classNames(projectcss.all, sty.svg__ekfpl, {
+              [sty.svgislikecomment__ekfplH1F7E]: hasVariant(
+                $state,
+                "islikecomment",
+                "islikecomment"
+              )
+            })}
             role={"img"}
           />
         </Stack__>
@@ -316,6 +348,11 @@ function PlasmicComment__RenderFunc(props: {
             $state,
             "islikecomment",
             "islikecomment"
+          ),
+          [sty.freeBoxunnamedVariant__bb4BNdngOz]: hasVariant(
+            $state,
+            "unnamedVariant",
+            "unnamedVariant"
           )
         })}
       >
@@ -356,7 +393,10 @@ function PlasmicComment__RenderFunc(props: {
             $state,
             "islikecomment",
             "islikecomment"
-          )
+          ),
+          [sty.freeBoxislikecomment_unnamedVariant__kj0ZjH1F7EDngOz]:
+            hasVariant($state, "unnamedVariant", "unnamedVariant") &&
+            hasVariant($state, "islikecomment", "islikecomment")
         })}
       >
         <div
@@ -383,15 +423,25 @@ function PlasmicComment__RenderFunc(props: {
           />
         </div>
         <Commentlikebutton
-          data-plasmic-name={"commentlikebutton"}
-          data-plasmic-override={overrides.commentlikebutton}
-          className={classNames("__wab_instance", sty.commentlikebutton, {
-            [sty.commentlikebuttonislikecomment]: hasVariant(
-              $state,
-              "islikecomment",
-              "islikecomment"
-            )
-          })}
+          className={classNames(
+            "__wab_instance",
+            sty.commentlikebutton__twQ3M,
+            {
+              [sty.commentlikebuttonislikecomment__twQ3MH1F7E]: hasVariant(
+                $state,
+                "islikecomment",
+                "islikecomment"
+              ),
+              [sty.commentlikebuttonislikecomment_unnamedVariant__twQ3MH1F7EDngOz]:
+                hasVariant($state, "unnamedVariant", "unnamedVariant") &&
+                hasVariant($state, "islikecomment", "islikecomment"),
+              [sty.commentlikebuttonunnamedVariant__twQ3MdngOz]: hasVariant(
+                $state,
+                "unnamedVariant",
+                "unnamedVariant"
+              )
+            }
+          )}
           likeCommentCount={(() => {
             try {
               return $props.likeCountForComment;
@@ -408,28 +458,109 @@ function PlasmicComment__RenderFunc(props: {
         />
       </Stack__>
       <div
-        className={classNames(projectcss.all, sty.freeBox__haj6, {
-          [sty.freeBoxislikecomment__haj6H1F7E]: hasVariant(
+        className={classNames(projectcss.all, sty.freeBox__fNd7F, {
+          [sty.freeBoxislikecomment__fNd7Fh1F7E]: hasVariant(
             $state,
             "islikecomment",
             "islikecomment"
           )
         })}
-      />
+      >
+        <div
+          className={classNames(projectcss.all, sty.freeBox__haj6, {
+            [sty.freeBoxislikecomment__haj6H1F7E]: hasVariant(
+              $state,
+              "islikecomment",
+              "islikecomment"
+            )
+          })}
+        >
+          <div
+            className={classNames(projectcss.all, sty.freeBox__n7WKb, {
+              [sty.freeBoxislikecomment__n7WKbh1F7E]: hasVariant(
+                $state,
+                "islikecomment",
+                "islikecomment"
+              )
+            })}
+          >
+            {renderPlasmicSlot({
+              defaultContents: (
+                <React.Fragment>
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img___7YEcV)}
+                    displayHeight={"48px"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"48px"}
+                    loading={"lazy"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__w7YJd
+                    )}
+                  >
+                    {"Enter some text"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__cLcOl
+                    )}
+                  >
+                    {"Enter some text"}
+                  </div>
+                </React.Fragment>
+              ),
+              value: args.slot2
+            })}
+            <div
+              className={classNames(projectcss.all, sty.freeBox__sIig1, {
+                [sty.freeBoxislikecomment__sIig1H1F7E]: hasVariant(
+                  $state,
+                  "islikecomment",
+                  "islikecomment"
+                )
+              })}
+            />
+          </div>
+        </div>
+        <Commentlikebutton
+          className={classNames("__wab_instance", sty.commentlikebutton__e6Rn2)}
+          likeCommentCount={(() => {
+            try {
+              return $props.likeCountForComment;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+        />
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "commentlikebutton"],
-  commentlikebutton: ["commentlikebutton"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  commentlikebutton: typeof Commentlikebutton;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -492,7 +623,6 @@ export const PlasmicComment = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    commentlikebutton: makeNodeComponent("commentlikebutton"),
 
     // Metadata about props expected for PlasmicComment
     internalVariantProps: PlasmicComment__VariantProps,
