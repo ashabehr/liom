@@ -385,17 +385,27 @@ function PlasmicComment__RenderFunc(props: {
             >
               {"Enter some text"}
             </div>
-            <Icon146Icon
-              className={classNames(projectcss.all, sty.svg__tn7D)}
-              role={"img"}
-            />
-
             <div className={classNames(projectcss.all, sty.freeBox___4EXs)}>
               <Icon170Icon
                 className={classNames(projectcss.all, sty.svg__p1FWd)}
                 role={"img"}
               />
             </div>
+            <Icon146Icon
+              className={classNames(projectcss.all, sty.svg__tn7D)}
+              role={"img"}
+            />
+          </div>
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__kzmxn)}>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text___8AmLi
+            )}
+          >
+            {"Enter some text"}
           </div>
         </div>
       </div>
