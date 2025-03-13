@@ -427,6 +427,7 @@
   max-width: 100%;
   color: #5353531a;
   min-width: 0;
+  display: none;
 }
 .freeBox__jxVCa {
   display: flex;
