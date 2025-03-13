@@ -61,6 +61,15 @@ import {
 
 import Commentlikebutton from "../../Commentlikebutton"; // plasmic-import: wOOFf0E7TUt2/component
 
+import {
+  UnnamedGlobalGroupOfVariants4Value,
+  useUnnamedGlobalGroupOfVariants4
+} from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4"; // plasmic-import: lIC5-18Lrmhu/globalVariant
+import {
+  UnnamedGlobalGroupOfVariants5Value,
+  useUnnamedGlobalGroupOfVariants5
+} from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5"; // plasmic-import: GVtJ0WzqUh-b/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -178,6 +187,11 @@ function PlasmicComment__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    unnamedGlobalGroupOfVariants4: useUnnamedGlobalGroupOfVariants4(),
+    unnamedGlobalGroupOfVariants5: useUnnamedGlobalGroupOfVariants5()
   });
 
   return (
@@ -389,6 +403,54 @@ function PlasmicComment__RenderFunc(props: {
         as={"div"}
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__kj0Zj, {
+          [sty.freeBoxglobal_unnamedGlobalGroupOfVariants4_unnamedVariant__kj0ZjQ92Da]:
+            hasVariant(
+              globalVariants,
+              "unnamedGlobalGroupOfVariants4",
+              "unnamedVariant"
+            ),
+          [sty.freeBoxglobal_unnamedGlobalGroupOfVariants5_unnamedVariant__kj0ZjA5Vx]:
+            hasVariant(
+              globalVariants,
+              "unnamedGlobalGroupOfVariants5",
+              "unnamedVariant"
+            ),
+          [sty.freeBoxglobal_unnamedGlobalGroupOfVariants5_unnamedVariant_global_unnamedGlobalGroupOfVariants4_unnamedVariant__kj0ZjA5VxQ92Da]:
+            hasVariant(
+              globalVariants,
+              "unnamedGlobalGroupOfVariants4",
+              "unnamedVariant"
+            ) &&
+            hasVariant(
+              globalVariants,
+              "unnamedGlobalGroupOfVariants5",
+              "unnamedVariant"
+            ),
+          [sty.freeBoxglobal_unnamedGlobalGroupOfVariants5_unnamedVariant_global_unnamedGlobalGroupOfVariants4_unnamedVariant_unnamedVariant__kj0ZjA5VxQ92DaDngOz]:
+            hasVariant($state, "unnamedVariant", "unnamedVariant") &&
+            hasVariant(
+              globalVariants,
+              "unnamedGlobalGroupOfVariants4",
+              "unnamedVariant"
+            ) &&
+            hasVariant(
+              globalVariants,
+              "unnamedGlobalGroupOfVariants5",
+              "unnamedVariant"
+            ),
+          [sty.freeBoxglobal_unnamedGlobalGroupOfVariants5_unnamedVariant_islikecomment_global_unnamedGlobalGroupOfVariants4_unnamedVariant_unnamedVariant__kj0ZjA5VxH1F7EQ92DaDngOz]:
+            hasVariant($state, "unnamedVariant", "unnamedVariant") &&
+            hasVariant($state, "islikecomment", "islikecomment") &&
+            hasVariant(
+              globalVariants,
+              "unnamedGlobalGroupOfVariants4",
+              "unnamedVariant"
+            ) &&
+            hasVariant(
+              globalVariants,
+              "unnamedGlobalGroupOfVariants5",
+              "unnamedVariant"
+            ),
           [sty.freeBoxislikecomment__kj0ZjH1F7E]: hasVariant(
             $state,
             "islikecomment",

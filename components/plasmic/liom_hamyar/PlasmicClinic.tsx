@@ -543,20 +543,7 @@ function PlasmicClinic__RenderFunc(props: {
         path: "gender",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return new URLSearchParams(window.location.search).get("gender");
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -632,8 +619,7 @@ function PlasmicClinic__RenderFunc(props: {
                               chatstart.listID == 7 ||
                               chatstart.listID == 6
                             ) {
-                              $ctx.query.gender = "male";
-                              $state.gender = "male";
+                              window.open(`/clinic/?status=false&gender=male`);
                             }
                             return ($state.status = "false");
                           } else if (status == "true") {
@@ -644,13 +630,11 @@ function PlasmicClinic__RenderFunc(props: {
                               chatstart.listID == 7 ||
                               chatstart.listID == 6
                             ) {
-                              $state.gender = "male";
                               return window.open(
                                 `/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}&gender=male`,
                                 "_self"
                               );
                             } else {
-                              $state.gender = "female";
                               return window.open(
                                 `/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}&gender=female`,
                                 "_self"
@@ -909,7 +893,7 @@ function PlasmicClinic__RenderFunc(props: {
               {(() => {
                 try {
                   return (
-                    ($state.gender != "male" ||
+                    ($ctx.query.gender ||
                       new URLSearchParams(window.location.search).get(
                         "gender"
                       )) != "male"
@@ -941,7 +925,7 @@ function PlasmicClinic__RenderFunc(props: {
               {(() => {
                 try {
                   return (
-                    ($state.gender == "male" ||
+                    ($ctx.query.gender ||
                       new URLSearchParams(window.location.search).get(
                         "gender"
                       )) == "male"
@@ -1283,7 +1267,7 @@ function PlasmicClinic__RenderFunc(props: {
             {(() => {
               try {
                 return (
-                  ($state.gender != "male" ||
+                  ($ctx.query.gender ||
                     new URLSearchParams(window.location.search).get(
                       "gender"
                     )) != "male"
@@ -1839,7 +1823,7 @@ function PlasmicClinic__RenderFunc(props: {
             {(() => {
               try {
                 return (
-                  ($state.gender ||
+                  ($ctx.query.gender ||
                     new URLSearchParams(window.location.search).get(
                       "gender"
                     )) == "male"
@@ -2408,7 +2392,7 @@ function PlasmicClinic__RenderFunc(props: {
             {(() => {
               try {
                 return (
-                  ($state.gender != "male" ||
+                  ($ctx.query.gender ||
                     new URLSearchParams(window.location.search).get(
                       "gender"
                     )) != "male"
