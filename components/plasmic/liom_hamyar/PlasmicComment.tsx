@@ -75,17 +75,14 @@ import Icon172Icon from "./icons/PlasmicIcon__Icon172"; // plasmic-import: ZAoJb
 createPlasmicElementProxy;
 
 export type PlasmicComment__VariantMembers = {
-  islikecomment: "islikecomment";
-  unnamedVariant: "unnamedVariant";
+  comented: "comented";
 };
 export type PlasmicComment__VariantsArgs = {
-  islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
-  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
+  comented?: SingleBooleanChoiceArg<"comented">;
 };
 type VariantPropType = keyof PlasmicComment__VariantsArgs;
 export const PlasmicComment__VariantProps = new Array<VariantPropType>(
-  "islikecomment",
-  "unnamedVariant"
+  "comented"
 );
 
 export type PlasmicComment__ArgsType = {
@@ -109,8 +106,7 @@ export interface DefaultCommentProps {
   likeCountForComment?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
-  islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
-  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
+  comented?: SingleBooleanChoiceArg<"comented">;
   className?: string;
 }
 
@@ -157,16 +153,10 @@ function PlasmicComment__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "islikecomment",
+        path: "comented",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.islikecomment
-      },
-      {
-        path: "unnamedVariant",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.comented
       }
     ],
     [$props, $ctx, $refs]
@@ -193,31 +183,15 @@ function PlasmicComment__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
-        {
-          [sty.rootislikecomment]: hasVariant(
-            $state,
-            "islikecomment",
-            "islikecomment"
-          ),
-          [sty.rootunnamedVariant]: hasVariant(
-            $state,
-            "unnamedVariant",
-            "unnamedVariant"
-          )
-        }
+        { [sty.rootcomented]: hasVariant($state, "comented", "comented") }
       )}
     >
       <div
         className={classNames(projectcss.all, sty.freeBox__euKls, {
-          [sty.freeBoxislikecomment__euKlsh1F7E]: hasVariant(
+          [sty.freeBoxcomented__euKlSdngOz]: hasVariant(
             $state,
-            "islikecomment",
-            "islikecomment"
-          ),
-          [sty.freeBoxunnamedVariant__euKlSdngOz]: hasVariant(
-            $state,
-            "unnamedVariant",
-            "unnamedVariant"
+            "comented",
+            "comented"
           )
         })}
       >
@@ -297,13 +271,7 @@ function PlasmicComment__RenderFunc(props: {
         <Stack__
           as={"div"}
           hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__fSs, {
-            [sty.freeBoxislikecomment__fSsH1F7E]: hasVariant(
-              $state,
-              "islikecomment",
-              "islikecomment"
-            )
-          })}
+          className={classNames(projectcss.all, sty.freeBox__fSs)}
         >
           <div
             className={classNames(
@@ -314,43 +282,24 @@ function PlasmicComment__RenderFunc(props: {
           >
             {"5h ago"}
           </div>
-          <div
-            className={classNames(projectcss.all, sty.freeBox__ewqKl, {
-              [sty.freeBoxislikecomment__ewqKlH1F7E]: hasVariant(
-                $state,
-                "islikecomment",
-                "islikecomment"
-              )
-            })}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__ewqKl)}>
             <Icon170Icon
               className={classNames(projectcss.all, sty.svg__btbrw)}
               role={"img"}
             />
           </div>
           <Icon146Icon
-            className={classNames(projectcss.all, sty.svg__ekfpl, {
-              [sty.svgislikecomment__ekfplH1F7E]: hasVariant(
-                $state,
-                "islikecomment",
-                "islikecomment"
-              )
-            })}
+            className={classNames(projectcss.all, sty.svg__ekfpl)}
             role={"img"}
           />
         </Stack__>
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__bb4BN, {
-          [sty.freeBoxislikecomment__bb4BNh1F7E]: hasVariant(
+          [sty.freeBoxcomented__bb4BNdngOz]: hasVariant(
             $state,
-            "islikecomment",
-            "islikecomment"
-          ),
-          [sty.freeBoxunnamedVariant__bb4BNdngOz]: hasVariant(
-            $state,
-            "unnamedVariant",
-            "unnamedVariant"
+            "comented",
+            "comented"
           )
         })}
       >
@@ -383,15 +332,7 @@ function PlasmicComment__RenderFunc(props: {
           value: args.slot
         })}
       </div>
-      <div
-        className={classNames(projectcss.all, sty.freeBox__d9Vy1, {
-          [sty.freeBoxislikecomment__d9Vy1H1F7E]: hasVariant(
-            $state,
-            "islikecomment",
-            "islikecomment"
-          )
-        })}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__d9Vy1)}>
         <div
           className={classNames(
             projectcss.all,
@@ -410,18 +351,10 @@ function PlasmicComment__RenderFunc(props: {
         data-plasmic-name={"commentlikebutton"}
         data-plasmic-override={overrides.commentlikebutton}
         className={classNames("__wab_instance", sty.commentlikebutton, {
-          [sty.commentlikebuttonislikecomment]: hasVariant(
+          [sty.commentlikebuttoncomented]: hasVariant(
             $state,
-            "islikecomment",
-            "islikecomment"
-          ),
-          [sty.commentlikebuttonislikecomment_unnamedVariant]:
-            hasVariant($state, "unnamedVariant", "unnamedVariant") &&
-            hasVariant($state, "islikecomment", "islikecomment"),
-          [sty.commentlikebuttonunnamedVariant]: hasVariant(
-            $state,
-            "unnamedVariant",
-            "unnamedVariant"
+            "comented",
+            "comented"
           )
         })}
         likeCommentCount={(() => {
