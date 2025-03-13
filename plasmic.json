@@ -1687,6 +1687,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicIconClinic2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "LqO8252FTurB",
+          "name": "Reply",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicReply.tsx",
+          "importSpec": {
+            "modulePath": "Reply.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicReply.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

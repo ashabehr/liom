@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Commentlikebutton from "../../Commentlikebutton"; // plasmic-import: wOOFf0E7TUt2/component
+import Reply from "../../Reply"; // plasmic-import: LqO8252FTurB/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -93,6 +94,8 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicComment__OverridesType = {
   root?: Flex__<"div">;
+  reply?: Flex__<typeof Reply>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultCommentProps {
@@ -321,47 +324,97 @@ function PlasmicComment__RenderFunc(props: {
         })()}
       />
 
-      <div className={classNames(projectcss.all, sty.freeBox__fu7VW)} />
-
       <Stack__
         as={"div"}
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__eZrem)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__wpq2)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__jrZxH
-            )}
-          >
-            {"\u067e\u0627\u0633\u062e"}
-          </div>
-          <Icon172Icon
-            className={classNames(projectcss.all, sty.svg__vb3O0)}
-            role={"img"}
-          />
-        </div>
+        <Reply
+          data-plasmic-name={"reply"}
+          data-plasmic-override={overrides.reply}
+          className={classNames("__wab_instance", sty.reply)}
+        />
+
         <Commentlikebutton
           className={classNames("__wab_instance", sty.commentlikebutton__w1Y7G)}
         />
       </Stack__>
       <div className={classNames(projectcss.all, sty.freeBox__dzdw)}>
-        <div className={classNames(projectcss.all, sty.freeBox__n5Oa)} />
+        <div className={classNames(projectcss.all, sty.freeBox__n5Oa)}>
+          <div className={classNames(projectcss.all, sty.freeBox__hdJeB)}>
+            <PlasmicImg__
+              data-plasmic-name={"img"}
+              data-plasmic-override={overrides.img}
+              alt={""}
+              className={classNames(sty.img)}
+              displayHeight={"40px"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"40px"}
+              loading={"lazy"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__l3Mkk
+              )}
+            >
+              {"Enter some text"}
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__r9LJv
+              )}
+            >
+              {"Enter some text"}
+            </div>
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__kr8Ra)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__xfEzd
+              )}
+            >
+              {"Enter some text"}
+            </div>
+            <Icon146Icon
+              className={classNames(projectcss.all, sty.svg__tn7D)}
+              role={"img"}
+            />
+
+            <div className={classNames(projectcss.all, sty.freeBox___4EXs)}>
+              <Icon170Icon
+                className={classNames(projectcss.all, sty.svg__p1FWd)}
+                role={"img"}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "reply", "img"],
+  reply: ["reply"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  reply: typeof Reply;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -424,6 +477,8 @@ export const PlasmicComment = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    reply: makeNodeComponent("reply"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicComment
     internalVariantProps: PlasmicComment__VariantProps,

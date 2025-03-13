@@ -62755,11 +62755,7 @@ function PlasmicCalendar__RenderFunc(props: {
           </section>
           {(() => {
             try {
-              return $state.addHome
-                ? window.history.length == 1
-                  ? false
-                  : true
-                : false;
+              return $state.addHome;
             } catch (e) {
               if (
                 e instanceof TypeError ||
