@@ -1483,7 +1483,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             differenceInMs / (1000 * 60 * 60 * 24)
                           );
                           return (
-                            differenceInDays < 0 &&
+                            differenceInDays <= 0 &&
                             $ctx.query.userId == 147813698
                           );
                         })();
