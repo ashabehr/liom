@@ -2,15 +2,13 @@
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  padding-right: 8px;
-  padding-bottom: 8px;
-  padding-top: 8px;
   justify-content: center;
   align-items: center;
   background: var(--token-R_Rsn0nP9oIv);
   position: relative;
   justify-self: flex-start;
   border-radius: 8px;
+  padding: 8px 8px 8px 0px;
   border-width: 1px;
 }
 .freeBox__euKls {
@@ -170,7 +168,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-bottom: 22px;
+  margin-bottom: 0px;
   min-width: 0;
   padding: 8px 0px 12px 8px;
 }
@@ -188,11 +186,11 @@
   max-width: 100%;
   position: absolute;
   left: auto;
-  top: 127px;
+  top: auto;
   z-index: 1;
-  bottom: -31px;
-  right: 90px;
   width: auto;
+  bottom: -20px;
+  right: 100px;
 }
 .freeBox__d9Vy1 {
   display: flex;
@@ -201,28 +199,29 @@
   align-items: center;
   justify-content: center;
   max-width: 100%;
-  left: 1056px;
-  top: 127px;
+  left: auto;
+  top: auto;
   background: var(--token-R_Rsn0nP9oIv);
-  right: 10px;
   height: auto;
   width: auto;
+  bottom: -20px;
+  right: 20px;
   border-radius: 50%;
   padding: 8px;
   border: 2px solid var(--token-Y4frplZPI0IJ);
 }
 .text__w1Qlg {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   font-size: 16px;
-  min-width: 0;
 }
 .svg__b5LFg {
   object-fit: cover;
   max-width: 100%;
   width: 25px;
   height: 25px;
+  margin-left: 0px;
   flex-shrink: 0;
 }

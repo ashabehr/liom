@@ -538,6 +538,12 @@ function PlasmicClinic__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "line"
+      },
+      {
+        path: "gender",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -584,204 +590,6 @@ function PlasmicClinic__RenderFunc(props: {
               [sty.root_1_docters]: hasVariant($state, "_1", "docters")
             }
           )}
-          onLoad={async event => {
-            const $steps = {};
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        var urlParams = new URLSearchParams(
-                          window.location.search
-                        );
-                        if (!localStorage.getItem("ClinicToken")) {
-                          var app = urlParams.get("token");
-                          localStorage.setItem("ClinicToken", app);
-                        }
-                        var status = urlParams.get("status");
-                        if (status == "false") {
-                          var chatstart = JSON.parse(
-                            localStorage.getItem("chatstart")
-                          );
-                          if (chatstart.listID == 7 || chatstart.listID == 6) {
-                            $ctx.query.gender = "male";
-                          }
-                          return ($state.status = "false");
-                        } else if (status == "true") {
-                          var chatstart = JSON.parse(
-                            localStorage.getItem("chatstart")
-                          );
-                          if (chatstart.listID == 7 || chatstart.listID == 6) {
-                            return window.open(
-                              `/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}&gender=male`,
-                              "_self"
-                            );
-                          } else {
-                            return window.open(
-                              `/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}&gender=female`,
-                              "_self"
-                            );
-                          }
-                        }
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
-
-            $steps["invokeGlobalAction"] = true
-              ? (() => {
-                  const actionArgs = {
-                    args: [
-                      undefined,
-                      "https://n8n.staas.ir/webhook/help/getList",
-                      (() => {
-                        try {
-                          return {
-                            token: localStorage.getItem("ClinicToken"),
-                            gender: new URLSearchParams(
-                              new URL(window.location.href).search
-                            ).get("gender")
-                          };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })(),
-                      undefined,
-                      {}
-                    ]
-                  };
-                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                    ...actionArgs.args
-                  ]);
-                })()
-              : undefined;
-            if (
-              $steps["invokeGlobalAction"] != null &&
-              typeof $steps["invokeGlobalAction"] === "object" &&
-              typeof $steps["invokeGlobalAction"].then === "function"
-            ) {
-              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
-            }
-
-            $steps["updateGetData"] = $steps.invokeGlobalAction?.data
-              ? (() => {
-                  const actionArgs = {
-                    variable: {
-                      objRoot: $state,
-                      variablePath: ["getData"]
-                    },
-                    operation: 0,
-                    value: $steps.invokeGlobalAction.data
-                  };
-                  return (({ variable, value, startIndex, deleteCount }) => {
-                    if (!variable) {
-                      return;
-                    }
-                    const { objRoot, variablePath } = variable;
-
-                    $stateSet(objRoot, variablePath, value);
-                    return value;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["updateGetData"] != null &&
-              typeof $steps["updateGetData"] === "object" &&
-              typeof $steps["updateGetData"].then === "function"
-            ) {
-              $steps["updateGetData"] = await $steps["updateGetData"];
-            }
-
-            $steps["runCode2"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        return localStorage.setItem(
-                          "userAllowance",
-                          $state.getData?.userAllowance
-                        );
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode2"] != null &&
-              typeof $steps["runCode2"] === "object" &&
-              typeof $steps["runCode2"].then === "function"
-            ) {
-              $steps["runCode2"] = await $steps["runCode2"];
-            }
-
-            $steps["invokeGlobalAction2"] = true
-              ? (() => {
-                  const actionArgs = { args: [2000] };
-                  return $globalActions["Fragment.wait"]?.apply(null, [
-                    ...actionArgs.args
-                  ]);
-                })()
-              : undefined;
-            if (
-              $steps["invokeGlobalAction2"] != null &&
-              typeof $steps["invokeGlobalAction2"] === "object" &&
-              typeof $steps["invokeGlobalAction2"].then === "function"
-            ) {
-              $steps["invokeGlobalAction2"] = await $steps[
-                "invokeGlobalAction2"
-              ];
-            }
-
-            $steps["updateLoadingPage2"] = true
-              ? (() => {
-                  const actionArgs = {
-                    variable: {
-                      objRoot: $state,
-                      variablePath: ["loadingPage"]
-                    },
-                    operation: 0,
-                    value: false
-                  };
-                  return (({ variable, value, startIndex, deleteCount }) => {
-                    if (!variable) {
-                      return;
-                    }
-                    const { objRoot, variablePath } = variable;
-
-                    $stateSet(objRoot, variablePath, value);
-                    return value;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["updateLoadingPage2"] != null &&
-              typeof $steps["updateLoadingPage2"] === "object" &&
-              typeof $steps["updateLoadingPage2"].then === "function"
-            ) {
-              $steps["updateLoadingPage2"] = await $steps["updateLoadingPage2"];
-            }
-          }}
         >
           <SideEffect
             data-plasmic-name={"sideEffect"}
@@ -789,6 +597,67 @@ function PlasmicClinic__RenderFunc(props: {
             className={classNames("__wab_instance", sty.sideEffect)}
             onMount={async () => {
               const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var urlParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          if (!localStorage.getItem("ClinicToken")) {
+                            var app = urlParams.get("token");
+                            localStorage.setItem("ClinicToken", app);
+                          }
+                          var status = urlParams.get("status");
+                          if (status == "false") {
+                            var chatstart = JSON.parse(
+                              localStorage.getItem("chatstart")
+                            );
+                            if (
+                              chatstart.listID == 7 ||
+                              chatstart.listID == 6
+                            ) {
+                              $ctx.query.gender = "male";
+                            }
+                            return ($state.status = "false");
+                          } else if (status == "true") {
+                            var chatstart = JSON.parse(
+                              localStorage.getItem("chatstart")
+                            );
+                            if (
+                              chatstart.listID == 7 ||
+                              chatstart.listID == 6
+                            ) {
+                              $state.gender = "male";
+                              return window.open(
+                                `/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}&gender=male`,
+                                "_self"
+                              );
+                            } else {
+                              $state.gender = "female";
+                              return window.open(
+                                `/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}&gender=female`,
+                                "_self"
+                              );
+                            }
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
 
               $steps["invokeGlobalAction"] = true
                 ? (() => {
@@ -839,6 +708,129 @@ function PlasmicClinic__RenderFunc(props: {
                 $steps["invokeGlobalAction"] = await $steps[
                   "invokeGlobalAction"
                 ];
+              }
+
+              $steps["invokeGlobalAction2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/help/getList",
+                        (() => {
+                          try {
+                            return {
+                              token: localStorage.getItem("ClinicToken"),
+                              gender:
+                                new URLSearchParams(
+                                  new URL(window.location.href).search
+                                ).get("gender") || $state.gender
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
+              ) {
+                $steps["invokeGlobalAction2"] = await $steps[
+                  "invokeGlobalAction2"
+                ];
+              }
+
+              $steps["updateGetData"] = $steps.invokeGlobalAction2?.data
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["getData"]
+                      },
+                      operation: 0,
+                      value: $steps.invokeGlobalAction2.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateGetData"] != null &&
+                typeof $steps["updateGetData"] === "object" &&
+                typeof $steps["updateGetData"].then === "function"
+              ) {
+                $steps["updateGetData"] = await $steps["updateGetData"];
+              }
+
+              $steps["runCode2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return localStorage.setItem(
+                          "userAllowance",
+                          $state.getData?.userAllowance
+                        );
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
+              ) {
+                $steps["runCode2"] = await $steps["runCode2"];
+              }
+
+              $steps["updateLoadingPage"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loadingPage"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoadingPage"] != null &&
+                typeof $steps["updateLoadingPage"] === "object" &&
+                typeof $steps["updateLoadingPage"].then === "function"
+              ) {
+                $steps["updateLoadingPage"] = await $steps["updateLoadingPage"];
               }
             }}
           />

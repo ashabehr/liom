@@ -76,13 +76,16 @@ createPlasmicElementProxy;
 
 export type PlasmicComment__VariantMembers = {
   islikecomment: "islikecomment";
+  unnamedVariant: "unnamedVariant";
 };
 export type PlasmicComment__VariantsArgs = {
   islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
+  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
 };
 type VariantPropType = keyof PlasmicComment__VariantsArgs;
 export const PlasmicComment__VariantProps = new Array<VariantPropType>(
-  "islikecomment"
+  "islikecomment",
+  "unnamedVariant"
 );
 
 export type PlasmicComment__ArgsType = {
@@ -107,6 +110,7 @@ export interface DefaultCommentProps {
   children?: React.ReactNode;
   slot?: React.ReactNode;
   islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
+  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   className?: string;
 }
 
@@ -157,6 +161,12 @@ function PlasmicComment__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.islikecomment
+      },
+      {
+        path: "unnamedVariant",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant
       }
     ],
     [$props, $ctx, $refs]
