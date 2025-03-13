@@ -721,9 +721,10 @@ function PlasmicClinic__RenderFunc(props: {
                             return {
                               token: localStorage.getItem("ClinicToken"),
                               gender:
+                                $state.gender ||
                                 new URLSearchParams(
                                   new URL(window.location.href).search
-                                ).get("gender") || $state.gender
+                                ).get("gender")
                             };
                           } catch (e) {
                             if (

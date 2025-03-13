@@ -192,10 +192,25 @@ function PlasmicComment__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        {
+          [sty.rootislikecomment]: hasVariant(
+            $state,
+            "islikecomment",
+            "islikecomment"
+          )
+        }
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__euKls)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__euKls, {
+          [sty.freeBoxislikecomment__euKlsh1F7E]: hasVariant(
+            $state,
+            "islikecomment",
+            "islikecomment"
+          )
+        })}
+      >
         <div className={classNames(projectcss.all, sty.freeBox__qFvXh)}>
           {renderPlasmicSlot({
             defaultContents: (
@@ -295,7 +310,15 @@ function PlasmicComment__RenderFunc(props: {
           />
         </Stack__>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__bb4BN)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__bb4BN, {
+          [sty.freeBoxislikecomment__bb4BNh1F7E]: hasVariant(
+            $state,
+            "islikecomment",
+            "islikecomment"
+          )
+        })}
+      >
         {renderPlasmicSlot({
           defaultContents: (
             <div
@@ -325,40 +348,74 @@ function PlasmicComment__RenderFunc(props: {
           value: args.slot
         })}
       </div>
-      <Commentlikebutton
-        data-plasmic-name={"commentlikebutton"}
-        data-plasmic-override={overrides.commentlikebutton}
-        className={classNames("__wab_instance", sty.commentlikebutton)}
-        likeCommentCount={(() => {
-          try {
-            return $props.likeCountForComment;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
-          }
-        })()}
-      />
-
-      <div className={classNames(projectcss.all, sty.freeBox__d9Vy1)}>
+      <Stack__
+        as={"div"}
+        hasGap={true}
+        className={classNames(projectcss.all, sty.freeBox__kj0Zj, {
+          [sty.freeBoxislikecomment__kj0ZjH1F7E]: hasVariant(
+            $state,
+            "islikecomment",
+            "islikecomment"
+          )
+        })}
+      >
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__w1Qlg
-          )}
+          className={classNames(projectcss.all, sty.freeBox__d9Vy1, {
+            [sty.freeBoxislikecomment__d9Vy1H1F7E]: hasVariant(
+              $state,
+              "islikecomment",
+              "islikecomment"
+            )
+          })}
         >
-          {"\u067e\u0627\u0633\u062e"}
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__w1Qlg
+            )}
+          >
+            {"\u067e\u0627\u0633\u062e"}
+          </div>
+          <Icon172Icon
+            className={classNames(projectcss.all, sty.svg__b5LFg)}
+            role={"img"}
+          />
         </div>
-        <Icon172Icon
-          className={classNames(projectcss.all, sty.svg__b5LFg)}
-          role={"img"}
+        <Commentlikebutton
+          data-plasmic-name={"commentlikebutton"}
+          data-plasmic-override={overrides.commentlikebutton}
+          className={classNames("__wab_instance", sty.commentlikebutton, {
+            [sty.commentlikebuttonislikecomment]: hasVariant(
+              $state,
+              "islikecomment",
+              "islikecomment"
+            )
+          })}
+          likeCommentCount={(() => {
+            try {
+              return $props.likeCountForComment;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         />
-      </div>
+      </Stack__>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__haj6, {
+          [sty.freeBoxislikecomment__haj6H1F7E]: hasVariant(
+            $state,
+            "islikecomment",
+            "islikecomment"
+          )
+        })}
+      />
     </div>
   ) as React.ReactElement | null;
 }
