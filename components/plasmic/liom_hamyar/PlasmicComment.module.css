@@ -307,4 +307,5 @@
   align-items: center;
   min-width: 0;
   padding: 8px;
+  border-right: 1px solid var(--token-rGxK1TpZE_rW);
 }
