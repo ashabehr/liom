@@ -1804,8 +1804,10 @@ function PlasmicCalendar__RenderFunc(props: {
                               "token"
                             );
                           app = app.slice(6, app.length - 3);
-                          return localStorage.setItem("token", app);
+                          localStorage.setItem("token", app);
                         }
+                        if (window.history.length == 1)
+                          return localStorage.setItem("addHome", "true");
                       })();
                     }
                   };
@@ -62753,7 +62755,11 @@ function PlasmicCalendar__RenderFunc(props: {
           </section>
           {(() => {
             try {
-              return $state.addHome || !window.history.length == 1;
+              return $state.addHome
+                ? window.history.length == 1
+                  ? false
+                  : true
+                : false;
             } catch (e) {
               if (
                 e instanceof TypeError ||

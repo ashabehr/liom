@@ -347,7 +347,9 @@ function PlasmicComment__RenderFunc(props: {
           className={classNames("__wab_instance", sty.commentlikebutton__w1Y7G)}
         />
       </Stack__>
-      <div className={classNames(projectcss.all, sty.freeBox__dzdw)} />
+      <div className={classNames(projectcss.all, sty.freeBox__dzdw)}>
+        <div className={classNames(projectcss.all, sty.freeBox__n5Oa)} />
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
