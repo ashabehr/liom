@@ -74,16 +74,10 @@ import Icon172Icon from "./icons/PlasmicIcon__Icon172"; // plasmic-import: ZAoJb
 
 createPlasmicElementProxy;
 
-export type PlasmicComment__VariantMembers = {
-  comented: "comented";
-};
-export type PlasmicComment__VariantsArgs = {
-  comented?: SingleBooleanChoiceArg<"comented">;
-};
+export type PlasmicComment__VariantMembers = {};
+export type PlasmicComment__VariantsArgs = {};
 type VariantPropType = keyof PlasmicComment__VariantsArgs;
-export const PlasmicComment__VariantProps = new Array<VariantPropType>(
-  "comented"
-);
+export const PlasmicComment__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicComment__ArgsType = {
   likeCountForComment?: string;
@@ -106,7 +100,6 @@ export interface DefaultCommentProps {
   likeCountForComment?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
-  comented?: SingleBooleanChoiceArg<"comented">;
   className?: string;
 }
 
@@ -150,24 +143,6 @@ function PlasmicComment__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
-  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
-    () => [
-      {
-        path: "comented",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.comented
-      }
-    ],
-    [$props, $ctx, $refs]
-  );
-  const $state = useDollarState(stateSpecs, {
-    $props,
-    $ctx,
-    $queries: {},
-    $refs
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -182,19 +157,10 @@ function PlasmicComment__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root,
-        { [sty.rootcomented]: hasVariant($state, "comented", "comented") }
+        sty.root
       )}
     >
-      <div
-        className={classNames(projectcss.all, sty.freeBox__euKls, {
-          [sty.freeBoxcomented__euKlSdngOz]: hasVariant(
-            $state,
-            "comented",
-            "comented"
-          )
-        })}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__euKls)}>
         <div className={classNames(projectcss.all, sty.freeBox__qFvXh)}>
           {renderPlasmicSlot({
             defaultContents: (
@@ -294,15 +260,7 @@ function PlasmicComment__RenderFunc(props: {
           />
         </Stack__>
       </div>
-      <div
-        className={classNames(projectcss.all, sty.freeBox__bb4BN, {
-          [sty.freeBoxcomented__bb4BNdngOz]: hasVariant(
-            $state,
-            "comented",
-            "comented"
-          )
-        })}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__bb4BN)}>
         {renderPlasmicSlot({
           defaultContents: (
             <div
@@ -350,13 +308,7 @@ function PlasmicComment__RenderFunc(props: {
       <Commentlikebutton
         data-plasmic-name={"commentlikebutton"}
         data-plasmic-override={overrides.commentlikebutton}
-        className={classNames("__wab_instance", sty.commentlikebutton, {
-          [sty.commentlikebuttoncomented]: hasVariant(
-            $state,
-            "comented",
-            "comented"
-          )
-        })}
+        className={classNames("__wab_instance", sty.commentlikebutton)}
         likeCommentCount={(() => {
           try {
             return $props.likeCountForComment;
@@ -371,6 +323,12 @@ function PlasmicComment__RenderFunc(props: {
           }
         })()}
       />
+
+      <div className={classNames(projectcss.all, sty.freeBox__fu7VW)} />
+
+      <div className={classNames(projectcss.all, sty.freeBox__eZrem)}>
+        <div className={classNames(projectcss.all, sty.freeBox__wpq2)} />
+      </div>
     </div>
   ) as React.ReactElement | null;
 }

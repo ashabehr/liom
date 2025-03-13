@@ -619,11 +619,13 @@ function PlasmicClinic__RenderFunc(props: {
                               chatstart.listID == 7 ||
                               chatstart.listID == 6
                             ) {
-                              window.open(`/clinic?status=false&gender=male`);
-                              console.log("abc");
+                              urlParams.set("gender", "male");
+                              const newUrl = `${
+                                window.location.pathname
+                              }?${urlParams.toString()}`;
+                              window.history.pushState({}, "", newUrl);
                             }
-                            $state.status = "false";
-                            return console.log("abcd");
+                            return ($state.status = "false");
                           } else if (status == "true") {
                             var chatstart = JSON.parse(
                               localStorage.getItem("chatstart")

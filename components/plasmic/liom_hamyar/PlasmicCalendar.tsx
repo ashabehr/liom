@@ -62753,12 +62753,7 @@ function PlasmicCalendar__RenderFunc(props: {
           </section>
           {(() => {
             try {
-              return (() => {
-                return (
-                  !window.matchMedia("(display-mode: standalone)").matches ||
-                  !(window.navigator.standalone === true)
-                );
-              })();
+              return $state.addHome || !window.history.length == 1;
             } catch (e) {
               if (
                 e instanceof TypeError ||

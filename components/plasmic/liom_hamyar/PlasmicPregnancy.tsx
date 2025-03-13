@@ -1483,7 +1483,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             differenceInMs / (1000 * 60 * 60 * 24)
                           );
                           return (
-                            differenceInDays <= 0 &&
+                            differenceInDays < 0 &&
                             $ctx.query.userId == 147813698
                           );
                         })();
@@ -7438,6 +7438,206 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     >
                                       {
                                         "\u0648\u0631\u0648\u062f \u0628\u0647 \u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"
+                                      }
+                                    </span>
+                                  </React.Fragment>
+                                </div>
+                              </div>
+                            </Stack__>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___4YeEz
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__hcEa
+                          )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] =
+                              $ctx.query.inApp == "true"
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          var link =
+                                            "https://survey.porsline.ir/s/ako96o4";
+                                          return window.FlutterChannel.postMessage(
+                                            "#inAppWebView**@@**" +
+                                              "پرسشنامه بارداری" +
+                                              "**@@**" +
+                                              link
+                                          );
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+
+                            $steps["goToPage"] =
+                              $ctx.query.inApp != "true"
+                                ? (() => {
+                                    const actionArgs = {
+                                      destination: (() => {
+                                        try {
+                                          return "https://survey.porsline.ir/s/ako96o4";
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["goToPage"] != null &&
+                              typeof $steps["goToPage"] === "object" &&
+                              typeof $steps["goToPage"].then === "function"
+                            ) {
+                              $steps["goToPage"] = await $steps["goToPage"];
+                            }
+                          }}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__cESq
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__g8Hac
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__xg3Jj
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (() => {
+                                        const randomNum = Math.floor(
+                                          Math.random() * 7
+                                        );
+                                        var text;
+                                        switch (randomNum) {
+                                          case 0:
+                                            text =
+                                              "آیا خطر سقط جنین وجود داره\u061F";
+                                            break;
+                                          case 1:
+                                            text =
+                                              "آیا استرس من روی سلامت جنین تأثیر داره\u061F";
+                                            break;
+                                          case 2:
+                                            text = "آیا رشد جنینم نرماله\u061F";
+                                            break;
+                                          case 3:
+                                            text =
+                                              "رژیم غذایی مناسب برای رشد بهتر جنین چیه\u061F";
+                                            break;
+                                          case 4:
+                                            text =
+                                              "چطور می‌تونم از زایمان سخت جلوگیری کنم\u061F";
+                                            break;
+                                          case 5:
+                                            text =
+                                              "چطور می‌تونم شب‌ها راحت‌تر بخوابم\u061F";
+                                            break;
+                                          case 6:
+                                            text =
+                                              "آیا کار کردن در دوران بارداری برای جنین ضرر داره\u061F";
+                                            break;
+                                          default:
+                                            text =
+                                              "آیا خطر سقط جنین وجود داره\u061F";
+                                        }
+                                        return (
+                                          "`" +
+                                          text +
+                                          "`" +
+                                          " اگه تو هم سوالی مثل این داری\u060C از متخصصان لیوم تو کلینیک بپرس. \uD83D\uDCAC"
+                                        );
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632\u060c \u0686\u06cc\u0632\u06cc \u06a9\u0647 \u062a\u0648 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc \u0628\u0631\u0627\u06cc \u0645\u0627 \u062e\u06cc\u0644\u06cc \u0645\u0647\u0645\u0647! \ud83e\udd30\u2728 \n\u0686\u0646\u062f \u062f\u0642\u06cc\u0642\u0647 \u0648\u0642\u062a \u0628\u0630\u0627\u0631 \u0648 \u0628\u0647 \u0627\u06cc\u0646 \u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647 \u067e\u0627\u0633\u062e \u0628\u062f\u0647 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0647\u0645\u0631\u0627\u0647 \u0628\u0647\u062a\u0631\u06cc \u0628\u0631\u0627\u062a \u0628\u0627\u0634\u06cc\u0645.";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__x02Fh
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__tiGkK
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ color: "#FFFFFF" }}
+                                    >
+                                      {
+                                        "\u0648\u0631\u0648\u062f \u0628\u0647 \u06a9\u0644\u06cc\u0646\u06cc\u06a9"
                                       }
                                     </span>
                                   </React.Fragment>
