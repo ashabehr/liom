@@ -3194,7 +3194,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                   : (() => {
                                       try {
                                         return $state.user?.data?.result?.man
-                                          ?.timeToEndHamyarTime?.days > 3
+                                          ?.hamyarTime?.day > 3
                                           ? false
                                           : true;
                                       } catch (e) {
@@ -3480,7 +3480,7 @@ function PlasmicHamyar__RenderFunc(props: {
                               {(() => {
                                 try {
                                   return $state.user?.data?.result?.man
-                                    ?.timeToEndHamyarTime?.days > 3
+                                    ?.hamyarTime?.day > 3
                                     ? true
                                     : false;
                                 } catch (e) {

@@ -91,6 +91,8 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import Subscription from "../../Subscription"; // plasmic-import: RkqUeSl2AMb8/component
 import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
+import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
+import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -188,6 +190,8 @@ export type PlasmicCalendar__OverridesType = {
   button21?: Flex__<typeof Button>;
   directDialog?: Flex__<typeof DirectDialog2>;
   mainHeader?: Flex__<typeof MainHeader>;
+  iframe?: Flex__<typeof Iframe>;
+  timer?: Flex__<typeof Timer>;
 };
 
 export interface DefaultCalendarProps {}
@@ -1698,6 +1702,25 @@ function PlasmicCalendar__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "addHome",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return localStorage.getItem("addHome") ? false : true;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -62728,6 +62751,67 @@ function PlasmicCalendar__RenderFunc(props: {
               </Stack__>
             </MainHeader>
           </section>
+          {(() => {
+            try {
+              return $state.addHome;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Iframe
+              data-plasmic-name={"iframe"}
+              data-plasmic-override={overrides.iframe}
+              className={classNames("__wab_instance", sty.iframe)}
+              preview={true}
+              src={"/add-to-home/"}
+            />
+          ) : null}
+          <Timer
+            data-plasmic-name={"timer"}
+            data-plasmic-override={overrides.timer}
+            className={classNames("__wab_instance", sty.timer)}
+            intervalSeconds={1}
+            isRunning={true}
+            onTick={async () => {
+              const $steps = {};
+
+              $steps["updateAddHome"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["addHome"]
+                      },
+                      operation: 0,
+                      value: localStorage.getItem("addHome") ? false : true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateAddHome"] != null &&
+                typeof $steps["updateAddHome"] === "object" &&
+                typeof $steps["updateAddHome"].then === "function"
+              ) {
+                $steps["updateAddHome"] = await $steps["updateAddHome"];
+              }
+            }}
+            runWhileEditing={true}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -62786,7 +62870,9 @@ const PlasmicDescendants = {
     "button20",
     "button21",
     "directDialog",
-    "mainHeader"
+    "mainHeader",
+    "iframe",
+    "timer"
   ],
   sideEffect: ["sideEffect"],
   user: [
@@ -62893,7 +62979,9 @@ const PlasmicDescendants = {
   button20: ["button20"],
   button21: ["button21"],
   directDialog: ["directDialog"],
-  mainHeader: ["mainHeader"]
+  mainHeader: ["mainHeader"],
+  iframe: ["iframe"],
+  timer: ["timer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -62950,6 +63038,8 @@ type NodeDefaultElementType = {
   button21: typeof Button;
   directDialog: typeof DirectDialog2;
   mainHeader: typeof MainHeader;
+  iframe: typeof Iframe;
+  timer: typeof Timer;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -63087,6 +63177,8 @@ export const PlasmicCalendar = Object.assign(
     button21: makeNodeComponent("button21"),
     directDialog: makeNodeComponent("directDialog"),
     mainHeader: makeNodeComponent("mainHeader"),
+    iframe: makeNodeComponent("iframe"),
+    timer: makeNodeComponent("timer"),
 
     // Metadata about props expected for PlasmicCalendar
     internalVariantProps: PlasmicCalendar__VariantProps,
