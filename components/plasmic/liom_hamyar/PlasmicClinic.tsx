@@ -619,7 +619,7 @@ function PlasmicClinic__RenderFunc(props: {
                               chatstart.listID == 7 ||
                               chatstart.listID == 6
                             ) {
-                              window.open(`/clinic/?status=false&gender=male`);
+                              window.open(`/clinic?status=false&gender=male`);
                             }
                             return ($state.status = "false");
                           } else if (status == "true") {
