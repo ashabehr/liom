@@ -93,7 +93,6 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicComment__OverridesType = {
   root?: Flex__<"div">;
-  commentlikebutton?: Flex__<typeof Commentlikebutton>;
 };
 
 export interface DefaultCommentProps {
@@ -306,9 +305,7 @@ function PlasmicComment__RenderFunc(props: {
         />
       </div>
       <Commentlikebutton
-        data-plasmic-name={"commentlikebutton"}
-        data-plasmic-override={overrides.commentlikebutton}
-        className={classNames("__wab_instance", sty.commentlikebutton)}
+        className={classNames("__wab_instance", sty.commentlikebutton__twQ3M)}
         likeCommentCount={(() => {
           try {
             return $props.likeCountForComment;
@@ -326,23 +323,43 @@ function PlasmicComment__RenderFunc(props: {
 
       <div className={classNames(projectcss.all, sty.freeBox__fu7VW)} />
 
-      <div className={classNames(projectcss.all, sty.freeBox__eZrem)}>
-        <div className={classNames(projectcss.all, sty.freeBox__wpq2)} />
-      </div>
+      <Stack__
+        as={"div"}
+        hasGap={true}
+        className={classNames(projectcss.all, sty.freeBox__eZrem)}
+      >
+        <div className={classNames(projectcss.all, sty.freeBox__wpq2)}>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__jrZxH
+            )}
+          >
+            {"\u067e\u0627\u0633\u062e"}
+          </div>
+          <Icon172Icon
+            className={classNames(projectcss.all, sty.svg__vb3O0)}
+            role={"img"}
+          />
+        </div>
+        <Commentlikebutton
+          className={classNames("__wab_instance", sty.commentlikebutton__w1Y7G)}
+        />
+      </Stack__>
+      <div className={classNames(projectcss.all, sty.freeBox__dzdw)} />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "commentlikebutton"],
-  commentlikebutton: ["commentlikebutton"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  commentlikebutton: typeof Commentlikebutton;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -405,7 +422,6 @@ export const PlasmicComment = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    commentlikebutton: makeNodeComponent("commentlikebutton"),
 
     // Metadata about props expected for PlasmicComment
     internalVariantProps: PlasmicComment__VariantProps,

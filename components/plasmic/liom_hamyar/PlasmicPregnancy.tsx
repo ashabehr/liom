@@ -7447,119 +7447,140 @@ function PlasmicPregnancy__RenderFunc(props: {
                           </div>
                         </div>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___4YeEz
-                        )}
-                      >
+                      {(() => {
+                        try {
+                          return (
+                            $ctx.query.userId == "147813698" ||
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return false;
+                          }
+                          throw e;
+                        }
+                      })() ? (
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__hcEa
+                            sty.freeBox___4YeEz
                           )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["runCode"] =
-                              $ctx.query.inApp == "true"
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
-                                          var link =
-                                            "https://survey.porsline.ir/s/ako96o4";
-                                          return window.FlutterChannel.postMessage(
-                                            "#inAppWebView**@@**" +
-                                              "پرسشنامه بارداری" +
-                                              "**@@**" +
-                                              link
-                                          );
-                                        })();
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-
-                            $steps["goToPage"] =
-                              $ctx.query.inApp != "true"
-                                ? (() => {
-                                    const actionArgs = {
-                                      destination: (() => {
-                                        try {
-                                          return "https://survey.porsline.ir/s/ako96o4";
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    };
-                                    return (({ destination }) => {
-                                      if (
-                                        typeof destination === "string" &&
-                                        destination.startsWith("#")
-                                      ) {
-                                        document
-                                          .getElementById(destination.substr(1))
-                                          .scrollIntoView({
-                                            behavior: "smooth"
-                                          });
-                                      } else {
-                                        __nextRouter?.push(destination);
-                                      }
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                            if (
-                              $steps["goToPage"] != null &&
-                              typeof $steps["goToPage"] === "object" &&
-                              typeof $steps["goToPage"].then === "function"
-                            ) {
-                              $steps["goToPage"] = await $steps["goToPage"];
-                            }
-                          }}
                         >
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__cESq
+                              sty.freeBox__hcEa
                             )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] =
+                                $ctx.query.inApp == "true"
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            var link =
+                                              "https://checkup.liom-app.ir/moshavereh/psychology/4";
+                                            return window.FlutterChannel.postMessage(
+                                              "#inAppWebView**@@**" +
+                                                "کلینیک لیوم" +
+                                                "**@@**" +
+                                                link
+                                            );
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+
+                              $steps["goToPage"] =
+                                $ctx.query.inApp != "true"
+                                  ? (() => {
+                                      const actionArgs = {
+                                        destination: (() => {
+                                          try {
+                                            return "https://checkup.liom-app.ir/moshavereh/psychology/4";
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      };
+                                      return (({ destination }) => {
+                                        if (
+                                          typeof destination === "string" &&
+                                          destination.startsWith("#")
+                                        ) {
+                                          document
+                                            .getElementById(
+                                              destination.substr(1)
+                                            )
+                                            .scrollIntoView({
+                                              behavior: "smooth"
+                                            });
+                                        } else {
+                                          __nextRouter?.push(destination);
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["goToPage"] != null &&
+                                typeof $steps["goToPage"] === "object" &&
+                                typeof $steps["goToPage"].then === "function"
+                              ) {
+                                $steps["goToPage"] = await $steps["goToPage"];
+                              }
+                            }}
                           >
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__g8Hac
+                                sty.freeBox__cESq
                               )}
                             >
-                              <div
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
                                 className={classNames(
                                   projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__xg3Jj
+                                  sty.freeBox__g8Hac
                                 )}
                               >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return (() => {
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__xg3Jj
+                                  )}
+                                >
+                                  <div
+                                    className={projectcss.__wab_expr_html_text}
+                                    dangerouslySetInnerHTML={{
+                                      __html: (() => {
                                         const randomNum = Math.floor(
                                           Math.random() * 7
                                         );
@@ -7598,55 +7619,48 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         }
                                         return (
                                           "`" +
+                                          "<b>" +
                                           text +
+                                          "</b>" +
                                           "`" +
                                           " اگه تو هم سوالی مثل این داری\u060C از متخصصان لیوم تو کلینیک بپرس. \uD83D\uDCAC"
                                         );
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632\u060c \u0686\u06cc\u0632\u06cc \u06a9\u0647 \u062a\u0648 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc \u0628\u0631\u0627\u06cc \u0645\u0627 \u062e\u06cc\u0644\u06cc \u0645\u0647\u0645\u0647! \ud83e\udd30\u2728 \n\u0686\u0646\u062f \u062f\u0642\u06cc\u0642\u0647 \u0648\u0642\u062a \u0628\u0630\u0627\u0631 \u0648 \u0628\u0647 \u0627\u06cc\u0646 \u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647 \u067e\u0627\u0633\u062e \u0628\u062f\u0647 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0647\u0645\u0631\u0627\u0647 \u0628\u0647\u062a\u0631\u06cc \u0628\u0631\u0627\u062a \u0628\u0627\u0634\u06cc\u0645.";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__x02Fh
-                                )}
-                              >
+                                      })()
+                                    }}
+                                  />
+                                </div>
                                 <div
                                   className={classNames(
                                     projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__tiGkK
+                                    sty.freeBox__x02Fh
                                   )}
                                 >
-                                  <React.Fragment>
-                                    <span
-                                      className={
-                                        "plasmic_default__all plasmic_default__span"
-                                      }
-                                      style={{ color: "#FFFFFF" }}
-                                    >
-                                      {
-                                        "\u0648\u0631\u0648\u062f \u0628\u0647 \u06a9\u0644\u06cc\u0646\u06cc\u06a9"
-                                      }
-                                    </span>
-                                  </React.Fragment>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__tiGkK
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      <span
+                                        className={
+                                          "plasmic_default__all plasmic_default__span"
+                                        }
+                                        style={{ color: "#FFFFFF" }}
+                                      >
+                                        {
+                                          "\u0648\u0631\u0648\u062f \u0628\u0647 \u06a9\u0644\u06cc\u0646\u06cc\u06a9"
+                                        }
+                                      </span>
+                                    </React.Fragment>
+                                  </div>
                                 </div>
-                              </div>
-                            </Stack__>
+                              </Stack__>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      ) : null}
                       <div
                         className={classNames(
                           projectcss.all,
