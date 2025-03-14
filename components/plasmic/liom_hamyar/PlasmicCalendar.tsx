@@ -140,6 +140,7 @@ export const PlasmicCalendar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicCalendar__OverridesType = {
   root?: Flex__<"div">;
+  favicon?: Flex__<typeof Embed>;
   sideEffect?: Flex__<typeof SideEffect>;
   user?: Flex__<typeof ApiRequest>;
   button?: Flex__<typeof Button>;
@@ -1747,7 +1748,7 @@ function PlasmicCalendar__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <title key="title">{PlasmicCalendar.pageMetadata.title}</title>
         <meta
           key="og:title"
@@ -1758,6 +1759,17 @@ function PlasmicCalendar__RenderFunc(props: {
           key="twitter:title"
           name="twitter:title"
           content={PlasmicCalendar.pageMetadata.title}
+        />
+
+        <meta
+          key="og:image"
+          property="og:image"
+          content={PlasmicCalendar.pageMetadata.ogImageSrc}
+        />
+        <meta
+          key="twitter:image"
+          name="twitter:image"
+          content={PlasmicCalendar.pageMetadata.ogImageSrc}
         />
       </Head>
 
@@ -1838,6 +1850,17 @@ function PlasmicCalendar__RenderFunc(props: {
             }
           }}
         >
+          <Embed
+            data-plasmic-name={"favicon"}
+            data-plasmic-override={overrides.favicon}
+            className={classNames("__wab_instance", sty.favicon)}
+            code={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+                : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+            }
+          />
+
           <Embed
             className={classNames("__wab_instance", sty.embedHtml__pUMct)}
             code={
@@ -62836,6 +62859,7 @@ function PlasmicCalendar__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "favicon",
     "sideEffect",
     "user",
     "button",
@@ -62889,6 +62913,7 @@ const PlasmicDescendants = {
     "iframe",
     "timer"
   ],
+  favicon: ["favicon"],
   sideEffect: ["sideEffect"],
   user: [
     "user",
@@ -63003,6 +63028,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  favicon: typeof Embed;
   sideEffect: typeof SideEffect;
   user: typeof ApiRequest;
   button: typeof Button;
@@ -63142,6 +63168,7 @@ export const PlasmicCalendar = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    favicon: makeNodeComponent("favicon"),
     sideEffect: makeNodeComponent("sideEffect"),
     user: makeNodeComponent("user"),
     button: makeNodeComponent("button"),
@@ -63201,9 +63228,10 @@ export const PlasmicCalendar = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "همیار لیوم",
+      title: "لیوم | Liom",
       description: "",
-      ogImageSrc: "",
+      ogImageSrc:
+        "https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico",
       canonical: ""
     }
   }
