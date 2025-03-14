@@ -1817,7 +1817,6 @@
   }
 }
 .freeBox__hcEa {
-  display: flex;
   flex-direction: column;
   position: relative;
   align-items: stretch;
@@ -1826,6 +1825,7 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+  display: none;
   padding: 16px 12px 0px;
 }
 .freeBox__cESq {
