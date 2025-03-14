@@ -7501,15 +7501,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     const actionArgs = {
                                       destination: (() => {
                                         try {
-                                          return (() => {
-                                            return (
-                                              "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
-                                              $ctx.query.token.slice(
-                                                6,
-                                                $ctx.query.token.length - 4
-                                              )
-                                            );
-                                          })();
+                                          return (
+                                            "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
+                                            $ctx.query.token.slice(
+                                              6,
+                                              $ctx.query.token.length - 4
+                                            )
+                                          );
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -7544,6 +7542,75 @@ function PlasmicPregnancy__RenderFunc(props: {
                               typeof $steps["goToPage"].then === "function"
                             ) {
                               $steps["goToPage"] = await $steps["goToPage"];
+                            }
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/service/log",
+                                      (() => {
+                                        try {
+                                          return {
+                                            userId: $ctx.query.userId.slice(
+                                              4,
+                                              $ctx.query.userId.length - 4
+                                            ),
+                                            pageName: "mainPage",
+                                            action: "clickOpenPage-clinic",
+                                            extraData: {}
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            headers: {
+                                              "Content-Type":
+                                                "application/json",
+                                              Authorization:
+                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                            }
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
                             }
                           }}
                         >
@@ -13278,70 +13345,57 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   (async activeIds => {
                                     const $steps = {};
 
-                                    $steps["invokeGlobalAction"] =
-                                      ($state.collapseDanger.open
-                                        ? true
-                                        : false) &&
-                                      $ctx.query.userId.slice(
-                                        4,
-                                        $ctx.query.userId.length - 4
-                                      ) != "314149" &&
-                                      $ctx.query.userId.slice(
-                                        4,
-                                        $ctx.query.userId.length - 4
-                                      ) != "1"
-                                        ? (() => {
-                                            const actionArgs = {
-                                              args: [
-                                                "POST",
-                                                "https://api.liom.app/service/log",
-                                                undefined,
-                                                (() => {
-                                                  try {
-                                                    return {
-                                                      userId:
-                                                        $ctx.query.userId
-                                                          ?.length > 0
-                                                          ? $ctx.query.userId.slice(
-                                                              4,
-                                                              $ctx.query.userId
-                                                                .length - 4
-                                                            )
-                                                          : "guest",
-                                                      pageName:
-                                                        "weekByWeekPage",
-                                                      action:
-                                                        "clickOpen-medicineAdvice",
-                                                      extraData: {}
-                                                    };
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return undefined;
-                                                    }
-                                                    throw e;
+                                    $steps["invokeGlobalAction"] = (
+                                      $state.collapseDanger.open ? true : false
+                                    )
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              "POST",
+                                              "https://api.liom.app/service/log",
+                                              undefined,
+                                              (() => {
+                                                try {
+                                                  return {
+                                                    userId:
+                                                      $ctx.query.userId
+                                                        ?.length > 0
+                                                        ? $ctx.query.userId.slice(
+                                                            4,
+                                                            $ctx.query.userId
+                                                              .length - 4
+                                                          )
+                                                        : "guest",
+                                                    pageName: "weekByWeekPage",
+                                                    action: "clickOpen-danger",
+                                                    extraData: {}
+                                                  };
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
                                                   }
-                                                })(),
-                                                {
-                                                  headers: {
-                                                    "Content-Type":
-                                                      "application/json",
-                                                    Authorization:
-                                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                                  }
+                                                  throw e;
                                                 }
-                                              ]
-                                            };
-                                            return $globalActions[
-                                              "Fragment.apiRequest"
-                                            ]?.apply(null, [
-                                              ...actionArgs.args
-                                            ]);
-                                          })()
-                                        : undefined;
+                                              })(),
+                                              {
+                                                headers: {
+                                                  "Content-Type":
+                                                    "application/json",
+                                                  Authorization:
+                                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                }
+                                              }
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.apiRequest"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
                                     if (
                                       $steps["invokeGlobalAction"] != null &&
                                       typeof $steps["invokeGlobalAction"] ===
@@ -13493,8 +13547,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     return (
                                                       (active ||
                                                         !currentItem.vip) &&
-                                                      $ctx.query.inApp ==
-                                                        "false"
+                                                      $ctx.query.inApp != "true"
                                                     );
                                                   })()
                                                     ? (() => {
@@ -13756,8 +13809,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       ? filteredItem.active
                                                       : false;
                                                     return (
-                                                      $ctx.query.inApp ==
-                                                        "false" &&
+                                                      $ctx.query.inApp !=
+                                                        "true" &&
                                                       !active &&
                                                       currentItem.vip == 1
                                                     );
@@ -13813,7 +13866,29 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   }
 
                                                   $steps["invokeGlobalAction"] =
-                                                    true
+                                                    (() => {
+                                                      var allowance =
+                                                        $state?.user[0]
+                                                          .allowance || [];
+                                                      allowance =
+                                                        JSON.parse(allowance);
+                                                      const filteredItem =
+                                                        allowance[
+                                                          "allowance"
+                                                        ].find(item =>
+                                                          item.type.includes(
+                                                            "danger"
+                                                          )
+                                                        );
+                                                      const active =
+                                                        filteredItem
+                                                          ? filteredItem.active
+                                                          : false;
+                                                      return (
+                                                        !active &&
+                                                        currentItem.vip == 1
+                                                      );
+                                                    })()
                                                       ? (() => {
                                                           const actionArgs = {
                                                             args: [
@@ -15044,70 +15119,60 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       ];
                                     }
 
-                                    $steps["invokeGlobalAction"] =
-                                      ($state.collapseMedicine2.open
+                                    $steps["invokeGlobalAction"] = (
+                                      $state.collapseMedicine2.open
                                         ? true
-                                        : false) &&
-                                      $ctx.query.userId.slice(
-                                        4,
-                                        $ctx.query.userId.length - 4
-                                      ) != "314149" &&
-                                      $ctx.query.userId.slice(
-                                        4,
-                                        $ctx.query.userId.length - 4
-                                      ) != "1"
-                                        ? (() => {
-                                            const actionArgs = {
-                                              args: [
-                                                "POST",
-                                                "https://api.liom.app/service/log",
-                                                undefined,
-                                                (() => {
-                                                  try {
-                                                    return {
-                                                      userId:
-                                                        $ctx.query.userId
-                                                          ?.length > 0
-                                                          ? $ctx.query.userId.slice(
-                                                              4,
-                                                              $ctx.query.userId
-                                                                .length - 4
-                                                            )
-                                                          : "guest",
-                                                      pageName:
-                                                        "weekByWeekPage",
-                                                      action:
-                                                        "clickOpen-medicineAdvice",
-                                                      extraData: {}
-                                                    };
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return undefined;
-                                                    }
-                                                    throw e;
+                                        : false
+                                    )
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              "POST",
+                                              "https://api.liom.app/service/log",
+                                              undefined,
+                                              (() => {
+                                                try {
+                                                  return {
+                                                    userId:
+                                                      $ctx.query.userId
+                                                        ?.length > 0
+                                                        ? $ctx.query.userId.slice(
+                                                            4,
+                                                            $ctx.query.userId
+                                                              .length - 4
+                                                          )
+                                                        : "guest",
+                                                    pageName: "weekByWeekPage",
+                                                    action:
+                                                      "clickOpen-medicineAdvice",
+                                                    extraData: {}
+                                                  };
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
                                                   }
-                                                })(),
-                                                {
-                                                  headers: {
-                                                    "Content-Type":
-                                                      "application/json",
-                                                    Authorization:
-                                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                                  }
+                                                  throw e;
                                                 }
-                                              ]
-                                            };
-                                            return $globalActions[
-                                              "Fragment.apiRequest"
-                                            ]?.apply(null, [
-                                              ...actionArgs.args
-                                            ]);
-                                          })()
-                                        : undefined;
+                                              })(),
+                                              {
+                                                headers: {
+                                                  "Content-Type":
+                                                    "application/json",
+                                                  Authorization:
+                                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                }
+                                              }
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.apiRequest"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
                                     if (
                                       $steps["invokeGlobalAction"] != null &&
                                       typeof $steps["invokeGlobalAction"] ===
@@ -15117,6 +15182,92 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     ) {
                                       $steps["invokeGlobalAction"] =
                                         await $steps["invokeGlobalAction"];
+                                    }
+
+                                    $steps["invokeGlobalAction2"] = (() => {
+                                      const allowance =
+                                        $state?.getUserInfo?.data?.[0]?.result
+                                          ?.allowance || [];
+                                      const filteredItem = allowance.find(
+                                        item => item.type.includes("danger")
+                                      );
+                                      const active = filteredItem
+                                        ? filteredItem.active
+                                        : false;
+                                      return (
+                                        !active &&
+                                        $state.collapseMedicine2.open &&
+                                        $state.selectedWeek >= 12
+                                      );
+                                    })()
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              "POST",
+                                              "https://api.liom.app/service/log",
+                                              undefined,
+                                              (() => {
+                                                try {
+                                                  return {
+                                                    userId:
+                                                      $ctx.query.userId.slice(
+                                                        4,
+                                                        $ctx.query.userId
+                                                          .length - 4
+                                                      ),
+                                                    pageName: "mainPage",
+                                                    action:
+                                                      "buyDialog-supplement",
+                                                    extraData: {}
+                                                  };
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })(),
+                                              (() => {
+                                                try {
+                                                  return {
+                                                    headers: {
+                                                      "Content-Type":
+                                                        "application/json",
+                                                      Authorization:
+                                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                    }
+                                                  };
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.apiRequest"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["invokeGlobalAction2"] != null &&
+                                      typeof $steps["invokeGlobalAction2"] ===
+                                        "object" &&
+                                      typeof $steps["invokeGlobalAction2"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["invokeGlobalAction2"] =
+                                        await $steps["invokeGlobalAction2"];
                                     }
                                   }).apply(null, eventArgs);
                                 },
@@ -16474,70 +16625,58 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       ];
                                     }
 
-                                    $steps["invokeGlobalAction"] =
-                                      ($state.collapseTest.open
-                                        ? true
-                                        : false) &&
-                                      $ctx.query.userId.slice(
-                                        4,
-                                        $ctx.query.userId.length - 4
-                                      ) != "314149" &&
-                                      $ctx.query.userId.slice(
-                                        4,
-                                        $ctx.query.userId.length - 4
-                                      ) != "1"
-                                        ? (() => {
-                                            const actionArgs = {
-                                              args: [
-                                                "POST",
-                                                "https://api.liom.app/service/log",
-                                                undefined,
-                                                (() => {
-                                                  try {
-                                                    return {
-                                                      userId:
-                                                        $ctx.query.userId
-                                                          ?.length > 0
-                                                          ? $ctx.query.userId.slice(
-                                                              4,
-                                                              $ctx.query.userId
-                                                                .length - 4
-                                                            )
-                                                          : "guest",
-                                                      pageName:
-                                                        "weekByWeekPage",
-                                                      action:
-                                                        "clickOpen-testAdvice",
-                                                      extraData: {}
-                                                    };
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return undefined;
-                                                    }
-                                                    throw e;
+                                    $steps["invokeGlobalAction"] = (
+                                      $state.collapseTest.open ? true : false
+                                    )
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              "POST",
+                                              "https://api.liom.app/service/log",
+                                              undefined,
+                                              (() => {
+                                                try {
+                                                  return {
+                                                    userId:
+                                                      $ctx.query.userId
+                                                        ?.length > 0
+                                                        ? $ctx.query.userId.slice(
+                                                            4,
+                                                            $ctx.query.userId
+                                                              .length - 4
+                                                          )
+                                                        : "guest",
+                                                    pageName: "weekByWeekPage",
+                                                    action:
+                                                      "clickOpen-testAdvice",
+                                                    extraData: {}
+                                                  };
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
                                                   }
-                                                })(),
-                                                {
-                                                  headers: {
-                                                    "Content-Type":
-                                                      "application/json",
-                                                    Authorization:
-                                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                                  }
+                                                  throw e;
                                                 }
-                                              ]
-                                            };
-                                            return $globalActions[
-                                              "Fragment.apiRequest"
-                                            ]?.apply(null, [
-                                              ...actionArgs.args
-                                            ]);
-                                          })()
-                                        : undefined;
+                                              })(),
+                                              {
+                                                headers: {
+                                                  "Content-Type":
+                                                    "application/json",
+                                                  Authorization:
+                                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                }
+                                              }
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.apiRequest"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
                                     if (
                                       $steps["invokeGlobalAction"] != null &&
                                       typeof $steps["invokeGlobalAction"] ===
@@ -16547,6 +16686,89 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     ) {
                                       $steps["invokeGlobalAction"] =
                                         await $steps["invokeGlobalAction"];
+                                    }
+
+                                    $steps["invokeGlobalAction2"] = (() => {
+                                      const allowance =
+                                        $state?.getUserInfo?.data?.[0]?.result
+                                          ?.allowance || [];
+                                      const filteredItem = allowance.find(
+                                        item => item.type.includes("danger")
+                                      );
+                                      const active = filteredItem
+                                        ? filteredItem.active
+                                        : false;
+                                      return (
+                                        !active && $state.collapseTest.open
+                                      );
+                                    })()
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              "POST",
+                                              "https://api.liom.app/service/log",
+                                              undefined,
+                                              (() => {
+                                                try {
+                                                  return {
+                                                    userId:
+                                                      $ctx.query.userId.slice(
+                                                        4,
+                                                        $ctx.query.userId
+                                                          .length - 4
+                                                      ),
+                                                    pageName: "mainPage",
+                                                    action: "buyDialog-test",
+                                                    extraData: {}
+                                                  };
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })(),
+                                              (() => {
+                                                try {
+                                                  return {
+                                                    headers: {
+                                                      "Content-Type":
+                                                        "application/json",
+                                                      Authorization:
+                                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                    }
+                                                  };
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.apiRequest"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["invokeGlobalAction2"] != null &&
+                                      typeof $steps["invokeGlobalAction2"] ===
+                                        "object" &&
+                                      typeof $steps["invokeGlobalAction2"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["invokeGlobalAction2"] =
+                                        await $steps["invokeGlobalAction2"];
                                     }
                                   }).apply(null, eventArgs);
                                 },
@@ -17793,65 +18015,58 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 (async activeIds => {
                                   const $steps = {};
 
-                                  $steps["invokeGlobalAction"] =
-                                    ($state.collapseBaby.open ? true : false) &&
-                                    $ctx.query.userId.slice(
-                                      4,
-                                      $ctx.query.userId.length - 4
-                                    ) != "314149" &&
-                                    $ctx.query.userId.slice(
-                                      4,
-                                      $ctx.query.userId.length - 4
-                                    ) != "1"
-                                      ? (() => {
-                                          const actionArgs = {
-                                            args: [
-                                              "POST",
-                                              "https://api.liom.app/service/log",
-                                              undefined,
-                                              (() => {
-                                                try {
-                                                  return {
-                                                    userId:
-                                                      $ctx.query.userId
-                                                        ?.length > 0
-                                                        ? $ctx.query.userId.slice(
-                                                            4,
-                                                            $ctx.query.userId
-                                                              .length - 4
-                                                          )
-                                                        : "guest",
-                                                    pageName: "weekByWeekPage",
-                                                    action:
-                                                      "clickOpen-babyAdvice",
-                                                    extraData: {}
-                                                  };
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
+                                  $steps["invokeGlobalAction"] = (
+                                    $state.collapseBaby.open ? true : false
+                                  )
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "POST",
+                                            "https://api.liom.app/service/log",
+                                            undefined,
+                                            (() => {
+                                              try {
+                                                return {
+                                                  userId:
+                                                    $ctx.query.userId?.length >
+                                                    0
+                                                      ? $ctx.query.userId.slice(
+                                                          4,
+                                                          $ctx.query.userId
+                                                            .length - 4
+                                                        )
+                                                      : "guest",
+                                                  pageName: "weekByWeekPage",
+                                                  action:
+                                                    "clickOpen-babyAdvice",
+                                                  extraData: {}
+                                                };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
                                                 }
-                                              })(),
-                                              {
-                                                headers: {
-                                                  "Content-Type":
-                                                    "application/json",
-                                                  Authorization:
-                                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                                }
+                                                throw e;
                                               }
-                                            ]
-                                          };
-                                          return $globalActions[
-                                            "Fragment.apiRequest"
-                                          ]?.apply(null, [...actionArgs.args]);
-                                        })()
-                                      : undefined;
+                                            })(),
+                                            {
+                                              headers: {
+                                                "Content-Type":
+                                                  "application/json",
+                                                Authorization:
+                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                              }
+                                            }
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.apiRequest"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
                                   if (
                                     $steps["invokeGlobalAction"] != null &&
                                     typeof $steps["invokeGlobalAction"] ===
@@ -18840,78 +19055,71 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 (async activeIds => {
                                   const $steps = {};
 
-                                  $steps["invokeGlobalAction"] =
-                                    ($state.collapseBaby.open ? true : false) &&
-                                    $ctx.query.userId.slice(
-                                      4,
-                                      $ctx.query.userId.length - 4
-                                    ) != "314149" &&
-                                    $ctx.query.userId.slice(
-                                      4,
-                                      $ctx.query.userId.length - 4
-                                    ) != "1"
-                                      ? (() => {
-                                          const actionArgs = {
-                                            args: [
-                                              "POST",
-                                              "https://api.liom.app/service/log",
-                                              undefined,
-                                              (() => {
-                                                try {
-                                                  return {
-                                                    userId:
-                                                      $ctx.query.userId
-                                                        ?.length > 0
-                                                        ? $ctx.query.userId.slice(
-                                                            4,
-                                                            $ctx.query.userId
-                                                              .length - 4
-                                                          )
-                                                        : "guest",
-                                                    pageName: "weekByWeekPage",
-                                                    action:
-                                                      "clickOpen-motherAdvice",
-                                                    extraData: {}
-                                                  };
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
+                                  $steps["invokeGlobalAction"] = (
+                                    $state.collapseMother.open ? true : false
+                                  )
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "POST",
+                                            "https://api.liom.app/service/log",
+                                            undefined,
+                                            (() => {
+                                              try {
+                                                return {
+                                                  userId:
+                                                    $ctx.query.userId?.length >
+                                                    0
+                                                      ? $ctx.query.userId.slice(
+                                                          4,
+                                                          $ctx.query.userId
+                                                            .length - 4
+                                                        )
+                                                      : "guest",
+                                                  pageName: "weekByWeekPage",
+                                                  action:
+                                                    "clickOpen-motherAdvice",
+                                                  extraData: {}
+                                                };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
                                                 }
-                                              })(),
-                                              (() => {
-                                                try {
-                                                  return {
-                                                    headers: {
-                                                      "Content-Type":
-                                                        "application/json",
-                                                      Authorization:
-                                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                                    }
-                                                  };
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
+                                                throw e;
+                                              }
+                                            })(),
+                                            (() => {
+                                              try {
+                                                return {
+                                                  headers: {
+                                                    "Content-Type":
+                                                      "application/json",
+                                                    Authorization:
+                                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
                                                   }
-                                                  throw e;
+                                                };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
                                                 }
-                                              })()
-                                            ]
-                                          };
-                                          return $globalActions[
-                                            "Fragment.apiRequest"
-                                          ]?.apply(null, [...actionArgs.args]);
-                                        })()
-                                      : undefined;
+                                                throw e;
+                                              }
+                                            })()
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.apiRequest"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
                                   if (
                                     $steps["invokeGlobalAction"] != null &&
                                     typeof $steps["invokeGlobalAction"] ===
@@ -20289,65 +20497,58 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 (async activeIds => {
                                   const $steps = {};
 
-                                  $steps["invokeGlobalAction"] =
-                                    ($state.collapseBaby.open ? true : false) &&
-                                    $ctx.query.userId.slice(
-                                      4,
-                                      $ctx.query.userId.length - 4
-                                    ) != "314149" &&
-                                    $ctx.query.userId.slice(
-                                      4,
-                                      $ctx.query.userId.length - 4
-                                    ) != "1"
-                                      ? (() => {
-                                          const actionArgs = {
-                                            args: [
-                                              "POST",
-                                              "https://api.liom.app/service/log",
-                                              undefined,
-                                              (() => {
-                                                try {
-                                                  return {
-                                                    userId:
-                                                      $ctx.query.userId
-                                                        ?.length > 0
-                                                        ? $ctx.query.userId.slice(
-                                                            4,
-                                                            $ctx.query.userId
-                                                              .length - 4
-                                                          )
-                                                        : "guest",
-                                                    pageName: "weekByWeekPage",
-                                                    action:
-                                                      "clickOpen-healthAdvice",
-                                                    extraData: {}
-                                                  };
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
+                                  $steps["invokeGlobalAction"] = (
+                                    $state.collapseHealth.open ? true : false
+                                  )
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "POST",
+                                            "https://api.liom.app/service/log",
+                                            undefined,
+                                            (() => {
+                                              try {
+                                                return {
+                                                  userId:
+                                                    $ctx.query.userId?.length >
+                                                    0
+                                                      ? $ctx.query.userId.slice(
+                                                          4,
+                                                          $ctx.query.userId
+                                                            .length - 4
+                                                        )
+                                                      : "guest",
+                                                  pageName: "weekByWeekPage",
+                                                  action:
+                                                    "clickOpen-healthAdvice",
+                                                  extraData: {}
+                                                };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
                                                 }
-                                              })(),
-                                              {
-                                                headers: {
-                                                  "Content-Type":
-                                                    "application/json",
-                                                  Authorization:
-                                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                                }
+                                                throw e;
                                               }
-                                            ]
-                                          };
-                                          return $globalActions[
-                                            "Fragment.apiRequest"
-                                          ]?.apply(null, [...actionArgs.args]);
-                                        })()
-                                      : undefined;
+                                            })(),
+                                            {
+                                              headers: {
+                                                "Content-Type":
+                                                  "application/json",
+                                                Authorization:
+                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                              }
+                                            }
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.apiRequest"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
                                   if (
                                     $steps["invokeGlobalAction"] != null &&
                                     typeof $steps["invokeGlobalAction"] ===
