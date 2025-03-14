@@ -66,8 +66,8 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
@@ -1721,6 +1721,12 @@ function PlasmicCalendar__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "ios",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1806,8 +1812,15 @@ function PlasmicCalendar__RenderFunc(props: {
                           app = app.slice(6, app.length - 3);
                           localStorage.setItem("token", app);
                         }
-                        if (window.history.length == 1)
-                          return localStorage.setItem("addHome", "true");
+                        if (!window.document.referrer)
+                          localStorage.setItem("addHome", "true");
+                        try {
+                          const parser = new UAParser();
+                          const result = parser.getResult();
+                          return ($state.ios =
+                            result.os.name == "iOS" &&
+                            result.device.type == "mobile");
+                        } catch {}
                       })();
                     }
                   };
@@ -1825,6 +1838,13 @@ function PlasmicCalendar__RenderFunc(props: {
             }
           }}
         >
+          <Embed
+            className={classNames("__wab_instance", sty.embedHtml__pUMct)}
+            code={
+              "<!-- Hotjar Tracking Code for Site 5171830 (name missing) -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5171830,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/ua-parser-js/dist/ua-parser.min.js\"></script>\r\n\r\n"
+            }
+          />
+
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
@@ -1937,13 +1957,6 @@ function PlasmicCalendar__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
             }}
-          />
-
-          <Embed
-            className={classNames("__wab_instance", sty.embedHtml__pUMct)}
-            code={
-              "<!-- Hotjar Tracking Code for Site 5171830 (name missing) -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5171830,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>\r\n"
-            }
           />
 
           <ApiRequest
@@ -62755,7 +62768,7 @@ function PlasmicCalendar__RenderFunc(props: {
           </section>
           {(() => {
             try {
-              return $state.addHome;
+              return $state.addHome && $state.ios;
             } catch (e) {
               if (
                 e instanceof TypeError ||

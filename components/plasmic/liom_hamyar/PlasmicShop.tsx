@@ -569,7 +569,7 @@ function PlasmicShop__RenderFunc(props: {
               }&?offCode=${
                 $state.discountCode
               }&token=hjk812${localStorage.getItem("token")}jkp&redirectUrl=${
-                document.referrer
+                window.document.referrer
               }`;
             } catch (e) {
               if (
