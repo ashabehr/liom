@@ -5726,7 +5726,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         }
                                                       }
                                                       break;
-                                                    case "stretchMarks":
+                                                    case "stretch_marks":
                                                       {
                                                         if (!active) {
                                                           var link =
@@ -5761,7 +5761,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           });
                                                         $state.collapseDanger.open =
                                                           true;
-                                                        if (!active) {
+                                                        if (active) {
                                                           window.FlutterChannel.postMessage(
                                                             "#directDialog-pregnancy_danger_sub"
                                                           );
@@ -5871,7 +5871,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           true;
                                                       }
                                                       break;
-                                                    case "stretchMarks":
+                                                    case "stretch_marks":
                                                       if (!active)
                                                         window.open(
                                                           "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=false&token=" +
@@ -5900,7 +5900,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         });
                                                       $state.collapseDanger.open =
                                                         true;
-                                                      if (!active) {
+                                                      if (active) {
                                                         $state.typeBuy =
                                                           "pregnancy_danger_sub";
                                                         $state.directDialog2.open =
