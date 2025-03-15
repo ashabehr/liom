@@ -61,6 +61,7 @@ import {
 
 import Reply from "../../Reply"; // plasmic-import: LqO8252FTurB/component
 import Commentlikebutton from "../../Commentlikebutton"; // plasmic-import: wOOFf0E7TUt2/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -88,6 +89,7 @@ export const PlasmicComment__VariantProps = new Array<VariantPropType>(
 export type PlasmicComment__ArgsType = {
   likeCountForComment?: string;
   replyCount?: string;
+  tokennnn?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   slot2?: React.ReactNode;
@@ -97,6 +99,7 @@ type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "likeCountForComment",
   "replyCount",
+  "tokennnn",
   "children",
   "slot",
   "slot2",
@@ -105,11 +108,13 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicComment__OverridesType = {
   root?: Flex__<"div">;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultCommentProps {
   likeCountForComment?: string;
   replyCount?: string;
+  tokennnn?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   slot2?: React.ReactNode;
@@ -165,6 +170,24 @@ function PlasmicComment__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -530,19 +553,63 @@ function PlasmicComment__RenderFunc(props: {
             "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e"
           }
         </div>
+        <ApiRequest
+          data-plasmic-name={"apiRequest"}
+          data-plasmic-override={overrides.apiRequest}
+          className={classNames("__wab_instance", sty.apiRequest)}
+          config={{
+            commentId: "316285",
+            size: 10,
+            from: 0,
+            authorization: "$state.token"
+          }}
+          errorDisplay={null}
+          loadingDisplay={
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__y41Yh
+              )}
+            >
+              {"Loading..."}
+            </div>
+          }
+          method={"GET"}
+          onError={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+              null,
+              eventArgs
+            );
+          }}
+          onLoading={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["apiRequest", "loading"]).apply(
+              null,
+              eventArgs
+            );
+          }}
+          onSuccess={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+              null,
+              eventArgs
+            );
+          }}
+        />
       </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "apiRequest"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -605,6 +672,7 @@ export const PlasmicComment = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicComment
     internalVariantProps: PlasmicComment__VariantProps,

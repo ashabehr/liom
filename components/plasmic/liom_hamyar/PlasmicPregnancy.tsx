@@ -206,19 +206,19 @@ function PlasmicPregnancy__RenderFunc(props: {
           {
             title:
               "\u0631\u0648\u062a\u06cc\u0646 \u067e\u0648\u0633\u062a\u06cc",
-            icon: "https://site-assets.plasmic.app/bcfb85db4fac1cadd2c1c36dc5cb4419.svg",
+            icon: "https://site-assets.plasmic.app/7d281fed1d635d4fea61e41aa8945427.svg",
             action: "skinCare"
           },
           {
             title:
               "\u0647\u0645\u06cc\u0627\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
-            icon: "https://site-assets.plasmic.app/bcfb85db4fac1cadd2c1c36dc5cb4419.svg",
+            icon: "https://site-assets.plasmic.app/10f01268ad2a53098970136222293f39.svg",
             action: "hamyar"
           },
           {
             title:
               "\u06a9\u0644\u06cc\u0646\u06cc\u06a9 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
-            icon: "https://site-assets.plasmic.app/bcfb85db4fac1cadd2c1c36dc5cb4419.svg",
+            icon: "https://site-assets.plasmic.app/3de93cd2c25fc1022f2c43da36389b0d.svg",
             action: "clinic"
           }
         ]
@@ -5728,7 +5728,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       break;
                                                     case "stretch_marks":
                                                       {
-                                                        if (!active) {
+                                                        if (active) {
                                                           var link =
                                                             "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
                                                             $ctx.query.token +
@@ -5761,7 +5761,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           });
                                                         $state.collapseDanger.open =
                                                           true;
-                                                        if (active) {
+                                                        if (!active) {
                                                           window.FlutterChannel.postMessage(
                                                             "#directDialog-pregnancy_danger_sub"
                                                           );
@@ -5872,7 +5872,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       }
                                                       break;
                                                     case "stretch_marks":
-                                                      if (!active)
+                                                      if (active)
                                                         window.open(
                                                           "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=false&token=" +
                                                             $ctx.query.token +
@@ -5900,7 +5900,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         });
                                                       $state.collapseDanger.open =
                                                         true;
-                                                      if (active) {
+                                                      if (!active) {
                                                         $state.typeBuy =
                                                           "pregnancy_danger_sub";
                                                         $state.directDialog2.open =
@@ -6031,7 +6031,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     displayMaxWidth={"100%"}
                                     displayMinHeight={"0"}
                                     displayMinWidth={"0"}
-                                    displayWidth={"35px"}
+                                    displayWidth={"45px"}
                                     loading={"lazy"}
                                     src={(() => {
                                       try {

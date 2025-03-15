@@ -1394,6 +1394,19 @@ function PlasmicSocialPage__RenderFunc(props: {
                         </React.Fragment>
                       </div>
                     }
+                    tokennnn={(() => {
+                      try {
+                        return $state.token;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
                   >
                     <PlasmicImg__
                       alt={""}
