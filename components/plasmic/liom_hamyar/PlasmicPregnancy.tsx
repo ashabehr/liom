@@ -8132,6 +8132,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     args: [
                                       "POST",
                                       "https://api.liom.app/service/log",
+                                      undefined,
                                       (() => {
                                         try {
                                           return {
@@ -8154,7 +8155,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           throw e;
                                         }
                                       })(),
-                                      undefined,
                                       (() => {
                                         try {
                                           return {
