@@ -4271,7 +4271,9 @@ function PlasmicHamyar__RenderFunc(props: {
                               const actionArgs = {
                                 customFunction: async () => {
                                   return window.open(
-                                    "https://tools.liom.app/self-test/?app=liom&type=prematureEjaculation",
+                                    `https://tools.liom.app/self-test/?app=liom&type=prematureEjaculation&home-page=${encodeURIComponent(
+                                      window.location.href
+                                    )}`,
                                     "_self"
                                   );
                                 }
