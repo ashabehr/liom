@@ -904,6 +904,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
+  white-space: pre;
 }
 @media (max-width: 640px) {
   .text__eHFeM {

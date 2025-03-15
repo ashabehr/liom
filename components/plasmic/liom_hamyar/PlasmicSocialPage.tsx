@@ -1450,7 +1450,20 @@ function PlasmicSocialPage__RenderFunc(props: {
                     [
                       {
                         name: "comment[].commentData",
-                        initFunc: ({ $props, $state, $queries }) => ({})
+                        initFunc: ({ $props, $state, $queries }) =>
+                          (() => {
+                            try {
+                              return undefined;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return {};
+                              }
+                              throw e;
+                            }
+                          })()
                       }
                     ],
                     [__plasmic_idx_0]

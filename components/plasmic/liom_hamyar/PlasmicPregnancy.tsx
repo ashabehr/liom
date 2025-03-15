@@ -5702,8 +5702,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           randomStr2;
                                                         window.FlutterChannel.postMessage(
                                                           "#inAppWebView**@@**" +
-                                                            "کلینیک لیوم" +
-                                                            "@@" +
+                                                            "کلینیک لیوم " +
+                                                            "**@@**" +
                                                             link
                                                         );
                                                       }
@@ -6112,22 +6112,32 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         }}
                                       />
                                     ) : (
-                                      <React.Fragment>
-                                        {(() => {
-                                          try {
-                                            return currentItem.title;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return "";
+                                      <div
+                                        className={
+                                          projectcss.__wab_expr_html_text
+                                        }
+                                        dangerouslySetInnerHTML={{
+                                          __html: (() => {
+                                            try {
+                                              return (
+                                                currentItem.title +
+                                                "<b>" +
+                                                "  >" +
+                                                "</b>"
+                                              );
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
                                             }
-                                            throw e;
-                                          }
-                                        })()}
-                                      </React.Fragment>
+                                          })()
+                                        }}
+                                      />
                                     )}
                                   </div>
                                 </Stack__>
