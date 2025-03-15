@@ -551,12 +551,29 @@ function PlasmicComment__RenderFunc(props: {
                   args: [
                     undefined,
                     undefined,
-                    {
-                      commentId: "$state.commentId",
-                      size: 10,
-                      from: 0,
-                      authorization: "$state.tokennnn"
-                    }
+                    (() => {
+                      try {
+                        return {
+                          commentId: "$props.commentId",
+                          size: 10,
+                          from: 0,
+                          authorization: "$props.tokennnn"
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return {
+                            commentId: "$state.commentId",
+                            size: 10,
+                            from: 0,
+                            authorization: "$state.tokennnn"
+                          };
+                        }
+                        throw e;
+                      }
+                    })()
                   ]
                 };
                 return $globalActions["Fragment.apiRequest"]?.apply(null, [
