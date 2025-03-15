@@ -6040,305 +6040,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                         </div>
                       ) : null}
                       <div
-                        className={classNames(projectcss.all, sty.freeBox__niJ)}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__ytpw0
-                          )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["goToPage"] = false
-                              ? (() => {
-                                  const actionArgs = {
-                                    destination: (() => {
-                                      try {
-                                        return (
-                                          "https://tools.liom.app/self-medication/?type=danger&inApp=false" +
-                                          "&token=" +
-                                          $ctx.query.token +
-                                          "&selectStep=" +
-                                          ($state.weeksPregnant - 1) +
-                                          "&userId=" +
-                                          ($ctx?.query?.userId ?? "") +
-                                          "&version=" +
-                                          $ctx.query.version +
-                                          "&theme=" +
-                                          $ctx.query.theme
-                                        );
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
-                                    }
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["goToPage"] != null &&
-                              typeof $steps["goToPage"] === "object" &&
-                              typeof $steps["goToPage"].then === "function"
-                            ) {
-                              $steps["goToPage"] = await $steps["goToPage"];
-                            }
-
-                            $steps["runCode2"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        document
-                                          .getElementById("collapseDanger")
-                                          .scrollIntoView({
-                                            behavior: "smooth",
-                                            block: "start"
-                                          });
-                                        return ($state.collapseDanger.open =
-                                          true);
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode2"] != null &&
-                              typeof $steps["runCode2"] === "object" &&
-                              typeof $steps["runCode2"].then === "function"
-                            ) {
-                              $steps["runCode2"] = await $steps["runCode2"];
-                            }
-
-                            $steps["updateDirectDialog2Open"] =
-                              $ctx.query.inApp != "true"
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["directDialog2", "open"]
-                                      },
-                                      operation: 0,
-                                      value: true
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                            if (
-                              $steps["updateDirectDialog2Open"] != null &&
-                              typeof $steps["updateDirectDialog2Open"] ===
-                                "object" &&
-                              typeof $steps["updateDirectDialog2Open"].then ===
-                                "function"
-                            ) {
-                              $steps["updateDirectDialog2Open"] = await $steps[
-                                "updateDirectDialog2Open"
-                              ];
-                            }
-
-                            $steps["runCode"] =
-                              $ctx.query.inApp == "true"
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return window.FlutterChannel.postMessage(
-                                          "#directDialog-pregnancy_danger_sub"
-                                        );
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-
-                            $steps["invokeGlobalAction"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      "POST",
-                                      "https://api.liom.app/service/log",
-                                      undefined,
-                                      (() => {
-                                        try {
-                                          return {
-                                            userId: $ctx.query.userId.slice(
-                                              4,
-                                              $ctx.query.userId.length - 4
-                                            ),
-                                            pageName: "selfTreatment_danger",
-                                            action: "clickOpenPage",
-                                            extraData: {}
-                                          };
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })(),
-                                      (() => {
-                                        try {
-                                          return {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                            }
-                                          };
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "Fragment.apiRequest"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["invokeGlobalAction"] != null &&
-                              typeof $steps["invokeGlobalAction"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction"].then ===
-                                "function"
-                            ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
-                            }
-                          }}
-                        >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__ev9TG
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__oKaxs
-                              )}
-                            >
-                              {hasVariant(
-                                globalVariants,
-                                "screen",
-                                "mobile"
-                              ) ? (
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return (
-                                        "چه چیزهایی در این هفته " +
-                                        "برای من و فرزندم خطرناکه؟"
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "--";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              ) : (
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return (
-                                        "چه چیزهایی در هفته " +
-                                        $state.textWeek[$state.selectedWeek] +
-                                        " برای من و فرزندم خطرناک است؟ "
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "--";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              )}
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text___2Shyc
-                              )}
-                            >
-                              {"\u0645\u0634\u0627\u0647\u062f\u0647"}
-                            </div>
-                          </Stack__>
-                        </div>
-                      </div>
-                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__anXyd
@@ -6794,6 +6495,305 @@ function PlasmicPregnancy__RenderFunc(props: {
                             </div>
                           </div>
                         ) : null}
+                      </div>
+                      <div
+                        className={classNames(projectcss.all, sty.freeBox__niJ)}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__ytpw0
+                          )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["goToPage"] = false
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: (() => {
+                                      try {
+                                        return (
+                                          "https://tools.liom.app/self-medication/?type=danger&inApp=false" +
+                                          "&token=" +
+                                          $ctx.query.token +
+                                          "&selectStep=" +
+                                          ($state.weeksPregnant - 1) +
+                                          "&userId=" +
+                                          ($ctx?.query?.userId ?? "") +
+                                          "&version=" +
+                                          $ctx.query.version +
+                                          "&theme=" +
+                                          $ctx.query.theme
+                                        );
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["goToPage"] != null &&
+                              typeof $steps["goToPage"] === "object" &&
+                              typeof $steps["goToPage"].then === "function"
+                            ) {
+                              $steps["goToPage"] = await $steps["goToPage"];
+                            }
+
+                            $steps["runCode2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        document
+                                          .getElementById("collapseDanger")
+                                          .scrollIntoView({
+                                            behavior: "smooth",
+                                            block: "start"
+                                          });
+                                        return ($state.collapseDanger.open =
+                                          true);
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode2"] != null &&
+                              typeof $steps["runCode2"] === "object" &&
+                              typeof $steps["runCode2"].then === "function"
+                            ) {
+                              $steps["runCode2"] = await $steps["runCode2"];
+                            }
+
+                            $steps["updateDirectDialog2Open"] =
+                              $ctx.query.inApp != "true"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["directDialog2", "open"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["updateDirectDialog2Open"] != null &&
+                              typeof $steps["updateDirectDialog2Open"] ===
+                                "object" &&
+                              typeof $steps["updateDirectDialog2Open"].then ===
+                                "function"
+                            ) {
+                              $steps["updateDirectDialog2Open"] = await $steps[
+                                "updateDirectDialog2Open"
+                              ];
+                            }
+
+                            $steps["runCode"] =
+                              $ctx.query.inApp == "true"
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return window.FlutterChannel.postMessage(
+                                          "#directDialog-pregnancy_danger_sub"
+                                        );
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/service/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            userId: $ctx.query.userId.slice(
+                                              4,
+                                              $ctx.query.userId.length - 4
+                                            ),
+                                            pageName: "selfTreatment_danger",
+                                            action: "clickOpenPage",
+                                            extraData: {}
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return {
+                                            headers: {
+                                              "Content-Type":
+                                                "application/json",
+                                              Authorization:
+                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                            }
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
+                            }
+                          }}
+                        >
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__ev9TG
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__oKaxs
+                              )}
+                            >
+                              {hasVariant(
+                                globalVariants,
+                                "screen",
+                                "mobile"
+                              ) ? (
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        "چه چیزهایی در این هفته " +
+                                        "برای من و فرزندم خطرناکه؟"
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "--";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              ) : (
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        "چه چیزهایی در هفته " +
+                                        $state.textWeek[$state.selectedWeek] +
+                                        " برای من و فرزندم خطرناک است؟ "
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "--";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              )}
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___2Shyc
+                              )}
+                            >
+                              {"\u0645\u0634\u0627\u0647\u062f\u0647"}
+                            </div>
+                          </Stack__>
+                        </div>
                       </div>
                       <div
                         className={classNames(

@@ -81,6 +81,7 @@ export const PlasmicComment__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicComment__ArgsType = {
   likeCountForComment?: string;
+  replyCount?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   slot2?: React.ReactNode;
@@ -89,6 +90,7 @@ export type PlasmicComment__ArgsType = {
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "likeCountForComment",
+  "replyCount",
   "children",
   "slot",
   "slot2",
@@ -102,6 +104,7 @@ export type PlasmicComment__OverridesType = {
 
 export interface DefaultCommentProps {
   likeCountForComment?: string;
+  replyCount?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   slot2?: React.ReactNode;
@@ -330,7 +333,7 @@ function PlasmicComment__RenderFunc(props: {
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
-              return [1, 1];
+              return $props.replyCount;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -460,8 +463,6 @@ function PlasmicComment__RenderFunc(props: {
         })}
       </div>
       <Reply className={classNames("__wab_instance", sty.reply__ub0Bo)} />
-
-      <div className={classNames(projectcss.all, sty.freeBox__niQob)} />
     </div>
   ) as React.ReactElement | null;
 }

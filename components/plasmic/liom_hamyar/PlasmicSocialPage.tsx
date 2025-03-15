@@ -1208,6 +1208,19 @@ function PlasmicSocialPage__RenderFunc(props: {
                         throw e;
                       }
                     })()}
+                    replyCount={(() => {
+                      try {
+                        return currentItem.replyCount;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
                     slot={
                       <div
                         data-plasmic-name={"coment"}
@@ -1253,6 +1266,19 @@ function PlasmicSocialPage__RenderFunc(props: {
                             displayMinWidth={"0"}
                             displayWidth={"40px"}
                             loading={"lazy"}
+                            src={(() => {
+                              try {
+                                return currentItem.user.image;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
                           />
 
                           <div
