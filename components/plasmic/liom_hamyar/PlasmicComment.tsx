@@ -552,11 +552,10 @@ function PlasmicComment__RenderFunc(props: {
                     undefined,
                     undefined,
                     {
-                      commentId: "",
+                      commentId: "$state.commentId",
                       size: 10,
                       from: 0,
-                      authorization: "$state.tokennnn",
-                      id: ""
+                      authorization: "$state.tokennnn"
                     }
                   ]
                 };
