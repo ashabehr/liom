@@ -1380,7 +1380,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                         <React.Fragment>
                           {(() => {
                             try {
-                              return currentItem.comment.text_fa;
+                              return undefined;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1543,7 +1543,7 @@ function PlasmicSocialPage__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  postId: "3",
+                  postId: "6ba22f7d-65b9-4426-bafa-f9597b2df3ea",
 
                   commentId: "string",
                   orderBy: "newest",

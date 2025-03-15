@@ -183,13 +183,13 @@
   min-width: 0;
 }
 .freeBox__eZrem {
+  display: flex;
   flex-direction: row;
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
-  display: none;
   padding: 8px;
 }
 .freeBox__eZrem > :global(.__wab_flex-container) {
@@ -210,9 +210,6 @@
   > img {
   margin-left: 5px;
 }
-.freeBoxunnamedVariant__eZremUOheY {
-  display: flex;
-}
 .reply__cmcBj:global(.__wab_instance) {
   position: relative;
 }
@@ -220,6 +217,7 @@
   max-width: 100%;
 }
 .freeBox__wjP54 {
+  display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
@@ -229,11 +227,7 @@
   align-items: center;
   margin-bottom: 30px;
   min-width: 0;
-  display: none;
   padding: 8px 30px 8px 8px;
-}
-.freeBoxunnamedVariant__wjP54UOheY {
-  display: flex;
 }
 .freeBox__dzdw {
   display: flex;

@@ -5705,9 +5705,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       break;
                                                     case "skinCare":
                                                       {
-                                                        if (!active) {
+                                                        if (active) {
                                                           var link =
-                                                            "https://tools.liom.app/self-medication/?type=skinCare&inApp=false&token=" +
+                                                            "https://tools.liom.app/self-medication/?type=skinCare&inApp=true&token=" +
                                                             $ctx.query.token +
                                                             "&selectStep=0&userId=" +
                                                             $ctx.query.userId +
@@ -5728,9 +5728,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       break;
                                                     case "stretchMarks":
                                                       {
-                                                        if (active) {
+                                                        if (!active) {
                                                           var link =
-                                                            "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=false&token=" +
+                                                            "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
                                                             $ctx.query.token +
                                                             "&selectStep=0&userId=" +
                                                             $ctx.query.userId +
@@ -5761,6 +5761,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           });
                                                         $state.collapseDanger.open =
                                                           true;
+                                                        if (!active) {
+                                                          window.FlutterChannel.postMessage(
+                                                            "#directDialog-pregnancy_danger_sub"
+                                                          );
+                                                        }
                                                       }
                                                       break;
                                                   }
@@ -5849,7 +5854,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       }
                                                       break;
                                                     case "skinCare":
-                                                      if (!active)
+                                                      if (active)
                                                         window.open(
                                                           "https://tools.liom.app/self-medication/?type=skinCare&inApp=false&token=" +
                                                             $ctx.query.token +
@@ -5867,7 +5872,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       }
                                                       break;
                                                     case "stretchMarks":
-                                                      if (active)
+                                                      if (!active)
                                                         window.open(
                                                           "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=false&token=" +
                                                             $ctx.query.token +
@@ -5895,6 +5900,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         });
                                                       $state.collapseDanger.open =
                                                         true;
+                                                      if (!active) {
+                                                        $state.typeBuy =
+                                                          "pregnancy_danger_sub";
+                                                        $state.directDialog2.open =
+                                                          true;
+                                                      }
                                                       break;
                                                   }
                                                 })();
