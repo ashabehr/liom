@@ -1235,6 +1235,139 @@ function PlasmicSocialPage__RenderFunc(props: {
                         </React.Fragment>
                       </div>
                     }
+                    slot2={
+                      <React.Fragment>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__nTb4
+                          )}
+                        >
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__arvm3)}
+                            displayHeight={"40px"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"40px"}
+                            loading={"lazy"}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__lGKbM
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.user.name;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__yHeeF
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.user.username;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__xdgHz
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__oGhmV
+                            )}
+                          >
+                            {"Enter some text"}
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__hjowf
+                            )}
+                          >
+                            <Icon170Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__aGuX
+                              )}
+                              role={"img"}
+                            />
+                          </div>
+                          <Icon146Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___0Y4J0
+                            )}
+                            role={"img"}
+                          />
+                        </div>
+                      </React.Fragment>
+                    }
+                    slot3={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__aa0YM
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem.comment.text_fa;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    }
                   >
                     <PlasmicImg__
                       alt={""}

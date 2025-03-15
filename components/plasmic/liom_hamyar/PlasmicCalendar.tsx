@@ -1851,6 +1851,13 @@ function PlasmicCalendar__RenderFunc(props: {
           }}
         >
           <Embed
+            className={classNames("__wab_instance", sty.embedHtml__cDqb)}
+            code={
+              '<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>\r\n<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging.js"></script>\r\n\r\n<script>\r\nconst firebaseConfig = {\r\n  apiKey: "AIzaSyBVtKyIzcD0xVEMOjeMYjDdNRozFVVrmRo",\r\n  authDomain: "liom-31952.firebaseapp.com",\r\n  databaseURL: "https://liom-31952.firebaseio.com",\r\n  projectId: "liom-31952",\r\n  storageBucket: "liom-31952.firebasestorage.app",\r\n  messagingSenderId: "518322220404",\r\n  appId: "1:518322220404:web:09527c8a42f2f017d89021",\r\n  measurementId: "G-TVWYWYEH1D"\r\n};\r\n\r\n\r\n  const app = firebase.initializeApp(firebaseConfig);\r\n  const messaging = firebase.messaging();\r\n</script>'
+            }
+          />
+
+          <Embed
             data-plasmic-name={"favicon"}
             data-plasmic-override={overrides.favicon}
             className={classNames("__wab_instance", sty.favicon)}

@@ -118,7 +118,7 @@
   > img {
   margin-left: 5px;
 }
-.text__gBxae {
+.text {
   position: relative;
   height: auto;
   max-width: 100%;
@@ -182,39 +182,6 @@
   font-size: 16px;
   min-width: 0;
 }
-.freeBox__d9Vy1 {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  left: auto;
-  top: auto;
-  background: var(--token-R_Rsn0nP9oIv);
-  height: auto;
-  width: auto;
-  bottom: -20px;
-  right: 30px;
-  border-radius: 50%;
-  padding: 8px;
-  border: 2px solid var(--token-Y4frplZPI0IJ);
-}
-.text__w1Qlg {
-  position: relative;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  font-size: 14px;
-}
-.svg__b5LFg {
-  object-fit: cover;
-  max-width: 100%;
-  width: 20px;
-  height: 20px;
-  margin-left: 0px;
-  flex-shrink: 0;
-}
 .commentlikebutton__twQ3M:global(.__wab_instance) {
   max-width: 100%;
   position: absolute;
@@ -254,13 +221,13 @@
   > img {
   margin-left: 5px;
 }
-.reply:global(.__wab_instance) {
+.reply__cmcBj:global(.__wab_instance) {
   position: relative;
 }
 .commentlikebutton__w1Y7G:global(.__wab_instance) {
   max-width: 100%;
 }
-.freeBox__dzdw {
+.freeBox__wjP54 {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -270,8 +237,20 @@
   justify-content: flex-start;
   align-items: center;
   min-width: 0;
+  padding: 8px 30px 8px 8px;
+}
+.freeBox__dzdw {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
   padding: 8px;
-  border-right: 1px solid var(--token-rGxK1TpZE_rW);
+  border-right: 1px solid var(--token-Pxe4wDL2kJpb);
+  border-bottom: 1px solid var(--token-Pxe4wDL2kJpb);
 }
 .freeBox__n5Oa {
   display: flex;
@@ -282,10 +261,11 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  margin-right: 0px;
   min-width: 0;
   padding: 8px;
 }
-.freeBox__hdJeB {
+.freeBox__m637 {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -297,7 +277,7 @@
   min-height: 0;
   padding: 8px;
 }
-.img {
+.img__dRjT {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -305,23 +285,23 @@
   flex-shrink: 0;
   border-radius: 50%;
 }
-.img > picture > img {
+.img__dRjT > picture > img {
   object-fit: cover;
 }
-.text__l3Mkk {
+.text__c8Tm6 {
   position: relative;
   height: auto;
   max-width: 100%;
   text-align: right;
 }
-.text__r9LJv {
+.text__f3MRy {
   position: relative;
   height: auto;
   max-width: 100%;
   text-align: right;
   white-space: pre;
 }
-.freeBox__kr8Ra {
+.freeBox___3VbKo {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -332,15 +312,15 @@
   max-width: 100%;
   padding: 8px;
 }
-.text__xfEzd {
+.text__yJg1C {
   width: auto;
   height: auto;
   max-width: 100%;
   position: relative;
-  text-align: right;
+  text-align: center;
   white-space: pre;
 }
-.freeBox___4EXs {
+.freeBox__kMrO {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -351,13 +331,13 @@
   max-width: 100%;
   padding: 8px;
 }
-.svg__p1FWd {
+.svg__rpylv {
   object-fit: cover;
   max-width: 100%;
   color: var(--token--AiIiH6B786R);
   height: 1em;
 }
-.svg__tn7D {
+.svg___5X9J {
   object-fit: cover;
   max-width: 100%;
   width: 20px;
@@ -377,10 +357,47 @@
   min-width: 0;
   padding: 8px;
 }
-.text___8AmLi {
+.text__lEmW5 {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
+  font-size: 16px;
   min-width: 0;
+}
+.reply__iSisW:global(.__wab_instance) {
+  max-width: 100%;
+  position: absolute;
+  left: auto;
+  top: auto;
+  bottom: -20px;
+  right: 20px;
+}
+.commentlikebutton__pAfuv:global(.__wab_instance) {
+  max-width: 100%;
+  position: absolute;
+  left: auto;
+  top: auto;
+  bottom: -20px;
+  right: 95px;
+}
+.reply__ub0Bo:global(.__wab_instance) {
+  max-width: 100%;
+  position: absolute;
+  left: auto;
+  top: auto;
+  bottom: -20px;
+  right: 25px;
+}
+.freeBox__niQob {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
 }

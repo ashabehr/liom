@@ -71,7 +71,6 @@ import sty from "./PlasmicComment.module.css"; // plasmic-import: Q00r5f4C3XYv/c
 
 import Icon170Icon from "./icons/PlasmicIcon__Icon170"; // plasmic-import: dXN8uxxnP9W_/icon
 import Icon146Icon from "./icons/PlasmicIcon__Icon146"; // plasmic-import: oL3Gq5u9-MHL/icon
-import Icon172Icon from "./icons/PlasmicIcon__Icon172"; // plasmic-import: ZAoJbp8dTvtu/icon
 
 createPlasmicElementProxy;
 
@@ -84,24 +83,29 @@ export type PlasmicComment__ArgsType = {
   likeCountForComment?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
+  slot2?: React.ReactNode;
+  slot3?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "likeCountForComment",
   "children",
-  "slot"
+  "slot",
+  "slot2",
+  "slot3"
 );
 
 export type PlasmicComment__OverridesType = {
   root?: Flex__<"div">;
-  reply?: Flex__<typeof Reply>;
-  img?: Flex__<typeof PlasmicImg__>;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultCommentProps {
   likeCountForComment?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
+  slot2?: React.ReactNode;
+  slot3?: React.ReactNode;
   className?: string;
 }
 
@@ -242,10 +246,12 @@ function PlasmicComment__RenderFunc(props: {
           className={classNames(projectcss.all, sty.freeBox__fSs)}
         >
           <div
+            data-plasmic-name={"text"}
+            data-plasmic-override={overrides.text}
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text__gBxae
+              sty.text
             )}
           >
             {"5h ago"}
@@ -292,21 +298,6 @@ function PlasmicComment__RenderFunc(props: {
           value: args.slot
         })}
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__d9Vy1)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__w1Qlg
-          )}
-        >
-          {"\u067e\u0627\u0633\u062e"}
-        </div>
-        <Icon172Icon
-          className={classNames(projectcss.all, sty.svg__b5LFg)}
-          role={"img"}
-        />
-      </div>
       <Commentlikebutton
         className={classNames("__wab_instance", sty.commentlikebutton__twQ3M)}
         likeCommentCount={(() => {
@@ -329,102 +320,162 @@ function PlasmicComment__RenderFunc(props: {
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__eZrem)}
       >
-        <Reply
-          data-plasmic-name={"reply"}
-          data-plasmic-override={overrides.reply}
-          className={classNames("__wab_instance", sty.reply)}
-        />
+        <Reply className={classNames("__wab_instance", sty.reply__cmcBj)} />
 
         <Commentlikebutton
           className={classNames("__wab_instance", sty.commentlikebutton__w1Y7G)}
         />
       </Stack__>
-      <div className={classNames(projectcss.all, sty.freeBox__dzdw)}>
-        <div className={classNames(projectcss.all, sty.freeBox__n5Oa)}>
-          <div className={classNames(projectcss.all, sty.freeBox__hdJeB)}>
-            <PlasmicImg__
-              data-plasmic-name={"img"}
-              data-plasmic-override={overrides.img}
-              alt={""}
-              className={classNames(sty.img)}
-              displayHeight={"40px"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"40px"}
-              loading={"lazy"}
-            />
+      <div className={classNames(projectcss.all, sty.freeBox__wjP54)}>
+        {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+          (() => {
+            try {
+              return [1, 1];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+        ).map((__plasmic_item_0, __plasmic_idx_0) => {
+          const currentItem = __plasmic_item_0;
+          const currentIndex = __plasmic_idx_0;
+          return (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__dzdw)}
+              key={currentIndex}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__n5Oa)}>
+                {renderPlasmicSlot({
+                  defaultContents: (
+                    <React.Fragment>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__m637
+                        )}
+                      >
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img__dRjT)}
+                          displayHeight={"40px"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"40px"}
+                          loading={"lazy"}
+                        />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__l3Mkk
-              )}
-            >
-              {"Enter some text"}
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__r9LJv
-              )}
-            >
-              {"Enter some text"}
-            </div>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__kr8Ra)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__xfEzd
-              )}
-            >
-              {"Enter some text"}
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox___4EXs)}>
-              <Icon170Icon
-                className={classNames(projectcss.all, sty.svg__p1FWd)}
-                role={"img"}
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__c8Tm6
+                          )}
+                        >
+                          {"Enter some text"}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__f3MRy
+                          )}
+                        >
+                          {"Enter some text"}
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___3VbKo
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__yJg1C
+                          )}
+                        >
+                          {"Enter some text"}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__kMrO
+                          )}
+                        >
+                          <Icon170Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__rpylv
+                            )}
+                            role={"img"}
+                          />
+                        </div>
+                        <Icon146Icon
+                          className={classNames(projectcss.all, sty.svg___5X9J)}
+                          role={"img"}
+                        />
+                      </div>
+                    </React.Fragment>
+                  ),
+                  value: args.slot2
+                })}
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__kzmxn)}>
+                {renderPlasmicSlot({
+                  defaultContents: (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__lEmW5
+                      )}
+                    >
+                      {"Enter some text"}
+                    </div>
+                  ),
+                  value: args.slot3
+                })}
+              </div>
+              <Reply
+                className={classNames("__wab_instance", sty.reply__iSisW)}
+              />
+
+              <Commentlikebutton
+                className={classNames(
+                  "__wab_instance",
+                  sty.commentlikebutton__pAfuv
+                )}
               />
             </div>
-            <Icon146Icon
-              className={classNames(projectcss.all, sty.svg__tn7D)}
-              role={"img"}
-            />
-          </div>
-        </div>
-        <div className={classNames(projectcss.all, sty.freeBox__kzmxn)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___8AmLi
-            )}
-          >
-            {"Enter some text"}
-          </div>
-        </div>
+          );
+        })}
       </div>
+      <Reply className={classNames("__wab_instance", sty.reply__ub0Bo)} />
+
+      <div className={classNames(projectcss.all, sty.freeBox__niQob)} />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "reply", "img"],
-  reply: ["reply"],
-  img: ["img"]
+  root: ["root", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  reply: typeof Reply;
-  img: typeof PlasmicImg__;
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -487,8 +538,7 @@ export const PlasmicComment = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    reply: makeNodeComponent("reply"),
-    img: makeNodeComponent("img"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicComment
     internalVariantProps: PlasmicComment__VariantProps,

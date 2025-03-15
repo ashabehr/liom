@@ -2024,6 +2024,102 @@
 .img__vPzRa > picture > img {
   object-fit: cover;
 }
+.freeBox__m8Mf {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 0px;
+}
+@media (max-width: 640px) {
+  .freeBox__m8Mf {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
+.freeBox__oJsBb {
+  display: flex;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  flex-direction: row;
+  background: #2563eb1a;
+  box-shadow: 0px 4px 16px 0px #12121214;
+  min-width: 0;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px dashed var(--token-0xHMxyAHbOos);
+}
+.freeBox__oJsBb > :global(.__wab_flex-container) {
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  min-width: 0;
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
+}
+.freeBox__oJsBb > :global(.__wab_flex-container) > *,
+.freeBox__oJsBb > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__oJsBb > :global(.__wab_flex-container) > picture > img,
+.freeBox__oJsBb
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 0px;
+}
+.text___2QkIv {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  color: var(--token-0xHMxyAHbOos);
+  font-size: 16px;
+  font-weight: 700;
+  white-space: pre-wrap;
+  user-select: text;
+  font-style: normal;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-decoration-line: none;
+  text-overflow: clip;
+  font-family: "Roboto", sans-serif;
+}
+@media (max-width: 640px) {
+  .text___2QkIv {
+    white-space: pre-wrap;
+  }
+}
+.text__gwAp7 {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-0xHMxyAHbOos);
+  color: var(--token-jgohepLVeKvh);
+  font-size: 15px;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  border-radius: 8px;
+  padding: 4px 16px 2px;
+}
+@media (max-width: 640px) {
+  .text__gwAp7 {
+    padding: 2px 6px 0px;
+  }
+}
 .freeBox__hN0VM {
   display: flex;
   flex-direction: row;
@@ -2657,6 +2753,12 @@
   max-width: 100%;
   min-width: 0;
   padding: 0px;
+}
+@media (max-width: 640px) {
+  .freeBox__rzAf {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
 }
 .freeBoxlackOfCourseInformation__rzAf07Srs {
   display: none;
