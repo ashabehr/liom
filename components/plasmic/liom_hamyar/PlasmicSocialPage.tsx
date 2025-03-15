@@ -1229,7 +1229,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                         throw e;
                       }
                     })(),
-                    onCommentDataChange: async (...eventArgs: any) => {
+                    onCommentDataChange2: async (...eventArgs: any) => {
                       generateStateOnChangeProp($state, [
                         "comment",
                         __plasmic_idx_0,

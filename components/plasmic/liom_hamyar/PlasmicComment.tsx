@@ -90,7 +90,7 @@ export type PlasmicComment__ArgsType = {
   replyCount?: string;
   tokennnn?: string;
   commentData?: any;
-  onCommentDataChange?: (val: string) => void;
+  onCommentDataChange2?: (val: string) => void;
   commentId?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
@@ -103,7 +103,7 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "replyCount",
   "tokennnn",
   "commentData",
-  "onCommentDataChange",
+  "onCommentDataChange2",
   "commentId",
   "children",
   "slot",
@@ -120,7 +120,7 @@ export interface DefaultCommentProps {
   replyCount?: string;
   tokennnn?: string;
   commentData?: any;
-  onCommentDataChange?: (val: string) => void;
+  onCommentDataChange2?: (val: string) => void;
   commentId?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
@@ -150,7 +150,11 @@ function PlasmicComment__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          tokennnn:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVjYjg4M2NkLWI3ODYtNGMzZS1iYjhiLTA5ZTgyNzVkYTk4YyIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzM5NjA2MjI2fQ.F7OWRYuvRw2zxjIXAiFCtUVG9fLGRPgvYtPpLWUsz4k",
+          commentId: "3"
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -186,7 +190,7 @@ function PlasmicComment__RenderFunc(props: {
         variableType: "object",
 
         valueProp: "commentData",
-        onChangeProp: "onCommentDataChange"
+        onChangeProp: "onCommentDataChange2"
       }
     ],
     [$props, $ctx, $refs]
@@ -550,14 +554,14 @@ function PlasmicComment__RenderFunc(props: {
                 const actionArgs = {
                   args: [
                     undefined,
-                    undefined,
+                    "https://n8n.staas.ir/webhook/social/reply/replies",
                     (() => {
                       try {
                         return {
-                          commentId: "$props.commentId",
+                          commentId: $props.commentId,
                           size: 10,
                           from: 0,
-                          authorization: "$props.tokennnn"
+                          authorization: $props.tokennnn
                         };
                       } catch (e) {
                         if (
@@ -597,7 +601,7 @@ function PlasmicComment__RenderFunc(props: {
                     variablePath: ["commentData"]
                   },
                   operation: 0,
-                  value: $steps.invokeGlobalAction.data
+                  value: $steps.invokeGlobalAction?.data
                 };
                 return (({ variable, value, startIndex, deleteCount }) => {
                   if (!variable) {
