@@ -3581,43 +3581,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                             )}
                             onClick={async event => {
                               const $steps = {};
-
-                              $steps["runCode"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
-                                          var link;
-                                          link =
-                                            "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
-                                            $ctx.query.token +
-                                            "&selectStep=" +
-                                            "0" +
-                                            "&userId=" +
-                                            ($ctx?.query?.userId ?? "") +
-                                            "&version=" +
-                                            $ctx.query.version +
-                                            "&theme=" +
-                                            $ctx.query.theme;
-                                          return window.FlutterChannel.postMessage(
-                                            "#inAppWebView**@@** ابزار خطرناکه یانه! **@@**" +
-                                              link
-                                          );
-                                        })();
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["runCode"] != null &&
-                                typeof $steps["runCode"] === "object" &&
-                                typeof $steps["runCode"].then === "function"
-                              ) {
-                                $steps["runCode"] = await $steps["runCode"];
-                              }
                             }}
                           >
                             <div
@@ -5688,17 +5651,49 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   switch (currentItem.action) {
                                                     case "clinic":
                                                       {
+                                                        const chars =
+                                                          "abcdefghijklmnopqrstuvwxyz0123456789";
+                                                        let randomStr1 = "";
+                                                        let randomStr2 = "";
+                                                        for (
+                                                          let i = 0;
+                                                          i < 6;
+                                                          i++
+                                                        ) {
+                                                          const rnd =
+                                                            Math.floor(
+                                                              Math.random() *
+                                                                chars.length
+                                                            );
+                                                          randomStr1 +=
+                                                            chars[rnd];
+                                                        }
+                                                        for (
+                                                          let i = 0;
+                                                          i < 6;
+                                                          i++
+                                                        ) {
+                                                          const rnd =
+                                                            Math.floor(
+                                                              Math.random() *
+                                                                chars.length
+                                                            );
+                                                          randomStr2 +=
+                                                            chars[rnd];
+                                                        }
                                                         var link =
                                                           "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
+                                                          randomStr1 +
                                                           $ctx.query.token.slice(
                                                             6,
                                                             $ctx.query.token
-                                                              .length - 4
-                                                          );
+                                                              .length - 3
+                                                          ) +
+                                                          randomStr2;
                                                         window.FlutterChannel.postMessage(
                                                           "#inAppWebView**@@**" +
                                                             "کلینیک لیوم" +
-                                                            "**@@**" +
+                                                            "@@" +
                                                             link
                                                         );
                                                       }
@@ -5710,7 +5705,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       break;
                                                     case "skinCare":
                                                       {
-                                                        if (active) {
+                                                        if (!active) {
                                                           var link =
                                                             "https://tools.liom.app/self-medication/?type=skinCare&inApp=false&token=" +
                                                             $ctx.query.token +
@@ -5754,7 +5749,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         }
                                                       }
                                                       break;
-                                                    case "weekByWeek":
+                                                    case "danger":
                                                       {
                                                         document
                                                           .getElementById(
@@ -5809,18 +5804,52 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     : false;
                                                   switch (currentItem.action) {
                                                     case "clinic":
-                                                      window.open(
-                                                        "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
-                                                          $ctx.query.token.slice(
-                                                            6,
-                                                            $ctx.query.token
-                                                              .length - 4
-                                                          ),
-                                                        "_self"
-                                                      );
+                                                      {
+                                                        const chars =
+                                                          "abcdefghijklmnopqrstuvwxyz0123456789";
+                                                        let randomStr1 = "";
+                                                        let randomStr2 = "";
+                                                        for (
+                                                          let i = 0;
+                                                          i < 6;
+                                                          i++
+                                                        ) {
+                                                          const rnd =
+                                                            Math.floor(
+                                                              Math.random() *
+                                                                chars.length
+                                                            );
+                                                          randomStr1 +=
+                                                            chars[rnd];
+                                                        }
+                                                        for (
+                                                          let i = 0;
+                                                          i < 6;
+                                                          i++
+                                                        ) {
+                                                          const rnd =
+                                                            Math.floor(
+                                                              Math.random() *
+                                                                chars.length
+                                                            );
+                                                          randomStr2 +=
+                                                            chars[rnd];
+                                                        }
+                                                        window.open(
+                                                          "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
+                                                            randomStr1 +
+                                                            $ctx.query.token.slice(
+                                                              6,
+                                                              $ctx.query.token
+                                                                .length - 3
+                                                            ) +
+                                                            randomStr2,
+                                                          "_self"
+                                                        );
+                                                      }
                                                       break;
                                                     case "skinCare":
-                                                      if (active)
+                                                      if (!active)
                                                         window.open(
                                                           "https://tools.liom.app/self-medication/?type=skinCare&inApp=false&token=" +
                                                             $ctx.query.token +
@@ -5855,7 +5884,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           true;
                                                       }
                                                       break;
-                                                    case "weekByWeek":
+                                                    case "danger":
                                                       document
                                                         .getElementById(
                                                           "collapseDanger"

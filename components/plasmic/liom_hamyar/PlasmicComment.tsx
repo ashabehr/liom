@@ -59,8 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import Commentlikebutton from "../../Commentlikebutton"; // plasmic-import: wOOFf0E7TUt2/component
 import Reply from "../../Reply"; // plasmic-import: LqO8252FTurB/component
+import Commentlikebutton from "../../Commentlikebutton"; // plasmic-import: wOOFf0E7TUt2/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -74,10 +74,16 @@ import Icon146Icon from "./icons/PlasmicIcon__Icon146"; // plasmic-import: oL3Gq
 
 createPlasmicElementProxy;
 
-export type PlasmicComment__VariantMembers = {};
-export type PlasmicComment__VariantsArgs = {};
+export type PlasmicComment__VariantMembers = {
+  unnamedVariant: "unnamedVariant";
+};
+export type PlasmicComment__VariantsArgs = {
+  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
+};
 type VariantPropType = keyof PlasmicComment__VariantsArgs;
-export const PlasmicComment__VariantProps = new Array<VariantPropType>();
+export const PlasmicComment__VariantProps = new Array<VariantPropType>(
+  "unnamedVariant"
+);
 
 export type PlasmicComment__ArgsType = {
   likeCountForComment?: string;
@@ -99,7 +105,6 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicComment__OverridesType = {
   root?: Flex__<"div">;
-  text?: Flex__<"div">;
 };
 
 export interface DefaultCommentProps {
@@ -109,6 +114,7 @@ export interface DefaultCommentProps {
   slot?: React.ReactNode;
   slot2?: React.ReactNode;
   slot3?: React.ReactNode;
+  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   className?: string;
 }
 
@@ -151,6 +157,24 @@ function PlasmicComment__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
+
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "unnamedVariant",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   return (
     <div
@@ -249,12 +273,10 @@ function PlasmicComment__RenderFunc(props: {
           className={classNames(projectcss.all, sty.freeBox__fSs)}
         >
           <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text
+              sty.text__gBxae
             )}
           >
             {"5h ago"}
@@ -301,35 +323,50 @@ function PlasmicComment__RenderFunc(props: {
           value: args.slot
         })}
       </div>
-      <Commentlikebutton
-        className={classNames("__wab_instance", sty.commentlikebutton__twQ3M)}
-        likeCommentCount={(() => {
-          try {
-            return $props.likeCountForComment;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
-          }
-        })()}
-      />
-
       <Stack__
         as={"div"}
         hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox__eZrem)}
+        className={classNames(projectcss.all, sty.freeBox__eZrem, {
+          [sty.freeBoxunnamedVariant__eZremUOheY]: hasVariant(
+            $state,
+            "unnamedVariant",
+            "unnamedVariant"
+          )
+        })}
       >
-        <Reply className={classNames("__wab_instance", sty.reply__cmcBj)} />
+        <Reply
+          className={classNames("__wab_instance", sty.reply__cmcBj, {
+            [sty.replyunnamedVariant__cmcBjuOheY]: hasVariant(
+              $state,
+              "unnamedVariant",
+              "unnamedVariant"
+            )
+          })}
+        />
 
         <Commentlikebutton
-          className={classNames("__wab_instance", sty.commentlikebutton__w1Y7G)}
+          className={classNames(
+            "__wab_instance",
+            sty.commentlikebutton__w1Y7G,
+            {
+              [sty.commentlikebuttonunnamedVariant__w1Y7GUOheY]: hasVariant(
+                $state,
+                "unnamedVariant",
+                "unnamedVariant"
+              )
+            }
+          )}
         />
       </Stack__>
-      <div className={classNames(projectcss.all, sty.freeBox__wjP54)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__wjP54, {
+          [sty.freeBoxunnamedVariant__wjP54UOheY]: hasVariant(
+            $state,
+            "unnamedVariant",
+            "unnamedVariant"
+          )
+        })}
+      >
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
@@ -463,20 +500,49 @@ function PlasmicComment__RenderFunc(props: {
         })}
       </div>
       <Reply className={classNames("__wab_instance", sty.reply__ub0Bo)} />
+
+      <Commentlikebutton
+        className={classNames("__wab_instance", sty.commentlikebutton__twQ3M)}
+        likeCommentCount={(() => {
+          try {
+            return $props.likeCountForComment;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
+      />
+
+      <div className={classNames(projectcss.all, sty.freeBox__xZam2)}>
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__aAapo
+          )}
+        >
+          {
+            "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e"
+          }
+        </div>
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text"],
-  text: ["text"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -539,7 +605,6 @@ export const PlasmicComment = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicComment
     internalVariantProps: PlasmicComment__VariantProps,
