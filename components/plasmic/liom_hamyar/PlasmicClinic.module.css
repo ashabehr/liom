@@ -301,48 +301,6 @@
     font-size: 18px;
   }
 }
-.freeBox__pW0Ww {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  top: auto;
-  left: auto;
-  padding: 0px;
-}
-@media (max-width: 640px) {
-  .freeBox__pW0Ww {
-    top: auto;
-    left: auto;
-    z-index: 0;
-  }
-}
-.ا2 {
-  display: block;
-  font-size: 18px;
-  font-family: "Museo Sans Cyrl";
-  letter-spacing: normal;
-  color: var(--token-55cSeNPovQFh);
-  width: auto;
-  text-align: right;
-  font-weight: 500;
-  background: #d0b2ff;
-  border-radius: 8px;
-  padding: 4px 8px;
-}
-@media (max-width: 640px) {
-  .ا2 {
-    color: var(--token-55cSeNPovQFh);
-    font-size: 14px;
-    cursor: pointer;
-    mix-blend-mode: screen;
-    z-index: 0;
-  }
-}
 .img__yk6QY {
   object-fit: cover;
   max-width: 100%;
@@ -1287,6 +1245,7 @@
 @media (max-width: 640px) {
   .text__rrbwe {
     font-size: 14px;
+    width: 45%;
   }
 }
 .button14:global(.__wab_instance) {
@@ -1363,7 +1322,7 @@
 }
 .text___6H65 {
   position: relative;
-  width: 50%;
+  width: 45%;
   height: auto;
   max-width: 100%;
   text-align: justify;
@@ -1374,7 +1333,7 @@
 @media (max-width: 640px) {
   .text___6H65 {
     font-size: 14px;
-    width: 60%;
+    width: 50%;
   }
 }
 .button15:global(.__wab_instance) {

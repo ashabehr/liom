@@ -230,6 +230,11 @@ function PlasmicSocialPage__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "comment[].commentData",
+        type: "private",
+        variableType: "object"
       }
     ],
     [$props, $ctx, $refs]
@@ -1189,13 +1194,29 @@ function PlasmicSocialPage__RenderFunc(props: {
               ).map((__plasmic_item_0, __plasmic_idx_0) => {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
-                return (
-                  <Comment
-                    data-plasmic-name={"comment"}
-                    data-plasmic-override={overrides.comment}
-                    className={classNames("__wab_instance", sty.comment)}
-                    key={currentIndex}
-                    likeCountForComment={(() => {
+                return (() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.comment),
+                    commentData: generateStateValueProp($state, [
+                      "comment",
+                      __plasmic_idx_0,
+                      "commentData"
+                    ]),
+                    commentId: (() => {
+                      try {
+                        return currentItem.comment.id;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })(),
+                    key: currentIndex,
+                    likeCountForComment: (() => {
                       try {
                         return currentItem.likeCount;
                       } catch (e) {
@@ -1207,8 +1228,23 @@ function PlasmicSocialPage__RenderFunc(props: {
                         }
                         throw e;
                       }
-                    })()}
-                    replyCount={(() => {
+                    })(),
+                    onCommentDataChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "comment",
+                        __plasmic_idx_0,
+                        "commentData"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    },
+                    replyCount: (() => {
                       try {
                         return currentItem.replyCount;
                       } catch (e) {
@@ -1220,8 +1256,8 @@ function PlasmicSocialPage__RenderFunc(props: {
                         }
                         throw e;
                       }
-                    })()}
-                    slot={
+                    })(),
+                    slot: (
                       <div
                         data-plasmic-name={"coment"}
                         data-plasmic-override={overrides.coment}
@@ -1247,8 +1283,8 @@ function PlasmicSocialPage__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
-                    }
-                    slot2={
+                    ),
+                    slot2: (
                       <React.Fragment>
                         <div
                           className={classNames(
@@ -1368,8 +1404,8 @@ function PlasmicSocialPage__RenderFunc(props: {
                           />
                         </div>
                       </React.Fragment>
-                    }
-                    slot3={
+                    ),
+                    slot3: (
                       <div
                         className={classNames(
                           projectcss.all,
@@ -1393,8 +1429,8 @@ function PlasmicSocialPage__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
-                    }
-                    tokennnn={(() => {
+                    ),
+                    tokennnn: (() => {
                       try {
                         return $state.token;
                       } catch (e) {
@@ -1406,87 +1442,108 @@ function PlasmicSocialPage__RenderFunc(props: {
                         }
                         throw e;
                       }
-                    })()}
-                  >
-                    <PlasmicImg__
-                      alt={""}
-                      className={classNames(sty.img__jdjYt)}
-                      displayHeight={"48px"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"48px"}
-                      loading={"lazy"}
-                      src={(() => {
-                        try {
-                          return currentItem.user.image;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
-                    />
+                    })()
+                  };
 
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__sKm3J)}
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "comment[].commentData",
+                        initFunc: ({ $props, $state, $queries }) => ({})
+                      }
+                    ],
+                    [__plasmic_idx_0]
+                  );
+                  return (
+                    <Comment
+                      data-plasmic-name={"comment"}
+                      data-plasmic-override={overrides.comment}
+                      {...child$Props}
                     >
-                      <div
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__jdjYt)}
+                        displayHeight={"48px"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"48px"}
+                        loading={"lazy"}
+                        src={(() => {
+                          try {
+                            return currentItem.user.image;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___4DGKq
+                          sty.freeBox__sKm3J
                         )}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem.user.name;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "name";
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___4DGKq
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.user.name;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "name";
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__xwU5
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem.user.username;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__xwU5
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.user.username;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </Stack__>
-                  </Comment>
-                );
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </Stack__>
+                    </Comment>
+                  );
+                })();
               })}
               <section
                 className={classNames(projectcss.all, sty.section__l5Nnd)}

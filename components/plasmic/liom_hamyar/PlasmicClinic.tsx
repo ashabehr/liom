@@ -130,7 +130,6 @@ export type PlasmicClinic__OverridesType = {
   htmlVideo?: Flex__<typeof Video>;
   rectangle2?: Flex__<"div">;
   ا?: Flex__<"div">;
-  ا2?: Flex__<"div">;
   speciality?: Flex__<"div">;
   card6?: Flex__<"div">;
   iconClinic2?: Flex__<typeof IconClinic2>;
@@ -948,50 +947,6 @@ function PlasmicClinic__RenderFunc(props: {
                   data-plasmic-name={"rectangle2"}
                   data-plasmic-override={overrides.rectangle2}
                   className={classNames(projectcss.all, sty.rectangle2)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return `/docters?gender=${new URLSearchParams(
-                                  new URL(window.location.href).search
-                                ).get("gender")}`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return `/docters`;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
                 >
                   <Stack__
                     as={"div"}
@@ -1010,75 +965,6 @@ function PlasmicClinic__RenderFunc(props: {
                       {hasVariant(globalVariants, "screen", "mobile")
                         ? "\u062f\u0633\u062a\u0631\u0633\u06cc \u0622\u0633\u0627\u0646 \u0628\u0647 \u067e\u0632\u0634\u06a9\u060c \u0647\u0631 \u0632\u0645\u0627\u0646 \u0648 \u0647\u0631 \u06a9\u062c\u0627"
                         : "\u0647\u0631 \u06a9\u062c\u0627 \u06a9\u0647 \u0647\u0633\u062a\u06cc \u0648 \u0647\u0631 \u0632\u0645\u0627\u0646\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u060c \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0628\u0647 \u067e\u0632\u0634\u06a9 \u062f\u0633\u062a\u0631\u0633\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634."}
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__pW0Ww)}
-                    >
-                      <div
-                        data-plasmic-name={"\u06272"}
-                        data-plasmic-override={overrides.ا2}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.ا2,
-                          {
-                            [sty.ا2_1_docters]: hasVariant(
-                              $state,
-                              "_1",
-                              "docters"
-                            )
-                          }
-                        )}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["goToPage"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  destination: (() => {
-                                    try {
-                                      return `/docters?gender=${new URLSearchParams(
-                                        new URL(window.location.href).search
-                                      ).get("gender")}`;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return `/docters`;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                };
-                                return (({ destination }) => {
-                                  if (
-                                    typeof destination === "string" &&
-                                    destination.startsWith("#")
-                                  ) {
-                                    document
-                                      .getElementById(destination.substr(1))
-                                      .scrollIntoView({ behavior: "smooth" });
-                                  } else {
-                                    __nextRouter?.push(destination);
-                                  }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["goToPage"] != null &&
-                            typeof $steps["goToPage"] === "object" &&
-                            typeof $steps["goToPage"].then === "function"
-                          ) {
-                            $steps["goToPage"] = await $steps["goToPage"];
-                          }
-                        }}
-                      >
-                        {
-                          "\u0644\u06cc\u0633\u062a \u06a9\u0627\u0645\u0644 \u067e\u0632\u0634\u06a9\u0627\u0646  >"
-                        }
-                      </div>
                     </div>
                   </Stack__>
                   <PlasmicImg__
@@ -2126,8 +2012,8 @@ function PlasmicClinic__RenderFunc(props: {
                       )}
                     >
                       {hasVariant(globalVariants, "screen", "mobile")
-                        ? "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "
-                        : "\u0645\u0634\u0640\u0640\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "}
+                        ? "\u0645\u0634\u0640\u0640\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0645\u0642\u0627\u0631\u0628\u062a\u06cc "
+                        : "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0645\u0642\u0627\u0631\u0628\u062a\u06cc "}
                     </div>
                     <Button
                       data-plasmic-name={"button14"}
@@ -2280,7 +2166,7 @@ function PlasmicClinic__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u0645\u0634\u0627\u0648\u0631\u0647 \u0628\u0631\u0627\u06cc \u0628\u0627\u0631\u0648\u0631\u06cc "
+                        "\u0645\u0634\u0640\u0640\u0640\u0640\u0640\u0640\u0627\u0648\u0631\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0627\u0628\u0637\u0647 \u062c\u0646\u0633\u06cc"
                       }
                     </div>
                     <Button
@@ -7361,37 +7247,55 @@ function PlasmicClinic__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox___8QInJ)}
               >
-                <XIcon
-                  className={classNames(projectcss.all, sty.svg__wD4U)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                if (window.history.length > 1)
-                                  return window.history.back();
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
+                {(() => {
+                  try {
+                    return (
+                      ($ctx.query.gender ||
+                        new URLSearchParams(window.location.search).get(
+                          "gender"
+                        )) != "male"
+                    );
+                  } catch (e) {
                     if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      $steps["runCode"] = await $steps["runCode"];
+                      return true;
                     }
-                  }}
-                  role={"img"}
-                />
+                    throw e;
+                  }
+                })() ? (
+                  <XIcon
+                    className={classNames(projectcss.all, sty.svg__wD4U)}
+                    onClick={async event => {
+                      const $steps = {};
 
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  if (window.history.length > 1)
+                                    return window.history.back();
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                    role={"img"}
+                  />
+                ) : null}
                 <div
                   className={classNames(
                     projectcss.all,
@@ -7877,7 +7781,6 @@ const PlasmicDescendants = {
     "htmlVideo",
     "rectangle2",
     "\u0627",
-    "\u06272",
     "speciality",
     "card6",
     "iconClinic2",
@@ -7941,11 +7844,10 @@ const PlasmicDescendants = {
     "antdInput"
   ],
   sideEffect: ["sideEffect"],
-  bg: ["bg", "htmlVideo", "rectangle2", "\u0627", "\u06272"],
+  bg: ["bg", "htmlVideo", "rectangle2", "\u0627"],
   htmlVideo: ["htmlVideo"],
-  rectangle2: ["rectangle2", "\u0627", "\u06272"],
+  rectangle2: ["rectangle2", "\u0627"],
   ا: ["\u0627"],
-  ا2: ["\u06272"],
   speciality: ["speciality", "card6", "iconClinic2"],
   card6: ["card6", "iconClinic2"],
   iconClinic2: ["iconClinic2"],
@@ -8072,7 +7974,6 @@ type NodeDefaultElementType = {
   htmlVideo: typeof Video;
   rectangle2: "div";
   ا: "div";
-  ا2: "div";
   speciality: "div";
   card6: "div";
   iconClinic2: typeof IconClinic2;
@@ -8226,7 +8127,6 @@ export const PlasmicClinic = Object.assign(
     htmlVideo: makeNodeComponent("htmlVideo"),
     rectangle2: makeNodeComponent("rectangle2"),
     ا: makeNodeComponent("\u0627"),
-    ا2: makeNodeComponent("\u06272"),
     speciality: makeNodeComponent("speciality"),
     card6: makeNodeComponent("card6"),
     iconClinic2: makeNodeComponent("iconClinic2"),

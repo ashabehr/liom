@@ -632,6 +632,9 @@
 }
 .post:global(.__wab_instance) {
   position: relative;
+  width: 100%;
+  max-width: 803px;
+  min-width: 0;
 }
 .freeBox___03Hh9 {
   display: flex;

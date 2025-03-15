@@ -2142,22 +2142,6 @@ function PlasmicDocter__RenderFunc(props: {
                             data-plasmic-override={overrides.card16}
                             hasGap={true}
                             className={classNames(projectcss.all, sty.card16)}
-                            style={(() => {
-                              try {
-                                return {
-                                  "background-color":
-                                    $state.getList.list[currentIndex].backColor
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
                           />
 
                           <div
@@ -3101,7 +3085,9 @@ function PlasmicDocter__RenderFunc(props: {
                         try {
                           return (
                             "اعتبار : " +
-                            parseInt(localStorage.getItem("userAllowance")) +
+                            parseInt(
+                              localStorage.getItem("userAllowance") * 1000
+                            ) +
                             " تومان "
                           );
                         } catch (e) {
