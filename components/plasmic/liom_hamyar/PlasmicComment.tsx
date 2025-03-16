@@ -462,7 +462,7 @@ function PlasmicComment__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return $props.replyName;
+                          return currentItem.user.name;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -485,7 +485,7 @@ function PlasmicComment__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return $props.replyUsername;
+                          return currentItem.user.username;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
