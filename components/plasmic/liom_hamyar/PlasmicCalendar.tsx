@@ -1824,14 +1824,11 @@ function PlasmicCalendar__RenderFunc(props: {
                           app = app.slice(6, app.length - 3);
                           localStorage.setItem("token", app);
                         }
-                        if (!window.document.referrer)
+                        if (window.history.length == 1)
                           localStorage.setItem("addHome", "true");
                         try {
-                          const parser = new UAParser();
-                          const result = parser.getResult();
-                          return ($state.ios =
-                            result.os.name == "iOS" &&
-                            result.device.type == "mobile");
+                          const platform = window.navigator.platform;
+                          return ($state.ios = /iPhone|iPod/.test(platform));
                         } catch {}
                       })();
                     }
