@@ -14718,7 +14718,12 @@ function PlasmicLogin__RenderFunc(props: {
                               "";
                             baseUrl = new URL(baseUrl);
                             const origin = baseUrl.origin;
-                            baseUrl = `${origin}?${baseUrl.searchParams.toString()}`;
+                            const pathname = baseUrl.pathname;
+                            const searchParams =
+                              baseUrl.searchParams.toString();
+                            baseUrl = searchParams
+                              ? `${origin}${pathname}?${searchParams}`
+                              : `${origin}${pathname}`;
                             var separator = baseUrl.includes("?")
                               ? "&token="
                               : "?token=";

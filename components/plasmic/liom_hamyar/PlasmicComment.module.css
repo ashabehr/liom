@@ -91,6 +91,7 @@
   font-size: 16px;
   text-align: right;
   white-space: pre;
+  user-select: text;
 }
 .freeBox__fSs {
   display: flex;
@@ -286,13 +287,18 @@
   color: var(--token-ODBUExjR6VEF);
   font-size: 16px;
   font-weight: 700;
+  white-space: pre;
 }
-.text__f3MRy {
+.text__iciV4 {
   position: relative;
+  width: 100%;
   height: auto;
   max-width: 100%;
+  font-size: 12px;
+  font-weight: 400;
   text-align: right;
   white-space: pre;
+  min-width: 0;
 }
 .freeBox___3VbKo {
   display: flex;
