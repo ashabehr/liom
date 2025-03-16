@@ -14654,21 +14654,9 @@ function PlasmicLogin__RenderFunc(props: {
                                   userId: $ctx.query.userId
                                 }
                               };
-                              localStorage.setItem(
+                              return localStorage.setItem(
                                 "loginInfo",
                                 JSON.stringify(loginuserinfo)
-                              );
-                              return window.open(
-                                $ctx.query.redirect_url +
-                                  "?token=" +
-                                  $$.uuid.v4().slice(0, 6) +
-                                  $ctx.query.token +
-                                  $$.uuid.v4().slice(10, 13) +
-                                  "&userId=" +
-                                  $$.uuid.v4().slice(0, 4) +
-                                  $ctx.query.userId +
-                                  $$.uuid.v4().slice(0, 4),
-                                "_self"
                               );
                             })();
                           }

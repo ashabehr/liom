@@ -1825,11 +1825,7 @@ function PlasmicCalendar__RenderFunc(props: {
                           localStorage.setItem("token", app);
                         }
                         if (window.history.length == 1)
-                          localStorage.setItem("addHome", "true");
-                        try {
-                          const platform = window.navigator.platform;
-                          return ($state.ios = /iPhone|iPod/.test(platform));
-                        } catch {}
+                          return localStorage.setItem("addHome", "true");
                       })();
                     }
                   };
@@ -62788,7 +62784,12 @@ function PlasmicCalendar__RenderFunc(props: {
           </section>
           {(() => {
             try {
-              return $state.addHome && $state.ios;
+              return (() => {
+                return (
+                  !localStorage.getItem("addHome") &&
+                  /iPhone|iPod/.test(window.navigator.userAgent)
+                );
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
