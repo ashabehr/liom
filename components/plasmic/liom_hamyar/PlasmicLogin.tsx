@@ -14716,6 +14716,9 @@ function PlasmicLogin__RenderFunc(props: {
                             var baseUrl =
                               window.location.href.split("redirect_url=")[1] ||
                               "";
+                            baseUrl = new URL(baseUrl);
+                            const origin = baseUrl.origin;
+                            baseUrl = `${origin}?${urlObj.searchParams.toString()}`;
                             var separator = baseUrl.includes("?")
                               ? "&token="
                               : "?token=";

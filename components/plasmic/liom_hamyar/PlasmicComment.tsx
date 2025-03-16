@@ -86,46 +86,53 @@ export const PlasmicComment__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicComment__ArgsType = {
-  likeCountForComment?: string;
-  replyCount?: string;
   tokennnn?: string;
   commentData?: any;
   onCommentDataChange2?: (val: string) => void;
   commentId?: string;
-  children?: React.ReactNode;
-  slot?: React.ReactNode;
-  slot2?: React.ReactNode;
-  slot3?: React.ReactNode;
+  mainName?: string;
+  mainUsername?: string;
+  mainImag?: string;
+  mainText?: string;
+  replyName?: string;
+  replyUsername?: string;
+  replyImag?: string;
+  replyText?: string;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
-  "likeCountForComment",
-  "replyCount",
   "tokennnn",
   "commentData",
   "onCommentDataChange2",
   "commentId",
-  "children",
-  "slot",
-  "slot2",
-  "slot3"
+  "mainName",
+  "mainUsername",
+  "mainImag",
+  "mainText",
+  "replyName",
+  "replyUsername",
+  "replyImag",
+  "replyText"
 );
 
 export type PlasmicComment__OverridesType = {
   root?: Flex__<"div">;
+  coment?: Flex__<"div">;
 };
 
 export interface DefaultCommentProps {
-  likeCountForComment?: string;
-  replyCount?: string;
   tokennnn?: string;
   commentData?: any;
   onCommentDataChange2?: (val: string) => void;
   commentId?: string;
-  children?: React.ReactNode;
-  slot?: React.ReactNode;
-  slot2?: React.ReactNode;
-  slot3?: React.ReactNode;
+  mainName?: string;
+  mainUsername?: string;
+  mainImag?: string;
+  mainText?: string;
+  replyName?: string;
+  replyUsername?: string;
+  replyImag?: string;
+  replyText?: string;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   className?: string;
 }
@@ -221,77 +228,83 @@ function PlasmicComment__RenderFunc(props: {
     >
       <div className={classNames(projectcss.all, sty.freeBox__euKls)}>
         <div className={classNames(projectcss.all, sty.freeBox__qFvXh)}>
-          {renderPlasmicSlot({
-            defaultContents: (
-              <React.Fragment>
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img__yudX4)}
-                  displayHeight={"48px"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"48px"}
-                  loading={"lazy"}
-                />
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img__yudX4)}
+            displayHeight={"48px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"48px"}
+            loading={"lazy"}
+            src={(() => {
+              try {
+                return $props.mainImag;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__fjoUh)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__qsMbq
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return "";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "name";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__epDy6
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return "";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "username";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                </Stack__>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__fjoUh)}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__qsMbq
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.mainName;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "name ";
+                    }
+                    throw e;
+                  }
+                })()}
               </React.Fragment>
-            ),
-            value: args.children
-          })}
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__epDy6
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.mainUsername;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "username";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+          </Stack__>
         </div>
         <Stack__
           as={"div"}
@@ -320,34 +333,31 @@ function PlasmicComment__RenderFunc(props: {
         </Stack__>
       </div>
       <div className={classNames(projectcss.all, sty.freeBox__bb4BN)}>
-        {renderPlasmicSlot({
-          defaultContents: (
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__vPuuN
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return undefined;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-          ),
-          value: args.slot
-        })}
+        <div
+          data-plasmic-name={"coment"}
+          data-plasmic-override={overrides.coment}
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.coment
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.mainText;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </div>
       </div>
       <Stack__
         as={"div"}
@@ -396,7 +406,7 @@ function PlasmicComment__RenderFunc(props: {
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
-              return $props.replyCount;
+              return $state.commentData;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -416,100 +426,129 @@ function PlasmicComment__RenderFunc(props: {
               key={currentIndex}
             >
               <div className={classNames(projectcss.all, sty.freeBox__n5Oa)}>
-                {renderPlasmicSlot({
-                  defaultContents: (
-                    <React.Fragment>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__m637
-                        )}
-                      >
-                        <PlasmicImg__
-                          alt={""}
-                          className={classNames(sty.img__dRjT)}
-                          displayHeight={"40px"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"40px"}
-                          loading={"lazy"}
-                        />
+                <div className={classNames(projectcss.all, sty.freeBox__m637)}>
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__dRjT)}
+                    displayHeight={"40px"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"40px"}
+                    loading={"lazy"}
+                    src={(() => {
+                      try {
+                        return currentItem.user.image;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                  />
 
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__c8Tm6
-                          )}
-                        >
-                          {"Enter some text"}
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__f3MRy
-                          )}
-                        >
-                          {"Enter some text"}
-                        </div>
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___3VbKo
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__yJg1C
-                          )}
-                        >
-                          {"Enter some text"}
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__kMrO
-                          )}
-                        >
-                          <Icon170Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__rpylv
-                            )}
-                            role={"img"}
-                          />
-                        </div>
-                        <Icon146Icon
-                          className={classNames(projectcss.all, sty.svg___5X9J)}
-                          role={"img"}
-                        />
-                      </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__c8Tm6
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $props.replyName;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
                     </React.Fragment>
-                  ),
-                  value: args.slot2
-                })}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__f3MRy
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $props.replyUsername;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___3VbKo)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__yJg1C
+                    )}
+                  >
+                    {"Enter some text"}
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__kMrO)}
+                  >
+                    <Icon170Icon
+                      className={classNames(projectcss.all, sty.svg__rpylv)}
+                      role={"img"}
+                    />
+                  </div>
+                  <Icon146Icon
+                    className={classNames(projectcss.all, sty.svg___5X9J)}
+                    role={"img"}
+                  />
+                </div>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__kzmxn)}>
-                {renderPlasmicSlot({
-                  defaultContents: (
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__lEmW5
-                      )}
-                    >
-                      {"Enter some text"}
-                    </div>
-                  ),
-                  value: args.slot3
-                })}
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__lEmW5
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.commentData[0].reply.text;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
               </div>
               <Reply
                 className={classNames("__wab_instance", sty.reply__iSisW)}
@@ -531,7 +570,7 @@ function PlasmicComment__RenderFunc(props: {
         className={classNames("__wab_instance", sty.commentlikebutton__twQ3M)}
         likeCommentCount={(() => {
           try {
-            return $props.likeCountForComment;
+            return undefined;
           } catch (e) {
             if (
               e instanceof TypeError ||
@@ -601,7 +640,7 @@ function PlasmicComment__RenderFunc(props: {
                     variablePath: ["commentData"]
                   },
                   operation: 0,
-                  value: $steps.invokeGlobalAction?.data
+                  value: $steps.invokeGlobalAction?.data.result
                 };
                 return (({ variable, value, startIndex, deleteCount }) => {
                   if (!variable) {
@@ -640,13 +679,15 @@ function PlasmicComment__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "coment"],
+  coment: ["coment"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  coment: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -709,6 +750,7 @@ export const PlasmicComment = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    coment: makeNodeComponent("coment"),
 
     // Metadata about props expected for PlasmicComment
     internalVariantProps: PlasmicComment__VariantProps,
