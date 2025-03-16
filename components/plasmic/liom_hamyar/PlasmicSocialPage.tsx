@@ -1282,19 +1282,6 @@ function PlasmicSocialPage__RenderFunc(props: {
                         return;
                       }
                     },
-                    replyName: (() => {
-                      try {
-                        return undefined;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })(),
                     tokennnn: (() => {
                       try {
                         return $state.token;

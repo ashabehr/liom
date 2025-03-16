@@ -86,11 +86,13 @@ export const PlasmicCommentlikebutton__VariantProps =
 export type PlasmicCommentlikebutton__ArgsType = {
   likeCommentCount?: string;
   coomentLikeBool?: boolean;
+  carrentData?: string;
 };
 type ArgPropType = keyof PlasmicCommentlikebutton__ArgsType;
 export const PlasmicCommentlikebutton__ArgProps = new Array<ArgPropType>(
   "likeCommentCount",
-  "coomentLikeBool"
+  "coomentLikeBool",
+  "carrentData"
 );
 
 export type PlasmicCommentlikebutton__OverridesType = {
@@ -102,6 +104,7 @@ export type PlasmicCommentlikebutton__OverridesType = {
 export interface DefaultCommentlikebuttonProps {
   likeCommentCount?: string;
   coomentLikeBool?: boolean;
+  carrentData?: string;
   islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
   className?: string;
 }

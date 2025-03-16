@@ -98,6 +98,7 @@ export type PlasmicComment__ArgsType = {
   replyUsername?: string;
   replyImag?: string;
   replyText?: string;
+  mainCommentLikeCount?: string;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
@@ -112,7 +113,8 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "replyName",
   "replyUsername",
   "replyImag",
-  "replyText"
+  "replyText",
+  "mainCommentLikeCount"
 );
 
 export type PlasmicComment__OverridesType = {
@@ -133,6 +135,7 @@ export interface DefaultCommentProps {
   replyUsername?: string;
   replyImag?: string;
   replyText?: string;
+  mainCommentLikeCount?: string;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   className?: string;
 }
@@ -567,20 +570,9 @@ function PlasmicComment__RenderFunc(props: {
       <Reply className={classNames("__wab_instance", sty.reply__ub0Bo)} />
 
       <Commentlikebutton
+        carrentData={``}
         className={classNames("__wab_instance", sty.commentlikebutton__twQ3M)}
-        likeCommentCount={(() => {
-          try {
-            return undefined;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
-          }
-        })()}
+        likeCommentCount={`${(() => {})()}${$state.commentData.likeCount}`}
       />
 
       <div
