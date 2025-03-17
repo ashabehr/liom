@@ -6154,8 +6154,70 @@ function PlasmicStatusDay__RenderFunc(props: {
                     data-plasmic-override={overrides.button}
                     className={classNames("__wab_instance", sty.button)}
                     color={generateStateValueProp($state, ["button", "color"])}
+                    isDisabled={(() => {
+                      try {
+                        return $state.loadingBtn;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    loading={(() => {
+                      try {
+                        return $state.loadingBtn;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
                     onClick={async event => {
                       const $steps = {};
+
+                      $steps["updateLoadingBtn"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingBtn"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingBtn"] != null &&
+                        typeof $steps["updateLoadingBtn"] === "object" &&
+                        typeof $steps["updateLoadingBtn"].then === "function"
+                      ) {
+                        $steps["updateLoadingBtn"] = await $steps[
+                          "updateLoadingBtn"
+                        ];
+                      }
 
                       $steps["invokeGlobalAction2"] =
                         $state.color.list.length > 0 ||
@@ -6305,9 +6367,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
-                                  return (() => {
-                                    return window.history.back();
-                                  })();
+                                  return window.history.back();
                                 }
                               };
                               return (({ customFunction }) => {
@@ -6321,6 +6381,42 @@ function PlasmicStatusDay__RenderFunc(props: {
                         typeof $steps["runCode"].then === "function"
                       ) {
                         $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["updateNumber2Open2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingBtn"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateNumber2Open2"] != null &&
+                        typeof $steps["updateNumber2Open2"] === "object" &&
+                        typeof $steps["updateNumber2Open2"].then === "function"
+                      ) {
+                        $steps["updateNumber2Open2"] = await $steps[
+                          "updateNumber2Open2"
+                        ];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {

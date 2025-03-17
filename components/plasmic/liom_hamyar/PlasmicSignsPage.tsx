@@ -3891,6 +3891,32 @@ function PlasmicSignsPage__RenderFunc(props: {
                         "button",
                         "color"
                       ])}
+                      isDisabled={(() => {
+                        try {
+                          return $state.loadingBtn;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      loading={(() => {
+                        try {
+                          return $state.loadingBtn;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
                       onClick={async event => {
                         const $steps = {};
 
