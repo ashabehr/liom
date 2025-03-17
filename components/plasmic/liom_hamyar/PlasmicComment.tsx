@@ -226,10 +226,25 @@ function PlasmicComment__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        {
+          [sty.rootunnamedVariant]: hasVariant(
+            $state,
+            "unnamedVariant",
+            "unnamedVariant"
+          )
+        }
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__euKls)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__euKls, {
+          [sty.freeBoxunnamedVariant__euKlsuOheY]: hasVariant(
+            $state,
+            "unnamedVariant",
+            "unnamedVariant"
+          )
+        })}
+      >
         <div className={classNames(projectcss.all, sty.freeBox__qFvXh)}>
           <PlasmicImg__
             alt={""}
@@ -428,7 +443,15 @@ function PlasmicComment__RenderFunc(props: {
               className={classNames(projectcss.all, sty.freeBox__dzdw)}
               key={currentIndex}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__n5Oa)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__n5Oa, {
+                  [sty.freeBoxunnamedVariant__n5OaUOheY]: hasVariant(
+                    $state,
+                    "unnamedVariant",
+                    "unnamedVariant"
+                  )
+                })}
+              >
                 <div className={classNames(projectcss.all, sty.freeBox__m637)}>
                   <PlasmicImg__
                     alt={""}
@@ -611,7 +634,13 @@ function PlasmicComment__RenderFunc(props: {
       />
 
       <div
-        className={classNames(projectcss.all, sty.freeBox__xZam2)}
+        className={classNames(projectcss.all, sty.freeBox__xZam2, {
+          [sty.freeBoxunnamedVariant__xZam2UOheY]: hasVariant(
+            $state,
+            "unnamedVariant",
+            "unnamedVariant"
+          )
+        })}
         onClick={async event => {
           const $steps = {};
 
@@ -693,7 +722,14 @@ function PlasmicComment__RenderFunc(props: {
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text__aAapo
+            sty.text__aAapo,
+            {
+              [sty.textunnamedVariant__aAapouOheY]: hasVariant(
+                $state,
+                "unnamedVariant",
+                "unnamedVariant"
+              )
+            }
           )}
         >
           {

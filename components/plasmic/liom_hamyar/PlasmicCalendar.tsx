@@ -1981,13 +1981,16 @@ function PlasmicCalendar__RenderFunc(props: {
                         (() => {
                           try {
                             return {
-                              userId: "",
+                              userId:
+                                new URLSearchParams(window.location.search).get(
+                                  "userId"
+                                ) ||
+                                JSON.parse(
+                                  window.localStorage.getItem("userinfo")
+                                ).user.id,
                               pageName: "calendar",
                               action: "loadePage",
-                              extraData: {
-                                refCode: $state.r,
-                                mobile: $state.m
-                              }
+                              extraData: {}
                             };
                           } catch (e) {
                             if (
@@ -62837,7 +62840,10 @@ function PlasmicCalendar__RenderFunc(props: {
               ? (() => {
                   try {
                     return (() => {
-                      return /iPhone|iPod/.test(window.navigator.userAgent);
+                      return (
+                        !localStorage.getItem("addHome") &&
+                        /iPhone|iPod/.test(window.navigator.userAgent)
+                      );
                     })();
                   } catch (e) {
                     if (

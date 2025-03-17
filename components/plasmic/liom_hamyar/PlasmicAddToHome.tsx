@@ -218,7 +218,7 @@ function PlasmicAddToHome__RenderFunc(props: {
                   )}
                 >
                   {
-                    "1. \u062f\u0631 \u0646\u0648\u0627\u0631 \u067e\u0627\u06cc\u06cc\u0646 \u062f\u06a9\u0645\u0647 "
+                    "1. \u062f\u0631 \u0646\u0648\u0627\u0631  \u067e\u0627\u06cc\u06cc\u0646 \u062f\u06a9\u0645\u0647 "
                   }
                 </div>
                 <Icon197Icon
@@ -263,7 +263,7 @@ function PlasmicAddToHome__RenderFunc(props: {
                   )}
                 >
                   {
-                    '"Add to home screen"  \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.'
+                    ' "Add to home screen"  \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.'
                   }
                 </div>
               </div>

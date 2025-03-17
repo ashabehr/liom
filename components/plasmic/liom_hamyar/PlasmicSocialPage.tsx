@@ -1307,6 +1307,19 @@ function PlasmicSocialPage__RenderFunc(props: {
                         }
                         throw e;
                       }
+                    })(),
+                    unnamedVariant: (() => {
+                      try {
+                        return undefined;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "unnamedVariant";
+                        }
+                        throw e;
+                      }
                     })()
                   };
 

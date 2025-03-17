@@ -192,6 +192,7 @@
   align-self: center;
   white-space: pre;
   font-weight: 500;
+  padding-right: 0px;
 }
 .freeBox__hLmnp {
   display: flex;
