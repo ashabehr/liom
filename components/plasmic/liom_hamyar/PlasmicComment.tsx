@@ -61,6 +61,7 @@ import {
 
 import Commentlikebutton from "../../Commentlikebutton"; // plasmic-import: wOOFf0E7TUt2/component
 import Reply from "../../Reply"; // plasmic-import: LqO8252FTurB/component
+import ReplyLikeButton from "../../ReplyLikeButton"; // plasmic-import: DqnrMhkRW1DX/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -131,6 +132,7 @@ export type PlasmicComment__OverridesType = {
   commentlikebutton?: Flex__<typeof Commentlikebutton>;
   commentlikebutton2?: Flex__<typeof Commentlikebutton>;
   commentlikebutton3?: Flex__<typeof Commentlikebutton>;
+  replyLikeButton?: Flex__<typeof ReplyLikeButton>;
 };
 
 export interface DefaultCommentProps {
@@ -876,9 +878,11 @@ function PlasmicComment__RenderFunc(props: {
                 }}
               />
 
-              <div
-                className={classNames(projectcss.all, sty.freeBox__kShGl, {
-                  [sty.freeBoxshowReply__kShGl5MJbg]: hasVariant(
+              <ReplyLikeButton
+                data-plasmic-name={"replyLikeButton"}
+                data-plasmic-override={overrides.replyLikeButton}
+                className={classNames("__wab_instance", sty.replyLikeButton, {
+                  [sty.replyLikeButtonshowReply]: hasVariant(
                     $state,
                     "showReply",
                     "showReply"
@@ -1149,12 +1153,14 @@ const PlasmicDescendants = {
     "coment",
     "commentlikebutton",
     "commentlikebutton2",
-    "commentlikebutton3"
+    "commentlikebutton3",
+    "replyLikeButton"
   ],
   coment: ["coment"],
   commentlikebutton: ["commentlikebutton"],
   commentlikebutton2: ["commentlikebutton2"],
-  commentlikebutton3: ["commentlikebutton3"]
+  commentlikebutton3: ["commentlikebutton3"],
+  replyLikeButton: ["replyLikeButton"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1165,6 +1171,7 @@ type NodeDefaultElementType = {
   commentlikebutton: typeof Commentlikebutton;
   commentlikebutton2: typeof Commentlikebutton;
   commentlikebutton3: typeof Commentlikebutton;
+  replyLikeButton: typeof ReplyLikeButton;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1231,6 +1238,7 @@ export const PlasmicComment = Object.assign(
     commentlikebutton: makeNodeComponent("commentlikebutton"),
     commentlikebutton2: makeNodeComponent("commentlikebutton2"),
     commentlikebutton3: makeNodeComponent("commentlikebutton3"),
+    replyLikeButton: makeNodeComponent("replyLikeButton"),
 
     // Metadata about props expected for PlasmicComment
     internalVariantProps: PlasmicComment__VariantProps,

@@ -1700,6 +1700,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicReply.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "DqnrMhkRW1DX",
+          "name": "ReplyLikeButton",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicReplyLikeButton.tsx",
+          "importSpec": {
+            "modulePath": "ReplyLikeButton.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicReplyLikeButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

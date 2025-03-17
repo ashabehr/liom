@@ -482,17 +482,8 @@
 .commentlikebutton3showReply:global(.__wab_instance) {
   display: none;
 }
-.freeBox__kShGl {
-  display: flex;
-  flex-direction: row;
+.replyLikeButton:global(.__wab_instance) {
   position: relative;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px;
 }
 .reply__ub0Bo:global(.__wab_instance) {
   max-width: 100%;
