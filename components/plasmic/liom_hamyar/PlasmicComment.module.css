@@ -244,6 +244,9 @@
 .freeBoxwhenHaveReply__eZremS2LwI {
   display: none;
 }
+.freeBoxshowReply__eZrem5MJbg {
+  display: none;
+}
 .reply__cmcBj:global(.__wab_instance) {
   left: auto;
   top: auto;

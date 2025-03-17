@@ -985,25 +985,25 @@ function PlasmicComment__RenderFunc(props: {
         onClick={async event => {
           const $steps = {};
 
-          $steps["updateWhenHaveReply"] = true
+          $steps["updateShowReply"] = true
             ? (() => {
-                const actionArgs = { vgroup: "whenHaveReply", operation: 4 };
+                const actionArgs = { vgroup: "showReply", operation: 6 };
                 return (({ vgroup, value }) => {
                   if (typeof value === "string") {
                     value = [value];
                   }
 
-                  $stateSet($state, vgroup, true);
-                  return true;
+                  $stateSet($state, vgroup, false);
+                  return false;
                 })?.apply(null, [actionArgs]);
               })()
             : undefined;
           if (
-            $steps["updateWhenHaveReply"] != null &&
-            typeof $steps["updateWhenHaveReply"] === "object" &&
-            typeof $steps["updateWhenHaveReply"].then === "function"
+            $steps["updateShowReply"] != null &&
+            typeof $steps["updateShowReply"] === "object" &&
+            typeof $steps["updateShowReply"].then === "function"
           ) {
-            $steps["updateWhenHaveReply"] = await $steps["updateWhenHaveReply"];
+            $steps["updateShowReply"] = await $steps["updateShowReply"];
           }
         }}
       >
