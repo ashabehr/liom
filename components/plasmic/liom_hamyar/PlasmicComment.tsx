@@ -174,7 +174,8 @@ function PlasmicComment__RenderFunc(props: {
         {
           tokennnn:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVjYjg4M2NkLWI3ODYtNGMzZS1iYjhiLTA5ZTgyNzVkYTk4YyIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzM5NjA2MjI2fQ.F7OWRYuvRw2zxjIXAiFCtUVG9fLGRPgvYtPpLWUsz4k",
-          commentId: "3"
+          commentId: "3",
+          replyCount: "0"
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -805,19 +806,7 @@ function PlasmicComment__RenderFunc(props: {
                           throw e;
                         }
                       })()
-                    : (() => {
-                        try {
-                          return currentItem.likeCount;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()
+                    : `${(() => {})()}${currentItem.likeCount}`
                 }
               />
             </div>
