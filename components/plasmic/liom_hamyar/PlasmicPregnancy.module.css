@@ -1402,7 +1402,7 @@
   top: auto;
   border-radius: 100%;
   margin: 0px;
-  border: 8px solid #8254c64d;
+  border: 6px solid #8254c64d;
 }
 .img___4CVyi > picture > img {
   object-fit: cover;
@@ -1410,6 +1410,7 @@
 @media (max-width: 640px) {
   .img___4CVyi {
     margin: 0px 10px;
+    border-width: 4px;
   }
 }
 .freeBox__pViWz {
@@ -2099,7 +2100,6 @@
   }
 }
 .freeBox__eFz5X {
-  display: flex;
   flex-direction: row;
   position: relative;
   width: 100%;
@@ -2108,6 +2108,7 @@
   justify-content: flex-start;
   align-items: center;
   min-width: 0;
+  display: none;
   padding: 0px;
 }
 @media (max-width: 640px) {

@@ -488,13 +488,36 @@ function PlasmicComment__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return " در پاسخ یه" + currentItem.responseTo.name;
+                          return " در پاسخ یه";
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
                             return "\u062f\u0631 \u067e\u0627\u0633\u062e \u0628\u0647";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__vxV
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return currentItem.responseTo.name;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
                           }
                           throw e;
                         }

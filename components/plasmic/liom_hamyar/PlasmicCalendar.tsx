@@ -1952,12 +1952,10 @@ function PlasmicCalendar__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return (() => {
-                          return localStorage.setItem(
-                            "allowanceUser",
-                            JSON.stringify($state.profile.result.allowance)
-                          );
-                        })();
+                        return localStorage.setItem(
+                          "allowanceUser",
+                          JSON.stringify($state.profile.result.allowance)
+                        );
                       }
                     };
                     return (({ customFunction }) => {
@@ -1971,6 +1969,58 @@ function PlasmicCalendar__RenderFunc(props: {
                 typeof $steps["runCode"].then === "function"
               ) {
                 $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["invokeGlobalAction2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://api.liom.app/service/log",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              userId: "",
+                              pageName: "calendar",
+                              action: "loadePage",
+                              extraData: {
+                                refCode: $state.r,
+                                mobile: $state.m
+                              }
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        {
+                          headers: {
+                            "Content-Type": "application/json",
+                            Authorization:
+                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                          }
+                        }
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
+              ) {
+                $steps["invokeGlobalAction2"] = await $steps[
+                  "invokeGlobalAction2"
+                ];
               }
             }}
           />
