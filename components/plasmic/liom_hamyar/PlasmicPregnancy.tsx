@@ -12141,7 +12141,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       dangerouslySetInnerHTML={{
                                         __html: (() => {
                                           const randomNum = Math.floor(
-                                            Math.random() * 7
+                                            Math.random() * 20
                                           );
                                           var text;
                                           switch (randomNum) {
@@ -12172,6 +12172,48 @@ function PlasmicPregnancy__RenderFunc(props: {
                                             case 6:
                                               text =
                                                 "آیا کار کردن در دوران بارداری برای جنین ضرر داره\u061F";
+                                              break;
+                                            case 7:
+                                              "آیا خطر سقط جنین وجود داره\u061F";
+                                              break;
+                                            case 8:
+                                              "آیا استرس من روی سلامت جنین تاثیر داره \u061F ";
+                                              break;
+                                            case 9:
+                                              "آیا رشد جنینم نرماله\u061F";
+                                              break;
+                                            case 10:
+                                              "رژیم غذایی مناسب برای رشد بهتر جنین چیه\u061F";
+                                              break;
+                                            case 11:
+                                              "چرا انقدر خسته ام و بی حال\u061F";
+                                              break;
+                                            case 12:
+                                              "آیا کمردردم طبیعیه یا نشونه یه مشکله\u061F";
+                                              break;
+                                            case 13:
+                                              "آیا ترشحاتم طبیعیه\u061F";
+                                              break;
+                                            case 14:
+                                              "چرا بعضی وقتا دل درد یا انقباض دارم\u061F";
+                                              break;
+                                            case 15:
+                                              "چطور میتونم از زایمان سخت جلوگیری کنم\u061F";
+                                              break;
+                                            case 16:
+                                              "چطور میتونم خودم رو برای زایمان آماده کنم\u061F";
+                                              break;
+                                            case 17:
+                                              "چقدر وزن اضافه کنم که طبیعی باشه\u061F";
+                                              break;
+                                            case 18:
+                                              "چطور میتونم شب‌ها راحت‌تر بخوابم\u061F";
+                                              break;
+                                            case 18:
+                                              "آیا کار کردن دو دوران بارداری برای جنین ضر داره\u061F";
+                                              break;
+                                            case 19:
+                                              "آیا سفر کردن در بارداری مشکلی داره";
                                               break;
                                             default:
                                               text =

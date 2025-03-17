@@ -199,7 +199,7 @@
 .comentwhenHaveNoReply {
   margin-bottom: 10px;
 }
-.commentlikebutton__twQ3M:global(.__wab_instance) {
+.commentlikebutton:global(.__wab_instance) {
   max-width: 100%;
   position: absolute;
   left: auto;
@@ -210,7 +210,7 @@
   bottom: -20px;
   right: 75px;
 }
-.commentlikebuttonshowReply__twQ3M5MJbg:global(.__wab_instance) {
+.commentlikebuttonshowReply:global(.__wab_instance) {
   display: none;
 }
 .freeBox__eZrem {
@@ -271,7 +271,7 @@
   bottom: auto;
   right: auto;
 }
-.commentlikebutton__w1Y7G:global(.__wab_instance) {
+.commentlikebutton2:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   left: auto;
@@ -279,13 +279,13 @@
   bottom: auto;
   right: auto;
 }
-.commentlikebuttonwhenHaveNoReply__w1Y7GUOheY:global(.__wab_instance) {
+.commentlikebutton2whenHaveNoReply:global(.__wab_instance) {
   display: none;
 }
-.commentlikebuttonwhenHaveReply__w1Y7GS2LwI:global(.__wab_instance) {
+.commentlikebutton2whenHaveReply:global(.__wab_instance) {
   display: none;
 }
-.commentlikebuttonshowReply__w1Y7G5MJbg:global(.__wab_instance) {
+.commentlikebutton2showReply:global(.__wab_instance) {
   position: relative;
   left: auto;
   top: auto;
@@ -471,13 +471,28 @@
   bottom: -20px;
   right: 20px;
 }
-.commentlikebutton__pAfuv:global(.__wab_instance) {
+.commentlikebutton3:global(.__wab_instance) {
   max-width: 100%;
   position: absolute;
   left: auto;
   top: auto;
   bottom: -20px;
   right: 85px;
+}
+.commentlikebutton3showReply:global(.__wab_instance) {
+  display: none;
+}
+.freeBox__kShGl {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
 }
 .reply__ub0Bo:global(.__wab_instance) {
   max-width: 100%;

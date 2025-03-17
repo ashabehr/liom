@@ -84,12 +84,14 @@ export const PlasmicCommentlikebutton__VariantProps =
   new Array<VariantPropType>("islikecomment");
 
 export type PlasmicCommentlikebutton__ArgsType = {
+  onVariableForLikeCountCommentChange?: (val: string) => void;
   likeCommentCount?: string;
   coomentLikeBool?: boolean;
   carrentData?: string;
 };
 type ArgPropType = keyof PlasmicCommentlikebutton__ArgsType;
 export const PlasmicCommentlikebutton__ArgProps = new Array<ArgPropType>(
+  "onVariableForLikeCountCommentChange",
   "likeCommentCount",
   "coomentLikeBool",
   "carrentData"
@@ -102,6 +104,7 @@ export type PlasmicCommentlikebutton__OverridesType = {
 };
 
 export interface DefaultCommentlikebuttonProps {
+  onVariableForLikeCountCommentChange?: (val: string) => void;
   likeCommentCount?: string;
   coomentLikeBool?: boolean;
   carrentData?: string;
@@ -161,7 +164,7 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
       },
       {
         path: "variableForLikeCountComment",
-        type: "private",
+        type: "readonly",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
@@ -176,7 +179,9 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
               }
               throw e;
             }
-          })()
+          })(),
+
+        onChangeProp: "onVariableForLikeCountCommentChange"
       }
     ],
     [$props, $ctx, $refs]

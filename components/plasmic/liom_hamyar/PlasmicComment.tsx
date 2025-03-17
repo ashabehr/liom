@@ -128,6 +128,9 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
 export type PlasmicComment__OverridesType = {
   root?: Flex__<"div">;
   coment?: Flex__<"div">;
+  commentlikebutton?: Flex__<typeof Commentlikebutton>;
+  commentlikebutton2?: Flex__<typeof Commentlikebutton>;
+  commentlikebutton3?: Flex__<typeof Commentlikebutton>;
 };
 
 export interface DefaultCommentProps {
@@ -174,8 +177,7 @@ function PlasmicComment__RenderFunc(props: {
         {
           tokennnn:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVjYjg4M2NkLWI3ODYtNGMzZS1iYjhiLTA5ZTgyNzVkYTk4YyIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzM5NjA2MjI2fQ.F7OWRYuvRw2zxjIXAiFCtUVG9fLGRPgvYtPpLWUsz4k",
-          commentId: "3",
-          replyCount: "0"
+          commentId: "3"
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -225,6 +227,23 @@ function PlasmicComment__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.showReply
+      },
+      {
+        path: "commentlikebutton2.variableForLikeCountComment",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "commentlikebutton.variableForLikeCountComment",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "commentlikebutton3[].variableForLikeCountComment",
+        type: "private",
+        variableType: "text"
       }
     ],
     [$props, $ctx, $refs]
@@ -468,19 +487,21 @@ function PlasmicComment__RenderFunc(props: {
         </div>
       </div>
       <Commentlikebutton
+        data-plasmic-name={"commentlikebutton"}
+        data-plasmic-override={overrides.commentlikebutton}
         carrentData={``}
-        className={classNames("__wab_instance", sty.commentlikebutton__twQ3M, {
-          [sty.commentlikebuttonshowReply__twQ3M5MJbg]: hasVariant(
+        className={classNames("__wab_instance", sty.commentlikebutton, {
+          [sty.commentlikebuttonshowReply]: hasVariant(
             $state,
             "showReply",
             "showReply"
           ),
-          [sty.commentlikebuttonwhenHaveNoReply__twQ3MUOheY]: hasVariant(
+          [sty.commentlikebuttonwhenHaveNoReply]: hasVariant(
             $state,
             "whenHaveNoReply",
             "whenHaveNoReply"
           ),
-          [sty.commentlikebuttonwhenHaveReply__twQ3MS2LwI]: hasVariant(
+          [sty.commentlikebuttonwhenHaveReply]: hasVariant(
             $state,
             "whenHaveReply",
             "whenHaveReply"
@@ -499,6 +520,20 @@ function PlasmicComment__RenderFunc(props: {
             throw e;
           }
         })()}
+        onVariableForLikeCountCommentChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, [
+            "commentlikebutton",
+            "variableForLikeCountComment"
+          ]).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
       />
 
       <Stack__
@@ -543,27 +578,39 @@ function PlasmicComment__RenderFunc(props: {
         />
 
         <Commentlikebutton
-          className={classNames(
-            "__wab_instance",
-            sty.commentlikebutton__w1Y7G,
-            {
-              [sty.commentlikebuttonshowReply__w1Y7G5MJbg]: hasVariant(
-                $state,
-                "showReply",
-                "showReply"
-              ),
-              [sty.commentlikebuttonwhenHaveNoReply__w1Y7GUOheY]: hasVariant(
-                $state,
-                "whenHaveNoReply",
-                "whenHaveNoReply"
-              ),
-              [sty.commentlikebuttonwhenHaveReply__w1Y7GS2LwI]: hasVariant(
-                $state,
-                "whenHaveReply",
-                "whenHaveReply"
-              )
+          data-plasmic-name={"commentlikebutton2"}
+          data-plasmic-override={overrides.commentlikebutton2}
+          className={classNames("__wab_instance", sty.commentlikebutton2, {
+            [sty.commentlikebutton2showReply]: hasVariant(
+              $state,
+              "showReply",
+              "showReply"
+            ),
+            [sty.commentlikebutton2whenHaveNoReply]: hasVariant(
+              $state,
+              "whenHaveNoReply",
+              "whenHaveNoReply"
+            ),
+            [sty.commentlikebutton2whenHaveReply]: hasVariant(
+              $state,
+              "whenHaveReply",
+              "whenHaveReply"
+            )
+          })}
+          onVariableForLikeCountCommentChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "commentlikebutton2",
+              "variableForLikeCountComment"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
             }
-          )}
+          }}
         />
       </Stack__>
       <div
@@ -780,11 +827,13 @@ function PlasmicComment__RenderFunc(props: {
               />
 
               <Commentlikebutton
+                data-plasmic-name={"commentlikebutton3"}
+                data-plasmic-override={overrides.commentlikebutton3}
                 className={classNames(
                   "__wab_instance",
-                  sty.commentlikebutton__pAfuv,
+                  sty.commentlikebutton3,
                   {
-                    [sty.commentlikebuttonshowReply__pAfuv5MJbg]: hasVariant(
+                    [sty.commentlikebutton3showReply]: hasVariant(
                       $state,
                       "showReply",
                       "showReply"
@@ -808,6 +857,33 @@ function PlasmicComment__RenderFunc(props: {
                       })()
                     : `${(() => {})()}${currentItem.likeCount}`
                 }
+                onVariableForLikeCountCommentChange={async (
+                  ...eventArgs: any
+                ) => {
+                  generateStateOnChangeProp($state, [
+                    "commentlikebutton3",
+                    __plasmic_idx_0,
+                    "variableForLikeCountComment"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+              />
+
+              <div
+                className={classNames(projectcss.all, sty.freeBox__kShGl, {
+                  [sty.freeBoxshowReply__kShGl5MJbg]: hasVariant(
+                    $state,
+                    "showReply",
+                    "showReply"
+                  )
+                })}
               />
             </div>
           );
@@ -1068,8 +1144,17 @@ function PlasmicComment__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "coment"],
-  coment: ["coment"]
+  root: [
+    "root",
+    "coment",
+    "commentlikebutton",
+    "commentlikebutton2",
+    "commentlikebutton3"
+  ],
+  coment: ["coment"],
+  commentlikebutton: ["commentlikebutton"],
+  commentlikebutton2: ["commentlikebutton2"],
+  commentlikebutton3: ["commentlikebutton3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1077,6 +1162,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   coment: "div";
+  commentlikebutton: typeof Commentlikebutton;
+  commentlikebutton2: typeof Commentlikebutton;
+  commentlikebutton3: typeof Commentlikebutton;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1140,6 +1228,9 @@ export const PlasmicComment = Object.assign(
   {
     // Helper components rendering sub-elements
     coment: makeNodeComponent("coment"),
+    commentlikebutton: makeNodeComponent("commentlikebutton"),
+    commentlikebutton2: makeNodeComponent("commentlikebutton2"),
+    commentlikebutton3: makeNodeComponent("commentlikebutton3"),
 
     // Metadata about props expected for PlasmicComment
     internalVariantProps: PlasmicComment__VariantProps,
