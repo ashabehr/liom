@@ -790,6 +790,35 @@ function PlasmicComment__RenderFunc(props: {
                     )
                   }
                 )}
+                likeCommentCount={
+                  true
+                    ? (() => {
+                        try {
+                          return undefined;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                    : (() => {
+                        try {
+                          return currentItem.likeCount;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                }
               />
             </div>
           );

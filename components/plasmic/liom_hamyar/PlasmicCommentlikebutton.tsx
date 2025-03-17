@@ -254,7 +254,7 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
                 },
                 operation: 0,
                 value: ($state.variableForLikeCountComment +=
-                  $state.islikecomment ? 1 : -1)
+                  $state.variableForLikeCountComment ? 1 : -1)
               };
               return (({ variable, value, startIndex, deleteCount }) => {
                 if (!variable) {

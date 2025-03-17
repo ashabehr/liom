@@ -646,7 +646,11 @@
   color: var(--token-G-IZ_XhVdlqp);
   min-width: 0;
 }
-.embedHtml__orn1Q:global(.__wab_instance) {
+.pwa:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.firebase:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }

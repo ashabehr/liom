@@ -33,6 +33,7 @@
   left: auto;
   top: auto;
   white-space: pre;
+  padding-top: 0px;
   min-width: 0;
 }
 .svg {
