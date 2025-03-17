@@ -110,6 +110,9 @@
   border-width: 1px;
   border-color: var(--token-2ObYh10hZuCh);
 }
+.rootcolor_softBlack {
+  background: var(--token-Hk2bXGFNiuQX);
+}
 .rootloading {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -379,6 +382,9 @@
 .slotTargetChildrencolor_line {
   color: var(--token-55cSeNPovQFh);
   font-weight: 700;
+}
+.slotTargetChildrencolor_softBlack {
+  color: var(--token-ODBUExjR6VEF);
 }
 .root:focus-within .slotTargetChildren > *,
 .root:focus-within .slotTargetChildren > :global(.__wab_slot) > *,

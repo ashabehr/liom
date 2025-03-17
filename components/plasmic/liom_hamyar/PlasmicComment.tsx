@@ -572,7 +572,19 @@ function PlasmicComment__RenderFunc(props: {
       <Commentlikebutton
         carrentData={``}
         className={classNames("__wab_instance", sty.commentlikebutton__twQ3M)}
-        likeCommentCount={`${(() => {})()}${$state.commentData.likeCount}`}
+        likeCommentCount={(() => {
+          try {
+            return $props.mainCommentLikeCount;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
       />
 
       <div

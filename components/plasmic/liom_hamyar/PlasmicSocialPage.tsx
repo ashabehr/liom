@@ -1215,6 +1215,19 @@ function PlasmicSocialPage__RenderFunc(props: {
                       }
                     })(),
                     key: currentIndex,
+                    mainCommentLikeCount: (() => {
+                      try {
+                        return currentItem.likeCount;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })(),
                     mainImag: (() => {
                       try {
                         return currentItem.user.image;

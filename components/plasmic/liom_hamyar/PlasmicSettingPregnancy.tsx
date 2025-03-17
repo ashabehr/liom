@@ -214,7 +214,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
         path: "typeInterDate",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "dateOfBirth"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "manually"
       },
       {
         path: "lastTimeBox.value",

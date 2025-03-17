@@ -406,7 +406,7 @@ function PlasmicEditProfile__RenderFunc(props: {
         path: "pickersForHeight.value",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => 155
       },
       {
         path: "button12.color",
@@ -443,7 +443,7 @@ function PlasmicEditProfile__RenderFunc(props: {
         path: "pickersForWeight.value",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => 55
       },
       {
         path: "button15.color",
@@ -455,19 +455,62 @@ function PlasmicEditProfile__RenderFunc(props: {
         path: "variableForJob",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.getInfo.data.result.user.job;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "variableForMarrideStutuse",
         type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.getInfo.data.result.user.married === true
+                ? "Married"
+                : $state.getInfo.data.result.user.married === false
+                ? "Single"
+                : "";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "variableForGraduateAndStudying",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.getInfo.data.result.user.education;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "getInfo.data",
@@ -726,6 +769,12 @@ function PlasmicEditProfile__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "btnLoading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1544,8 +1593,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                     (() => {
                       try {
                         return [
-                          { label: "متاهل", value: true },
-                          { label: " مجرد", value: false }
+                          { label: "متاهل", value: "Married" },
+                          { label: " مجرد", value: "Single" }
                         ];
                       } catch (e) {
                         if (
@@ -2703,8 +2752,70 @@ function PlasmicEditProfile__RenderFunc(props: {
                       "button19",
                       "color"
                     ])}
+                    isDisabled={(() => {
+                      try {
+                        return $state.btnLoading;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    loading={(() => {
+                      try {
+                        return $state.btnLoading;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
                     onClick={async event => {
                       const $steps = {};
+
+                      $steps["updateBtnLoading"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["btnLoading"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateBtnLoading"] != null &&
+                        typeof $steps["updateBtnLoading"] === "object" &&
+                        typeof $steps["updateBtnLoading"].then === "function"
+                      ) {
+                        $steps["updateBtnLoading"] = await $steps[
+                          "updateBtnLoading"
+                        ];
+                      }
 
                       $steps["updateNameInputValue2"] = true
                         ? (() => {
@@ -2738,7 +2849,13 @@ function PlasmicEditProfile__RenderFunc(props: {
                                         $state.variableForGraduateAndStudying ||
                                         "",
                                       married:
-                                        $state.variableForMarrideStutuse || ""
+                                        $state.variableForMarrideStutuse ==
+                                        "Married"
+                                          ? true
+                                          : $state.variableForMarrideStutuse ==
+                                            "Single"
+                                          ? false
+                                          : ""
                                     };
                                   } catch (e) {
                                     if (
@@ -2836,6 +2953,42 @@ function PlasmicEditProfile__RenderFunc(props: {
                         typeof $steps["runCode"].then === "function"
                       ) {
                         $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["updateBtnLoading2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["btnLoading"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateBtnLoading2"] != null &&
+                        typeof $steps["updateBtnLoading2"] === "object" &&
+                        typeof $steps["updateBtnLoading2"].then === "function"
+                      ) {
+                        $steps["updateBtnLoading2"] = await $steps[
+                          "updateBtnLoading2"
+                        ];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -3606,8 +3759,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                   data={(() => {
                     try {
                       return Array.from({ length: 210 - 38 }, (_, i) => ({
-                        label: `${i + 40} سانتی متر`,
-                        value: i + 40
+                        label: `${i + 120} سانتی متر`,
+                        value: i + 120
                       }));
                     } catch (e) {
                       if (
@@ -3772,10 +3925,10 @@ function PlasmicEditProfile__RenderFunc(props: {
                     try {
                       return (() => {
                         const array = Array.from(
-                          { length: 215 - 14 },
+                          { length: 215 - 39 },
                           (_, i) => ({
-                            label: `${i + 15} کیلو گرم`,
-                            value: i + 15
+                            label: `${i + 40} کیلو گرم`,
+                            value: i + 40
                           })
                         );
                         return array;

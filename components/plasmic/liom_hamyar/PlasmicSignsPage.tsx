@@ -3894,6 +3894,42 @@ function PlasmicSignsPage__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
+                        $steps["updateLoadingBtn"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loadingBtn"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoadingBtn"] != null &&
+                          typeof $steps["updateLoadingBtn"] === "object" &&
+                          typeof $steps["updateLoadingBtn"].then === "function"
+                        ) {
+                          $steps["updateLoadingBtn"] = await $steps[
+                            "updateLoadingBtn"
+                          ];
+                        }
+
                         $steps["invokeGlobalAction"] = true
                           ? (() => {
                               const actionArgs = {
@@ -3975,9 +4011,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
-                                    return (() => {
-                                      return window.history.back();
-                                    })();
+                                    return window.history.back();
                                   }
                                 };
                                 return (({ customFunction }) => {
@@ -3991,6 +4025,42 @@ function PlasmicSignsPage__RenderFunc(props: {
                           typeof $steps["runCode"].then === "function"
                         ) {
                           $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["updateLoadingBtn2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loadingBtn"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoadingBtn2"] != null &&
+                          typeof $steps["updateLoadingBtn2"] === "object" &&
+                          typeof $steps["updateLoadingBtn2"].then === "function"
+                        ) {
+                          $steps["updateLoadingBtn2"] = await $steps[
+                            "updateLoadingBtn2"
+                          ];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {

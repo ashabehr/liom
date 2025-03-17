@@ -866,6 +866,7 @@
 }
 .comment:global(.__wab_instance) {
   position: relative;
+  margin-bottom: 0px;
 }
 @media (max-width: 640px) {
   .comment:global(.__wab_instance) {

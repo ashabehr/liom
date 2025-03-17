@@ -62782,24 +62782,42 @@ function PlasmicCalendar__RenderFunc(props: {
               </Stack__>
             </MainHeader>
           </section>
-          {(() => {
-            try {
-              return (() => {
-                return (
-                  !localStorage.getItem("addHome") &&
-                  /iPhone|iPod/.test(window.navigator.userAgent)
-                );
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
+          {(
+            hasVariant(globalVariants, "screen", "mobile")
+              ? (() => {
+                  try {
+                    return (() => {
+                      return /iPhone|iPod/.test(window.navigator.userAgent);
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+              : (() => {
+                  try {
+                    return (() => {
+                      return (
+                        !localStorage.getItem("addHome") &&
+                        /iPhone|iPod/.test(window.navigator.userAgent)
+                      );
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+          ) ? (
             <Iframe
               data-plasmic-name={"iframe"}
               data-plasmic-override={overrides.iframe}

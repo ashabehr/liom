@@ -108,6 +108,8 @@ import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld
 import Icon124Icon from "./icons/PlasmicIcon__Icon124"; // plasmic-import: PTcWiaBFyPBw/icon
 import Icon126Icon from "./icons/PlasmicIcon__Icon126"; // plasmic-import: MKLSqOtGUXQ0/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: boEzwrzcFMy4/icon
+import Icon211Icon from "./icons/PlasmicIcon__Icon211"; // plasmic-import: KpMP1zk7kNoc/icon
+import Icon209Icon from "./icons/PlasmicIcon__Icon209"; // plasmic-import: DRGXDQN0NiBM/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: UbRafB34Z-K-/icon
@@ -640,7 +642,7 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "name",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $ctx }) => "5"
       },
       {
         path: "loadingshop",
@@ -4350,6 +4352,11 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.freeBox__ltGpm
                         )}
                       >
+                        <Icon211Icon
+                          className={classNames(projectcss.all, sty.svg__xixaG)}
+                          role={"img"}
+                        />
+
                         <div
                           className={classNames(
                             projectcss.all,
@@ -4499,6 +4506,14 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.freeBox___70Fr
                         )}
                       >
+                        <Icon209Icon
+                          className={classNames(
+                            projectcss.all,
+                            sty.svg___4Unhz
+                          )}
+                          role={"img"}
+                        />
+
                         <div
                           className={classNames(
                             projectcss.all,
