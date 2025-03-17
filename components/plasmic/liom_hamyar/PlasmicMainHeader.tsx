@@ -94,7 +94,7 @@ export type PlasmicMainHeader__ArgsType = {
   userinfo?: any;
   token?: string;
   dopen?: boolean;
-  onDopenChange?: (val: string) => void;
+  onDopenChange2?: (val: string) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
@@ -103,7 +103,7 @@ export const PlasmicMainHeader__ArgProps = new Array<ArgPropType>(
   "userinfo",
   "token",
   "dopen",
-  "onDopenChange",
+  "onDopenChange2",
   "children",
   "slot"
 );
@@ -118,7 +118,7 @@ export interface DefaultMainHeaderProps {
   userinfo?: any;
   token?: string;
   dopen?: boolean;
-  onDopenChange?: (val: string) => void;
+  onDopenChange2?: (val: string) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   className?: string;
@@ -204,6 +204,8 @@ function PlasmicMainHeader__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -212,7 +214,7 @@ function PlasmicMainHeader__RenderFunc(props: {
         path: "drawer.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props["dopen"]
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "button.color",
@@ -226,7 +228,7 @@ function PlasmicMainHeader__RenderFunc(props: {
         variableType: "boolean",
 
         valueProp: "dopen",
-        onChangeProp: "onDopenChange"
+        onChangeProp: "onDopenChange2"
       },
       {
         path: "allowanceUser",
@@ -505,6 +507,107 @@ function PlasmicMainHeader__RenderFunc(props: {
                       typeof $steps["goToPage"].then === "function"
                     ) {
                       $steps["goToPage"] = await $steps["goToPage"];
+                    }
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "POST",
+                              "https://api.liom.app/service/log",
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    userId: JSON.parse(
+                                      window.localStorage.getItem("userinfo")
+                                    ).user.id,
+                                    pageName: "calendar",
+                                    action: "GoToEditProfile",
+                                    extraData: {}
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              (() => {
+                                try {
+                                  return {
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization:
+                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                    }
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+
+                    $steps["updateDrawerOpen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["drawer", "open"]
+                            },
+                            operation: 0
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDrawerOpen"] != null &&
+                      typeof $steps["updateDrawerOpen"] === "object" &&
+                      typeof $steps["updateDrawerOpen"].then === "function"
+                    ) {
+                      $steps["updateDrawerOpen"] = await $steps[
+                        "updateDrawerOpen"
+                      ];
                     }
                   }}
                 >

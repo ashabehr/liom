@@ -331,7 +331,7 @@ function PlasmicSelfCare__RenderFunc(props: {
               data-plasmic-override={overrides.mainHeader}
               className={classNames("__wab_instance", sty.mainHeader)}
               dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
-              onDopenChange={async (...eventArgs: any) => {
+              onDopenChange2={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "mainHeader",
                   "dopen"

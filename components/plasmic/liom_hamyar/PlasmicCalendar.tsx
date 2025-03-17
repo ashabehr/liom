@@ -1618,7 +1618,7 @@ function PlasmicCalendar__RenderFunc(props: {
         path: "indextool",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 2
+        initFunc: ({ $props, $state, $queries, $ctx }) => 1
       },
       {
         path: "button22[].color",
@@ -2557,12 +2557,12 @@ function PlasmicCalendar__RenderFunc(props: {
                         operation: 0,
                         value: (() => {
                           if (
-                            $state.user.data.result.userStatus.periodStatus ==
+                            $state.user.data.result?.userStatus?.periodStatus ==
                             "blood"
                           )
                             return 0;
                           else if (
-                            $state.user.data.result.calender[0].isNormal ==
+                            $state.user.data.result?.calender[0]?.isNormal ==
                             false
                           )
                             return 2;
@@ -2952,17 +2952,21 @@ function PlasmicCalendar__RenderFunc(props: {
             params={(() => {
               try {
                 return (() => {
-                  let tokenFromUrl =
-                    $ctx.query.token ||
-                    new URLSearchParams(window.location.search).get("token");
-                  if (tokenFromUrl) {
-                    tokenFromUrl = tokenFromUrl.slice(
-                      6,
-                      tokenFromUrl.length - 3
-                    );
+                  try {
+                    let tokenFromUrl =
+                      $ctx.query.token ||
+                      new URLSearchParams(window.location.search).get("token");
+                    if (tokenFromUrl) {
+                      tokenFromUrl = tokenFromUrl.slice(
+                        6,
+                        tokenFromUrl.length - 3
+                      );
+                    }
+                    let token = tokenFromUrl || localStorage.getItem("token");
+                    return { authorization: token };
+                  } catch {
+                    return { authorization: localStorage.getItem("token") };
                   }
-                  let token = tokenFromUrl || localStorage.getItem("token");
-                  return { authorization: token };
                 })();
               } catch (e) {
                 if (
@@ -62731,7 +62735,7 @@ function PlasmicCalendar__RenderFunc(props: {
               data-plasmic-override={overrides.mainHeader}
               className={classNames("__wab_instance", sty.mainHeader)}
               dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
-              onDopenChange={async (...eventArgs: any) => {
+              onDopenChange2={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "mainHeader",
                   "dopen"

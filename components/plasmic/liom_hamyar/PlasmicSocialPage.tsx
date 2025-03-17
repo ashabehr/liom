@@ -1295,6 +1295,19 @@ function PlasmicSocialPage__RenderFunc(props: {
                         return;
                       }
                     },
+                    replyCount: (() => {
+                      try {
+                        return currentItem.replyCount;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })(),
                     tokennnn: (() => {
                       try {
                         return $state.token;
@@ -1308,15 +1321,18 @@ function PlasmicSocialPage__RenderFunc(props: {
                         throw e;
                       }
                     })(),
-                    unnamedVariant: (() => {
+                    whenHaveNoReply: (() => {
                       try {
-                        return undefined;
+                        return (() => {
+                          if (currentItem.replyCount === 0)
+                            return ($state.unnamedvariant = true);
+                        })();
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return "unnamedVariant";
+                          return "whenHaveNoReply";
                         }
                         throw e;
                       }

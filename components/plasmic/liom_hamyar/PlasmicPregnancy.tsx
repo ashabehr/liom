@@ -19801,29 +19801,35 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         }
                                       )}
                                     >
-                                      <React.Fragment>
-                                        {(() => {
-                                          try {
-                                            return (() => {
-                                              const advice = $state?.getAdvice;
-                                              const filteredItem = advice.find(
-                                                item =>
-                                                  item.type.includes("mother")
-                                              );
-                                              return filteredItem?.text ?? "";
-                                            })();
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return "";
+                                      <div
+                                        className={
+                                          projectcss.__wab_expr_html_text
+                                        }
+                                        dangerouslySetInnerHTML={{
+                                          __html: (() => {
+                                            try {
+                                              return (() => {
+                                                const advice =
+                                                  $state?.getAdvice;
+                                                const filteredItem =
+                                                  advice.find(item =>
+                                                    item.type.includes("mother")
+                                                  );
+                                                return filteredItem?.text ?? "";
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
                                             }
-                                            throw e;
-                                          }
-                                        })()}
-                                      </React.Fragment>
+                                          })()
+                                        }}
+                                      />
                                     </div>
                                   ) : null}
                                   <div
