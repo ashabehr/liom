@@ -476,20 +476,7 @@ function PlasmicBioritm2__RenderFunc(props: {
         path: "mainHeader.dopen",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return undefined;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -6100,9 +6087,25 @@ function PlasmicBioritm2__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToCalendar"] = true
+                $steps["goToPage"] = true
                   ? (() => {
-                      const actionArgs = { destination: `/calendar` };
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return `/calendar/?token=hjklup${window.localStorage.getItem(
+                              "token"
+                            )}kmf`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return `/calendar`;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
                       return (({ destination }) => {
                         if (
                           typeof destination === "string" &&
@@ -6118,11 +6121,11 @@ function PlasmicBioritm2__RenderFunc(props: {
                     })()
                   : undefined;
                 if (
-                  $steps["goToCalendar"] != null &&
-                  typeof $steps["goToCalendar"] === "object" &&
-                  typeof $steps["goToCalendar"].then === "function"
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
                 ) {
-                  $steps["goToCalendar"] = await $steps["goToCalendar"];
+                  $steps["goToPage"] = await $steps["goToPage"];
                 }
               }}
             >

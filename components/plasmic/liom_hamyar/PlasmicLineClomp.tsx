@@ -194,6 +194,7 @@ function PlasmicLineClomp__RenderFunc(props: {
         className={classNames(projectcss.all, sty.freeBox, {
           [sty.freeBoxmore]: hasVariant($state, "more", "more")
         })}
+        id={``}
         style={
           hasVariant($state, "more", "more")
             ? (() => {

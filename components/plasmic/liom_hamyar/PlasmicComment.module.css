@@ -97,6 +97,9 @@
   white-space: pre;
   padding-top: 2px;
 }
+.textwhenHaveReply__epDy6S2LwI {
+  color: var(--token-fn6i10-y5r1L);
+}
 .freeBox__fSs {
   display: flex;
   flex-direction: row;
@@ -180,6 +183,9 @@
 .freeBoxwhenHaveNoReply__bb4BNuOheY {
   margin-bottom: 0px;
 }
+.freeBoxshowReply__bb4BN5MJbg {
+  margin-bottom: 10px;
+}
 .coment {
   position: relative;
   width: 100%;
@@ -200,6 +206,9 @@
   height: auto;
   bottom: -20px;
   right: 75px;
+}
+.commentlikebuttonshowReply__twQ3M5MJbg:global(.__wab_instance) {
+  display: none;
 }
 .freeBox__eZrem {
   display: flex;
@@ -229,21 +238,31 @@
   > img {
   margin-left: 5px;
 }
-.freeBoxunnamedVariant__eZremS2LwI {
+.freeBoxwhenHaveNoReply__eZremUOheY {
+  display: none;
+}
+.freeBoxwhenHaveReply__eZremS2LwI {
   display: none;
 }
 .reply__cmcBj:global(.__wab_instance) {
-  position: absolute;
   left: auto;
   top: auto;
+  position: absolute;
   bottom: -20px;
-  right: 0px;
+  right: 10px;
 }
 .replywhenHaveNoReply__cmcBjuOheY:global(.__wab_instance) {
   display: none;
 }
-.replyunnamedVariant__cmcBjs2LwI:global(.__wab_instance) {
+.replywhenHaveReply__cmcBjs2LwI:global(.__wab_instance) {
   display: none;
+}
+.replyshowReply__cmcBj5MJbg:global(.__wab_instance) {
+  position: relative;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  right: auto;
 }
 .commentlikebutton__w1Y7G:global(.__wab_instance) {
   max-width: 100%;
@@ -251,13 +270,20 @@
   left: auto;
   top: auto;
   bottom: -20px;
-  right: 64px;
+  right: 75px;
 }
 .commentlikebuttonwhenHaveNoReply__w1Y7GUOheY:global(.__wab_instance) {
   display: none;
 }
-.commentlikebuttonunnamedVariant__w1Y7GS2LwI:global(.__wab_instance) {
+.commentlikebuttonwhenHaveReply__w1Y7GS2LwI:global(.__wab_instance) {
   display: none;
+}
+.commentlikebuttonshowReply__w1Y7G5MJbg:global(.__wab_instance) {
+  position: relative;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  right: auto;
 }
 .freeBox__wjP54 {
   display: flex;
@@ -275,7 +301,7 @@
 .freeBoxwhenHaveNoReply__wjP54UOheY {
   display: none;
 }
-.freeBoxunnamedVariant__wjP54S2LwI {
+.freeBoxwhenHaveReply__wjP54S2LwI {
   display: none;
 }
 .freeBox__dzdw {
@@ -441,7 +467,7 @@
   left: auto;
   top: auto;
   bottom: -20px;
-  right: 95px;
+  right: 85px;
 }
 .reply__ub0Bo:global(.__wab_instance) {
   max-width: 100%;
@@ -450,6 +476,9 @@
   top: auto;
   bottom: -20px;
   right: 10px;
+}
+.replyshowReply__ub0Bo5MJbg:global(.__wab_instance) {
+  display: none;
 }
 .freeBox__xZam2 {
   display: flex;
@@ -464,7 +493,7 @@
   top: auto;
   background: var(--token-R_Rsn0nP9oIv);
   bottom: -20px;
-  right: 160px;
+  right: 124px;
   border-radius: 50px;
   padding: 8px;
   border: 1px solid var(--token-Y4frplZPI0IJ);
@@ -472,9 +501,12 @@
 .freeBoxwhenHaveNoReply__xZam2UOheY {
   display: none;
 }
-.freeBoxunnamedVariant__xZam2S2LwI {
+.freeBoxwhenHaveReply__xZam2S2LwI {
   right: 125px;
   bottom: -20px;
+}
+.freeBoxshowReply__xZam25MJbg {
+  display: none;
 }
 .text__aAapo {
   position: relative;
@@ -485,7 +517,11 @@
   font-size: 12px;
   min-width: 0;
 }
+.textwhenHaveReply__aAapos2LwI {
+  color: var(--token-fn6i10-y5r1L);
+}
 .freeBox__wRzZd {
+  display: flex;
   flex-direction: row;
   position: absolute;
   align-items: center;
@@ -496,10 +532,16 @@
   left: 20px;
   top: auto;
   bottom: -20px;
-  display: none;
+  background: var(--token-R_Rsn0nP9oIv);
   border-radius: 50%;
   padding: 8px;
   border: 1px solid var(--token-Y4frplZPI0IJ);
+}
+.freeBoxwhenHaveNoReply__wRzZduOheY {
+  display: none;
+}
+.freeBoxwhenHaveReply__wRzZds2LwI {
+  display: none;
 }
 .text___3H3Hg {
   position: relative;

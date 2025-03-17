@@ -1324,8 +1324,8 @@ function PlasmicSocialPage__RenderFunc(props: {
                     whenHaveNoReply: (() => {
                       try {
                         return (() => {
-                          if (currentItem.replyCount === 0)
-                            return ($state.unnamedvariant = true);
+                          if (currentItem.replyCount == 0)
+                            return ($state.whenhavenoreply = true);
                         })();
                       } catch (e) {
                         if (
@@ -1333,6 +1333,22 @@ function PlasmicSocialPage__RenderFunc(props: {
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
                           return "whenHaveNoReply";
+                        }
+                        throw e;
+                      }
+                    })(),
+                    whenHaveReply: (() => {
+                      try {
+                        return (() => {
+                          if (currentItem.replyCount !== 0)
+                            return ($state.whenhavereply = true);
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
                         }
                         throw e;
                       }
@@ -1439,7 +1455,7 @@ function PlasmicSocialPage__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  postId: "dbb245d6-984c-4e35-b272-9d3cd565516a",
+                  postId: "9da0eb68-5a19-4c18-bb15-47b3daa43bf2",
 
                   commentId: "string",
                   orderBy: "newest",

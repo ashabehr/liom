@@ -214,7 +214,7 @@ function PlasmicMainHeader__RenderFunc(props: {
         path: "drawer.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props["dopen"]
       },
       {
         path: "button.color",
@@ -575,14 +575,15 @@ function PlasmicMainHeader__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["updateDrawerOpen"] = true
+                    $steps["updateDopen"] = true
                       ? (() => {
                           const actionArgs = {
                             variable: {
                               objRoot: $state,
-                              variablePath: ["drawer", "open"]
+                              variablePath: ["dopen"]
                             },
-                            operation: 0
+                            operation: 0,
+                            value: false
                           };
                           return (({
                             variable,
@@ -601,13 +602,11 @@ function PlasmicMainHeader__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      $steps["updateDrawerOpen"] != null &&
-                      typeof $steps["updateDrawerOpen"] === "object" &&
-                      typeof $steps["updateDrawerOpen"].then === "function"
+                      $steps["updateDopen"] != null &&
+                      typeof $steps["updateDopen"] === "object" &&
+                      typeof $steps["updateDopen"].then === "function"
                     ) {
-                      $steps["updateDrawerOpen"] = await $steps[
-                        "updateDrawerOpen"
-                      ];
+                      $steps["updateDopen"] = await $steps["updateDopen"];
                     }
                   }}
                 >
@@ -713,9 +712,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return (() => {
-                          return window.open("/shop", "_self");
-                        })();
+                        return window.open("/shop", "_self");
                       }
                     };
                     return (({ customFunction }) => {
@@ -729,6 +726,98 @@ function PlasmicMainHeader__RenderFunc(props: {
                 typeof $steps["runCode"].then === "function"
               ) {
                 $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://api.liom.app/service/log",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              userId: JSON.parse(
+                                window.localStorage.getItem("userinfo")
+                              ).user.id,
+                              pageName: "calendar",
+                              action: "GoToShop",
+                              extraData: {}
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return {
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization:
+                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                              }
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["updateDopen"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["dopen"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDopen"] != null &&
+                typeof $steps["updateDopen"] === "object" &&
+                typeof $steps["updateDopen"].then === "function"
+              ) {
+                $steps["updateDopen"] = await $steps["updateDopen"];
               }
             }}
           >
@@ -832,6 +921,35 @@ function PlasmicMainHeader__RenderFunc(props: {
               ) {
                 $steps["goToPage"] = await $steps["goToPage"];
               }
+
+              $steps["updateDopen"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["dopen"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDopen"] != null &&
+                typeof $steps["updateDopen"] === "object" &&
+                typeof $steps["updateDopen"].then === "function"
+              ) {
+                $steps["updateDopen"] = await $steps["updateDopen"];
+              }
             }}
           >
             <Icon189Icon
@@ -900,6 +1018,35 @@ function PlasmicMainHeader__RenderFunc(props: {
               ) {
                 $steps["goToPage"] = await $steps["goToPage"];
               }
+
+              $steps["updateDopen"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["dopen"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDopen"] != null &&
+                typeof $steps["updateDopen"] === "object" &&
+                typeof $steps["updateDopen"].then === "function"
+              ) {
+                $steps["updateDopen"] = await $steps["updateDopen"];
+              }
             }}
           >
             <Icon190Icon
@@ -959,6 +1106,35 @@ function PlasmicMainHeader__RenderFunc(props: {
               ) {
                 $steps["goToAboutUs"] = await $steps["goToAboutUs"];
               }
+
+              $steps["updateDopen"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["dopen"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDopen"] != null &&
+                typeof $steps["updateDopen"] === "object" &&
+                typeof $steps["updateDopen"].then === "function"
+              ) {
+                $steps["updateDopen"] = await $steps["updateDopen"];
+              }
             }}
           >
             <Icon193Icon
@@ -1010,6 +1186,35 @@ function PlasmicMainHeader__RenderFunc(props: {
                 typeof $steps["goToContactUs"].then === "function"
               ) {
                 $steps["goToContactUs"] = await $steps["goToContactUs"];
+              }
+
+              $steps["updateDopen"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["dopen"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDopen"] != null &&
+                typeof $steps["updateDopen"] === "object" &&
+                typeof $steps["updateDopen"].then === "function"
+              ) {
+                $steps["updateDopen"] = await $steps["updateDopen"];
               }
             }}
           >

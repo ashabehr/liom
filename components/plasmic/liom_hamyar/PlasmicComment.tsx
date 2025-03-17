@@ -76,16 +76,19 @@ createPlasmicElementProxy;
 
 export type PlasmicComment__VariantMembers = {
   whenHaveNoReply: "whenHaveNoReply";
-  unnamedVariant: "unnamedVariant";
+  whenHaveReply: "whenHaveReply";
+  showReply: "showReply";
 };
 export type PlasmicComment__VariantsArgs = {
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
-  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
+  whenHaveReply?: SingleBooleanChoiceArg<"whenHaveReply">;
+  showReply?: SingleBooleanChoiceArg<"showReply">;
 };
 type VariantPropType = keyof PlasmicComment__VariantsArgs;
 export const PlasmicComment__VariantProps = new Array<VariantPropType>(
   "whenHaveNoReply",
-  "unnamedVariant"
+  "whenHaveReply",
+  "showReply"
 );
 
 export type PlasmicComment__ArgsType = {
@@ -143,7 +146,8 @@ export interface DefaultCommentProps {
   mainCommentLikeCount?: string;
   replyCount?: string;
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
-  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
+  whenHaveReply?: SingleBooleanChoiceArg<"whenHaveReply">;
+  showReply?: SingleBooleanChoiceArg<"showReply">;
   className?: string;
 }
 
@@ -210,10 +214,16 @@ function PlasmicComment__RenderFunc(props: {
         onChangeProp: "onCommentDataChange2"
       },
       {
-        path: "unnamedVariant",
+        path: "whenHaveReply",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.whenHaveReply
+      },
+      {
+        path: "showReply",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.showReply
       }
     ],
     [$props, $ctx, $refs]
@@ -241,21 +251,27 @@ function PlasmicComment__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
         {
-          [sty.rootunnamedVariant]: hasVariant(
-            $state,
-            "unnamedVariant",
-            "unnamedVariant"
-          ),
+          [sty.rootshowReply]: hasVariant($state, "showReply", "showReply"),
           [sty.rootwhenHaveNoReply]: hasVariant(
             $state,
             "whenHaveNoReply",
             "whenHaveNoReply"
+          ),
+          [sty.rootwhenHaveReply]: hasVariant(
+            $state,
+            "whenHaveReply",
+            "whenHaveReply"
           )
         }
       )}
     >
       <div
         className={classNames(projectcss.all, sty.freeBox__euKls, {
+          [sty.freeBoxshowReply__euKls5MJbg]: hasVariant(
+            $state,
+            "showReply",
+            "showReply"
+          ),
           [sty.freeBoxwhenHaveNoReply__euKlsuOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
@@ -292,13 +308,26 @@ function PlasmicComment__RenderFunc(props: {
           <Stack__
             as={"div"}
             hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__fjoUh)}
+            className={classNames(projectcss.all, sty.freeBox__fjoUh, {
+              [sty.freeBoxwhenHaveReply__fjoUhS2LwI]: hasVariant(
+                $state,
+                "whenHaveReply",
+                "whenHaveReply"
+              )
+            })}
           >
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__qsMbq
+                sty.text__qsMbq,
+                {
+                  [sty.textwhenHaveReply__qsMbqS2LwI]: hasVariant(
+                    $state,
+                    "whenHaveReply",
+                    "whenHaveReply"
+                  )
+                }
               )}
             >
               <React.Fragment>
@@ -321,7 +350,14 @@ function PlasmicComment__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__epDy6
+                sty.text__epDy6,
+                {
+                  [sty.textwhenHaveReply__epDy6S2LwI]: hasVariant(
+                    $state,
+                    "whenHaveReply",
+                    "whenHaveReply"
+                  )
+                }
               )}
             >
               <React.Fragment>
@@ -370,10 +406,20 @@ function PlasmicComment__RenderFunc(props: {
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__bb4BN, {
+          [sty.freeBoxshowReply__bb4BN5MJbg]: hasVariant(
+            $state,
+            "showReply",
+            "showReply"
+          ),
           [sty.freeBoxwhenHaveNoReply__bb4BNuOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
             "whenHaveNoReply"
+          ),
+          [sty.freeBoxwhenHaveReply__bb4BNs2LwI]: hasVariant(
+            $state,
+            "whenHaveReply",
+            "whenHaveReply"
           )
         })}
       >
@@ -383,7 +429,14 @@ function PlasmicComment__RenderFunc(props: {
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.coment
+            sty.coment,
+            {
+              [sty.comentwhenHaveReply]: hasVariant(
+                $state,
+                "whenHaveReply",
+                "whenHaveReply"
+              )
+            }
           )}
         >
           <React.Fragment>
@@ -406,15 +459,20 @@ function PlasmicComment__RenderFunc(props: {
       <Commentlikebutton
         carrentData={``}
         className={classNames("__wab_instance", sty.commentlikebutton__twQ3M, {
-          [sty.commentlikebuttonunnamedVariant__twQ3MS2LwI]: hasVariant(
+          [sty.commentlikebuttonshowReply__twQ3M5MJbg]: hasVariant(
             $state,
-            "unnamedVariant",
-            "unnamedVariant"
+            "showReply",
+            "showReply"
           ),
           [sty.commentlikebuttonwhenHaveNoReply__twQ3MUOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
             "whenHaveNoReply"
+          ),
+          [sty.commentlikebuttonwhenHaveReply__twQ3MS2LwI]: hasVariant(
+            $state,
+            "whenHaveReply",
+            "whenHaveReply"
           )
         })}
         likeCommentCount={(() => {
@@ -436,29 +494,39 @@ function PlasmicComment__RenderFunc(props: {
         as={"div"}
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__eZrem, {
-          [sty.freeBoxunnamedVariant__eZremS2LwI]: hasVariant(
+          [sty.freeBoxshowReply__eZrem5MJbg]: hasVariant(
             $state,
-            "unnamedVariant",
-            "unnamedVariant"
+            "showReply",
+            "showReply"
           ),
           [sty.freeBoxwhenHaveNoReply__eZremUOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
             "whenHaveNoReply"
+          ),
+          [sty.freeBoxwhenHaveReply__eZremS2LwI]: hasVariant(
+            $state,
+            "whenHaveReply",
+            "whenHaveReply"
           )
         })}
       >
         <Reply
           className={classNames("__wab_instance", sty.reply__cmcBj, {
-            [sty.replyunnamedVariant__cmcBjs2LwI]: hasVariant(
+            [sty.replyshowReply__cmcBj5MJbg]: hasVariant(
               $state,
-              "unnamedVariant",
-              "unnamedVariant"
+              "showReply",
+              "showReply"
             ),
             [sty.replywhenHaveNoReply__cmcBjuOheY]: hasVariant(
               $state,
               "whenHaveNoReply",
               "whenHaveNoReply"
+            ),
+            [sty.replywhenHaveReply__cmcBjs2LwI]: hasVariant(
+              $state,
+              "whenHaveReply",
+              "whenHaveReply"
             )
           })}
         />
@@ -468,15 +536,20 @@ function PlasmicComment__RenderFunc(props: {
             "__wab_instance",
             sty.commentlikebutton__w1Y7G,
             {
-              [sty.commentlikebuttonunnamedVariant__w1Y7GS2LwI]: hasVariant(
+              [sty.commentlikebuttonshowReply__w1Y7G5MJbg]: hasVariant(
                 $state,
-                "unnamedVariant",
-                "unnamedVariant"
+                "showReply",
+                "showReply"
               ),
               [sty.commentlikebuttonwhenHaveNoReply__w1Y7GUOheY]: hasVariant(
                 $state,
                 "whenHaveNoReply",
                 "whenHaveNoReply"
+              ),
+              [sty.commentlikebuttonwhenHaveReply__w1Y7GS2LwI]: hasVariant(
+                $state,
+                "whenHaveReply",
+                "whenHaveReply"
               )
             }
           )}
@@ -484,15 +557,15 @@ function PlasmicComment__RenderFunc(props: {
       </Stack__>
       <div
         className={classNames(projectcss.all, sty.freeBox__wjP54, {
-          [sty.freeBoxunnamedVariant__wjP54S2LwI]: hasVariant(
-            $state,
-            "unnamedVariant",
-            "unnamedVariant"
-          ),
           [sty.freeBoxwhenHaveNoReply__wjP54UOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
             "whenHaveNoReply"
+          ),
+          [sty.freeBoxwhenHaveReply__wjP54S2LwI]: hasVariant(
+            $state,
+            "whenHaveReply",
+            "whenHaveReply"
           )
         })}
       >
@@ -515,7 +588,13 @@ function PlasmicComment__RenderFunc(props: {
           const currentIndex = __plasmic_idx_0;
           return (
             <div
-              className={classNames(projectcss.all, sty.freeBox__dzdw)}
+              className={classNames(projectcss.all, sty.freeBox__dzdw, {
+                [sty.freeBoxshowReply__dzdw5MJbg]: hasVariant(
+                  $state,
+                  "showReply",
+                  "showReply"
+                )
+              })}
               key={currentIndex}
             >
               <div
@@ -681,26 +760,56 @@ function PlasmicComment__RenderFunc(props: {
               <Commentlikebutton
                 className={classNames(
                   "__wab_instance",
-                  sty.commentlikebutton__pAfuv
+                  sty.commentlikebutton__pAfuv,
+                  {
+                    [sty.commentlikebuttonshowReply__pAfuv5MJbg]: hasVariant(
+                      $state,
+                      "showReply",
+                      "showReply"
+                    )
+                  }
                 )}
               />
             </div>
           );
         })}
       </div>
-      <Reply className={classNames("__wab_instance", sty.reply__ub0Bo)} />
+      <Reply
+        className={classNames("__wab_instance", sty.reply__ub0Bo, {
+          [sty.replyshowReply__ub0Bo5MJbg]: hasVariant(
+            $state,
+            "showReply",
+            "showReply"
+          ),
+          [sty.replywhenHaveNoReply__ub0BouOheY]: hasVariant(
+            $state,
+            "whenHaveNoReply",
+            "whenHaveNoReply"
+          ),
+          [sty.replywhenHaveReply__ub0Bos2LwI]: hasVariant(
+            $state,
+            "whenHaveReply",
+            "whenHaveReply"
+          )
+        })}
+      />
 
       <div
         className={classNames(projectcss.all, sty.freeBox__xZam2, {
-          [sty.freeBoxunnamedVariant__xZam2S2LwI]: hasVariant(
+          [sty.freeBoxshowReply__xZam25MJbg]: hasVariant(
             $state,
-            "unnamedVariant",
-            "unnamedVariant"
+            "showReply",
+            "showReply"
           ),
           [sty.freeBoxwhenHaveNoReply__xZam2UOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
             "whenHaveNoReply"
+          ),
+          [sty.freeBoxwhenHaveReply__xZam2S2LwI]: hasVariant(
+            $state,
+            "whenHaveReply",
+            "whenHaveReply"
           )
         })}
         onClick={async event => {
@@ -778,6 +887,27 @@ function PlasmicComment__RenderFunc(props: {
           ) {
             $steps["updateCommentData"] = await $steps["updateCommentData"];
           }
+
+          $steps["updateCommentData2"] = true
+            ? (() => {
+                const actionArgs = { vgroup: "showReply", operation: 4 };
+                return (({ vgroup, value }) => {
+                  if (typeof value === "string") {
+                    value = [value];
+                  }
+
+                  $stateSet($state, vgroup, true);
+                  return true;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateCommentData2"] != null &&
+            typeof $steps["updateCommentData2"] === "object" &&
+            typeof $steps["updateCommentData2"].then === "function"
+          ) {
+            $steps["updateCommentData2"] = await $steps["updateCommentData2"];
+          }
         }}
       >
         <div
@@ -786,24 +916,24 @@ function PlasmicComment__RenderFunc(props: {
             projectcss.__wab_text,
             sty.text__aAapo,
             {
-              [sty.textunnamedVariant__aAapos2LwI]: hasVariant(
-                $state,
-                "unnamedVariant",
-                "unnamedVariant"
-              ),
               [sty.textwhenHaveNoReply__aAapouOheY]: hasVariant(
                 $state,
                 "whenHaveNoReply",
                 "whenHaveNoReply"
+              ),
+              [sty.textwhenHaveReply__aAapos2LwI]: hasVariant(
+                $state,
+                "whenHaveReply",
+                "whenHaveReply"
               )
             }
           )}
         >
-          {hasVariant($state, "unnamedVariant", "unnamedVariant") ? (
+          {hasVariant($state, "whenHaveReply", "whenHaveReply") ? (
             <React.Fragment>
               {(() => {
                 try {
-                  return $props.replyCount;
+                  return "مشاهده " + $props.replyCount + " پاسخ ";
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -816,16 +946,79 @@ function PlasmicComment__RenderFunc(props: {
               })()}
             </React.Fragment>
           ) : (
-            "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e"
+            <React.Fragment>
+              {(() => {
+                try {
+                  return "مشاهده " + $props.replyCount + " پاسخ ";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
           )}
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__wRzZd)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__wRzZd, {
+          [sty.freeBoxshowReply__wRzZd5MJbg]: hasVariant(
+            $state,
+            "showReply",
+            "showReply"
+          ),
+          [sty.freeBoxwhenHaveNoReply__wRzZduOheY]: hasVariant(
+            $state,
+            "whenHaveNoReply",
+            "whenHaveNoReply"
+          ),
+          [sty.freeBoxwhenHaveReply__wRzZds2LwI]: hasVariant(
+            $state,
+            "whenHaveReply",
+            "whenHaveReply"
+          )
+        })}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["updateWhenHaveReply"] = true
+            ? (() => {
+                const actionArgs = { vgroup: "whenHaveReply", operation: 4 };
+                return (({ vgroup, value }) => {
+                  if (typeof value === "string") {
+                    value = [value];
+                  }
+
+                  $stateSet($state, vgroup, true);
+                  return true;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateWhenHaveReply"] != null &&
+            typeof $steps["updateWhenHaveReply"] === "object" &&
+            typeof $steps["updateWhenHaveReply"].then === "function"
+          ) {
+            $steps["updateWhenHaveReply"] = await $steps["updateWhenHaveReply"];
+          }
+        }}
+      >
         <div
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text___3H3Hg
+            sty.text___3H3Hg,
+            {
+              [sty.textwhenHaveReply___3H3HgS2LwI]: hasVariant(
+                $state,
+                "whenHaveReply",
+                "whenHaveReply"
+              )
+            }
           )}
         >
           {"\u0628\u0633\u062a\u0646"}
