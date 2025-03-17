@@ -1332,7 +1332,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return "whenHaveNoReply";
+                          return [];
                         }
                         throw e;
                       }

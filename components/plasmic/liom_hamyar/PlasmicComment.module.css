@@ -196,6 +196,9 @@
   font-size: 16px;
   min-width: 0;
 }
+.comentwhenHaveNoReply {
+  margin-bottom: 10px;
+}
 .commentlikebutton__twQ3M:global(.__wab_instance) {
   max-width: 100%;
   position: absolute;
@@ -216,6 +219,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  overflow: visible;
   min-width: 0;
   display: none;
   padding: 8px;
@@ -306,6 +310,9 @@
 }
 .freeBoxwhenHaveReply__wjP54S2LwI {
   display: none;
+}
+.freeBoxshowReply__wjP545MJbg {
+  display: flex;
 }
 .freeBox__dzdw {
   display: flex;
@@ -484,7 +491,6 @@
   display: none;
 }
 .freeBox__xZam2 {
-  display: flex;
   flex-direction: row;
   position: absolute;
   align-items: center;
@@ -497,6 +503,7 @@
   background: var(--token-R_Rsn0nP9oIv);
   bottom: -20px;
   right: 124px;
+  display: none;
   border-radius: 50px;
   padding: 8px;
   border: 1px solid var(--token-Y4frplZPI0IJ);
@@ -507,6 +514,7 @@
 .freeBoxwhenHaveReply__xZam2S2LwI {
   right: 125px;
   bottom: -20px;
+  display: flex;
 }
 .freeBoxshowReply__xZam25MJbg {
   display: none;
@@ -545,6 +553,9 @@
 }
 .freeBoxwhenHaveReply__wRzZds2LwI {
   display: none;
+}
+.freeBoxshowReply__wRzZd5MJbg {
+  display: flex;
 }
 .text___3H3Hg {
   position: relative;

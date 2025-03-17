@@ -276,6 +276,11 @@ function PlasmicComment__RenderFunc(props: {
             $state,
             "whenHaveNoReply",
             "whenHaveNoReply"
+          ),
+          [sty.freeBoxwhenHaveReply__euKlss2LwI]: hasVariant(
+            $state,
+            "whenHaveReply",
+            "whenHaveReply"
           )
         })}
       >
@@ -431,6 +436,11 @@ function PlasmicComment__RenderFunc(props: {
             projectcss.__wab_text,
             sty.coment,
             {
+              [sty.comentwhenHaveNoReply]: hasVariant(
+                $state,
+                "whenHaveNoReply",
+                "whenHaveNoReply"
+              ),
               [sty.comentwhenHaveReply]: hasVariant(
                 $state,
                 "whenHaveReply",
@@ -557,6 +567,11 @@ function PlasmicComment__RenderFunc(props: {
       </Stack__>
       <div
         className={classNames(projectcss.all, sty.freeBox__wjP54, {
+          [sty.freeBoxshowReply__wjP545MJbg]: hasVariant(
+            $state,
+            "showReply",
+            "showReply"
+          ),
           [sty.freeBoxwhenHaveNoReply__wjP54UOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
@@ -754,7 +769,13 @@ function PlasmicComment__RenderFunc(props: {
                 </div>
               </div>
               <Reply
-                className={classNames("__wab_instance", sty.reply__iSisW)}
+                className={classNames("__wab_instance", sty.reply__iSisW, {
+                  [sty.replyshowReply__iSisW5MJbg]: hasVariant(
+                    $state,
+                    "showReply",
+                    "showReply"
+                  )
+                })}
               />
 
               <Commentlikebutton
