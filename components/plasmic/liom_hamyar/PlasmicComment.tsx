@@ -410,15 +410,6 @@ function PlasmicComment__RenderFunc(props: {
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__fSs)}
         >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__gBxae
-            )}
-          >
-            {"5h ago"}
-          </div>
           <div className={classNames(projectcss.all, sty.freeBox__ewqKl)}>
             <Icon170Icon
               className={classNames(projectcss.all, sty.svg__btbrw)}

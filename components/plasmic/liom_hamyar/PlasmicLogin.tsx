@@ -4644,10 +4644,35 @@ function PlasmicLogin__RenderFunc(props: {
                                   destination: (() => {
                                     try {
                                       return (() => {
-                                        var baseUrl =
-                                          window.location.href.split(
-                                            "redirect_url="
-                                          )[1] || "";
+                                        if ($ctx.query.redirect_url != "") {
+                                          var baseUrl =
+                                            window.location.href.split(
+                                              "redirect_url="
+                                            )[1] || "";
+                                          baseUrl = new URL(baseUrl);
+                                          const origin = baseUrl.origin;
+                                          const pathname =
+                                            baseUrl.pathname.split("&")[0] ||
+                                            "";
+                                          const searchParams =
+                                            baseUrl.searchParams.toString();
+                                          baseUrl = searchParams
+                                            ? `${origin}${pathname}?${searchParams}`
+                                            : `${origin}${pathname}`;
+                                        } else if (
+                                          $state.loginData.maleUrl != ""
+                                        )
+                                          var baseUrl =
+                                            "https://apps.liom.app/hamyar";
+                                        else if (
+                                          $state.loginData.healthStatus ==
+                                          "pregnancy"
+                                        )
+                                          var baseUrl =
+                                            "https://apps.liom.app/pregnancy/";
+                                        else
+                                          baseUrl =
+                                            "https://apps.liom.app/calendar/";
                                         var separator = baseUrl.includes("?")
                                           ? "&token="
                                           : "?token=";
@@ -4664,10 +4689,7 @@ function PlasmicLogin__RenderFunc(props: {
                                             "") +
                                           $$.uuid.v4().slice(0, 4);
                                         console.log(redirectUrl);
-                                        return window.open(
-                                          redirectUrl,
-                                          "_self"
-                                        );
+                                        return redirectUrl;
                                       })();
                                     } catch (e) {
                                       if (
@@ -8936,7 +8958,11 @@ function PlasmicLogin__RenderFunc(props: {
                                             name: $state.antdInput2.value || "",
                                             gateway: $ctx.query.gateway || "",
                                             data:
-                                              $state.number ||
+                                              ($state.number != ""
+                                                ? $state.number.startsWith("0")
+                                                  ? $state.number
+                                                  : "0" + $state.number
+                                                : "") ||
                                               $state.email ||
                                               "",
                                             username: $state.username || "",
@@ -9096,7 +9122,12 @@ function PlasmicLogin__RenderFunc(props: {
                                             type: $state.type,
                                             name: $state.antdInput2.value || "",
                                             gateway: $ctx.query.gateway || "",
-                                            data: $state.number || "",
+                                            data:
+                                              $state.number != ""
+                                                ? $state.number.startsWith("0")
+                                                  ? $state.number
+                                                  : "0" + $state.number
+                                                : "",
                                             username: $state.username,
                                             target: "calendar",
                                             sex: $state.gender || "",
@@ -13517,10 +13548,19 @@ function PlasmicLogin__RenderFunc(props: {
                                             ? `${origin}${pathname}?${searchParams}`
                                             : `${origin}${pathname}`;
                                         } else if (
-                                          $state.loginData.sex == "male"
+                                          $state.loginData.maleUrl != ""
                                         )
                                           var baseUrl =
                                             "https://apps.liom.app/hamyar";
+                                        else if (
+                                          $state.loginData.healthStatus ==
+                                          "pregnancy"
+                                        )
+                                          var baseUrl =
+                                            "https://apps.liom.app/pregnancy/";
+                                        else
+                                          baseUrl =
+                                            "https://apps.liom.app/calendar/";
                                         var separator = baseUrl.includes("?")
                                           ? "&token="
                                           : "?token=";
@@ -17676,6 +17716,11 @@ function PlasmicLogin__RenderFunc(props: {
                     $state,
                     "loginPage",
                     "mobile"
+                  ),
+                  [sty.freeBoxloginPage_name__pXz5RhUiKy]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "name"
                   )
                 })}
               >

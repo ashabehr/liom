@@ -73,6 +73,7 @@ import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import Star from "../../Star"; // plasmic-import: i69c2Ujsm_H6/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import MobileDialog from "../../MobileDialog"; // plasmic-import: h7ceF9lBthFF/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -121,6 +122,7 @@ export type PlasmicShop__OverridesType = {
   star?: Flex__<typeof Star>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
   shopDialog?: Flex__<typeof ApiRequest>;
+  mobileDialog?: Flex__<typeof MobileDialog>;
 };
 
 export interface DefaultShopProps {}
@@ -593,6 +595,18 @@ function PlasmicShop__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "mobileDialog.selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "mobileDialog.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -3984,6 +3998,41 @@ function PlasmicShop__RenderFunc(props: {
             }}
             url={"https://n8n.staas.ir/webhook/hamyar/shop"}
           />
+
+          <MobileDialog
+            data-plasmic-name={"mobileDialog"}
+            data-plasmic-override={overrides.mobileDialog}
+            className={classNames("__wab_instance", sty.mobileDialog)}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["mobileDialog", "open"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onSelectShopChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "mobileDialog",
+                "selectShop"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            open={generateStateValueProp($state, ["mobileDialog", "open"])}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -4010,7 +4059,8 @@ const PlasmicDescendants = {
     "timer",
     "star",
     "collapseMother",
-    "shopDialog"
+    "shopDialog",
+    "mobileDialog"
   ],
   headerLiom: ["headerLiom"],
   getData: [
@@ -4053,7 +4103,8 @@ const PlasmicDescendants = {
   timer: ["timer"],
   star: ["star"],
   collapseMother: ["collapseMother"],
-  shopDialog: ["shopDialog"]
+  shopDialog: ["shopDialog"],
+  mobileDialog: ["mobileDialog"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4078,6 +4129,7 @@ type NodeDefaultElementType = {
   star: typeof Star;
   collapseMother: typeof AntdSingleCollapse;
   shopDialog: typeof ApiRequest;
+  mobileDialog: typeof MobileDialog;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4183,6 +4235,7 @@ export const PlasmicShop = Object.assign(
     star: makeNodeComponent("star"),
     collapseMother: makeNodeComponent("collapseMother"),
     shopDialog: makeNodeComponent("shopDialog"),
+    mobileDialog: makeNodeComponent("mobileDialog"),
 
     // Metadata about props expected for PlasmicShop
     internalVariantProps: PlasmicShop__VariantProps,

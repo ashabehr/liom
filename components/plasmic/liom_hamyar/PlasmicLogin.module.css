@@ -14838,7 +14838,8 @@
   padding-top: 16px;
   padding-right: 0px;
   padding-left: 0px;
-  width: 50%;
+  width: 100%;
+  min-width: 0;
 }
 @media (max-width: 640px) {
   .embedHtmlloginPage_mobileCode__nn8DPm2GXn:global(.__wab_instance) {

@@ -1715,15 +1715,15 @@
           "componentType": "component"
         },
         {
-          "id": "eA7f2t-hm9uY",
-          "name": "PostedTime",
+          "id": "h7ceF9lBthFF",
+          "name": "MobileDialog",
           "type": "managed",
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPostedTime.tsx",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMobileDialog.tsx",
           "importSpec": {
-            "modulePath": "PostedTime.tsx"
+            "modulePath": "MobileDialog.tsx"
           },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicPostedTime.module.css",
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMobileDialog.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
