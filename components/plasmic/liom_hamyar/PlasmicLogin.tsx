@@ -17399,6 +17399,11 @@ function PlasmicLogin__RenderFunc(props: {
                 $state,
                 "loginPage",
                 "userNameLogin"
+              ),
+              [sty.apiRequestloginPage_userNameSingup]: hasVariant(
+                $state,
+                "loginPage",
+                "userNameSingup"
               )
             })}
             errorDisplay={null}
@@ -17492,7 +17497,11 @@ function PlasmicLogin__RenderFunc(props: {
                                 success: true,
                                 result: {
                                   token: $ctx.query.token,
-                                  userId: $ctx.query.userId
+                                  userId: $ctx.query.userId,
+                                  maleUrl:
+                                    $ctx.query.sex == "male"
+                                      ? "https://apps.liom.app/hamyar"
+                                      : ""
                                 }
                               };
                               return localStorage.setItem(
@@ -17554,18 +17563,27 @@ function PlasmicLogin__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            var baseUrl =
-                              window.location.href.split("redirect_url=")[1] ||
-                              "";
-                            baseUrl = new URL(baseUrl);
-                            const origin = baseUrl.origin;
-                            const pathname =
-                              baseUrl.pathname.split("&")[0] || "";
-                            const searchParams =
-                              baseUrl.searchParams.toString();
-                            baseUrl = searchParams
-                              ? `${origin}${pathname}?${searchParams}`
-                              : `${origin}${pathname}`;
+                            if ($ctx.query.redirect_url != "") {
+                              var baseUrl =
+                                window.location.href.split(
+                                  "redirect_url="
+                                )[1] || "";
+                              baseUrl = new URL(baseUrl);
+                              const origin = baseUrl.origin;
+                              const pathname =
+                                baseUrl.pathname.split("&")[0] || "";
+                              const searchParams =
+                                baseUrl.searchParams.toString();
+                              baseUrl = searchParams
+                                ? `${origin}${pathname}?${searchParams}`
+                                : `${origin}${pathname}`;
+                            } else if ($state.loginData.maleUrl != "")
+                              var baseUrl = "https://apps.liom.app/hamyar";
+                            else if (
+                              $state.loginData.healthStatus == "pregnancy"
+                            )
+                              var baseUrl = "https://apps.liom.app/pregnancy/";
+                            else baseUrl = "https://apps.liom.app/calendar/";
                             var separator = baseUrl.includes("?")
                               ? "&token="
                               : "?token=";
@@ -17580,7 +17598,7 @@ function PlasmicLogin__RenderFunc(props: {
                               ($state.loginData.result.userId || "") +
                               $$.uuid.v4().slice(0, 4);
                             console.log(redirectUrl);
-                            return window.open(redirectUrl, "_self");
+                            return redirectUrl;
                           })();
                         }
                       };

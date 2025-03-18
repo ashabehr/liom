@@ -61,6 +61,7 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
@@ -120,6 +121,7 @@ export const PlasmicStatusDay__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicStatusDay__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   number2?: Flex__<typeof AntdModal>;
   textInput?: Flex__<typeof TextInput>;
@@ -1824,6 +1826,12 @@ function PlasmicStatusDay__RenderFunc(props: {
             sty.root
           )}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+          />
+
           <section className={classNames(projectcss.all, sty.section___4ZTIh)}>
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
@@ -8117,6 +8125,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "headerLiom",
     "number2",
     "textInput",
@@ -8179,6 +8188,7 @@ const PlasmicDescendants = {
     "jobinput",
     "button13"
   ],
+  sideEffect: ["sideEffect"],
   headerLiom: ["headerLiom"],
   number2: ["number2", "textInput", "antdInput", "button2"],
   textInput: ["textInput", "antdInput"],
@@ -8283,6 +8293,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   headerLiom: typeof HeaderLiom;
   number2: typeof AntdModal;
   textInput: typeof TextInput;
@@ -8431,6 +8442,7 @@ export const PlasmicStatusDay = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     headerLiom: makeNodeComponent("headerLiom"),
     number2: makeNodeComponent("number2"),
     textInput: makeNodeComponent("textInput"),

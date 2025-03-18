@@ -77,7 +77,7 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicMobileDialog.module.css"; // plasmic-import: h7ceF9lBthFF/css
 
-import Icon2Icon from "../todo_mvc_app/icons/PlasmicIcon__Icon2"; // plasmic-import: EwJmqOfKx7up/icon
+import Icon157Icon from "./icons/PlasmicIcon__Icon157"; // plasmic-import: pYMHtMPOTSpB/icon
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: rjflJ2D4OoXB/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -466,12 +466,40 @@ function PlasmicMobileDialog__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox___8Et9V)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__mCct)}>
-                <Icon2Icon
-                  className={classNames(projectcss.all, sty.svg___0SU0J)}
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___9Upw)}
+              >
+                <Icon157Icon
+                  className={classNames(projectcss.all, sty.svg___4TkLy)}
                   role={"img"}
                 />
-              </div>
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__xfyiC
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $props.desc;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </Stack__>
               <Stack__
                 as={"div"}
                 hasGap={true}
@@ -963,6 +991,43 @@ function PlasmicMobileDialog__RenderFunc(props: {
                       projectcss.__wab_text,
                       sty.text__d0J18
                     )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["code"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateCode"] != null &&
+                        typeof $steps["updateCode"] === "object" &&
+                        typeof $steps["updateCode"].then === "function"
+                      ) {
+                        $steps["updateCode"] = await $steps["updateCode"];
+                      }
+                    }}
                   >
                     {
                       "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647"

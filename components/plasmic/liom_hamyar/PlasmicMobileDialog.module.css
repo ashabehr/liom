@@ -89,59 +89,54 @@
     margin-top: 16px;
   }
 }
-.freeBox__mCct {
+.freeBox___9Upw {
   display: flex;
-  position: fixed;
-  width: auto;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
   height: auto;
   max-width: 100%;
-  background: #ffffff33;
-  flex-direction: column;
-  left: 16px;
-  top: 0;
-  z-index: 1;
+  background: var(--token-KrBMMqlPClZi);
+  min-width: 0;
   border-radius: 8px;
-  padding: 8px;
+  padding: 4px;
+  border: 1px dashed var(--token-EueuB3d74YKA);
 }
-@media (max-width: 640px) {
-  .freeBox__mCct {
-    position: fixed;
-    left: 16px;
-    top: 0px;
-    z-index: 1;
-    right: auto;
-    width: auto;
-  }
+.freeBox___9Upw > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 4px);
+  width: calc(100% + 4px);
 }
-.svg___0SU0J {
+.freeBox___9Upw > :global(.__wab_flex-container) > *,
+.freeBox___9Upw > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox___9Upw > :global(.__wab_flex-container) > picture > img,
+.freeBox___9Upw
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 4px;
+}
+.svg___4TkLy {
   object-fit: cover;
   max-width: 100%;
-  position: relative;
-  left: auto;
-  top: auto;
-  z-index: 1;
-  color: var(--token-zy6xhYnWF8Y7);
-  transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
-  width: 20px;
-  height: 20px;
-  transform-style: preserve-3d;
+  color: var(--token-Bjjq_24AWhes);
+  width: 25px;
+  height: 25px;
   flex-shrink: 0;
 }
-.svg___0SU0J * {
-  transform-style: preserve-3d;
-}
-@media (max-width: 640px) {
-  .svg___0SU0J {
-    width: 20px;
-    height: 20px;
-    transform-style: preserve-3d;
-    flex-shrink: 0;
-  }
-}
-@media (max-width: 640px) {
-  .svg___0SU0J * {
-    transform-style: preserve-3d;
-  }
+.text__xfyiC {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--token-2ObYh10hZuCh);
+  min-width: 0;
 }
 .freeBox__d9Fmj {
   display: flex;
