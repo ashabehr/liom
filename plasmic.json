@@ -1713,6 +1713,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicReplyLikeButton.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "eA7f2t-hm9uY",
+          "name": "PostedTime",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPostedTime.tsx",
+          "importSpec": {
+            "modulePath": "PostedTime.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicPostedTime.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

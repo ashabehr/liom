@@ -83,6 +83,7 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicHamyarAdd.module.css"; // plasmic-import: ghwXD1CqaWYi/css
 
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: rjflJ2D4OoXB/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -131,6 +132,7 @@ export type PlasmicHamyarAdd__OverridesType = {
   button6?: Flex__<typeof Button>;
   button7?: Flex__<typeof Button>;
   switchbest?: Flex__<typeof Switchbest>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultHamyarAddProps {}
@@ -441,60 +443,57 @@ function PlasmicHamyarAdd__RenderFunc(props: {
             data-plasmic-override={overrides.section}
             className={classNames(projectcss.all, sty.section)}
           >
-            {(
-              hasVariant(globalVariants, "screen", "mobile")
-                ? true
-                : (() => {
-                    try {
-                      return true;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })()
-            ) ? (
-              <HeaderLiom
-                data-plasmic-name={"headerLiom"}
-                data-plasmic-override={overrides.headerLiom}
-                className={classNames("__wab_instance", sty.headerLiom)}
-                slot={null}
+            <HeaderLiom
+              data-plasmic-name={"headerLiom"}
+              data-plasmic-override={overrides.headerLiom}
+              className={classNames("__wab_instance", sty.headerLiom)}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__sauTb)}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__chxS)}>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__zbS9K)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"20px"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image38.svg",
-                      fullWidth: 24,
-                      fullHeight: 24,
-                      aspectRatio: 1
-                    }}
-                  />
+                <XIcon
+                  className={classNames(projectcss.all, sty.svg__pBure)}
+                  onClick={async event => {
+                    const $steps = {};
 
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__aBaQl
-                    )}
-                  >
-                    {"\u0647\u0645\u06cc\u0627\u0631"}
-                  </div>
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return window.history.back();
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__azbDv
+                  )}
+                >
+                  {"\u0647\u0645\u06cc\u0627\u0631"}
                 </div>
-              </HeaderLiom>
-            ) : null}
+              </Stack__>
+            </HeaderLiom>
           </section>
           <AntdModal
             data-plasmic-name={"number2"}
@@ -3325,8 +3324,10 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                 }
               })() ? (
                 <PlasmicImg__
+                  data-plasmic-name={"img"}
+                  data-plasmic-override={overrides.img}
                   alt={""}
-                  className={classNames(sty.img__uuxvo)}
+                  className={classNames(sty.img)}
                   displayHeight={"auto"}
                   displayMaxHeight={"none"}
                   displayMaxWidth={"100%"}
@@ -3380,7 +3381,8 @@ const PlasmicDescendants = {
     "popover",
     "button6",
     "button7",
-    "switchbest"
+    "switchbest",
+    "img"
   ],
   section: ["section", "headerLiom"],
   headerLiom: ["headerLiom"],
@@ -3406,14 +3408,16 @@ const PlasmicDescendants = {
     "popover",
     "button6",
     "button7",
-    "switchbest"
+    "switchbest",
+    "img"
   ],
   button: ["button"],
   vigetLiom: ["vigetLiom", "popover", "button6", "button7", "switchbest"],
   popover: ["popover", "button6", "button7"],
   button6: ["button6"],
   button7: ["button7"],
-  switchbest: ["switchbest"]
+  switchbest: ["switchbest"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3444,6 +3448,7 @@ type NodeDefaultElementType = {
   button6: typeof Button;
   button7: typeof Button;
   switchbest: typeof Switchbest;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3555,6 +3560,7 @@ export const PlasmicHamyarAdd = Object.assign(
     button6: makeNodeComponent("button6"),
     button7: makeNodeComponent("button7"),
     switchbest: makeNodeComponent("switchbest"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicHamyarAdd
     internalVariantProps: PlasmicHamyarAdd__VariantProps,

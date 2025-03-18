@@ -117,6 +117,9 @@ export type PlasmicSocialPage__OverridesType = {
   like2?: Flex__<typeof Like>;
   save?: Flex__<typeof Save>;
   popover?: Flex__<typeof AntdPopover>;
+  buttonNewest?: Flex__<typeof ButtonSocial>;
+  mostReply?: Flex__<typeof ButtonSocial>;
+  mostLiked?: Flex__<typeof ButtonSocial>;
   comment?: Flex__<typeof Comment>;
   textArea?: Flex__<typeof AntdTextArea>;
   getInfo?: Flex__<typeof ApiRequest>;
@@ -1103,9 +1106,11 @@ function PlasmicSocialPage__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.freeBox__hxWiz)}
                     >
                       <ButtonSocial
+                        data-plasmic-name={"buttonNewest"}
+                        data-plasmic-override={overrides.buttonNewest}
                         className={classNames(
                           "__wab_instance",
-                          sty.buttonSocial__nHq1P
+                          sty.buttonNewest
                         )}
                         type={
                           "\u062c\u062f\u06cc\u062f \u062a\u0631\u06cc\u0646 \u0647\u0627"
@@ -1113,20 +1118,18 @@ function PlasmicSocialPage__RenderFunc(props: {
                       />
 
                       <ButtonSocial
-                        className={classNames(
-                          "__wab_instance",
-                          sty.buttonSocial__vBXy0
-                        )}
+                        data-plasmic-name={"mostReply"}
+                        data-plasmic-override={overrides.mostReply}
+                        className={classNames("__wab_instance", sty.mostReply)}
                         type={
                           "\u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0631\u06cc\u067e\u0644\u0627\u06cc"
                         }
                       />
 
                       <ButtonSocial
-                        className={classNames(
-                          "__wab_instance",
-                          sty.buttonSocial__xvGb5
-                        )}
+                        data-plasmic-name={"mostLiked"}
+                        data-plasmic-override={overrides.mostLiked}
+                        className={classNames("__wab_instance", sty.mostLiked)}
                         type={
                           "\u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0644\u0627\u06cc\u06a9"
                         }
@@ -1538,6 +1541,9 @@ const PlasmicDescendants = {
     "like2",
     "save",
     "popover",
+    "buttonNewest",
+    "mostReply",
+    "mostLiked",
     "comment",
     "textArea",
     "getInfo"
@@ -1549,7 +1555,10 @@ const PlasmicDescendants = {
   reactionBar: ["reactionBar", "like2", "save"],
   like2: ["like2"],
   save: ["save"],
-  popover: ["popover"],
+  popover: ["popover", "buttonNewest", "mostReply", "mostLiked"],
+  buttonNewest: ["buttonNewest"],
+  mostReply: ["mostReply"],
+  mostLiked: ["mostLiked"],
   comment: ["comment"],
   textArea: ["textArea"],
   getInfo: ["getInfo"]
@@ -1567,6 +1576,9 @@ type NodeDefaultElementType = {
   like2: typeof Like;
   save: typeof Save;
   popover: typeof AntdPopover;
+  buttonNewest: typeof ButtonSocial;
+  mostReply: typeof ButtonSocial;
+  mostLiked: typeof ButtonSocial;
   comment: typeof Comment;
   textArea: typeof AntdTextArea;
   getInfo: typeof ApiRequest;
@@ -1665,6 +1677,9 @@ export const PlasmicSocialPage = Object.assign(
     like2: makeNodeComponent("like2"),
     save: makeNodeComponent("save"),
     popover: makeNodeComponent("popover"),
+    buttonNewest: makeNodeComponent("buttonNewest"),
+    mostReply: makeNodeComponent("mostReply"),
+    mostLiked: makeNodeComponent("mostLiked"),
     comment: makeNodeComponent("comment"),
     textArea: makeNodeComponent("textArea"),
     getInfo: makeNodeComponent("getInfo"),

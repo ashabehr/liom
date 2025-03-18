@@ -829,10 +829,10 @@
   min-width: 0;
   padding: 8px;
 }
-.buttonSocial__vBXy0:global(.__wab_instance) {
+.mostReply:global(.__wab_instance) {
   max-width: 100%;
 }
-.buttonSocial__xvGb5:global(.__wab_instance) {
+.mostLiked:global(.__wab_instance) {
   max-width: 100%;
 }
 .freeBox__sB24Y {

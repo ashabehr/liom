@@ -72,14 +72,14 @@ import Icon173Icon from "./icons/PlasmicIcon__Icon173"; // plasmic-import: wcLao
 createPlasmicElementProxy;
 
 export type PlasmicReplyLikeButton__VariantMembers = {
-  islike: "islike";
+  islikeforReply: "islikeforReply";
 };
 export type PlasmicReplyLikeButton__VariantsArgs = {
-  islike?: SingleBooleanChoiceArg<"islike">;
+  islikeforReply?: SingleBooleanChoiceArg<"islikeforReply">;
 };
 type VariantPropType = keyof PlasmicReplyLikeButton__VariantsArgs;
 export const PlasmicReplyLikeButton__VariantProps = new Array<VariantPropType>(
-  "islike"
+  "islikeforReply"
 );
 
 export type PlasmicReplyLikeButton__ArgsType = {
@@ -98,7 +98,7 @@ export type PlasmicReplyLikeButton__OverridesType = {
 
 export interface DefaultReplyLikeButtonProps {
   replyLikeCount?: string;
-  islike?: SingleBooleanChoiceArg<"islike">;
+  islikeforReply?: SingleBooleanChoiceArg<"islikeforReply">;
   className?: string;
 }
 
@@ -166,10 +166,10 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
           })()
       },
       {
-        path: "islike",
+        path: "islikeforReply",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.islike
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.islikeforReply
       }
     ],
     [$props, $ctx, $refs]
@@ -198,7 +198,13 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
-        { [sty.rootislike]: hasVariant($state, "islike", "islike") }
+        {
+          [sty.rootislikeforReply]: hasVariant(
+            $state,
+            "islikeforReply",
+            "islikeforReply"
+          )
+        }
       )}
       onClick={async event => {
         const $steps = {};
@@ -208,10 +214,10 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
               const actionArgs = {
                 variable: {
                   objRoot: $state,
-                  variablePath: ["islike"]
+                  variablePath: ["islikeforReply"]
                 },
                 operation: 0,
-                value: !$state.islike
+                value: !$state.islikeforReply
               };
               return (({ variable, value, startIndex, deleteCount }) => {
                 if (!variable) {
@@ -242,7 +248,7 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
                 operation: 0,
                 value: ($state.variableForReplyLike =
                   parseInt($state.variableForReplyLike) +
-                  ($state.islike ? -1 : 1))
+                  ($state.islikeforReply ? +1 : -1))
               };
               return (({ variable, value, startIndex, deleteCount }) => {
                 if (!variable) {
@@ -291,10 +297,16 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
         data-plasmic-name={"svg"}
         data-plasmic-override={overrides.svg}
         PlasmicIconType={
-          hasVariant($state, "islike", "islike") ? Icon173Icon : Icon152Icon
+          hasVariant($state, "islikeforReply", "islikeforReply")
+            ? Icon173Icon
+            : Icon152Icon
         }
         className={classNames(projectcss.all, sty.svg, {
-          [sty.svgislike]: hasVariant($state, "islike", "islike")
+          [sty.svgislikeforReply]: hasVariant(
+            $state,
+            "islikeforReply",
+            "islikeforReply"
+          )
         })}
         role={"img"}
       />
