@@ -322,6 +322,7 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
+  margin-top: 0px;
   min-width: 0;
   padding: 8px;
   border-right: 1px solid var(--token-Pxe4wDL2kJpb);
@@ -483,7 +484,11 @@
   display: none;
 }
 .replyLikeButton:global(.__wab_instance) {
-  position: relative;
+  position: absolute;
+  left: auto;
+  top: auto;
+  bottom: -20px;
+  right: 85px;
 }
 .reply__ub0Bo:global(.__wab_instance) {
   max-width: 100%;

@@ -127,7 +127,6 @@ export type PlasmicPregnancy__OverridesType = {
   sideEffect?: Flex__<typeof SideEffect>;
   switchbest?: Flex__<typeof Switchbest>;
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
-  todoList?: Flex__<typeof TodoList>;
   collapseDanger?: Flex__<typeof AntdSingleCollapse>;
   collapseMedicine2?: Flex__<typeof AntdSingleCollapse>;
   collapseTest?: Flex__<typeof AntdSingleCollapse>;
@@ -135,6 +134,7 @@ export type PlasmicPregnancy__OverridesType = {
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
   switchbest2?: Flex__<typeof Switchbest>;
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
+  todoList?: Flex__<typeof TodoList>;
   getUserInfo?: Flex__<typeof ApiRequest>;
   directDialog2?: Flex__<typeof DirectDialog2>;
   slideinModal?: Flex__<typeof SlideinModal>;
@@ -13670,118 +13670,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__diDkn,
-                            {
-                              [sty.freeBoxdarkMod__diDknoQOo]: hasVariant(
-                                $state,
-                                "darkMod",
-                                "darkMod"
-                              )
-                            }
-                          )}
-                        >
-                          {(() => {
-                            try {
-                              return (
-                                $state.selectedWeek != null &&
-                                $state.getTask?.list != null &&
-                                $state.textWeek != null &&
-                                $state.textWeek?.length > 0
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return false;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <TodoList
-                              data-plasmic-name={"todoList"}
-                              data-plasmic-override={overrides.todoList}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.todoList,
-                                {
-                                  [sty.todoListdarkMod]: hasVariant(
-                                    $state,
-                                    "darkMod",
-                                    "darkMod"
-                                  )
-                                }
-                              )}
-                              darkMod={
-                                hasVariant($state, "darkMod", "darkMod")
-                                  ? true
-                                  : undefined
-                              }
-                              loading={(() => {
-                                try {
-                                  return $state.getTask.loading;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return false;
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                              tasks={(() => {
-                                try {
-                                  return $state.getTask.list;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                              title={
-                                "\u0644\u06cc\u0633\u062a \u06a9\u0627\u0631\u0647\u0627\u06cc \u0647\u0641\u062a\u06af\u06cc\u0650 \u062a\u0648"
-                              }
-                              userId={(() => {
-                                try {
-                                  return $ctx.query.userId;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                              week={(() => {
-                                try {
-                                  return $state.selectedWeek;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            />
-                          ) : null}
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
                             sty.freeBox___3OXv1
                           )}
                           id={"collapseDanger"}
@@ -21994,6 +21882,118 @@ function PlasmicPregnancy__RenderFunc(props: {
                             );
                           })()}
                         </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__diDkn,
+                            {
+                              [sty.freeBoxdarkMod__diDknoQOo]: hasVariant(
+                                $state,
+                                "darkMod",
+                                "darkMod"
+                              )
+                            }
+                          )}
+                        >
+                          {(() => {
+                            try {
+                              return (
+                                $state.selectedWeek != null &&
+                                $state.getTask?.list != null &&
+                                $state.textWeek != null &&
+                                $state.textWeek?.length > 0
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <TodoList
+                              data-plasmic-name={"todoList"}
+                              data-plasmic-override={overrides.todoList}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.todoList,
+                                {
+                                  [sty.todoListdarkMod]: hasVariant(
+                                    $state,
+                                    "darkMod",
+                                    "darkMod"
+                                  )
+                                }
+                              )}
+                              darkMod={
+                                hasVariant($state, "darkMod", "darkMod")
+                                  ? true
+                                  : undefined
+                              }
+                              loading={(() => {
+                                try {
+                                  return $state.getTask.loading;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              tasks={(() => {
+                                try {
+                                  return $state.getTask.list;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              title={
+                                "\u0644\u06cc\u0633\u062a \u06a9\u0627\u0631\u0647\u0627\u06cc \u0647\u0641\u062a\u06af\u06cc\u0650 \u062a\u0648"
+                              }
+                              userId={(() => {
+                                try {
+                                  return $ctx.query.userId;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              week={(() => {
+                                try {
+                                  return $state.selectedWeek;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            />
+                          ) : null}
+                        </div>
                       </div>
                     </div>
                   ) : null}
@@ -22914,29 +22914,6 @@ function PlasmicPregnancy__RenderFunc(props: {
               </div>
             ) : null}
           </SlideinModal>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___7L2O2
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return undefined;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </div>
         </div>
       </div>
     </React.Fragment>
@@ -22956,7 +22933,6 @@ const PlasmicDescendants = {
     "sideEffect",
     "switchbest",
     "collapseAdvice",
-    "todoList",
     "collapseDanger",
     "collapseMedicine2",
     "collapseTest",
@@ -22964,6 +22940,7 @@ const PlasmicDescendants = {
     "collapseMother",
     "switchbest2",
     "collapseHealth",
+    "todoList",
     "getUserInfo",
     "directDialog2",
     "slideinModal"
@@ -22979,7 +22956,6 @@ const PlasmicDescendants = {
     "sideEffect",
     "switchbest",
     "collapseAdvice",
-    "todoList",
     "collapseDanger",
     "collapseMedicine2",
     "collapseTest",
@@ -22987,6 +22963,7 @@ const PlasmicDescendants = {
     "collapseMother",
     "switchbest2",
     "collapseHealth",
+    "todoList",
     "getUserInfo",
     "directDialog2"
   ],
@@ -22999,7 +22976,6 @@ const PlasmicDescendants = {
   sideEffect: ["sideEffect"],
   switchbest: ["switchbest"],
   collapseAdvice: ["collapseAdvice"],
-  todoList: ["todoList"],
   collapseDanger: ["collapseDanger"],
   collapseMedicine2: ["collapseMedicine2"],
   collapseTest: ["collapseTest"],
@@ -23007,6 +22983,7 @@ const PlasmicDescendants = {
   collapseMother: ["collapseMother", "switchbest2"],
   switchbest2: ["switchbest2"],
   collapseHealth: ["collapseHealth"],
+  todoList: ["todoList"],
   getUserInfo: ["getUserInfo"],
   directDialog2: ["directDialog2"],
   slideinModal: ["slideinModal"]
@@ -23026,7 +23003,6 @@ type NodeDefaultElementType = {
   sideEffect: typeof SideEffect;
   switchbest: typeof Switchbest;
   collapseAdvice: typeof AntdSingleCollapse;
-  todoList: typeof TodoList;
   collapseDanger: typeof AntdSingleCollapse;
   collapseMedicine2: typeof AntdSingleCollapse;
   collapseTest: typeof AntdSingleCollapse;
@@ -23034,6 +23010,7 @@ type NodeDefaultElementType = {
   collapseMother: typeof AntdSingleCollapse;
   switchbest2: typeof Switchbest;
   collapseHealth: typeof AntdSingleCollapse;
+  todoList: typeof TodoList;
   getUserInfo: typeof ApiRequest;
   directDialog2: typeof DirectDialog2;
   slideinModal: typeof SlideinModal;
@@ -23134,7 +23111,6 @@ export const PlasmicPregnancy = Object.assign(
     sideEffect: makeNodeComponent("sideEffect"),
     switchbest: makeNodeComponent("switchbest"),
     collapseAdvice: makeNodeComponent("collapseAdvice"),
-    todoList: makeNodeComponent("todoList"),
     collapseDanger: makeNodeComponent("collapseDanger"),
     collapseMedicine2: makeNodeComponent("collapseMedicine2"),
     collapseTest: makeNodeComponent("collapseTest"),
@@ -23142,6 +23118,7 @@ export const PlasmicPregnancy = Object.assign(
     collapseMother: makeNodeComponent("collapseMother"),
     switchbest2: makeNodeComponent("switchbest2"),
     collapseHealth: makeNodeComponent("collapseHealth"),
+    todoList: makeNodeComponent("todoList"),
     getUserInfo: makeNodeComponent("getUserInfo"),
     directDialog2: makeNodeComponent("directDialog2"),
     slideinModal: makeNodeComponent("slideinModal"),

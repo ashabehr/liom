@@ -67,26 +67,38 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicReplyLikeButton.module.css"; // plasmic-import: DqnrMhkRW1DX/css
 
 import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: qr8jQCU8QOqy/icon
+import Icon173Icon from "./icons/PlasmicIcon__Icon173"; // plasmic-import: wcLaoBjM9dJX/icon
 
 createPlasmicElementProxy;
 
-export type PlasmicReplyLikeButton__VariantMembers = {};
-export type PlasmicReplyLikeButton__VariantsArgs = {};
+export type PlasmicReplyLikeButton__VariantMembers = {
+  islike: "islike";
+};
+export type PlasmicReplyLikeButton__VariantsArgs = {
+  islike?: SingleBooleanChoiceArg<"islike">;
+};
 type VariantPropType = keyof PlasmicReplyLikeButton__VariantsArgs;
-export const PlasmicReplyLikeButton__VariantProps =
-  new Array<VariantPropType>();
+export const PlasmicReplyLikeButton__VariantProps = new Array<VariantPropType>(
+  "islike"
+);
 
-export type PlasmicReplyLikeButton__ArgsType = {};
+export type PlasmicReplyLikeButton__ArgsType = {
+  replyLikeCount?: string;
+};
 type ArgPropType = keyof PlasmicReplyLikeButton__ArgsType;
-export const PlasmicReplyLikeButton__ArgProps = new Array<ArgPropType>();
+export const PlasmicReplyLikeButton__ArgProps = new Array<ArgPropType>(
+  "replyLikeCount"
+);
 
 export type PlasmicReplyLikeButton__OverridesType = {
   root?: Flex__<"div">;
-  svg?: Flex__<"svg">;
   text?: Flex__<"div">;
+  svg?: Flex__<"svg">;
 };
 
 export interface DefaultReplyLikeButtonProps {
+  replyLikeCount?: string;
+  islike?: SingleBooleanChoiceArg<"islike">;
   className?: string;
 }
 
@@ -110,7 +122,9 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          replyLikeCount: "0"
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -136,13 +150,26 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
         path: "variableForReplyLike",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.replyLikeCount;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
-        path: "variable2",
+        path: "islike",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.islike
       }
     ],
     [$props, $ctx, $refs]
@@ -155,11 +182,13 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
   });
 
   return (
-    <div
+    <Stack__
+      as={"div"}
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
+      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -168,16 +197,75 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        { [sty.rootislike]: hasVariant($state, "islike", "islike") }
       )}
-    >
-      <Icon152Icon
-        data-plasmic-name={"svg"}
-        data-plasmic-override={overrides.svg}
-        className={classNames(projectcss.all, sty.svg)}
-        role={"img"}
-      />
+      onClick={async event => {
+        const $steps = {};
 
+        $steps["updateIslike"] = true
+          ? (() => {
+              const actionArgs = {
+                variable: {
+                  objRoot: $state,
+                  variablePath: ["islike"]
+                },
+                operation: 0,
+                value: !$state.islike
+              };
+              return (({ variable, value, startIndex, deleteCount }) => {
+                if (!variable) {
+                  return;
+                }
+                const { objRoot, variablePath } = variable;
+
+                $stateSet(objRoot, variablePath, value);
+                return value;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateIslike"] != null &&
+          typeof $steps["updateIslike"] === "object" &&
+          typeof $steps["updateIslike"].then === "function"
+        ) {
+          $steps["updateIslike"] = await $steps["updateIslike"];
+        }
+
+        $steps["updateVariableForReplyLike"] = true
+          ? (() => {
+              const actionArgs = {
+                variable: {
+                  objRoot: $state,
+                  variablePath: ["variableForReplyLike"]
+                },
+                operation: 0,
+                value: ($state.variableForReplyLike =
+                  parseInt($state.variableForReplyLike) +
+                  ($state.islike ? -1 : 1))
+              };
+              return (({ variable, value, startIndex, deleteCount }) => {
+                if (!variable) {
+                  return;
+                }
+                const { objRoot, variablePath } = variable;
+
+                $stateSet(objRoot, variablePath, value);
+                return value;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateVariableForReplyLike"] != null &&
+          typeof $steps["updateVariableForReplyLike"] === "object" &&
+          typeof $steps["updateVariableForReplyLike"].then === "function"
+        ) {
+          $steps["updateVariableForReplyLike"] = await $steps[
+            "updateVariableForReplyLike"
+          ];
+        }
+      }}
+    >
       <div
         data-plasmic-name={"text"}
         data-plasmic-override={overrides.text}
@@ -186,7 +274,7 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
         <React.Fragment>
           {(() => {
             try {
-              return undefined;
+              return $state.variableForReplyLike;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -199,22 +287,33 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-    </div>
+      <PlasmicIcon__
+        data-plasmic-name={"svg"}
+        data-plasmic-override={overrides.svg}
+        PlasmicIconType={
+          hasVariant($state, "islike", "islike") ? Icon173Icon : Icon152Icon
+        }
+        className={classNames(projectcss.all, sty.svg, {
+          [sty.svgislike]: hasVariant($state, "islike", "islike")
+        })}
+        role={"img"}
+      />
+    </Stack__>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "text"],
-  svg: ["svg"],
-  text: ["text"]
+  root: ["root", "text", "svg"],
+  text: ["text"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  svg: "svg";
   text: "div";
+  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -277,8 +376,8 @@ export const PlasmicReplyLikeButton = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    svg: makeNodeComponent("svg"),
     text: makeNodeComponent("text"),
+    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicReplyLikeButton
     internalVariantProps: PlasmicReplyLikeButton__VariantProps,

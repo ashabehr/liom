@@ -1943,10 +1943,14 @@ function PlasmicCalendar__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return localStorage.setItem(
-                          "allowanceUser",
-                          JSON.stringify($state.profile.result.allowance)
-                        );
+                        return (() => {
+                          try {
+                            return localStorage.setItem(
+                              "allowanceUser",
+                              JSON.stringify($state.profile.result.allowance)
+                            );
+                          } catch {}
+                        })();
                       }
                     };
                     return (({ customFunction }) => {

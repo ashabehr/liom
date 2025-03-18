@@ -111,7 +111,8 @@ export type PlasmicLogin__VariantMembers = {
     | "name"
     | "emailCode"
     | "userNameLogin"
-    | "userNameSingup";
+    | "userNameSingup"
+    | "selectstatus";
 };
 export type PlasmicLogin__VariantsArgs = {
   loginPage?: SingleChoiceArg<
@@ -122,6 +123,7 @@ export type PlasmicLogin__VariantsArgs = {
     | "emailCode"
     | "userNameLogin"
     | "userNameSingup"
+    | "selectstatus"
   >;
 };
 type VariantPropType = keyof PlasmicLogin__VariantsArgs;
@@ -152,11 +154,14 @@ export type PlasmicLogin__OverridesType = {
   button6?: Flex__<typeof Button>;
   textInput4?: Flex__<typeof TextInput>;
   antdInput2?: Flex__<typeof Input>;
-  radioGrop?: Flex__<typeof RadioGrop>;
   textInput6?: Flex__<typeof TextInput>;
   antdInput3?: Flex__<typeof Input>;
   checkbox?: Flex__<typeof Checkbox>;
   button4?: Flex__<typeof Button>;
+  textInput12?: Flex__<typeof TextInput>;
+  antdInput12?: Flex__<typeof Input>;
+  checkbox2?: Flex__<typeof Checkbox>;
+  button8?: Flex__<typeof Button>;
   mobileCode?: Flex__<typeof Reveal>;
   textInput3?: Flex__<typeof TextInput>;
   antdInput4?: Flex__<typeof Input>;
@@ -363,7 +368,21 @@ function PlasmicLogin__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "loginPage", "name")
+          hasVariant($state, "loginPage", "selectstatus")
+            ? (() => {
+                try {
+                  return "";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : hasVariant($state, "loginPage", "name")
             ? (() => {
                 try {
                   return "";
@@ -559,7 +578,11 @@ function PlasmicLogin__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "loginPage", "name") ? false : undefined
+          hasVariant($state, "loginPage", "selectstatus")
+            ? false
+            : hasVariant($state, "loginPage", "name")
+            ? false
+            : undefined
       },
       {
         path: "textInput7.value",
@@ -729,6 +752,67 @@ function PlasmicLogin__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "textInput12.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "antdInput12.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "loginPage", "selectstatus")
+            ? (() => {
+                try {
+                  return "";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : hasVariant($state, "loginPage", "name")
+            ? (() => {
+                try {
+                  return "";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input_Helpers)
+      },
+      {
+        path: "checkbox2.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button8.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "status",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -791,6 +875,11 @@ function PlasmicLogin__RenderFunc(props: {
                 "mobile"
               ),
               [sty.rootloginPage_name]: hasVariant($state, "loginPage", "name"),
+              [sty.rootloginPage_selectstatus]: hasVariant(
+                $state,
+                "loginPage",
+                "selectstatus"
+              ),
               [sty.rootloginPage_userNameLogin]: hasVariant(
                 $state,
                 "loginPage",
@@ -834,6 +923,11 @@ function PlasmicLogin__RenderFunc(props: {
                 "loginPage",
                 "name"
               ),
+              [sty.revealloginPage_selectstatus__jmKkxni6Lr]: hasVariant(
+                $state,
+                "loginPage",
+                "selectstatus"
+              ),
               [sty.revealloginPage_userNameLogin__jmKkxh7MIy]: hasVariant(
                 $state,
                 "loginPage",
@@ -876,6 +970,11 @@ function PlasmicLogin__RenderFunc(props: {
                   $state,
                   "loginPage",
                   "name"
+                ),
+                [sty.freeBoxloginPage_selectstatus__ncvgtNi6Lr]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "selectstatus"
                 ),
                 [sty.freeBoxloginPage_userNameLogin__ncvgtH7MIy]: hasVariant(
                   $state,
@@ -926,7 +1025,28 @@ function PlasmicLogin__RenderFunc(props: {
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__fajjl)}
+                className={classNames(projectcss.all, sty.freeBox__fajjl, {
+                  [sty.freeBoxloginPage_emailCode__fajjLwqwJl]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "emailCode"
+                  ),
+                  [sty.freeBoxloginPage_mobileCode__fajjLm2GXn]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobileCode"
+                  ),
+                  [sty.freeBoxloginPage_name__fajjLhUiKy]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "name"
+                  ),
+                  [sty.freeBoxloginPage_selectstatus__fajjlni6Lr]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "selectstatus"
+                  )
+                })}
               >
                 <div
                   className={classNames(
@@ -959,6 +1079,11 @@ function PlasmicLogin__RenderFunc(props: {
                         "loginPage",
                         "name"
                       ),
+                      [sty.textloginPage_selectstatus__uddEgNi6Lr]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
+                      ),
                       [sty.textloginPage_userNameLogin__uddEgH7MIy]: hasVariant(
                         $state,
                         "loginPage",
@@ -980,6 +1105,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "emailCode"
                     ),
+                    [sty.loginBoxloginPage_email__aUvGciYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
                     [sty.loginBoxloginPage_mobileCode__aUvGCm2GXn]: hasVariant(
                       $state,
                       "loginPage",
@@ -990,6 +1120,8 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "mobile"
                     ),
+                    [sty.loginBoxloginPage_selectstatus__aUvGcni6Lr]:
+                      hasVariant($state, "loginPage", "selectstatus"),
                     [sty.loginBoxloginPage_userNameLogin__aUvGch7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.loginBoxloginPage_userNameSingup__aUvGCnuYv7]:
@@ -1079,6 +1211,8 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.loginBoxloginPage_selectstatus__tWiTdNi6Lr]:
+                      hasVariant($state, "loginPage", "selectstatus"),
                     [sty.loginBoxloginPage_userNameLogin__tWiTdH7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.loginBoxloginPage_userNameSingup__tWiTdnuYv7]:
@@ -1261,6 +1395,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.loginBoxloginPage_selectstatus__nlWBni6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.loginBoxloginPage_userNameLogin__nlWBh7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.loginBoxloginPage_userNameSingup__nlWBnuYv7]:
@@ -1360,6 +1499,11 @@ function PlasmicLogin__RenderFunc(props: {
                       $state,
                       "loginPage",
                       "name"
+                    ),
+                    [sty.textloginPage_selectstatus__xpOyZni6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
                     )
                   }
                 )}
@@ -1433,7 +1577,9 @@ function PlasmicLogin__RenderFunc(props: {
             </Stack__>
           </Reveal>
           {(
-            hasVariant($state, "loginPage", "userNameSingup")
+            hasVariant($state, "loginPage", "selectstatus")
+              ? true
+              : hasVariant($state, "loginPage", "userNameSingup")
               ? true
               : hasVariant($state, "loginPage", "userNameLogin")
               ? true
@@ -1475,6 +1621,11 @@ function PlasmicLogin__RenderFunc(props: {
                   $state,
                   "loginPage",
                   "name"
+                ),
+                [sty.revealloginPage_selectstatus__hzsaPni6Lr]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "selectstatus"
                 ),
                 [sty.revealloginPage_userNameLogin__hzsaPh7MIy]: hasVariant(
                   $state,
@@ -1519,6 +1670,11 @@ function PlasmicLogin__RenderFunc(props: {
                     "loginPage",
                     "name"
                   ),
+                  [sty.freeBoxloginPage_selectstatus__vh5G1Ni6Lr]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "selectstatus"
+                  ),
                   [sty.freeBoxloginPage_userNameLogin__vh5G1H7MIy]: hasVariant(
                     $state,
                     "loginPage",
@@ -1558,6 +1714,8 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus___9Kp8Kni6Lr]:
+                      hasVariant($state, "loginPage", "selectstatus"),
                     [sty.freeBoxloginPage_userNameLogin___9Kp8Kh7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.freeBoxloginPage_userNameSingup___9Kp8KnuYv7]:
@@ -1621,6 +1779,11 @@ function PlasmicLogin__RenderFunc(props: {
                         "loginPage",
                         "name"
                       ),
+                      [sty.svgloginPage_selectstatus__b2S9Sni6Lr]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
+                      ),
                       [sty.svgloginPage_userNameLogin__b2S9Sh7MIy]: hasVariant(
                         $state,
                         "loginPage",
@@ -1664,6 +1827,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus__iex27Ni6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.freeBoxloginPage_userNameLogin__iex27H7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.freeBoxloginPage_userNameSingup__iex27NuYv7]:
@@ -1701,6 +1869,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textloginPage_selectstatus__ckWzjni6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.textloginPage_userNameLogin__ckWzjh7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.textloginPage_userNameSingup__ckWzJnuYv7]:
@@ -1708,7 +1878,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "userNameSingup")
+                    {hasVariant($state, "loginPage", "selectstatus")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "userNameSingup")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "userNameLogin")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -1728,7 +1900,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox___8Bjk,
-                      hasVariant($state, "loginPage", "userNameSingup")
+                      hasVariant($state, "loginPage", "selectstatus")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "negative"
@@ -1763,6 +1937,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.freeBoxloginPage_selectstatus___8BjkNi6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.freeBoxloginPage_userNameLogin___8BjkH7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.freeBoxloginPage_userNameSingup___8BjkNuYv7]:
@@ -1802,6 +1978,11 @@ function PlasmicLogin__RenderFunc(props: {
                                 $state,
                                 "loginPage",
                                 "name"
+                              ),
+                              [sty.antdInputloginPage_selectstatus]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "selectstatus"
                               ),
                               [sty.antdInputloginPage_userNameLogin]:
                                 hasVariant(
@@ -1897,6 +2078,11 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textInputloginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
                         [sty.textInputloginPage_userNameLogin]: hasVariant(
                           $state,
                           "loginPage",
@@ -1926,7 +2112,13 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               projectcss.__wab_text,
                               sty.text__oan3F,
-                              hasVariant($state, "loginPage", "userNameSingup")
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? "negative"
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
                                 ? "negative"
                                 : hasVariant(
                                     $state,
@@ -1956,6 +2148,12 @@ function PlasmicLogin__RenderFunc(props: {
                                   hasVariant($state, "loginPage", "mobile"),
                                 [sty.textloginPage_name__oan3FhUiKy]:
                                   hasVariant($state, "loginPage", "name"),
+                                [sty.textloginPage_selectstatus__oan3Fni6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
                                 [sty.textloginPage_userNameLogin__oan3Fh7MIy]:
                                   hasVariant(
                                     $state,
@@ -1971,7 +2169,13 @@ function PlasmicLogin__RenderFunc(props: {
                               }
                             )}
                           >
-                            {hasVariant($state, "loginPage", "userNameSingup")
+                            {hasVariant($state, "loginPage", "selectstatus")
+                              ? "+98 "
+                              : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                )
                               ? "+98 "
                               : hasVariant($state, "loginPage", "userNameLogin")
                               ? "+98 "
@@ -1989,7 +2193,13 @@ function PlasmicLogin__RenderFunc(props: {
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
-                              hasVariant($state, "loginPage", "userNameSingup")
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? Icon111Icon
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
                                 ? Icon111Icon
                                 : hasVariant(
                                     $state,
@@ -2026,6 +2236,12 @@ function PlasmicLogin__RenderFunc(props: {
                                   "loginPage",
                                   "name"
                                 ),
+                                [sty.svgloginPage_selectstatus__dqkSfni6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
                                 [sty.svgloginPage_userNameLogin__dqkSfh7MIy]:
                                   hasVariant(
                                     $state,
@@ -2101,7 +2317,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }).apply(null, eventArgs);
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "userNameSingup")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "userNameSingup")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameLogin")
                           ? "09123456789"
@@ -2119,8 +2337,13 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                       showEndIcon={true}
                       type={
-                        hasVariant($state, "loginPage", "userNameSingup") &&
+                        hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "selectstatus")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "userNameSingup") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "userNameSingup")
                           ? "tel"
@@ -2163,37 +2386,13 @@ function PlasmicLogin__RenderFunc(props: {
                     />
                   </div>
                 </Stack__>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___2Rjei, {
-                    [sty.freeBoxloginPage_emailCode___2RjeiwqwJl]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "emailCode"
-                    ),
-                    [sty.freeBoxloginPage_email___2RjeiIYwOs]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "email"
-                    ),
-                    [sty.freeBoxloginPage_mobileCode___2Rjeim2GXn]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "mobileCode"
-                    ),
-                    [sty.freeBoxloginPage_mobile___2Rjei6MmOa]: hasVariant(
+                <section
+                  className={classNames(projectcss.all, sty.section___5IGmS, {
+                    [sty.sectionloginPage_mobile___5IGmS6MmOa]: hasVariant(
                       $state,
                       "loginPage",
                       "mobile"
-                    ),
-                    [sty.freeBoxloginPage_name___2RjeihUiKy]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "name"
-                    ),
-                    [sty.freeBoxloginPage_userNameLogin___2RjeiH7MIy]:
-                      hasVariant($state, "loginPage", "userNameLogin"),
-                    [sty.freeBoxloginPage_userNameSingup___2RjeinuYv7]:
-                      hasVariant($state, "loginPage", "userNameSingup")
+                    )
                   })}
                 >
                   <Button
@@ -2224,6 +2423,11 @@ function PlasmicLogin__RenderFunc(props: {
                         $state,
                         "loginPage",
                         "name"
+                      ),
+                      [sty.buttonloginPage_selectstatus]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
                       ),
                       [sty.buttonloginPage_userNameLogin]: hasVariant(
                         $state,
@@ -2757,6 +2961,8 @@ function PlasmicLogin__RenderFunc(props: {
                             "loginPage",
                             "name"
                           ),
+                          [sty.textloginPage_selectstatus__kKx7Ni6Lr]:
+                            hasVariant($state, "loginPage", "selectstatus"),
                           [sty.textloginPage_userNameLogin__kKx7H7MIy]:
                             hasVariant($state, "loginPage", "userNameLogin"),
                           [sty.textloginPage_userNameSingup__kKx7NuYv7]:
@@ -2764,7 +2970,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       )}
                     >
-                      {hasVariant($state, "loginPage", "userNameSingup")
+                      {hasVariant($state, "loginPage", "selectstatus")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
@@ -2781,12 +2989,14 @@ function PlasmicLogin__RenderFunc(props: {
                         : "Button"}
                     </div>
                   </Button>
-                </div>
+                </section>
               </Stack__>
             </Reveal>
           ) : null}
           {(
-            hasVariant($state, "loginPage", "userNameSingup")
+            hasVariant($state, "loginPage", "selectstatus")
+              ? true
+              : hasVariant($state, "loginPage", "userNameSingup")
               ? true
               : hasVariant($state, "loginPage", "userNameLogin")
               ? true
@@ -2828,6 +3038,11 @@ function PlasmicLogin__RenderFunc(props: {
                   $state,
                   "loginPage",
                   "name"
+                ),
+                [sty.revealloginPage_selectstatus__uAroZni6Lr]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "selectstatus"
                 ),
                 [sty.revealloginPage_userNameLogin__uAroZh7MIy]: hasVariant(
                   $state,
@@ -2872,6 +3087,11 @@ function PlasmicLogin__RenderFunc(props: {
                     "loginPage",
                     "name"
                   ),
+                  [sty.freeBoxloginPage_selectstatus__jve76Ni6Lr]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "selectstatus"
+                  ),
                   [sty.freeBoxloginPage_userNameLogin__jve76H7MIy]: hasVariant(
                     $state,
                     "loginPage",
@@ -2910,6 +3130,11 @@ function PlasmicLogin__RenderFunc(props: {
                       $state,
                       "loginPage",
                       "name"
+                    ),
+                    [sty.freeBoxloginPage_selectstatus__qzusCni6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
                     ),
                     [sty.freeBoxloginPage_userNameLogin__qzusCh7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
@@ -2974,6 +3199,11 @@ function PlasmicLogin__RenderFunc(props: {
                         "loginPage",
                         "name"
                       ),
+                      [sty.svgloginPage_selectstatus__tsQ8YNi6Lr]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
+                      ),
                       [sty.svgloginPage_userNameLogin__tsQ8YH7MIy]: hasVariant(
                         $state,
                         "loginPage",
@@ -3017,6 +3247,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus__k1VjNi6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.freeBoxloginPage_userNameLogin__k1VjH7MIy]: hasVariant(
                       $state,
                       "loginPage",
@@ -3057,6 +3292,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textloginPage_selectstatus___8YcTrNi6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.textloginPage_userNameLogin___8YcTrH7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.textloginPage_userNameSingup___8YcTrnuYv7]:
@@ -3064,7 +3301,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "userNameSingup")
+                    {hasVariant($state, "loginPage", "selectstatus")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "userNameSingup")
                       ? "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
                       : hasVariant($state, "loginPage", "userNameLogin")
                       ? "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
@@ -3084,7 +3323,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__utYkk,
-                      hasVariant($state, "loginPage", "userNameSingup")
+                      hasVariant($state, "loginPage", "selectstatus")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "negative"
@@ -3119,6 +3360,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.freeBoxloginPage_selectstatus__utYkkni6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.freeBoxloginPage_userNameLogin__utYkkh7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.freeBoxloginPage_userNameSingup__utYkKnuYv7]:
@@ -3249,6 +3492,11 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textInput7loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
                         [sty.textInput7loginPage_userNameLogin]: hasVariant(
                           $state,
                           "loginPage",
@@ -3282,7 +3530,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }).apply(null, eventArgs);
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "userNameSingup")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "userNameSingup")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameLogin")
                           ? "09123456789"
@@ -3343,8 +3593,13 @@ function PlasmicLogin__RenderFunc(props: {
                         />
                       }
                       type={
-                        hasVariant($state, "loginPage", "userNameSingup") &&
+                        hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "selectstatus")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "userNameSingup") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "userNameSingup")
                           ? "tel"
@@ -3416,6 +3671,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus__kaqwmNi6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.freeBoxloginPage_userNameLogin__kaqwmH7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.freeBoxloginPage_userNameSingup__kaqwmnuYv7]:
@@ -3453,6 +3713,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textloginPage_selectstatus__tbAhxNi6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.textloginPage_userNameLogin__tbAhxH7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.textloginPage_userNameSingup__tbAhxnuYv7]:
@@ -3460,7 +3722,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "userNameSingup")
+                    {hasVariant($state, "loginPage", "selectstatus")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "userNameSingup")
                       ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
                       : hasVariant($state, "loginPage", "userNameLogin")
                       ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
@@ -3480,7 +3744,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox___9TEt0,
-                      hasVariant($state, "loginPage", "userNameSingup")
+                      hasVariant($state, "loginPage", "selectstatus")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "negative"
@@ -3515,6 +3781,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.freeBoxloginPage_selectstatus___9TEt0Ni6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.freeBoxloginPage_userNameLogin___9TEt0H7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.freeBoxloginPage_userNameSingup___9TEt0NuYv7]:
@@ -3645,6 +3913,11 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textInput8loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
                         [sty.textInput8loginPage_userNameLogin]: hasVariant(
                           $state,
                           "loginPage",
@@ -3714,7 +3987,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }).apply(null, eventArgs);
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "userNameSingup")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "userNameSingup")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameLogin")
                           ? "09123456789"
@@ -3775,8 +4050,13 @@ function PlasmicLogin__RenderFunc(props: {
                         />
                       }
                       type={
-                        hasVariant($state, "loginPage", "userNameSingup") &&
+                        hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "selectstatus")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "userNameSingup") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "userNameSingup")
                           ? "tel"
@@ -3819,441 +4099,185 @@ function PlasmicLogin__RenderFunc(props: {
                     />
                   </div>
                 </Stack__>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__j8TxI, {
-                    [sty.freeBoxloginPage_emailCode__j8TxIwqwJl]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "emailCode"
-                    ),
-                    [sty.freeBoxloginPage_email__j8TxIiYwOs]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "email"
-                    ),
-                    [sty.freeBoxloginPage_mobileCode__j8TxIm2GXn]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "mobileCode"
-                    ),
-                    [sty.freeBoxloginPage_mobile__j8TxI6MmOa]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "mobile"
-                    ),
-                    [sty.freeBoxloginPage_name__j8TxIhUiKy]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "name"
-                    ),
-                    [sty.freeBoxloginPage_userNameLogin__j8TxIh7MIy]:
-                      hasVariant($state, "loginPage", "userNameLogin"),
-                    [sty.freeBoxloginPage_userNameSingup__j8TxInuYv7]:
-                      hasVariant($state, "loginPage", "userNameSingup")
+                <section
+                  className={classNames(projectcss.all, sty.section__irqoj, {
+                    [sty.sectionloginPage_userNameLogin__irqojH7MIy]:
+                      hasVariant($state, "loginPage", "userNameLogin")
                   })}
                 >
-                  <Button
-                    data-plasmic-name={"button2"}
-                    data-plasmic-override={overrides.button2}
-                    className={classNames("__wab_instance", sty.button2, {
-                      [sty.button2loginPage_emailCode]: hasVariant(
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__j8TxI, {
+                      [sty.freeBoxloginPage_emailCode__j8TxIwqwJl]: hasVariant(
                         $state,
                         "loginPage",
                         "emailCode"
                       ),
-                      [sty.button2loginPage_email]: hasVariant(
+                      [sty.freeBoxloginPage_email__j8TxIiYwOs]: hasVariant(
                         $state,
                         "loginPage",
                         "email"
                       ),
-                      [sty.button2loginPage_mobileCode]: hasVariant(
+                      [sty.freeBoxloginPage_mobileCode__j8TxIm2GXn]: hasVariant(
                         $state,
                         "loginPage",
                         "mobileCode"
                       ),
-                      [sty.button2loginPage_mobile]: hasVariant(
+                      [sty.freeBoxloginPage_mobile__j8TxI6MmOa]: hasVariant(
                         $state,
                         "loginPage",
                         "mobile"
                       ),
-                      [sty.button2loginPage_name]: hasVariant(
+                      [sty.freeBoxloginPage_name__j8TxIhUiKy]: hasVariant(
                         $state,
                         "loginPage",
                         "name"
                       ),
-                      [sty.button2loginPage_userNameLogin]: hasVariant(
-                        $state,
-                        "loginPage",
-                        "userNameLogin"
-                      ),
-                      [sty.button2loginPage_userNameSingup]: hasVariant(
-                        $state,
-                        "loginPage",
-                        "userNameSingup"
-                      )
+                      [sty.freeBoxloginPage_selectstatus__j8TxIni6Lr]:
+                        hasVariant($state, "loginPage", "selectstatus"),
+                      [sty.freeBoxloginPage_userNameLogin__j8TxIh7MIy]:
+                        hasVariant($state, "loginPage", "userNameLogin"),
+                      [sty.freeBoxloginPage_userNameSingup__j8TxInuYv7]:
+                        hasVariant($state, "loginPage", "userNameSingup")
                     })}
-                    color={generateStateValueProp($state, ["button2", "color"])}
-                    endIcon={
-                      <Icon115Icon
-                        className={classNames(projectcss.all, sty.svg__tlnch)}
-                        role={"img"}
-                      />
-                    }
-                    isDisabled={
-                      hasVariant($state, "loginPage", "userNameSingup")
-                        ? (() => {
-                            try {
-                              return (
-                                ($state.antdInput7.value?.length < 2 &&
-                                  $state.antdInput8.value.length < 7) ||
-                                $state.loadedbtn
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
+                  >
+                    <Button
+                      data-plasmic-name={"button2"}
+                      data-plasmic-override={overrides.button2}
+                      className={classNames("__wab_instance", sty.button2, {
+                        [sty.button2loginPage_emailCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
+                        [sty.button2loginPage_email]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.button2loginPage_mobileCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.button2loginPage_mobile]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.button2loginPage_name]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        ),
+                        [sty.button2loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
+                        [sty.button2loginPage_userNameLogin]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "userNameLogin"
+                        ),
+                        [sty.button2loginPage_userNameSingup]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "userNameSingup"
+                        )
+                      })}
+                      color={generateStateValueProp($state, [
+                        "button2",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon115Icon
+                          className={classNames(projectcss.all, sty.svg__tlnch)}
+                          role={"img"}
+                        />
+                      }
+                      isDisabled={
+                        hasVariant($state, "loginPage", "userNameSingup")
+                          ? (() => {
+                              try {
+                                return (
+                                  ($state.antdInput7.value?.length < 2 &&
+                                    $state.antdInput8.value.length < 7) ||
+                                  $state.loadedbtn
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? (() => {
-                            try {
-                              return (
-                                ($state.antdInput7.value?.length < 2 &&
-                                  $state.antdInput8.value.length < 7) ||
-                                $state.loadedbtn
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
+                            })()
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                          ? (() => {
+                              try {
+                                return (
+                                  ($state.antdInput7.value?.length < 2 &&
+                                    $state.antdInput8.value.length < 7) ||
+                                  $state.loadedbtn
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? (() => {
-                            try {
-                              return (
-                                !(
-                                  $state.antdInput7.value.length === 10 ||
-                                  $state.antdInput7.value.length === 11
-                                ) || $state.loadedbtn
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
+                            })()
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? (() => {
+                              try {
+                                return (
+                                  !(
+                                    $state.antdInput7.value.length === 10 ||
+                                    $state.antdInput7.value.length === 11
+                                  ) || $state.loadedbtn
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        : undefined
-                    }
-                    loading={(() => {
-                      try {
-                        return $state.loadedbtn;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
+                            })()
+                          : undefined
+                      }
+                      loading={(() => {
+                        try {
+                          return $state.loadedbtn;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                    onClick={async event => {
-                      const $steps = {};
+                      })()}
+                      onClick={async event => {
+                        const $steps = {};
 
-                      $steps["updateLoadedbtn"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadedbtn"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadedbtn"] != null &&
-                        typeof $steps["updateLoadedbtn"] === "object" &&
-                        typeof $steps["updateLoadedbtn"].then === "function"
-                      ) {
-                        $steps["updateLoadedbtn"] = await $steps[
-                          "updateLoadedbtn"
-                        ];
-                      }
-
-                      $steps["updateUsername"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["username"]
-                              },
-                              operation: 0,
-                              value: $state.antdInput7.value
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateUsername"] != null &&
-                        typeof $steps["updateUsername"] === "object" &&
-                        typeof $steps["updateUsername"].then === "function"
-                      ) {
-                        $steps["updateUsername"] = await $steps[
-                          "updateUsername"
-                        ];
-                      }
-
-                      $steps["updatePassword"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["password"]
-                              },
-                              operation: 0,
-                              value: $state.antdInput8.value
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updatePassword"] != null &&
-                        typeof $steps["updatePassword"] === "object" &&
-                        typeof $steps["updatePassword"].then === "function"
-                      ) {
-                        $steps["updatePassword"] = await $steps[
-                          "updatePassword"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction2"] = (() => {
-                        const phoneRegex = /^.{8,}$/;
-                        const input = $state.password;
-                        const hasPersianCharacters = /[\u0600-\u06FF]/.test(
-                          input
-                        );
-                        return !phoneRegex.test(input) || hasPersianCharacters;
-                      })()
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "error",
-                                "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u0646\u0627\u0645\u0639\u0646\u0628\u0631\u0627\u0633\u062a.",
-                                "bottom-center"
-                              ]
-                            };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction2"] != null &&
-                        typeof $steps["invokeGlobalAction2"] === "object" &&
-                        typeof $steps["invokeGlobalAction2"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction"] = (() => {
-                        const phoneRegex = /^.{8,}$/;
-                        const input = $state.password;
-                        const hasPersianCharacters = /[\u0600-\u06FF]/.test(
-                          input
-                        );
-                        return phoneRegex.test(input) && !hasPersianCharacters;
-                      })()
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://api.liom.app/auth/signin",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      password: $state.password,
-                                      username: $state.username,
-                                      gateway: $ctx.query.gateway || "",
-                                      data: "",
-                                      target: "calendar",
-                                      version: "",
-                                      device: (() => {
-                                        const userAgent =
-                                          window.navigator.userAgent;
-                                        if (
-                                          /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                            userAgent
-                                          )
-                                        ) {
-                                          return "Mobile";
-                                        } else if (
-                                          /Tablet|iPad/i.test(userAgent)
-                                        ) {
-                                          return "Tablet";
-                                        } else {
-                                          return "Desktop";
-                                        }
-                                      })(),
-                                      uniqueId: $$.uuid.v4(),
-                                      fcm: "",
-                                      os: (() => {
-                                        const userAgent =
-                                          window.navigator.userAgent;
-                                        const platform =
-                                          window.navigator.userAgent;
-                                        if (/Windows/i.test(platform))
-                                          return "Windows";
-                                        if (/Mac/i.test(platform))
-                                          return "macOS";
-                                        if (/Linux/i.test(platform))
-                                          return "Linux";
-                                        if (/Android/i.test(userAgent))
-                                          return "Android";
-                                        if (/iPhone|iPad|iPod/i.test(userAgent))
-                                          return "iOS";
-                                        return "Unknown OS";
-                                      })(),
-                                      osVersion: (() => {
-                                        const userAgent =
-                                          window.navigator.userAgent;
-                                        if (/Windows NT 10.0/.test(userAgent))
-                                          return "Windows 10";
-                                        if (/Windows NT 6.3/.test(userAgent))
-                                          return "Windows 8.1";
-                                        if (/Windows NT 6.2/.test(userAgent))
-                                          return "Windows 8";
-                                        if (/Windows NT 6.1/.test(userAgent))
-                                          return "Windows 7";
-                                        if (
-                                          /Mac OS X (\d+[\._]\d+)/.test(
-                                            userAgent
-                                          )
-                                        )
-                                          return `macOS ${RegExp.$1.replace(
-                                            "_",
-                                            "."
-                                          )}`;
-                                        if (
-                                          /Android (\d+(\.\d+)?)/.test(
-                                            userAgent
-                                          )
-                                        )
-                                          return `Android ${RegExp.$1}`;
-                                        if (
-                                          /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                            userAgent
-                                          )
-                                        )
-                                          return `iOS ${RegExp.$2.replace(
-                                            "_",
-                                            "."
-                                          )}`;
-                                        return "Unknown Version";
-                                      })(),
-                                      additionalData: {
-                                        ip: "132465",
-                                        name: "test1"
-                                      },
-                                      device_type: window.navigator.platform
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-
-                      $steps["updateLoginData"] =
-                        $steps.invokeGlobalAction?.data?.success == true
+                        $steps["updateLoadedbtn"] = true
                           ? (() => {
                               const actionArgs = {
                                 variable: {
                                   objRoot: $state,
-                                  variablePath: ["loginData"]
+                                  variablePath: ["loadedbtn"]
                                 },
                                 operation: 0,
-                                value: $steps.invokeGlobalAction.data
+                                value: true
                               };
                               return (({
                                 variable,
@@ -4271,47 +4295,103 @@ function PlasmicLogin__RenderFunc(props: {
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
-                      if (
-                        $steps["updateLoginData"] != null &&
-                        typeof $steps["updateLoginData"] === "object" &&
-                        typeof $steps["updateLoginData"].then === "function"
-                      ) {
-                        $steps["updateLoginData"] = await $steps[
-                          "updateLoginData"
-                        ];
-                      }
+                        if (
+                          $steps["updateLoadedbtn"] != null &&
+                          typeof $steps["updateLoadedbtn"] === "object" &&
+                          typeof $steps["updateLoadedbtn"].then === "function"
+                        ) {
+                          $steps["updateLoadedbtn"] = await $steps[
+                            "updateLoadedbtn"
+                          ];
+                        }
 
-                      $steps["runCode"] =
-                        $steps.invokeGlobalAction?.data?.success == true
+                        $steps["updateUsername"] = true
                           ? (() => {
                               const actionArgs = {
-                                customFunction: async () => {
-                                  return localStorage.setItem(
-                                    "loginInfo",
-                                    JSON.stringify($state.loginData)
-                                  );
-                                }
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["username"]
+                                },
+                                operation: 0,
+                                value: $state.antdInput7.value
                               };
-                              return (({ customFunction }) => {
-                                return customFunction();
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
+                        if (
+                          $steps["updateUsername"] != null &&
+                          typeof $steps["updateUsername"] === "object" &&
+                          typeof $steps["updateUsername"].then === "function"
+                        ) {
+                          $steps["updateUsername"] = await $steps[
+                            "updateUsername"
+                          ];
+                        }
 
-                      $steps["invokeGlobalAction3"] =
-                        $steps.invokeGlobalAction?.data?.success == false
+                        $steps["updatePassword"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["password"]
+                                },
+                                operation: 0,
+                                value: $state.antdInput8.value
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updatePassword"] != null &&
+                          typeof $steps["updatePassword"] === "object" &&
+                          typeof $steps["updatePassword"].then === "function"
+                        ) {
+                          $steps["updatePassword"] = await $steps[
+                            "updatePassword"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction2"] = (() => {
+                          const phoneRegex = /^.{8,}$/;
+                          const input = $state.password;
+                          const hasPersianCharacters = /[\u0600-\u06FF]/.test(
+                            input
+                          );
+                          return (
+                            !phoneRegex.test(input) || hasPersianCharacters
+                          );
+                        })()
                           ? (() => {
                               const actionArgs = {
                                 args: [
                                   "error",
-                                  "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc \u06cc\u0627 \u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u0646\u0627\u062f\u0631\u0633\u062a \u0627\u0633\u062a.",
+                                  "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u0646\u0627\u0645\u0639\u0646\u0628\u0631\u0627\u0633\u062a.",
                                   "bottom-center"
                                 ]
                               };
@@ -4320,183 +4400,418 @@ function PlasmicLogin__RenderFunc(props: {
                               ]?.apply(null, [...actionArgs.args]);
                             })()
                           : undefined;
-                      if (
-                        $steps["invokeGlobalAction3"] != null &&
-                        typeof $steps["invokeGlobalAction3"] === "object" &&
-                        typeof $steps["invokeGlobalAction3"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction3"] = await $steps[
-                          "invokeGlobalAction3"
-                        ];
-                      }
+                        if (
+                          $steps["invokeGlobalAction2"] != null &&
+                          typeof $steps["invokeGlobalAction2"] === "object" &&
+                          typeof $steps["invokeGlobalAction2"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction2"] = await $steps[
+                            "invokeGlobalAction2"
+                          ];
+                        }
 
-                      $steps["goToPage"] =
-                        $steps.invokeGlobalAction?.data?.success == true
+                        $steps["invokeGlobalAction"] = (() => {
+                          const phoneRegex = /^.{8,}$/;
+                          const input = $state.password;
+                          const hasPersianCharacters = /[\u0600-\u06FF]/.test(
+                            input
+                          );
+                          return (
+                            phoneRegex.test(input) && !hasPersianCharacters
+                          );
+                        })()
                           ? (() => {
                               const actionArgs = {
-                                destination: (() => {
-                                  try {
-                                    return (() => {
-                                      var baseUrl =
-                                        window.location.href.split(
-                                          "redirect_url="
-                                        )[1] || "";
-                                      var separator = baseUrl.includes("?")
-                                        ? "&token="
-                                        : "?token=";
-                                      var redirectUrl =
-                                        baseUrl +
-                                        separator +
-                                        $$.uuid.v4().slice(0, 6) +
-                                        ($state.loginData.result.token || "") +
-                                        $$.uuid.v4().slice(10, 13) +
-                                        "&userId=" +
-                                        $$.uuid.v4().slice(0, 4) +
-                                        ($state.loginData.result.userId || "") +
-                                        $$.uuid.v4().slice(0, 4);
-                                      console.log(redirectUrl);
-                                      return window.open(redirectUrl, "_self");
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/auth/signin",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        password: $state.password,
+                                        username: $state.username,
+                                        gateway: $ctx.query.gateway || "",
+                                        data: "",
+                                        target: "calendar",
+                                        version: "",
+                                        device: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (
+                                            /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                              userAgent
+                                            )
+                                          ) {
+                                            return "Mobile";
+                                          } else if (
+                                            /Tablet|iPad/i.test(userAgent)
+                                          ) {
+                                            return "Tablet";
+                                          } else {
+                                            return "Desktop";
+                                          }
+                                        })(),
+                                        uniqueId: $$.uuid.v4(),
+                                        fcm:
+                                          window.localStorage.getItem(
+                                            "fcmToken"
+                                          ) || " ",
+
+                                        os: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          const platform =
+                                            window.navigator.userAgent;
+                                          if (/Windows/i.test(platform))
+                                            return "Windows";
+                                          if (/Mac/i.test(platform))
+                                            return "macOS";
+                                          if (/Linux/i.test(platform))
+                                            return "Linux";
+                                          if (/Android/i.test(userAgent))
+                                            return "Android";
+                                          if (
+                                            /iPhone|iPad|iPod/i.test(userAgent)
+                                          )
+                                            return "iOS";
+                                          return "Unknown OS";
+                                        })(),
+                                        osVersion: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (/Windows NT 10.0/.test(userAgent))
+                                            return "Windows 10";
+                                          if (/Windows NT 6.3/.test(userAgent))
+                                            return "Windows 8.1";
+                                          if (/Windows NT 6.2/.test(userAgent))
+                                            return "Windows 8";
+                                          if (/Windows NT 6.1/.test(userAgent))
+                                            return "Windows 7";
+                                          if (
+                                            /Mac OS X (\d+[\._]\d+)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `macOS ${RegExp.$1.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          if (
+                                            /Android (\d+(\.\d+)?)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `Android ${RegExp.$1}`;
+                                          if (
+                                            /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `iOS ${RegExp.$2.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          return "Unknown Version";
+                                        })(),
+                                        additionalData: {
+                                          ip: "132465",
+                                          name: "test1"
+                                        },
+                                        device_type: window.navigator.platform
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()
+                                  })()
+                                ]
                               };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+
+                        $steps["updateLoginData"] =
+                          $steps.invokeGlobalAction?.data?.success == true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["loginData"]
+                                  },
+                                  operation: 0,
+                                  value: $steps.invokeGlobalAction.data
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateLoginData"] != null &&
+                          typeof $steps["updateLoginData"] === "object" &&
+                          typeof $steps["updateLoginData"].then === "function"
+                        ) {
+                          $steps["updateLoginData"] = await $steps[
+                            "updateLoginData"
+                          ];
+                        }
+
+                        $steps["runCode"] =
+                          $steps.invokeGlobalAction?.data?.success == true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return localStorage.setItem(
+                                      "loginInfo",
+                                      JSON.stringify($state.loginData)
+                                    );
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["invokeGlobalAction3"] =
+                          $steps.invokeGlobalAction?.data?.success == false
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "error",
+                                    "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc \u06cc\u0627 \u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u0646\u0627\u062f\u0631\u0633\u062a \u0627\u0633\u062a.",
+                                    "bottom-center"
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.showToast"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction3"] != null &&
+                          typeof $steps["invokeGlobalAction3"] === "object" &&
+                          typeof $steps["invokeGlobalAction3"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction3"] = await $steps[
+                            "invokeGlobalAction3"
+                          ];
+                        }
+
+                        $steps["goToPage"] =
+                          $steps.invokeGlobalAction?.data?.success == true
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: (() => {
+                                    try {
+                                      return (() => {
+                                        var baseUrl =
+                                          window.location.href.split(
+                                            "redirect_url="
+                                          )[1] || "";
+                                        var separator = baseUrl.includes("?")
+                                          ? "&token="
+                                          : "?token=";
+                                        var redirectUrl =
+                                          baseUrl +
+                                          separator +
+                                          $$.uuid.v4().slice(0, 6) +
+                                          ($state.loginData.result.token ||
+                                            "") +
+                                          $$.uuid.v4().slice(10, 13) +
+                                          "&userId=" +
+                                          $$.uuid.v4().slice(0, 4) +
+                                          ($state.loginData.result.userId ||
+                                            "") +
+                                          $$.uuid.v4().slice(0, 4);
+                                        console.log(redirectUrl);
+                                        return window.open(
+                                          redirectUrl,
+                                          "_self"
+                                        );
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                };
+                                return (({ destination }) => {
+                                  if (
+                                    typeof destination === "string" &&
+                                    destination.startsWith("#")
+                                  ) {
+                                    document
+                                      .getElementById(destination.substr(1))
+                                      .scrollIntoView({ behavior: "smooth" });
+                                  } else {
+                                    __nextRouter?.push(destination);
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+
+                        $steps["updateTextInputValue2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loadedbtn"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
                                 }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
-                      if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
-                      ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
-                      }
-
-                      $steps["updateTextInputValue2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadedbtn"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateTextInputValue2"] != null &&
-                        typeof $steps["updateTextInputValue2"] === "object" &&
-                        typeof $steps["updateTextInputValue2"].then ===
-                          "function"
-                      ) {
-                        $steps["updateTextInputValue2"] = await $steps[
-                          "updateTextInputValue2"
-                        ];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button2", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__pkjZk,
-                        {
-                          [sty.textloginPage_emailCode__pkjZKwqwJl]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "emailCode"
-                          ),
-                          [sty.textloginPage_email__pkjZkiYwOs]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "email"
-                          ),
-                          [sty.textloginPage_mobileCode__pkjZKm2GXn]:
-                            hasVariant($state, "loginPage", "mobileCode"),
-                          [sty.textloginPage_mobile__pkjZk6MmOa]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "mobile"
-                          ),
-                          [sty.textloginPage_name__pkjZKhUiKy]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "name"
-                          ),
-                          [sty.textloginPage_userNameLogin__pkjZkh7MIy]:
-                            hasVariant($state, "loginPage", "userNameLogin"),
-                          [sty.textloginPage_userNameSingup__pkjZKnuYv7]:
-                            hasVariant($state, "loginPage", "userNameSingup")
+                        if (
+                          $steps["updateTextInputValue2"] != null &&
+                          typeof $steps["updateTextInputValue2"] === "object" &&
+                          typeof $steps["updateTextInputValue2"].then ===
+                            "function"
+                        ) {
+                          $steps["updateTextInputValue2"] = await $steps[
+                            "updateTextInputValue2"
+                          ];
                         }
-                      )}
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button2",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
                     >
-                      {hasVariant($state, "loginPage", "userNameSingup")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : "Button"}
-                    </div>
-                  </Button>
-                </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__pkjZk,
+                          {
+                            [sty.textloginPage_emailCode__pkjZKwqwJl]:
+                              hasVariant($state, "loginPage", "emailCode"),
+                            [sty.textloginPage_email__pkjZkiYwOs]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "email"
+                            ),
+                            [sty.textloginPage_mobileCode__pkjZKm2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode"),
+                            [sty.textloginPage_mobile__pkjZk6MmOa]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "mobile"
+                            ),
+                            [sty.textloginPage_name__pkjZKhUiKy]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "name"
+                            ),
+                            [sty.textloginPage_selectstatus__pkjZkni6Lr]:
+                              hasVariant($state, "loginPage", "selectstatus"),
+                            [sty.textloginPage_userNameLogin__pkjZkh7MIy]:
+                              hasVariant($state, "loginPage", "userNameLogin"),
+                            [sty.textloginPage_userNameSingup__pkjZKnuYv7]:
+                              hasVariant($state, "loginPage", "userNameSingup")
+                          }
+                        )}
+                      >
+                        {hasVariant($state, "loginPage", "selectstatus")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "userNameSingup")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "emailCode")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "name")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "email")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : "Button"}
+                      </div>
+                    </Button>
+                  </div>
+                </section>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -4558,7 +4873,9 @@ function PlasmicLogin__RenderFunc(props: {
             </Reveal>
           ) : null}
           {(
-            hasVariant($state, "loginPage", "userNameSingup")
+            hasVariant($state, "loginPage", "selectstatus")
+              ? true
+              : hasVariant($state, "loginPage", "userNameSingup")
               ? true
               : hasVariant($state, "loginPage", "userNameLogin")
               ? true
@@ -4600,6 +4917,11 @@ function PlasmicLogin__RenderFunc(props: {
                   $state,
                   "loginPage",
                   "name"
+                ),
+                [sty.revealloginPage_selectstatus__m6Ecjni6Lr]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "selectstatus"
                 ),
                 [sty.revealloginPage_userNameLogin__m6Ecjh7MIy]: hasVariant(
                   $state,
@@ -4644,6 +4966,11 @@ function PlasmicLogin__RenderFunc(props: {
                     "loginPage",
                     "name"
                   ),
+                  [sty.freeBoxloginPage_selectstatus__jy23Rni6Lr]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "selectstatus"
+                  ),
                   [sty.freeBoxloginPage_userNameLogin__jy23Rh7MIy]: hasVariant(
                     $state,
                     "loginPage",
@@ -4682,6 +5009,11 @@ function PlasmicLogin__RenderFunc(props: {
                       $state,
                       "loginPage",
                       "name"
+                    ),
+                    [sty.freeBoxloginPage_selectstatus__rwddxNi6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
                     ),
                     [sty.freeBoxloginPage_userNameLogin__rwddxH7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
@@ -4746,6 +5078,11 @@ function PlasmicLogin__RenderFunc(props: {
                         "loginPage",
                         "name"
                       ),
+                      [sty.svgloginPage_selectstatus__dbu9Wni6Lr]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
+                      ),
                       [sty.svgloginPage_userNameLogin__dbu9Wh7MIy]: hasVariant(
                         $state,
                         "loginPage",
@@ -4789,6 +5126,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus__nLdmLni6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.freeBoxloginPage_userNameLogin__nLdmLh7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.freeBoxloginPage_userNameSingup__nLdmLnuYv7]:
@@ -4826,6 +5168,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textloginPage_selectstatus__rtEbUni6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.textloginPage_userNameLogin__rtEbUh7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.textloginPage_userNameSingup__rtEbUnuYv7]:
@@ -4833,7 +5177,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "userNameSingup")
+                    {hasVariant($state, "loginPage", "selectstatus")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "userNameSingup")
                       ? "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
                       : hasVariant($state, "loginPage", "userNameLogin")
                       ? "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
@@ -4853,7 +5199,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__vwzCl,
-                      hasVariant($state, "loginPage", "userNameSingup")
+                      hasVariant($state, "loginPage", "selectstatus")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "negative"
@@ -4888,6 +5236,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.freeBoxloginPage_selectstatus__vwzClNi6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.freeBoxloginPage_userNameLogin__vwzClH7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.freeBoxloginPage_userNameSingup__vwzClnuYv7]:
@@ -5018,6 +5368,11 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textInput9loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
                         [sty.textInput9loginPage_userNameLogin]: hasVariant(
                           $state,
                           "loginPage",
@@ -5051,7 +5406,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }).apply(null, eventArgs);
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "userNameSingup")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "userNameSingup")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameLogin")
                           ? "09123456789"
@@ -5112,8 +5469,13 @@ function PlasmicLogin__RenderFunc(props: {
                         />
                       }
                       type={
-                        hasVariant($state, "loginPage", "userNameSingup") &&
+                        hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "selectstatus")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "userNameSingup") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "userNameSingup")
                           ? "tel"
@@ -5185,6 +5547,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus__kmk0Eni6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.freeBoxloginPage_userNameLogin__kmk0Eh7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.freeBoxloginPage_userNameSingup__kmk0EnuYv7]:
@@ -5222,6 +5589,11 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textloginPage_selectstatus__ihmPni6Lr]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
                         [sty.textloginPage_userNameLogin__ihmPh7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.textloginPage_userNameSingup__ihmPnuYv7]:
@@ -5229,7 +5601,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "userNameSingup")
+                    {hasVariant($state, "loginPage", "selectstatus")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "userNameSingup")
                       ? "\u06cc\u06a9 \u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u0628\u0627 \u062d\u062f\u0627\u0642\u0644 8 \u06a9\u0627\u0631\u0627\u06a9\u062a\u0631 \u0628\u0646\u0648\u06cc\u0633"
                       : hasVariant($state, "loginPage", "userNameLogin")
                       ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
@@ -5249,7 +5623,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__td6Vv,
-                      hasVariant($state, "loginPage", "userNameSingup")
+                      hasVariant($state, "loginPage", "selectstatus")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "negative"
@@ -5284,6 +5660,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.freeBoxloginPage_selectstatus__td6Vvni6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.freeBoxloginPage_userNameLogin__td6Vvh7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.freeBoxloginPage_userNameSingup__td6VVnuYv7]:
@@ -5414,6 +5792,11 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textInput10loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
                         [sty.textInput10loginPage_userNameLogin]: hasVariant(
                           $state,
                           "loginPage",
@@ -5483,7 +5866,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }).apply(null, eventArgs);
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "userNameSingup")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "userNameSingup")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameLogin")
                           ? "09123456789"
@@ -5544,8 +5929,13 @@ function PlasmicLogin__RenderFunc(props: {
                         />
                       }
                       type={
-                        hasVariant($state, "loginPage", "userNameSingup") &&
+                        hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "selectstatus")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "userNameSingup") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "userNameSingup")
                           ? "tel"
@@ -5617,6 +6007,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus__dInFcni6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.freeBoxloginPage_userNameLogin__dInFch7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.freeBoxloginPage_userNameSingup__dInFCnuYv7]:
@@ -5654,6 +6049,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textloginPage_selectstatus__cYt2TNi6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.textloginPage_userNameLogin__cYt2TH7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.textloginPage_userNameSingup__cYt2TnuYv7]:
@@ -5661,7 +6058,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "userNameSingup")
+                    {hasVariant($state, "loginPage", "selectstatus")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "userNameSingup")
                       ? "\u062a\u06a9\u0631\u0627\u0631 \u0631\u0645\u0632 \u0639\u0628\u0648\u0631 ..."
                       : hasVariant($state, "loginPage", "userNameLogin")
                       ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
@@ -5681,7 +6080,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__e3Xxx,
-                      hasVariant($state, "loginPage", "userNameSingup")
+                      hasVariant($state, "loginPage", "selectstatus")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "negative"
@@ -5716,6 +6117,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.freeBoxloginPage_selectstatus__e3XxxNi6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.freeBoxloginPage_userNameLogin__e3XxxH7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.freeBoxloginPage_userNameSingup__e3XxxnuYv7]:
@@ -5846,6 +6249,11 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textInput11loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
                         [sty.textInput11loginPage_userNameLogin]: hasVariant(
                           $state,
                           "loginPage",
@@ -5915,7 +6323,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }).apply(null, eventArgs);
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "userNameSingup")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "userNameSingup")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameLogin")
                           ? "09123456789"
@@ -5976,8 +6386,13 @@ function PlasmicLogin__RenderFunc(props: {
                         />
                       }
                       type={
-                        hasVariant($state, "loginPage", "userNameSingup") &&
+                        hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "selectstatus")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "userNameSingup") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "userNameSingup")
                           ? "tel"
@@ -6020,382 +6435,300 @@ function PlasmicLogin__RenderFunc(props: {
                     />
                   </div>
                 </Stack__>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__b966O, {
-                    [sty.freeBoxloginPage_emailCode__b966OwqwJl]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "emailCode"
-                    ),
-                    [sty.freeBoxloginPage_email__b966OiYwOs]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "email"
-                    ),
-                    [sty.freeBoxloginPage_mobileCode__b966Om2GXn]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "mobileCode"
-                    ),
-                    [sty.freeBoxloginPage_mobile__b966O6MmOa]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "mobile"
-                    ),
-                    [sty.freeBoxloginPage_name__b966OhUiKy]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "name"
-                    ),
-                    [sty.freeBoxloginPage_userNameLogin__b966Oh7MIy]:
-                      hasVariant($state, "loginPage", "userNameLogin"),
-                    [sty.freeBoxloginPage_userNameSingup__b966OnuYv7]:
+                <section
+                  className={classNames(projectcss.all, sty.section__nXr0Q, {
+                    [sty.sectionloginPage_userNameSingup__nXr0QnuYv7]:
                       hasVariant($state, "loginPage", "userNameSingup")
                   })}
                 >
-                  <Button
-                    data-plasmic-name={"button6"}
-                    data-plasmic-override={overrides.button6}
-                    className={classNames("__wab_instance", sty.button6, {
-                      [sty.button6loginPage_emailCode]: hasVariant(
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__b966O, {
+                      [sty.freeBoxloginPage_emailCode__b966OwqwJl]: hasVariant(
                         $state,
                         "loginPage",
                         "emailCode"
                       ),
-                      [sty.button6loginPage_email]: hasVariant(
+                      [sty.freeBoxloginPage_email__b966OiYwOs]: hasVariant(
                         $state,
                         "loginPage",
                         "email"
                       ),
-                      [sty.button6loginPage_mobileCode]: hasVariant(
+                      [sty.freeBoxloginPage_mobileCode__b966Om2GXn]: hasVariant(
                         $state,
                         "loginPage",
                         "mobileCode"
                       ),
-                      [sty.button6loginPage_mobile]: hasVariant(
+                      [sty.freeBoxloginPage_mobile__b966O6MmOa]: hasVariant(
                         $state,
                         "loginPage",
                         "mobile"
                       ),
-                      [sty.button6loginPage_name]: hasVariant(
+                      [sty.freeBoxloginPage_name__b966OhUiKy]: hasVariant(
                         $state,
                         "loginPage",
                         "name"
                       ),
-                      [sty.button6loginPage_userNameLogin]: hasVariant(
-                        $state,
-                        "loginPage",
-                        "userNameLogin"
-                      ),
-                      [sty.button6loginPage_userNameSingup]: hasVariant(
-                        $state,
-                        "loginPage",
-                        "userNameSingup"
-                      )
+                      [sty.freeBoxloginPage_selectstatus__b966Oni6Lr]:
+                        hasVariant($state, "loginPage", "selectstatus"),
+                      [sty.freeBoxloginPage_userNameLogin__b966Oh7MIy]:
+                        hasVariant($state, "loginPage", "userNameLogin"),
+                      [sty.freeBoxloginPage_userNameSingup__b966OnuYv7]:
+                        hasVariant($state, "loginPage", "userNameSingup")
                     })}
-                    color={generateStateValueProp($state, ["button6", "color"])}
-                    endIcon={
-                      <Icon115Icon
-                        className={classNames(projectcss.all, sty.svg__plN9)}
-                        role={"img"}
-                      />
-                    }
-                    isDisabled={
-                      hasVariant($state, "loginPage", "userNameSingup")
-                        ? (() => {
-                            try {
-                              return (
-                                ($state.antdInput9.value?.length < 2 &&
-                                  $state.antdInput10.value.length < 7 &&
-                                  $state.antdInput11.value.length < 7) ||
-                                $state.loadedbtn
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
+                  >
+                    <Button
+                      data-plasmic-name={"button6"}
+                      data-plasmic-override={overrides.button6}
+                      className={classNames("__wab_instance", sty.button6, {
+                        [sty.button6loginPage_emailCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
+                        [sty.button6loginPage_email]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.button6loginPage_mobileCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.button6loginPage_mobile]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.button6loginPage_name]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        ),
+                        [sty.button6loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
+                        [sty.button6loginPage_userNameLogin]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "userNameLogin"
+                        ),
+                        [sty.button6loginPage_userNameSingup]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "userNameSingup"
+                        )
+                      })}
+                      color={generateStateValueProp($state, [
+                        "button6",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon115Icon
+                          className={classNames(projectcss.all, sty.svg__plN9)}
+                          role={"img"}
+                        />
+                      }
+                      isDisabled={
+                        hasVariant($state, "loginPage", "userNameSingup")
+                          ? (() => {
+                              try {
+                                return (
+                                  ($state.antdInput9.value?.length < 2 &&
+                                    $state.antdInput10.value.length < 7 &&
+                                    $state.antdInput11.value.length < 7) ||
+                                  $state.loadedbtn
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? (() => {
-                            try {
-                              return (
-                                ($state.antdInput9.value?.length < 2 &&
-                                  $state.antdInput10.value.length < 7) ||
-                                $state.loadedbtn
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
+                            })()
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                          ? (() => {
+                              try {
+                                return (
+                                  ($state.antdInput9.value?.length < 2 &&
+                                    $state.antdInput10.value.length < 7) ||
+                                  $state.loadedbtn
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? (() => {
-                            try {
-                              return (
-                                !(
-                                  $state.antdInput9.value.length === 10 ||
-                                  $state.antdInput9.value.length === 11
-                                ) || $state.loadedbtn
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
+                            })()
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? (() => {
+                              try {
+                                return (
+                                  !(
+                                    $state.antdInput9.value.length === 10 ||
+                                    $state.antdInput9.value.length === 11
+                                  ) || $state.loadedbtn
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        : undefined
-                    }
-                    loading={(() => {
-                      try {
-                        return $state.loadedbtn;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
+                            })()
+                          : undefined
+                      }
+                      loading={(() => {
+                        try {
+                          return $state.loadedbtn;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                    onClick={async event => {
-                      const $steps = {};
+                      })()}
+                      onClick={async event => {
+                        const $steps = {};
 
-                      $steps["updateLoadedbtn"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadedbtn"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadedbtn"] != null &&
-                        typeof $steps["updateLoadedbtn"] === "object" &&
-                        typeof $steps["updateLoadedbtn"].then === "function"
-                      ) {
-                        $steps["updateLoadedbtn"] = await $steps[
-                          "updateLoadedbtn"
-                        ];
-                      }
-
-                      $steps["updateUsername"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["username"]
-                              },
-                              operation: 0,
-                              value: $state.antdInput9.value
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateUsername"] != null &&
-                        typeof $steps["updateUsername"] === "object" &&
-                        typeof $steps["updateUsername"].then === "function"
-                      ) {
-                        $steps["updateUsername"] = await $steps[
-                          "updateUsername"
-                        ];
-                      }
-
-                      $steps["updatePassword"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["password"]
-                              },
-                              operation: 0,
-                              value: $state.antdInput10.value
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updatePassword"] != null &&
-                        typeof $steps["updatePassword"] === "object" &&
-                        typeof $steps["updatePassword"].then === "function"
-                      ) {
-                        $steps["updatePassword"] = await $steps[
-                          "updatePassword"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction2"] = (() => {
-                        const phoneRegex = /^.{8,}$/;
-                        const input = $state.password;
-                        const hasPersianCharacters = /[\u0600-\u06FF]/.test(
-                          input
-                        );
-                        return !phoneRegex.test(input) || hasPersianCharacters;
-                      })()
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "error",
-                                "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u0646\u0627\u0645\u0639\u0646\u0628\u0631\u0627\u0633\u062a.",
-                                "bottom-center"
-                              ]
-                            };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction2"] != null &&
-                        typeof $steps["invokeGlobalAction2"] === "object" &&
-                        typeof $steps["invokeGlobalAction2"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction4"] =
-                        $state.password != $state.antdInput11.value
+                        $steps["updateLoadedbtn"] = true
                           ? (() => {
                               const actionArgs = {
-                                args: [
-                                  "error",
-                                  "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u0648 \u062a\u06a9\u0631\u0627\u0631 \u0622\u0646 \u0628\u0627\u0647\u0645 \u0645\u063a\u0627\u06cc\u0631\u062a \u062f\u0627\u0631\u062f."
-                                ]
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loadedbtn"]
+                                },
+                                operation: 0,
+                                value: true
                               };
-                              return $globalActions[
-                                "Fragment.showToast"
-                              ]?.apply(null, [...actionArgs.args]);
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
-                      if (
-                        $steps["invokeGlobalAction4"] != null &&
-                        typeof $steps["invokeGlobalAction4"] === "object" &&
-                        typeof $steps["invokeGlobalAction4"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction4"] = await $steps[
-                          "invokeGlobalAction4"
-                        ];
-                      }
+                        if (
+                          $steps["updateLoadedbtn"] != null &&
+                          typeof $steps["updateLoadedbtn"] === "object" &&
+                          typeof $steps["updateLoadedbtn"].then === "function"
+                        ) {
+                          $steps["updateLoadedbtn"] = await $steps[
+                            "updateLoadedbtn"
+                          ];
+                        }
 
-                      $steps["invokeGlobalAction"] = (() => {
-                        const phoneRegex = /^.{8,}$/;
-                        const input = $state.password;
-                        const hasPersianCharacters = /[\u0600-\u06FF]/.test(
-                          input
-                        );
-                        return (
-                          phoneRegex.test(input) &&
-                          !hasPersianCharacters &&
-                          $state.password == $state.antdInput11.value
-                        );
-                      })()
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://api.liom.app/auth/check/username",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return { username: $state.username };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
+                        $steps["updateUsername"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["username"]
+                                },
+                                operation: 0,
+                                value: $state.antdInput9.value
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
 
-                      $steps["invokeGlobalAction3"] =
-                        $steps.invokeGlobalAction?.data?.success == false
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateUsername"] != null &&
+                          typeof $steps["updateUsername"] === "object" &&
+                          typeof $steps["updateUsername"].then === "function"
+                        ) {
+                          $steps["updateUsername"] = await $steps[
+                            "updateUsername"
+                          ];
+                        }
+
+                        $steps["updatePassword"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["password"]
+                                },
+                                operation: 0,
+                                value: $state.antdInput10.value
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updatePassword"] != null &&
+                          typeof $steps["updatePassword"] === "object" &&
+                          typeof $steps["updatePassword"].then === "function"
+                        ) {
+                          $steps["updatePassword"] = await $steps[
+                            "updatePassword"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction2"] = (() => {
+                          const phoneRegex = /^.{8,}$/;
+                          const input = $state.password;
+                          const hasPersianCharacters = /[\u0600-\u06FF]/.test(
+                            input
+                          );
+                          return (
+                            !phoneRegex.test(input) || hasPersianCharacters
+                          );
+                        })()
                           ? (() => {
                               const actionArgs = {
                                 args: [
                                   "error",
-                                  "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f. ",
+                                  "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u0646\u0627\u0645\u0639\u0646\u0628\u0631\u0627\u0633\u062a.",
                                   "bottom-center"
                                 ]
                               };
@@ -6404,147 +6737,255 @@ function PlasmicLogin__RenderFunc(props: {
                               ]?.apply(null, [...actionArgs.args]);
                             })()
                           : undefined;
-                      if (
-                        $steps["invokeGlobalAction3"] != null &&
-                        typeof $steps["invokeGlobalAction3"] === "object" &&
-                        typeof $steps["invokeGlobalAction3"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction3"] = await $steps[
-                          "invokeGlobalAction3"
-                        ];
-                      }
+                        if (
+                          $steps["invokeGlobalAction2"] != null &&
+                          typeof $steps["invokeGlobalAction2"] === "object" &&
+                          typeof $steps["invokeGlobalAction2"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction2"] = await $steps[
+                            "invokeGlobalAction2"
+                          ];
+                        }
 
-                      $steps["updateLoginPage"] =
-                        $steps.invokeGlobalAction?.data?.success == true
+                        $steps["invokeGlobalAction4"] =
+                          $state.password != $state.antdInput11.value
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "error",
+                                    "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u0648 \u062a\u06a9\u0631\u0627\u0631 \u0622\u0646 \u0628\u0627\u0647\u0645 \u0645\u063a\u0627\u06cc\u0631\u062a \u062f\u0627\u0631\u062f."
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.showToast"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction4"] != null &&
+                          typeof $steps["invokeGlobalAction4"] === "object" &&
+                          typeof $steps["invokeGlobalAction4"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction4"] = await $steps[
+                            "invokeGlobalAction4"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction"] = (() => {
+                          const phoneRegex = /^.{8,}$/;
+                          const input = $state.password;
+                          const hasPersianCharacters = /[\u0600-\u06FF]/.test(
+                            input
+                          );
+                          return (
+                            phoneRegex.test(input) &&
+                            !hasPersianCharacters &&
+                            $state.password == $state.antdInput11.value
+                          );
+                        })()
                           ? (() => {
                               const actionArgs = {
-                                vgroup: "loginPage",
-                                operation: 0,
-                                value: "name"
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/auth/check/username",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return { username: $state.username };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
                               };
-                              return (({ vgroup, value }) => {
-                                if (typeof value === "string") {
-                                  value = [value];
-                                }
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
 
-                                $stateSet($state, vgroup, value);
+                        $steps["invokeGlobalAction3"] =
+                          $steps.invokeGlobalAction?.data?.success == false
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "error",
+                                    "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f. ",
+                                    "bottom-center"
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.showToast"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction3"] != null &&
+                          typeof $steps["invokeGlobalAction3"] === "object" &&
+                          typeof $steps["invokeGlobalAction3"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction3"] = await $steps[
+                            "invokeGlobalAction3"
+                          ];
+                        }
+
+                        $steps["updateLoginPage"] =
+                          $steps.invokeGlobalAction?.data?.success == true
+                            ? (() => {
+                                const actionArgs = {
+                                  vgroup: "loginPage",
+                                  operation: 0,
+                                  value: "name"
+                                };
+                                return (({ vgroup, value }) => {
+                                  if (typeof value === "string") {
+                                    value = [value];
+                                  }
+
+                                  $stateSet($state, vgroup, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateLoginPage"] != null &&
+                          typeof $steps["updateLoginPage"] === "object" &&
+                          typeof $steps["updateLoginPage"].then === "function"
+                        ) {
+                          $steps["updateLoginPage"] = await $steps[
+                            "updateLoginPage"
+                          ];
+                        }
+
+                        $steps["updateTextInputValue2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loadedbtn"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
                                 return value;
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
-                      if (
-                        $steps["updateLoginPage"] != null &&
-                        typeof $steps["updateLoginPage"] === "object" &&
-                        typeof $steps["updateLoginPage"].then === "function"
-                      ) {
-                        $steps["updateLoginPage"] = await $steps[
-                          "updateLoginPage"
-                        ];
-                      }
-
-                      $steps["updateTextInputValue2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadedbtn"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateTextInputValue2"] != null &&
-                        typeof $steps["updateTextInputValue2"] === "object" &&
-                        typeof $steps["updateTextInputValue2"].then ===
-                          "function"
-                      ) {
-                        $steps["updateTextInputValue2"] = await $steps[
-                          "updateTextInputValue2"
-                        ];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button6", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___9I7Gs,
-                        {
-                          [sty.textloginPage_emailCode___9I7GswqwJl]:
-                            hasVariant($state, "loginPage", "emailCode"),
-                          [sty.textloginPage_email___9I7GsIYwOs]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "email"
-                          ),
-                          [sty.textloginPage_mobileCode___9I7Gsm2GXn]:
-                            hasVariant($state, "loginPage", "mobileCode"),
-                          [sty.textloginPage_mobile___9I7Gs6MmOa]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "mobile"
-                          ),
-                          [sty.textloginPage_name___9I7GshUiKy]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "name"
-                          ),
-                          [sty.textloginPage_userNameLogin___9I7GsH7MIy]:
-                            hasVariant($state, "loginPage", "userNameLogin"),
-                          [sty.textloginPage_userNameSingup___9I7GsnuYv7]:
-                            hasVariant($state, "loginPage", "userNameSingup")
+                        if (
+                          $steps["updateTextInputValue2"] != null &&
+                          typeof $steps["updateTextInputValue2"] === "object" &&
+                          typeof $steps["updateTextInputValue2"].then ===
+                            "function"
+                        ) {
+                          $steps["updateTextInputValue2"] = await $steps[
+                            "updateTextInputValue2"
+                          ];
                         }
-                      )}
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button6",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
                     >
-                      {hasVariant($state, "loginPage", "userNameSingup")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : "Button"}
-                    </div>
-                  </Button>
-                </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___9I7Gs,
+                          {
+                            [sty.textloginPage_emailCode___9I7GswqwJl]:
+                              hasVariant($state, "loginPage", "emailCode"),
+                            [sty.textloginPage_email___9I7GsIYwOs]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "email"
+                            ),
+                            [sty.textloginPage_mobileCode___9I7Gsm2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode"),
+                            [sty.textloginPage_mobile___9I7Gs6MmOa]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "mobile"
+                            ),
+                            [sty.textloginPage_name___9I7GshUiKy]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "name"
+                            ),
+                            [sty.textloginPage_selectstatus___9I7GsNi6Lr]:
+                              hasVariant($state, "loginPage", "selectstatus"),
+                            [sty.textloginPage_userNameLogin___9I7GsH7MIy]:
+                              hasVariant($state, "loginPage", "userNameLogin"),
+                            [sty.textloginPage_userNameSingup___9I7GsnuYv7]:
+                              hasVariant($state, "loginPage", "userNameSingup")
+                          }
+                        )}
+                      >
+                        {hasVariant($state, "loginPage", "selectstatus")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "userNameSingup")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "emailCode")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "name")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "email")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : "Button"}
+                      </div>
+                    </Button>
+                  </div>
+                </section>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -6606,7 +7047,9 @@ function PlasmicLogin__RenderFunc(props: {
             </Reveal>
           ) : null}
           {(
-            hasVariant($state, "loginPage", "userNameSingup")
+            hasVariant($state, "loginPage", "selectstatus")
+              ? true
+              : hasVariant($state, "loginPage", "userNameSingup")
               ? true
               : hasVariant($state, "loginPage", "userNameLogin")
               ? true
@@ -6648,6 +7091,11 @@ function PlasmicLogin__RenderFunc(props: {
                   $state,
                   "loginPage",
                   "name"
+                ),
+                [sty.revealloginPage_selectstatus__tW85VNi6Lr]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "selectstatus"
                 ),
                 [sty.revealloginPage_userNameLogin__tW85VH7MIy]: hasVariant(
                   $state,
@@ -6692,6 +7140,11 @@ function PlasmicLogin__RenderFunc(props: {
                     "loginPage",
                     "name"
                   ),
+                  [sty.freeBoxloginPage_selectstatus__xbB9ENi6Lr]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "selectstatus"
+                  ),
                   [sty.freeBoxloginPage_userNameLogin__xbB9EH7MIy]: hasVariant(
                     $state,
                     "loginPage",
@@ -6731,6 +7184,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus__o4BzNi6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.freeBoxloginPage_userNameLogin__o4BzH7MIy]: hasVariant(
                       $state,
                       "loginPage",
@@ -6766,6 +7224,11 @@ function PlasmicLogin__RenderFunc(props: {
                         $state,
                         "loginPage",
                         "name"
+                      ),
+                      [sty.svgloginPage_selectstatus__rnQ7DNi6Lr]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
                       ),
                       [sty.svgloginPage_userNameLogin__rnQ7DH7MIy]: hasVariant(
                         $state,
@@ -6810,6 +7273,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus__iXeeeNi6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.freeBoxloginPage_userNameLogin__iXeeeH7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.freeBoxloginPage_userNameSingup__iXeeenuYv7]:
@@ -6847,6 +7315,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textloginPage_selectstatus__gtQh4Ni6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.textloginPage_userNameLogin__gtQh4H7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.textloginPage_userNameSingup__gtQh4NuYv7]:
@@ -6854,7 +7324,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "userNameSingup")
+                    {hasVariant($state, "loginPage", "selectstatus")
+                      ? "\u0644\u0637\u0641\u0627 \u0627\u0633\u0645\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
+                      : hasVariant($state, "loginPage", "userNameSingup")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "userNameLogin")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -6874,7 +7346,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__iMMwE,
-                      hasVariant($state, "loginPage", "userNameSingup")
+                      hasVariant($state, "loginPage", "selectstatus")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "negative"
@@ -6909,6 +7383,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.freeBoxloginPage_selectstatus__iMMwEni6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.freeBoxloginPage_userNameLogin__iMMwEh7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.freeBoxloginPage_userNameSingup__iMMwEnuYv7]:
@@ -6931,10 +7407,14 @@ function PlasmicLogin__RenderFunc(props: {
                                 $state,
                                 "loginPage",
                                 "name"
-                              )
+                              ),
+                              [sty.antdInput2loginPage_selectstatus]:
+                                hasVariant($state, "loginPage", "selectstatus")
                             }
                           ),
-                          id: hasVariant($state, "loginPage", "name")
+                          id: hasVariant($state, "loginPage", "selectstatus")
+                            ? "inputMobile2"
+                            : hasVariant($state, "loginPage", "name")
                             ? "inputMobile2"
                             : undefined,
                           onChange: async (...eventArgs: any) => {
@@ -7028,6 +7508,11 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textInput4loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
                         [sty.textInput4loginPage_userNameLogin]: hasVariant(
                           $state,
                           "loginPage",
@@ -7047,7 +7532,13 @@ function PlasmicLogin__RenderFunc(props: {
                               sty.freeBox__xrKh,
                               {
                                 [sty.freeBoxloginPage_name__xrKhhUiKy]:
-                                  hasVariant($state, "loginPage", "name")
+                                  hasVariant($state, "loginPage", "name"),
+                                [sty.freeBoxloginPage_selectstatus__xrKhNi6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  )
                               }
                             )}
                           />
@@ -7057,7 +7548,13 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               projectcss.__wab_text,
                               sty.text__xfueF,
-                              hasVariant($state, "loginPage", "userNameSingup")
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? "negative"
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
                                 ? "negative"
                                 : hasVariant(
                                     $state,
@@ -7087,6 +7584,12 @@ function PlasmicLogin__RenderFunc(props: {
                                   hasVariant($state, "loginPage", "mobile"),
                                 [sty.textloginPage_name__xfueFhUiKy]:
                                   hasVariant($state, "loginPage", "name"),
+                                [sty.textloginPage_selectstatus__xfueFni6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
                                 [sty.textloginPage_userNameLogin__xfueFh7MIy]:
                                   hasVariant(
                                     $state,
@@ -7102,7 +7605,13 @@ function PlasmicLogin__RenderFunc(props: {
                               }
                             )}
                           >
-                            {hasVariant($state, "loginPage", "userNameSingup")
+                            {hasVariant($state, "loginPage", "selectstatus")
+                              ? "+98 "
+                              : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                )
                               ? "+98 "
                               : hasVariant($state, "loginPage", "userNameLogin")
                               ? "+98 "
@@ -7120,7 +7629,13 @@ function PlasmicLogin__RenderFunc(props: {
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
-                              hasVariant($state, "loginPage", "userNameSingup")
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? Icon111Icon
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
                                 ? Icon111Icon
                                 : hasVariant(
                                     $state,
@@ -7157,6 +7672,12 @@ function PlasmicLogin__RenderFunc(props: {
                                   "loginPage",
                                   "name"
                                 ),
+                                [sty.svgloginPage_selectstatus__advgGni6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
                                 [sty.svgloginPage_userNameLogin__advgGh7MIy]:
                                   hasVariant(
                                     $state,
@@ -7192,7 +7713,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "userNameSingup")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? "\u0645\u062b\u0644\u0627: \u0639\u0644\u06cc \u0645\u062d\u0645\u062f\u06cc"
+                          : hasVariant($state, "loginPage", "userNameSingup")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameLogin")
                           ? "09123456789"
@@ -7209,13 +7732,20 @@ function PlasmicLogin__RenderFunc(props: {
                           : ``
                       }
                       showEndIcon={
-                        hasVariant($state, "loginPage", "name")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? undefined
+                          : hasVariant($state, "loginPage", "name")
                           ? undefined
                           : true
                       }
                       type={
-                        hasVariant($state, "loginPage", "userNameSingup") &&
+                        hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "text"
+                          : hasVariant($state, "loginPage", "selectstatus")
+                          ? "text"
+                          : hasVariant($state, "loginPage", "userNameSingup") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "userNameSingup")
                           ? "tel"
@@ -7287,6 +7817,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus__chggini6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.freeBoxloginPage_userNameLogin__chggih7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.freeBoxloginPage_userNameSingup__chggInuYv7]:
@@ -7324,6 +7859,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textloginPage_selectstatus__hAmz0Ni6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.textloginPage_userNameLogin__hAmz0H7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.textloginPage_userNameSingup__hAmz0NuYv7]:
@@ -7331,7 +7868,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "userNameSingup")
+                    {hasVariant($state, "loginPage", "selectstatus")
+                      ? "\u0644\u0637\u0641\u0627 \u062c\u0646\u0633\u06cc\u062a \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646"
+                      : hasVariant($state, "loginPage", "userNameSingup")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "userNameLogin")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -7353,7 +7892,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__ve2B1,
-                      hasVariant($state, "loginPage", "userNameSingup")
+                      hasVariant($state, "loginPage", "selectstatus")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "negative"
@@ -7388,6 +7929,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.freeBoxloginPage_selectstatus__ve2B1Ni6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.freeBoxloginPage_userNameLogin__ve2B1H7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.freeBoxloginPage_userNameSingup__ve2B1NuYv7]:
@@ -7418,17 +7961,14 @@ function PlasmicLogin__RenderFunc(props: {
                       const currentIndex = __plasmic_idx_0;
                       return (
                         <RadioGrop
-                          data-plasmic-name={"radioGrop"}
-                          data-plasmic-override={overrides.radioGrop}
                           className={classNames(
                             "__wab_instance",
-                            sty.radioGrop,
+                            sty.radioGrop__aUqrd,
                             {
-                              [sty.radioGroploginPage_name]: hasVariant(
-                                $state,
-                                "loginPage",
-                                "name"
-                              )
+                              [sty.radioGroploginPage_name__aUqrdhUiKy]:
+                                hasVariant($state, "loginPage", "name"),
+                              [sty.radioGroploginPage_selectstatus__aUqrdNi6Lr]:
+                                hasVariant($state, "loginPage", "selectstatus")
                             }
                           )}
                           key={currentIndex}
@@ -7492,7 +8032,13 @@ function PlasmicLogin__RenderFunc(props: {
                               sty.text__wjNxq,
                               {
                                 [sty.textloginPage_name__wjNxQhUiKy]:
-                                  hasVariant($state, "loginPage", "name")
+                                  hasVariant($state, "loginPage", "name"),
+                                [sty.textloginPage_selectstatus__wjNxqni6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  )
                               }
                             )}
                           >
@@ -7547,6 +8093,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus__ihXz3Ni6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.freeBoxloginPage_userNameLogin__ihXz3H7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.freeBoxloginPage_userNameSingup__ihXz3NuYv7]:
@@ -7584,6 +8135,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textloginPage_selectstatus__zRbjBni6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.textloginPage_userNameLogin__zRbjBh7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.textloginPage_userNameSingup__zRbjBnuYv7]:
@@ -7591,7 +8144,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "userNameSingup")
+                    {hasVariant($state, "loginPage", "selectstatus")
+                      ? "\u0627\u06af\u0647 \u06a9\u062f \u0645\u0639\u0631\u0641 \u062f\u0627\u0631\u06cc\u060c \u0627\u06cc\u0646\u062c\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646 (\u0627\u062e\u062a\u06cc\u0627\u0631\u06cc)"
+                      : hasVariant($state, "loginPage", "userNameSingup")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "userNameLogin")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -7611,7 +8166,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__aAaMw,
-                      hasVariant($state, "loginPage", "userNameSingup")
+                      hasVariant($state, "loginPage", "selectstatus")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "negative"
@@ -7646,6 +8203,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.freeBoxloginPage_selectstatus__aAaMwNi6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.freeBoxloginPage_userNameLogin__aAaMwH7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.freeBoxloginPage_userNameSingup__aAaMwnuYv7]:
@@ -7669,11 +8228,15 @@ function PlasmicLogin__RenderFunc(props: {
                                 "loginPage",
                                 "name"
                               ),
+                              [sty.antdInput3loginPage_selectstatus]:
+                                hasVariant($state, "loginPage", "selectstatus"),
                               [sty.antdInput3loginPage_userNameLogin]:
                                 hasVariant($state, "loginPage", "userNameLogin")
                             }
                           ),
-                          id: hasVariant($state, "loginPage", "name")
+                          id: hasVariant($state, "loginPage", "selectstatus")
+                            ? "inputMobile3"
+                            : hasVariant($state, "loginPage", "name")
                             ? "inputMobile3"
                             : undefined,
                           onChange: async (...eventArgs: any) => {
@@ -7741,6 +8304,11 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textInput6loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
                         [sty.textInput6loginPage_userNameLogin]: hasVariant(
                           $state,
                           "loginPage",
@@ -7760,7 +8328,13 @@ function PlasmicLogin__RenderFunc(props: {
                               sty.freeBox__u4Kam,
                               {
                                 [sty.freeBoxloginPage_name__u4KamhUiKy]:
-                                  hasVariant($state, "loginPage", "name")
+                                  hasVariant($state, "loginPage", "name"),
+                                [sty.freeBoxloginPage_selectstatus__u4KamNi6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  )
                               }
                             )}
                           />
@@ -7770,7 +8344,13 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               projectcss.__wab_text,
                               sty.text__kwWcw,
-                              hasVariant($state, "loginPage", "userNameSingup")
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? "negative"
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
                                 ? "negative"
                                 : hasVariant(
                                     $state,
@@ -7800,6 +8380,12 @@ function PlasmicLogin__RenderFunc(props: {
                                   hasVariant($state, "loginPage", "mobile"),
                                 [sty.textloginPage_name__kwWcwhUiKy]:
                                   hasVariant($state, "loginPage", "name"),
+                                [sty.textloginPage_selectstatus__kwWcwNi6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
                                 [sty.textloginPage_userNameLogin__kwWcwH7MIy]:
                                   hasVariant(
                                     $state,
@@ -7815,7 +8401,13 @@ function PlasmicLogin__RenderFunc(props: {
                               }
                             )}
                           >
-                            {hasVariant($state, "loginPage", "userNameSingup")
+                            {hasVariant($state, "loginPage", "selectstatus")
+                              ? "+98 "
+                              : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                )
                               ? "+98 "
                               : hasVariant($state, "loginPage", "userNameLogin")
                               ? "+98 "
@@ -7833,7 +8425,13 @@ function PlasmicLogin__RenderFunc(props: {
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
-                              hasVariant($state, "loginPage", "userNameSingup")
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? Icon111Icon
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
                                 ? Icon111Icon
                                 : hasVariant(
                                     $state,
@@ -7870,6 +8468,12 @@ function PlasmicLogin__RenderFunc(props: {
                                   "loginPage",
                                   "name"
                                 ),
+                                [sty.svgloginPage_selectstatus__lqzCkNi6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
                                 [sty.svgloginPage_userNameLogin__lqzCkH7MIy]:
                                   hasVariant(
                                     $state,
@@ -7905,7 +8509,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "userNameSingup")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? "liom"
+                          : hasVariant($state, "loginPage", "userNameSingup")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameLogin")
                           ? "09123456789"
@@ -7922,13 +8528,20 @@ function PlasmicLogin__RenderFunc(props: {
                           : "liom"
                       }
                       showEndIcon={
-                        hasVariant($state, "loginPage", "name")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? undefined
+                          : hasVariant($state, "loginPage", "name")
                           ? undefined
                           : true
                       }
                       type={
-                        hasVariant($state, "loginPage", "userNameSingup") &&
+                        hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "selectstatus")
+                          ? "text"
+                          : hasVariant($state, "loginPage", "userNameSingup") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "userNameSingup")
                           ? "tel"
@@ -7971,73 +8584,2486 @@ function PlasmicLogin__RenderFunc(props: {
                     />
                   </div>
                 </Stack__>
+                <section
+                  className={classNames(projectcss.all, sty.section__ifqO2, {
+                    [sty.sectionloginPage_name__ifqO2HUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__kpeHu, {
+                      [sty.freeBoxloginPage_emailCode__kpeHUwqwJl]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
+                      [sty.freeBoxloginPage_email__kpeHuiYwOs]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "email"
+                      ),
+                      [sty.freeBoxloginPage_mobileCode__kpeHUm2GXn]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.freeBoxloginPage_mobile__kpeHu6MmOa]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.freeBoxloginPage_name__kpeHUhUiKy]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      ),
+                      [sty.freeBoxloginPage_selectstatus__kpeHuni6Lr]:
+                        hasVariant($state, "loginPage", "selectstatus"),
+                      [sty.freeBoxloginPage_userNameLogin__kpeHuh7MIy]:
+                        hasVariant($state, "loginPage", "userNameLogin"),
+                      [sty.freeBoxloginPage_userNameSingup__kpeHUnuYv7]:
+                        hasVariant($state, "loginPage", "userNameSingup")
+                    })}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__jikjM,
+                        {
+                          [sty.freeBoxloginPage_name__jikjMhUiKy]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          ),
+                          [sty.freeBoxloginPage_selectstatus__jikjMni6Lr]:
+                            hasVariant($state, "loginPage", "selectstatus")
+                        }
+                      )}
+                    >
+                      <Checkbox
+                        data-plasmic-name={"checkbox"}
+                        data-plasmic-override={overrides.checkbox}
+                        className={classNames("__wab_instance", sty.checkbox, {
+                          [sty.checkboxloginPage_emailCode]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "emailCode"
+                          ),
+                          [sty.checkboxloginPage_name]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          ),
+                          [sty.checkboxloginPage_selectstatus]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "selectstatus"
+                          )
+                        })}
+                        isChecked={
+                          generateStateValueProp($state, [
+                            "checkbox",
+                            "isChecked"
+                          ]) ?? false
+                        }
+                        onChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "checkbox",
+                              "isChecked"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__gsRry,
+                            {
+                              [sty.textloginPage_name__gsRrYhUiKy]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "name"
+                              ),
+                              [sty.textloginPage_selectstatus__gsRryni6Lr]:
+                                hasVariant($state, "loginPage", "selectstatus")
+                            }
+                          )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateRulesOpen"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["rules", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateRulesOpen"] != null &&
+                              typeof $steps["updateRulesOpen"] === "object" &&
+                              typeof $steps["updateRulesOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateRulesOpen"] = await $steps[
+                                "updateRulesOpen"
+                              ];
+                            }
+                          }}
+                        >
+                          {hasVariant($state, "loginPage", "selectstatus")
+                            ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
+                            : hasVariant($state, "loginPage", "name")
+                            ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
+                            : "Enter some text"}
+                        </div>
+                      </Checkbox>
+                      <Button
+                        data-plasmic-name={"button4"}
+                        data-plasmic-override={overrides.button4}
+                        className={classNames("__wab_instance", sty.button4, {
+                          [sty.button4loginPage_emailCode]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "emailCode"
+                          ),
+                          [sty.button4loginPage_email]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "email"
+                          ),
+                          [sty.button4loginPage_mobileCode]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobileCode"
+                          ),
+                          [sty.button4loginPage_mobile]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobile"
+                          ),
+                          [sty.button4loginPage_name]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          ),
+                          [sty.button4loginPage_selectstatus]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "selectstatus"
+                          ),
+                          [sty.button4loginPage_userNameLogin]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "userNameLogin"
+                          ),
+                          [sty.button4loginPage_userNameSingup]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "userNameSingup"
+                          )
+                        })}
+                        color={generateStateValueProp($state, [
+                          "button4",
+                          "color"
+                        ])}
+                        disabled={
+                          hasVariant($state, "loginPage", "selectstatus")
+                            ? undefined
+                            : hasVariant($state, "loginPage", "name")
+                            ? undefined
+                            : (() => {
+                                try {
+                                  return (
+                                    ($state.antdInput2.value.length < 4 &&
+                                      $state.gender == "") ||
+                                    $state.loadedbtn
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                        }
+                        isDisabled={
+                          hasVariant($state, "loginPage", "selectstatus")
+                            ? (() => {
+                                try {
+                                  return (
+                                    !(
+                                      $state.antdInput2.value?.trim().length >
+                                        2 &&
+                                      $state.gender != "" &&
+                                      $state.checkbox.isChecked == true
+                                    ) || $state.loadedbtn
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : hasVariant($state, "loginPage", "name")
+                            ? (() => {
+                                try {
+                                  return (
+                                    !(
+                                      $state.antdInput2.value?.trim().length >
+                                        2 &&
+                                      $state.gender != "" &&
+                                      $state.checkbox.isChecked == true
+                                    ) || $state.loadedbtn
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : undefined
+                        }
+                        loading={(() => {
+                          try {
+                            return $state.loadedbtn;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateLoadedbtn"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["loadedbtn"]
+                                  },
+                                  operation: 0,
+                                  value: true
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateLoadedbtn"] != null &&
+                            typeof $steps["updateLoadedbtn"] === "object" &&
+                            typeof $steps["updateLoadedbtn"].then === "function"
+                          ) {
+                            $steps["updateLoadedbtn"] = await $steps[
+                              "updateLoadedbtn"
+                            ];
+                          }
+
+                          $steps["invokeGlobalAction"] =
+                            $state.type == "mobile" || $state.type == "email"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/auth/signup/user",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            type: $state.type,
+                                            name: $state.antdInput2.value || "",
+                                            gateway: $ctx.query.gateway || "",
+                                            data:
+                                              $state.number ||
+                                              $state.email ||
+                                              "",
+                                            username: $state.username || "",
+                                            target: "calendar",
+                                            sex: $state.gender || "",
+                                            token: $state.token || "",
+                                            version: "",
+                                            lang: "fa",
+                                            country: "98",
+                                            anotherLang: "fa",
+                                            device: (() => {
+                                              const userAgent =
+                                                window.navigator.userAgent;
+                                              if (
+                                                /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                  userAgent
+                                                )
+                                              ) {
+                                                return "Mobile";
+                                              } else if (
+                                                /Tablet|iPad/i.test(userAgent)
+                                              ) {
+                                                return "Tablet";
+                                              } else {
+                                                return "Desktop";
+                                              }
+                                            })(),
+                                            uniqueId: $$.uuid.v4(),
+                                            fcm:
+                                              window.localStorage.getItem(
+                                                "fcmToken"
+                                              ) || " ",
+                                            os: (() => {
+                                              const userAgent =
+                                                window.navigator.userAgent;
+                                              const platform =
+                                                window.navigator.userAgent;
+                                              if (/Windows/i.test(platform))
+                                                return "Windows";
+                                              if (/Mac/i.test(platform))
+                                                return "macOS";
+                                              if (/Linux/i.test(platform))
+                                                return "Linux";
+                                              if (/Android/i.test(userAgent))
+                                                return "Android";
+                                              if (
+                                                /iPhone|iPad|iPod/i.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return "iOS";
+                                              return "Unknown OS";
+                                            })(),
+                                            osVersion: (() => {
+                                              const userAgent =
+                                                window.navigator.userAgent;
+                                              if (
+                                                /Windows NT 10.0/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return "Windows 10";
+                                              if (
+                                                /Windows NT 6.3/.test(userAgent)
+                                              )
+                                                return "Windows 8.1";
+                                              if (
+                                                /Windows NT 6.2/.test(userAgent)
+                                              )
+                                                return "Windows 8";
+                                              if (
+                                                /Windows NT 6.1/.test(userAgent)
+                                              )
+                                                return "Windows 7";
+                                              if (
+                                                /Mac OS X (\d+[\._]\d+)/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return `macOS ${RegExp.$1.replace(
+                                                  "_",
+                                                  "."
+                                                )}`;
+                                              if (
+                                                /Android (\d+(\.\d+)?)/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return `Android ${RegExp.$1}`;
+                                              if (
+                                                /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return `iOS ${RegExp.$2.replace(
+                                                  "_",
+                                                  "."
+                                                )}`;
+                                              return "Unknown Version";
+                                            })(),
+                                            password: $state.password || "",
+                                            postLang: "fa",
+                                            refCode:
+                                              $state.antdInput3.value || "",
+                                            isCountryPending: false,
+                                            device_type:
+                                              window.navigator.platform,
+                                            additionalData: {
+                                              ip: "132465",
+                                              name: "test1"
+                                            },
+                                            city: null,
+                                            state: null,
+                                            birthYear: null,
+                                            religious: 0
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+
+                          $steps["invokeGlobalAction2"] =
+                            $state.type == "userName"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/auth/signup",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            type: $state.type,
+                                            name: $state.antdInput2.value || "",
+                                            gateway: $ctx.query.gateway || "",
+                                            data: $state.number || "",
+                                            username: $state.username,
+                                            target: "calendar",
+                                            sex: $state.gender || "",
+                                            token: $state.token || "",
+                                            version: "",
+                                            lang: "fa",
+                                            country: "98",
+                                            anotherLang: "fa",
+                                            device: (() => {
+                                              const userAgent =
+                                                window.navigator.userAgent;
+                                              if (
+                                                /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                  userAgent
+                                                )
+                                              ) {
+                                                return "Mobile";
+                                              } else if (
+                                                /Tablet|iPad/i.test(userAgent)
+                                              ) {
+                                                return "Tablet";
+                                              } else {
+                                                return "Desktop";
+                                              }
+                                            })(),
+                                            uniqueId: $$.uuid.v4(),
+                                            fcm:
+                                              window.localStorage.getItem(
+                                                "fcmToken"
+                                              ) || " ",
+                                            os: (() => {
+                                              const userAgent =
+                                                window.navigator.userAgent;
+                                              const platform =
+                                                window.navigator.userAgent;
+                                              if (/Windows/i.test(platform))
+                                                return "Windows";
+                                              if (/Mac/i.test(platform))
+                                                return "macOS";
+                                              if (/Linux/i.test(platform))
+                                                return "Linux";
+                                              if (/Android/i.test(userAgent))
+                                                return "Android";
+                                              if (
+                                                /iPhone|iPad|iPod/i.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return "iOS";
+                                              return "Unknown OS";
+                                            })(),
+                                            osVersion: (() => {
+                                              const userAgent =
+                                                window.navigator.userAgent;
+                                              if (
+                                                /Windows NT 10.0/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return "Windows 10";
+                                              if (
+                                                /Windows NT 6.3/.test(userAgent)
+                                              )
+                                                return "Windows 8.1";
+                                              if (
+                                                /Windows NT 6.2/.test(userAgent)
+                                              )
+                                                return "Windows 8";
+                                              if (
+                                                /Windows NT 6.1/.test(userAgent)
+                                              )
+                                                return "Windows 7";
+                                              if (
+                                                /Mac OS X (\d+[\._]\d+)/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return `macOS ${RegExp.$1.replace(
+                                                  "_",
+                                                  "."
+                                                )}`;
+                                              if (
+                                                /Android (\d+(\.\d+)?)/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return `Android ${RegExp.$1}`;
+                                              if (
+                                                /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return `iOS ${RegExp.$2.replace(
+                                                  "_",
+                                                  "."
+                                                )}`;
+                                              return "Unknown Version";
+                                            })(),
+                                            password: $state.password,
+                                            postLang: "fa",
+                                            refCode:
+                                              $state.antdInput3.value || "",
+                                            isCountryPending: false,
+                                            device_type:
+                                              window.navigator.platform,
+                                            additionalData: {
+                                              ip: "132465",
+                                              name: "test1"
+                                            },
+                                            city: null,
+                                            state: null,
+                                            birthYear: null,
+                                            religious: 0
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction2"] != null &&
+                            typeof $steps["invokeGlobalAction2"] === "object" &&
+                            typeof $steps["invokeGlobalAction2"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction2"] = await $steps[
+                              "invokeGlobalAction2"
+                            ];
+                          }
+
+                          $steps["invokeGlobalAction3"] =
+                            $state.type == "guest"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/auth/signup/guest",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            name: $state.antdInput2.value || "",
+                                            gateway: $ctx.query.gateway || "",
+                                            country: "98",
+                                            isCountryPending: false,
+                                            lang: "fa",
+                                            version: "",
+                                            os: (() => {
+                                              const userAgent =
+                                                window.navigator.userAgent;
+                                              const platform =
+                                                window.navigator.userAgent;
+                                              if (/Windows/i.test(platform))
+                                                return "Windows";
+                                              if (/Mac/i.test(platform))
+                                                return "macOS";
+                                              if (/Linux/i.test(platform))
+                                                return "Linux";
+                                              if (/Android/i.test(userAgent))
+                                                return "Android";
+                                              if (
+                                                /iPhone|iPad|iPod/i.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return "iOS";
+                                              return "Unknown OS";
+                                            })(),
+                                            osVersion: (() => {
+                                              const userAgent =
+                                                window.navigator.userAgent;
+                                              if (
+                                                /Windows NT 10.0/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return "Windows 10";
+                                              if (
+                                                /Windows NT 6.3/.test(userAgent)
+                                              )
+                                                return "Windows 8.1";
+                                              if (
+                                                /Windows NT 6.2/.test(userAgent)
+                                              )
+                                                return "Windows 8";
+                                              if (
+                                                /Windows NT 6.1/.test(userAgent)
+                                              )
+                                                return "Windows 7";
+                                              if (
+                                                /Mac OS X (\d+[\._]\d+)/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return `macOS ${RegExp.$1.replace(
+                                                  "_",
+                                                  "."
+                                                )}`;
+                                              if (
+                                                /Android (\d+(\.\d+)?)/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return `Android ${RegExp.$1}`;
+                                              if (
+                                                /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                  userAgent
+                                                )
+                                              )
+                                                return `iOS ${RegExp.$2.replace(
+                                                  "_",
+                                                  "."
+                                                )}`;
+                                              return "Unknown Version";
+                                            })(),
+                                            sex: $state.gender || "",
+                                            additionalData: {
+                                              ip: "132465",
+                                              name: "test1"
+                                            },
+                                            device: (() => {
+                                              const userAgent =
+                                                window.navigator.userAgent;
+                                              if (
+                                                /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                  userAgent
+                                                )
+                                              ) {
+                                                return "Mobile";
+                                              } else if (
+                                                /Tablet|iPad/i.test(userAgent)
+                                              ) {
+                                                return "Tablet";
+                                              } else {
+                                                return "Desktop";
+                                              }
+                                            })(),
+                                            fcm:
+                                              window.localStorage.getItem(
+                                                "fcmToken"
+                                              ) || " ",
+                                            uniqueId: $$.uuid.v4(),
+                                            device_type:
+                                              window.navigator.platform,
+                                            postLang: "fa"
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction3"] != null &&
+                            typeof $steps["invokeGlobalAction3"] === "object" &&
+                            typeof $steps["invokeGlobalAction3"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction3"] = await $steps[
+                              "invokeGlobalAction3"
+                            ];
+                          }
+
+                          $steps["updateLoginData"] =
+                            $steps.invokeGlobalAction?.data?.success === true ||
+                            $steps.invokeGlobalAction2?.data?.success ===
+                              true ||
+                            $steps.invokeGlobalAction3?.data?.success === true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["loginData"]
+                                    },
+                                    operation: 0,
+                                    value:
+                                      $steps.invokeGlobalAction?.data ||
+                                      $steps.invokeGlobalAction2?.data ||
+                                      $steps.invokeGlobalAction3?.data
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateLoginData"] != null &&
+                            typeof $steps["updateLoginData"] === "object" &&
+                            typeof $steps["updateLoginData"].then === "function"
+                          ) {
+                            $steps["updateLoginData"] = await $steps[
+                              "updateLoginData"
+                            ];
+                          }
+
+                          $steps["goToPage"] =
+                            ($steps.invokeGlobalAction3?.data?.success ==
+                              true ||
+                              $steps.invokeGlobalAction?.data?.success ==
+                                true ||
+                              $steps.invokeGlobalAction2?.data?.success ==
+                                true) &&
+                            ($state.type == "mobile" ||
+                              $state.gender == "female") &&
+                            $ctx.query.redirect_url != ""
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: (() => {
+                                      try {
+                                        return (() => {
+                                          var baseUrl =
+                                            window.location.href.split(
+                                              "redirect_url="
+                                            )[1] || "";
+                                          baseUrl = new URL(baseUrl);
+                                          const origin = baseUrl.origin;
+                                          const pathname =
+                                            baseUrl.pathname.split("&")[0] ||
+                                            "";
+                                          const searchParams =
+                                            baseUrl.searchParams.toString();
+                                          baseUrl = searchParams
+                                            ? `${origin}${pathname}?${searchParams}`
+                                            : `${origin}${pathname}`;
+                                          var separator = baseUrl.includes("?")
+                                            ? "&token="
+                                            : "?token=";
+                                          var redirectUrl =
+                                            baseUrl +
+                                            separator +
+                                            $$.uuid.v4().slice(0, 6) +
+                                            ($state.loginData.result.token ||
+                                              "") +
+                                            $$.uuid.v4().slice(10, 13) +
+                                            "&userId=" +
+                                            $$.uuid.v4().slice(0, 4) +
+                                            ($state.loginData.result.userId ||
+                                              "") +
+                                            $$.uuid.v4().slice(0, 4);
+                                          return redirectUrl;
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["goToPage"] != null &&
+                            typeof $steps["goToPage"] === "object" &&
+                            typeof $steps["goToPage"].then === "function"
+                          ) {
+                            $steps["goToPage"] = await $steps["goToPage"];
+                          }
+
+                          $steps["goToHamyar"] =
+                            ($steps.invokeGlobalAction3?.data?.success ==
+                              true ||
+                              $steps.invokeGlobalAction?.data?.success ==
+                                true ||
+                              $steps.invokeGlobalAction2?.data?.success ==
+                                true) &&
+                            $state.type == "mobile" &&
+                            $state.gender == "male" &&
+                            $ctx.query.redirect_url == ""
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: (() => {
+                                      try {
+                                        return (() => {
+                                          var baseUrl =
+                                            "https://apps.liom.app/hamyar";
+                                          var separator = baseUrl.includes("?")
+                                            ? "&token="
+                                            : "?token=";
+                                          var redirectUrl =
+                                            baseUrl +
+                                            separator +
+                                            $$.uuid.v4().slice(0, 6) +
+                                            ($state.loginData.result.token ||
+                                              "") +
+                                            $$.uuid.v4().slice(10, 13) +
+                                            "&userId=" +
+                                            $$.uuid.v4().slice(0, 4) +
+                                            ($state.loginData.result.userId ||
+                                              "") +
+                                            $$.uuid.v4().slice(0, 4);
+                                          return redirectUrl;
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["goToHamyar"] != null &&
+                            typeof $steps["goToHamyar"] === "object" &&
+                            typeof $steps["goToHamyar"].then === "function"
+                          ) {
+                            $steps["goToHamyar"] = await $steps["goToHamyar"];
+                          }
+
+                          $steps["updateTextInputValue5"] =
+                            ($steps.invokeGlobalAction3?.data?.success ==
+                              true ||
+                              $steps.invokeGlobalAction?.data?.success ==
+                                true ||
+                              $steps.invokeGlobalAction2?.data?.success ==
+                                true) &&
+                            $state.gender == "female" &&
+                            $ctx.query.redirect_url == ""
+                              ? (() => {
+                                  const actionArgs = {
+                                    vgroup: "loginPage",
+                                    operation: 0,
+                                    value: "selectstatus"
+                                  };
+                                  return (({ vgroup, value }) => {
+                                    if (typeof value === "string") {
+                                      value = [value];
+                                    }
+
+                                    $stateSet($state, vgroup, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateTextInputValue5"] != null &&
+                            typeof $steps["updateTextInputValue5"] ===
+                              "object" &&
+                            typeof $steps["updateTextInputValue5"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTextInputValue5"] = await $steps[
+                              "updateTextInputValue5"
+                            ];
+                          }
+
+                          $steps["updateLoginPage2"] =
+                            $state.gender == "male" && $state.number == ""
+                              ? (() => {
+                                  const actionArgs = {
+                                    vgroup: "loginPage",
+                                    operation: 0,
+                                    value: "mobile"
+                                  };
+                                  return (({ vgroup, value }) => {
+                                    if (typeof value === "string") {
+                                      value = [value];
+                                    }
+
+                                    $stateSet($state, vgroup, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateLoginPage2"] != null &&
+                            typeof $steps["updateLoginPage2"] === "object" &&
+                            typeof $steps["updateLoginPage2"].then ===
+                              "function"
+                          ) {
+                            $steps["updateLoginPage2"] = await $steps[
+                              "updateLoginPage2"
+                            ];
+                          }
+
+                          $steps["updateTextInputValue"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["textInput", "value"]
+                                  },
+                                  operation: 0
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateTextInputValue"] != null &&
+                            typeof $steps["updateTextInputValue"] ===
+                              "object" &&
+                            typeof $steps["updateTextInputValue"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTextInputValue"] = await $steps[
+                              "updateTextInputValue"
+                            ];
+                          }
+
+                          $steps["updateLoginData2"] =
+                            $state.type == "google"
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["loginData"]
+                                    },
+                                    operation: 0,
+                                    value: {
+                                      success: true,
+                                      result: {
+                                        token: $ctx.query.token,
+                                        userId: $ctx.query.userId
+                                      }
+                                    }
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateLoginData2"] != null &&
+                            typeof $steps["updateLoginData2"] === "object" &&
+                            typeof $steps["updateLoginData2"].then ===
+                              "function"
+                          ) {
+                            $steps["updateLoginData2"] = await $steps[
+                              "updateLoginData2"
+                            ];
+                          }
+
+                          $steps["updateTextInputValue2"] =
+                            $steps.invokeGlobalAction?.data?.success === true ||
+                            $steps.invokeGlobalAction2?.data?.success ===
+                              true ||
+                            $steps.invokeGlobalAction3?.data?.success ===
+                              true ||
+                            $state.type == "google"
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return localStorage.setItem(
+                                        "loginInfo",
+                                        JSON.stringify($state.loginData)
+                                      );
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateTextInputValue2"] != null &&
+                            typeof $steps["updateTextInputValue2"] ===
+                              "object" &&
+                            typeof $steps["updateTextInputValue2"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTextInputValue2"] = await $steps[
+                              "updateTextInputValue2"
+                            ];
+                          }
+
+                          $steps["updateTextInputValue3"] =
+                            $state.type == "google" && $state.gender == "female"
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return window.open(
+                                        $ctx.query.redirect_url +
+                                          "?token=" +
+                                          $$.uuid.v4().slice(0, 6) +
+                                          $ctx.query.token +
+                                          $$.uuid.v4().slice(10, 13) +
+                                          "&userId=" +
+                                          $$.uuid.v4().slice(0, 4) +
+                                          $ctx.query.userId +
+                                          $$.uuid.v4().slice(0, 4),
+                                        "_self"
+                                      );
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateTextInputValue3"] != null &&
+                            typeof $steps["updateTextInputValue3"] ===
+                              "object" &&
+                            typeof $steps["updateTextInputValue3"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTextInputValue3"] = await $steps[
+                              "updateTextInputValue3"
+                            ];
+                          }
+
+                          $steps["updateLoadedbtn2"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["loadedbtn"]
+                                  },
+                                  operation: 0,
+                                  value: false
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateLoadedbtn2"] != null &&
+                            typeof $steps["updateLoadedbtn2"] === "object" &&
+                            typeof $steps["updateLoadedbtn2"].then ===
+                              "function"
+                          ) {
+                            $steps["updateLoadedbtn2"] = await $steps[
+                              "updateLoadedbtn2"
+                            ];
+                          }
+                        }}
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button4",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__zaY8Q,
+                            {
+                              [sty.textloginPage_emailCode__zaY8QwqwJl]:
+                                hasVariant($state, "loginPage", "emailCode"),
+                              [sty.textloginPage_email__zaY8QIYwOs]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "email"
+                              ),
+                              [sty.textloginPage_mobileCode__zaY8Qm2GXn]:
+                                hasVariant($state, "loginPage", "mobileCode"),
+                              [sty.textloginPage_mobile__zaY8Q6MmOa]:
+                                hasVariant($state, "loginPage", "mobile"),
+                              [sty.textloginPage_name__zaY8QhUiKy]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "name"
+                              ),
+                              [sty.textloginPage_selectstatus__zaY8QNi6Lr]:
+                                hasVariant($state, "loginPage", "selectstatus"),
+                              [sty.textloginPage_userNameLogin__zaY8QH7MIy]:
+                                hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameLogin"
+                                ),
+                              [sty.textloginPage_userNameSingup__zaY8QnuYv7]:
+                                hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                )
+                            }
+                          )}
+                        >
+                          {hasVariant($state, "loginPage", "selectstatus")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "userNameSingup")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "emailCode")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "name")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "mobileCode")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "email")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "mobile")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : "Button"}
+                        </div>
+                      </Button>
+                    </div>
+                  </div>
+                </section>
+              </Stack__>
+            </Reveal>
+          ) : null}
+          {(
+            hasVariant($state, "loginPage", "selectstatus")
+              ? true
+              : hasVariant($state, "loginPage", "userNameSingup")
+              ? true
+              : hasVariant($state, "loginPage", "userNameLogin")
+              ? true
+              : hasVariant($state, "loginPage", "emailCode")
+              ? true
+              : hasVariant($state, "loginPage", "name")
+              ? true
+              : hasVariant($state, "loginPage", "mobileCode")
+              ? true
+              : hasVariant($state, "loginPage", "email")
+              ? true
+              : hasVariant($state, "loginPage", "mobile")
+              ? true
+              : false
+          ) ? (
+            <Reveal
+              className={classNames("__wab_instance", sty.reveal__rZ, {
+                [sty.revealloginPage_emailCode__rZwqwJl]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "emailCode"
+                ),
+                [sty.revealloginPage_email__rZiYwOs]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "email"
+                ),
+                [sty.revealloginPage_mobileCode__rZm2GXn]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobileCode"
+                ),
+                [sty.revealloginPage_mobile__rZ6MmOa]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobile"
+                ),
+                [sty.revealloginPage_name__rZhUiKy]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "name"
+                ),
+                [sty.revealloginPage_selectstatus__rZni6Lr]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "selectstatus"
+                ),
+                [sty.revealloginPage_userNameLogin__rZh7MIy]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "userNameLogin"
+                ),
+                [sty.revealloginPage_userNameSingup__rZnuYv7]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "userNameSingup"
+                )
+              })}
+              effect={"fade"}
+              triggerOnce={true}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___2RHg, {
+                  [sty.freeBoxloginPage_emailCode___2RHgwqwJl]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "emailCode"
+                  ),
+                  [sty.freeBoxloginPage_email___2RHgIYwOs]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "email"
+                  ),
+                  [sty.freeBoxloginPage_mobileCode___2RHgm2GXn]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobileCode"
+                  ),
+                  [sty.freeBoxloginPage_mobile___2RHg6MmOa]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobile"
+                  ),
+                  [sty.freeBoxloginPage_name___2RHghUiKy]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "name"
+                  ),
+                  [sty.freeBoxloginPage_selectstatus___2RHgNi6Lr]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "selectstatus"
+                  ),
+                  [sty.freeBoxloginPage_userNameLogin___2RHgH7MIy]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "userNameLogin"
+                  ),
+                  [sty.freeBoxloginPage_userNameSingup___2RHgnuYv7]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "userNameSingup"
+                  )
+                })}
+              >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__kpeHu, {
-                    [sty.freeBoxloginPage_emailCode__kpeHUwqwJl]: hasVariant(
+                  className={classNames(projectcss.all, sty.freeBox__l2Sap, {
+                    [sty.freeBoxloginPage_emailCode__l2SapwqwJl]: hasVariant(
                       $state,
                       "loginPage",
                       "emailCode"
                     ),
-                    [sty.freeBoxloginPage_email__kpeHuiYwOs]: hasVariant(
+                    [sty.freeBoxloginPage_email__l2SapIYwOs]: hasVariant(
                       $state,
                       "loginPage",
                       "email"
                     ),
-                    [sty.freeBoxloginPage_mobileCode__kpeHUm2GXn]: hasVariant(
+                    [sty.freeBoxloginPage_mobileCode__l2Sapm2GXn]: hasVariant(
                       $state,
                       "loginPage",
                       "mobileCode"
                     ),
-                    [sty.freeBoxloginPage_mobile__kpeHu6MmOa]: hasVariant(
+                    [sty.freeBoxloginPage_mobile__l2Sap6MmOa]: hasVariant(
                       $state,
                       "loginPage",
                       "mobile"
                     ),
-                    [sty.freeBoxloginPage_name__kpeHUhUiKy]: hasVariant(
+                    [sty.freeBoxloginPage_name__l2SaphUiKy]: hasVariant(
                       $state,
                       "loginPage",
                       "name"
                     ),
-                    [sty.freeBoxloginPage_userNameLogin__kpeHuh7MIy]:
+                    [sty.freeBoxloginPage_selectstatus__l2SapNi6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
+                    [sty.freeBoxloginPage_userNameLogin__l2SapH7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
-                    [sty.freeBoxloginPage_userNameSingup__kpeHUnuYv7]:
+                    [sty.freeBoxloginPage_userNameSingup__l2SapnuYv7]:
+                      hasVariant($state, "loginPage", "userNameSingup")
+                  })}
+                >
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg__aOe7V, {
+                      [sty.svgloginPage_emailCode__aOe7VwqwJl]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
+                      [sty.svgloginPage_email__aOe7VIYwOs]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "email"
+                      ),
+                      [sty.svgloginPage_mobileCode__aOe7Vm2GXn]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.svgloginPage_mobile__aOe7V6MmOa]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.svgloginPage_name__aOe7VhUiKy]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      ),
+                      [sty.svgloginPage_selectstatus__aOe7VNi6Lr]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
+                      ),
+                      [sty.svgloginPage_userNameLogin__aOe7VH7MIy]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "userNameLogin"
+                      ),
+                      [sty.svgloginPage_userNameSingup__aOe7VnuYv7]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "userNameSingup"
+                      )
+                    })}
+                    role={"img"}
+                  />
+                </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__fjIvx, {
+                    [sty.freeBoxloginPage_emailCode__fjIvxwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
+                    [sty.freeBoxloginPage_email__fjIvxIYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__fjIvxm2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__fjIvx6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__fjIvxhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    ),
+                    [sty.freeBoxloginPage_selectstatus__fjIvxNi6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
+                    [sty.freeBoxloginPage_userNameLogin__fjIvxH7MIy]:
+                      hasVariant($state, "loginPage", "userNameLogin"),
+                    [sty.freeBoxloginPage_userNameSingup__fjIvxnuYv7]:
                       hasVariant($state, "loginPage", "userNameSingup")
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__jikjM, {
-                      [sty.freeBoxloginPage_name__jikjMhUiKy]: hasVariant(
-                        $state,
-                        "loginPage",
-                        "name"
-                      )
-                    })}
-                  >
-                    <Checkbox
-                      data-plasmic-name={"checkbox"}
-                      data-plasmic-override={overrides.checkbox}
-                      className={classNames("__wab_instance", sty.checkbox, {
-                        [sty.checkboxloginPage_emailCode]: hasVariant(
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__e0S7T,
+                      {
+                        [sty.textloginPage_emailCode__e0S7TwqwJl]: hasVariant(
                           $state,
                           "loginPage",
                           "emailCode"
                         ),
-                        [sty.checkboxloginPage_name]: hasVariant(
+                        [sty.textloginPage_email__e0S7TIYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.textloginPage_mobileCode__e0S7Tm2GXn]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.textloginPage_mobile__e0S7T6MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.textloginPage_name__e0S7thUiKy]: hasVariant(
                           $state,
                           "loginPage",
                           "name"
+                        ),
+                        [sty.textloginPage_selectstatus__e0S7TNi6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
+                        [sty.textloginPage_userNameLogin__e0S7TH7MIy]:
+                          hasVariant($state, "loginPage", "userNameLogin"),
+                        [sty.textloginPage_userNameSingup__e0S7TnuYv7]:
+                          hasVariant($state, "loginPage", "userNameSingup")
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "loginPage", "selectstatus")
+                      ? "\u062f\u0631 \u0686\u0647 \u0648\u0636\u0639\u06cc\u062a\u06cc \u0647\u0633\u062a\u06cc\u061f"
+                      : hasVariant($state, "loginPage", "userNameSingup")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "userNameLogin")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "emailCode")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "name")
+                      ? "\u0644\u0637\u0641\u0627 \u0627\u0633\u0645\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
+                      : hasVariant($state, "loginPage", "mobileCode")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "email")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "mobile")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : "Enter some text"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__zrPlz,
+                      hasVariant($state, "loginPage", "selectstatus")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameSingup")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameLogin")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "emailCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "name")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "negative"
+                        : undefined,
+                      {
+                        [sty.freeBoxloginPage_emailCode__zrPlzwqwJl]:
+                          hasVariant($state, "loginPage", "emailCode"),
+                        [sty.freeBoxloginPage_email__zrPlzIYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.freeBoxloginPage_mobileCode__zrPlzm2GXn]:
+                          hasVariant($state, "loginPage", "mobileCode"),
+                        [sty.freeBoxloginPage_mobile__zrPlz6MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.freeBoxloginPage_name__zrPlzhUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        ),
+                        [sty.freeBoxloginPage_selectstatus__zrPlzNi6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
+                        [sty.freeBoxloginPage_userNameLogin__zrPlzH7MIy]:
+                          hasVariant($state, "loginPage", "userNameLogin"),
+                        [sty.freeBoxloginPage_userNameSingup__zrPlznuYv7]:
+                          hasVariant($state, "loginPage", "userNameSingup")
+                      }
+                    )}
+                  >
+                    <TextInput
+                      data-plasmic-name={"textInput12"}
+                      data-plasmic-override={overrides.textInput12}
+                      antdInput2={(() => {
+                        const child$Props = {
+                          "aria-label": ``,
+                          bordered: false,
+                          className: classNames(
+                            "__wab_instance",
+                            sty.antdInput12,
+                            {
+                              [sty.antdInput12loginPage_name]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "name"
+                              ),
+                              [sty.antdInput12loginPage_selectstatus]:
+                                hasVariant($state, "loginPage", "selectstatus")
+                            }
+                          ),
+                          id: hasVariant($state, "loginPage", "selectstatus")
+                            ? "inputMobile2"
+                            : hasVariant($state, "loginPage", "name")
+                            ? "inputMobile2"
+                            : undefined,
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["antdInput12", "value"],
+                              Input_Helpers
+                            ).apply(null, eventArgs);
+
+                            (async event => {
+                              const $steps = {};
+                            }).apply(null, eventArgs);
+                          },
+                          placeholder: (() => {
+                            try {
+                              return (() => {
+                                switch ($state.gender) {
+                                  case "":
+                                    return "علی محمدی";
+                                    break;
+                                  case "female":
+                                    return "سارا محمدی";
+                                    break;
+                                  case "male":
+                                    return "علی محمدی";
+                                    break;
+                                  default:
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          size: "large",
+                          value: generateStateValueProp($state, [
+                            "antdInput12",
+                            "value"
+                          ])
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "value",
+                              plasmicStateName: "antdInput12.value"
+                            }
+                          ],
+                          [],
+                          Input_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <Input
+                            data-plasmic-name={"antdInput12"}
+                            data-plasmic-override={overrides.antdInput12}
+                            {...child$Props}
+                          />
+                        );
+                      })()}
+                      className={classNames("__wab_instance", sty.textInput12, {
+                        [sty.textInput12loginPage_emailCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
+                        [sty.textInput12loginPage_email]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.textInput12loginPage_mobileCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.textInput12loginPage_mobile]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.textInput12loginPage_name]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        ),
+                        [sty.textInput12loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
+                        [sty.textInput12loginPage_userNameLogin]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "userNameLogin"
+                        ),
+                        [sty.textInput12loginPage_userNameSingup]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "userNameSingup"
+                        )
+                      })}
+                      endIcon={
+                        <React.Fragment>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__moCbe,
+                              {
+                                [sty.freeBoxloginPage_name__moCbehUiKy]:
+                                  hasVariant($state, "loginPage", "name"),
+                                [sty.freeBoxloginPage_selectstatus__moCbeNi6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  )
+                              }
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__enTpG,
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? "negative"
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? "negative"
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameLogin"
+                                  )
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "emailCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "email")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? "negative"
+                                : undefined,
+                              {
+                                [sty.textloginPage_emailCode__enTpGwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
+                                [sty.textloginPage_email__enTpGiYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.textloginPage_mobileCode__enTpGm2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.textloginPage_mobile__enTpG6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.textloginPage_name__enTpGhUiKy]:
+                                  hasVariant($state, "loginPage", "name"),
+                                [sty.textloginPage_selectstatus__enTpGni6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
+                                [sty.textloginPage_userNameLogin__enTpGh7MIy]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameLogin"
+                                  ),
+                                [sty.textloginPage_userNameSingup__enTpGnuYv7]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                              }
+                            )}
+                          >
+                            {hasVariant($state, "loginPage", "selectstatus")
+                              ? "+98 "
+                              : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                )
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "userNameLogin")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "emailCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "name")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobileCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "email")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobile")
+                              ? "+98 "
+                              : "Enter some text"}
+                          </div>
+                          <PlasmicIcon__
+                            PlasmicIconType={
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? Icon111Icon
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                                ? Icon111Icon
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameLogin"
+                                  )
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "emailCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "name")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "email")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? Icon111Icon
+                                : "div"
+                            }
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__ucWk8,
+                              {
+                                [sty.svgloginPage_emailCode__ucWk8WqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
+                                [sty.svgloginPage_email__ucWk8IYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.svgloginPage_mobileCode__ucWk8M2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.svgloginPage_mobile__ucWk86MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.svgloginPage_name__ucWk8HUiKy]: hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "name"
+                                ),
+                                [sty.svgloginPage_selectstatus__ucWk8Ni6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
+                                [sty.svgloginPage_userNameLogin__ucWk8H7MIy]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameLogin"
+                                  ),
+                                [sty.svgloginPage_userNameSingup__ucWk8NuYv7]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
+                              }
+                            )}
+                            role={"img"}
+                          />
+                        </React.Fragment>
+                      }
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "textInput12",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      placeholder={
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? "\u0645\u062b\u0644\u0627: \u0639\u0644\u06cc \u0645\u062d\u0645\u062f\u06cc"
+                          : hasVariant($state, "loginPage", "userNameSingup")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "emailCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "name")
+                          ? "\u0645\u062b\u0644\u0627: \u0639\u0644\u06cc \u0645\u062d\u0645\u062f\u06cc"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "email")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "09123456789"
+                          : ``
+                      }
+                      showEndIcon={
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? undefined
+                          : hasVariant($state, "loginPage", "name")
+                          ? undefined
+                          : true
+                      }
+                      type={
+                        hasVariant($state, "loginPage", "selectstatus") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "text"
+                          : hasVariant($state, "loginPage", "selectstatus")
+                          ? "text"
+                          : hasVariant($state, "loginPage", "userNameSingup") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "userNameSingup")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "userNameLogin") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "emailCode") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "emailCode")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "name") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "text"
+                          : hasVariant($state, "loginPage", "name")
+                          ? "text"
+                          : hasVariant($state, "loginPage", "mobileCode") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "email") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobile") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "tel"
+                          : undefined
+                      }
+                      value={
+                        generateStateValueProp($state, [
+                          "textInput12",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
+                  </div>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___01Atz, {
+                      [sty.freeBoxloginPage_selectstatus___01AtzNi6Lr]:
+                        hasVariant($state, "loginPage", "selectstatus")
+                    })}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return [
+                            {
+                              title: "پریود",
+                              type: "https://apps.liom.app/calendar/",
+                              text: "با تقویم قاعدگی می‌توانی پریود و حالات روزانه‌ات را ثبت و دنبال کنی.",
+                              icon: `<svg width="19" height="23" viewBox="0 0 19 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.1359 1.30208C9.76089 1.01042 9.24006 1.01042 8.86506 1.30208C6.88588 2.8125 1.04212 7.73958 1.07337 13.4792C1.07337 18.125 4.85462 21.9167 9.51089 21.9167C14.1671 21.9167 17.9484 18.1354 17.9484 13.4896C17.9588 7.83333 12.1046 2.82292 10.1359 1.30208Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"/>
+</svg>
+`
+                            },
+                            {
+                              title: "بارداری",
+                              type: "https://apps.liom.app/pregnancy/",
+                              text: "با تقویم بارداری هفته به هفته می‌توانی اطلاعات زیادی در مورد تغییرات بدنت و رشد جنین به دست بیاری.",
+                              icon: `<svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_116_6)">
+<path d="M13.3039 7.05239C14.1315 6.4842 14.6512 5.54215 14.6512 4.5255C14.6512 3.55204 14.174 2.62553 13.3749 2.04713L10.7126 0.120381C10.6046 0.0421846 10.4738 -8.52538e-06 10.3395 1.29209e-09H0.962791C0.544981 1.29209e-09 0.245177 0.392027 0.358828 0.783563L2.21605 7.18114C2.67735 8.77008 2.34879 10.5077 1.33719 11.8292C0.474907 12.9557 0 14.3517 0 15.7599V20.3848C0 20.7245 0.281135 21 0.627907 21H10.6141C14.6143 21 17.9613 17.8691 17.9997 13.8916C18.0294 10.8125 16.0781 8.11322 13.3039 7.05239ZM10.6141 19.7695H1.25581V15.7599C1.25581 14.6162 1.64152 13.4825 2.34184 12.5675C3.56781 10.9659 4.00713 8.85339 3.42398 6.84448L1.79422 1.23047H10.1328L12.6288 3.03688C13.1088 3.38428 13.3953 3.94078 13.3953 4.5255C13.3953 5.29262 12.9028 5.98902 12.1698 6.25833L11.2303 6.60352H10.0047C9.65788 6.60352 9.37674 6.87898 9.37674 7.21875C9.37674 7.55852 9.65788 7.83398 10.0047 7.83398H11.3097C14.3888 8.14607 16.7737 10.7963 16.7439 13.88C16.7126 17.1275 13.9627 19.7695 10.6141 19.7695Z" fill="#292D32"/>
+<path d="M12.3487 10.2129C11.7818 10.2129 11.2199 10.3964 10.7664 10.7297L10.3394 11.0435L9.91241 10.7297C9.45893 10.3964 8.897 10.2129 8.33008 10.2129C6.87593 10.2129 5.69287 11.3721 5.69287 12.7969C5.6935 13.3239 5.81875 13.8436 6.05869 14.3152C6.7897 15.7478 7.99746 16.9312 9.45952 17.6475L10.0586 17.9409C10.1458 17.9836 10.2419 18.0059 10.3394 18.0059C10.4369 18.0059 10.533 17.9836 10.6202 17.9409L11.2193 17.6474C12.6813 16.9312 13.8891 15.7478 14.6201 14.3152C14.8601 13.8436 14.9852 13.3239 14.9859 12.7969C14.9859 11.3721 13.8028 10.2129 12.3487 10.2129ZM13.4968 13.765C12.8866 14.9609 11.8782 15.9489 10.6576 16.5469L10.3394 16.7028L10.0211 16.5469C8.80051 15.9488 7.79217 14.9609 7.18189 13.7649C7.02893 13.4642 6.9491 13.1329 6.94869 12.7969C6.94869 12.0506 7.56839 11.4434 8.33008 11.4434C8.62888 11.444 8.91952 11.5389 9.15892 11.7141L9.96264 12.3047C10.0713 12.3845 10.2035 12.4277 10.3394 12.4277C10.4753 12.4277 10.6075 12.3845 10.7161 12.3047L11.5198 11.7141C11.7592 11.5389 12.0499 11.444 12.3487 11.4434C13.1104 11.4434 13.7301 12.0506 13.7301 12.7969C13.7301 13.1312 13.6494 13.4659 13.4968 13.765Z" fill="#292D32"/>
+</g>
+<defs>
+<clipPath id="clip0_116_6">
+<rect width="18" height="21" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+`
+                            }
+                          ];
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <RadioGrop
+                          className={classNames(
+                            "__wab_instance",
+                            sty.radioGrop__j8RGh,
+                            {
+                              [sty.radioGroploginPage_selectstatus__j8RGhNi6Lr]:
+                                hasVariant($state, "loginPage", "selectstatus")
+                            }
+                          )}
+                          key={currentIndex}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateStatus"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["status"]
+                                    },
+                                    operation: 0,
+                                    value: currentItem.type
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateStatus"] != null &&
+                              typeof $steps["updateStatus"] === "object" &&
+                              typeof $steps["updateStatus"].then === "function"
+                            ) {
+                              $steps["updateStatus"] = await $steps[
+                                "updateStatus"
+                              ];
+                            }
+                          }}
+                          selectedLine={(() => {
+                            try {
+                              return $state.status == currentItem.type;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()}
+                        >
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__q86T,
+                              {
+                                [sty.freeBoxloginPage_selectstatus__q86Tni6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  )
+                              }
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__cqXVl,
+                                {
+                                  [sty.freeBoxloginPage_selectstatus__cqXVlNi6Lr]:
+                                    hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "selectstatus"
+                                    )
+                                }
+                              )}
+                            >
+                              <Embed
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.embedHtml__f6AIw,
+                                  {
+                                    [sty.embedHtmlloginPage_selectstatus__f6AIwni6Lr]:
+                                      hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "selectstatus"
+                                      )
+                                  }
+                                )}
+                                code={
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  )
+                                    ? (() => {
+                                        try {
+                                          return currentItem.icon;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "<div>Paste your embed code via the right sidebar</div>";
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    : "<div>Paste your embed code via the right sidebar</div>"
+                                }
+                              />
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__ipLs0,
+                                  {
+                                    [sty.textloginPage_emailCode__ipLs0WqwJl]:
+                                      hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "emailCode"
+                                      ),
+                                    [sty.textloginPage_email__ipLs0IYwOs]:
+                                      hasVariant($state, "loginPage", "email"),
+                                    [sty.textloginPage_mobileCode__ipLs0M2GXn]:
+                                      hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "mobileCode"
+                                      ),
+                                    [sty.textloginPage_mobile__ipLs06MmOa]:
+                                      hasVariant($state, "loginPage", "mobile"),
+                                    [sty.textloginPage_name__ipLs0HUiKy]:
+                                      hasVariant($state, "loginPage", "name"),
+                                    [sty.textloginPage_selectstatus__ipLs0Ni6Lr]:
+                                      hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "selectstatus"
+                                      ),
+                                    [sty.textloginPage_userNameLogin__ipLs0H7MIy]:
+                                      hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameLogin"
+                                      ),
+                                    [sty.textloginPage_userNameSingup__ipLs0NuYv7]:
+                                      hasVariant(
+                                        $state,
+                                        "loginPage",
+                                        "userNameSingup"
+                                      )
+                                  }
+                                )}
+                              >
+                                {hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "selectstatus"
+                                ) ? (
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentItem.title;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u067e\u0631\u06cc\u0648\u062f\r";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                ) : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  ) ? (
+                                  "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                ) : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameLogin"
+                                  ) ? (
+                                  "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                ) : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "emailCode"
+                                  ) ? (
+                                  "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                ) : hasVariant($state, "loginPage", "name") ? (
+                                  "\u0644\u0637\u0641\u0627 \u0627\u0633\u0645\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
+                                ) : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "mobileCode"
+                                  ) ? (
+                                  "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                ) : hasVariant($state, "loginPage", "email") ? (
+                                  "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                ) : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "mobile"
+                                  ) ? (
+                                  "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                                ) : (
+                                  "Enter some text"
+                                )}
+                              </div>
+                            </Stack__>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__owVdC,
+                                {
+                                  [sty.textloginPage_selectstatus__owVdCni6Lr]:
+                                    hasVariant(
+                                      $state,
+                                      "loginPage",
+                                      "selectstatus"
+                                    )
+                                }
+                              )}
+                            >
+                              {hasVariant(
+                                $state,
+                                "loginPage",
+                                "selectstatus"
+                              ) ? (
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return currentItem.text;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u0645\u06cc \u062a\u0648\u0646\u06cc \u0628\u0647 \u06a9\u0645\u06a9 \u062a\u0642\u0648\u06cc\u0645 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0631\u0627\u06cc \u062b\u0628\u062a \u0648 \u062f\u0646\u0628\u0627\u0644 \u06a9\u0631\u062f\u0646 \u067e\u0631\u06cc\u0648\u062f \u0648 \u062d\u0627\u0644\u0627\u062a \u0631\u0648\u0632\u0627\u0646\u0647 \u0627\u062a \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u06a9\u0646\u06cc.";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              ) : (
+                                "Enter some text"
+                              )}
+                            </div>
+                          </Stack__>
+                        </RadioGrop>
+                      );
+                    })}
+                  </Stack__>
+                </Stack__>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__xjEZq, {
+                    [sty.freeBoxloginPage_emailCode__xjEZqwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
+                    [sty.freeBoxloginPage_email__xjEZqIYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__xjEZqm2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__xjEZq6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__xjEZqhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    ),
+                    [sty.freeBoxloginPage_selectstatus__xjEZqNi6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
+                    [sty.freeBoxloginPage_userNameLogin__xjEZqH7MIy]:
+                      hasVariant($state, "loginPage", "userNameLogin"),
+                    [sty.freeBoxloginPage_userNameSingup__xjEZqnuYv7]:
+                      hasVariant($state, "loginPage", "userNameSingup")
+                  })}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__upGzU, {
+                      [sty.freeBoxloginPage_name__upGzUhUiKy]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      ),
+                      [sty.freeBoxloginPage_selectstatus__upGzUni6Lr]:
+                        hasVariant($state, "loginPage", "selectstatus")
+                    })}
+                  >
+                    <Checkbox
+                      data-plasmic-name={"checkbox2"}
+                      data-plasmic-override={overrides.checkbox2}
+                      className={classNames("__wab_instance", sty.checkbox2, {
+                        [sty.checkbox2loginPage_emailCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
+                        [sty.checkbox2loginPage_name]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        ),
+                        [sty.checkbox2loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
                         )
                       })}
                       isChecked={
                         generateStateValueProp($state, [
-                          "checkbox",
+                          "checkbox2",
                           "isChecked"
                         ]) ?? false
                       }
                       onChange={async (...eventArgs: any) => {
                         ((...eventArgs) => {
                           generateStateOnChangeProp($state, [
-                            "checkbox",
+                            "checkbox2",
                             "isChecked"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
@@ -8055,13 +11081,15 @@ function PlasmicLogin__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__gsRry,
+                          sty.text__kkGwD,
                           {
-                            [sty.textloginPage_name__gsRrYhUiKy]: hasVariant(
+                            [sty.textloginPage_name__kkGwDhUiKy]: hasVariant(
                               $state,
                               "loginPage",
                               "name"
-                            )
+                            ),
+                            [sty.textloginPage_selectstatus__kkGwDni6Lr]:
+                              hasVariant($state, "loginPage", "selectstatus")
                           }
                         )}
                         onClick={async event => {
@@ -8104,62 +11132,71 @@ function PlasmicLogin__RenderFunc(props: {
                           }
                         }}
                       >
-                        {hasVariant($state, "loginPage", "name")
+                        {hasVariant($state, "loginPage", "selectstatus")
+                          ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
+                          : hasVariant($state, "loginPage", "name")
                           ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
                           : "Enter some text"}
                       </div>
                     </Checkbox>
                     <Button
-                      data-plasmic-name={"button4"}
-                      data-plasmic-override={overrides.button4}
-                      className={classNames("__wab_instance", sty.button4, {
-                        [sty.button4loginPage_emailCode]: hasVariant(
+                      data-plasmic-name={"button8"}
+                      data-plasmic-override={overrides.button8}
+                      className={classNames("__wab_instance", sty.button8, {
+                        [sty.button8loginPage_emailCode]: hasVariant(
                           $state,
                           "loginPage",
                           "emailCode"
                         ),
-                        [sty.button4loginPage_email]: hasVariant(
+                        [sty.button8loginPage_email]: hasVariant(
                           $state,
                           "loginPage",
                           "email"
                         ),
-                        [sty.button4loginPage_mobileCode]: hasVariant(
+                        [sty.button8loginPage_mobileCode]: hasVariant(
                           $state,
                           "loginPage",
                           "mobileCode"
                         ),
-                        [sty.button4loginPage_mobile]: hasVariant(
+                        [sty.button8loginPage_mobile]: hasVariant(
                           $state,
                           "loginPage",
                           "mobile"
                         ),
-                        [sty.button4loginPage_name]: hasVariant(
+                        [sty.button8loginPage_name]: hasVariant(
                           $state,
                           "loginPage",
                           "name"
                         ),
-                        [sty.button4loginPage_userNameLogin]: hasVariant(
+                        [sty.button8loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
+                        [sty.button8loginPage_userNameLogin]: hasVariant(
                           $state,
                           "loginPage",
                           "userNameLogin"
                         ),
-                        [sty.button4loginPage_userNameSingup]: hasVariant(
+                        [sty.button8loginPage_userNameSingup]: hasVariant(
                           $state,
                           "loginPage",
                           "userNameSingup"
                         )
                       })}
                       color={generateStateValueProp($state, [
-                        "button4",
+                        "button8",
                         "color"
                       ])}
                       disabled={
-                        hasVariant($state, "loginPage", "name")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? undefined
+                          : hasVariant($state, "loginPage", "name")
                           ? undefined
                           : (() => {
                               try {
                                 return (
-                                  ($state.antdInput2.value.length < 4 &&
+                                  ($state.antdInput12.value.length < 4 &&
                                     $state.gender == "") ||
                                   $state.loadedbtn
                                 );
@@ -8175,15 +11212,29 @@ function PlasmicLogin__RenderFunc(props: {
                             })()
                       }
                       isDisabled={
-                        hasVariant($state, "loginPage", "name")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? (() => {
+                              try {
+                                return $state.status == "";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()
+                          : hasVariant($state, "loginPage", "name")
                           ? (() => {
                               try {
                                 return (
                                   !(
-                                    $state.antdInput2.value?.trim().length >
+                                    $state.antdInput12.value?.trim().length >
                                       2 &&
                                     $state.gender != "" &&
-                                    $state.checkbox.isChecked == true
+                                    $state.checkbox2.isChecked == true
                                   ) || $state.loadedbtn
                                 );
                               } catch (e) {
@@ -8250,735 +11301,60 @@ function PlasmicLogin__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["invokeGlobalAction"] =
-                          $state.type == "mobile" || $state.type == "email"
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "POST",
-                                    "https://api.liom.app/auth/signup/user",
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return {
-                                          type: $state.type,
-                                          name: $state.antdInput2.value || "",
-                                          gateway: $ctx.query.gateway || "",
-                                          data:
-                                            $state.number || $state.email || "",
-                                          username: $state.username || "",
-                                          target: "calendar",
-                                          sex: $state.gender || "",
-                                          token: $state.token || "",
-                                          version: "",
-                                          lang: "fa",
-                                          country: "98",
-                                          anotherLang: "fa",
-                                          device: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            if (
-                                              /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                                userAgent
-                                              )
-                                            ) {
-                                              return "Mobile";
-                                            } else if (
-                                              /Tablet|iPad/i.test(userAgent)
-                                            ) {
-                                              return "Tablet";
-                                            } else {
-                                              return "Desktop";
-                                            }
-                                          })(),
-                                          uniqueId: $$.uuid.v4(),
-                                          fcm: "  ",
-                                          os: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            const platform =
-                                              window.navigator.userAgent;
-                                            if (/Windows/i.test(platform))
-                                              return "Windows";
-                                            if (/Mac/i.test(platform))
-                                              return "macOS";
-                                            if (/Linux/i.test(platform))
-                                              return "Linux";
-                                            if (/Android/i.test(userAgent))
-                                              return "Android";
-                                            if (
-                                              /iPhone|iPad|iPod/i.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return "iOS";
-                                            return "Unknown OS";
-                                          })(),
-                                          osVersion: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            if (
-                                              /Windows NT 10.0/.test(userAgent)
-                                            )
-                                              return "Windows 10";
-                                            if (
-                                              /Windows NT 6.3/.test(userAgent)
-                                            )
-                                              return "Windows 8.1";
-                                            if (
-                                              /Windows NT 6.2/.test(userAgent)
-                                            )
-                                              return "Windows 8";
-                                            if (
-                                              /Windows NT 6.1/.test(userAgent)
-                                            )
-                                              return "Windows 7";
-                                            if (
-                                              /Mac OS X (\d+[\._]\d+)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `macOS ${RegExp.$1.replace(
-                                                "_",
-                                                "."
-                                              )}`;
-                                            if (
-                                              /Android (\d+(\.\d+)?)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `Android ${RegExp.$1}`;
-                                            if (
-                                              /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `iOS ${RegExp.$2.replace(
-                                                "_",
-                                                "."
-                                              )}`;
-                                            return "Unknown Version";
-                                          })(),
-                                          password: $state.password || "",
-                                          postLang: "fa",
-                                          refCode:
-                                            $state.antdInput3.value || "",
-                                          isCountryPending: false,
-                                          device_type:
-                                            window.navigator.platform,
-                                          additionalData: {
-                                            ip: "132465",
-                                            name: "test1"
-                                          },
-                                          city: null,
-                                          state: null,
-                                          birthYear: null,
-                                          religious: 0
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
-
-                        $steps["invokeGlobalAction2"] =
-                          $state.type == "userName"
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "POST",
-                                    "https://api.liom.app/auth/signup",
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return {
-                                          type: $state.type,
-                                          name: $state.antdInput2.value || "",
-                                          gateway: $ctx.query.gateway || "",
-                                          data: $state.number || "",
-                                          username: $state.username,
-                                          target: "calendar",
-                                          sex: $state.gender || "",
-                                          token: $state.token || "",
-                                          version: "",
-                                          lang: "fa",
-                                          country: "98",
-                                          anotherLang: "fa",
-                                          device: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            if (
-                                              /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                                userAgent
-                                              )
-                                            ) {
-                                              return "Mobile";
-                                            } else if (
-                                              /Tablet|iPad/i.test(userAgent)
-                                            ) {
-                                              return "Tablet";
-                                            } else {
-                                              return "Desktop";
-                                            }
-                                          })(),
-                                          uniqueId: $$.uuid.v4(),
-                                          fcm: "  ",
-                                          os: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            const platform =
-                                              window.navigator.userAgent;
-                                            if (/Windows/i.test(platform))
-                                              return "Windows";
-                                            if (/Mac/i.test(platform))
-                                              return "macOS";
-                                            if (/Linux/i.test(platform))
-                                              return "Linux";
-                                            if (/Android/i.test(userAgent))
-                                              return "Android";
-                                            if (
-                                              /iPhone|iPad|iPod/i.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return "iOS";
-                                            return "Unknown OS";
-                                          })(),
-                                          osVersion: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            if (
-                                              /Windows NT 10.0/.test(userAgent)
-                                            )
-                                              return "Windows 10";
-                                            if (
-                                              /Windows NT 6.3/.test(userAgent)
-                                            )
-                                              return "Windows 8.1";
-                                            if (
-                                              /Windows NT 6.2/.test(userAgent)
-                                            )
-                                              return "Windows 8";
-                                            if (
-                                              /Windows NT 6.1/.test(userAgent)
-                                            )
-                                              return "Windows 7";
-                                            if (
-                                              /Mac OS X (\d+[\._]\d+)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `macOS ${RegExp.$1.replace(
-                                                "_",
-                                                "."
-                                              )}`;
-                                            if (
-                                              /Android (\d+(\.\d+)?)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `Android ${RegExp.$1}`;
-                                            if (
-                                              /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `iOS ${RegExp.$2.replace(
-                                                "_",
-                                                "."
-                                              )}`;
-                                            return "Unknown Version";
-                                          })(),
-                                          password: $state.password,
-                                          postLang: "fa",
-                                          refCode:
-                                            $state.antdInput3.value || "",
-                                          isCountryPending: false,
-                                          device_type:
-                                            window.navigator.platform,
-                                          additionalData: {
-                                            ip: "132465",
-                                            name: "test1"
-                                          },
-                                          city: null,
-                                          state: null,
-                                          birthYear: null,
-                                          religious: 0
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["invokeGlobalAction2"] != null &&
-                          typeof $steps["invokeGlobalAction2"] === "object" &&
-                          typeof $steps["invokeGlobalAction2"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
-                        }
-
-                        $steps["invokeGlobalAction3"] =
-                          $state.type == "guest"
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "POST",
-                                    "https://api.liom.app/auth/signup/guest",
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return {
-                                          name: $state.antdInput2.value || "",
-                                          gateway: $ctx.query.gateway || "",
-                                          country: "98",
-                                          isCountryPending: false,
-                                          lang: "fa",
-                                          version: "",
-                                          os: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            const platform =
-                                              window.navigator.userAgent;
-                                            if (/Windows/i.test(platform))
-                                              return "Windows";
-                                            if (/Mac/i.test(platform))
-                                              return "macOS";
-                                            if (/Linux/i.test(platform))
-                                              return "Linux";
-                                            if (/Android/i.test(userAgent))
-                                              return "Android";
-                                            if (
-                                              /iPhone|iPad|iPod/i.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return "iOS";
-                                            return "Unknown OS";
-                                          })(),
-                                          osVersion: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            if (
-                                              /Windows NT 10.0/.test(userAgent)
-                                            )
-                                              return "Windows 10";
-                                            if (
-                                              /Windows NT 6.3/.test(userAgent)
-                                            )
-                                              return "Windows 8.1";
-                                            if (
-                                              /Windows NT 6.2/.test(userAgent)
-                                            )
-                                              return "Windows 8";
-                                            if (
-                                              /Windows NT 6.1/.test(userAgent)
-                                            )
-                                              return "Windows 7";
-                                            if (
-                                              /Mac OS X (\d+[\._]\d+)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `macOS ${RegExp.$1.replace(
-                                                "_",
-                                                "."
-                                              )}`;
-                                            if (
-                                              /Android (\d+(\.\d+)?)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `Android ${RegExp.$1}`;
-                                            if (
-                                              /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `iOS ${RegExp.$2.replace(
-                                                "_",
-                                                "."
-                                              )}`;
-                                            return "Unknown Version";
-                                          })(),
-                                          sex: $state.gender || "",
-                                          additionalData: {
-                                            ip: "132465",
-                                            name: "test1"
-                                          },
-                                          device: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            if (
-                                              /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                                userAgent
-                                              )
-                                            ) {
-                                              return "Mobile";
-                                            } else if (
-                                              /Tablet|iPad/i.test(userAgent)
-                                            ) {
-                                              return "Tablet";
-                                            } else {
-                                              return "Desktop";
-                                            }
-                                          })(),
-                                          fcm: "  ",
-                                          uniqueId: $$.uuid.v4(),
-                                          device_type:
-                                            window.navigator.platform,
-                                          postLang: "fa"
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["invokeGlobalAction3"] != null &&
-                          typeof $steps["invokeGlobalAction3"] === "object" &&
-                          typeof $steps["invokeGlobalAction3"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction3"] = await $steps[
-                            "invokeGlobalAction3"
-                          ];
-                        }
-
-                        $steps["updateLoginData"] =
-                          $steps.invokeGlobalAction?.data?.success === true ||
-                          $steps.invokeGlobalAction2?.data?.success === true ||
-                          $steps.invokeGlobalAction3?.data?.success === true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["loginData"]
-                                  },
-                                  operation: 0,
-                                  value:
-                                    $steps.invokeGlobalAction?.data ||
-                                    $steps.invokeGlobalAction2?.data ||
-                                    $steps.invokeGlobalAction3?.data
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["updateLoginData"] != null &&
-                          typeof $steps["updateLoginData"] === "object" &&
-                          typeof $steps["updateLoginData"].then === "function"
-                        ) {
-                          $steps["updateLoginData"] = await $steps[
-                            "updateLoginData"
-                          ];
-                        }
-
-                        $steps["goToPage"] =
-                          ($steps.invokeGlobalAction3?.data?.success == true ||
-                            $steps.invokeGlobalAction?.data?.success == true ||
-                            $steps.invokeGlobalAction2?.data?.success ==
-                              true) &&
-                          ($state.type == "mobile" || $state.gender == "female")
-                            ? (() => {
-                                const actionArgs = {
-                                  destination: (() => {
-                                    try {
-                                      return (() => {
-                                        var baseUrl =
-                                          window.location.href.split(
-                                            "redirect_url="
-                                          )[1] || "";
-                                        var separator = baseUrl.includes("?")
-                                          ? "&token="
-                                          : "?token=";
-                                        var redirectUrl =
-                                          baseUrl +
-                                          separator +
-                                          $$.uuid.v4().slice(0, 6) +
-                                          ($state.loginData.result.token ||
-                                            "") +
-                                          $$.uuid.v4().slice(10, 13) +
-                                          "&userId=" +
-                                          $$.uuid.v4().slice(0, 4) +
-                                          ($state.loginData.result.userId ||
-                                            "") +
-                                          $$.uuid.v4().slice(0, 4);
-                                        console.log(redirectUrl);
-                                        return window.open(
-                                          redirectUrl,
-                                          "_self"
-                                        );
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
+                        $steps["goToPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return (() => {
+                                      var baseUrl = $state.status;
+                                      var separator = baseUrl.includes("?")
+                                        ? "&token="
+                                        : "?token=";
+                                      var redirectUrl =
+                                        baseUrl +
+                                        separator +
+                                        $$.uuid.v4().slice(0, 6) +
+                                        ($state.loginData.result.token || "") +
+                                        $$.uuid.v4().slice(10, 13) +
+                                        "&userId=" +
+                                        $$.uuid.v4().slice(0, 4) +
+                                        ($state.loginData.result.userId || "") +
+                                        $$.uuid.v4().slice(0, 4);
+                                      return redirectUrl;
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
                                     }
-                                  })()
-                                };
-                                return (({ destination }) => {
-                                  if (
-                                    typeof destination === "string" &&
-                                    destination.startsWith("#")
-                                  ) {
-                                    document
-                                      .getElementById(destination.substr(1))
-                                      .scrollIntoView({ behavior: "smooth" });
-                                  } else {
-                                    __nextRouter?.push(destination);
+                                    throw e;
                                   }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
                         if (
                           $steps["goToPage"] != null &&
                           typeof $steps["goToPage"] === "object" &&
                           typeof $steps["goToPage"].then === "function"
                         ) {
                           $steps["goToPage"] = await $steps["goToPage"];
-                        }
-
-                        $steps["updateLoginPage2"] =
-                          $state.gender == "male" && $state.number == ""
-                            ? (() => {
-                                const actionArgs = {
-                                  vgroup: "loginPage",
-                                  operation: 0,
-                                  value: "mobile"
-                                };
-                                return (({ vgroup, value }) => {
-                                  if (typeof value === "string") {
-                                    value = [value];
-                                  }
-
-                                  $stateSet($state, vgroup, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["updateLoginPage2"] != null &&
-                          typeof $steps["updateLoginPage2"] === "object" &&
-                          typeof $steps["updateLoginPage2"].then === "function"
-                        ) {
-                          $steps["updateLoginPage2"] = await $steps[
-                            "updateLoginPage2"
-                          ];
-                        }
-
-                        $steps["updateTextInputValue"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["textInput", "value"]
-                                },
-                                operation: 0
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateTextInputValue"] != null &&
-                          typeof $steps["updateTextInputValue"] === "object" &&
-                          typeof $steps["updateTextInputValue"].then ===
-                            "function"
-                        ) {
-                          $steps["updateTextInputValue"] = await $steps[
-                            "updateTextInputValue"
-                          ];
-                        }
-
-                        $steps["updateLoginData2"] =
-                          $state.type == "google"
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["loginData"]
-                                  },
-                                  operation: 0,
-                                  value: {
-                                    success: true,
-                                    result: {
-                                      token: $ctx.query.token,
-                                      userId: $ctx.query.userId
-                                    }
-                                  }
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["updateLoginData2"] != null &&
-                          typeof $steps["updateLoginData2"] === "object" &&
-                          typeof $steps["updateLoginData2"].then === "function"
-                        ) {
-                          $steps["updateLoginData2"] = await $steps[
-                            "updateLoginData2"
-                          ];
-                        }
-
-                        $steps["updateTextInputValue2"] =
-                          $steps.invokeGlobalAction?.data?.success === true ||
-                          $steps.invokeGlobalAction2?.data?.success === true ||
-                          $steps.invokeGlobalAction3?.data?.success === true ||
-                          $state.type == "google"
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return localStorage.setItem(
-                                      "loginInfo",
-                                      JSON.stringify($state.loginData)
-                                    );
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["updateTextInputValue2"] != null &&
-                          typeof $steps["updateTextInputValue2"] === "object" &&
-                          typeof $steps["updateTextInputValue2"].then ===
-                            "function"
-                        ) {
-                          $steps["updateTextInputValue2"] = await $steps[
-                            "updateTextInputValue2"
-                          ];
-                        }
-
-                        $steps["updateTextInputValue3"] =
-                          $state.type == "google" && $state.gender == "female"
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return window.open(
-                                      $ctx.query.redirect_url +
-                                        "?token=" +
-                                        $$.uuid.v4().slice(0, 6) +
-                                        $ctx.query.token +
-                                        $$.uuid.v4().slice(10, 13) +
-                                        "&userId=" +
-                                        $$.uuid.v4().slice(0, 4) +
-                                        $ctx.query.userId +
-                                        $$.uuid.v4().slice(0, 4),
-                                      "_self"
-                                    );
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["updateTextInputValue3"] != null &&
-                          typeof $steps["updateTextInputValue3"] === "object" &&
-                          typeof $steps["updateTextInputValue3"].then ===
-                            "function"
-                        ) {
-                          $steps["updateTextInputValue3"] = await $steps[
-                            "updateTextInputValue3"
-                          ];
                         }
 
                         $steps["updateLoadedbtn2"] = true
@@ -9020,7 +11396,7 @@ function PlasmicLogin__RenderFunc(props: {
                       onColorChange={async (...eventArgs: any) => {
                         ((...eventArgs) => {
                           generateStateOnChangeProp($state, [
-                            "button4",
+                            "button8",
                             "color"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
@@ -9038,35 +11414,39 @@ function PlasmicLogin__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__zaY8Q,
+                          sty.text___0Wlea,
                           {
-                            [sty.textloginPage_emailCode__zaY8QwqwJl]:
+                            [sty.textloginPage_emailCode___0WleawqwJl]:
                               hasVariant($state, "loginPage", "emailCode"),
-                            [sty.textloginPage_email__zaY8QIYwOs]: hasVariant(
+                            [sty.textloginPage_email___0WleaIYwOs]: hasVariant(
                               $state,
                               "loginPage",
                               "email"
                             ),
-                            [sty.textloginPage_mobileCode__zaY8Qm2GXn]:
+                            [sty.textloginPage_mobileCode___0Wleam2GXn]:
                               hasVariant($state, "loginPage", "mobileCode"),
-                            [sty.textloginPage_mobile__zaY8Q6MmOa]: hasVariant(
+                            [sty.textloginPage_mobile___0Wlea6MmOa]: hasVariant(
                               $state,
                               "loginPage",
                               "mobile"
                             ),
-                            [sty.textloginPage_name__zaY8QhUiKy]: hasVariant(
+                            [sty.textloginPage_name___0WleahUiKy]: hasVariant(
                               $state,
                               "loginPage",
                               "name"
                             ),
-                            [sty.textloginPage_userNameLogin__zaY8QH7MIy]:
+                            [sty.textloginPage_selectstatus___0WleaNi6Lr]:
+                              hasVariant($state, "loginPage", "selectstatus"),
+                            [sty.textloginPage_userNameLogin___0WleaH7MIy]:
                               hasVariant($state, "loginPage", "userNameLogin"),
-                            [sty.textloginPage_userNameSingup__zaY8QnuYv7]:
+                            [sty.textloginPage_userNameSingup___0WleanuYv7]:
                               hasVariant($state, "loginPage", "userNameSingup")
                           }
                         )}
                       >
-                        {hasVariant($state, "loginPage", "userNameSingup")
+                        {hasVariant($state, "loginPage", "selectstatus")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "userNameSingup")
                           ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                           : hasVariant($state, "loginPage", "userNameLogin")
                           ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
@@ -9089,7 +11469,9 @@ function PlasmicLogin__RenderFunc(props: {
             </Reveal>
           ) : null}
           {(
-            hasVariant($state, "loginPage", "userNameSingup")
+            hasVariant($state, "loginPage", "selectstatus")
+              ? true
+              : hasVariant($state, "loginPage", "userNameSingup")
               ? true
               : hasVariant($state, "loginPage", "userNameLogin")
               ? true
@@ -9134,6 +11516,11 @@ function PlasmicLogin__RenderFunc(props: {
                   "loginPage",
                   "name"
                 ),
+                [sty.mobileCodeloginPage_selectstatus]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "selectstatus"
+                ),
                 [sty.mobileCodeloginPage_userNameLogin]: hasVariant(
                   $state,
                   "loginPage",
@@ -9177,6 +11564,11 @@ function PlasmicLogin__RenderFunc(props: {
                     "loginPage",
                     "name"
                   ),
+                  [sty.freeBoxloginPage_selectstatus__ns0Tjni6Lr]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "selectstatus"
+                  ),
                   [sty.freeBoxloginPage_userNameLogin__ns0Tjh7MIy]: hasVariant(
                     $state,
                     "loginPage",
@@ -9215,6 +11607,11 @@ function PlasmicLogin__RenderFunc(props: {
                       $state,
                       "loginPage",
                       "name"
+                    ),
+                    [sty.freeBoxloginPage_selectstatus__k2QkNi6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
                     ),
                     [sty.freeBoxloginPage_userNameLogin__k2QkH7MIy]: hasVariant(
                       $state,
@@ -9282,6 +11679,11 @@ function PlasmicLogin__RenderFunc(props: {
                         "loginPage",
                         "name"
                       ),
+                      [sty.svgloginPage_selectstatus__aydplNi6Lr]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
+                      ),
                       [sty.svgloginPage_userNameLogin__aydplH7MIy]: hasVariant(
                         $state,
                         "loginPage",
@@ -9324,6 +11726,11 @@ function PlasmicLogin__RenderFunc(props: {
                       $state,
                       "loginPage",
                       "name"
+                    ),
+                    [sty.freeBoxloginPage_selectstatus__cmdIpNi6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
                     ),
                     [sty.freeBoxloginPage_userNameLogin__cmdIpH7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
@@ -9373,6 +11780,8 @@ function PlasmicLogin__RenderFunc(props: {
                             "loginPage",
                             "name"
                           ),
+                          [sty.textloginPage_selectstatus___0LxRni6Lr]:
+                            hasVariant($state, "loginPage", "selectstatus"),
                           [sty.textloginPage_userNameLogin___0LxRh7MIy]:
                             hasVariant($state, "loginPage", "userNameLogin"),
                           [sty.textloginPage_userNameSingup___0LxRnuYv7]:
@@ -9380,7 +11789,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       )}
                     >
-                      {hasVariant($state, "loginPage", "userNameSingup")
+                      {hasVariant($state, "loginPage", "selectstatus")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -9424,6 +11835,8 @@ function PlasmicLogin__RenderFunc(props: {
                             "loginPage",
                             "name"
                           ),
+                          [sty.textloginPage_selectstatus__ua1OzNi6Lr]:
+                            hasVariant($state, "loginPage", "selectstatus"),
                           [sty.textloginPage_userNameLogin__ua1OzH7MIy]:
                             hasVariant($state, "loginPage", "userNameLogin"),
                           [sty.textloginPage_userNameSingup__ua1OznuYv7]:
@@ -9461,7 +11874,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       }}
                     >
-                      {hasVariant($state, "loginPage", "userNameSingup")
+                      {hasVariant($state, "loginPage", "selectstatus")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -9482,7 +11897,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox___7YOd7,
-                      hasVariant($state, "loginPage", "userNameSingup")
+                      hasVariant($state, "loginPage", "selectstatus")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "negative"
@@ -9517,6 +11934,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.freeBoxloginPage_selectstatus___7YOd7Ni6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.freeBoxloginPage_userNameLogin___7YOd7H7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.freeBoxloginPage_userNameSingup___7YOd7NuYv7]:
@@ -9549,7 +11968,9 @@ function PlasmicLogin__RenderFunc(props: {
                                 $state,
                                 "loginPage",
                                 "name"
-                              )
+                              ),
+                              [sty.antdInput4loginPage_selectstatus]:
+                                hasVariant($state, "loginPage", "selectstatus")
                             }
                           ),
                           disabled: hasVariant($state, "loginPage", "emailCode")
@@ -9627,6 +12048,11 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textInput3loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
                         [sty.textInput3loginPage_userNameLogin]: hasVariant(
                           $state,
                           "loginPage",
@@ -9652,7 +12078,13 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               projectcss.__wab_text,
                               sty.text__bZkn,
-                              hasVariant($state, "loginPage", "userNameSingup")
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? "negative"
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
                                 ? "negative"
                                 : hasVariant(
                                     $state,
@@ -9685,6 +12117,12 @@ function PlasmicLogin__RenderFunc(props: {
                                   "loginPage",
                                   "name"
                                 ),
+                                [sty.textloginPage_selectstatus__bZknNi6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
                                 [sty.textloginPage_userNameLogin__bZknH7MIy]:
                                   hasVariant(
                                     $state,
@@ -9700,7 +12138,13 @@ function PlasmicLogin__RenderFunc(props: {
                               }
                             )}
                           >
-                            {hasVariant($state, "loginPage", "userNameSingup")
+                            {hasVariant($state, "loginPage", "selectstatus")
+                              ? "+98 "
+                              : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                )
                               ? "+98 "
                               : hasVariant($state, "loginPage", "userNameLogin")
                               ? "+98 "
@@ -9718,7 +12162,13 @@ function PlasmicLogin__RenderFunc(props: {
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
-                              hasVariant($state, "loginPage", "userNameSingup")
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? Icon111Icon
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
                                 ? Icon111Icon
                                 : hasVariant(
                                     $state,
@@ -9755,6 +12205,12 @@ function PlasmicLogin__RenderFunc(props: {
                                   "loginPage",
                                   "name"
                                 ),
+                                [sty.svgloginPage_selectstatus__xjj9Fni6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
                                 [sty.svgloginPage_userNameLogin__xjj9Fh7MIy]:
                                   hasVariant(
                                     $state,
@@ -9790,7 +12246,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "userNameSingup")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "userNameSingup")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameLogin")
                           ? "09123456789"
@@ -9808,8 +12266,13 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                       showEndIcon={true}
                       type={
-                        hasVariant($state, "loginPage", "userNameSingup") &&
+                        hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "selectstatus")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "userNameSingup") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "userNameSingup")
                           ? "tel"
@@ -9876,6 +12339,8 @@ function PlasmicLogin__RenderFunc(props: {
                             "loginPage",
                             "name"
                           ),
+                          [sty.embedHtmlloginPage_selectstatus__nn8DPni6Lr]:
+                            hasVariant($state, "loginPage", "selectstatus"),
                           [sty.embedHtmlloginPage_userNameLogin__nn8DPh7MIy]:
                             hasVariant($state, "loginPage", "userNameLogin"),
                           [sty.embedHtmlloginPage_userNameSingup__nn8DPnuYv7]:
@@ -10344,822 +12809,885 @@ function PlasmicLogin__RenderFunc(props: {
                     </Stack__>
                   ) : null}
                 </Stack__>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__iXvYk, {
-                    [sty.freeBoxloginPage_emailCode__iXvYkwqwJl]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "emailCode"
-                    ),
-                    [sty.freeBoxloginPage_email__iXvYkIYwOs]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "email"
-                    ),
-                    [sty.freeBoxloginPage_mobileCode__iXvYkm2GXn]: hasVariant(
+                <section
+                  className={classNames(projectcss.all, sty.section__lBl1Y, {
+                    [sty.sectionloginPage_mobileCode__lBl1Ym2GXn]: hasVariant(
                       $state,
                       "loginPage",
                       "mobileCode"
-                    ),
-                    [sty.freeBoxloginPage_mobile__iXvYk6MmOa]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "mobile"
-                    ),
-                    [sty.freeBoxloginPage_name__iXvYkhUiKy]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "name"
-                    ),
-                    [sty.freeBoxloginPage_userNameLogin__iXvYkH7MIy]:
-                      hasVariant($state, "loginPage", "userNameLogin"),
-                    [sty.freeBoxloginPage_userNameSingup__iXvYknuYv7]:
-                      hasVariant($state, "loginPage", "userNameSingup")
+                    )
                   })}
-                  id={
-                    hasVariant($state, "loginPage", "mobileCode")
-                      ? "codeButten"
-                      : undefined
-                  }
                 >
-                  <Button
-                    data-plasmic-name={"button3"}
-                    data-plasmic-override={overrides.button3}
-                    className={classNames("__wab_instance", sty.button3, {
-                      [sty.button3loginPage_emailCode]: hasVariant(
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__iXvYk, {
+                      [sty.freeBoxloginPage_emailCode__iXvYkwqwJl]: hasVariant(
                         $state,
                         "loginPage",
                         "emailCode"
                       ),
-                      [sty.button3loginPage_email]: hasVariant(
+                      [sty.freeBoxloginPage_email__iXvYkIYwOs]: hasVariant(
                         $state,
                         "loginPage",
                         "email"
                       ),
-                      [sty.button3loginPage_mobileCode]: hasVariant(
+                      [sty.freeBoxloginPage_mobileCode__iXvYkm2GXn]: hasVariant(
                         $state,
                         "loginPage",
                         "mobileCode"
                       ),
-                      [sty.button3loginPage_mobile]: hasVariant(
+                      [sty.freeBoxloginPage_mobile__iXvYk6MmOa]: hasVariant(
                         $state,
                         "loginPage",
                         "mobile"
                       ),
-                      [sty.button3loginPage_name]: hasVariant(
+                      [sty.freeBoxloginPage_name__iXvYkhUiKy]: hasVariant(
                         $state,
                         "loginPage",
                         "name"
                       ),
-                      [sty.button3loginPage_userNameLogin]: hasVariant(
-                        $state,
-                        "loginPage",
-                        "userNameLogin"
-                      ),
-                      [sty.button3loginPage_userNameSingup]: hasVariant(
-                        $state,
-                        "loginPage",
-                        "userNameSingup"
-                      )
+                      [sty.freeBoxloginPage_selectstatus__iXvYkNi6Lr]:
+                        hasVariant($state, "loginPage", "selectstatus"),
+                      [sty.freeBoxloginPage_userNameLogin__iXvYkH7MIy]:
+                        hasVariant($state, "loginPage", "userNameLogin"),
+                      [sty.freeBoxloginPage_userNameSingup__iXvYknuYv7]:
+                        hasVariant($state, "loginPage", "userNameSingup")
                     })}
-                    color={generateStateValueProp($state, ["button3", "color"])}
-                    endIcon={
-                      <Icon115Icon
-                        className={classNames(projectcss.all, sty.svg__opVjO, {
-                          [sty.svgloginPage_emailCode__opVjOwqwJl]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "emailCode"
-                          ),
-                          [sty.svgloginPage_mobileCode__opVjOm2GXn]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "mobileCode"
-                          )
-                        })}
-                        role={"img"}
-                      />
-                    }
-                    isDisabled={
-                      hasVariant($state, "loginPage", "emailCode")
-                        ? (() => {
-                            try {
-                              return $state.loadedbtn;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? (() => {
-                            try {
-                              return $state.loadedbtn;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
+                    id={
+                      hasVariant($state, "loginPage", "mobileCode")
+                        ? "codeButten"
                         : undefined
                     }
-                    loading={
-                      hasVariant($state, "loginPage", "emailCode")
-                        ? (() => {
-                            try {
-                              return $state.loadedbtn;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? (() => {
-                            try {
-                              return $state.loadedbtn;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        : undefined
-                    }
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateLoadedbtn"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadedbtn"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadedbtn"] != null &&
-                        typeof $steps["updateLoadedbtn"] === "object" &&
-                        typeof $steps["updateLoadedbtn"].then === "function"
-                      ) {
-                        $steps["updateLoadedbtn"] = await $steps[
-                          "updateLoadedbtn"
-                        ];
-                      }
-
-                      $steps["updateCods"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["cods"]
-                              },
-                              operation: 0,
-                              value: parseInt(window.inputValues.join(""))
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateCods"] != null &&
-                        typeof $steps["updateCods"] === "object" &&
-                        typeof $steps["updateCods"].then === "function"
-                      ) {
-                        $steps["updateCods"] = await $steps["updateCods"];
-                      }
-
-                      $steps["invokeGlobalAction"] =
-                        $state.typeLogin == "signup" && $state.type == "mobile"
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://api.liom.app/auth/signup/validate",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        code: $state.cods,
-                                        gateway: $ctx.query.gateway || "",
-                                        data: $state.number
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction3"] =
-                        $state.typeLogin == "login" && $state.type == "mobile"
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://api.liom.app/auth/login",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        code: $state.cods,
-                                        gateway: $ctx.query.gateway || "",
-                                        type: $state.type,
-                                        name: "",
-                                        data: $state.number || $state.email,
-                                        username: "",
-                                        target: "calendar",
-                                        sex: $state.gender || "",
-                                        token: $state.token || "",
-                                        version: "",
-                                        lang: "fa",
-                                        country: "98",
-                                        anotherLang: "fa",
-                                        device: (() => {
-                                          const userAgent =
-                                            window.navigator.userAgent;
-                                          if (
-                                            /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                              userAgent
-                                            )
-                                          ) {
-                                            return "Mobile";
-                                          } else if (
-                                            /Tablet|iPad/i.test(userAgent)
-                                          ) {
-                                            return "Tablet";
-                                          } else {
-                                            return "Desktop";
-                                          }
-                                        })(),
-                                        uniqueId: $$.uuid.v4(),
-                                        fcm: "  ",
-                                        os: (() => {
-                                          const userAgent =
-                                            window.navigator.userAgent;
-                                          const platform =
-                                            window.navigator.userAgent;
-                                          if (/Windows/i.test(platform))
-                                            return "Windows";
-                                          if (/Mac/i.test(platform))
-                                            return "macOS";
-                                          if (/Linux/i.test(platform))
-                                            return "Linux";
-                                          if (/Android/i.test(userAgent))
-                                            return "Android";
-                                          if (
-                                            /iPhone|iPad|iPod/i.test(userAgent)
-                                          )
-                                            return "iOS";
-                                          return "Unknown OS";
-                                        })(),
-                                        osVersion: (() => {
-                                          const userAgent =
-                                            window.navigator.userAgent;
-                                          if (/Windows NT 10.0/.test(userAgent))
-                                            return "Windows 10";
-                                          if (/Windows NT 6.3/.test(userAgent))
-                                            return "Windows 8.1";
-                                          if (/Windows NT 6.2/.test(userAgent))
-                                            return "Windows 8";
-                                          if (/Windows NT 6.1/.test(userAgent))
-                                            return "Windows 7";
-                                          if (
-                                            /Mac OS X (\d+[\._]\d+)/.test(
-                                              userAgent
-                                            )
-                                          )
-                                            return `macOS ${RegExp.$1.replace(
-                                              "_",
-                                              "."
-                                            )}`;
-                                          if (
-                                            /Android (\d+(\.\d+)?)/.test(
-                                              userAgent
-                                            )
-                                          )
-                                            return `Android ${RegExp.$1}`;
-                                          if (
-                                            /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                              userAgent
-                                            )
-                                          )
-                                            return `iOS ${RegExp.$2.replace(
-                                              "_",
-                                              "."
-                                            )}`;
-                                          return "Unknown Version";
-                                        })(),
-                                        password: "",
-                                        postLang: "fa",
-                                        refCode: $state.antdInput3.value || "",
-                                        isCountryPending: false,
-                                        device_type: window.navigator.platform,
-                                        additionalData: {
-                                          ip: "132465",
-                                          name: "test1"
-                                        },
-                                        city: null,
-                                        state: null,
-                                        birthYear: null,
-                                        religious: 0
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["invokeGlobalAction3"] != null &&
-                        typeof $steps["invokeGlobalAction3"] === "object" &&
-                        typeof $steps["invokeGlobalAction3"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction3"] = await $steps[
-                          "invokeGlobalAction3"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction4"] =
-                        $state.type != "mobile"
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://api.liom.app/rest/user/setMobileValidate",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        data: $state.number,
-                                        gateway: $ctx.query.gateway || "",
-                                        name: $state.antdInput2.value || "",
-                                        email: $state.email || "",
-                                        gender: $state.gender,
-                                        type: "mobile",
-                                        code: $state.cods
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })(),
-                                  (() => {
-                                    try {
-                                      return {
-                                        headers: {
-                                          Authorization:
-                                            "Bearer " +
-                                            ($state.loginData.result.token ||
-                                              "")
-                                        }
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["invokeGlobalAction4"] != null &&
-                        typeof $steps["invokeGlobalAction4"] === "object" &&
-                        typeof $steps["invokeGlobalAction4"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction4"] = await $steps[
-                          "invokeGlobalAction4"
-                        ];
-                      }
-
-                      $steps["updateToken"] =
-                        $steps.invokeGlobalAction?.data?.success == true &&
-                        $state.typeLogin == "signup" &&
-                        $state.type == "mobile"
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["token"]
-                                },
-                                operation: 0,
-                                value: $steps.invokeGlobalAction.data.result
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["updateToken"] != null &&
-                        typeof $steps["updateToken"] === "object" &&
-                        typeof $steps["updateToken"].then === "function"
-                      ) {
-                        $steps["updateToken"] = await $steps["updateToken"];
-                      }
-
-                      $steps["updateLoginPage"] =
-                        $steps.invokeGlobalAction?.data?.success == true &&
-                        $state.typeLogin == "signup"
-                          ? (() => {
-                              const actionArgs = {
-                                vgroup: "loginPage",
-                                operation: 0,
-                                value: "name"
-                              };
-                              return (({ vgroup, value }) => {
-                                if (typeof value === "string") {
-                                  value = [value];
-                                }
-
-                                $stateSet($state, vgroup, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["updateLoginPage"] != null &&
-                        typeof $steps["updateLoginPage"] === "object" &&
-                        typeof $steps["updateLoginPage"].then === "function"
-                      ) {
-                        $steps["updateLoginPage"] = await $steps[
-                          "updateLoginPage"
-                        ];
-                      }
-
-                      $steps["updateLoginData"] =
-                        ($steps.invokeGlobalAction4?.data?.success === true ||
-                          $steps.invokeGlobalAction3?.data?.success === true) &&
-                        $state.typeLogin === "login"
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["loginData"]
-                                },
-                                operation: 0,
-                                value:
-                                  $steps.invokeGlobalAction3?.data ||
-                                  $steps.invokeGlobalAction4?.data
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["updateLoginData"] != null &&
-                        typeof $steps["updateLoginData"] === "object" &&
-                        typeof $steps["updateLoginData"].then === "function"
-                      ) {
-                        $steps["updateLoginData"] = await $steps[
-                          "updateLoginData"
-                        ];
-                      }
-
-                      $steps["runCode"] =
-                        ($steps.invokeGlobalAction4?.data?.success === true ||
-                          $steps.invokeGlobalAction3?.data?.success === true) &&
-                        $state.typeLogin === "login"
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return localStorage.setItem(
-                                    "loginInfo",
-                                    JSON.stringify($state.loginData)
-                                  );
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
-
-                      $steps["invokeGlobalAction2"] =
-                        $steps.invokeGlobalAction?.data?.success == false ||
-                        $steps.invokeGlobalAction3?.data?.success == false ||
-                        $steps.invokeGlobalAction4?.data?.success == false
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "error",
-                                  "\u06a9\u062f \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u0635\u062d\u06cc\u062d \u0646\u06cc\u0633\u062a.",
-                                  "bottom-center"
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.showToast"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["invokeGlobalAction2"] != null &&
-                        typeof $steps["invokeGlobalAction2"] === "object" &&
-                        typeof $steps["invokeGlobalAction2"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
-                      }
-
-                      $steps["goToPage"] =
-                        ($steps.invokeGlobalAction4?.data?.success == true ||
-                          $steps.invokeGlobalAction3?.data?.success == true) &&
-                        $state.typeLogin == "login"
-                          ? (() => {
-                              const actionArgs = {
-                                destination: (() => {
-                                  try {
-                                    return (() => {
-                                      var baseUrl =
-                                        window.location.href.split(
-                                          "redirect_url="
-                                        )[1] || "";
-                                      var separator = baseUrl.includes("?")
-                                        ? "&token="
-                                        : "?token=";
-                                      var redirectUrl =
-                                        baseUrl +
-                                        separator +
-                                        $$.uuid.v4().slice(0, 6) +
-                                        ($state.loginData.result.token || "") +
-                                        $$.uuid.v4().slice(10, 13) +
-                                        "&userId=" +
-                                        $$.uuid.v4().slice(0, 4) +
-                                        ($state.loginData.result.userId || "") +
-                                        $$.uuid.v4().slice(0, 4);
-                                      console.log(redirectUrl);
-                                      return window.open(redirectUrl, "_self");
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
-                      ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
-                      }
-
-                      $steps["updateLoadedbtn2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadedbtn"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadedbtn2"] != null &&
-                        typeof $steps["updateLoadedbtn2"] === "object" &&
-                        typeof $steps["updateLoadedbtn2"].then === "function"
-                      ) {
-                        $steps["updateLoadedbtn2"] = await $steps[
-                          "updateLoadedbtn2"
-                        ];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button3", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__xsc0N,
-                        {
-                          [sty.textloginPage_emailCode__xsc0NwqwJl]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "emailCode"
-                          ),
-                          [sty.textloginPage_email__xsc0NIYwOs]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "email"
-                          ),
-                          [sty.textloginPage_mobileCode__xsc0Nm2GXn]:
-                            hasVariant($state, "loginPage", "mobileCode"),
-                          [sty.textloginPage_mobile__xsc0N6MmOa]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "mobile"
-                          ),
-                          [sty.textloginPage_name__xsc0NhUiKy]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "name"
-                          ),
-                          [sty.textloginPage_userNameLogin__xsc0NH7MIy]:
-                            hasVariant($state, "loginPage", "userNameLogin"),
-                          [sty.textloginPage_userNameSingup__xsc0NnuYv7]:
-                            hasVariant($state, "loginPage", "userNameSingup")
+                    <Button
+                      data-plasmic-name={"button3"}
+                      data-plasmic-override={overrides.button3}
+                      className={classNames("__wab_instance", sty.button3, {
+                        [sty.button3loginPage_emailCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
+                        [sty.button3loginPage_email]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.button3loginPage_mobileCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.button3loginPage_mobile]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.button3loginPage_name]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        ),
+                        [sty.button3loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
+                        [sty.button3loginPage_userNameLogin]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "userNameLogin"
+                        ),
+                        [sty.button3loginPage_userNameSingup]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "userNameSingup"
+                        )
+                      })}
+                      color={generateStateValueProp($state, [
+                        "button3",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon115Icon
+                          className={classNames(
+                            projectcss.all,
+                            sty.svg__opVjO,
+                            {
+                              [sty.svgloginPage_emailCode__opVjOwqwJl]:
+                                hasVariant($state, "loginPage", "emailCode"),
+                              [sty.svgloginPage_mobileCode__opVjOm2GXn]:
+                                hasVariant($state, "loginPage", "mobileCode")
+                            }
+                          )}
+                          role={"img"}
+                        />
+                      }
+                      isDisabled={
+                        hasVariant($state, "loginPage", "emailCode")
+                          ? (() => {
+                              try {
+                                return $state.loadedbtn;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? (() => {
+                              try {
+                                return $state.loadedbtn;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()
+                          : undefined
+                      }
+                      loading={
+                        hasVariant($state, "loginPage", "emailCode")
+                          ? (() => {
+                              try {
+                                return $state.loadedbtn;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? (() => {
+                              try {
+                                return $state.loadedbtn;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()
+                          : undefined
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateLoadedbtn"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loadedbtn"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoadedbtn"] != null &&
+                          typeof $steps["updateLoadedbtn"] === "object" &&
+                          typeof $steps["updateLoadedbtn"].then === "function"
+                        ) {
+                          $steps["updateLoadedbtn"] = await $steps[
+                            "updateLoadedbtn"
+                          ];
                         }
-                      )}
+
+                        $steps["updateCods"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["cods"]
+                                },
+                                operation: 0,
+                                value: parseInt(window.inputValues.join(""))
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateCods"] != null &&
+                          typeof $steps["updateCods"] === "object" &&
+                          typeof $steps["updateCods"].then === "function"
+                        ) {
+                          $steps["updateCods"] = await $steps["updateCods"];
+                        }
+
+                        $steps["invokeGlobalAction"] =
+                          $state.typeLogin == "signup" &&
+                          $state.type == "mobile"
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/auth/signup/validate",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          code: $state.cods,
+                                          gateway: $ctx.query.gateway || "",
+                                          data: $state.number
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction3"] =
+                          $state.typeLogin == "login" && $state.type == "mobile"
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/auth/login",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          code: $state.cods,
+                                          gateway: $ctx.query.gateway || "",
+                                          type: $state.type,
+                                          name: "",
+                                          data: $state.number || $state.email,
+                                          username: "",
+                                          target: "calendar",
+                                          sex: $state.gender || "",
+                                          token: $state.token || "",
+                                          version: "",
+                                          lang: "fa",
+                                          country: "98",
+                                          anotherLang: "fa",
+                                          device: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
+                                            ) {
+                                              return "Mobile";
+                                            } else if (
+                                              /Tablet|iPad/i.test(userAgent)
+                                            ) {
+                                              return "Tablet";
+                                            } else {
+                                              return "Desktop";
+                                            }
+                                          })(),
+                                          uniqueId: $$.uuid.v4(),
+                                          fcm:
+                                            window.localStorage.getItem(
+                                              "fcmToken"
+                                            ) || " ",
+                                          os: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            const platform =
+                                              window.navigator.userAgent;
+                                            if (/Windows/i.test(platform))
+                                              return "Windows";
+                                            if (/Mac/i.test(platform))
+                                              return "macOS";
+                                            if (/Linux/i.test(platform))
+                                              return "Linux";
+                                            if (/Android/i.test(userAgent))
+                                              return "Android";
+                                            if (
+                                              /iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return "iOS";
+                                            return "Unknown OS";
+                                          })(),
+                                          osVersion: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Windows NT 10.0/.test(userAgent)
+                                            )
+                                              return "Windows 10";
+                                            if (
+                                              /Windows NT 6.3/.test(userAgent)
+                                            )
+                                              return "Windows 8.1";
+                                            if (
+                                              /Windows NT 6.2/.test(userAgent)
+                                            )
+                                              return "Windows 8";
+                                            if (
+                                              /Windows NT 6.1/.test(userAgent)
+                                            )
+                                              return "Windows 7";
+                                            if (
+                                              /Mac OS X (\d+[\._]\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `macOS ${RegExp.$1.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            if (
+                                              /Android (\d+(\.\d+)?)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `Android ${RegExp.$1}`;
+                                            if (
+                                              /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `iOS ${RegExp.$2.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            return "Unknown Version";
+                                          })(),
+                                          password: "",
+                                          postLang: "fa",
+                                          refCode:
+                                            $state.antdInput3.value || "",
+                                          isCountryPending: false,
+                                          device_type:
+                                            window.navigator.platform,
+                                          additionalData: {
+                                            ip: "132465",
+                                            name: "test1"
+                                          },
+                                          city: null,
+                                          state: null,
+                                          birthYear: null,
+                                          religious: 0
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction3"] != null &&
+                          typeof $steps["invokeGlobalAction3"] === "object" &&
+                          typeof $steps["invokeGlobalAction3"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction3"] = await $steps[
+                            "invokeGlobalAction3"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction4"] =
+                          $state.type != "mobile"
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/rest/user/setMobileValidate",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          data: $state.number,
+                                          gateway: $ctx.query.gateway || "",
+                                          name: $state.antdInput2.value || "",
+                                          email: $state.email || "",
+                                          gender: $state.gender,
+                                          type: "mobile",
+                                          code: $state.cods
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })(),
+                                    (() => {
+                                      try {
+                                        return {
+                                          headers: {
+                                            Authorization:
+                                              "Bearer " +
+                                              ($state.loginData.result.token ||
+                                                "")
+                                          }
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction4"] != null &&
+                          typeof $steps["invokeGlobalAction4"] === "object" &&
+                          typeof $steps["invokeGlobalAction4"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction4"] = await $steps[
+                            "invokeGlobalAction4"
+                          ];
+                        }
+
+                        $steps["updateToken"] =
+                          $steps.invokeGlobalAction?.data?.success == true &&
+                          $state.typeLogin == "signup" &&
+                          $state.type == "mobile"
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["token"]
+                                  },
+                                  operation: 0,
+                                  value: $steps.invokeGlobalAction.data.result
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateToken"] != null &&
+                          typeof $steps["updateToken"] === "object" &&
+                          typeof $steps["updateToken"].then === "function"
+                        ) {
+                          $steps["updateToken"] = await $steps["updateToken"];
+                        }
+
+                        $steps["updateLoginPage"] =
+                          $steps.invokeGlobalAction?.data?.success == true &&
+                          $state.typeLogin == "signup"
+                            ? (() => {
+                                const actionArgs = {
+                                  vgroup: "loginPage",
+                                  operation: 0,
+                                  value: "name"
+                                };
+                                return (({ vgroup, value }) => {
+                                  if (typeof value === "string") {
+                                    value = [value];
+                                  }
+
+                                  $stateSet($state, vgroup, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateLoginPage"] != null &&
+                          typeof $steps["updateLoginPage"] === "object" &&
+                          typeof $steps["updateLoginPage"].then === "function"
+                        ) {
+                          $steps["updateLoginPage"] = await $steps[
+                            "updateLoginPage"
+                          ];
+                        }
+
+                        $steps["updateLoginData"] =
+                          ($steps.invokeGlobalAction4?.data?.success === true ||
+                            $steps.invokeGlobalAction3?.data?.success ===
+                              true) &&
+                          $state.typeLogin === "login"
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["loginData"]
+                                  },
+                                  operation: 0,
+                                  value:
+                                    $steps.invokeGlobalAction3?.data ||
+                                    $steps.invokeGlobalAction4?.data
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateLoginData"] != null &&
+                          typeof $steps["updateLoginData"] === "object" &&
+                          typeof $steps["updateLoginData"].then === "function"
+                        ) {
+                          $steps["updateLoginData"] = await $steps[
+                            "updateLoginData"
+                          ];
+                        }
+
+                        $steps["runCode"] =
+                          ($steps.invokeGlobalAction4?.data?.success === true ||
+                            $steps.invokeGlobalAction3?.data?.success ===
+                              true) &&
+                          $state.typeLogin === "login"
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return localStorage.setItem(
+                                      "loginInfo",
+                                      JSON.stringify($state.loginData)
+                                    );
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["invokeGlobalAction2"] =
+                          $steps.invokeGlobalAction?.data?.success == false ||
+                          $steps.invokeGlobalAction3?.data?.success == false ||
+                          $steps.invokeGlobalAction4?.data?.success == false
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "error",
+                                    "\u06a9\u062f \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u0635\u062d\u06cc\u062d \u0646\u06cc\u0633\u062a.",
+                                    "bottom-center"
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.showToast"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction2"] != null &&
+                          typeof $steps["invokeGlobalAction2"] === "object" &&
+                          typeof $steps["invokeGlobalAction2"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction2"] = await $steps[
+                            "invokeGlobalAction2"
+                          ];
+                        }
+
+                        $steps["goToPage"] =
+                          ($steps.invokeGlobalAction4?.data?.success == true ||
+                            $steps.invokeGlobalAction3?.data?.success ==
+                              true) &&
+                          $state.typeLogin == "login"
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: (() => {
+                                    try {
+                                      return (() => {
+                                        if ($ctx.query.redirect_url != "") {
+                                          var baseUrl =
+                                            window.location.href.split(
+                                              "redirect_url="
+                                            )[1] || "";
+                                          baseUrl = new URL(baseUrl);
+                                          const origin = baseUrl.origin;
+                                          const pathname =
+                                            baseUrl.pathname.split("&")[0] ||
+                                            "";
+                                          const searchParams =
+                                            baseUrl.searchParams.toString();
+                                          baseUrl = searchParams
+                                            ? `${origin}${pathname}?${searchParams}`
+                                            : `${origin}${pathname}`;
+                                        } else if (
+                                          $state.loginData.sex == "male"
+                                        )
+                                          var baseUrl =
+                                            "https://apps.liom.app/hamyar";
+                                        var separator = baseUrl.includes("?")
+                                          ? "&token="
+                                          : "?token=";
+                                        var redirectUrl =
+                                          baseUrl +
+                                          separator +
+                                          $$.uuid.v4().slice(0, 6) +
+                                          ($state.loginData.result.token ||
+                                            "") +
+                                          $$.uuid.v4().slice(10, 13) +
+                                          "&userId=" +
+                                          $$.uuid.v4().slice(0, 4) +
+                                          ($state.loginData.result.userId ||
+                                            "") +
+                                          $$.uuid.v4().slice(0, 4);
+                                        console.log(redirectUrl);
+                                        return redirectUrl;
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                };
+                                return (({ destination }) => {
+                                  if (
+                                    typeof destination === "string" &&
+                                    destination.startsWith("#")
+                                  ) {
+                                    document
+                                      .getElementById(destination.substr(1))
+                                      .scrollIntoView({ behavior: "smooth" });
+                                  } else {
+                                    __nextRouter?.push(destination);
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+
+                        $steps["updateLoadedbtn2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loadedbtn"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoadedbtn2"] != null &&
+                          typeof $steps["updateLoadedbtn2"] === "object" &&
+                          typeof $steps["updateLoadedbtn2"].then === "function"
+                        ) {
+                          $steps["updateLoadedbtn2"] = await $steps[
+                            "updateLoadedbtn2"
+                          ];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button3",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
                     >
-                      {hasVariant($state, "loginPage", "userNameSingup")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "userNameLogin")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "emailCode")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "name")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "email")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : hasVariant($state, "loginPage", "mobile")
-                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
-                        : "Button"}
-                    </div>
-                  </Button>
-                </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__xsc0N,
+                          {
+                            [sty.textloginPage_emailCode__xsc0NwqwJl]:
+                              hasVariant($state, "loginPage", "emailCode"),
+                            [sty.textloginPage_email__xsc0NIYwOs]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "email"
+                            ),
+                            [sty.textloginPage_mobileCode__xsc0Nm2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode"),
+                            [sty.textloginPage_mobile__xsc0N6MmOa]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "mobile"
+                            ),
+                            [sty.textloginPage_name__xsc0NhUiKy]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "name"
+                            ),
+                            [sty.textloginPage_selectstatus__xsc0NNi6Lr]:
+                              hasVariant($state, "loginPage", "selectstatus"),
+                            [sty.textloginPage_userNameLogin__xsc0NH7MIy]:
+                              hasVariant($state, "loginPage", "userNameLogin"),
+                            [sty.textloginPage_userNameSingup__xsc0NnuYv7]:
+                              hasVariant($state, "loginPage", "userNameSingup")
+                          }
+                        )}
+                      >
+                        {hasVariant($state, "loginPage", "selectstatus")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "userNameSingup")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "userNameLogin")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "emailCode")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "name")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "email")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : "Button"}
+                      </div>
+                    </Button>
+                  </div>
+                </section>
               </Stack__>
             </Reveal>
           ) : null}
           {(
-            hasVariant($state, "loginPage", "userNameSingup")
+            hasVariant($state, "loginPage", "selectstatus")
+              ? true
+              : hasVariant($state, "loginPage", "userNameSingup")
               ? true
               : hasVariant($state, "loginPage", "userNameLogin")
               ? true
@@ -11204,6 +13732,11 @@ function PlasmicLogin__RenderFunc(props: {
                   "loginPage",
                   "name"
                 ),
+                [sty.emailCodeloginPage_selectstatus]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "selectstatus"
+                ),
                 [sty.emailCodeloginPage_userNameLogin]: hasVariant(
                   $state,
                   "loginPage",
@@ -11247,6 +13780,11 @@ function PlasmicLogin__RenderFunc(props: {
                     "loginPage",
                     "name"
                   ),
+                  [sty.freeBoxloginPage_selectstatus__aMseFni6Lr]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "selectstatus"
+                  ),
                   [sty.freeBoxloginPage_userNameLogin__aMseFh7MIy]: hasVariant(
                     $state,
                     "loginPage",
@@ -11286,6 +13824,8 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus___6Y0UuNi6Lr]:
+                      hasVariant($state, "loginPage", "selectstatus"),
                     [sty.freeBoxloginPage_userNameLogin___6Y0UuH7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.freeBoxloginPage_userNameSingup___6Y0UunuYv7]:
@@ -11349,6 +13889,11 @@ function PlasmicLogin__RenderFunc(props: {
                         "loginPage",
                         "name"
                       ),
+                      [sty.svgloginPage_selectstatus__ynPqQni6Lr]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
+                      ),
                       [sty.svgloginPage_userNameLogin__ynPqQh7MIy]: hasVariant(
                         $state,
                         "loginPage",
@@ -11391,6 +13936,11 @@ function PlasmicLogin__RenderFunc(props: {
                       $state,
                       "loginPage",
                       "name"
+                    ),
+                    [sty.freeBoxloginPage_selectstatus__eepWsni6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
                     ),
                     [sty.freeBoxloginPage_userNameLogin__eepWsh7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
@@ -11437,6 +13987,8 @@ function PlasmicLogin__RenderFunc(props: {
                             "loginPage",
                             "name"
                           ),
+                          [sty.textloginPage_selectstatus___25YoXni6Lr]:
+                            hasVariant($state, "loginPage", "selectstatus"),
                           [sty.textloginPage_userNameLogin___25YoXh7MIy]:
                             hasVariant($state, "loginPage", "userNameLogin"),
                           [sty.textloginPage_userNameSingup___25YoXnuYv7]:
@@ -11444,7 +13996,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       )}
                     >
-                      {hasVariant($state, "loginPage", "userNameSingup")
+                      {hasVariant($state, "loginPage", "selectstatus")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -11485,6 +14039,8 @@ function PlasmicLogin__RenderFunc(props: {
                             "loginPage",
                             "name"
                           ),
+                          [sty.textloginPage_selectstatus___7R0Wqni6Lr]:
+                            hasVariant($state, "loginPage", "selectstatus"),
                           [sty.textloginPage_userNameLogin___7R0Wqh7MIy]:
                             hasVariant($state, "loginPage", "userNameLogin"),
                           [sty.textloginPage_userNameSingup___7R0WQnuYv7]:
@@ -11522,7 +14078,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       }}
                     >
-                      {hasVariant($state, "loginPage", "userNameSingup")
+                      {hasVariant($state, "loginPage", "selectstatus")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -11543,7 +14101,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__ddMJo,
-                      hasVariant($state, "loginPage", "userNameSingup")
+                      hasVariant($state, "loginPage", "selectstatus")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "negative"
@@ -11578,6 +14138,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.freeBoxloginPage_selectstatus__ddMJoNi6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.freeBoxloginPage_userNameLogin__ddMJoH7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.freeBoxloginPage_userNameSingup__ddMJonuYv7]:
@@ -11695,6 +14257,11 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textInput5loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
                         [sty.textInput5loginPage_userNameLogin]: hasVariant(
                           $state,
                           "loginPage",
@@ -11724,7 +14291,13 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               projectcss.__wab_text,
                               sty.text__lNsEe,
-                              hasVariant($state, "loginPage", "userNameSingup")
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? "negative"
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
                                 ? "negative"
                                 : hasVariant(
                                     $state,
@@ -11754,6 +14327,12 @@ function PlasmicLogin__RenderFunc(props: {
                                   hasVariant($state, "loginPage", "mobile"),
                                 [sty.textloginPage_name__lNsEEhUiKy]:
                                   hasVariant($state, "loginPage", "name"),
+                                [sty.textloginPage_selectstatus__lNsEeni6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
                                 [sty.textloginPage_userNameLogin__lNsEeh7MIy]:
                                   hasVariant(
                                     $state,
@@ -11769,7 +14348,13 @@ function PlasmicLogin__RenderFunc(props: {
                               }
                             )}
                           >
-                            {hasVariant($state, "loginPage", "userNameSingup")
+                            {hasVariant($state, "loginPage", "selectstatus")
+                              ? "+98 "
+                              : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                )
                               ? "+98 "
                               : hasVariant($state, "loginPage", "userNameLogin")
                               ? "+98 "
@@ -11787,7 +14372,13 @@ function PlasmicLogin__RenderFunc(props: {
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
-                              hasVariant($state, "loginPage", "userNameSingup")
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? Icon111Icon
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
                                 ? Icon111Icon
                                 : hasVariant(
                                     $state,
@@ -11821,6 +14412,12 @@ function PlasmicLogin__RenderFunc(props: {
                                   hasVariant($state, "loginPage", "mobile"),
                                 [sty.svgloginPage_name___1J9QbhUiKy]:
                                   hasVariant($state, "loginPage", "name"),
+                                [sty.svgloginPage_selectstatus___1J9QbNi6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
                                 [sty.svgloginPage_userNameLogin___1J9QbH7MIy]:
                                   hasVariant(
                                     $state,
@@ -11861,7 +14458,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "userNameSingup")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "userNameSingup")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameLogin")
                           ? "09123456789"
@@ -11906,8 +14505,13 @@ function PlasmicLogin__RenderFunc(props: {
                         />
                       }
                       type={
-                        hasVariant($state, "loginPage", "userNameSingup") &&
+                        hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "selectstatus")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "userNameSingup") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "userNameSingup")
                           ? "tel"
@@ -11986,6 +14590,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.embedHtmlloginPage_selectstatus__bV0CsNi6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.embedHtmlloginPage_userNameLogin__bV0CsH7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.embedHtmlloginPage_userNameSingup__bV0CsnuYv7]:
@@ -12415,6 +15021,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus__tCt3Yni6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.freeBoxloginPage_userNameLogin__tCt3Yh7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.freeBoxloginPage_userNameSingup__tCt3YnuYv7]:
@@ -12449,6 +15060,11 @@ function PlasmicLogin__RenderFunc(props: {
                         $state,
                         "loginPage",
                         "name"
+                      ),
+                      [sty.button7loginPage_selectstatus]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
                       ),
                       [sty.button7loginPage_userNameLogin]: hasVariant(
                         $state,
@@ -13067,6 +15683,8 @@ function PlasmicLogin__RenderFunc(props: {
                             "loginPage",
                             "name"
                           ),
+                          [sty.textloginPage_selectstatus__fDbQhNi6Lr]:
+                            hasVariant($state, "loginPage", "selectstatus"),
                           [sty.textloginPage_userNameLogin__fDbQhH7MIy]:
                             hasVariant($state, "loginPage", "userNameLogin"),
                           [sty.textloginPage_userNameSingup__fDbQhnuYv7]:
@@ -13074,7 +15692,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       )}
                     >
-                      {hasVariant($state, "loginPage", "userNameSingup")
+                      {hasVariant($state, "loginPage", "selectstatus")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
@@ -13096,7 +15716,9 @@ function PlasmicLogin__RenderFunc(props: {
             </Reveal>
           ) : null}
           {(
-            hasVariant($state, "loginPage", "userNameSingup")
+            hasVariant($state, "loginPage", "selectstatus")
+              ? true
+              : hasVariant($state, "loginPage", "userNameSingup")
               ? true
               : hasVariant($state, "loginPage", "userNameLogin")
               ? true
@@ -13138,6 +15760,11 @@ function PlasmicLogin__RenderFunc(props: {
                   $state,
                   "loginPage",
                   "name"
+                ),
+                [sty.revealloginPage_selectstatus__iNn9Ni6Lr]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "selectstatus"
                 ),
                 [sty.revealloginPage_userNameLogin__iNn9H7MIy]: hasVariant(
                   $state,
@@ -13182,6 +15809,11 @@ function PlasmicLogin__RenderFunc(props: {
                     "loginPage",
                     "name"
                   ),
+                  [sty.freeBoxloginPage_selectstatus__xWvNpni6Lr]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "selectstatus"
+                  ),
                   [sty.freeBoxloginPage_userNameLogin__xWvNph7MIy]: hasVariant(
                     $state,
                     "loginPage",
@@ -13220,6 +15852,11 @@ function PlasmicLogin__RenderFunc(props: {
                       $state,
                       "loginPage",
                       "name"
+                    ),
+                    [sty.freeBoxloginPage_selectstatus__v8TouNi6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
                     ),
                     [sty.freeBoxloginPage_userNameLogin__v8TouH7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
@@ -13284,6 +15921,11 @@ function PlasmicLogin__RenderFunc(props: {
                         "loginPage",
                         "name"
                       ),
+                      [sty.svgloginPage_selectstatus__ia5KcNi6Lr]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
+                      ),
                       [sty.svgloginPage_userNameLogin__ia5KcH7MIy]: hasVariant(
                         $state,
                         "loginPage",
@@ -13327,6 +15969,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus__ljycNni6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.freeBoxloginPage_userNameLogin__ljycNh7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.freeBoxloginPage_userNameSingup__ljycNnuYv7]:
@@ -13364,6 +16011,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textloginPage_selectstatus__cHEeFni6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.textloginPage_userNameLogin__cHEeFh7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.textloginPage_userNameSingup__cHEeFnuYv7]:
@@ -13371,7 +16020,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "userNameSingup")
+                    {hasVariant($state, "loginPage", "selectstatus")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "userNameSingup")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "userNameLogin")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -13391,7 +16042,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__sOEh,
-                      hasVariant($state, "loginPage", "userNameSingup")
+                      hasVariant($state, "loginPage", "selectstatus")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "negative"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "negative"
@@ -13429,6 +16082,8 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.freeBoxloginPage_selectstatus__sOEhni6Lr]:
+                          hasVariant($state, "loginPage", "selectstatus"),
                         [sty.freeBoxloginPage_userNameLogin__sOEhh7MIy]:
                           hasVariant($state, "loginPage", "userNameLogin"),
                         [sty.freeBoxloginPage_userNameSingup__sOEHnuYv7]:
@@ -13547,6 +16202,11 @@ function PlasmicLogin__RenderFunc(props: {
                           "loginPage",
                           "name"
                         ),
+                        [sty.textInput2loginPage_selectstatus]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "selectstatus"
+                        ),
                         [sty.textInput2loginPage_userNameLogin]: hasVariant(
                           $state,
                           "loginPage",
@@ -13576,7 +16236,13 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               projectcss.__wab_text,
                               sty.text__bJLfG,
-                              hasVariant($state, "loginPage", "userNameSingup")
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? "negative"
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
                                 ? "negative"
                                 : hasVariant(
                                     $state,
@@ -13606,6 +16272,12 @@ function PlasmicLogin__RenderFunc(props: {
                                   hasVariant($state, "loginPage", "mobile"),
                                 [sty.textloginPage_name__bJLfGhUiKy]:
                                   hasVariant($state, "loginPage", "name"),
+                                [sty.textloginPage_selectstatus__bJLfGni6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
                                 [sty.textloginPage_userNameLogin__bJLfGh7MIy]:
                                   hasVariant(
                                     $state,
@@ -13621,7 +16293,13 @@ function PlasmicLogin__RenderFunc(props: {
                               }
                             )}
                           >
-                            {hasVariant($state, "loginPage", "userNameSingup")
+                            {hasVariant($state, "loginPage", "selectstatus")
+                              ? "+98 "
+                              : hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                )
                               ? "+98 "
                               : hasVariant($state, "loginPage", "userNameLogin")
                               ? "+98 "
@@ -13639,7 +16317,13 @@ function PlasmicLogin__RenderFunc(props: {
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
-                              hasVariant($state, "loginPage", "userNameSingup")
+                              hasVariant($state, "loginPage", "selectstatus")
+                                ? Icon111Icon
+                                : hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "userNameSingup"
+                                  )
                                 ? Icon111Icon
                                 : hasVariant(
                                     $state,
@@ -13676,6 +16360,12 @@ function PlasmicLogin__RenderFunc(props: {
                                   "loginPage",
                                   "name"
                                 ),
+                                [sty.svgloginPage_selectstatus__rt0YqNi6Lr]:
+                                  hasVariant(
+                                    $state,
+                                    "loginPage",
+                                    "selectstatus"
+                                  ),
                                 [sty.svgloginPage_userNameLogin__rt0YqH7MIy]:
                                   hasVariant(
                                     $state,
@@ -13711,7 +16401,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "userNameSingup")
+                        hasVariant($state, "loginPage", "selectstatus")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "userNameSingup")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "userNameLogin")
                           ? "09123456789"
@@ -13759,8 +16451,11 @@ function PlasmicLogin__RenderFunc(props: {
                         />
                       }
                       type={
-                        hasVariant($state, "loginPage", "userNameSingup") &&
+                        hasVariant($state, "loginPage", "selectstatus") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "userNameSingup") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "userNameLogin") &&
                             hasVariant(globalVariants, "screen", "mobile")
@@ -13820,6 +16515,11 @@ function PlasmicLogin__RenderFunc(props: {
                       "loginPage",
                       "name"
                     ),
+                    [sty.freeBoxloginPage_selectstatus__wh17Ni6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    ),
                     [sty.freeBoxloginPage_userNameLogin__wh17H7MIy]: hasVariant(
                       $state,
                       "loginPage",
@@ -13857,6 +16557,11 @@ function PlasmicLogin__RenderFunc(props: {
                         $state,
                         "loginPage",
                         "name"
+                      ),
+                      [sty.button5loginPage_selectstatus]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
                       ),
                       [sty.button5loginPage_userNameLogin]: hasVariant(
                         $state,
@@ -14283,6 +16988,8 @@ function PlasmicLogin__RenderFunc(props: {
                             "loginPage",
                             "name"
                           ),
+                          [sty.textloginPage_selectstatus__dqVzEni6Lr]:
+                            hasVariant($state, "loginPage", "selectstatus"),
                           [sty.textloginPage_userNameLogin__dqVzEh7MIy]:
                             hasVariant($state, "loginPage", "userNameLogin"),
                           [sty.textloginPage_userNameSingup__dqVzEnuYv7]:
@@ -14290,7 +16997,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       )}
                     >
-                      {hasVariant($state, "loginPage", "userNameSingup")
+                      {hasVariant($state, "loginPage", "selectstatus")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "userNameSingup")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                         : hasVariant($state, "loginPage", "userNameLogin")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
@@ -14320,15 +17029,36 @@ function PlasmicLogin__RenderFunc(props: {
                 "loginPage",
                 "mobileCode"
               ),
-              [sty.rulesloginPage_name]: hasVariant($state, "loginPage", "name")
+              [sty.rulesloginPage_name]: hasVariant(
+                $state,
+                "loginPage",
+                "name"
+              ),
+              [sty.rulesloginPage_selectstatus]: hasVariant(
+                $state,
+                "loginPage",
+                "selectstatus"
+              )
             })}
             closeIcon={
-              <SearchSvgIcon
+              <PlasmicIcon__
+                PlasmicIconType={
+                  hasVariant($state, "loginPage", "selectstatus")
+                    ? SearchSvgIcon
+                    : hasVariant($state, "loginPage", "name")
+                    ? SearchSvgIcon
+                    : "div"
+                }
                 className={classNames(projectcss.all, sty.svg__uPqGf, {
                   [sty.svgloginPage_name__uPqGfhUiKy]: hasVariant(
                     $state,
                     "loginPage",
                     "name"
+                  ),
+                  [sty.svgloginPage_selectstatus__uPqGfNi6Lr]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "selectstatus"
                   )
                 })}
                 onClick={async event => {
@@ -14380,12 +17110,25 @@ function PlasmicLogin__RenderFunc(props: {
               plasmic_plasmic_rich_components_css.plasmic_tokens
             )}
             hideFooter={
-              hasVariant($state, "loginPage", "name") ? true : undefined
+              hasVariant($state, "loginPage", "selectstatus")
+                ? true
+                : hasVariant($state, "loginPage", "name")
+                ? true
+                : undefined
             }
             maskClosable={
-              hasVariant($state, "loginPage", "name") ? false : undefined
+              hasVariant($state, "loginPage", "selectstatus")
+                ? false
+                : hasVariant($state, "loginPage", "name")
+                ? false
+                : undefined
             }
             modalContentClassName={classNames({
+              [sty["pcls_0xi28s9CP9e1"]]: hasVariant(
+                $state,
+                "loginPage",
+                "selectstatus"
+              ),
               [sty["pcls__PIcEQBAC1VH"]]: hasVariant(
                 $state,
                 "loginPage",
@@ -14403,7 +17146,11 @@ function PlasmicLogin__RenderFunc(props: {
             title={null}
             trigger={null}
             width={
-              hasVariant($state, "loginPage", "name") ? "100vw" : undefined
+              hasVariant($state, "loginPage", "selectstatus")
+                ? "100vw"
+                : hasVariant($state, "loginPage", "name")
+                ? "100vw"
+                : undefined
             }
           >
             <div
@@ -14412,6 +17159,11 @@ function PlasmicLogin__RenderFunc(props: {
                   $state,
                   "loginPage",
                   "name"
+                ),
+                [sty.freeBoxloginPage_selectstatus__jsaqcni6Lr]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "selectstatus"
                 )
               })}
             >
@@ -14425,11 +17177,32 @@ function PlasmicLogin__RenderFunc(props: {
                       $state,
                       "loginPage",
                       "name"
+                    ),
+                    [sty.textloginPage_selectstatus__qilRrNi6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
                     )
                   }
                 )}
               >
-                {hasVariant($state, "loginPage", "name") ? (
+                {hasVariant($state, "loginPage", "selectstatus") ? (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return " محدودیت سنی\nلیوم محدودیت سنی ندارد\n\n- انتشار محتوایی که به طور مستقیم یا غیرمستقیم توهین به اسلام تلقی بشود ممنوع است.\n -  انتشار پستهای فانتزی مثبت هیجده ممنوع است.\n- انتشار محتوای سیاسی که همراه با توهین و نفرت پراکنی باشد ممنوع است.\n\n - پست مثبت هیجده درصورتی مجاز به انتشار می باشد که به اموزش بپردازد و  یا نیاز ب کمک داشته باشد که در هر دو صورت باید حتما  تگ مثبت هیجده توسط صاحب پست فعال شود . ( توجه شود که در هیچ صورتی پست های مثبت هیجده به بخش داغترین ورود نخواهند پیدا کرد)\n\n-  فعال نکردن تگ مثبت هیجده تخلف است و در صورتیکه چندین بار تکرار شود و رعایت نکنید،  پست شما در ابتدا مستقیما حذف میشود و در ادامه منجر به بلاک اکانت شما خواهد شد . \n\n - اگر نمیخواهید محتواهای مثبت هیجده را مشاهده کنید از بخش تنظیمات آن را برای خود فعال کنید .\n\nانجام موارد زیر ممنوع می باشد \n• تبلیغ انواع مواد مخدر ممنوع است.\n• محتوایی که جزئیات آموزشی در مورد نحوه انجام یک فعالیت خطرناک(خودکشی،قاچاق،ترور،خودآزاری) را توضیح یا ارائه می دهد.\n• بازی‌های خطرناک که در آن از فرد کارهایی که ناهنجار است و عرف نیست طلب میشود که ممکن است منجر به آسیب بدنی یا آسیب مالی شوند.\n• ترویج خودکشی و خودآزاری در لیوم ممنوع است.\n• محتوایی که دستورالعمل‌هایی برای خودکشی یا نحوه خودآزاری ارائه می‌دهد.\n• بازی های خودکشی یا آسیب رساندن به خود،چالش ها، پیمان ها یا کلاهبرداری ها.\n• محتوایی که حاوی زبان صریح جنسی برای ارضای جنسی است.\n \n\n• محتوایی که آزار و اذیت هماهنگ را تشویق می کند.\n• محتوایی که قربانیان تراژدی های خشونت آمیز را تحقیر می کند.\n• محتوایی که آسیب یا ارعاب عمدی را به تصویر می‌کشد، مانند تعقیب سایبری.\n• محتوایی که آرزوی مرگ، بیماری جدی یا آسیب جدی دیگر را برای فردی دارد.\n• محتوایی که تهدید به افشای داده‌های شخصی یا اطلاعات شناسایی شخصی می‌کند.\n• محتوایی که خشونت، طرد، جداسازی، یا تبعیض علیه فرد یا گروه خاصی  را ترویج یا توجیه می‌کند.\n• محتوای سیاسی که باعث ایجاد تنش بین دو گروه شود.\n• استفاده از خدمات لیوم  برای اهداف غیرقانونی و یا پیشبرد اهداف غیرقانونی.\n\n\n - توجه شود که تمامی قوانین برای بخش بحث آزاد نیز صادق می باشند . \n\n\n\nدر هنگام مواجه با هر یک از موارد بالا .میتوانید با گزارش دادن محتوا یا شخص  ما را مطلع سازید تا  با آن محتوا/شخص برخورد کنیم\n\nتوهین و نظر  شخصی : \n• محتوایی که به فرد دیگری توهین می کند یا فردی را بر اساس ویژگی هایی مانند عقل، ظاهر، ویژگی های شخصیتی یا بهداشت تحقیر می کند در لیوم ممنوع است .\nتوجه شود که “نظر شخصی “ با توهین متفاوت است . اگر نظر خود را طوری بیان کنید که محوریت بحث خارج نشود .موردی ندارد. \n مثلا : \n*هر کس که کیدراما دوست نداره بی سلیقه س ( موردی ندارد و نظر شخصی فرد تلقی میشود و اگر اذیتتان میکند فرد را پنهان کنید)  \n*هر کس که کیدراما دوست نداره یک مغز زنگ زده داره و بی سلیقه اس و...  دهنش.( توهین است و تخلف صورت گرفته است)\n\n\nبرخی از پر تکرار ترین کلماتی که باعث میشوند نظر شخصی  شما با توهین اشتباه گرفته شود در زیر اورده شده است:  الفاظ رکیک،  بیشعور،  نفهم،  نادان،  مغز زنگ زده،  ارزشی،  عرزشی،  انتی عرزشی،  امل،  الفاظی که براساس دین فرد مورد نظر به اون نسبت داده میشود،  عقب مونده،  نسبت دادن صفات به قومیتی خاص و...\n\nپشتیبانی\nتیم پشتیبانی پاسخگو ابهامات و مشکلات گزارش شده  در اسرع وقت می باشند .\n\nنقض قوانین\nنقض قوانین :\nشما میتونید در صورت مشاهده نقض قوانین از طریق دکمه ریپورت که در هر بخش از اپلیکیشن برای پست ها ٬ کامنت ها٬ پروفایل کاربران طراحی شده است ما را از آن مطلع کنید تا به بصورت زیر رفتار کنیم .\n\nدر صورت نقض هر یک از قوانین ٬ محتوا شما تا ۵ بار اول حذف خواهد شد. سپس حساب شما به طور موقت مسدود می شود و در آخرین مرحله حساب شما به طور کامل مسدود میشود \n\nمحتوای تولید شده\nمسئولیت تمامی محتوای تولید شده بر عهده شخصی است که مطلب را منتشر کرده است و لیوم هیچ مسئولیتی در این خصوص ندارد";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                ) : hasVariant($state, "loginPage", "name") ? (
                   <React.Fragment>
                     {(() => {
                       try {
@@ -14450,7 +17223,13 @@ function PlasmicLogin__RenderFunc(props: {
                 )}
               </div>
             </div>
-            {(hasVariant($state, "loginPage", "name") ? true : false) ? (
+            {(
+              hasVariant($state, "loginPage", "selectstatus")
+                ? true
+                : hasVariant($state, "loginPage", "name")
+                ? true
+                : false
+            ) ? (
               <Stack__
                 as={"div"}
                 data-plasmic-name={"top"}
@@ -14461,6 +17240,11 @@ function PlasmicLogin__RenderFunc(props: {
                     $state,
                     "loginPage",
                     "name"
+                  ),
+                  [sty.toploginPage_selectstatus]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "selectstatus"
                   )
                 })}
               >
@@ -14470,6 +17254,11 @@ function PlasmicLogin__RenderFunc(props: {
                       $state,
                       "loginPage",
                       "name"
+                    ),
+                    [sty.svgloginPage_selectstatus__zkt2YNi6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
                     )
                   })}
                   onClick={async event => {
@@ -14524,11 +17313,18 @@ function PlasmicLogin__RenderFunc(props: {
                         $state,
                         "loginPage",
                         "name"
+                      ),
+                      [sty.textloginPage_selectstatus__oz73Dni6Lr]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "selectstatus"
                       )
                     }
                   )}
                 >
-                  {hasVariant($state, "loginPage", "name")
+                  {hasVariant($state, "loginPage", "selectstatus")
+                    ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a"
+                    : hasVariant($state, "loginPage", "name")
                     ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a"
                     : "Dr. Bellamy Nich\u2026"}
                 </div>
@@ -14553,6 +17349,11 @@ function PlasmicLogin__RenderFunc(props: {
                 $state,
                 "loginPage",
                 "name"
+              ),
+              [sty.apiRequestloginPage_selectstatus]: hasVariant(
+                $state,
+                "loginPage",
+                "selectstatus"
               ),
               [sty.apiRequestloginPage_userNameLogin]: hasVariant(
                 $state,
@@ -14835,6 +17636,11 @@ function PlasmicLogin__RenderFunc(props: {
                   $state,
                   "loginPage",
                   "mobile"
+                ),
+                [sty.freeBoxloginPage_selectstatus__e82KcNi6Lr]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "selectstatus"
                 )
               })}
             >
@@ -14977,11 +17783,14 @@ const PlasmicDescendants = {
     "button6",
     "textInput4",
     "antdInput2",
-    "radioGrop",
     "textInput6",
     "antdInput3",
     "checkbox",
     "button4",
+    "textInput12",
+    "antdInput12",
+    "checkbox2",
+    "button8",
     "mobileCode",
     "textInput3",
     "antdInput4",
@@ -15015,11 +17824,14 @@ const PlasmicDescendants = {
   button6: ["button6"],
   textInput4: ["textInput4", "antdInput2"],
   antdInput2: ["antdInput2"],
-  radioGrop: ["radioGrop"],
   textInput6: ["textInput6", "antdInput3"],
   antdInput3: ["antdInput3"],
   checkbox: ["checkbox"],
   button4: ["button4"],
+  textInput12: ["textInput12", "antdInput12"],
+  antdInput12: ["antdInput12"],
+  checkbox2: ["checkbox2"],
+  button8: ["button8"],
   mobileCode: ["mobileCode", "textInput3", "antdInput4", "button3"],
   textInput3: ["textInput3", "antdInput4"],
   antdInput4: ["antdInput4"],
@@ -15058,11 +17870,14 @@ type NodeDefaultElementType = {
   button6: typeof Button;
   textInput4: typeof TextInput;
   antdInput2: typeof Input;
-  radioGrop: typeof RadioGrop;
   textInput6: typeof TextInput;
   antdInput3: typeof Input;
   checkbox: typeof Checkbox;
   button4: typeof Button;
+  textInput12: typeof TextInput;
+  antdInput12: typeof Input;
+  checkbox2: typeof Checkbox;
+  button8: typeof Button;
   mobileCode: typeof Reveal;
   textInput3: typeof TextInput;
   antdInput4: typeof Input;
@@ -15182,11 +17997,14 @@ export const PlasmicLogin = Object.assign(
     button6: makeNodeComponent("button6"),
     textInput4: makeNodeComponent("textInput4"),
     antdInput2: makeNodeComponent("antdInput2"),
-    radioGrop: makeNodeComponent("radioGrop"),
     textInput6: makeNodeComponent("textInput6"),
     antdInput3: makeNodeComponent("antdInput3"),
     checkbox: makeNodeComponent("checkbox"),
     button4: makeNodeComponent("button4"),
+    textInput12: makeNodeComponent("textInput12"),
+    antdInput12: makeNodeComponent("antdInput12"),
+    checkbox2: makeNodeComponent("checkbox2"),
+    button8: makeNodeComponent("button8"),
     mobileCode: makeNodeComponent("mobileCode"),
     textInput3: makeNodeComponent("textInput3"),
     antdInput4: makeNodeComponent("antdInput4"),

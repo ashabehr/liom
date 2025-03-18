@@ -61,6 +61,7 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
@@ -70,7 +71,6 @@ import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
-import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -81,6 +81,7 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicBioritm2.module.css"; // plasmic-import: asaCgPeO3i7V/css
 
+import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon25Icon from "./icons/PlasmicIcon__Icon25"; // plasmic-import: XHEd0iacr6dw/icon
@@ -89,7 +90,6 @@ import Icon16Icon from "./icons/PlasmicIcon__Icon16"; // plasmic-import: JYHABEI
 import Icon139Icon from "./icons/PlasmicIcon__Icon139"; // plasmic-import: _VRl9i2RQMu-/icon
 import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5Pd9666/icon
 import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
-import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -112,6 +112,7 @@ export const PlasmicBioritm2__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicBioritm2__OverridesType = {
   root?: Flex__<"div">;
+  mainHeader?: Flex__<typeof MainHeader>;
   favicon?: Flex__<typeof Embed>;
   biorhythm?: Flex__<typeof ApiRequest>;
   slideinModal4?: Flex__<typeof SlideinModal>;
@@ -134,7 +135,6 @@ export type PlasmicBioritm2__OverridesType = {
   button?: Flex__<typeof Button>;
   button4?: Flex__<typeof Button>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
-  mainHeader?: Flex__<typeof MainHeader>;
 };
 
 export interface DefaultBioritm2Props {}
@@ -538,6 +538,160 @@ function PlasmicBioritm2__RenderFunc(props: {
           }
         )}
       >
+        <section className={classNames(projectcss.all, sty.section__cng3X)}>
+          <MainHeader
+            data-plasmic-name={"mainHeader"}
+            data-plasmic-override={overrides.mainHeader}
+            className={classNames("__wab_instance", sty.mainHeader)}
+            dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
+            onDopenChange2={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["mainHeader", "dopen"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            token={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? (() => {
+                    try {
+                      return localStorage.getItem("token");
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                : undefined
+            }
+            userinfo={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? (() => {
+                    try {
+                      return JSON.parse(localStorage.getItem("userinfo")).user;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return {
+                          mobile: false,
+                          username: "guest_3DiroEaKCW",
+                          name: "jjjj",
+                          last_time: {
+                            year: 2025,
+                            month: 2,
+                            day: 9,
+                            hour: 0,
+                            minute: 0,
+                            second: 0,
+                            nanosecond: 0,
+                            timeZoneOffsetSeconds: 0
+                          },
+                          cycle: 20,
+                          length: 5,
+                          image: "https://liom-app.ir/data/profile/default.png",
+                          biorhythm: {
+                            date: "2025-03-05T05:32:07.747Z",
+                            advice:
+                              "- \u0628\u0647 \u06a9\u0633\u06cc \u06a9\u0647 \u062e\u06cc\u0644\u06cc \u062f\u0648\u0633\u062a\u0634 \u062f\u0627\u0631\u06cc \u0632\u0646\u06af \u0628\u0632\u0646 \u06cc\u0627 \u067e\u06cc\u0627\u0645 \u0628\u062f\u0647.\n- \u0627\u06af\u0647 \u0627\u0645\u0631\u0648\u0632 \u0627\u062d\u0633\u0627\u0633 \u0628\u06cc \u062d\u0627\u0644\u06cc \u0648 \u06a9\u0633\u0627\u0644\u062a \u062f\u0627\u0631\u06cc \u0648 \u062f\u0644\u062a \u0646\u0645\u06cc\u062e\u0648\u0627\u062f \u0641\u0639\u0627\u0644\u06cc\u062a \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0627\u0634\u06a9\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc \u0645\u062f\u06cc\u062a\u06cc\u0634\u0646 \u06a9\u0646\u06cc \u062a\u0627 \u0627\u062d\u0633\u0627\u0633 \u062e\u0648\u0628\u06cc \u067e\u06cc\u062f\u0627 \u06a9\u0646\u06cc.\n- \u0627\u0645\u0631\u0648\u0632 \u0632\u0645\u0627\u0646 \u062e\u0648\u0628\u06cc \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u0648 \u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u06a9\u0631\u062f\u0646\u0647.\n",
+                            avg: 13,
+                            physical: -100,
+                            emotional: 43,
+                            intellectual: 95
+                          },
+                          id: "ee975e9c-19dd-42fc-b7d7-8822f621b4f8",
+                          healthStatus: "period",
+                          birthDate: {
+                            year: 2002,
+                            month: 1,
+                            day: 7,
+                            hour: 0,
+                            minute: 0,
+                            second: 0,
+                            nanosecond: 0,
+                            timeZoneOffsetSeconds: 0
+                          }
+                        };
+                      }
+                      throw e;
+                    }
+                  })()
+                : undefined
+            }
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__s2I8N)}
+            >
+              <Icon185Icon
+                className={classNames(projectcss.all, sty.svg__hYrgG)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateMainHeaderDopen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["mainHeader", "dopen"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateMainHeaderDopen"] != null &&
+                    typeof $steps["updateMainHeaderDopen"] === "object" &&
+                    typeof $steps["updateMainHeaderDopen"].then === "function"
+                  ) {
+                    $steps["updateMainHeaderDopen"] = await $steps[
+                      "updateMainHeaderDopen"
+                    ];
+                  }
+                }}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__xotO3
+                )}
+              >
+                {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
+              </div>
+            </Stack__>
+          </MainHeader>
+        </section>
         <Embed
           data-plasmic-name={"favicon"}
           data-plasmic-override={overrides.favicon}
@@ -6242,160 +6396,6 @@ function PlasmicBioritm2__RenderFunc(props: {
             ) : null}
           </Stack__>
         </section>
-        <section className={classNames(projectcss.all, sty.section__cng3X)}>
-          <MainHeader
-            data-plasmic-name={"mainHeader"}
-            data-plasmic-override={overrides.mainHeader}
-            className={classNames("__wab_instance", sty.mainHeader)}
-            dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
-            onDopenChange2={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["mainHeader", "dopen"]).apply(
-                null,
-                eventArgs
-              );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            token={
-              hasVariant(globalVariants, "screen", "mobile")
-                ? (() => {
-                    try {
-                      return localStorage.getItem("token");
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                : undefined
-            }
-            userinfo={
-              hasVariant(globalVariants, "screen", "mobile")
-                ? (() => {
-                    try {
-                      return JSON.parse(localStorage.getItem("userinfo")).user;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return {
-                          mobile: false,
-                          username: "guest_3DiroEaKCW",
-                          name: "jjjj",
-                          last_time: {
-                            year: 2025,
-                            month: 2,
-                            day: 9,
-                            hour: 0,
-                            minute: 0,
-                            second: 0,
-                            nanosecond: 0,
-                            timeZoneOffsetSeconds: 0
-                          },
-                          cycle: 20,
-                          length: 5,
-                          image: "https://liom-app.ir/data/profile/default.png",
-                          biorhythm: {
-                            date: "2025-03-05T05:32:07.747Z",
-                            advice:
-                              "- \u0628\u0647 \u06a9\u0633\u06cc \u06a9\u0647 \u062e\u06cc\u0644\u06cc \u062f\u0648\u0633\u062a\u0634 \u062f\u0627\u0631\u06cc \u0632\u0646\u06af \u0628\u0632\u0646 \u06cc\u0627 \u067e\u06cc\u0627\u0645 \u0628\u062f\u0647.\n- \u0627\u06af\u0647 \u0627\u0645\u0631\u0648\u0632 \u0627\u062d\u0633\u0627\u0633 \u0628\u06cc \u062d\u0627\u0644\u06cc \u0648 \u06a9\u0633\u0627\u0644\u062a \u062f\u0627\u0631\u06cc \u0648 \u062f\u0644\u062a \u0646\u0645\u06cc\u062e\u0648\u0627\u062f \u0641\u0639\u0627\u0644\u06cc\u062a \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0627\u0634\u06a9\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc \u0645\u062f\u06cc\u062a\u06cc\u0634\u0646 \u06a9\u0646\u06cc \u062a\u0627 \u0627\u062d\u0633\u0627\u0633 \u062e\u0648\u0628\u06cc \u067e\u06cc\u062f\u0627 \u06a9\u0646\u06cc.\n- \u0627\u0645\u0631\u0648\u0632 \u0632\u0645\u0627\u0646 \u062e\u0648\u0628\u06cc \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u0648 \u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u06a9\u0631\u062f\u0646\u0647.\n",
-                            avg: 13,
-                            physical: -100,
-                            emotional: 43,
-                            intellectual: 95
-                          },
-                          id: "ee975e9c-19dd-42fc-b7d7-8822f621b4f8",
-                          healthStatus: "period",
-                          birthDate: {
-                            year: 2002,
-                            month: 1,
-                            day: 7,
-                            hour: 0,
-                            minute: 0,
-                            second: 0,
-                            nanosecond: 0,
-                            timeZoneOffsetSeconds: 0
-                          }
-                        };
-                      }
-                      throw e;
-                    }
-                  })()
-                : undefined
-            }
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__s2I8N)}
-            >
-              <Icon185Icon
-                className={classNames(projectcss.all, sty.svg__hYrgG)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateMainHeaderDopen"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["mainHeader", "dopen"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateMainHeaderDopen"] != null &&
-                    typeof $steps["updateMainHeaderDopen"] === "object" &&
-                    typeof $steps["updateMainHeaderDopen"].then === "function"
-                  ) {
-                    $steps["updateMainHeaderDopen"] = await $steps[
-                      "updateMainHeaderDopen"
-                    ];
-                  }
-                }}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__xotO3
-                )}
-              >
-                {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
-              </div>
-            </Stack__>
-          </MainHeader>
-        </section>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
@@ -6404,6 +6404,7 @@ function PlasmicBioritm2__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "mainHeader",
     "favicon",
     "biorhythm",
     "slideinModal4",
@@ -6425,9 +6426,9 @@ const PlasmicDescendants = {
     "datePickers",
     "button",
     "button4",
-    "pullToRefresh",
-    "mainHeader"
+    "pullToRefresh"
   ],
+  mainHeader: ["mainHeader"],
   favicon: ["favicon"],
   biorhythm: [
     "biorhythm",
@@ -6465,14 +6466,14 @@ const PlasmicDescendants = {
   datePickers: ["datePickers"],
   button: ["button"],
   button4: ["button4"],
-  pullToRefresh: ["pullToRefresh"],
-  mainHeader: ["mainHeader"]
+  pullToRefresh: ["pullToRefresh"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  mainHeader: typeof MainHeader;
   favicon: typeof Embed;
   biorhythm: typeof ApiRequest;
   slideinModal4: typeof SlideinModal;
@@ -6495,7 +6496,6 @@ type NodeDefaultElementType = {
   button: typeof Button;
   button4: typeof Button;
   pullToRefresh: typeof PullToRefresh;
-  mainHeader: typeof MainHeader;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -6583,6 +6583,7 @@ export const PlasmicBioritm2 = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    mainHeader: makeNodeComponent("mainHeader"),
     favicon: makeNodeComponent("favicon"),
     biorhythm: makeNodeComponent("biorhythm"),
     slideinModal4: makeNodeComponent("slideinModal4"),
@@ -6605,7 +6606,6 @@ export const PlasmicBioritm2 = Object.assign(
     button: makeNodeComponent("button"),
     button4: makeNodeComponent("button4"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
-    mainHeader: makeNodeComponent("mainHeader"),
 
     // Metadata about props expected for PlasmicBioritm2
     internalVariantProps: PlasmicBioritm2__VariantProps,

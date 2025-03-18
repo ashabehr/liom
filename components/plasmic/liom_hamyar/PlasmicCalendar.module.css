@@ -2341,9 +2341,7 @@
 @media (max-width: 640px) {
   .text__e0KZw {
     font-size: 13px;
-    padding-right: 4px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding: 2px 8px;
   }
 }
 .lottie___0DWvY:global(.__wab_instance) {
@@ -2659,6 +2657,11 @@
   padding-right: 4px;
   padding-left: 4px;
 }
+@media (max-width: 640px) {
+  .text___67Bes {
+    padding: 4px 8px;
+  }
+}
 .svg__ge4VQ {
   object-fit: cover;
   max-width: 100%;
@@ -2772,6 +2775,11 @@
   font-size: 12px;
   padding-right: 4px;
   padding-left: 4px;
+}
+@media (max-width: 640px) {
+  .text__vozBg {
+    padding: 4px 8px;
+  }
 }
 .svg__gq6Ut {
   object-fit: cover;

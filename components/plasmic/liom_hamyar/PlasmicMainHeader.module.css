@@ -650,7 +650,3 @@
   max-width: 100%;
   object-fit: cover;
 }
-.firebase:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}

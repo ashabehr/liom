@@ -61,8 +61,8 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
@@ -1824,13 +1824,6 @@ function PlasmicStatusDay__RenderFunc(props: {
             sty.root
           )}
         >
-          <Embed
-            className={classNames("__wab_instance", sty.embedHtml__bv9VP)}
-            code={
-              '<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>\r\n'
-            }
-          />
-
           <section className={classNames(projectcss.all, sty.section___4ZTIh)}>
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
@@ -1930,6 +1923,13 @@ function PlasmicStatusDay__RenderFunc(props: {
               </Stack__>
             </HeaderLiom>
           </section>
+          <Embed
+            className={classNames("__wab_instance", sty.embedHtml__bv9VP)}
+            code={
+              '<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>\r\n'
+            }
+          />
+
           <AntdModal
             data-plasmic-name={"number2"}
             data-plasmic-override={overrides.number2}

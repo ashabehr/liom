@@ -27,10 +27,6 @@
     grid-column: 4;
   }
 }
-.embedHtml__bv9VP:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
 .section___4ZTIh {
   display: grid;
   position: fixed;
@@ -40,7 +36,7 @@
   padding-left: 0;
   padding-right: 0;
   left: -1px;
-  top: 0px;
+  top: -2px;
   z-index: 1;
   right: 0;
   grid-template-columns:
@@ -123,6 +119,10 @@
   font-size: 16px;
   min-height: 0;
   padding: 8px 0px 0px 16px;
+}
+.embedHtml__bv9VP:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
 }
 .number2:global(.__wab_instance) {
   max-width: 100%;
