@@ -246,6 +246,12 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reload",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -479,6 +485,62 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
 
             <div className={classNames(projectcss.all, sty.freeBox___2HVpP)}>
               <div className={classNames(projectcss.all, sty.freeBox__kbF6)}>
+                {(() => {
+                  try {
+                    return $state.reload;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___2D3Xa)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return window.FlutterChannel.postMessage(
+                                  "reload"
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___3ZnEs
+                      )}
+                    >
+                      {
+                        "\u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
+                      }
+                    </div>
+                  </Stack__>
+                ) : null}
                 <div
                   className={classNames(
                     projectcss.all,
@@ -747,28 +809,6 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   )}
                   onClick={async event => {
                     const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return window.FlutterChannel.postMessage(
-                                "#mobileModal"
-                              );
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
                   }}
                 >
                   <React.Fragment>
@@ -876,6 +916,62 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                             typeof $steps["runCode"].then === "function"
                           ) {
                             $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["invokeGlobalAction"] = true
+                            ? (() => {
+                                const actionArgs = { args: [1000] };
+                                return $globalActions["Fragment.wait"]?.apply(
+                                  null,
+                                  [...actionArgs.args]
+                                );
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+
+                          $steps["updateReload"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["reload"]
+                                  },
+                                  operation: 0,
+                                  value: true
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateReload"] != null &&
+                            typeof $steps["updateReload"] === "object" &&
+                            typeof $steps["updateReload"].then === "function"
+                          ) {
+                            $steps["updateReload"] = await $steps[
+                              "updateReload"
+                            ];
                           }
                         }}
                       >
