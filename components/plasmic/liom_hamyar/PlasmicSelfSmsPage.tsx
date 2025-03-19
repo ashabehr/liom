@@ -834,8 +834,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         : (() => {
                             try {
                               return (
-                                //($state.getSub.data[0].result.mobile ?? '') != ''
-                                true
+                                ($state.getSub.data[0].result.mobile ?? "") ==
+                                ""
                               );
                             } catch (e) {
                               if (
