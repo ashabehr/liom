@@ -79,9 +79,7 @@ export type PlasmicStar__VariantsArgs = {
 type VariantPropType = keyof PlasmicStar__VariantsArgs;
 export const PlasmicStar__VariantProps = new Array<VariantPropType>("action");
 
-export type PlasmicStar__ArgsType = {
-  onClick?: (event: any) => void;
-};
+export type PlasmicStar__ArgsType = { onClick?: (event: any) => void };
 type ArgPropType = keyof PlasmicStar__ArgsType;
 export const PlasmicStar__ArgProps = new Array<ArgPropType>("onClick");
 
@@ -198,15 +196,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicStar__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicStar__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicStar__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicStar__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

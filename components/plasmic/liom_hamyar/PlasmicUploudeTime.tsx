@@ -73,9 +73,7 @@ export type PlasmicUploudeTime__VariantsArgs = {};
 type VariantPropType = keyof PlasmicUploudeTime__VariantsArgs;
 export const PlasmicUploudeTime__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicUploudeTime__ArgsType = {
-  children?: React.ReactNode;
-};
+export type PlasmicUploudeTime__ArgsType = { children?: React.ReactNode };
 type ArgPropType = keyof PlasmicUploudeTime__ArgsType;
 export const PlasmicUploudeTime__ArgProps = new Array<ArgPropType>("children");
 
@@ -243,15 +241,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicUploudeTime__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicUploudeTime__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicUploudeTime__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicUploudeTime__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

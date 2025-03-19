@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
+
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
@@ -4613,15 +4614,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicEditProfile__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicEditProfile__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicEditProfile__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicEditProfile__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

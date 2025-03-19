@@ -75,9 +75,7 @@ export type PlasmicVigetLiom3__VariantsArgs = {};
 type VariantPropType = keyof PlasmicVigetLiom3__VariantsArgs;
 export const PlasmicVigetLiom3__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicVigetLiom3__ArgsType = {
-  children?: React.ReactNode;
-};
+export type PlasmicVigetLiom3__ArgsType = { children?: React.ReactNode };
 type ArgPropType = keyof PlasmicVigetLiom3__ArgsType;
 export const PlasmicVigetLiom3__ArgProps = new Array<ArgPropType>("children");
 
@@ -197,15 +195,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicVigetLiom3__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicVigetLiom3__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicVigetLiom3__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicVigetLiom3__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

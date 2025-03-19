@@ -77,10 +77,7 @@ export type PlasmicWater__VariantsArgs = {
 type VariantPropType = keyof PlasmicWater__VariantsArgs;
 export const PlasmicWater__VariantProps = new Array<VariantPropType>("select");
 
-export type PlasmicWater__ArgsType = {
-  text?: string;
-  end?: boolean;
-};
+export type PlasmicWater__ArgsType = { text?: string; end?: boolean };
 type ArgPropType = keyof PlasmicWater__ArgsType;
 export const PlasmicWater__ArgProps = new Array<ArgPropType>("text", "end");
 
@@ -258,15 +255,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicWater__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicWater__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicWater__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicWater__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

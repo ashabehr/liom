@@ -80,9 +80,7 @@ export type PlasmicSave__VariantsArgs = {
 type VariantPropType = keyof PlasmicSave__VariantsArgs;
 export const PlasmicSave__VariantProps = new Array<VariantPropType>("click");
 
-export type PlasmicSave__ArgsType = {
-  bokmarkcount?: string;
-};
+export type PlasmicSave__ArgsType = { bokmarkcount?: string };
 type ArgPropType = keyof PlasmicSave__ArgsType;
 export const PlasmicSave__ArgProps = new Array<ArgPropType>("bokmarkcount");
 
@@ -337,15 +335,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicSave__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicSave__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicSave__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicSave__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

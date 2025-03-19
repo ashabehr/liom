@@ -73,9 +73,7 @@ export type PlasmicButtonSocial__VariantsArgs = {};
 type VariantPropType = keyof PlasmicButtonSocial__VariantsArgs;
 export const PlasmicButtonSocial__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicButtonSocial__ArgsType = {
-  type?: string;
-};
+export type PlasmicButtonSocial__ArgsType = { type?: string };
 type ArgPropType = keyof PlasmicButtonSocial__ArgsType;
 export const PlasmicButtonSocial__ArgProps = new Array<ArgPropType>("type");
 
@@ -195,15 +193,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicButtonSocial__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicButtonSocial__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicButtonSocial__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicButtonSocial__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

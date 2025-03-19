@@ -85,9 +85,7 @@ export const PlasmicQuestion__VariantProps = new Array<VariantPropType>(
   "_4Question"
 );
 
-export type PlasmicQuestion__ArgsType = {
-  children?: React.ReactNode;
-};
+export type PlasmicQuestion__ArgsType = { children?: React.ReactNode };
 type ArgPropType = keyof PlasmicQuestion__ArgsType;
 export const PlasmicQuestion__ArgProps = new Array<ArgPropType>("children");
 
@@ -244,15 +242,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicQuestion__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicQuestion__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicQuestion__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicQuestion__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

@@ -82,9 +82,7 @@ export const PlasmicReplyLikeButton__VariantProps = new Array<VariantPropType>(
   "islikeforReply"
 );
 
-export type PlasmicReplyLikeButton__ArgsType = {
-  replyLikeCount?: string;
-};
+export type PlasmicReplyLikeButton__ArgsType = { replyLikeCount?: string };
 type ArgPropType = keyof PlasmicReplyLikeButton__ArgsType;
 export const PlasmicReplyLikeButton__ArgProps = new Array<ArgPropType>(
   "replyLikeCount"
@@ -340,15 +338,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicReplyLikeButton__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicReplyLikeButton__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicReplyLikeButton__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicReplyLikeButton__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
