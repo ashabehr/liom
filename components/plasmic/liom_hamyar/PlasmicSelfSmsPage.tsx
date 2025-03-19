@@ -487,28 +487,6 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   )}
                   onClick={async event => {
                     const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return window.FlutterChannel.postMessage(
-                                "reload"
-                              );
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
                   }}
                 >
                   <React.Fragment>
@@ -767,6 +745,31 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                     projectcss.__wab_text,
                     sty.text__jaOdM
                   )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return window.FlutterChannel.postMessage(
+                                "#mobileModal"
+                              );
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
                 >
                   <React.Fragment>
                     <React.Fragment>{"\u0628\u0627   "}</React.Fragment>
@@ -810,6 +813,124 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__cm9TK)}
                   >
+                    {(
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? (() => {
+                            try {
+                              return (
+                                ($state.getSub.data[0].result.mobile ?? "") ==
+                                ""
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })()
+                        : (() => {
+                            try {
+                              return (
+                                ($state.getSub.data[0].result.mobile ?? "") ==
+                                ""
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })()
+                    ) ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__njRxo
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return window.FlutterChannel.postMessage(
+                                      "#mobileModal"
+                                    );
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__uoaiw
+                          )}
+                        >
+                          {hasVariant(globalVariants, "screen", "mobile") ? (
+                            <React.Fragment>
+                              <React.Fragment>
+                                {
+                                  "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0628\u0627\u06cc\u062f \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc. "
+                                }
+                              </React.Fragment>
+                              <span
+                                className={
+                                  "plasmic_default__all plasmic_default__span"
+                                }
+                                style={{ fontWeight: 700 }}
+                              >
+                                {"\u0627\u06cc\u0646\u062c\u0627"}
+                              </span>
+                              <React.Fragment>
+                                {
+                                  " \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u0634\u0645\u0627\u0631\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
+                                }
+                              </React.Fragment>
+                            </React.Fragment>
+                          ) : (
+                            "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0628\u0627\u06cc\u062f \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc.\n\u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u0634\u0645\u0627\u0631\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
+                          )}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__u4OfL
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__uuiMk
+                            )}
+                          >
+                            {
+                              "\u0627\u0641\u0632\u0648\u062f\u0646 \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                            }
+                          </div>
+                        </div>
+                      </div>
+                    ) : null}
                     <div
                       className={classNames(projectcss.all, sty.freeBox__nDjGi)}
                       style={(() => {
