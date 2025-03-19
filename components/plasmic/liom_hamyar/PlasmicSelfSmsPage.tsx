@@ -834,8 +834,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         : (() => {
                             try {
                               return (
-                                ($state.getSub.data[0].result.mobile ?? "") ==
-                                ""
+                                //($state.getSub.data[0].result.mobile ?? '') != ''
+                                true
                               );
                             } catch (e) {
                               if (
@@ -908,7 +908,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               </React.Fragment>
                             </React.Fragment>
                           ) : (
-                            "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0628\u0627\u06cc\u062f \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc.\n\u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u0634\u0645\u0627\u0631\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
+                            "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0628\u0627\u06cc\u062f \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc. \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u0634\u0645\u0627\u0631\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
                           )}
                         </div>
                         <div
