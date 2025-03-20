@@ -661,57 +661,6 @@ function PlasmicClinic__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
 
-              $steps["invokeGlobalAction"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        "POST",
-                        "https://api.liom.app/service/log",
-                        undefined,
-                        (() => {
-                          try {
-                            return {
-                              userId:
-                                $ctx.query.userId ||
-                                new URLSearchParams(window.location.search).get(
-                                  "userId"
-                                ),
-                              pageName: "clinic",
-                              action: "loadePage",
-                              extraData: {
-                                gender:
-                                  new URLSearchParams(
-                                    new URL(window.location.href).search
-                                  ).get("gender") || "female"
-                              }
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
-              ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
-              }
-
               $steps["invokeGlobalAction2"] = true
                 ? (() => {
                     const actionArgs = {
@@ -834,6 +783,95 @@ function PlasmicClinic__RenderFunc(props: {
                 typeof $steps["updateLoadingPage"].then === "function"
               ) {
                 $steps["updateLoadingPage"] = await $steps["updateLoadingPage"];
+              }
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://api.liom.app/service/log",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              userId:
+                                $ctx.query.userId ||
+                                new URLSearchParams(window.location.search).get(
+                                  "userId"
+                                ),
+                              pageName: "clinic",
+                              action: "loadePage",
+                              extraData: {
+                                gender:
+                                  new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender") || "female"
+                              }
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["invokeGlobalAction3"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/seve/clinicToken",
+                        (() => {
+                          try {
+                            return {
+                              token: localStorage.getItem("ClinicToken")
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction3"] != null &&
+                typeof $steps["invokeGlobalAction3"] === "object" &&
+                typeof $steps["invokeGlobalAction3"].then === "function"
+              ) {
+                $steps["invokeGlobalAction3"] = await $steps[
+                  "invokeGlobalAction3"
+                ];
               }
             }}
           />
