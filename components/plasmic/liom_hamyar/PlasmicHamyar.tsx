@@ -4177,147 +4177,130 @@ function PlasmicHamyar__RenderFunc(props: {
                     src={"https://liom.storage.c2.liara.space/off3.png"}
                   />
                 </div>
-                {(() => {
-                  try {
-                    return $ctx.query.r == "8z1hf8";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__m8Mf)}
+                <div className={classNames(projectcss.all, sty.freeBox__m8Mf)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__oJsBb)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/service/log",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      userId:
+                                        $state.user.data?.result.man.id || "",
+                                      pageName: "hamyar",
+                                      action: "self-test-prematureEjaculation",
+                                      extraData: {
+                                        refCode: $state.r,
+                                        mobile: $state.m
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                (() => {
+                                  try {
+                                    return {
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                        Authorization:
+                                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return window.open(
+                                  `https://tools.liom.app/self-test/?app=liom&type=prematureEjaculation&origin=hamyar&home-page=${encodeURIComponent(
+                                    window.location.href
+                                  )}`,
+                                  "_self"
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__oJsBb)}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["invokeGlobalAction"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://api.liom.app/service/log",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        userId:
-                                          $state.user.data?.result.man.id || "",
-                                        pageName: "hamyar",
-                                        action:
-                                          "self-test-prematureEjaculation",
-                                        extraData: {
-                                          refCode: $state.r,
-                                          mobile: $state.m
-                                        }
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })(),
-                                  (() => {
-                                    try {
-                                      return {
-                                        headers: {
-                                          "Content-Type": "application/json",
-                                          Authorization:
-                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                                        }
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
-
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return window.open(
-                                    `https://tools.liom.app/self-test/?app=liom&type=prematureEjaculation&origin=hamyar&home-page=${encodeURIComponent(
-                                      window.location.href
-                                    )}`,
-                                    "_self"
-                                  );
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
-                      }}
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___2QkIv
+                      )}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___2QkIv
-                        )}
-                      >
-                        {hasVariant(globalVariants, "screen", "mobile")
-                          ? "\u0622\u06cc\u0627 \u0645\u0646 \u062f\u0686\u0627\u0631 \u0632\u0648\u062f\u0627\u0646\u0632\u0627\u0644\u06cc \u0647\u0633\u062a\u0645\u061f"
-                          : "\u0622\u06cc\u0627 \u0645\u0646 \u062f\u0686\u0627\u0631 \u0632\u0648\u062f\u0627\u0646\u0632\u0627\u0644\u06cc \u0647\u0633\u062a\u0645\u061f"}
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__gwAp7
-                        )}
-                      >
-                        {"\u0627\u0646\u062c\u0627\u0645 \u062a\u0633\u062a"}
-                      </div>
-                    </Stack__>
-                  </div>
-                ) : null}
+                      {hasVariant(globalVariants, "screen", "mobile")
+                        ? "\u0622\u06cc\u0627 \u0645\u0646 \u062f\u0686\u0627\u0631 \u0632\u0648\u062f\u0627\u0646\u0632\u0627\u0644\u06cc \u0647\u0633\u062a\u0645\u061f"
+                        : "\u0622\u06cc\u0627 \u0645\u0646 \u062f\u0686\u0627\u0631 \u0632\u0648\u062f\u0627\u0646\u0632\u0627\u0644\u06cc \u0647\u0633\u062a\u0645\u061f"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__gwAp7
+                      )}
+                    >
+                      {"\u0634\u0631\u0648\u0639 \u062a\u0633\u062a"}
+                    </div>
+                  </Stack__>
+                </div>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__hN0VM, {
                     [sty.freeBoxlackOfCourseInformation__hN0VM07Srs]:
