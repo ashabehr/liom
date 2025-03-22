@@ -535,7 +535,20 @@ function PlasmicEditProfile__RenderFunc(props: {
         path: "variableForLastPeriod",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return null;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return -100;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "token",
@@ -2141,6 +2154,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                           }
                         }).apply(null, eventArgs);
                       }}
+                      placeholder={"6 \u0631\u0648\u0632"}
                       showEndIcon={true}
                       startIcon={
                         <SearchSvgIcon
@@ -2331,6 +2345,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                           }
                         }).apply(null, eventArgs);
                       }}
+                      placeholder={"17 \u0631\u0648\u0631"}
                       showEndIcon={true}
                       startIcon={
                         <SearchSvgIcon
@@ -2827,45 +2842,57 @@ function PlasmicEditProfile__RenderFunc(props: {
                                 undefined,
                                 (() => {
                                   try {
-                                    return {
-                                      authorization: $state.token,
-                                      name: $state.name || "",
-                                      birthDate:
-                                        `${
-                                          $state.dateOfBrith.gy
-                                        }-${$state.dateOfBrith.gm
-                                          .toString()
-                                          .padStart(
-                                            2,
-                                            "0"
-                                          )}-${$state.dateOfBrith.gd
-                                          .toString()
-                                          .padStart(2, "0")}` || "2000-02-05",
-                                      height: $state.height || 150,
-                                      weight: $state.weight3 || 55,
-                                      cycle: $state.periodCycleLength || 5,
-                                      length:
-                                        $state.numberOfDaysOfBleedingPicker ||
-                                        17,
-                                      last_time:
-                                        $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.find(
-                                          a =>
-                                            a.value ===
-                                            $state.variableForLastPeriod
-                                        ).date || "",
-                                      job: $state.variableForJob || "",
-                                      education:
-                                        $state.variableForGraduateAndStudying ||
-                                        "",
-                                      married:
-                                        $state.variableForMarrideStutuse ==
-                                        "Married"
-                                          ? true
-                                          : $state.variableForMarrideStutuse ==
-                                            "Single"
-                                          ? false
-                                          : false
-                                    };
+                                    return (() => {
+                                      var edit = {
+                                        authorization:
+                                          $state.token || undefined,
+                                        name: $state.name || undefined,
+                                        birthDate: $state.dateOfBrith.gy
+                                          ? `${
+                                              $state.dateOfBrith.gy
+                                            }-${$state.dateOfBrith.gm
+                                              .toString()
+                                              .padStart(
+                                                2,
+                                                "0"
+                                              )}-${$state.dateOfBrith.gd
+                                              .toString()
+                                              .padStart(2, "0")}`
+                                          : undefined,
+                                        height: $state.height || undefined,
+                                        weight: $state.weight3 || undefined,
+                                        cycle:
+                                          $state.periodCycleLength || undefined,
+                                        length:
+                                          $state.numberOfDaysOfBleedingPicker ||
+                                          undefined,
+                                        last_time: $state.variableForLastPeriod
+                                          ? $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.find(
+                                              a =>
+                                                a.value ===
+                                                $state.variableForLastPeriod
+                                            ).date
+                                          : undefined,
+                                        job: $state.variableForJob || undefined,
+                                        education:
+                                          $state.variableForGraduateAndStudying ||
+                                          undefined,
+                                        married:
+                                          $state.variableForMarrideStutuse ===
+                                          "Married"
+                                            ? true
+                                            : $state.variableForMarrideStutuse ===
+                                              "Single"
+                                            ? false
+                                            : undefined
+                                      };
+                                      var edit = Object.fromEntries(
+                                        Object.entries(edit).filter(
+                                          ([_, v]) => v !== undefined
+                                        )
+                                      );
+                                      return edit;
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||

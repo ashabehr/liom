@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import LoginBox from "../../LoginBox"; // plasmic-import: eH_yQdxVywwP/component
@@ -73,7 +74,6 @@ import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/compone
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -137,6 +137,7 @@ export const PlasmicLogin__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicLogin__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   serviceWorker?: Flex__<typeof Embed>;
   textInput?: Flex__<typeof TextInput>;
   antdInput?: Flex__<typeof Input>;
@@ -176,7 +177,6 @@ export type PlasmicLogin__OverridesType = {
   button5?: Flex__<typeof Button>;
   rules?: Flex__<typeof AntdModal>;
   top?: Flex__<"div">;
-  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultLoginProps {}
@@ -878,6 +878,328 @@ function PlasmicLogin__RenderFunc(props: {
             const $steps = {};
           }}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect, {
+              [sty.sideEffectloginPage_mobile]: hasVariant(
+                $state,
+                "loginPage",
+                "mobile"
+              )
+            })}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                          console.log($state.paramsObject);
+                          const redirectUrl = $state.paramsObject.redirect_url;
+                          let isValid = false;
+                          if (redirectUrl) {
+                            try {
+                              const domain = new URL(redirectUrl).hostname;
+                              isValid =
+                                domain === "apps.liom.app" ||
+                                domain === "tools.liom.app";
+                            } catch (e) {
+                              isValid = false;
+                            }
+                          }
+                          if (redirectUrl && isValid) {
+                            return console.log("ok");
+                          } else if (redirectUrl) {
+                            window.location.href = "/expired";
+                            return console.log("no");
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = { args: [2000] };
+                    return $globalActions["Fragment.wait"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["updateType"] =
+                $state.paramsObject.isLogin == "false"
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["type"]
+                        },
+                        operation: 0,
+                        value: "google"
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateType"] != null &&
+                typeof $steps["updateType"] === "object" &&
+                typeof $steps["updateType"].then === "function"
+              ) {
+                $steps["updateType"] = await $steps["updateType"];
+              }
+
+              $steps["updateLoginPage"] =
+                $state.paramsObject.token != "" &&
+                $state.paramsObject.token != null &&
+                $state.paramsObject.isLogin == "false"
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "loginPage",
+                        operation: 0,
+                        value: "name"
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        $stateSet($state, vgroup, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateLoginPage"] != null &&
+                typeof $steps["updateLoginPage"] === "object" &&
+                typeof $steps["updateLoginPage"].then === "function"
+              ) {
+                $steps["updateLoginPage"] = await $steps["updateLoginPage"];
+              }
+
+              $steps["runCode2"] =
+                $state.paramsObject.isLogin == "true" ||
+                $state.paramsObject.sex == "female"
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            var loginuserinfo = {
+                              success: true,
+                              result: {
+                                token: $state.paramsObject.token,
+                                userId: $state.paramsObject.userId,
+                                maleUrl:
+                                  $state.paramsObject.sex == "male"
+                                    ? "https://apps.liom.app/hamyar"
+                                    : ""
+                              }
+                            };
+                            return localStorage.setItem(
+                              "loginInfo",
+                              JSON.stringify(loginuserinfo)
+                            );
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
+              ) {
+                $steps["runCode2"] = await $steps["runCode2"];
+              }
+
+              $steps["updateLoginData"] = localStorage.getItem("loginInfo")
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loginData"]
+                      },
+                      operation: 0,
+                      value: JSON.parse(localStorage.getItem("loginInfo"))
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoginData"] != null &&
+                typeof $steps["updateLoginData"] === "object" &&
+                typeof $steps["updateLoginData"].then === "function"
+              ) {
+                $steps["updateLoginData"] = await $steps["updateLoginData"];
+              }
+
+              $steps["runCode3"] = localStorage.getItem("loginInfo")
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if ($state.paramsObject.redirect_url != "") {
+                            console.log("ننحح");
+                            var baseUrl =
+                              window.location.href.split("redirect_url=")[1] ||
+                              "";
+                            baseUrl = new URL(baseUrl);
+                            const origin = baseUrl.origin;
+                            const pathname =
+                              baseUrl.pathname.split("&")[0] || "";
+                            const searchParams =
+                              baseUrl.searchParams.toString();
+                            baseUrl = searchParams
+                              ? `${origin}${pathname}?${searchParams}`
+                              : `${origin}${pathname}`;
+                          } else if ($state.loginData.maleUrl != "")
+                            var baseUrl = "https://apps.liom.app/hamyar";
+                          else if ($state.loginData.healthStatus == "pregnancy")
+                            var baseUrl = "https://apps.liom.app/pregnancy/";
+                          else baseUrl = "https://apps.liom.app/calendar/";
+                          var separator = baseUrl.includes("?")
+                            ? "&token="
+                            : "?token=";
+                          var redirectUrl =
+                            baseUrl +
+                            separator +
+                            $$.uuid.v4().slice(0, 6) +
+                            ($state.loginData.result.token || "") +
+                            $$.uuid.v4().slice(10, 13) +
+                            "&userId=" +
+                            $$.uuid.v4().slice(0, 4) +
+                            ($state.loginData.result.userId || "") +
+                            $$.uuid.v4().slice(0, 4);
+                          console.log(redirectUrl);
+                          return window.open(redirectUrl, "_self");
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode3"] != null &&
+                typeof $steps["runCode3"] === "object" &&
+                typeof $steps["runCode3"].then === "function"
+              ) {
+                $steps["runCode3"] = await $steps["runCode3"];
+              }
+
+              $steps["updateTextInputValue"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["textInput", "value"]
+                      },
+                      operation: 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTextInputValue"] != null &&
+                typeof $steps["updateTextInputValue"] === "object" &&
+                typeof $steps["updateTextInputValue"].then === "function"
+              ) {
+                $steps["updateTextInputValue"] = await $steps[
+                  "updateTextInputValue"
+                ];
+              }
+
+              $steps["updateLoading"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loading"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoading"] != null &&
+                typeof $steps["updateLoading"] === "object" &&
+                typeof $steps["updateLoading"].then === "function"
+              ) {
+                $steps["updateLoading"] = await $steps["updateLoading"];
+              }
+            }}
+          />
+
           <Embed
             data-plasmic-name={"serviceWorker"}
             data-plasmic-override={overrides.serviceWorker}
@@ -17464,279 +17786,6 @@ function PlasmicLogin__RenderFunc(props: {
               </Stack__>
             </div>
           ) : null}
-          <SideEffect
-            data-plasmic-name={"sideEffect"}
-            data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect, {
-              [sty.sideEffectloginPage_mobile]: hasVariant(
-                $state,
-                "loginPage",
-                "mobile"
-              )
-            })}
-            onMount={async () => {
-              const $steps = {};
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const queryString = window.location.search;
-                          const urlParams = new URLSearchParams(queryString);
-                          urlParams.forEach((value, key) => {
-                            $state.paramsObject[key] = value;
-                          });
-                          console.log($state.paramsObject);
-                          const redirectUrl = $state.paramsObject.redirect_url;
-                          let isValid = false;
-                          if (redirectUrl) {
-                            try {
-                              const domain = new URL(redirectUrl).hostname;
-                              isValid =
-                                domain === "apps.liom.app" ||
-                                domain === "tools.liom.app";
-                            } catch (e) {
-                              isValid = false;
-                            }
-                          }
-                          if (redirectUrl && isValid) {
-                            return console.log("ok");
-                          } else if (redirectUrl) {
-                            window.location.href = "/expired";
-                            return console.log("no");
-                          }
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-
-              $steps["updateType"] =
-                $state.paramsObject.isLogin == "false"
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["type"]
-                        },
-                        operation: 0,
-                        value: "google"
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["updateType"] != null &&
-                typeof $steps["updateType"] === "object" &&
-                typeof $steps["updateType"].then === "function"
-              ) {
-                $steps["updateType"] = await $steps["updateType"];
-              }
-
-              $steps["updateLoginPage"] =
-                $state.paramsObject.token != "" &&
-                $state.paramsObject.token != null &&
-                $state.paramsObject.isLogin == "false"
-                  ? (() => {
-                      const actionArgs = {
-                        vgroup: "loginPage",
-                        operation: 0,
-                        value: "name"
-                      };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
-                        }
-
-                        $stateSet($state, vgroup, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["updateLoginPage"] != null &&
-                typeof $steps["updateLoginPage"] === "object" &&
-                typeof $steps["updateLoginPage"].then === "function"
-              ) {
-                $steps["updateLoginPage"] = await $steps["updateLoginPage"];
-              }
-
-              $steps["runCode2"] =
-                $state.paramsObject.isLogin == "true" ||
-                $state.paramsObject.sex == "female"
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            var loginuserinfo = {
-                              success: true,
-                              result: {
-                                token: $state.paramsObject.token,
-                                userId: $state.paramsObject.userId,
-                                maleUrl:
-                                  $state.paramsObject.sex == "male"
-                                    ? "https://apps.liom.app/hamyar"
-                                    : ""
-                              }
-                            };
-                            return localStorage.setItem(
-                              "loginInfo",
-                              JSON.stringify(loginuserinfo)
-                            );
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["runCode2"] != null &&
-                typeof $steps["runCode2"] === "object" &&
-                typeof $steps["runCode2"].then === "function"
-              ) {
-                $steps["runCode2"] = await $steps["runCode2"];
-              }
-
-              $steps["updateLoginData"] = localStorage.getItem("loginInfo")
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["loginData"]
-                      },
-                      operation: 0,
-                      value: JSON.parse(localStorage.getItem("loginInfo"))
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateLoginData"] != null &&
-                typeof $steps["updateLoginData"] === "object" &&
-                typeof $steps["updateLoginData"].then === "function"
-              ) {
-                $steps["updateLoginData"] = await $steps["updateLoginData"];
-              }
-
-              $steps["runCode3"] = localStorage.getItem("loginInfo")
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          if ($state.paramsObject.redirect_url != "") {
-                            console.log("ننحح");
-                            var baseUrl =
-                              window.location.href.split("redirect_url=")[1] ||
-                              "";
-                            baseUrl = new URL(baseUrl);
-                            const origin = baseUrl.origin;
-                            const pathname =
-                              baseUrl.pathname.split("&")[0] || "";
-                            const searchParams =
-                              baseUrl.searchParams.toString();
-                            baseUrl = searchParams
-                              ? `${origin}${pathname}?${searchParams}`
-                              : `${origin}${pathname}`;
-                          } else if ($state.loginData.maleUrl != "")
-                            var baseUrl = "https://apps.liom.app/hamyar";
-                          else if ($state.loginData.healthStatus == "pregnancy")
-                            var baseUrl = "https://apps.liom.app/pregnancy/";
-                          else baseUrl = "https://apps.liom.app/calendar/";
-                          var separator = baseUrl.includes("?")
-                            ? "&token="
-                            : "?token=";
-                          var redirectUrl =
-                            baseUrl +
-                            separator +
-                            $$.uuid.v4().slice(0, 6) +
-                            ($state.loginData.result.token || "") +
-                            $$.uuid.v4().slice(10, 13) +
-                            "&userId=" +
-                            $$.uuid.v4().slice(0, 4) +
-                            ($state.loginData.result.userId || "") +
-                            $$.uuid.v4().slice(0, 4);
-                          console.log(redirectUrl);
-                          return window.open(redirectUrl, "_self");
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode3"] != null &&
-                typeof $steps["runCode3"] === "object" &&
-                typeof $steps["runCode3"].then === "function"
-              ) {
-                $steps["runCode3"] = await $steps["runCode3"];
-              }
-
-              $steps["updateLoading"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["loading"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateLoading"] != null &&
-                typeof $steps["updateLoading"] === "object" &&
-                typeof $steps["updateLoading"].then === "function"
-              ) {
-                $steps["updateLoading"] = await $steps["updateLoading"];
-              }
-            }}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -17746,6 +17795,7 @@ function PlasmicLogin__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "serviceWorker",
     "textInput",
     "antdInput",
@@ -17784,9 +17834,9 @@ const PlasmicDescendants = {
     "antdInput5",
     "button5",
     "rules",
-    "top",
-    "sideEffect"
+    "top"
   ],
+  sideEffect: ["sideEffect"],
   serviceWorker: ["serviceWorker"],
   textInput: ["textInput", "antdInput"],
   antdInput: ["antdInput"],
@@ -17825,14 +17875,14 @@ const PlasmicDescendants = {
   antdInput5: ["antdInput5"],
   button5: ["button5"],
   rules: ["rules", "top"],
-  top: ["top"],
-  sideEffect: ["sideEffect"]
+  top: ["top"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   serviceWorker: typeof Embed;
   textInput: typeof TextInput;
   antdInput: typeof Input;
@@ -17872,7 +17922,6 @@ type NodeDefaultElementType = {
   button5: typeof Button;
   rules: typeof AntdModal;
   top: "div";
-  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -17960,6 +18009,7 @@ export const PlasmicLogin = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     serviceWorker: makeNodeComponent("serviceWorker"),
     textInput: makeNodeComponent("textInput"),
     antdInput: makeNodeComponent("antdInput"),
@@ -17999,7 +18049,6 @@ export const PlasmicLogin = Object.assign(
     button5: makeNodeComponent("button5"),
     rules: makeNodeComponent("rules"),
     top: makeNodeComponent("top"),
-    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicLogin
     internalVariantProps: PlasmicLogin__VariantProps,

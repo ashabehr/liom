@@ -1429,6 +1429,7 @@
 .nameInput2:global(.__wab_instance) {
   max-width: 100%;
   z-index: 0;
+  height: auto;
 }
 .svg__bfkIg {
   position: relative;
@@ -1532,12 +1533,13 @@
 .text__qfJn9 {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   color: var(--token-ODBUExjR6VEF);
   font-size: 16px;
   text-align: right;
   min-width: 0;
+  min-height: 0;
 }
 .text___03Fx9 {
   position: relative;
@@ -1646,8 +1648,8 @@
   letter-spacing: normal;
   white-space: pre-wrap;
   width: 100%;
+  min-height: 35px;
   min-width: 0;
-  min-height: 0;
 }
 .heightAndWeight {
   display: flex;
