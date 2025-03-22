@@ -2831,14 +2831,22 @@ function PlasmicEditProfile__RenderFunc(props: {
                                       authorization: $state.token,
                                       name: $state.name || "",
                                       birthDate:
-                                        `${$state.dateOfBrith.gy}-${$state.dateOfBrith.gm}-${$state.dateOfBrith.gd}` ||
-                                        "",
-                                      height: $state.height || "",
-                                      weight: $state.weight3 || "",
-                                      cycle: $state.periodCycleLength || "",
+                                        `${
+                                          $state.dateOfBrith.gy
+                                        }-${$state.dateOfBrith.gm
+                                          .toString()
+                                          .padStart(
+                                            2,
+                                            "0"
+                                          )}-${$state.dateOfBrith.gd
+                                          .toString()
+                                          .padStart(2, "0")}` || "2000-02-05",
+                                      height: $state.height || 150,
+                                      weight: $state.weight3 || 55,
+                                      cycle: $state.periodCycleLength || 5,
                                       length:
                                         $state.numberOfDaysOfBleedingPicker ||
-                                        "",
+                                        17,
                                       last_time:
                                         $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.find(
                                           a =>
@@ -2856,7 +2864,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                                           : $state.variableForMarrideStutuse ==
                                             "Single"
                                           ? false
-                                          : ""
+                                          : false
                                     };
                                   } catch (e) {
                                     if (
