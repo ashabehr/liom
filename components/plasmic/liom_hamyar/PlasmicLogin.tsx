@@ -17630,49 +17630,69 @@ function PlasmicLogin__RenderFunc(props: {
                 $state.paramsObject.token == null
                   ? (() => {
                       const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            if ($state.paramsObject.redirect_url != "") {
-                              var baseUrl =
-                                window.location.href.split(
-                                  "redirect_url="
-                                )[1] || "";
-                              baseUrl = new URL(baseUrl);
-                              const origin = baseUrl.origin;
-                              const pathname =
-                                baseUrl.pathname.split("&")[0] || "";
-                              const searchParams =
-                                baseUrl.searchParams.toString();
-                              baseUrl = searchParams
-                                ? `${origin}${pathname}?${searchParams}`
-                                : `${origin}${pathname}`;
-                            } else if ($state.loginData.maleUrl != "")
-                              var baseUrl = "https://apps.liom.app/hamyar";
-                            else if (
-                              $state.loginData.healthStatus == "pregnancy"
-                            )
-                              var baseUrl = "https://apps.liom.app/pregnancy/";
-                            else baseUrl = "https://apps.liom.app/calendar/";
-                            var separator = baseUrl.includes("?")
-                              ? "&token="
-                              : "?token=";
-                            var redirectUrl =
-                              baseUrl +
-                              separator +
-                              $$.uuid.v4().slice(0, 6) +
-                              ($state.loginData.result.token || "") +
-                              $$.uuid.v4().slice(10, 13) +
-                              "&userId=" +
-                              $$.uuid.v4().slice(0, 4) +
-                              ($state.loginData.result.userId || "") +
-                              $$.uuid.v4().slice(0, 4);
-                            console.log(redirectUrl);
-                            return redirectUrl;
-                          })();
-                        }
+                        destination: (() => {
+                          try {
+                            return (() => {
+                              if ($state.paramsObject.redirect_url != "") {
+                                var baseUrl =
+                                  window.location.href.split(
+                                    "redirect_url="
+                                  )[1] || "";
+                                baseUrl = new URL(baseUrl);
+                                const origin = baseUrl.origin;
+                                const pathname =
+                                  baseUrl.pathname.split("&")[0] || "";
+                                const searchParams =
+                                  baseUrl.searchParams.toString();
+                                baseUrl = searchParams
+                                  ? `${origin}${pathname}?${searchParams}`
+                                  : `${origin}${pathname}`;
+                              } else if ($state.loginData.maleUrl != "")
+                                var baseUrl = "https://apps.liom.app/hamyar";
+                              else if (
+                                $state.loginData.healthStatus == "pregnancy"
+                              )
+                                var baseUrl =
+                                  "https://apps.liom.app/pregnancy/";
+                              else baseUrl = "https://apps.liom.app/calendar/";
+                              var separator = baseUrl.includes("?")
+                                ? "&token="
+                                : "?token=";
+                              var redirectUrl =
+                                baseUrl +
+                                separator +
+                                $$.uuid.v4().slice(0, 6) +
+                                ($state.loginData.result.token || "") +
+                                $$.uuid.v4().slice(10, 13) +
+                                "&userId=" +
+                                $$.uuid.v4().slice(0, 4) +
+                                ($state.loginData.result.userId || "") +
+                                $$.uuid.v4().slice(0, 4);
+                              console.log(redirectUrl);
+                              return redirectUrl;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
                       };
-                      return (({ customFunction }) => {
-                        return customFunction();
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
