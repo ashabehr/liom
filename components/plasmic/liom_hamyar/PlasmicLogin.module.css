@@ -19706,10 +19706,6 @@
   color: #e6e6e600;
   display: block;
 }
-.apiRequest:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
 .freeBox__e82Kc {
   display: flex;
   flex-direction: column;
