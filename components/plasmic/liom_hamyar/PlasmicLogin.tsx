@@ -1141,7 +1141,7 @@ function PlasmicLogin__RenderFunc(props: {
 
               $steps["invokeGlobalAction2"] = true
                 ? (() => {
-                    const actionArgs = { args: [2000] };
+                    const actionArgs = { args: [5000] };
                     return $globalActions["Fragment.wait"]?.apply(null, [
                       ...actionArgs.args
                     ]);
