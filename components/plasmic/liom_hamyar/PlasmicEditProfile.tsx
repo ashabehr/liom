@@ -2797,157 +2797,6 @@ function PlasmicEditProfile__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateBtnLoading"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["btnLoading"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateBtnLoading"] != null &&
-                        typeof $steps["updateBtnLoading"] === "object" &&
-                        typeof $steps["updateBtnLoading"].then === "function"
-                      ) {
-                        $steps["updateBtnLoading"] = await $steps[
-                          "updateBtnLoading"
-                        ];
-                      }
-
-                      $steps["updateNameInputValue2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/calendar/rest/user/profile/edit",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return (() => {
-                                      var edit = {
-                                        authorization:
-                                          $state.token || undefined,
-                                        name: $state.name || undefined,
-                                        birthDate: $state.dateOfBrith.gy
-                                          ? `${
-                                              $state.dateOfBrith.gy
-                                            }-${$state.dateOfBrith.gm
-                                              .toString()
-                                              .padStart(
-                                                2,
-                                                "0"
-                                              )}-${$state.dateOfBrith.gd
-                                              .toString()
-                                              .padStart(2, "0")}`
-                                          : undefined,
-                                        height: $state.height || undefined,
-                                        weight: $state.weight3 || undefined,
-                                        cycle:
-                                          $state.periodCycleLength || undefined,
-                                        length:
-                                          $state.numberOfDaysOfBleedingPicker ||
-                                          undefined,
-                                        last_time: $state.variableForLastPeriod
-                                          ? $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.find(
-                                              a =>
-                                                a.value ===
-                                                $state.variableForLastPeriod
-                                            ).date
-                                          : undefined,
-                                        job: $state.variableForJob || undefined,
-                                        education:
-                                          $state.variableForGraduateAndStudying ||
-                                          undefined,
-                                        married:
-                                          $state.variableForMarrideStutuse ===
-                                          "Married"
-                                            ? true
-                                            : $state.variableForMarrideStutuse ===
-                                              "Single"
-                                            ? false
-                                            : undefined
-                                      };
-                                      var edit = Object.fromEntries(
-                                        Object.entries(edit).filter(
-                                          ([_, v]) => v !== undefined
-                                        )
-                                      );
-                                      return edit;
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateNameInputValue2"] != null &&
-                        typeof $steps["updateNameInputValue2"] === "object" &&
-                        typeof $steps["updateNameInputValue2"].then ===
-                          "function"
-                      ) {
-                        $steps["updateNameInputValue2"] = await $steps[
-                          "updateNameInputValue2"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction"] =
-                        $steps.updateNameInputValue2?.data?.success == true
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  undefined,
-                                  "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f.",
-                                  "bottom-center"
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.showToast"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-
                       $steps["runCode"] = true
                         ? (() => {
                             const actionArgs = {
@@ -2989,6 +2838,163 @@ function PlasmicEditProfile__RenderFunc(props: {
                         typeof $steps["runCode"].then === "function"
                       ) {
                         $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["updateBtnLoading"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["btnLoading"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateBtnLoading"] != null &&
+                        typeof $steps["updateBtnLoading"] === "object" &&
+                        typeof $steps["updateBtnLoading"].then === "function"
+                      ) {
+                        $steps["updateBtnLoading"] = await $steps[
+                          "updateBtnLoading"
+                        ];
+                      }
+
+                      $steps["updateNameInputValue2"] =
+                        $state.empty.name == true &&
+                        $state.empty.lenght == true &&
+                        $state.empty.cyclel == true &&
+                        $state.empty.lasttime == true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/calendar/rest/user/profile/edit",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return (() => {
+                                        var edit = {
+                                          authorization:
+                                            $state.token || undefined,
+                                          name: $state.name || undefined,
+                                          birthDate: $state.dateOfBrith.gy
+                                            ? `${
+                                                $state.dateOfBrith.gy
+                                              }-${$state.dateOfBrith.gm
+                                                .toString()
+                                                .padStart(
+                                                  2,
+                                                  "0"
+                                                )}-${$state.dateOfBrith.gd
+                                                .toString()
+                                                .padStart(2, "0")}`
+                                            : undefined,
+                                          height: $state.height || undefined,
+                                          weight: $state.weight3 || undefined,
+                                          cycle:
+                                            $state.periodCycleLength ||
+                                            undefined,
+                                          length:
+                                            $state.numberOfDaysOfBleedingPicker ||
+                                            undefined,
+                                          last_time:
+                                            $state.variableForLastPeriod
+                                              ? $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.find(
+                                                  a =>
+                                                    a.value ===
+                                                    $state.variableForLastPeriod
+                                                ).date
+                                              : undefined,
+                                          job:
+                                            $state.variableForJob || undefined,
+                                          education:
+                                            $state.variableForGraduateAndStudying ||
+                                            undefined,
+                                          married:
+                                            $state.variableForMarrideStutuse ===
+                                            "Married"
+                                              ? true
+                                              : $state.variableForMarrideStutuse ===
+                                                "Single"
+                                              ? false
+                                              : undefined
+                                        };
+                                        var edit = Object.fromEntries(
+                                          Object.entries(edit).filter(
+                                            ([_, v]) => v !== undefined
+                                          )
+                                        );
+                                        return edit;
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateNameInputValue2"] != null &&
+                        typeof $steps["updateNameInputValue2"] === "object" &&
+                        typeof $steps["updateNameInputValue2"].then ===
+                          "function"
+                      ) {
+                        $steps["updateNameInputValue2"] = await $steps[
+                          "updateNameInputValue2"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] =
+                        $steps.updateNameInputValue2?.data?.success == true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  undefined,
+                                  "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f.",
+                                  "bottom-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
                       }
 
                       $steps["updateBtnLoading2"] = true
