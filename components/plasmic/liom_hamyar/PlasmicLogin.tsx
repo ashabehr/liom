@@ -1122,7 +1122,7 @@ function PlasmicLogin__RenderFunc(props: {
                             ($state.loginData.result.userId || "") +
                             $$.uuid.v4().slice(0, 4);
                           console.log(redirectUrl);
-                          return window.open(redirectUrl, "_self");
+                          return (window.location.href = redirectUrl);
                         })();
                       }
                     };
@@ -1139,33 +1139,21 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["runCode3"] = await $steps["runCode3"];
               }
 
-              $steps["updateTextInputValue"] = true
+              $steps["invokeGlobalAction2"] = true
                 ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["textInput", "value"]
-                      },
-                      operation: 0
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
+                    const actionArgs = { args: [2000] };
+                    return $globalActions["Fragment.wait"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
                   })()
                 : undefined;
               if (
-                $steps["updateTextInputValue"] != null &&
-                typeof $steps["updateTextInputValue"] === "object" &&
-                typeof $steps["updateTextInputValue"].then === "function"
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
               ) {
-                $steps["updateTextInputValue"] = await $steps[
-                  "updateTextInputValue"
+                $steps["invokeGlobalAction2"] = await $steps[
+                  "invokeGlobalAction2"
                 ];
               }
 
