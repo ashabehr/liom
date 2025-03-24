@@ -310,7 +310,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               data-plasmic-override={overrides.embedHtml}
               className={classNames("__wab_instance", sty.embedHtml)}
               code={
-                '<script>\n  window.receiveMessageFromFlutter = function(message) {\n    if (window.$plasmicSetData) {\n      window.$plasmicSetData("flutter", message);\n    }\n  };\n</script>'
+                '<script>\n  window.receiveMessageFromFlutter = function(message) {\n\n  window.FlutterChannel.postMessage("#directDialog-self_hamyar_sms")\n    //     alert("Received message: " + message);\n    // if (window.$plasmicSetData) {\n    //   window.$plasmicSetData("flutter", message);\n    // }\n  };\n</script>'
               }
             />
 
@@ -36116,6 +36116,31 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text___2LDfX
               )}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return alert("Received message: ---- ");
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
             >
               <React.Fragment>
                 {(() => {
