@@ -310,7 +310,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               data-plasmic-override={overrides.embedHtml}
               className={classNames("__wab_instance", sty.embedHtml)}
               code={
-                '<script>\n  function receiveMessageFromFlutter(message) {\n    console.log("Received message from Flutter: " + message);\n    // \u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u067e\u06cc\u0627\u0645\u06cc \u06a9\u0647 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0631\u062f\u0647\u200c\u0627\u06cc \u0631\u0648 \u067e\u0631\u062f\u0627\u0632\u0634 \u06a9\u0646\u06cc \u06cc\u0627 \u0646\u0645\u0627\u06cc\u0634 \u0628\u062f\u06cc\n  }\n\n  window.addEventListener(\'FlutterChannel\', function(event) {\n    receiveMessageFromFlutter(event.data);\n    if (window.$plasmicSetData) {\n      window.$plasmicSetData("flutter", event.data);\n  }\n  });\n\n</script>\n'
+                '<script>\n  window.receiveMessageFromFlutter = function(message) {\n    if (window.$plasmicSetData) {\n      window.$plasmicSetData("flutter", message);\n    }\n  };\n</script>'
               }
             />
 
