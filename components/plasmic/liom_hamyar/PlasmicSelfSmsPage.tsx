@@ -67,6 +67,7 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -97,6 +98,7 @@ export const PlasmicSelfSmsPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSelfSmsPage__OverridesType = {
   root?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
   getSub?: Flex__<typeof ApiRequest>;
   countdown?: Flex__<typeof Countdown>;
   button2?: Flex__<typeof Button>;
@@ -252,6 +254,12 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "flutter",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "nothing"
       }
     ],
     [$props, $ctx, $refs]
@@ -297,6 +305,15 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
           )}
         >
           <div className={classNames(projectcss.all, sty.freeBox__s7Ms7)}>
+            <Embed
+              data-plasmic-name={"embedHtml"}
+              data-plasmic-override={overrides.embedHtml}
+              className={classNames("__wab_instance", sty.embedHtml)}
+              code={
+                '<script>\n  function receiveMessageFromFlutter(message) {\n    console.log("Received message from Flutter: " + message);\n    // \u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u067e\u06cc\u0627\u0645\u06cc \u06a9\u0647 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0631\u062f\u0647\u200c\u0627\u06cc \u0631\u0648 \u067e\u0631\u062f\u0627\u0632\u0634 \u06a9\u0646\u06cc \u06cc\u0627 \u0646\u0645\u0627\u06cc\u0634 \u0628\u062f\u06cc\n  }\n\n  window.addEventListener(\'FlutterChannel\', function(event) {\n    receiveMessageFromFlutter(event.data);\n    if (window.$plasmicSetData) {\n      window.$plasmicSetData("flutter", event.data);\n  }\n  });\n\n</script>\n'
+              }
+            />
+
             <ApiRequest
               data-plasmic-name={"getSub"}
               data-plasmic-override={overrides.getSub}
@@ -36092,6 +36109,30 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               }}
               className={classNames("__wab_instance", sty.lottie)}
             />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___2LDfX
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $state.flutter;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
           </div>
         </div>
       </div>
@@ -36100,7 +36141,16 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "getSub", "countdown", "button2", "button", "lottie"],
+  root: [
+    "root",
+    "embedHtml",
+    "getSub",
+    "countdown",
+    "button2",
+    "button",
+    "lottie"
+  ],
+  embedHtml: ["embedHtml"],
   getSub: ["getSub"],
   countdown: ["countdown"],
   button2: ["button2"],
@@ -36112,6 +36162,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  embedHtml: typeof Embed;
   getSub: typeof ApiRequest;
   countdown: typeof Countdown;
   button2: typeof Button;
@@ -36204,6 +36255,7 @@ export const PlasmicSelfSmsPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    embedHtml: makeNodeComponent("embedHtml"),
     getSub: makeNodeComponent("getSub"),
     countdown: makeNodeComponent("countdown"),
     button2: makeNodeComponent("button2"),
