@@ -3,34 +3,95 @@
 import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../../components/plasmic/todo_mvc_app/PlasmicGlobalContextsProvider";
-
 import { PlasmicMain } from "../../components/plasmic/liom_hamyar/PlasmicMain";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { initializeApp } from "firebase/app";
+import { getMessaging, onMessage, getToken } from "firebase/messaging";
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBVtKyIzcD0xVEMOjeMYjDdNRozFVVrmRo",
+  authDomain: "liom-31952.firebaseapp.com",
+  databaseURL: "https://liom-31952.firebaseio.com",
+  projectId: "liom-31952",
+  storageBucket: "liom-31952.firebasestorage.app",
+  messagingSenderId: "518322220404",
+  appId: "1:518322220404:web:09527c8a42f2f017d89021",
+  measurementId: "G-TVWYWYEH1D"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const messaging = getMessaging(app);
 
 function Main() {
-  // Use PlasmicMain to render this component as it was
-  // designed in Plasmic, by activating the appropriate variants,
-  // attaching the appropriate event handlers, etc.  You
-  // can also install whatever React hooks you need here to manage state or
-  // fetch data.
-  //
-  // Props you can pass into PlasmicMain are:
-  // 1. Variants you want to activate,
-  // 2. Contents for slots you want to fill,
-  // 3. Overrides for any named node in the component to attach behavior and data,
-  // 4. Props to set on the root node.
-  //
-  // By default, PlasmicMain is wrapped by your project's global
-  // variant context providers. These wrappers may be moved to
-  // Next.js Custom App component
-  // (https://nextjs.org/docs/advanced-features/custom-app).
+  const router = useRouter();
+
+  useEffect(() => {
+    // Register Service Worker
+    if ('serviceWorker' in navigator && typeof window !== 'undefined') {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/firebase-messaging-sw.js')
+          .then((registration) => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            
+            // Initialize Firebase Messaging after SW registration
+            initFirebaseMessaging();
+          })
+          .catch((error) => {
+            console.log('ServiceWorker registration failed: ', error);
+          });
+      });
+    }
+
+    // Initialize Firebase Messaging
+    const initFirebaseMessaging = async () => {
+      try {
+        // Request notification permission
+        const permission = await Notification.requestPermission();
+        if (permission === 'granted') {
+          console.log('Notification permission granted.');
+          
+          // Get FCM token
+          const token = await getToken(messaging, { 
+            vapidKey: "BDroVn6KRs9iN1laogFt-J47xc9WsWIfblgIBCi2QllonFT-PAu9up26gRlL-9uL7R1FSllN7I13eTR6IZiH72g" 
+          });
+          
+          if (token) {
+            console.log('FCM Token:', token);
+            // Send token to your server
+            localStorage.setItem('fcmToken', token);
+          }
+        }
+      } catch (error) {
+        console.error('Error initializing Firebase Messaging:', error);
+      }
+    };
+
+    // Handle incoming messages
+    const unsubscribe = onMessage(messaging, (payload) => {
+      console.log('Message received:', payload);
+      // Display notification to user
+      if (payload.notification) {
+        new Notification(payload.notification.title || 'New message', {
+          body: payload.notification.body,
+          icon: payload.notification.icon || '/icons/icon-192x192.png'
+        });
+      }
+    });
+
+    return () => {
+      unsubscribe(); // Cleanup on component unmount
+    };
+  }, []);
 
   return (
     <GlobalContextsProvider>
       <PageParamsProvider__
-        route={useRouter()?.pathname}
-        params={useRouter()?.query}
-        query={useRouter()?.query}
+        route={router?.pathname}
+        params={router?.query}
+        query={router?.query}
       >
         <PlasmicMain />
       </PageParamsProvider__>
