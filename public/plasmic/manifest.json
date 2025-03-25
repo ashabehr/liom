@@ -1,0 +1,26 @@
+{
+  "name": "لیوم",
+  "short_name": "لیوم",
+  "icons": [
+    {
+      "src": "https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico",
+      "sizes": "128x128",
+      "type": "image/x-icon"
+    }
+  ],
+  "theme_color": "#7444BC",
+  "background_color": "#7444BC",
+  "display": "standalone",
+  "start_url": "/login",
+  "scope": "/"
+}
