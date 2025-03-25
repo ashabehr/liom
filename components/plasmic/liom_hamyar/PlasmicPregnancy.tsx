@@ -1340,32 +1340,29 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     ]
                                   );
                                 }
-                                fetch(
-                                  "https://n8n.staas.ir/webhook-test/status",
-                                  {
-                                    method: "POST",
-                                    headers: {
-                                      "Content-Type": "application/json",
-                                      Authorization:
-                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                    },
-                                    body: JSON.stringify({
-                                      area: "pregnancy",
-                                      duDate:
-                                        gy + "-" + gm + "-" + gd + " 10:10:10",
-                                      userId: $ctx.query.userId.slice(
-                                        4,
-                                        +$ctx.query.userId.length - 4
-                                      ),
-                                      name: name,
-                                      mobile: mobile,
-                                      email: email,
-                                      hamyarData: { hamyarsData },
-                                      allowance: { allowance },
-                                      currentWeek: $state.weeksPregnant
-                                    })
-                                  }
-                                )
+                                fetch("https://n8n.staas.ir/webhook/status", {
+                                  method: "POST",
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                  },
+                                  body: JSON.stringify({
+                                    area: "pregnancy",
+                                    duDate:
+                                      gy + "-" + gm + "-" + gd + " 10:10:10",
+                                    userId: $ctx.query.userId.slice(
+                                      4,
+                                      +$ctx.query.userId.length - 4
+                                    ),
+                                    name: name,
+                                    mobile: mobile,
+                                    email: email,
+                                    hamyarData: { hamyarsData },
+                                    allowance: { allowance },
+                                    currentWeek: $state.weeksPregnant
+                                  })
+                                })
                                   .then(response => {
                                     return response.json();
                                   })
@@ -8068,7 +8065,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return true;
+                            return false;
                           }
                           throw e;
                         }

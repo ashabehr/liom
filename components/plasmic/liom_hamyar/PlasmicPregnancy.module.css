@@ -1953,7 +1953,6 @@
   }
 }
 .freeBox__dt3SX {
-  display: flex;
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
@@ -1964,6 +1963,7 @@
   padding-top: 0px;
   margin-top: 8px;
   min-width: 0;
+  display: none;
 }
 .freeBox__z3Ie {
   display: flex;
