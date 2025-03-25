@@ -18,6 +18,16 @@
       "type": "image/x-icon"
     }
   ],
+  "splash_screens": [
+    {
+      "src": "https://liom.app/wp-content/uploads/2025/03/Logo-1.webp",
+      "sizes": "640x1136"
+    },
+    {
+      "src": "https://liom.app/wp-content/uploads/2025/03/Logo-1.webp",
+      "sizes": "1242x2208"
+    }
+  ],
   "theme_color": "#7444BC",
   "background_color": "#7444BC",
   "display": "standalone",
