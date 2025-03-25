@@ -109,9 +109,11 @@ export const PlasmicPregnancy2__VariantProps = new Array<VariantPropType>(
   "darkMod"
 );
 
-export type PlasmicPregnancy2__ArgsType = {};
+export type PlasmicPregnancy2__ArgsType = {
+  test?: (a1: string, a2: string) => void;
+};
 type ArgPropType = keyof PlasmicPregnancy2__ArgsType;
-export const PlasmicPregnancy2__ArgProps = new Array<ArgPropType>();
+export const PlasmicPregnancy2__ArgProps = new Array<ArgPropType>("test");
 
 export type PlasmicPregnancy2__OverridesType = {
   root?: Flex__<"div">;

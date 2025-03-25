@@ -103,6 +103,7 @@ export type PlasmicSelfCare__OverridesType = {
   button?: Flex__<typeof Button>;
   embedHtml?: Flex__<typeof Embed>;
   img?: Flex__<typeof PlasmicImg__>;
+  lineClomp2?: Flex__<typeof LineClomp>;
 };
 
 export interface DefaultSelfCareProps {}
@@ -170,7 +171,7 @@ function PlasmicSelfCare__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.query.token;
+              return $ctx.query.token || window.localStorage.getItem("token");
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -257,6 +258,72 @@ function PlasmicSelfCare__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({ loading: true })
+      },
+      {
+        path: "tools",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [
+                {
+                  type: "#hamyarIn",
+                  action: `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
+                    "token"
+                  )}khn&userId=mjgf${
+                    JSON.parse(window.localStorage.getItem("userinfo")).user.id
+                  }kpmf`
+                },
+                {
+                  type: "",
+                  action: `https://tools.liom.app/self-medication/?type=skinCare&token=KOlmhp${localStorage.getItem(
+                    "token"
+                  )}khn&userId=mjgf${
+                    JSON.parse(window.localStorage.getItem("userinfo")).user.id
+                  }kpmf`
+                },
+                {
+                  type: "#inAppWebView",
+                  action: `/self-sms-page?token=${localStorage.getItem(
+                    "token"
+                  )}`
+                },
+                {
+                  type: "#hamyarInfo",
+                  action: `/hamyar-add/?token=${localStorage.getItem("token")}`
+                },
+                {
+                  type: "",
+                  action: `http://tools.liom.app/self-test/?app=liom&type=irregular&userId=khyg${
+                    JSON.parse(window.localStorage.getItem("userinfo")).user.id
+                  }lhun`
+                },
+                {
+                  type: "#appoinment",
+
+                  action: `https://apps.liom.app/clinic/?token=${localStorage.getItem(
+                    "token"
+                  )}&userId=${
+                    JSON.parse(window.localStorage.getItem("userinfo")).user.id
+                  }`
+                }
+              ];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "lineClomp2[].line",
+        type: "private",
+        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -785,31 +852,48 @@ function PlasmicSelfCare__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["runCode"] = true
+                        $steps["goToPage"] = true
                           ? (() => {
                               const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    switch (currentItem.action) {
-                                      case "hamyarInfo":
-                                        window.open("/hamyar-add", "_self");
-                                        break;
-                                      default:
+                                destination: (() => {
+                                  try {
+                                    return $state.tools.find(item =>
+                                      currentItem.action.startsWith(
+                                        currentItem.action
+                                      )
+                                    ).action;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
                                     }
-                                  })();
-                                }
+                                    throw e;
+                                  }
+                                })()
                               };
-                              return (({ customFunction }) => {
-                                return customFunction();
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
                         if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
                         ) {
-                          $steps["runCode"] = await $steps["runCode"];
+                          $steps["goToPage"] = await $steps["goToPage"];
                         }
                       }}
                     >
@@ -945,29 +1029,55 @@ function PlasmicSelfCare__RenderFunc(props: {
                             </div>
                           ) : null}
                         </Stack__>
-                        <div
+                        <LineClomp
+                          data-plasmic-name={"lineClomp2"}
+                          data-plasmic-override={overrides.lineClomp2}
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__vhPmx
+                            "__wab_instance",
+                            sty.lineClomp2
                           )}
+                          numberOfLine={2}
+                          onLineChange={async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "lineClomp2",
+                              __plasmic_idx_0,
+                              "line"
+                            ]).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return currentItem.text;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__vhPmx
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.text;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </LineClomp>
                       </Stack__>
                       <ChevronLeftIcon
                         className={classNames(projectcss.all, sty.svg___1Z4Vp)}
@@ -1066,7 +1176,8 @@ const PlasmicDescendants = {
     "lineClomp",
     "button",
     "embedHtml",
-    "img"
+    "img",
+    "lineClomp2"
   ],
   section: ["section", "mainHeader"],
   mainHeader: ["mainHeader"],
@@ -1074,7 +1185,8 @@ const PlasmicDescendants = {
   lineClomp: ["lineClomp"],
   button: ["button"],
   embedHtml: ["embedHtml"],
-  img: ["img"]
+  img: ["img"],
+  lineClomp2: ["lineClomp2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1088,6 +1200,7 @@ type NodeDefaultElementType = {
   button: typeof Button;
   embedHtml: typeof Embed;
   img: typeof PlasmicImg__;
+  lineClomp2: typeof LineClomp;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1182,6 +1295,7 @@ export const PlasmicSelfCare = Object.assign(
     button: makeNodeComponent("button"),
     embedHtml: makeNodeComponent("embedHtml"),
     img: makeNodeComponent("img"),
+    lineClomp2: makeNodeComponent("lineClomp2"),
 
     // Metadata about props expected for PlasmicSelfCare
     internalVariantProps: PlasmicSelfCare__VariantProps,
