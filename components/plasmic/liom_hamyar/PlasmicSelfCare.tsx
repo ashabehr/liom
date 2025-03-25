@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -98,6 +99,7 @@ export type PlasmicSelfCare__OverridesType = {
   root?: Flex__<"div">;
   section?: Flex__<"section">;
   mainHeader?: Flex__<typeof MainHeader>;
+  sideEffect?: Flex__<typeof SideEffect>;
   selfCare?: Flex__<typeof ApiRequest>;
   lineClomp?: Flex__<typeof LineClomp>;
   button?: Flex__<typeof Button>;
@@ -144,6 +146,8 @@ function PlasmicSelfCare__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -267,6 +271,12 @@ function PlasmicSelfCare__RenderFunc(props: {
         path: "lineClomp[].line",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "selfCare2",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({ loading: true })
       }
     ],
     [$props, $ctx, $refs]
@@ -397,6 +407,86 @@ function PlasmicSelfCare__RenderFunc(props: {
               </Stack__>
             </MainHeader>
           </section>
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/rest/tools/selfCare",
+                        (() => {
+                          try {
+                            return { authorization: $state.token };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["updateSelfCare2"] =
+                $steps.invokeGlobalAction.data.success == true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["selfCare2"]
+                        },
+                        operation: 0,
+                        value: $steps.invokeGlobalAction.data
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateSelfCare2"] != null &&
+                typeof $steps["updateSelfCare2"] === "object" &&
+                typeof $steps["updateSelfCare2"].then === "function"
+              ) {
+                $steps["updateSelfCare2"] = await $steps["updateSelfCare2"];
+              }
+            }}
+          />
+
           <ApiRequest
             data-plasmic-name={"selfCare"}
             data-plasmic-override={overrides.selfCare}
@@ -508,7 +598,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return $state.selfCare.data.result.list.items;
+                      return $state.selfCare2;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -961,6 +1051,7 @@ const PlasmicDescendants = {
     "root",
     "section",
     "mainHeader",
+    "sideEffect",
     "selfCare",
     "lineClomp",
     "button",
@@ -969,6 +1060,7 @@ const PlasmicDescendants = {
   ],
   section: ["section", "mainHeader"],
   mainHeader: ["mainHeader"],
+  sideEffect: ["sideEffect"],
   selfCare: ["selfCare", "lineClomp", "button", "embedHtml", "img"],
   lineClomp: ["lineClomp"],
   button: ["button"],
@@ -982,6 +1074,7 @@ type NodeDefaultElementType = {
   root: "div";
   section: "section";
   mainHeader: typeof MainHeader;
+  sideEffect: typeof SideEffect;
   selfCare: typeof ApiRequest;
   lineClomp: typeof LineClomp;
   button: typeof Button;
@@ -1076,6 +1169,7 @@ export const PlasmicSelfCare = Object.assign(
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
     mainHeader: makeNodeComponent("mainHeader"),
+    sideEffect: makeNodeComponent("sideEffect"),
     selfCare: makeNodeComponent("selfCare"),
     lineClomp: makeNodeComponent("lineClomp"),
     button: makeNodeComponent("button"),
