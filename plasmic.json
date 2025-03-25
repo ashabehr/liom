@@ -1726,6 +1726,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicMobileDialog.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "dLE_AEWFZZ04",
+          "name": "SubItems",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSubItems.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/subItems.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSubItems.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/subItems"
         }
       ],
       "icons": [
