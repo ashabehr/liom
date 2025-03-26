@@ -59,6 +59,10 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { AntdRangeSlider } from "@plasmicpkgs/antd5/skinny/registerSlider";
+import { rangeSliderHelpers as AntdRangeSlider_Helpers } from "@plasmicpkgs/antd5/skinny/registerSlider";
+import { AntdSliderMark } from "@plasmicpkgs/antd5/skinny/registerSlider";
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -96,6 +100,8 @@ export type PlasmicPost__OverridesType = {
   firstFreamOfVideo?: Flex__<typeof PlasmicImg__>;
   image?: Flex__<typeof PlasmicImg__>;
   svg?: Flex__<"svg">;
+  rangeSlider?: Flex__<typeof AntdRangeSlider>;
+  sliderMark?: Flex__<typeof AntdSliderMark>;
 };
 
 export interface DefaultPostProps {
@@ -153,6 +159,22 @@ function PlasmicPost__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.postType
+      },
+      {
+        path: "rangeSlider.min",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("min", AntdRangeSlider_Helpers)
+      },
+      {
+        path: "rangeSlider.max",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("max", AntdRangeSlider_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -319,19 +341,31 @@ function PlasmicPost__RenderFunc(props: {
               "video"
             )
           })}
-          displayHeight={"auto"}
-          displayMaxHeight={"100%"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
+          displayHeight={"100%"}
+          displayMaxHeight={"none"}
+          displayMaxWidth={"none"}
+          displayMinHeight={"50%"}
           displayMinWidth={"0"}
-          displayWidth={"auto"}
+          displayWidth={"100%"}
           loading={"lazy"}
-          src={{
-            src: "/plasmic/liom_hamyar/images/newProjectPng.png",
-            fullWidth: 1080,
-            fullHeight: 764,
-            aspectRatio: undefined
-          }}
+          src={(() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {
+                  src: "/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg",
+                  fullWidth: 5349,
+                  fullHeight: 3566,
+                  aspectRatio: undefined
+                };
+              }
+              throw e;
+            }
+          })()}
         />
       </div>
       <div
@@ -340,6 +374,11 @@ function PlasmicPost__RenderFunc(props: {
             $state,
             "postType",
             "image"
+          ),
+          [sty.freeBoxpostType_video__r7DUgpFlEv]: hasVariant(
+            $state,
+            "postType",
+            "video"
           )
         })}
         onClick={async event => {
@@ -379,12 +418,12 @@ function PlasmicPost__RenderFunc(props: {
             [sty.imagepostType_image]: hasVariant($state, "postType", "image"),
             [sty.imagepostType_video]: hasVariant($state, "postType", "video")
           })}
-          displayHeight={"auto"}
+          displayHeight={"100%"}
           displayMaxHeight={"none"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
+          displayMaxWidth={"none"}
+          displayMinHeight={"50%"}
           displayMinWidth={"0"}
-          displayWidth={"auto"}
+          displayWidth={"100%"}
           loading={"lazy"}
           src={(() => {
             try {
@@ -408,6 +447,11 @@ function PlasmicPost__RenderFunc(props: {
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__fbVqi, {
+          [sty.freeBoxpostType_video__fbVqipFlEv]: hasVariant(
+            $state,
+            "postType",
+            "video"
+          ),
           [sty.freeBoxpostType_voise__fbVqiVlsyu]: hasVariant(
             $state,
             "postType",
@@ -456,6 +500,71 @@ function PlasmicPost__RenderFunc(props: {
               />
             </div>
           </div>
+          {(() => {
+            const child$Props = {
+              className: classNames("__wab_instance", sty.rangeSlider),
+              onChange: async (...eventArgs: any) => {
+                generateStateOnChangePropForCodeComponents(
+                  $state,
+                  "min",
+                  ["rangeSlider", "min"],
+                  AntdRangeSlider_Helpers
+                ).apply(null, eventArgs);
+                generateStateOnChangePropForCodeComponents(
+                  $state,
+                  "max",
+                  ["rangeSlider", "max"],
+                  AntdRangeSlider_Helpers
+                ).apply(null, eventArgs);
+              },
+              sliderScopeClassName: sty["rangeSlider__slider"],
+              stylableMarks: (
+                <AntdSliderMark
+                  data-plasmic-name={"sliderMark"}
+                  data-plasmic-override={overrides.sliderMark}
+                  className={classNames("__wab_instance", sty.sliderMark)}
+                  mark={50}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__fmvXp
+                    )}
+                  >
+                    {"Stylable Mark"}
+                  </div>
+                </AntdSliderMark>
+              ),
+              tooltipVisible: "unset",
+              valueMax: generateStateValueProp($state, ["rangeSlider", "max"]),
+              valueMin: generateStateValueProp($state, ["rangeSlider", "min"])
+            };
+            initializeCodeComponentStates(
+              $state,
+              [
+                {
+                  name: "min",
+                  plasmicStateName: "rangeSlider.min"
+                },
+                {
+                  name: "max",
+                  plasmicStateName: "rangeSlider.max"
+                }
+              ],
+              [],
+              AntdRangeSlider_Helpers ?? {},
+              child$Props
+            );
+
+            return (
+              <AntdRangeSlider
+                data-plasmic-name={"rangeSlider"}
+                data-plasmic-override={overrides.rangeSlider}
+                {...child$Props}
+              />
+            );
+          })()}
         </div>
       </div>
     </div>
@@ -463,10 +572,19 @@ function PlasmicPost__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "firstFreamOfVideo", "image", "svg"],
+  root: [
+    "root",
+    "firstFreamOfVideo",
+    "image",
+    "svg",
+    "rangeSlider",
+    "sliderMark"
+  ],
   firstFreamOfVideo: ["firstFreamOfVideo"],
   image: ["image"],
-  svg: ["svg"]
+  svg: ["svg"],
+  rangeSlider: ["rangeSlider", "sliderMark"],
+  sliderMark: ["sliderMark"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -476,6 +594,8 @@ type NodeDefaultElementType = {
   firstFreamOfVideo: typeof PlasmicImg__;
   image: typeof PlasmicImg__;
   svg: "svg";
+  rangeSlider: typeof AntdRangeSlider;
+  sliderMark: typeof AntdSliderMark;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -541,6 +661,8 @@ export const PlasmicPost = Object.assign(
     firstFreamOfVideo: makeNodeComponent("firstFreamOfVideo"),
     image: makeNodeComponent("image"),
     svg: makeNodeComponent("svg"),
+    rangeSlider: makeNodeComponent("rangeSlider"),
+    sliderMark: makeNodeComponent("sliderMark"),
 
     // Metadata about props expected for PlasmicPost
     internalVariantProps: PlasmicPost__VariantProps,

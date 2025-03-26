@@ -131,7 +131,6 @@ export type PlasmicComment__OverridesType = {
   coment?: Flex__<"div">;
   commentlikebutton?: Flex__<typeof Commentlikebutton>;
   commentlikebutton2?: Flex__<typeof Commentlikebutton>;
-  commentlikebutton3?: Flex__<typeof Commentlikebutton>;
   replyLikeButton?: Flex__<typeof ReplyLikeButton>;
 };
 
@@ -241,11 +240,6 @@ function PlasmicComment__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "commentlikebutton3[].variableForLikeCountComment",
-        type: "private",
-        variableType: "text"
       }
     ],
     [$props, $ctx, $refs]
@@ -819,56 +813,6 @@ function PlasmicComment__RenderFunc(props: {
                 })}
               />
 
-              <Commentlikebutton
-                data-plasmic-name={"commentlikebutton3"}
-                data-plasmic-override={overrides.commentlikebutton3}
-                className={classNames(
-                  "__wab_instance",
-                  sty.commentlikebutton3,
-                  {
-                    [sty.commentlikebutton3showReply]: hasVariant(
-                      $state,
-                      "showReply",
-                      "showReply"
-                    )
-                  }
-                )}
-                likeCommentCount={
-                  true
-                    ? (() => {
-                        try {
-                          return undefined;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()
-                    : `${(() => {})()}${currentItem.likeCount}`
-                }
-                onVariableForLikeCountCommentChange={async (
-                  ...eventArgs: any
-                ) => {
-                  generateStateOnChangeProp($state, [
-                    "commentlikebutton3",
-                    __plasmic_idx_0,
-                    "variableForLikeCountComment"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-              />
-
               <ReplyLikeButton
                 data-plasmic-name={"replyLikeButton"}
                 data-plasmic-override={overrides.replyLikeButton}
@@ -1157,13 +1101,11 @@ const PlasmicDescendants = {
     "coment",
     "commentlikebutton",
     "commentlikebutton2",
-    "commentlikebutton3",
     "replyLikeButton"
   ],
   coment: ["coment"],
   commentlikebutton: ["commentlikebutton"],
   commentlikebutton2: ["commentlikebutton2"],
-  commentlikebutton3: ["commentlikebutton3"],
   replyLikeButton: ["replyLikeButton"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1174,7 +1116,6 @@ type NodeDefaultElementType = {
   coment: "div";
   commentlikebutton: typeof Commentlikebutton;
   commentlikebutton2: typeof Commentlikebutton;
-  commentlikebutton3: typeof Commentlikebutton;
   replyLikeButton: typeof ReplyLikeButton;
 };
 
@@ -1241,7 +1182,6 @@ export const PlasmicComment = Object.assign(
     coment: makeNodeComponent("coment"),
     commentlikebutton: makeNodeComponent("commentlikebutton"),
     commentlikebutton2: makeNodeComponent("commentlikebutton2"),
-    commentlikebutton3: makeNodeComponent("commentlikebutton3"),
     replyLikeButton: makeNodeComponent("replyLikeButton"),
 
     // Metadata about props expected for PlasmicComment

@@ -886,6 +886,11 @@ function PlasmicLogin__RenderFunc(props: {
                 $state,
                 "loginPage",
                 "mobile"
+              ),
+              [sty.sideEffectloginPage_name]: hasVariant(
+                $state,
+                "loginPage",
+                "name"
               )
             })}
             onMount={async () => {
@@ -9718,10 +9723,9 @@ function PlasmicLogin__RenderFunc(props: {
                           }
 
                           $steps["updateLoginData"] =
-                            $steps.invokeGlobalAction?.data?.success === true ||
-                            $steps.invokeGlobalAction2?.data?.success ===
-                              true ||
-                            $steps.invokeGlobalAction3?.data?.success === true
+                            $steps.invokeGlobalAction3?.data?.success == true ||
+                            $steps.invokeGlobalAction?.data?.success == true ||
+                            $steps.invokeGlobalAction2?.data?.success == true
                               ? (() => {
                                   const actionArgs = {
                                     variable: {
@@ -9767,9 +9771,9 @@ function PlasmicLogin__RenderFunc(props: {
                                 true ||
                               $steps.invokeGlobalAction2?.data?.success ==
                                 true) &&
-                            ($state.type == "mobile" ||
-                              $state.gender == "female") &&
-                            $ctx.query.redirect_url != ""
+                            ($state?.type == "mobile" ||
+                              $state?.gender == "female") &&
+                            $ctx?.query?.redirect_url != ""
                               ? (() => {
                                   const actionArgs = {
                                     destination: (() => {
@@ -9847,9 +9851,9 @@ function PlasmicLogin__RenderFunc(props: {
                                 true ||
                               $steps.invokeGlobalAction2?.data?.success ==
                                 true) &&
-                            $state.type == "mobile" &&
-                            $state.gender == "male" &&
-                            $ctx.query.redirect_url == ""
+                            ($state?.type == "mobile" ||
+                              $state?.gender == "male") &&
+                            $ctx?.query?.redirect_url == ""
                               ? (() => {
                                   const actionArgs = {
                                     destination: (() => {
@@ -9915,8 +9919,8 @@ function PlasmicLogin__RenderFunc(props: {
                                 true ||
                               $steps.invokeGlobalAction2?.data?.success ==
                                 true) &&
-                            $state.gender == "female" &&
-                            $ctx.query.redirect_url == ""
+                            $state?.gender == "female" &&
+                            $ctx?.query?.redirect_url == ""
                               ? (() => {
                                   const actionArgs = {
                                     vgroup: "loginPage",
@@ -9971,43 +9975,6 @@ function PlasmicLogin__RenderFunc(props: {
                           ) {
                             $steps["updateLoginPage2"] = await $steps[
                               "updateLoginPage2"
-                            ];
-                          }
-
-                          $steps["updateTextInputValue"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["textInput", "value"]
-                                  },
-                                  operation: 0
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateTextInputValue"] != null &&
-                            typeof $steps["updateTextInputValue"] ===
-                              "object" &&
-                            typeof $steps["updateTextInputValue"].then ===
-                              "function"
-                          ) {
-                            $steps["updateTextInputValue"] = await $steps[
-                              "updateTextInputValue"
                             ];
                           }
 
@@ -10088,30 +10055,29 @@ function PlasmicLogin__RenderFunc(props: {
                             ];
                           }
 
-                          $steps["updateTextInputValue3"] =
-                            $state.type == "google" && $state.gender == "female"
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return window.open(
-                                        $ctx.query.redirect_url +
-                                          "?token=" +
-                                          $$.uuid.v4().slice(0, 6) +
-                                          $ctx.query.token +
-                                          $$.uuid.v4().slice(10, 13) +
-                                          "&userId=" +
-                                          $$.uuid.v4().slice(0, 4) +
-                                          $ctx.query.userId +
-                                          $$.uuid.v4().slice(0, 4),
-                                        "_self"
-                                      );
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                          $steps["updateTextInputValue3"] = false
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return window.open(
+                                      $ctx.query.redirect_url +
+                                        "?token=" +
+                                        $$.uuid.v4().slice(0, 6) +
+                                        $ctx.query.token +
+                                        $$.uuid.v4().slice(10, 13) +
+                                        "&userId=" +
+                                        $$.uuid.v4().slice(0, 4) +
+                                        $ctx.query.userId +
+                                        $$.uuid.v4().slice(0, 4),
+                                      "_self"
+                                    );
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
                           if (
                             $steps["updateTextInputValue3"] != null &&
                             typeof $steps["updateTextInputValue3"] ===
@@ -11796,6 +11762,12 @@ function PlasmicLogin__RenderFunc(props: {
                       </div>
                     </Button>
                   </div>
+                  <section
+                    className={classNames(projectcss.all, sty.section__bZwSb, {
+                      [sty.sectionloginPage_selectstatus__bZwSbNi6Lr]:
+                        hasVariant($state, "loginPage", "selectstatus")
+                    })}
+                  />
                 </div>
               </Stack__>
             </Reveal>
