@@ -351,7 +351,7 @@ function PlasmicPost__RenderFunc(props: {
             displayHeight={"100%"}
             displayMaxHeight={"none"}
             displayMaxWidth={"none"}
-            displayMinHeight={"50%"}
+            displayMinHeight={"0"}
             displayMinWidth={"0"}
             displayWidth={"100%"}
             loading={"lazy"}
@@ -435,7 +435,7 @@ function PlasmicPost__RenderFunc(props: {
           displayHeight={"100%"}
           displayMaxHeight={"none"}
           displayMaxWidth={"none"}
-          displayMinHeight={"50%"}
+          displayMinHeight={"0"}
           displayMinWidth={"0"}
           displayWidth={"100%"}
           loading={"lazy"}
@@ -582,11 +582,8 @@ function PlasmicPost__RenderFunc(props: {
           value2={generateStateValueProp($state, ["antdSlider2", "value2"])}
         />
 
-        <div className={classNames(projectcss.all, sty.freeBox__apntU)}>
-          <svg
-            className={classNames(projectcss.all, sty.svg__ttzKu)}
-            role={"img"}
-          />
+        <div className={classNames(projectcss.all, sty.freeBox__rEuUx)}>
+          <div className={classNames(projectcss.all, sty.freeBox__apntU)} />
         </div>
       </div>
     </div>

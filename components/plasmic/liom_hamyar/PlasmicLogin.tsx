@@ -9773,7 +9773,7 @@ function PlasmicLogin__RenderFunc(props: {
                                 true) &&
                             ($state?.type == "mobile" ||
                               $state?.gender == "female") &&
-                            $ctx?.query?.redirect_url != ""
+                            $state.paramsObject.redirect_url != null
                               ? (() => {
                                   const actionArgs = {
                                     destination: (() => {
@@ -9859,7 +9859,7 @@ function PlasmicLogin__RenderFunc(props: {
                                 true) &&
                             $state?.type == "mobile" &&
                             $state?.gender == "male" &&
-                            $ctx?.query?.redirect_url == ""
+                            $state.paramsObject.redirect_url == null
                               ? (() => {
                                   const actionArgs = {
                                     destination: (() => {
@@ -9926,7 +9926,7 @@ function PlasmicLogin__RenderFunc(props: {
                               $steps.invokeGlobalAction2?.data?.success ==
                                 true) &&
                             $state.gender == "female" &&
-                            $ctx.query.redirect_url == ""
+                            $state.paramsObject.redirect_url == null
                               ? (() => {
                                   const actionArgs = {
                                     vgroup: "loginPage",
