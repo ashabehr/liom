@@ -6351,34 +6351,42 @@ function PlasmicPregnancy__RenderFunc(props: {
                               $steps["runCode2"] = await $steps["runCode2"];
                             }
 
-                            $steps["updateDirectDialog2Open"] =
-                              $ctx.query.inApp != "true"
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["directDialog2", "open"]
-                                      },
-                                      operation: 0,
-                                      value: true
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
+                            $steps["updateDirectDialog2Open"] = (() => {
+                              var allowance = $state?.user[0].allowance || [];
+                              allowance = JSON.parse(allowance);
+                              const filteredItem = allowance["allowance"].find(
+                                item => item.type.includes("danger")
+                              );
+                              const active = filteredItem
+                                ? filteredItem.active
+                                : false;
+                              return $ctx.query.inApp != "true" && !active;
+                            })()
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["directDialog2", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
 
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                             if (
                               $steps["updateDirectDialog2Open"] != null &&
                               typeof $steps["updateDirectDialog2Open"] ===
@@ -6391,21 +6399,30 @@ function PlasmicPregnancy__RenderFunc(props: {
                               ];
                             }
 
-                            $steps["runCode"] =
-                              $ctx.query.inApp == "true"
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return window.FlutterChannel.postMessage(
-                                          "#directDialog-pregnancy_danger_sub"
-                                        );
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
+                            $steps["runCode"] = (() => {
+                              var allowance = $state?.user[0].allowance || [];
+                              allowance = JSON.parse(allowance);
+                              const filteredItem = allowance["allowance"].find(
+                                item => item.type.includes("danger")
+                              );
+                              const active = filteredItem
+                                ? filteredItem.active
+                                : false;
+                              return $ctx.query.inApp == "true" && !active;
+                            })()
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return window.FlutterChannel.postMessage(
+                                        "#directDialog-pregnancy_danger_sub"
+                                      );
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                             if (
                               $steps["runCode"] != null &&
                               typeof $steps["runCode"] === "object" &&
