@@ -67,9 +67,9 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
@@ -926,6 +926,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                 )
               })}
             >
+              <Embed
+                className={classNames("__wab_instance", sty.embedHtml__sx6Y7)}
+                code={"<div>Paste your embed code via the right sidebar</div>"}
+              />
+
               <Stack__
                 as={"div"}
                 hasGap={true}

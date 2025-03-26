@@ -1089,7 +1089,7 @@ function PlasmicLogin__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          if ($state.paramsObject.redirect_url != "") {
+                          if ($state.paramsObject.redirect_url != null) {
                             console.log("ننحح");
                             var baseUrl =
                               window.location.href.split("redirect_url=")[1] ||

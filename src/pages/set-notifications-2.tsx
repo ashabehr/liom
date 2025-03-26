@@ -5,23 +5,23 @@ import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-we
 import GlobalContextsProvider from "../../components/plasmic/todo_mvc_app/PlasmicGlobalContextsProvider";
 import { UnnamedGlobalGroupOfVariants4Context } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
 import { UnnamedGlobalGroupOfVariants5Context } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
-import { PlasmicSubItems2 } from "../../components/plasmic/liom_hamyar/PlasmicSubItems2";
+import { PlasmicSetNotifications } from "../../components/plasmic/liom_hamyar/PlasmicSetNotifications";
 import { useRouter } from "next/router";
 
-function SubItems2() {
-  // Use PlasmicSubItems2 to render this component as it was
+function SetNotifications() {
+  // Use PlasmicSetNotifications to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicSubItems2 are:
+  // Props you can pass into PlasmicSetNotifications are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicSubItems2 is wrapped by your project's global
+  // By default, PlasmicSetNotifications is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
@@ -35,7 +35,7 @@ function SubItems2() {
             params={useRouter()?.query}
             query={useRouter()?.query}
           >
-            <PlasmicSubItems2 />
+            <PlasmicSetNotifications />
           </PageParamsProvider__>
         </GlobalContextsProvider>
       </UnnamedGlobalGroupOfVariants4Context.Provider>
@@ -43,4 +43,4 @@ function SubItems2() {
   );
 }
 
-export default SubItems2;
+export default SetNotifications;

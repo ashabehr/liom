@@ -1743,14 +1743,14 @@
         },
         {
           "id": "KdAfa1icj6me",
-          "name": "SubItems2",
+          "name": "SetNotifications",
           "type": "managed",
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSubItems2.tsx",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSetNotifications.tsx",
           "importSpec": {
             "modulePath": "../src/pages/set-notifications-2.tsx"
           },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSubItems2.module.css",
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSetNotifications.module.css",
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/set-notifications-2"
@@ -5536,7 +5536,8 @@
       "globalContextsFilePath": "",
       "splitsProviderFilePath": "",
       "codeComponents": [],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {
@@ -5577,6 +5578,6 @@
   "nextjsConfig": {
     "pagesDir": "../src/pages"
   },
-  "cliVersion": "0.1.336",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.336/dist/plasmic.schema.json"
+  "cliVersion": "0.1.337",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.337/dist/plasmic.schema.json"
 }

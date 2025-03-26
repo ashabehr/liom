@@ -395,9 +395,9 @@ function PlasmicPost__RenderFunc(props: {
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
                 return {
-                  src: "/plasmic/liom_hamyar/images/image88.webp",
-                  fullWidth: 1024,
-                  fullHeight: 1024,
+                  src: "/plasmic/liom_hamyar/images/newProjectPng.png",
+                  fullWidth: 1080,
+                  fullHeight: 764,
                   aspectRatio: undefined
                 };
               }
