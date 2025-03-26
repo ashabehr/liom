@@ -16,6 +16,18 @@
       "src": "https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico",
       "sizes": "128x128",
       "type": "image/x-icon"
+    },
+     {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
   "splash_screens": [
