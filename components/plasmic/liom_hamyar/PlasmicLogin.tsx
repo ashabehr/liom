@@ -9764,6 +9764,27 @@ function PlasmicLogin__RenderFunc(props: {
                             ];
                           }
 
+                          $steps["invokeGlobalAction4"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [undefined, "hi", "top-right", 3000]
+                                };
+                                return $globalActions[
+                                  "Fragment.showToast"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction4"] != null &&
+                            typeof $steps["invokeGlobalAction4"] === "object" &&
+                            typeof $steps["invokeGlobalAction4"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction4"] = await $steps[
+                              "invokeGlobalAction4"
+                            ];
+                          }
+
                           $steps["goToPage"] =
                             ($steps.invokeGlobalAction3?.data?.success ==
                               true ||
@@ -9848,27 +9869,6 @@ function PlasmicLogin__RenderFunc(props: {
                             typeof $steps["goToPage"].then === "function"
                           ) {
                             $steps["goToPage"] = await $steps["goToPage"];
-                          }
-
-                          $steps["invokeGlobalAction4"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [undefined, "hi", "top-right", 3000]
-                                };
-                                return $globalActions[
-                                  "Fragment.showToast"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["invokeGlobalAction4"] != null &&
-                            typeof $steps["invokeGlobalAction4"] === "object" &&
-                            typeof $steps["invokeGlobalAction4"].then ===
-                              "function"
-                          ) {
-                            $steps["invokeGlobalAction4"] = await $steps[
-                              "invokeGlobalAction4"
-                            ];
                           }
 
                           $steps["goToHamyar"] =

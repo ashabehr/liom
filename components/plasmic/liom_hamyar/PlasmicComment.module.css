@@ -285,6 +285,7 @@
   right: auto;
 }
 .freeBox__wjP54 {
+  display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
@@ -294,7 +295,6 @@
   align-items: center;
   margin-bottom: 30px;
   min-width: 0;
-  display: none;
   padding: 8px 30px 8px 8px;
 }
 .freeBoxwhenHaveNoReply__wjP54UOheY {
@@ -317,8 +317,7 @@
   margin-top: 0px;
   min-width: 0;
   padding: 8px;
-  border-right: 1px solid var(--token-Pxe4wDL2kJpb);
-  border-bottom: 1px solid var(--token-Pxe4wDL2kJpb);
+  border-right: 1px solid var(--token-7yzgT3X0hxHm);
 }
 .freeBox__n5Oa {
   display: flex;
@@ -386,7 +385,7 @@
   white-space: pre;
   background: none;
   font-weight: 700;
-  color: #8254c6;
+  color: var(--token-jULyYuL3e-TL);
   min-width: 0;
 }
 .freeBox___3VbKo {
