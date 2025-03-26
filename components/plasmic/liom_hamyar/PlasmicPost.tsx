@@ -99,6 +99,7 @@ export type PlasmicPost__OverridesType = {
   firstFreamOfVideo?: Flex__<typeof PlasmicImg__>;
   image?: Flex__<typeof PlasmicImg__>;
   antdSlider?: Flex__<typeof Slider>;
+  antdSlider2?: Flex__<typeof Slider>;
 };
 
 export interface DefaultPostProps {
@@ -165,6 +166,18 @@ function PlasmicPost__RenderFunc(props: {
       },
       {
         path: "antdSlider.value2",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "antdSlider2.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "antdSlider2.value2",
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -542,15 +555,50 @@ function PlasmicPost__RenderFunc(props: {
           </div>
         </div>
       </div>
+      <div className={classNames(projectcss.all, sty.freeBox__oMc1N)}>
+        <Slider
+          data-plasmic-name={"antdSlider2"}
+          data-plasmic-override={overrides.antdSlider2}
+          className={classNames("__wab_instance", sty.antdSlider2, {
+            [sty.antdSlider2postType_image]: hasVariant(
+              $state,
+              "postType",
+              "image"
+            )
+          })}
+          onChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["antdSlider2", "value"]).apply(
+              null,
+              eventArgs
+            );
+          }}
+          onChange2={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["antdSlider2", "value2"]).apply(
+              null,
+              eventArgs
+            );
+          }}
+          value={generateStateValueProp($state, ["antdSlider2", "value"])}
+          value2={generateStateValueProp($state, ["antdSlider2", "value2"])}
+        />
+
+        <div className={classNames(projectcss.all, sty.freeBox__apntU)}>
+          <svg
+            className={classNames(projectcss.all, sty.svg__ttzKu)}
+            role={"img"}
+          />
+        </div>
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "firstFreamOfVideo", "image", "antdSlider"],
+  root: ["root", "firstFreamOfVideo", "image", "antdSlider", "antdSlider2"],
   firstFreamOfVideo: ["firstFreamOfVideo"],
   image: ["image"],
-  antdSlider: ["antdSlider"]
+  antdSlider: ["antdSlider"],
+  antdSlider2: ["antdSlider2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -560,6 +608,7 @@ type NodeDefaultElementType = {
   firstFreamOfVideo: typeof PlasmicImg__;
   image: typeof PlasmicImg__;
   antdSlider: typeof Slider;
+  antdSlider2: typeof Slider;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -625,6 +674,7 @@ export const PlasmicPost = Object.assign(
     firstFreamOfVideo: makeNodeComponent("firstFreamOfVideo"),
     image: makeNodeComponent("image"),
     antdSlider: makeNodeComponent("antdSlider"),
+    antdSlider2: makeNodeComponent("antdSlider2"),
 
     // Metadata about props expected for PlasmicPost
     internalVariantProps: PlasmicPost__VariantProps,
