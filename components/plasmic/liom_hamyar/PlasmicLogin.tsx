@@ -17680,6 +17680,11 @@ function PlasmicLogin__RenderFunc(props: {
                   "loginPage",
                   "mobile"
                 ),
+                [sty.freeBoxloginPage_name__e82KchUiKy]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "name"
+                ),
                 [sty.freeBoxloginPage_selectstatus__e82KcNi6Lr]: hasVariant(
                   $state,
                   "loginPage",
@@ -17694,6 +17699,11 @@ function PlasmicLogin__RenderFunc(props: {
                     $state,
                     "loginPage",
                     "mobile"
+                  ),
+                  [sty.imgloginPage_name__yi8EDhUiKy]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "name"
                   )
                 })}
                 displayHeight={"150px"}
