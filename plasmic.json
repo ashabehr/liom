@@ -1754,6 +1754,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/set-notifications-2"
+        },
+        {
+          "id": "8TLNkR4k2mrN",
+          "name": "AudioPlayer",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicAudioPlayer.tsx",
+          "importSpec": {
+            "modulePath": "AudioPlayer.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicAudioPlayer.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

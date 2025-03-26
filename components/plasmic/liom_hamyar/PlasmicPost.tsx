@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import AudioPlayer from "../../AudioPlayer"; // plasmic-import: 8TLNkR4k2mrN/component
 import { Slider } from "@plasmicpkgs/antd/skinny/registerSlider";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -69,7 +70,6 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicPost.module.css"; // plasmic-import: PIFHnFLcunkZ/css
 
 import MenuIcon from "../fragment_icons/icons/PlasmicIcon__Menu"; // plasmic-import: dmfb3Ga2IoVt/icon
-import PlayIcon from "./icons/PlasmicIcon__Play"; // plasmic-import: L7ZyLxyE87PQ/icon
 
 createPlasmicElementProxy;
 
@@ -97,8 +97,9 @@ export const PlasmicPost__ArgProps = new Array<ArgPropType>(
 export type PlasmicPost__OverridesType = {
   root?: Flex__<"div">;
   firstFreamOfVideo?: Flex__<typeof PlasmicImg__>;
+  svg?: Flex__<"svg">;
   image?: Flex__<typeof PlasmicImg__>;
-  antdSlider?: Flex__<typeof Slider>;
+  audioPlayer?: Flex__<typeof AudioPlayer>;
   antdSlider2?: Flex__<typeof Slider>;
 };
 
@@ -157,18 +158,6 @@ function PlasmicPost__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.postType
-      },
-      {
-        path: "antdSlider.value",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "antdSlider.value2",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "antdSlider2.value",
@@ -378,7 +367,9 @@ function PlasmicPost__RenderFunc(props: {
       </div>
       <div className={classNames(projectcss.all, sty.freeBox__cx2Bk)}>
         <MenuIcon
-          className={classNames(projectcss.all, sty.svg__lnGkb)}
+          data-plasmic-name={"svg"}
+          data-plasmic-override={overrides.svg}
+          className={classNames(projectcss.all, sty.svg)}
           role={"img"}
         />
       </div>
@@ -473,87 +464,29 @@ function PlasmicPost__RenderFunc(props: {
           )
         })}
       >
-        <div
-          className={classNames(projectcss.all, sty.freeBox__jhH8, {
-            [sty.freeBoxpostType_image__jhH82TCWu]: hasVariant(
+        <AudioPlayer
+          data-plasmic-name={"audioPlayer"}
+          data-plasmic-override={overrides.audioPlayer}
+          className={classNames("__wab_instance", sty.audioPlayer, {
+            [sty.audioPlayerpostType_image]: hasVariant(
               $state,
               "postType",
               "image"
             ),
-            [sty.freeBoxpostType_voise__jhH8Vlsyu]: hasVariant(
+            [sty.audioPlayerpostType_voise]: hasVariant(
               $state,
               "postType",
               "voise"
             )
           })}
-        >
-          <Slider
-            data-plasmic-name={"antdSlider"}
-            data-plasmic-override={overrides.antdSlider}
-            className={classNames("__wab_instance", sty.antdSlider, {
-              [sty.antdSliderpostType_image]: hasVariant(
-                $state,
-                "postType",
-                "image"
-              )
-            })}
-            onChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["antdSlider", "value"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onChange2={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["antdSlider", "value2"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            value={generateStateValueProp($state, ["antdSlider", "value"])}
-            value2={generateStateValueProp($state, ["antdSlider", "value2"])}
-          />
-
-          <div
-            className={classNames(projectcss.all, sty.freeBox__kj9Wr, {
-              [sty.freeBoxpostType_image__kj9Wr2TCWu]: hasVariant(
-                $state,
-                "postType",
-                "image"
-              ),
-              [sty.freeBoxpostType_voise__kj9WrVlsyu]: hasVariant(
-                $state,
-                "postType",
-                "voise"
-              )
-            })}
-          >
-            <div
-              className={classNames(projectcss.all, sty.freeBox__lcehn, {
-                [sty.freeBoxpostType_voise__lcehnVlsyu]: hasVariant(
-                  $state,
-                  "postType",
-                  "voise"
-                )
-              })}
-            >
-              <PlayIcon
-                className={classNames(projectcss.all, sty.svg__cHaMj, {
-                  [sty.svgpostType_image__cHaMj2TCWu]: hasVariant(
-                    $state,
-                    "postType",
-                    "image"
-                  ),
-                  [sty.svgpostType_voise__cHaMjVlsyu]: hasVariant(
-                    $state,
-                    "postType",
-                    "voise"
-                  )
-                })}
-                role={"img"}
-              />
-            </div>
-          </div>
-        </div>
+          postType={
+            hasVariant($state, "postType", "voise")
+              ? "voise"
+              : hasVariant($state, "postType", "image")
+              ? "image"
+              : undefined
+          }
+        />
       </div>
       <div className={classNames(projectcss.all, sty.freeBox__oMc1N)}>
         <Slider
@@ -591,10 +524,18 @@ function PlasmicPost__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "firstFreamOfVideo", "image", "antdSlider", "antdSlider2"],
+  root: [
+    "root",
+    "firstFreamOfVideo",
+    "svg",
+    "image",
+    "audioPlayer",
+    "antdSlider2"
+  ],
   firstFreamOfVideo: ["firstFreamOfVideo"],
+  svg: ["svg"],
   image: ["image"],
-  antdSlider: ["antdSlider"],
+  audioPlayer: ["audioPlayer"],
   antdSlider2: ["antdSlider2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -603,8 +544,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   firstFreamOfVideo: typeof PlasmicImg__;
+  svg: "svg";
   image: typeof PlasmicImg__;
-  antdSlider: typeof Slider;
+  audioPlayer: typeof AudioPlayer;
   antdSlider2: typeof Slider;
 };
 
@@ -669,8 +611,9 @@ export const PlasmicPost = Object.assign(
   {
     // Helper components rendering sub-elements
     firstFreamOfVideo: makeNodeComponent("firstFreamOfVideo"),
+    svg: makeNodeComponent("svg"),
     image: makeNodeComponent("image"),
-    antdSlider: makeNodeComponent("antdSlider"),
+    audioPlayer: makeNodeComponent("audioPlayer"),
     antdSlider2: makeNodeComponent("antdSlider2"),
 
     // Metadata about props expected for PlasmicPost

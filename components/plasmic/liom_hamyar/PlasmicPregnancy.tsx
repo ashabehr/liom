@@ -6530,6 +6530,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       return (
                                         "چه چیزهایی در هفته " +
                                         $state.textWeek[$state.selectedWeek] +
+                                        "(و عید دیدنی‌ها)" +
                                         " برای من و فرزندم خطرناک است؟ "
                                       );
                                     } catch (e) {
