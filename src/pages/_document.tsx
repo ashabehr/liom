@@ -22,13 +22,13 @@ export default function Document() {
         {/* آیفون 13 پرو مکس (رزولوشن 1284‌×‌2778) */}
         <link
           rel="apple-touch-startup-image"
-          href="/splash/iphone_13_pro_max.png"
+          href="/splash/Frame.png"
           media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)"
         />
         {/* آیفون 12/13 پرو (رزولوشن 1170‌×‌2532) */}
         <link
           rel="apple-touch-startup-image"
-          href="/splash/iphone_13_pro.png"
+          href="/splash/Frame.png"
           media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)"
         />
       </Head>
