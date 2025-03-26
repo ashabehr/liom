@@ -1146,7 +1146,7 @@ function PlasmicLogin__RenderFunc(props: {
 
               $steps["invokeGlobalAction2"] = true
                 ? (() => {
-                    const actionArgs = { args: [5000] };
+                    const actionArgs = { args: [4000] };
                     return $globalActions["Fragment.wait"]?.apply(null, [
                       ...actionArgs.args
                     ]);
@@ -9779,36 +9779,42 @@ function PlasmicLogin__RenderFunc(props: {
                                     destination: (() => {
                                       try {
                                         return (() => {
-                                          var baseUrl =
-                                            window.location.href.split(
-                                              "redirect_url="
-                                            )[1] || "";
-                                          baseUrl = new URL(baseUrl);
-                                          const origin = baseUrl.origin;
-                                          const pathname =
-                                            baseUrl.pathname.split("&")[0] ||
-                                            "";
-                                          const searchParams =
-                                            baseUrl.searchParams.toString();
-                                          baseUrl = searchParams
-                                            ? `${origin}${pathname}?${searchParams}`
-                                            : `${origin}${pathname}`;
-                                          var separator = baseUrl.includes("?")
-                                            ? "&token="
-                                            : "?token=";
-                                          var redirectUrl =
-                                            baseUrl +
-                                            separator +
-                                            $$.uuid.v4().slice(0, 6) +
-                                            ($state.loginData.result.token ||
-                                              "") +
-                                            $$.uuid.v4().slice(10, 13) +
-                                            "&userId=" +
-                                            $$.uuid.v4().slice(0, 4) +
-                                            ($state.loginData.result.userId ||
-                                              "") +
-                                            $$.uuid.v4().slice(0, 4);
-                                          return redirectUrl;
+                                          try {
+                                            var baseUrl =
+                                              window.location.href.split(
+                                                "redirect_url="
+                                              )[1] || "";
+                                            baseUrl = new URL(baseUrl);
+                                            const origin = baseUrl.origin;
+                                            const pathname =
+                                              baseUrl.pathname.split("&")[0] ||
+                                              "";
+                                            const searchParams =
+                                              baseUrl.searchParams.toString();
+                                            baseUrl = searchParams
+                                              ? `${origin}${pathname}?${searchParams}`
+                                              : `${origin}${pathname}`;
+                                            var separator = baseUrl.includes(
+                                              "?"
+                                            )
+                                              ? "&token="
+                                              : "?token=";
+                                            var redirectUrl =
+                                              baseUrl +
+                                              separator +
+                                              $$.uuid.v4().slice(0, 6) +
+                                              ($state.loginData.result.token ||
+                                                "") +
+                                              $$.uuid.v4().slice(10, 13) +
+                                              "&userId=" +
+                                              $$.uuid.v4().slice(0, 4) +
+                                              ($state.loginData.result.userId ||
+                                                "") +
+                                              $$.uuid.v4().slice(0, 4);
+                                            return redirectUrl;
+                                          } catch {
+                                            return window.location.href;
+                                          }
                                         })();
                                       } catch (e) {
                                         if (
@@ -9844,6 +9850,27 @@ function PlasmicLogin__RenderFunc(props: {
                             $steps["goToPage"] = await $steps["goToPage"];
                           }
 
+                          $steps["invokeGlobalAction4"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [undefined, "hi", "top-right", 3000]
+                                };
+                                return $globalActions[
+                                  "Fragment.showToast"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction4"] != null &&
+                            typeof $steps["invokeGlobalAction4"] === "object" &&
+                            typeof $steps["invokeGlobalAction4"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction4"] = await $steps[
+                              "invokeGlobalAction4"
+                            ];
+                          }
+
                           $steps["goToHamyar"] =
                             ($steps.invokeGlobalAction3?.data?.success ==
                               true ||
@@ -9851,8 +9878,8 @@ function PlasmicLogin__RenderFunc(props: {
                                 true ||
                               $steps.invokeGlobalAction2?.data?.success ==
                                 true) &&
-                            ($state?.type == "mobile" ||
-                              $state?.gender == "male") &&
+                            $state?.type == "mobile" &&
+                            $state?.gender == "male" &&
                             $ctx?.query?.redirect_url == ""
                               ? (() => {
                                   const actionArgs = {
@@ -9919,8 +9946,8 @@ function PlasmicLogin__RenderFunc(props: {
                                 true ||
                               $steps.invokeGlobalAction2?.data?.success ==
                                 true) &&
-                            $state?.gender == "female" &&
-                            $ctx?.query?.redirect_url == ""
+                            $state.gender == "female" &&
+                            $ctx.query?.redirect_url == ""
                               ? (() => {
                                   const actionArgs = {
                                     vgroup: "loginPage",
@@ -10055,29 +10082,30 @@ function PlasmicLogin__RenderFunc(props: {
                             ];
                           }
 
-                          $steps["updateTextInputValue3"] = false
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return window.open(
-                                      $ctx.query.redirect_url +
-                                        "?token=" +
-                                        $$.uuid.v4().slice(0, 6) +
-                                        $ctx.query.token +
-                                        $$.uuid.v4().slice(10, 13) +
-                                        "&userId=" +
-                                        $$.uuid.v4().slice(0, 4) +
-                                        $ctx.query.userId +
-                                        $$.uuid.v4().slice(0, 4),
-                                      "_self"
-                                    );
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                          $steps["updateTextInputValue3"] =
+                            $state.type == "google" && $state.gender == "female"
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return window.open(
+                                        $ctx.query.redirect_url +
+                                          "?token=" +
+                                          $$.uuid.v4().slice(0, 6) +
+                                          $ctx.query.token +
+                                          $$.uuid.v4().slice(10, 13) +
+                                          "&userId=" +
+                                          $$.uuid.v4().slice(0, 4) +
+                                          $ctx.query.userId +
+                                          $$.uuid.v4().slice(0, 4),
+                                        "_self"
+                                      );
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                           if (
                             $steps["updateTextInputValue3"] != null &&
                             typeof $steps["updateTextInputValue3"] ===

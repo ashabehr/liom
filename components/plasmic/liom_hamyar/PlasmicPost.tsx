@@ -68,6 +68,7 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPost.module.css"; // plasmic-import: PIFHnFLcunkZ/css
 
+import MenuIcon from "../fragment_icons/icons/PlasmicIcon__Menu"; // plasmic-import: dmfb3Ga2IoVt/icon
 import PlayIcon from "./icons/PlasmicIcon__Play"; // plasmic-import: L7ZyLxyE87PQ/icon
 
 createPlasmicElementProxy;
@@ -322,42 +323,50 @@ function PlasmicPost__RenderFunc(props: {
           }
         }}
       >
-        <PlasmicImg__
-          data-plasmic-name={"firstFreamOfVideo"}
-          data-plasmic-override={overrides.firstFreamOfVideo}
-          alt={""}
-          className={classNames(sty.firstFreamOfVideo, {
-            [sty.firstFreamOfVideopostType_video]: hasVariant(
-              $state,
-              "postType",
-              "video"
-            )
-          })}
-          displayHeight={"100%"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"none"}
-          displayMinHeight={"50%"}
-          displayMinWidth={"0"}
-          displayWidth={"100%"}
-          loading={"lazy"}
-          src={(() => {
-            try {
-              return undefined;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return {
-                  src: "/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg",
-                  fullWidth: 5349,
-                  fullHeight: 3566,
-                  aspectRatio: undefined
-                };
+        <div className={classNames(projectcss.all, sty.freeBox__iQfs)}>
+          <PlasmicImg__
+            data-plasmic-name={"firstFreamOfVideo"}
+            data-plasmic-override={overrides.firstFreamOfVideo}
+            alt={""}
+            className={classNames(sty.firstFreamOfVideo, {
+              [sty.firstFreamOfVideopostType_video]: hasVariant(
+                $state,
+                "postType",
+                "video"
+              )
+            })}
+            displayHeight={"100%"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"none"}
+            displayMinHeight={"50%"}
+            displayMinWidth={"0"}
+            displayWidth={"100%"}
+            loading={"lazy"}
+            src={(() => {
+              try {
+                return undefined;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return {
+                    src: "/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg",
+                    fullWidth: 5349,
+                    fullHeight: 3566,
+                    aspectRatio: undefined
+                  };
+                }
+                throw e;
               }
-              throw e;
-            }
-          })()}
+            })()}
+          />
+        </div>
+      </div>
+      <div className={classNames(projectcss.all, sty.freeBox__cx2Bk)}>
+        <MenuIcon
+          className={classNames(projectcss.all, sty.svg__lnGkb)}
+          role={"img"}
         />
       </div>
       <div
@@ -532,12 +541,6 @@ function PlasmicPost__RenderFunc(props: {
             </div>
           </div>
         </div>
-      </div>
-      <div className={classNames(projectcss.all, sty.freeBox__cx2Bk)}>
-        <svg
-          className={classNames(projectcss.all, sty.svg__lnGkb)}
-          role={"img"}
-        />
       </div>
     </div>
   ) as React.ReactElement | null;
