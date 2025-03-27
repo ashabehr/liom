@@ -29,6 +29,10 @@
     grid-column: 4;
   }
 }
+.embedHtml:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .freeBox__v5VDg {
   display: flex;
   flex-direction: column;

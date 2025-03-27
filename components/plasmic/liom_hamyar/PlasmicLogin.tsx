@@ -18119,7 +18119,7 @@ export const PlasmicLogin = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "لیوم | liom",
+      title: "لیوم | Liom",
       description: "",
       ogImageSrc: "",
       canonical: ""

@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import UploudeTime from "../../UploudeTime"; // plasmic-import: aUO_fJR7ceN4/component
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
@@ -110,6 +111,7 @@ export const PlasmicSocialPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSocialPage__OverridesType = {
   root?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   uploudeTime?: Flex__<typeof UploudeTime>;
   popover2?: Flex__<typeof AntdPopover>;
@@ -276,6 +278,15 @@ function PlasmicSocialPage__RenderFunc(props: {
             sty.root
           )}
         >
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              "<script>window.addEventListener('scroll', function() {\r\n    const documentHeight = document.documentElement.scrollHeight;\r\n    const windowHeight = window.innerHeight;\r\n    const scrollPosition = window.scrollY || window.pageYOffset || \r\n                          document.body.scrollTop + (document.documentElement && \r\n                          document.documentElement.scrollTop || 0);\r\n    \r\n    if (documentHeight - (scrollPosition + windowHeight) == 100) {\r\n       // loadMoreContent();\r\n       console.log(\"amir\");\r\n    }\r\n});\r\n\r\n// \u062a\u0627\u0628\u0639 \u0628\u0631\u0627\u06cc \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062d\u062a\u0648\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0628\u0627 POST\r\nfunction loadMoreContent() {\r\n    if (window.isLoading) return;\r\n    \r\n    window.isLoading = true;\r\n    \r\n    // \u0646\u0645\u0627\u06cc\u0634 \u0646\u0634\u0627\u0646\u06af\u0631 \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc\r\n    const loader = document.createElement('div');\r\n    loader.textContent = '\u062f\u0631 \u062d\u0627\u0644 \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc...';\r\n    loader.style.textAlign = 'center';\r\n    loader.style.padding = '20px';\r\n    document.body.appendChild(loader);\r\n    \r\n    // \u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0645\u06cc\u200c\u062e\u0648\u0627\u0647\u06cc\u062f \u0627\u0631\u0633\u0627\u0644 \u06a9\u0646\u06cc\u062f\r\n    const postData = {\r\n        page: window.currentPage || 1, // \u0634\u0645\u0627\u0631\u0647 \u0635\u0641\u062d\u0647 \u0641\u0639\u0644\u06cc\r\n        limit: 10 // \u062a\u0639\u062f\u0627\u062f \u0622\u06cc\u062a\u0645\u200c\u0647\u0627\u06cc \u062f\u0631\u062e\u0648\u0627\u0633\u062a\u06cc\r\n    };\r\n    \r\n    // \u0627\u0631\u0633\u0627\u0644 \u062f\u0631\u062e\u0648\u0627\u0633\u062a POST\r\n    fetch('\u0622\u062f\u0631\u0633-\u0633\u0631\u0648\u0631-\u0634\u0645\u0627', {\r\n        method: 'POST',\r\n        headers: {\r\n            'Content-Type': 'application/json',\r\n            // \u0627\u06af\u0631 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u062f\u0627\u0631\u06cc\u062f:\r\n            // 'Authorization': 'Bearer ' + token\r\n        },\r\n        body: JSON.stringify(postData)\r\n    })\r\n    .then(response => {\r\n        if (!response.ok) {\r\n            throw new Error('\u062e\u0637\u0627 \u062f\u0631 \u067e\u0627\u0633\u062e \u0633\u0631\u0648\u0631');\r\n        }\r\n        return response.json();\r\n    })\r\n    .then(data => {\r\n        console.log('\u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u062c\u062f\u06cc\u062f:', data);\r\n        \r\n        // \u067e\u0631\u062f\u0627\u0632\u0634 \u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a\u06cc \u0648 \u0627\u0636\u0627\u0641\u0647 \u0628\u0647 \u0635\u0641\u062d\u0647\r\n        // ...\r\n        \r\n        // \u0627\u0641\u0632\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647 \u0635\u0641\u062d\u0647 \u0628\u0631\u0627\u06cc \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0628\u0639\u062f\u06cc\r\n        window.currentPage = (window.currentPage || 1) + 1;\r\n        \r\n        document.body.removeChild(loader);\r\n        window.isLoading = false;\r\n    })\r\n    .catch(error => {\r\n        console.error('\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u062f\u0627\u062f\u0647:', error);\r\n        document.body.removeChild(loader);\r\n        window.isLoading = false;\r\n    });\r\n}\r\n</script>"
+            }
+          />
+
           <div className={classNames(projectcss.all, sty.freeBox__v5VDg)}>
             <section className={classNames(projectcss.all, sty.section__fKamc)}>
               <HeaderLiom
@@ -1523,6 +1534,7 @@ function PlasmicSocialPage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "embedHtml",
     "headerLiom",
     "uploudeTime",
     "popover2",
@@ -1538,6 +1550,7 @@ const PlasmicDescendants = {
     "textArea",
     "getInfo"
   ],
+  embedHtml: ["embedHtml"],
   headerLiom: ["headerLiom"],
   uploudeTime: ["uploudeTime"],
   popover2: ["popover2"],
@@ -1558,6 +1571,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  embedHtml: typeof Embed;
   headerLiom: typeof HeaderLiom;
   uploudeTime: typeof UploudeTime;
   popover2: typeof AntdPopover;
@@ -1659,6 +1673,7 @@ export const PlasmicSocialPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    embedHtml: makeNodeComponent("embedHtml"),
     headerLiom: makeNodeComponent("headerLiom"),
     uploudeTime: makeNodeComponent("uploudeTime"),
     popover2: makeNodeComponent("popover2"),

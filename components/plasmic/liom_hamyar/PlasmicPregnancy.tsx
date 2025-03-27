@@ -125,7 +125,6 @@ export type PlasmicPregnancy__OverridesType = {
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   progress?: Flex__<typeof AntdProgress>;
   tabWeek?: Flex__<typeof TabWeek>;
-  sideEffect?: Flex__<typeof SideEffect>;
   switchbest?: Flex__<typeof Switchbest>;
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
   collapseDanger?: Flex__<typeof AntdSingleCollapse>;
@@ -866,6 +865,12 @@ function PlasmicPregnancy__RenderFunc(props: {
           inApp: 0,
           action: ""
         })
+      },
+      {
+        path: "getQuestion",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -7624,11 +7629,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                               {"Enter some text"}
                             </div>
                             <SideEffect
-                              data-plasmic-name={"sideEffect"}
-                              data-plasmic-override={overrides.sideEffect}
                               className={classNames(
                                 "__wab_instance",
-                                sty.sideEffect
+                                sty.sideEffect___6Ep57
                               )}
                             />
 
@@ -23828,6 +23831,23 @@ function PlasmicPregnancy__RenderFunc(props: {
                 }
               }}
               open={generateStateValueProp($state, ["directDialog2", "open"])}
+              redirectUrl={(() => {
+                try {
+                  return `https://tools.liom.app/shopResult?buyId=${
+                    $state.directDialog2.selectShop.id
+                  }&?offCode=&token=${
+                    $ctx.query.token
+                  }&redirectUrl=${encodeURIComponent(window.location.href)}`;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
               token={(() => {
                 try {
                   return $ctx.query.token.slice(6, $ctx.query.token.length - 3);
@@ -23953,6 +23973,64 @@ function PlasmicPregnancy__RenderFunc(props: {
               </div>
             ) : null}
           </SlideinModal>
+          <SideEffect
+            className={classNames("__wab_instance", sty.sideEffect__bt0Pp)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook-test/questionBox"
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["updateGetQuestion"] = $steps.invokeGlobalAction?.data
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["getQuestion"]
+                      },
+                      operation: 0,
+                      value: $steps.invokeGlobalAction.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateGetQuestion"] != null &&
+                typeof $steps["updateGetQuestion"] === "object" &&
+                typeof $steps["updateGetQuestion"].then === "function"
+              ) {
+                $steps["updateGetQuestion"] = await $steps["updateGetQuestion"];
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -23969,7 +24047,6 @@ const PlasmicDescendants = {
     "pullToRefresh",
     "progress",
     "tabWeek",
-    "sideEffect",
     "switchbest",
     "collapseAdvice",
     "collapseDanger",
@@ -23992,7 +24069,6 @@ const PlasmicDescendants = {
     "pullToRefresh",
     "progress",
     "tabWeek",
-    "sideEffect",
     "switchbest",
     "collapseAdvice",
     "collapseDanger",
@@ -24012,7 +24088,6 @@ const PlasmicDescendants = {
   pullToRefresh: ["pullToRefresh"],
   progress: ["progress"],
   tabWeek: ["tabWeek"],
-  sideEffect: ["sideEffect"],
   switchbest: ["switchbest"],
   collapseAdvice: ["collapseAdvice"],
   collapseDanger: ["collapseDanger"],
@@ -24039,7 +24114,6 @@ type NodeDefaultElementType = {
   pullToRefresh: typeof PullToRefresh;
   progress: typeof AntdProgress;
   tabWeek: typeof TabWeek;
-  sideEffect: typeof SideEffect;
   switchbest: typeof Switchbest;
   collapseAdvice: typeof AntdSingleCollapse;
   collapseDanger: typeof AntdSingleCollapse;
@@ -24147,7 +24221,6 @@ export const PlasmicPregnancy = Object.assign(
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     progress: makeNodeComponent("progress"),
     tabWeek: makeNodeComponent("tabWeek"),
-    sideEffect: makeNodeComponent("sideEffect"),
     switchbest: makeNodeComponent("switchbest"),
     collapseAdvice: makeNodeComponent("collapseAdvice"),
     collapseDanger: makeNodeComponent("collapseDanger"),
