@@ -14,6 +14,9 @@
 .rootwhenHaveNoReply {
   padding-bottom: 8px;
 }
+.rootunnamedGroupOfVariants_whenHaveNoReply {
+  padding-bottom: 8px;
+}
 .freeBox__euKls {
   display: flex;
   flex-direction: row;
@@ -100,6 +103,9 @@
 .textwhenHaveReply__epDy6S2LwI {
   color: var(--token-fn6i10-y5r1L);
 }
+.textunnamedGroupOfVariants_whenHaveReply__epDy6KmMee {
+  color: var(--token-fn6i10-y5r1L);
+}
 .freeBox__fSs {
   display: flex;
   flex-direction: row;
@@ -178,6 +184,12 @@
 .freeBoxshowReply__bb4BN5MJbg {
   margin-bottom: 10px;
 }
+.freeBoxunnamedGroupOfVariants_showReply__bb4BNkDgzF {
+  margin-bottom: 10px;
+}
+.freeBoxunnamedGroupOfVariants_whenHaveNoReply__bb4BNCt3Kq {
+  margin-bottom: 0px;
+}
 .coment {
   position: relative;
   width: 100%;
@@ -186,9 +198,13 @@
   text-align: right;
   color: var(--token-ODBUExjR6VEF);
   font-size: 16px;
+  padding-bottom: 0px;
   min-width: 0;
 }
 .comentwhenHaveNoReply {
+  margin-bottom: 10px;
+}
+.comentunnamedGroupOfVariants_whenHaveNoReply {
   margin-bottom: 10px;
 }
 .commentlikebutton:global(.__wab_instance) {
@@ -205,7 +221,11 @@
 .commentlikebuttonshowReply:global(.__wab_instance) {
   display: none;
 }
+.commentlikebuttonunnamedGroupOfVariants_showReply:global(.__wab_instance) {
+  display: none;
+}
 .freeBox__eZrem {
+  display: flex;
   flex-direction: row;
   position: relative;
   width: 100%;
@@ -213,7 +233,6 @@
   max-width: 100%;
   overflow: visible;
   min-width: 0;
-  display: none;
   padding: 8px;
 }
 .freeBox__eZrem > :global(.__wab_flex-container) {
@@ -243,6 +262,15 @@
 .freeBoxshowReply__eZrem5MJbg {
   display: flex;
 }
+.freeBoxunnamedGroupOfVariants_showReply__eZremKDgzF {
+  display: flex;
+}
+.freeBoxunnamedGroupOfVariants_whenHaveReply__eZremKmMee {
+  display: none;
+}
+.freeBoxunnamedGroupOfVariants_whenHaveNoReply__eZremCt3Kq {
+  display: none;
+}
 .reply__cmcBj:global(.__wab_instance) {
   left: auto;
   top: auto;
@@ -262,6 +290,21 @@
   top: auto;
   bottom: auto;
   right: auto;
+}
+.replyunnamedGroupOfVariants_showReply__cmcBjkDgzF:global(.__wab_instance) {
+  position: relative;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  right: auto;
+}
+.replyunnamedGroupOfVariants_whenHaveReply__cmcBjKmMee:global(.__wab_instance) {
+  display: none;
+}
+.replyunnamedGroupOfVariants_whenHaveNoReply__cmcBjCt3Kq:global(
+    .__wab_instance
+  ) {
+  display: none;
 }
 .commentlikebutton2:global(.__wab_instance) {
   max-width: 100%;
@@ -284,6 +327,23 @@
   bottom: auto;
   right: auto;
 }
+.commentlikebutton2unnamedGroupOfVariants_showReply:global(.__wab_instance) {
+  position: relative;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  right: auto;
+}
+.commentlikebutton2unnamedGroupOfVariants_whenHaveReply:global(
+    .__wab_instance
+  ) {
+  display: none;
+}
+.commentlikebutton2unnamedGroupOfVariants_whenHaveNoReply:global(
+    .__wab_instance
+  ) {
+  display: none;
+}
 .freeBox__wjP54 {
   display: flex;
   flex-direction: column;
@@ -305,6 +365,15 @@
 }
 .freeBoxshowReply__wjP545MJbg {
   display: flex;
+}
+.freeBoxunnamedGroupOfVariants_showReply__wjP54KDgzF {
+  display: flex;
+}
+.freeBoxunnamedGroupOfVariants_whenHaveReply__wjP54KmMee {
+  display: none;
+}
+.freeBoxunnamedGroupOfVariants_whenHaveNoReply__wjP54Ct3Kq {
+  display: none;
 }
 .freeBox__dzdw {
   display: flex;
@@ -481,6 +550,9 @@
 .replyshowReply__ub0Bo5MJbg:global(.__wab_instance) {
   display: none;
 }
+.replyunnamedGroupOfVariants_showReply__ub0BokDgzF:global(.__wab_instance) {
+  display: none;
+}
 .freeBox__xZam2 {
   flex-direction: row;
   position: absolute;
@@ -510,6 +582,17 @@
 .freeBoxshowReply__xZam25MJbg {
   display: none;
 }
+.freeBoxunnamedGroupOfVariants_showReply__xZam2KDgzF {
+  display: none;
+}
+.freeBoxunnamedGroupOfVariants_whenHaveReply__xZam2KmMee {
+  right: 125px;
+  bottom: -20px;
+  display: flex;
+}
+.freeBoxunnamedGroupOfVariants_whenHaveNoReply__xZam2Ct3Kq {
+  display: none;
+}
 .text__aAapo {
   position: relative;
   width: 100%;
@@ -520,6 +603,9 @@
   min-width: 0;
 }
 .textwhenHaveReply__aAapos2LwI {
+  color: var(--token-fn6i10-y5r1L);
+}
+.textunnamedGroupOfVariants_whenHaveReply__aAapoKmMee {
   color: var(--token-fn6i10-y5r1L);
 }
 .freeBox__wRzZd {
@@ -547,6 +633,15 @@
 }
 .freeBoxshowReply__wRzZd5MJbg {
   display: flex;
+}
+.freeBoxunnamedGroupOfVariants_showReply__wRzZdkDgzF {
+  display: flex;
+}
+.freeBoxunnamedGroupOfVariants_whenHaveReply__wRzZdKmMee {
+  display: none;
+}
+.freeBoxunnamedGroupOfVariants_whenHaveNoReply__wRzZdCt3Kq {
+  display: none;
 }
 .text___3H3Hg {
   position: relative;

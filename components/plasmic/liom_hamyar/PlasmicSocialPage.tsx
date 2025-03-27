@@ -1326,38 +1326,25 @@ function PlasmicSocialPage__RenderFunc(props: {
                         throw e;
                       }
                     })(),
-                    whenHaveNoReply: (() => {
+                    unnamedGroupOfVariants: (() => {
                       try {
                         return (() => {
                           if (currentItem.replyCount == 0)
-                            return ($state.whenhavenoreply = true);
+                            return "whenHaveNoReply";
+                          else if (currentItem.replyCount !== 0)
+                            return "whenHaveReply";
                         })();
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return [];
+                          return "whenHaveNoReply";
                         }
                         throw e;
                       }
                     })(),
-                    whenHaveReply: (() => {
-                      try {
-                        return (() => {
-                          if (currentItem.replyCount !== 0)
-                            return ($state.whenhavereply = true);
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()
+                    whenHaveNoReply: undefined
                   };
 
                   initializePlasmicStates(

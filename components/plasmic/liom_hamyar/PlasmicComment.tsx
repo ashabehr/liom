@@ -79,17 +79,22 @@ export type PlasmicComment__VariantMembers = {
   whenHaveNoReply: "whenHaveNoReply";
   whenHaveReply: "whenHaveReply";
   showReply: "showReply";
+  unnamedGroupOfVariants: "showReply" | "whenHaveReply" | "whenHaveNoReply";
 };
 export type PlasmicComment__VariantsArgs = {
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
   whenHaveReply?: SingleBooleanChoiceArg<"whenHaveReply">;
   showReply?: SingleBooleanChoiceArg<"showReply">;
+  unnamedGroupOfVariants?: SingleChoiceArg<
+    "showReply" | "whenHaveReply" | "whenHaveNoReply"
+  >;
 };
 type VariantPropType = keyof PlasmicComment__VariantsArgs;
 export const PlasmicComment__VariantProps = new Array<VariantPropType>(
   "whenHaveNoReply",
   "whenHaveReply",
-  "showReply"
+  "showReply",
+  "unnamedGroupOfVariants"
 );
 
 export type PlasmicComment__ArgsType = {
@@ -152,6 +157,9 @@ export interface DefaultCommentProps {
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
   whenHaveReply?: SingleBooleanChoiceArg<"whenHaveReply">;
   showReply?: SingleBooleanChoiceArg<"showReply">;
+  unnamedGroupOfVariants?: SingleChoiceArg<
+    "showReply" | "whenHaveReply" | "whenHaveNoReply"
+  >;
   className?: string;
 }
 
@@ -240,6 +248,13 @@ function PlasmicComment__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "unnamedGroupOfVariants",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          $props.unnamedGroupOfVariants
       }
     ],
     [$props, $ctx, $refs]
@@ -268,6 +283,46 @@ function PlasmicComment__RenderFunc(props: {
         sty.root,
         {
           [sty.rootshowReply]: hasVariant($state, "showReply", "showReply"),
+          [sty.rootshowReply_unnamedGroupOfVariants_whenHaveNoReply]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply") &&
+            hasVariant($state, "showReply", "showReply"),
+          [sty.rootshowReply_unnamedGroupOfVariants_whenHaveNoReply_whenHaveReply]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply") &&
+            hasVariant($state, "whenHaveReply", "whenHaveReply") &&
+            hasVariant($state, "showReply", "showReply"),
+          [sty.rootshowReply_unnamedGroupOfVariants_whenHaveReply_whenHaveNoReply]:
+            hasVariant($state, "whenHaveNoReply", "whenHaveNoReply") &&
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply") &&
+            hasVariant($state, "showReply", "showReply"),
+          [sty.rootshowReply_whenHaveReply_whenHaveNoReply]:
+            hasVariant($state, "whenHaveNoReply", "whenHaveNoReply") &&
+            hasVariant($state, "whenHaveReply", "whenHaveReply") &&
+            hasVariant($state, "showReply", "showReply"),
+          [sty.rootunnamedGroupOfVariants_showReply]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "showReply"
+          ),
+          [sty.rootunnamedGroupOfVariants_showReply_whenHaveReply_whenHaveNoReply]:
+            hasVariant($state, "whenHaveNoReply", "whenHaveNoReply") &&
+            hasVariant($state, "whenHaveReply", "whenHaveReply") &&
+            hasVariant($state, "unnamedGroupOfVariants", "showReply"),
+          [sty.rootunnamedGroupOfVariants_whenHaveNoReply]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "whenHaveNoReply"
+          ),
+          [sty.rootunnamedGroupOfVariants_whenHaveNoReply_whenHaveReply]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply") &&
+            hasVariant($state, "whenHaveReply", "whenHaveReply"),
+          [sty.rootunnamedGroupOfVariants_whenHaveReply]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "whenHaveReply"
+          ),
+          [sty.rootunnamedGroupOfVariants_whenHaveReply_whenHaveNoReply]:
+            hasVariant($state, "whenHaveNoReply", "whenHaveNoReply") &&
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
           [sty.rootwhenHaveNoReply]: hasVariant(
             $state,
             "whenHaveNoReply",
@@ -288,6 +343,15 @@ function PlasmicComment__RenderFunc(props: {
             "showReply",
             "showReply"
           ),
+          [sty.freeBoxunnamedGroupOfVariants_showReply__euKlskDgzF]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "showReply"
+          ),
+          [sty.freeBoxunnamedGroupOfVariants_whenHaveNoReply__euKlsCt3Kq]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
+          [sty.freeBoxunnamedGroupOfVariants_whenHaveReply__euKlsKmMee]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
           [sty.freeBoxwhenHaveNoReply__euKlsuOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
@@ -330,6 +394,8 @@ function PlasmicComment__RenderFunc(props: {
             as={"div"}
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__fjoUh, {
+              [sty.freeBoxunnamedGroupOfVariants_whenHaveReply__fjoUhKmMee]:
+                hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
               [sty.freeBoxwhenHaveReply__fjoUhS2LwI]: hasVariant(
                 $state,
                 "whenHaveReply",
@@ -343,6 +409,12 @@ function PlasmicComment__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__qsMbq,
                 {
+                  [sty.textunnamedGroupOfVariants_whenHaveReply__qsMbqKmMee]:
+                    hasVariant(
+                      $state,
+                      "unnamedGroupOfVariants",
+                      "whenHaveReply"
+                    ),
                   [sty.textwhenHaveReply__qsMbqS2LwI]: hasVariant(
                     $state,
                     "whenHaveReply",
@@ -373,6 +445,12 @@ function PlasmicComment__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__epDy6,
                 {
+                  [sty.textunnamedGroupOfVariants_whenHaveReply__epDy6KmMee]:
+                    hasVariant(
+                      $state,
+                      "unnamedGroupOfVariants",
+                      "whenHaveReply"
+                    ),
                   [sty.textwhenHaveReply__epDy6S2LwI]: hasVariant(
                     $state,
                     "whenHaveReply",
@@ -423,6 +501,15 @@ function PlasmicComment__RenderFunc(props: {
             "showReply",
             "showReply"
           ),
+          [sty.freeBoxunnamedGroupOfVariants_showReply__bb4BNkDgzF]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "showReply"
+          ),
+          [sty.freeBoxunnamedGroupOfVariants_whenHaveNoReply__bb4BNCt3Kq]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
+          [sty.freeBoxunnamedGroupOfVariants_whenHaveReply__bb4BNKmMee]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
           [sty.freeBoxwhenHaveNoReply__bb4BNuOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
@@ -443,6 +530,16 @@ function PlasmicComment__RenderFunc(props: {
             projectcss.__wab_text,
             sty.coment,
             {
+              [sty.comentunnamedGroupOfVariants_whenHaveNoReply]: hasVariant(
+                $state,
+                "unnamedGroupOfVariants",
+                "whenHaveNoReply"
+              ),
+              [sty.comentunnamedGroupOfVariants_whenHaveReply]: hasVariant(
+                $state,
+                "unnamedGroupOfVariants",
+                "whenHaveReply"
+              ),
               [sty.comentwhenHaveNoReply]: hasVariant(
                 $state,
                 "whenHaveNoReply",
@@ -483,6 +580,15 @@ function PlasmicComment__RenderFunc(props: {
             "showReply",
             "showReply"
           ),
+          [sty.commentlikebuttonunnamedGroupOfVariants_showReply]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "showReply"
+          ),
+          [sty.commentlikebuttonunnamedGroupOfVariants_whenHaveNoReply]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
+          [sty.commentlikebuttonunnamedGroupOfVariants_whenHaveReply]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
           [sty.commentlikebuttonwhenHaveNoReply]: hasVariant(
             $state,
             "whenHaveNoReply",
@@ -532,6 +638,15 @@ function PlasmicComment__RenderFunc(props: {
             "showReply",
             "showReply"
           ),
+          [sty.freeBoxunnamedGroupOfVariants_showReply__eZremKDgzF]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "showReply"
+          ),
+          [sty.freeBoxunnamedGroupOfVariants_whenHaveNoReply__eZremCt3Kq]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
+          [sty.freeBoxunnamedGroupOfVariants_whenHaveReply__eZremKmMee]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
           [sty.freeBoxwhenHaveNoReply__eZremUOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
@@ -551,6 +666,15 @@ function PlasmicComment__RenderFunc(props: {
               "showReply",
               "showReply"
             ),
+            [sty.replyunnamedGroupOfVariants_showReply__cmcBjkDgzF]: hasVariant(
+              $state,
+              "unnamedGroupOfVariants",
+              "showReply"
+            ),
+            [sty.replyunnamedGroupOfVariants_whenHaveNoReply__cmcBjCt3Kq]:
+              hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
+            [sty.replyunnamedGroupOfVariants_whenHaveReply__cmcBjKmMee]:
+              hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
             [sty.replywhenHaveNoReply__cmcBjuOheY]: hasVariant(
               $state,
               "whenHaveNoReply",
@@ -573,6 +697,12 @@ function PlasmicComment__RenderFunc(props: {
               "showReply",
               "showReply"
             ),
+            [sty.commentlikebutton2unnamedGroupOfVariants_showReply]:
+              hasVariant($state, "unnamedGroupOfVariants", "showReply"),
+            [sty.commentlikebutton2unnamedGroupOfVariants_whenHaveNoReply]:
+              hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
+            [sty.commentlikebutton2unnamedGroupOfVariants_whenHaveReply]:
+              hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
             [sty.commentlikebutton2whenHaveNoReply]: hasVariant(
               $state,
               "whenHaveNoReply",
@@ -607,6 +737,15 @@ function PlasmicComment__RenderFunc(props: {
             "showReply",
             "showReply"
           ),
+          [sty.freeBoxunnamedGroupOfVariants_showReply__wjP54KDgzF]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "showReply"
+          ),
+          [sty.freeBoxunnamedGroupOfVariants_whenHaveNoReply__wjP54Ct3Kq]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
+          [sty.freeBoxunnamedGroupOfVariants_whenHaveReply__wjP54KmMee]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
           [sty.freeBoxwhenHaveNoReply__wjP54UOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
@@ -643,12 +782,20 @@ function PlasmicComment__RenderFunc(props: {
                   $state,
                   "showReply",
                   "showReply"
-                )
+                ),
+                [sty.freeBoxunnamedGroupOfVariants_showReply__dzdwKDgzF]:
+                  hasVariant($state, "unnamedGroupOfVariants", "showReply")
               })}
               key={currentIndex}
             >
               <div
                 className={classNames(projectcss.all, sty.freeBox__n5Oa, {
+                  [sty.freeBoxunnamedGroupOfVariants_whenHaveNoReply__n5OaCt3Kq]:
+                    hasVariant(
+                      $state,
+                      "unnamedGroupOfVariants",
+                      "whenHaveNoReply"
+                    ),
                   [sty.freeBoxwhenHaveNoReply__n5OaUOheY]: hasVariant(
                     $state,
                     "whenHaveNoReply",
@@ -809,7 +956,9 @@ function PlasmicComment__RenderFunc(props: {
                     $state,
                     "showReply",
                     "showReply"
-                  )
+                  ),
+                  [sty.replyunnamedGroupOfVariants_showReply__iSisWkDgzF]:
+                    hasVariant($state, "unnamedGroupOfVariants", "showReply")
                 })}
               />
 
@@ -821,7 +970,9 @@ function PlasmicComment__RenderFunc(props: {
                     $state,
                     "showReply",
                     "showReply"
-                  )
+                  ),
+                  [sty.replyLikeButtonunnamedGroupOfVariants_showReply]:
+                    hasVariant($state, "unnamedGroupOfVariants", "showReply")
                 })}
                 replyLikeCount={(() => {
                   try {
@@ -848,6 +999,15 @@ function PlasmicComment__RenderFunc(props: {
             "showReply",
             "showReply"
           ),
+          [sty.replyunnamedGroupOfVariants_showReply__ub0BokDgzF]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "showReply"
+          ),
+          [sty.replyunnamedGroupOfVariants_whenHaveNoReply__ub0BoCt3Kq]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
+          [sty.replyunnamedGroupOfVariants_whenHaveReply__ub0BoKmMee]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
           [sty.replywhenHaveNoReply__ub0BouOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
@@ -868,6 +1028,15 @@ function PlasmicComment__RenderFunc(props: {
             "showReply",
             "showReply"
           ),
+          [sty.freeBoxunnamedGroupOfVariants_showReply__xZam2KDgzF]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "showReply"
+          ),
+          [sty.freeBoxunnamedGroupOfVariants_whenHaveNoReply__xZam2Ct3Kq]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
+          [sty.freeBoxunnamedGroupOfVariants_whenHaveReply__xZam2KmMee]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
           [sty.freeBoxwhenHaveNoReply__xZam2UOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
@@ -957,14 +1126,18 @@ function PlasmicComment__RenderFunc(props: {
 
           $steps["updateCommentData2"] = true
             ? (() => {
-                const actionArgs = { vgroup: "showReply", operation: 4 };
+                const actionArgs = {
+                  vgroup: "unnamedGroupOfVariants",
+                  operation: 0,
+                  value: "showReply"
+                };
                 return (({ vgroup, value }) => {
                   if (typeof value === "string") {
                     value = [value];
                   }
 
-                  $stateSet($state, vgroup, true);
-                  return true;
+                  $stateSet($state, vgroup, value);
+                  return value;
                 })?.apply(null, [actionArgs]);
               })()
             : undefined;
@@ -983,6 +1156,10 @@ function PlasmicComment__RenderFunc(props: {
             projectcss.__wab_text,
             sty.text__aAapo,
             {
+              [sty.textunnamedGroupOfVariants_whenHaveNoReply__aAapoCt3Kq]:
+                hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
+              [sty.textunnamedGroupOfVariants_whenHaveReply__aAapoKmMee]:
+                hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
               [sty.textwhenHaveNoReply__aAapouOheY]: hasVariant(
                 $state,
                 "whenHaveNoReply",
@@ -996,7 +1173,23 @@ function PlasmicComment__RenderFunc(props: {
             }
           )}
         >
-          {hasVariant($state, "whenHaveReply", "whenHaveReply") ? (
+          {hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply") ? (
+            <React.Fragment>
+              {(() => {
+                try {
+                  return "مشاهده " + $props.replyCount + " پاسخ ";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          ) : hasVariant($state, "whenHaveReply", "whenHaveReply") ? (
             <React.Fragment>
               {(() => {
                 try {
@@ -1038,6 +1231,15 @@ function PlasmicComment__RenderFunc(props: {
             "showReply",
             "showReply"
           ),
+          [sty.freeBoxunnamedGroupOfVariants_showReply__wRzZdkDgzF]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "showReply"
+          ),
+          [sty.freeBoxunnamedGroupOfVariants_whenHaveNoReply__wRzZdCt3Kq]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
+          [sty.freeBoxunnamedGroupOfVariants_whenHaveReply__wRzZdKmMee]:
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
           [sty.freeBoxwhenHaveNoReply__wRzZduOheY]: hasVariant(
             $state,
             "whenHaveNoReply",
@@ -1052,25 +1254,31 @@ function PlasmicComment__RenderFunc(props: {
         onClick={async event => {
           const $steps = {};
 
-          $steps["updateShowReply"] = true
+          $steps["updateUnnamedGroupOfVariants"] = true
             ? (() => {
-                const actionArgs = { vgroup: "showReply", operation: 6 };
+                const actionArgs = {
+                  vgroup: "unnamedGroupOfVariants",
+                  operation: 0,
+                  value: "whenHaveReply"
+                };
                 return (({ vgroup, value }) => {
                   if (typeof value === "string") {
                     value = [value];
                   }
 
-                  $stateSet($state, vgroup, false);
-                  return false;
+                  $stateSet($state, vgroup, value);
+                  return value;
                 })?.apply(null, [actionArgs]);
               })()
             : undefined;
           if (
-            $steps["updateShowReply"] != null &&
-            typeof $steps["updateShowReply"] === "object" &&
-            typeof $steps["updateShowReply"].then === "function"
+            $steps["updateUnnamedGroupOfVariants"] != null &&
+            typeof $steps["updateUnnamedGroupOfVariants"] === "object" &&
+            typeof $steps["updateUnnamedGroupOfVariants"].then === "function"
           ) {
-            $steps["updateShowReply"] = await $steps["updateShowReply"];
+            $steps["updateUnnamedGroupOfVariants"] = await $steps[
+              "updateUnnamedGroupOfVariants"
+            ];
           }
         }}
       >
@@ -1080,6 +1288,8 @@ function PlasmicComment__RenderFunc(props: {
             projectcss.__wab_text,
             sty.text___3H3Hg,
             {
+              [sty.textunnamedGroupOfVariants_whenHaveReply___3H3HgKmMee]:
+                hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
               [sty.textwhenHaveReply___3H3HgS2LwI]: hasVariant(
                 $state,
                 "whenHaveReply",
