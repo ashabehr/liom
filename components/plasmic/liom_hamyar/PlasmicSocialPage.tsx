@@ -759,6 +759,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                postType={"image"}
                 text={(() => {
                   try {
                     return $state.getInfo.data.result.details.post.text;

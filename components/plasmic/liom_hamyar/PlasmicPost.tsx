@@ -439,6 +439,11 @@ function PlasmicPost__RenderFunc(props: {
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__fbVqi, {
+          [sty.freeBoxpostType_image__fbVqi2TCWu]: hasVariant(
+            $state,
+            "postType",
+            "image"
+          ),
           [sty.freeBoxpostType_voise__fbVqiVlsyu]: hasVariant(
             $state,
             "postType",
@@ -463,7 +468,15 @@ function PlasmicPost__RenderFunc(props: {
           })}
         />
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__oMc1N)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__oMc1N, {
+          [sty.freeBoxpostType_image__oMc1N2TCWu]: hasVariant(
+            $state,
+            "postType",
+            "image"
+          )
+        })}
+      >
         <div className={classNames(projectcss.all, sty.freeBox__rEuUx)}>
           <div className={classNames(projectcss.all, sty.freeBox__apntU)}>
             <svg
