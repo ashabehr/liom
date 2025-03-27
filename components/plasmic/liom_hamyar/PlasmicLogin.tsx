@@ -165,6 +165,7 @@ export type PlasmicLogin__OverridesType = {
   antdInput12?: Flex__<typeof Input>;
   checkbox2?: Flex__<typeof Checkbox>;
   button8?: Flex__<typeof Button>;
+  button9?: Flex__<typeof Button>;
   mobileCode?: Flex__<typeof Reveal>;
   textInput3?: Flex__<typeof TextInput>;
   antdInput4?: Flex__<typeof Input>;
@@ -796,6 +797,12 @@ function PlasmicLogin__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "button9.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -9308,7 +9315,10 @@ function PlasmicLogin__RenderFunc(props: {
                           }
 
                           $steps["invokeGlobalAction"] =
-                            $state.type == "mobile" || $state.type == "email"
+                            ($state.type == "mobile" ||
+                              $state.type == "email") &&
+                            $state.gender != "female" &&
+                            $state.paramsObject.redirect_url != null
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -9473,7 +9483,9 @@ function PlasmicLogin__RenderFunc(props: {
                           }
 
                           $steps["invokeGlobalAction2"] =
-                            $state.type == "userName"
+                            $state.type == "userName" &&
+                            $state.gender != "female" &&
+                            $state.paramsObject.redirect_url != null
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -9636,7 +9648,9 @@ function PlasmicLogin__RenderFunc(props: {
                           }
 
                           $steps["invokeGlobalAction3"] =
-                            $state.type == "guest"
+                            $state.type == "guest" &&
+                            $state.gender != "female" &&
+                            $state.paramsObject.redirect_url != null
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -9977,12 +9991,6 @@ function PlasmicLogin__RenderFunc(props: {
                           }
 
                           $steps["updateTextInputValue5"] =
-                            ($steps.invokeGlobalAction3?.data?.success ==
-                              true ||
-                              $steps.invokeGlobalAction?.data?.success ==
-                                true ||
-                              $steps.invokeGlobalAction2?.data?.success ==
-                                true) &&
                             $state.gender == "female" &&
                             $state.paramsObject.redirect_url == null
                               ? (() => {
@@ -11026,7 +11034,7 @@ function PlasmicLogin__RenderFunc(props: {
                           return [
                             {
                               title: "پریود",
-                              type: "https://apps.liom.app/calendar/",
+                              type: "period",
                               text: "با تقویم قاعدگی می‌توانی پریود و حالات روزانه‌ات را ثبت و دنبال کنی.",
                               icon: `<svg width="19" height="23" viewBox="0 0 19 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M10.1359 1.30208C9.76089 1.01042 9.24006 1.01042 8.86506 1.30208C6.88588 2.8125 1.04212 7.73958 1.07337 13.4792C1.07337 18.125 4.85462 21.9167 9.51089 21.9167C14.1671 21.9167 17.9484 18.1354 17.9484 13.4896C17.9588 7.83333 12.1046 2.82292 10.1359 1.30208Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"/>
@@ -11035,7 +11043,7 @@ function PlasmicLogin__RenderFunc(props: {
                             },
                             {
                               title: "بارداری",
-                              type: "https://apps.liom.app/pregnancy/",
+                              type: "pregnancy",
                               text: "با تقویم بارداری هفته به هفته می‌توانی اطلاعات زیادی در مورد تغییرات بدنت و رشد جنین به دست بیاری.",
                               icon: `<svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_116_6)">
@@ -11348,122 +11356,335 @@ function PlasmicLogin__RenderFunc(props: {
                     })}
                   </Stack__>
                 </Stack__>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__xjEZq, {
-                    [sty.freeBoxloginPage_emailCode__xjEZqwqwJl]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "emailCode"
-                    ),
-                    [sty.freeBoxloginPage_email__xjEZqIYwOs]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "email"
-                    ),
-                    [sty.freeBoxloginPage_mobileCode__xjEZqm2GXn]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "mobileCode"
-                    ),
-                    [sty.freeBoxloginPage_mobile__xjEZq6MmOa]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "mobile"
-                    ),
-                    [sty.freeBoxloginPage_name__xjEZqhUiKy]: hasVariant(
-                      $state,
-                      "loginPage",
-                      "name"
-                    ),
-                    [sty.freeBoxloginPage_selectstatus__xjEZqNi6Lr]: hasVariant(
+                <section
+                  className={classNames(projectcss.all, sty.section__bZwSb, {
+                    [sty.sectionloginPage_selectstatus__bZwSbNi6Lr]: hasVariant(
                       $state,
                       "loginPage",
                       "selectstatus"
-                    ),
-                    [sty.freeBoxloginPage_userNameLogin__xjEZqH7MIy]:
-                      hasVariant($state, "loginPage", "userNameLogin"),
-                    [sty.freeBoxloginPage_userNameSingup__xjEZqnuYv7]:
-                      hasVariant($state, "loginPage", "userNameSingup")
+                    )
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__upGzU, {
-                      [sty.freeBoxloginPage_name__upGzUhUiKy]: hasVariant(
+                    className={classNames(projectcss.all, sty.freeBox__xjEZq, {
+                      [sty.freeBoxloginPage_emailCode__xjEZqwqwJl]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
+                      [sty.freeBoxloginPage_email__xjEZqIYwOs]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "email"
+                      ),
+                      [sty.freeBoxloginPage_mobileCode__xjEZqm2GXn]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.freeBoxloginPage_mobile__xjEZq6MmOa]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.freeBoxloginPage_name__xjEZqhUiKy]: hasVariant(
                         $state,
                         "loginPage",
                         "name"
                       ),
-                      [sty.freeBoxloginPage_selectstatus__upGzUni6Lr]:
-                        hasVariant($state, "loginPage", "selectstatus")
+                      [sty.freeBoxloginPage_selectstatus__xjEZqNi6Lr]:
+                        hasVariant($state, "loginPage", "selectstatus"),
+                      [sty.freeBoxloginPage_userNameLogin__xjEZqH7MIy]:
+                        hasVariant($state, "loginPage", "userNameLogin"),
+                      [sty.freeBoxloginPage_userNameSingup__xjEZqnuYv7]:
+                        hasVariant($state, "loginPage", "userNameSingup")
                     })}
                   >
-                    <Checkbox
-                      data-plasmic-name={"checkbox2"}
-                      data-plasmic-override={overrides.checkbox2}
-                      className={classNames("__wab_instance", sty.checkbox2, {
-                        [sty.checkbox2loginPage_emailCode]: hasVariant(
-                          $state,
-                          "loginPage",
-                          "emailCode"
-                        ),
-                        [sty.checkbox2loginPage_name]: hasVariant(
-                          $state,
-                          "loginPage",
-                          "name"
-                        ),
-                        [sty.checkbox2loginPage_selectstatus]: hasVariant(
-                          $state,
-                          "loginPage",
-                          "selectstatus"
-                        )
-                      })}
-                      isChecked={
-                        generateStateValueProp($state, [
-                          "checkbox2",
-                          "isChecked"
-                        ]) ?? false
-                      }
-                      onChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__upGzU,
+                        {
+                          [sty.freeBoxloginPage_name__upGzUhUiKy]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          ),
+                          [sty.freeBoxloginPage_selectstatus__upGzUni6Lr]:
+                            hasVariant($state, "loginPage", "selectstatus")
+                        }
+                      )}
+                    >
+                      <Checkbox
+                        data-plasmic-name={"checkbox2"}
+                        data-plasmic-override={overrides.checkbox2}
+                        className={classNames("__wab_instance", sty.checkbox2, {
+                          [sty.checkbox2loginPage_emailCode]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "emailCode"
+                          ),
+                          [sty.checkbox2loginPage_name]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          ),
+                          [sty.checkbox2loginPage_selectstatus]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "selectstatus"
+                          )
+                        })}
+                        isChecked={
+                          generateStateValueProp($state, [
                             "checkbox2",
                             "isChecked"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
+                          ]) ?? false
                         }
-                      }}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__kkGwD,
-                          {
-                            [sty.textloginPage_name__kkGwDhUiKy]: hasVariant(
-                              $state,
-                              "loginPage",
-                              "name"
-                            ),
-                            [sty.textloginPage_selectstatus__kkGwDni6Lr]:
-                              hasVariant($state, "loginPage", "selectstatus")
+                        onChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "checkbox2",
+                              "isChecked"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
                           }
-                        )}
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__kkGwD,
+                            {
+                              [sty.textloginPage_name__kkGwDhUiKy]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "name"
+                              ),
+                              [sty.textloginPage_selectstatus__kkGwDni6Lr]:
+                                hasVariant($state, "loginPage", "selectstatus")
+                            }
+                          )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateRulesOpen"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["rules", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateRulesOpen"] != null &&
+                              typeof $steps["updateRulesOpen"] === "object" &&
+                              typeof $steps["updateRulesOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateRulesOpen"] = await $steps[
+                                "updateRulesOpen"
+                              ];
+                            }
+                          }}
+                        >
+                          {hasVariant($state, "loginPage", "selectstatus")
+                            ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
+                            : hasVariant($state, "loginPage", "name")
+                            ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
+                            : "Enter some text"}
+                        </div>
+                      </Checkbox>
+                      <Button
+                        data-plasmic-name={"button8"}
+                        data-plasmic-override={overrides.button8}
+                        className={classNames("__wab_instance", sty.button8, {
+                          [sty.button8loginPage_emailCode]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "emailCode"
+                          ),
+                          [sty.button8loginPage_email]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "email"
+                          ),
+                          [sty.button8loginPage_mobileCode]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobileCode"
+                          ),
+                          [sty.button8loginPage_mobile]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobile"
+                          ),
+                          [sty.button8loginPage_name]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          ),
+                          [sty.button8loginPage_selectstatus]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "selectstatus"
+                          ),
+                          [sty.button8loginPage_userNameLogin]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "userNameLogin"
+                          ),
+                          [sty.button8loginPage_userNameSingup]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "userNameSingup"
+                          )
+                        })}
+                        color={generateStateValueProp($state, [
+                          "button8",
+                          "color"
+                        ])}
+                        disabled={
+                          hasVariant($state, "loginPage", "selectstatus")
+                            ? undefined
+                            : hasVariant($state, "loginPage", "name")
+                            ? undefined
+                            : (() => {
+                                try {
+                                  return (
+                                    ($state.antdInput12.value.length < 4 &&
+                                      $state.gender == "") ||
+                                    $state.loadedbtn
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                        }
+                        isDisabled={
+                          hasVariant($state, "loginPage", "selectstatus")
+                            ? (() => {
+                                try {
+                                  return $state.status == "";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : hasVariant($state, "loginPage", "name")
+                            ? (() => {
+                                try {
+                                  return (
+                                    !(
+                                      $state.antdInput12.value?.trim().length >
+                                        2 &&
+                                      $state.gender != "" &&
+                                      $state.checkbox2.isChecked == true
+                                    ) || $state.loadedbtn
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : undefined
+                        }
+                        loading={(() => {
+                          try {
+                            return $state.loadedbtn;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["updateRulesOpen"] = true
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      $state.loginData.result.healthStatus =
+                                        $state.status.includes("pregnancy")
+                                          ? "pregnancy"
+                                          : "period";
+                                      return localStorage.setItem(
+                                        "loginInfo",
+                                        JSON.stringify($state.loginData)
+                                      );
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["updateLoadedbtn"] = true
                             ? (() => {
                                 const actionArgs = {
                                   variable: {
                                     objRoot: $state,
-                                    variablePath: ["rules", "open"]
+                                    variablePath: ["loadedbtn"]
                                   },
                                   operation: 0,
                                   value: true
@@ -11485,70 +11706,193 @@ function PlasmicLogin__RenderFunc(props: {
                               })()
                             : undefined;
                           if (
-                            $steps["updateRulesOpen"] != null &&
-                            typeof $steps["updateRulesOpen"] === "object" &&
-                            typeof $steps["updateRulesOpen"].then === "function"
+                            $steps["updateLoadedbtn"] != null &&
+                            typeof $steps["updateLoadedbtn"] === "object" &&
+                            typeof $steps["updateLoadedbtn"].then === "function"
                           ) {
-                            $steps["updateRulesOpen"] = await $steps[
-                              "updateRulesOpen"
+                            $steps["updateLoadedbtn"] = await $steps[
+                              "updateLoadedbtn"
                             ];
+                          }
+
+                          $steps["goToPage"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: (() => {
+                                    try {
+                                      return (() => {
+                                        var baseUrl = $state.status;
+                                        var separator = baseUrl.includes("?")
+                                          ? "&token="
+                                          : "?token=";
+                                        var redirectUrl =
+                                          baseUrl +
+                                          separator +
+                                          $$.uuid.v4().slice(0, 6) +
+                                          ($state.loginData.result.token ||
+                                            "") +
+                                          $$.uuid.v4().slice(10, 13) +
+                                          "&userId=" +
+                                          $$.uuid.v4().slice(0, 4) +
+                                          ($state.loginData.result.userId ||
+                                            "") +
+                                          $$.uuid.v4().slice(0, 4);
+                                        return redirectUrl;
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                };
+                                return (({ destination }) => {
+                                  if (
+                                    typeof destination === "string" &&
+                                    destination.startsWith("#")
+                                  ) {
+                                    document
+                                      .getElementById(destination.substr(1))
+                                      .scrollIntoView({ behavior: "smooth" });
+                                  } else {
+                                    __nextRouter?.push(destination);
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["goToPage"] != null &&
+                            typeof $steps["goToPage"] === "object" &&
+                            typeof $steps["goToPage"].then === "function"
+                          ) {
+                            $steps["goToPage"] = await $steps["goToPage"];
+                          }
+                        }}
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button8",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
                           }
                         }}
                       >
-                        {hasVariant($state, "loginPage", "selectstatus")
-                          ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
-                          : hasVariant($state, "loginPage", "name")
-                          ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
-                          : "Enter some text"}
-                      </div>
-                    </Checkbox>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___0Wlea,
+                            {
+                              [sty.textloginPage_emailCode___0WleawqwJl]:
+                                hasVariant($state, "loginPage", "emailCode"),
+                              [sty.textloginPage_email___0WleaIYwOs]:
+                                hasVariant($state, "loginPage", "email"),
+                              [sty.textloginPage_mobileCode___0Wleam2GXn]:
+                                hasVariant($state, "loginPage", "mobileCode"),
+                              [sty.textloginPage_mobile___0Wlea6MmOa]:
+                                hasVariant($state, "loginPage", "mobile"),
+                              [sty.textloginPage_name___0WleahUiKy]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "name"
+                              ),
+                              [sty.textloginPage_selectstatus___0WleaNi6Lr]:
+                                hasVariant($state, "loginPage", "selectstatus"),
+                              [sty.textloginPage_userNameLogin___0WleaH7MIy]:
+                                hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameLogin"
+                                ),
+                              [sty.textloginPage_userNameSingup___0WleanuYv7]:
+                                hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "userNameSingup"
+                                )
+                            }
+                          )}
+                        >
+                          {hasVariant($state, "loginPage", "selectstatus")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "userNameSingup")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "userNameLogin")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "emailCode")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "name")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "mobileCode")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "email")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : hasVariant($state, "loginPage", "mobile")
+                            ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                            : "Button"}
+                        </div>
+                      </Button>
+                    </div>
                     <Button
-                      data-plasmic-name={"button8"}
-                      data-plasmic-override={overrides.button8}
-                      className={classNames("__wab_instance", sty.button8, {
-                        [sty.button8loginPage_emailCode]: hasVariant(
+                      data-plasmic-name={"button9"}
+                      data-plasmic-override={overrides.button9}
+                      className={classNames("__wab_instance", sty.button9, {
+                        [sty.button9loginPage_emailCode]: hasVariant(
                           $state,
                           "loginPage",
                           "emailCode"
                         ),
-                        [sty.button8loginPage_email]: hasVariant(
+                        [sty.button9loginPage_email]: hasVariant(
                           $state,
                           "loginPage",
                           "email"
                         ),
-                        [sty.button8loginPage_mobileCode]: hasVariant(
+                        [sty.button9loginPage_mobileCode]: hasVariant(
                           $state,
                           "loginPage",
                           "mobileCode"
                         ),
-                        [sty.button8loginPage_mobile]: hasVariant(
+                        [sty.button9loginPage_mobile]: hasVariant(
                           $state,
                           "loginPage",
                           "mobile"
                         ),
-                        [sty.button8loginPage_name]: hasVariant(
+                        [sty.button9loginPage_name]: hasVariant(
                           $state,
                           "loginPage",
                           "name"
                         ),
-                        [sty.button8loginPage_selectstatus]: hasVariant(
+                        [sty.button9loginPage_selectstatus]: hasVariant(
                           $state,
                           "loginPage",
                           "selectstatus"
                         ),
-                        [sty.button8loginPage_userNameLogin]: hasVariant(
+                        [sty.button9loginPage_userNameLogin]: hasVariant(
                           $state,
                           "loginPage",
                           "userNameLogin"
                         ),
-                        [sty.button8loginPage_userNameSingup]: hasVariant(
+                        [sty.button9loginPage_userNameSingup]: hasVariant(
                           $state,
                           "loginPage",
                           "userNameSingup"
                         )
                       })}
                       color={generateStateValueProp($state, [
-                        "button8",
+                        "button9",
                         "color"
                       ])}
                       disabled={
@@ -11559,7 +11903,7 @@ function PlasmicLogin__RenderFunc(props: {
                           : (() => {
                               try {
                                 return (
-                                  ($state.antdInput12.value.length < 4 &&
+                                  ($state.antdInput2.value.length < 4 &&
                                     $state.gender == "") ||
                                   $state.loadedbtn
                                 );
@@ -11578,7 +11922,7 @@ function PlasmicLogin__RenderFunc(props: {
                         hasVariant($state, "loginPage", "selectstatus")
                           ? (() => {
                               try {
-                                return $state.status == "";
+                                return $state.status == "" || $state.loadedbtn;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -11594,10 +11938,10 @@ function PlasmicLogin__RenderFunc(props: {
                               try {
                                 return (
                                   !(
-                                    $state.antdInput12.value?.trim().length >
+                                    $state.antdInput2.value?.trim().length >
                                       2 &&
                                     $state.gender != "" &&
-                                    $state.checkbox2.isChecked == true
+                                    $state.checkbox.isChecked == true
                                   ) || $state.loadedbtn
                                 );
                               } catch (e) {
@@ -11627,35 +11971,6 @@ function PlasmicLogin__RenderFunc(props: {
                       })()}
                       onClick={async event => {
                         const $steps = {};
-
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    $state.loginData.result.healthStatus =
-                                      $state.status.includes("pregnancy")
-                                        ? "pregnancy"
-                                        : "period";
-                                    return localStorage.setItem(
-                                      "loginInfo",
-                                      JSON.stringify($state.loginData)
-                                    );
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
 
                         $steps["updateLoadedbtn"] = true
                           ? (() => {
@@ -11693,54 +12008,613 @@ function PlasmicLogin__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["goToPage"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                destination: (() => {
-                                  try {
-                                    return (() => {
-                                      var baseUrl = $state.status;
-                                      var separator = baseUrl.includes("?")
-                                        ? "&token="
-                                        : "?token=";
-                                      var redirectUrl =
-                                        baseUrl +
-                                        separator +
-                                        $$.uuid.v4().slice(0, 6) +
-                                        ($state.loginData.result.token || "") +
-                                        $$.uuid.v4().slice(10, 13) +
-                                        "&userId=" +
-                                        $$.uuid.v4().slice(0, 4) +
-                                        ($state.loginData.result.userId || "") +
-                                        $$.uuid.v4().slice(0, 4);
-                                      return redirectUrl;
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
+                        $steps["invokeGlobalAction"] =
+                          $state.type == "mobile" || $state.type == "email"
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/auth/signup/user",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          type: $state.type,
+                                          name: $state.antdInput2.value || "",
+                                          gateway: $ctx.query.gateway || "",
+                                          data:
+                                            ($state.number != ""
+                                              ? $state.number.startsWith("0")
+                                                ? $state.number
+                                                : "0" + $state.number
+                                              : "") ||
+                                            $state.email ||
+                                            "",
+                                          username: $state.username || "",
+                                          target: "calendar",
+                                          sex: $state.gender || "",
+                                          token: $state.token || "",
+                                          version: "",
+                                          lang: "fa",
+                                          country: "98",
+                                          anotherLang: "fa",
+                                          device: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
+                                            ) {
+                                              return "Mobile";
+                                            } else if (
+                                              /Tablet|iPad/i.test(userAgent)
+                                            ) {
+                                              return "Tablet";
+                                            } else {
+                                              return "Desktop";
+                                            }
+                                          })(),
+                                          uniqueId: $$.uuid.v4(),
+                                          fcm:
+                                            window.localStorage.getItem(
+                                              "fcmToken"
+                                            ) || " ",
+                                          os: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            const platform =
+                                              window.navigator.userAgent;
+                                            if (/Windows/i.test(platform))
+                                              return "Windows";
+                                            if (/Mac/i.test(platform))
+                                              return "macOS";
+                                            if (/Linux/i.test(platform))
+                                              return "Linux";
+                                            if (/Android/i.test(userAgent))
+                                              return "Android";
+                                            if (
+                                              /iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return "iOS";
+                                            return "Unknown OS";
+                                          })(),
+                                          osVersion: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Windows NT 10.0/.test(userAgent)
+                                            )
+                                              return "Windows 10";
+                                            if (
+                                              /Windows NT 6.3/.test(userAgent)
+                                            )
+                                              return "Windows 8.1";
+                                            if (
+                                              /Windows NT 6.2/.test(userAgent)
+                                            )
+                                              return "Windows 8";
+                                            if (
+                                              /Windows NT 6.1/.test(userAgent)
+                                            )
+                                              return "Windows 7";
+                                            if (
+                                              /Mac OS X (\d+[\._]\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `macOS ${RegExp.$1.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            if (
+                                              /Android (\d+(\.\d+)?)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `Android ${RegExp.$1}`;
+                                            if (
+                                              /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `iOS ${RegExp.$2.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            return "Unknown Version";
+                                          })(),
+                                          password: $state.password || "",
+                                          postLang: "fa",
+                                          refCode:
+                                            $state.antdInput3.value || "",
+                                          isCountryPending: false,
+                                          device_type:
+                                            window.navigator.platform,
+                                          additionalData: {
+                                            ip: "132465",
+                                            name: "test1"
+                                          },
+                                          city: null,
+                                          state: null,
+                                          birthYear: null,
+                                          religious: 0,
+                                          healthStatus: $state.status
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction2"] =
+                          $state.type == "userName"
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/auth/signup",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          type: $state.type,
+                                          name: $state.antdInput2.value || "",
+                                          gateway: $ctx.query.gateway || "",
+                                          data:
+                                            $state.number != ""
+                                              ? $state.number.startsWith("0")
+                                                ? $state.number
+                                                : "0" + $state.number
+                                              : "",
+                                          username: $state.username,
+                                          target: "calendar",
+                                          sex: $state.gender || "",
+                                          token: $state.token || "",
+                                          version: "",
+                                          lang: "fa",
+                                          country: "98",
+                                          anotherLang: "fa",
+                                          device: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
+                                            ) {
+                                              return "Mobile";
+                                            } else if (
+                                              /Tablet|iPad/i.test(userAgent)
+                                            ) {
+                                              return "Tablet";
+                                            } else {
+                                              return "Desktop";
+                                            }
+                                          })(),
+                                          uniqueId: $$.uuid.v4(),
+                                          fcm:
+                                            window.localStorage.getItem(
+                                              "fcmToken"
+                                            ) || " ",
+                                          os: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            const platform =
+                                              window.navigator.userAgent;
+                                            if (/Windows/i.test(platform))
+                                              return "Windows";
+                                            if (/Mac/i.test(platform))
+                                              return "macOS";
+                                            if (/Linux/i.test(platform))
+                                              return "Linux";
+                                            if (/Android/i.test(userAgent))
+                                              return "Android";
+                                            if (
+                                              /iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return "iOS";
+                                            return "Unknown OS";
+                                          })(),
+                                          osVersion: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Windows NT 10.0/.test(userAgent)
+                                            )
+                                              return "Windows 10";
+                                            if (
+                                              /Windows NT 6.3/.test(userAgent)
+                                            )
+                                              return "Windows 8.1";
+                                            if (
+                                              /Windows NT 6.2/.test(userAgent)
+                                            )
+                                              return "Windows 8";
+                                            if (
+                                              /Windows NT 6.1/.test(userAgent)
+                                            )
+                                              return "Windows 7";
+                                            if (
+                                              /Mac OS X (\d+[\._]\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `macOS ${RegExp.$1.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            if (
+                                              /Android (\d+(\.\d+)?)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `Android ${RegExp.$1}`;
+                                            if (
+                                              /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `iOS ${RegExp.$2.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            return "Unknown Version";
+                                          })(),
+                                          password: $state.password,
+                                          postLang: "fa",
+                                          refCode:
+                                            $state.antdInput3.value || "",
+                                          isCountryPending: false,
+                                          device_type:
+                                            window.navigator.platform,
+                                          additionalData: {
+                                            ip: "132465",
+                                            name: "test1"
+                                          },
+                                          city: null,
+                                          state: null,
+                                          birthYear: null,
+                                          religious: 0,
+                                          healthStatus: $state.status
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction2"] != null &&
+                          typeof $steps["invokeGlobalAction2"] === "object" &&
+                          typeof $steps["invokeGlobalAction2"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction2"] = await $steps[
+                            "invokeGlobalAction2"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction3"] =
+                          $state.type == "guest"
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/auth/signup/guest",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          name: $state.antdInput2.value || "",
+                                          gateway: $ctx.query.gateway || "",
+                                          country: "98",
+                                          isCountryPending: false,
+                                          lang: "fa",
+                                          version: "",
+                                          os: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            const platform =
+                                              window.navigator.userAgent;
+                                            if (/Windows/i.test(platform))
+                                              return "Windows";
+                                            if (/Mac/i.test(platform))
+                                              return "macOS";
+                                            if (/Linux/i.test(platform))
+                                              return "Linux";
+                                            if (/Android/i.test(userAgent))
+                                              return "Android";
+                                            if (
+                                              /iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return "iOS";
+                                            return "Unknown OS";
+                                          })(),
+                                          osVersion: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Windows NT 10.0/.test(userAgent)
+                                            )
+                                              return "Windows 10";
+                                            if (
+                                              /Windows NT 6.3/.test(userAgent)
+                                            )
+                                              return "Windows 8.1";
+                                            if (
+                                              /Windows NT 6.2/.test(userAgent)
+                                            )
+                                              return "Windows 8";
+                                            if (
+                                              /Windows NT 6.1/.test(userAgent)
+                                            )
+                                              return "Windows 7";
+                                            if (
+                                              /Mac OS X (\d+[\._]\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `macOS ${RegExp.$1.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            if (
+                                              /Android (\d+(\.\d+)?)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `Android ${RegExp.$1}`;
+                                            if (
+                                              /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `iOS ${RegExp.$2.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            return "Unknown Version";
+                                          })(),
+                                          sex: $state.gender || "",
+                                          additionalData: {
+                                            ip: "132465",
+                                            name: "test1"
+                                          },
+                                          device: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
+                                            ) {
+                                              return "Mobile";
+                                            } else if (
+                                              /Tablet|iPad/i.test(userAgent)
+                                            ) {
+                                              return "Tablet";
+                                            } else {
+                                              return "Desktop";
+                                            }
+                                          })(),
+                                          fcm:
+                                            window.localStorage.getItem(
+                                              "fcmToken"
+                                            ) || " ",
+                                          uniqueId: $$.uuid.v4(),
+                                          device_type:
+                                            window.navigator.platform,
+                                          postLang: "fa",
+                                          healthStatus: $state.status
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction3"] != null &&
+                          typeof $steps["invokeGlobalAction3"] === "object" &&
+                          typeof $steps["invokeGlobalAction3"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction3"] = await $steps[
+                            "invokeGlobalAction3"
+                          ];
+                        }
+
+                        $steps["updateLoginData"] =
+                          $steps.invokeGlobalAction3?.data?.success == true ||
+                          $steps.invokeGlobalAction?.data?.success == true ||
+                          $steps.invokeGlobalAction2?.data?.success == true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["loginData"]
+                                  },
+                                  operation: 0,
+                                  value:
+                                    $steps.invokeGlobalAction?.data ||
+                                    $steps.invokeGlobalAction2?.data ||
+                                    $steps.invokeGlobalAction3?.data
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
                                   }
-                                })()
-                              };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateLoginData"] != null &&
+                          typeof $steps["updateLoginData"] === "object" &&
+                          typeof $steps["updateLoginData"].then === "function"
+                        ) {
+                          $steps["updateLoginData"] = await $steps[
+                            "updateLoginData"
+                          ];
+                        }
+
+                        $steps["updateTextInputValue2"] =
+                          $steps.invokeGlobalAction?.data?.success === true ||
+                          $steps.invokeGlobalAction2?.data?.success === true ||
+                          $steps.invokeGlobalAction3?.data?.success === true ||
+                          $state.type == "google"
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      $state.loginData.result.healthStatus =
+                                        $state.status;
+                                      return localStorage.setItem(
+                                        "loginInfo",
+                                        JSON.stringify($state.loginData)
+                                      );
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateTextInputValue2"] != null &&
+                          typeof $steps["updateTextInputValue2"] === "object" &&
+                          typeof $steps["updateTextInputValue2"].then ===
+                            "function"
+                        ) {
+                          $steps["updateTextInputValue2"] = await $steps[
+                            "updateTextInputValue2"
+                          ];
+                        }
+
+                        $steps["goToPage"] =
+                          $steps.invokeGlobalAction3?.data?.success == true ||
+                          $steps.invokeGlobalAction?.data?.success == true ||
+                          $steps.invokeGlobalAction2?.data?.success == true
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: (() => {
+                                    try {
+                                      return (() => {
+                                        if (
+                                          $state.loginData.result
+                                            .healthStatus == "pregnancy"
+                                        )
+                                          var baseUrl =
+                                            "https://apps.liom.app/pregnancy/";
+                                        else
+                                          var baseUrl =
+                                            "https://apps.liom.app/calendar/";
+                                        var separator = baseUrl.includes("?")
+                                          ? "&token="
+                                          : "?token=";
+                                        var redirectUrl =
+                                          baseUrl +
+                                          separator +
+                                          $$.uuid.v4().slice(0, 6) +
+                                          ($state.loginData.result.token ||
+                                            "") +
+                                          $$.uuid.v4().slice(10, 13) +
+                                          "&userId=" +
+                                          $$.uuid.v4().slice(0, 4) +
+                                          ($state.loginData.result.userId ||
+                                            "") +
+                                          $$.uuid.v4().slice(0, 4);
+                                        return redirectUrl;
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                };
+                                return (({ destination }) => {
+                                  if (
+                                    typeof destination === "string" &&
+                                    destination.startsWith("#")
+                                  ) {
+                                    document
+                                      .getElementById(destination.substr(1))
+                                      .scrollIntoView({ behavior: "smooth" });
+                                  } else {
+                                    __nextRouter?.push(destination);
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
                         if (
                           $steps["goToPage"] != null &&
                           typeof $steps["goToPage"] === "object" &&
@@ -11748,47 +12622,11 @@ function PlasmicLogin__RenderFunc(props: {
                         ) {
                           $steps["goToPage"] = await $steps["goToPage"];
                         }
-
-                        $steps["updateTextInputValue"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["textInput", "value"]
-                                },
-                                operation: 0
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateTextInputValue"] != null &&
-                          typeof $steps["updateTextInputValue"] === "object" &&
-                          typeof $steps["updateTextInputValue"].then ===
-                            "function"
-                        ) {
-                          $steps["updateTextInputValue"] = await $steps[
-                            "updateTextInputValue"
-                          ];
-                        }
                       }}
                       onColorChange={async (...eventArgs: any) => {
                         ((...eventArgs) => {
                           generateStateOnChangeProp($state, [
-                            "button8",
+                            "button9",
                             "color"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
@@ -11806,32 +12644,32 @@ function PlasmicLogin__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text___0Wlea,
+                          sty.text__vy1J7,
                           {
-                            [sty.textloginPage_emailCode___0WleawqwJl]:
+                            [sty.textloginPage_emailCode__vy1J7WqwJl]:
                               hasVariant($state, "loginPage", "emailCode"),
-                            [sty.textloginPage_email___0WleaIYwOs]: hasVariant(
+                            [sty.textloginPage_email__vy1J7IYwOs]: hasVariant(
                               $state,
                               "loginPage",
                               "email"
                             ),
-                            [sty.textloginPage_mobileCode___0Wleam2GXn]:
+                            [sty.textloginPage_mobileCode__vy1J7M2GXn]:
                               hasVariant($state, "loginPage", "mobileCode"),
-                            [sty.textloginPage_mobile___0Wlea6MmOa]: hasVariant(
+                            [sty.textloginPage_mobile__vy1J76MmOa]: hasVariant(
                               $state,
                               "loginPage",
                               "mobile"
                             ),
-                            [sty.textloginPage_name___0WleahUiKy]: hasVariant(
+                            [sty.textloginPage_name__vy1J7HUiKy]: hasVariant(
                               $state,
                               "loginPage",
                               "name"
                             ),
-                            [sty.textloginPage_selectstatus___0WleaNi6Lr]:
+                            [sty.textloginPage_selectstatus__vy1J7Ni6Lr]:
                               hasVariant($state, "loginPage", "selectstatus"),
-                            [sty.textloginPage_userNameLogin___0WleaH7MIy]:
+                            [sty.textloginPage_userNameLogin__vy1J7H7MIy]:
                               hasVariant($state, "loginPage", "userNameLogin"),
-                            [sty.textloginPage_userNameSingup___0WleanuYv7]:
+                            [sty.textloginPage_userNameSingup__vy1J7NuYv7]:
                               hasVariant($state, "loginPage", "userNameSingup")
                           }
                         )}
@@ -11856,13 +12694,7 @@ function PlasmicLogin__RenderFunc(props: {
                       </div>
                     </Button>
                   </div>
-                  <section
-                    className={classNames(projectcss.all, sty.section__bZwSb, {
-                      [sty.sectionloginPage_selectstatus__bZwSbNi6Lr]:
-                        hasVariant($state, "loginPage", "selectstatus")
-                    })}
-                  />
-                </div>
+                </section>
               </Stack__>
             </Reveal>
           ) : null}
@@ -17882,6 +18714,7 @@ const PlasmicDescendants = {
     "antdInput12",
     "checkbox2",
     "button8",
+    "button9",
     "mobileCode",
     "textInput3",
     "antdInput4",
@@ -17924,6 +18757,7 @@ const PlasmicDescendants = {
   antdInput12: ["antdInput12"],
   checkbox2: ["checkbox2"],
   button8: ["button8"],
+  button9: ["button9"],
   mobileCode: ["mobileCode", "textInput3", "antdInput4", "button3"],
   textInput3: ["textInput3", "antdInput4"],
   antdInput4: ["antdInput4"],
@@ -17971,6 +18805,7 @@ type NodeDefaultElementType = {
   antdInput12: typeof Input;
   checkbox2: typeof Checkbox;
   button8: typeof Button;
+  button9: typeof Button;
   mobileCode: typeof Reveal;
   textInput3: typeof TextInput;
   antdInput4: typeof Input;
@@ -18099,6 +18934,7 @@ export const PlasmicLogin = Object.assign(
     antdInput12: makeNodeComponent("antdInput12"),
     checkbox2: makeNodeComponent("checkbox2"),
     button8: makeNodeComponent("button8"),
+    button9: makeNodeComponent("button9"),
     mobileCode: makeNodeComponent("mobileCode"),
     textInput3: makeNodeComponent("textInput3"),
     antdInput4: makeNodeComponent("antdInput4"),
