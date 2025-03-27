@@ -60,7 +60,6 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import AudioPlayer from "../../AudioPlayer"; // plasmic-import: 8TLNkR4k2mrN/component
-import { Slider } from "@plasmicpkgs/antd/skinny/registerSlider";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -97,10 +96,8 @@ export const PlasmicPost__ArgProps = new Array<ArgPropType>(
 export type PlasmicPost__OverridesType = {
   root?: Flex__<"div">;
   firstFreamOfVideo?: Flex__<typeof PlasmicImg__>;
-  svg?: Flex__<"svg">;
   image?: Flex__<typeof PlasmicImg__>;
   audioPlayer?: Flex__<typeof AudioPlayer>;
-  antdSlider2?: Flex__<typeof Slider>;
 };
 
 export interface DefaultPostProps {
@@ -158,18 +155,6 @@ function PlasmicPost__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.postType
-      },
-      {
-        path: "antdSlider2.value",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "antdSlider2.value2",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -367,9 +352,7 @@ function PlasmicPost__RenderFunc(props: {
       </div>
       <div className={classNames(projectcss.all, sty.freeBox__cx2Bk)}>
         <MenuIcon
-          data-plasmic-name={"svg"}
-          data-plasmic-override={overrides.svg}
-          className={classNames(projectcss.all, sty.svg)}
+          className={classNames(projectcss.all, sty.svg__lnGkb)}
           role={"img"}
         />
       </div>
@@ -489,34 +472,13 @@ function PlasmicPost__RenderFunc(props: {
         />
       </div>
       <div className={classNames(projectcss.all, sty.freeBox__oMc1N)}>
-        <Slider
-          data-plasmic-name={"antdSlider2"}
-          data-plasmic-override={overrides.antdSlider2}
-          className={classNames("__wab_instance", sty.antdSlider2, {
-            [sty.antdSlider2postType_image]: hasVariant(
-              $state,
-              "postType",
-              "image"
-            )
-          })}
-          onChange={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, ["antdSlider2", "value"]).apply(
-              null,
-              eventArgs
-            );
-          }}
-          onChange2={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, ["antdSlider2", "value2"]).apply(
-              null,
-              eventArgs
-            );
-          }}
-          value={generateStateValueProp($state, ["antdSlider2", "value"])}
-          value2={generateStateValueProp($state, ["antdSlider2", "value2"])}
-        />
-
         <div className={classNames(projectcss.all, sty.freeBox__rEuUx)}>
-          <div className={classNames(projectcss.all, sty.freeBox__apntU)} />
+          <div className={classNames(projectcss.all, sty.freeBox__apntU)}>
+            <svg
+              className={classNames(projectcss.all, sty.svg__oeXlk)}
+              role={"img"}
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -524,19 +486,10 @@ function PlasmicPost__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "firstFreamOfVideo",
-    "svg",
-    "image",
-    "audioPlayer",
-    "antdSlider2"
-  ],
+  root: ["root", "firstFreamOfVideo", "image", "audioPlayer"],
   firstFreamOfVideo: ["firstFreamOfVideo"],
-  svg: ["svg"],
   image: ["image"],
-  audioPlayer: ["audioPlayer"],
-  antdSlider2: ["antdSlider2"]
+  audioPlayer: ["audioPlayer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -544,10 +497,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   firstFreamOfVideo: typeof PlasmicImg__;
-  svg: "svg";
   image: typeof PlasmicImg__;
   audioPlayer: typeof AudioPlayer;
-  antdSlider2: typeof Slider;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -611,10 +562,8 @@ export const PlasmicPost = Object.assign(
   {
     // Helper components rendering sub-elements
     firstFreamOfVideo: makeNodeComponent("firstFreamOfVideo"),
-    svg: makeNodeComponent("svg"),
     image: makeNodeComponent("image"),
     audioPlayer: makeNodeComponent("audioPlayer"),
-    antdSlider2: makeNodeComponent("antdSlider2"),
 
     // Metadata about props expected for PlasmicPost
     internalVariantProps: PlasmicPost__VariantProps,

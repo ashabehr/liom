@@ -68,8 +68,6 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicAudioPlayer.module.css"; // plasmic-import: 8TLNkR4k2mrN/css
 
-import PlayIcon from "./icons/PlasmicIcon__Play"; // plasmic-import: L7ZyLxyE87PQ/icon
-
 createPlasmicElementProxy;
 
 export type PlasmicAudioPlayer__VariantMembers = {
@@ -90,7 +88,6 @@ export const PlasmicAudioPlayer__ArgProps = new Array<ArgPropType>();
 export type PlasmicAudioPlayer__OverridesType = {
   root?: Flex__<"div">;
   embedHtml?: Flex__<typeof Embed>;
-  svg?: Flex__<"svg">;
 };
 
 export interface DefaultAudioPlayerProps {
@@ -182,36 +179,16 @@ function PlasmicAudioPlayer__RenderFunc(props: {
         data-plasmic-override={overrides.embedHtml}
         className={classNames("__wab_instance", sty.embedHtml)}
         code={
-          '<audio controls>\r\n  <source src="https://ts16.tarafdari.com/contents/user714631/content-sound/hiphopologist_-_moon.mp3" >\r\nYour browser does not support the audio element.\r\n</audio>\r\n'
+          '<div class="audio-player">\r\n    <audio id="audio" controls>\r\n        <source src="https://ts16.tarafdari.com/contents/user714631/content-sound/hiphopologist_-_moon.mp3" >\r\n        \r\n    </audio>\r\n</div>\r\n'
         }
       />
-
-      <div
-        className={classNames(projectcss.all, sty.freeBox___7EwJx, {
-          [sty.freeBoxpostType_image___7EwJx67P9U]: hasVariant(
-            $state,
-            "postType",
-            "image"
-          )
-        })}
-      >
-        <div className={classNames(projectcss.all, sty.freeBox___2ZbaG)}>
-          <PlayIcon
-            data-plasmic-name={"svg"}
-            data-plasmic-override={overrides.svg}
-            className={classNames(projectcss.all, sty.svg)}
-            role={"img"}
-          />
-        </div>
-      </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "embedHtml", "svg"],
-  embedHtml: ["embedHtml"],
-  svg: ["svg"]
+  root: ["root", "embedHtml"],
+  embedHtml: ["embedHtml"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -219,7 +196,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   embedHtml: typeof Embed;
-  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -283,7 +259,6 @@ export const PlasmicAudioPlayer = Object.assign(
   {
     // Helper components rendering sub-elements
     embedHtml: makeNodeComponent("embedHtml"),
-    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicAudioPlayer
     internalVariantProps: PlasmicAudioPlayer__VariantProps,
