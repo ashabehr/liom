@@ -364,7 +364,15 @@ function PlasmicComment__RenderFunc(props: {
           )
         })}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__qFvXh)}>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__qFvXh, {
+            [sty.freeBoxshowReply__qFvXh5MJbg]: hasVariant(
+              $state,
+              "showReply",
+              "showReply"
+            )
+          })}
+        >
           <PlasmicImg__
             alt={""}
             className={classNames(sty.img__yudX4)}
@@ -714,6 +722,35 @@ function PlasmicComment__RenderFunc(props: {
               "whenHaveReply"
             )
           })}
+          likeCommentCount={
+            hasVariant($state, "showReply", "showReply")
+              ? (() => {
+                  try {
+                    return $props.mainCommentLikeCount;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()
+              : (() => {
+                  try {
+                    return $props.mainCommentLikeCount;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()
+          }
           onVariableForLikeCountCommentChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, [
               "commentlikebutton2",

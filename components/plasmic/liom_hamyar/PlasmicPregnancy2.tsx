@@ -130,7 +130,6 @@ export type PlasmicPregnancy2__OverridesType = {
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
   buySub2?: Flex__<typeof AntdModal>;
-  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultPregnancy2Props {}
@@ -765,24 +764,6 @@ function PlasmicPregnancy2__RenderFunc(props: {
         path: "button.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest.loading",
-        type: "private",
-        variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -10321,52 +10302,15 @@ function PlasmicPregnancy2__RenderFunc(props: {
                 </Stack__>
               </AntdModal>
             </div>
-            <ApiRequest
-              data-plasmic-name={"apiRequest"}
-              data-plasmic-override={overrides.apiRequest}
-              className={classNames("__wab_instance", sty.apiRequest)}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___451T
-                  )}
-                >
-                  {"Error fetching data"}
-                </div>
-              }
-              loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__uY7Ma
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              }
-              method={"GET"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "apiRequest",
-                  "error"
-                ]).apply(null, eventArgs);
-              }}
-              onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "apiRequest",
-                  "loading"
-                ]).apply(null, eventArgs);
-              }}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-            />
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__tUpqy
+              )}
+            >
+              {"Enter some text"}
+            </div>
           </section>
           <Embed
             className={classNames("__wab_instance", sty.embedHtml__zfhvv)}
@@ -10421,8 +10365,7 @@ const PlasmicDescendants = {
     "collapseBaby",
     "collapseMother",
     "collapseHealth",
-    "buySub2",
-    "apiRequest"
+    "buySub2"
   ],
   button: ["button"],
   favIcone: ["favIcone"],
@@ -10438,8 +10381,7 @@ const PlasmicDescendants = {
   collapseBaby: ["collapseBaby"],
   collapseMother: ["collapseMother"],
   collapseHealth: ["collapseHealth"],
-  buySub2: ["buySub2"],
-  apiRequest: ["apiRequest"]
+  buySub2: ["buySub2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -10461,7 +10403,6 @@ type NodeDefaultElementType = {
   collapseMother: typeof AntdSingleCollapse;
   collapseHealth: typeof AntdSingleCollapse;
   buySub2: typeof AntdModal;
-  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -10564,7 +10505,6 @@ export const PlasmicPregnancy2 = Object.assign(
     collapseMother: makeNodeComponent("collapseMother"),
     collapseHealth: makeNodeComponent("collapseHealth"),
     buySub2: makeNodeComponent("buySub2"),
-    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicPregnancy2
     internalVariantProps: PlasmicPregnancy2__VariantProps,

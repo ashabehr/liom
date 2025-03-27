@@ -62,8 +62,8 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import LoginBox from "../../LoginBox"; // plasmic-import: eH_yQdxVywwP/component
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
@@ -137,6 +137,7 @@ export const PlasmicLogin__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicLogin__OverridesType = {
   root?: Flex__<"div">;
+  favicon?: Flex__<typeof Embed>;
   sideEffect?: Flex__<typeof SideEffect>;
   serviceWorker?: Flex__<typeof Embed>;
   textInput?: Flex__<typeof TextInput>;
@@ -812,7 +813,20 @@ function PlasmicLogin__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicLogin.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicLogin.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicLogin.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -878,10 +892,26 @@ function PlasmicLogin__RenderFunc(props: {
             const $steps = {};
           }}
         >
+          <Embed
+            data-plasmic-name={"favicon"}
+            data-plasmic-override={overrides.favicon}
+            className={classNames("__wab_instance", sty.favicon)}
+            code={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+                : "<script>\r\n(function() {\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc favicon\r\n    var faviconLink = document.querySelector(\"link[rel='icon']\");\r\n    if (!faviconLink) {\r\n        faviconLink = document.createElement('link');\r\n        faviconLink.rel = 'icon';\r\n        document.head.appendChild(faviconLink);\r\n    }\r\n    faviconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc apple-touch-icon\r\n    var appleTouchIconLink = document.querySelector(\"link[rel='apple-touch-icon']\");\r\n    if (!appleTouchIconLink) {\r\n        appleTouchIconLink = document.createElement('link');\r\n        appleTouchIconLink.rel = 'apple-touch-icon';\r\n        document.head.appendChild(appleTouchIconLink);\r\n    }\r\n    appleTouchIconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>"
+            }
+          />
+
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
             className={classNames("__wab_instance", sty.sideEffect, {
+              [sty.sideEffectloginPage_mobileCode]: hasVariant(
+                $state,
+                "loginPage",
+                "mobileCode"
+              ),
               [sty.sideEffectloginPage_mobile]: hasVariant(
                 $state,
                 "loginPage",
@@ -891,6 +921,16 @@ function PlasmicLogin__RenderFunc(props: {
                 $state,
                 "loginPage",
                 "name"
+              ),
+              [sty.sideEffectloginPage_selectstatus]: hasVariant(
+                $state,
+                "loginPage",
+                "selectstatus"
+              ),
+              [sty.sideEffectloginPage_userNameLogin]: hasVariant(
+                $state,
+                "loginPage",
+                "userNameLogin"
               )
             })}
             onMount={async () => {
@@ -1108,11 +1148,13 @@ function PlasmicLogin__RenderFunc(props: {
                             baseUrl = searchParams
                               ? `${origin}${pathname}?${searchParams}`
                               : `${origin}${pathname}`;
-                          } else if ($state.loginData.maleUrl != "")
+                          } else if ($state.loginData.result.maleUrl != "")
                             var baseUrl = "https://apps.liom.app/hamyar";
-                          else if ($state.loginData.healthStatus == "pregnancy")
+                          else if (
+                            $state.loginData.result.healthStatus == "pregnancy"
+                          )
                             var baseUrl = "https://apps.liom.app/pregnancy/";
-                          else baseUrl = "https://apps.liom.app/calendar/";
+                          else var baseUrl = "https://apps.liom.app/calendar/";
                           var separator = baseUrl.includes("?")
                             ? "&token="
                             : "?token=";
@@ -1196,7 +1238,18 @@ function PlasmicLogin__RenderFunc(props: {
           <Embed
             data-plasmic-name={"serviceWorker"}
             data-plasmic-override={overrides.serviceWorker}
-            className={classNames("__wab_instance", sty.serviceWorker)}
+            className={classNames("__wab_instance", sty.serviceWorker, {
+              [sty.serviceWorkerloginPage_mobileCode]: hasVariant(
+                $state,
+                "loginPage",
+                "mobileCode"
+              ),
+              [sty.serviceWorkerloginPage_selectstatus]: hasVariant(
+                $state,
+                "loginPage",
+                "selectstatus"
+              )
+            })}
             code={""}
           />
 
@@ -1321,10 +1374,17 @@ function PlasmicLogin__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text___5FL9W
+                  sty.text___5FL9W,
+                  {
+                    [sty.textloginPage_selectstatus___5FL9Wni6Lr]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "selectstatus"
+                    )
+                  }
                 )}
               >
-                {"\u0644\u06cc\u0648\u0645"}
+                {"\u0644\u06cc\u0648\u0645 | Liom"}
               </div>
               <Stack__
                 as={"div"}
@@ -4964,18 +5024,18 @@ function PlasmicLogin__RenderFunc(props: {
                                             ? `${origin}${pathname}?${searchParams}`
                                             : `${origin}${pathname}`;
                                         } else if (
-                                          $state.loginData.maleUrl != ""
+                                          $state.loginData.result.maleUrl != ""
                                         )
                                           var baseUrl =
                                             "https://apps.liom.app/hamyar";
                                         else if (
-                                          $state.loginData.healthStatus ==
-                                          "pregnancy"
+                                          $state.loginData.result
+                                            .healthStatus == "pregnancy"
                                         )
                                           var baseUrl =
                                             "https://apps.liom.app/pregnancy/";
                                         else
-                                          baseUrl =
+                                          var baseUrl =
                                             "https://apps.liom.app/calendar/";
                                         var separator = baseUrl.includes("?")
                                           ? "&token="
@@ -11568,6 +11628,35 @@ function PlasmicLogin__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    $state.loginData.result.healthStatus =
+                                      $state.status.includes("pregnancy")
+                                        ? "pregnancy"
+                                        : "period";
+                                    return localStorage.setItem(
+                                      "loginInfo",
+                                      JSON.stringify($state.loginData)
+                                    );
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
                         $steps["updateLoadedbtn"] = true
                           ? (() => {
                               const actionArgs = {
@@ -11660,15 +11749,14 @@ function PlasmicLogin__RenderFunc(props: {
                           $steps["goToPage"] = await $steps["goToPage"];
                         }
 
-                        $steps["updateLoadedbtn2"] = true
+                        $steps["updateTextInputValue"] = true
                           ? (() => {
                               const actionArgs = {
                                 variable: {
                                   objRoot: $state,
-                                  variablePath: ["loadedbtn"]
+                                  variablePath: ["textInput", "value"]
                                 },
-                                operation: 0,
-                                value: false
+                                operation: 0
                               };
                               return (({
                                 variable,
@@ -11687,12 +11775,13 @@ function PlasmicLogin__RenderFunc(props: {
                             })()
                           : undefined;
                         if (
-                          $steps["updateLoadedbtn2"] != null &&
-                          typeof $steps["updateLoadedbtn2"] === "object" &&
-                          typeof $steps["updateLoadedbtn2"].then === "function"
+                          $steps["updateTextInputValue"] != null &&
+                          typeof $steps["updateTextInputValue"] === "object" &&
+                          typeof $steps["updateTextInputValue"].then ===
+                            "function"
                         ) {
-                          $steps["updateLoadedbtn2"] = await $steps[
-                            "updateLoadedbtn2"
+                          $steps["updateTextInputValue"] = await $steps[
+                            "updateTextInputValue"
                           ];
                         }
                       }}
@@ -13826,18 +13915,18 @@ function PlasmicLogin__RenderFunc(props: {
                                             ? `${origin}${pathname}?${searchParams}`
                                             : `${origin}${pathname}`;
                                         } else if (
-                                          $state.loginData.maleUrl != ""
+                                          $state.loginData.result.maleUrl != ""
                                         )
                                           var baseUrl =
                                             "https://apps.liom.app/hamyar";
                                         else if (
-                                          $state.loginData.healthStatus ==
-                                          "pregnancy"
+                                          $state.loginData.result
+                                            .healthStatus == "pregnancy"
                                         )
                                           var baseUrl =
                                             "https://apps.liom.app/pregnancy/";
                                         else
-                                          baseUrl =
+                                          var baseUrl =
                                             "https://apps.liom.app/calendar/";
                                         var separator = baseUrl.includes("?")
                                           ? "&token="
@@ -17718,12 +17807,7 @@ function PlasmicLogin__RenderFunc(props: {
                 displayMinWidth={"0"}
                 displayWidth={"150px"}
                 loading={"lazy"}
-                src={{
-                  src: "/plasmic/liom_hamyar/images/image40.png",
-                  fullWidth: 128,
-                  fullHeight: 128,
-                  aspectRatio: undefined
-                }}
+                src={"https://liom.app/wp-content/uploads/2025/03/Logo-1.webp"}
               />
 
               <Stack__
@@ -17770,6 +17854,7 @@ function PlasmicLogin__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "favicon",
     "sideEffect",
     "serviceWorker",
     "textInput",
@@ -17811,6 +17896,7 @@ const PlasmicDescendants = {
     "rules",
     "top"
   ],
+  favicon: ["favicon"],
   sideEffect: ["sideEffect"],
   serviceWorker: ["serviceWorker"],
   textInput: ["textInput", "antdInput"],
@@ -17857,6 +17943,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  favicon: typeof Embed;
   sideEffect: typeof SideEffect;
   serviceWorker: typeof Embed;
   textInput: typeof TextInput;
@@ -17984,6 +18071,7 @@ export const PlasmicLogin = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    favicon: makeNodeComponent("favicon"),
     sideEffect: makeNodeComponent("sideEffect"),
     serviceWorker: makeNodeComponent("serviceWorker"),
     textInput: makeNodeComponent("textInput"),
@@ -18031,7 +18119,7 @@ export const PlasmicLogin = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "لیوم | liom",
       description: "",
       ogImageSrc: "",
       canonical: ""

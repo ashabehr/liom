@@ -415,7 +415,7 @@ function PlasmicPost__RenderFunc(props: {
           displayMaxWidth={"none"}
           displayMinHeight={"0"}
           displayMinWidth={"0"}
-          displayWidth={"100%"}
+          displayWidth={"auto"}
           loading={"lazy"}
           src={(() => {
             try {
