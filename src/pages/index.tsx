@@ -3,32 +3,48 @@ import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-we
 import GlobalContextsProvider from "../../components/plasmic/todo_mvc_app/PlasmicGlobalContextsProvider";
 import { PlasmicHomePage } from "../../components/plasmic/liom_hamyar/PlasmicHomePage";
 import { useRouter } from "next/router";
-import PWAHead from "../../components/PWAHead"; // اضافه کردن کامپوننت هد
+import Head from "next/head";
 
-// ثبت سرویس ورکر (در useEffect)
-const useRegisterSW = () => {
+function usePWAStatus() {
+  const [pwaStatus, setPwaStatus] = React.useState<'installed' | 'browser'>('browser');
+
   React.useEffect(() => {
-    if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-          .then(registration => {
-            console.log('SW registered:', registration);
-          })
-          .catch(error => {
-            console.log('SW registration failed:', error);
-          });
-      });
+    // بررسی وجود window برای جلوگیری از خطا در سمت سرور
+    if (typeof window !== 'undefined') {
+      const isStandalone = 
+        ('standalone' in window.navigator && window.navigator['standalone']) ||
+        window.matchMedia('(display-mode: standalone)').matches;
+      
+      setPwaStatus(isStandalone ? 'installed' : 'browser');
     }
   }, []);
-};
+
+  return pwaStatus;
+}
 
 function HomePage() {
   const router = useRouter();
-  useRegisterSW(); // فعال کردن ثبت سرویس ورکر
+  const pwaStatus = usePWAStatus();
 
   return (
     <>
-      <PWAHead /> {/* اضافه کردن متا تگ‌های PWA */}
+      <Head>
+        <title>لیوم - تقویم قاعدگی و بارداری</title>
+        <meta name="description" content="برنامه مدیریت دوره قاعدگی و بارداری" />
+        <meta name="application-name" content="لیوم" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="لیوم" />
+        <meta name="theme-color" content="#7444BC" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <meta property="og:title" content="لیوم" />
+        <meta property="og:description" content="برنامه مدیریت دوره قاعدگی و بارداری" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://apps.liom.app/" />
+        <meta property="og:image" content="/icons/icon-512x512.png" />
+      </Head>
+
       <GlobalContextsProvider>
         <PageParamsProvider__
           route={router?.pathname}
@@ -36,8 +52,7 @@ function HomePage() {
           query={router?.query}
         >
           <PlasmicHomePage 
-            // میتوانید پروپ‌های مربوط به PWA را اینجا منتقل کنید
-            pwaStatus={navigator?.standalone ? 'installed' : 'browser'}
+            pwaStatus={pwaStatus}
           />
         </PageParamsProvider__>
       </GlobalContextsProvider>
