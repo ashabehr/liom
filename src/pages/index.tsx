@@ -46,16 +46,19 @@ function HomePage() {
       </Head>
 
       <GlobalContextsProvider>
-        <PageParamsProvider__
-          route={router?.pathname}
-          params={router?.query}
-          query={router?.query}
-        >
-          <PlasmicHomePage 
-            pwaStatus={pwaStatus}
-          />
-        </PageParamsProvider__>
-      </GlobalContextsProvider>
+      <PageParamsProvider__
+        route={router?.pathname}
+        params={router?.query}
+        query={router?.query}
+      >
+        <PlasmicHomePage>
+          {/* محتوای slot برای نمایش وضعیت PWA */}
+          <div className="pwa-status" style={{ display: 'none' }}>
+            {pwaStatus}
+          </div>
+        </PlasmicHomePage>
+      </PageParamsProvider__>
+    </GlobalContextsProvider>
     </>
   );
 }
