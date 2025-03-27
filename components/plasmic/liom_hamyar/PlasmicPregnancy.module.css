@@ -2114,8 +2114,8 @@
   > img {
   margin-left: 0px;
 }
-.text__q8UsT {
-  width: auto;
+.text__oVkK1 {
+  width: 100%;
   height: auto;
   max-width: 100%;
   text-align: right;
@@ -2130,9 +2130,10 @@
   letter-spacing: normal;
   text-decoration-line: none;
   text-overflow: clip;
+  min-width: 0;
 }
 @media (max-width: 640px) {
-  .text__q8UsT {
+  .text__oVkK1 {
     white-space: pre-wrap;
   }
 }
@@ -2144,6 +2145,7 @@
   color: var(--token-41VRhDKfihhY);
   font-size: 15px;
   position: relative;
+  white-space: pre;
   border-radius: 8px;
   padding: 4px 16px 2px;
 }

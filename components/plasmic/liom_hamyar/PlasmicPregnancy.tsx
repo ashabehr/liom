@@ -8907,33 +8907,34 @@ function PlasmicPregnancy__RenderFunc(props: {
                               $steps["goToPage"] = await $steps["goToPage"];
                             }
 
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                          window.location.href
-                                        )}&inApp=${
-                                          $ctx.query.inApp
-                                        }&userId=${$ctx.query.userId.slice(
-                                          4,
-                                          $ctx.query.userId.length - 4
-                                        )}`;
-                                        return window.FlutterChannel.postMessage(
-                                          "#inAppWebView**@@**" +
-                                            "تست ADHD" +
-                                            "**@@**" +
-                                            link
-                                        );
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                            $steps["runCode"] =
+                              $ctx.query.inApp == "true"
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
+                                            window.location.href
+                                          )}&inApp=${
+                                            $ctx.query.inApp
+                                          }&userId=${$ctx.query.userId.slice(
+                                            4,
+                                            $ctx.query.userId.length - 4
+                                          )}`;
+                                          return window.FlutterChannel.postMessage(
+                                            "#inAppWebView**@@**" +
+                                              "تست ADHD" +
+                                              "**@@**" +
+                                              link
+                                          );
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
                             if (
                               $steps["runCode"] != null &&
                               typeof $steps["runCode"] === "object" &&
@@ -9024,36 +9025,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__q8UsT
+                                sty.text__oVkK1
                               )}
                             >
-                              {hasVariant(
-                                globalVariants,
-                                "screen",
-                                "mobile"
-                              ) ? (
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return (
-                                        "چه چیزهایی در این هفته " +
-                                        "برای من و فرزندم خطرناکه؟"
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "--";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              ) : (
-                                "\u0622\u06cc\u0627 \u0645\u0646 \u062f\u0686\u0627\u0631 ADHD \u0647\u0633\u062a\u0645\u061f"
-                              )}
+                              {hasVariant(globalVariants, "screen", "mobile")
+                                ? "\u0622\u06cc\u0627 \u0645\u0646 \u062f\u0686\u0627\u0631 ADHD \u0647\u0633\u062a\u0645\u061f"
+                                : "\u0622\u06cc\u0627 \u0645\u0646 \u062f\u0686\u0627\u0631 ADHD \u0647\u0633\u062a\u0645\u061f"}
                             </div>
                             <div
                               className={classNames(
