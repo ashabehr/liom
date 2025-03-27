@@ -1,8 +1,8 @@
 {
   "id": "/",
   "scope": "https://apps.liom.app/",
-  "name": "لیوم",
-  "short_name": "لیوم",
+  "name": "لیوم | liom",
+  "short_name": "لیوم | liom",
   "description": "تقویم قاعدگی و بارداری",
   "display": "standalone",
   "display_override": ["window-controls-overlay"],
