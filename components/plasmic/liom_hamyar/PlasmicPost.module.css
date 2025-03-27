@@ -11,19 +11,6 @@
   min-height: 0;
   padding: 8px;
 }
-.rootpostType_video {
-  justify-self: flex-start;
-  background: var(--token-R_Rsn0nP9oIv);
-  height: 100%;
-  min-height: 0;
-  padding: 16px 16px 8px;
-}
-.rootpostType_image {
-  height: 100%;
-  background: var(--token-R_Rsn0nP9oIv);
-  min-height: 0;
-  padding: 16px;
-}
 .text__nhmSs {
   width: 100%;
   height: auto;
@@ -38,10 +25,6 @@
   min-width: 0;
   padding: 4px 16px;
 }
-.textpostType_video__nhmSSpFlEv {
-  width: 100%;
-  min-width: 0;
-}
 .text__rkw2 {
   width: 100%;
   height: auto;
@@ -53,10 +36,6 @@
   position: relative;
   min-width: 0;
   padding: 0px 16px;
-}
-.textpostType_video__rkw2PFlEv {
-  width: 100%;
-  min-width: 0;
 }
 .freeBox__eUk9V {
   display: flex;
@@ -70,6 +49,9 @@
   min-height: 0;
   padding: 8px;
 }
+.freeBoxpostType_image__eUk9V2TCWu {
+  display: none;
+}
 .freeBox__iQfs {
   display: flex;
   flex-direction: row;
@@ -82,6 +64,9 @@
   min-width: 0;
   padding: 8px;
 }
+.freeBoxpostType_image__iQfs2TCWu {
+  display: none;
+}
 .firstFreamOfVideo {
   object-fit: cover;
   width: 100%;
@@ -92,6 +77,9 @@
 }
 .firstFreamOfVideo > picture > img {
   object-fit: cover;
+}
+.firstFreamOfVideopostType_image {
+  display: none !important;
 }
 .freeBox__cx2Bk {
   display: flex;
@@ -105,6 +93,9 @@
   min-width: 0;
   padding: 8px;
 }
+.freeBoxpostType_image__cx2Bk2TCWu {
+  display: none;
+}
 .svg__lnGkb {
   object-fit: cover;
   max-width: 100%;
@@ -112,7 +103,7 @@
   height: 24px;
   flex-shrink: 0;
 }
-.freeBox__r7DUg {
+.image3 {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -125,12 +116,6 @@
   min-width: 0;
   min-height: 0;
   padding: 8px;
-}
-.freeBoxpostType_video__r7DUgpFlEv {
-  display: none;
-}
-.freeBoxpostType_image__r7DUg2TCWu {
-  display: flex;
 }
 .image {
   object-fit: cover;
@@ -156,12 +141,6 @@
   border-radius: 8px;
   padding: 8px;
   border-width: 1px;
-}
-.freeBoxpostType_video__fbVqipFlEv {
-  display: none;
-}
-.freeBoxpostType_voise__fbVqiVlsyu {
-  display: flex;
 }
 .audioPlayer:global(.__wab_instance) {
   position: relative;

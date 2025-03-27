@@ -73,10 +73,10 @@ import MenuIcon from "../fragment_icons/icons/PlasmicIcon__Menu"; // plasmic-imp
 createPlasmicElementProxy;
 
 export type PlasmicPost__VariantMembers = {
-  postType: "video" | "image" | "voise";
+  postType: "image" | "voise" | "video";
 };
 export type PlasmicPost__VariantsArgs = {
-  postType?: SingleChoiceArg<"video" | "image" | "voise">;
+  postType?: SingleChoiceArg<"image" | "voise" | "video">;
 };
 type VariantPropType = keyof PlasmicPost__VariantsArgs;
 export const PlasmicPost__VariantProps = new Array<VariantPropType>("postType");
@@ -96,6 +96,7 @@ export const PlasmicPost__ArgProps = new Array<ArgPropType>(
 export type PlasmicPost__OverridesType = {
   root?: Flex__<"div">;
   firstFreamOfVideo?: Flex__<typeof PlasmicImg__>;
+  image3?: Flex__<"div">;
   image?: Flex__<typeof PlasmicImg__>;
   audioPlayer?: Flex__<typeof AudioPlayer>;
 };
@@ -104,7 +105,7 @@ export interface DefaultPostProps {
   data?: string;
   text?: string;
   image2?: string;
-  postType?: SingleChoiceArg<"video" | "image" | "voise">;
+  postType?: SingleChoiceArg<"image" | "voise" | "video">;
   className?: string;
 }
 
@@ -199,11 +200,6 @@ function PlasmicPost__RenderFunc(props: {
               "postType",
               "image"
             ),
-            [sty.textpostType_video__nhmSSpFlEv]: hasVariant(
-              $state,
-              "postType",
-              "video"
-            ),
             [sty.textpostType_voise__nhmSsVlsyu]: hasVariant(
               $state,
               "postType",
@@ -239,11 +235,6 @@ function PlasmicPost__RenderFunc(props: {
               "postType",
               "image"
             ),
-            [sty.textpostType_video__rkw2PFlEv]: hasVariant(
-              $state,
-              "postType",
-              "video"
-            ),
             [sty.textpostType_voise__rkw2Vlsyu]: hasVariant(
               $state,
               "postType",
@@ -274,11 +265,6 @@ function PlasmicPost__RenderFunc(props: {
             $state,
             "postType",
             "image"
-          ),
-          [sty.freeBoxpostType_video__eUk9VpFlEv]: hasVariant(
-            $state,
-            "postType",
-            "video"
           )
         })}
         onClick={async event => {
@@ -310,16 +296,34 @@ function PlasmicPost__RenderFunc(props: {
           }
         }}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__iQfs)}>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__iQfs, {
+            [sty.freeBoxpostType_image__iQfs2TCWu]: hasVariant(
+              $state,
+              "postType",
+              "image"
+            )
+          })}
+        >
           <PlasmicImg__
             data-plasmic-name={"firstFreamOfVideo"}
             data-plasmic-override={overrides.firstFreamOfVideo}
             alt={""}
             className={classNames(sty.firstFreamOfVideo, {
+              [sty.firstFreamOfVideopostType_image]: hasVariant(
+                $state,
+                "postType",
+                "image"
+              ),
               [sty.firstFreamOfVideopostType_video]: hasVariant(
                 $state,
                 "postType",
                 "video"
+              ),
+              [sty.firstFreamOfVideopostType_voise]: hasVariant(
+                $state,
+                "postType",
+                "voise"
               )
             })}
             displayHeight={"100%"}
@@ -350,24 +354,25 @@ function PlasmicPost__RenderFunc(props: {
           />
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__cx2Bk)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__cx2Bk, {
+          [sty.freeBoxpostType_image__cx2Bk2TCWu]: hasVariant(
+            $state,
+            "postType",
+            "image"
+          )
+        })}
+      >
         <MenuIcon
           className={classNames(projectcss.all, sty.svg__lnGkb)}
           role={"img"}
         />
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__r7DUg, {
-          [sty.freeBoxpostType_image__r7DUg2TCWu]: hasVariant(
-            $state,
-            "postType",
-            "image"
-          ),
-          [sty.freeBoxpostType_video__r7DUgpFlEv]: hasVariant(
-            $state,
-            "postType",
-            "video"
-          )
+        data-plasmic-name={"image3"}
+        data-plasmic-override={overrides.image3}
+        className={classNames(projectcss.all, sty.image3, {
+          [sty.image3postType_image]: hasVariant($state, "postType", "image")
         })}
         onClick={async event => {
           const $steps = {};
@@ -403,8 +408,7 @@ function PlasmicPost__RenderFunc(props: {
           data-plasmic-override={overrides.image}
           alt={""}
           className={classNames(sty.image, {
-            [sty.imagepostType_image]: hasVariant($state, "postType", "image"),
-            [sty.imagepostType_video]: hasVariant($state, "postType", "video")
+            [sty.imagepostType_image]: hasVariant($state, "postType", "image")
           })}
           displayHeight={"100%"}
           displayMaxHeight={"none"}
@@ -435,11 +439,6 @@ function PlasmicPost__RenderFunc(props: {
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__fbVqi, {
-          [sty.freeBoxpostType_video__fbVqipFlEv]: hasVariant(
-            $state,
-            "postType",
-            "video"
-          ),
           [sty.freeBoxpostType_voise__fbVqiVlsyu]: hasVariant(
             $state,
             "postType",
@@ -462,13 +461,6 @@ function PlasmicPost__RenderFunc(props: {
               "voise"
             )
           })}
-          postType={
-            hasVariant($state, "postType", "voise")
-              ? "voise"
-              : hasVariant($state, "postType", "image")
-              ? "image"
-              : undefined
-          }
         />
       </div>
       <div className={classNames(projectcss.all, sty.freeBox__oMc1N)}>
@@ -486,8 +478,9 @@ function PlasmicPost__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "firstFreamOfVideo", "image", "audioPlayer"],
+  root: ["root", "firstFreamOfVideo", "image3", "image", "audioPlayer"],
   firstFreamOfVideo: ["firstFreamOfVideo"],
+  image3: ["image3", "image"],
   image: ["image"],
   audioPlayer: ["audioPlayer"]
 } as const;
@@ -497,6 +490,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   firstFreamOfVideo: typeof PlasmicImg__;
+  image3: "div";
   image: typeof PlasmicImg__;
   audioPlayer: typeof AudioPlayer;
 };
@@ -562,6 +556,7 @@ export const PlasmicPost = Object.assign(
   {
     // Helper components rendering sub-elements
     firstFreamOfVideo: makeNodeComponent("firstFreamOfVideo"),
+    image3: makeNodeComponent("image3"),
     image: makeNodeComponent("image"),
     audioPlayer: makeNodeComponent("audioPlayer"),
 

@@ -9044,6 +9044,223 @@ function PlasmicPregnancy__RenderFunc(props: {
                           </Stack__>
                         </div>
                       </div>
+                      {(() => {
+                        try {
+                          return true;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___6Ak
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__kPsiW
+                            )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["goToPage"] =
+                                $ctx.query.inApp != "true"
+                                  ? (() => {
+                                      const actionArgs = {
+                                        destination: (() => {
+                                          try {
+                                            return `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
+                                              window.location.href
+                                            )}&inApp=${
+                                              $ctx.query.inApp
+                                            }&userId=${$ctx.query.userId.slice(
+                                              4,
+                                              $ctx.query.userId.length - 4
+                                            )}`;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      };
+                                      return (({ destination }) => {
+                                        if (
+                                          typeof destination === "string" &&
+                                          destination.startsWith("#")
+                                        ) {
+                                          document
+                                            .getElementById(
+                                              destination.substr(1)
+                                            )
+                                            .scrollIntoView({
+                                              behavior: "smooth"
+                                            });
+                                        } else {
+                                          __nextRouter?.push(destination);
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["goToPage"] != null &&
+                                typeof $steps["goToPage"] === "object" &&
+                                typeof $steps["goToPage"].then === "function"
+                              ) {
+                                $steps["goToPage"] = await $steps["goToPage"];
+                              }
+
+                              $steps["runCode"] =
+                                $ctx.query.inApp == "true"
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
+                                              window.location.href
+                                            )}&inApp=${
+                                              $ctx.query.inApp
+                                            }&userId=${$ctx.query.userId.slice(
+                                              4,
+                                              $ctx.query.userId.length - 4
+                                            )}`;
+                                            return window.FlutterChannel.postMessage(
+                                              "#inAppWebView**@@**" +
+                                                "تست ADHD" +
+                                                "**@@**" +
+                                                link
+                                            );
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+
+                              $steps["invokeGlobalAction"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "POST",
+                                        "https://api.liom.app/service/log",
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return {
+                                              userId: $ctx.query.userId.slice(
+                                                4,
+                                                $ctx.query.userId.length - 4
+                                              ),
+                                              pageName: "selfTest_adhd",
+                                              action: "clickOpenPage",
+                                              extraData: {}
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })(),
+                                        (() => {
+                                          try {
+                                            return {
+                                              headers: {
+                                                "Content-Type":
+                                                  "application/json",
+                                                Authorization:
+                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                              }
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] = await $steps[
+                                  "invokeGlobalAction"
+                                ];
+                              }
+                            }}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__rn0HF
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__gvtbu
+                                )}
+                              >
+                                {hasVariant(globalVariants, "screen", "mobile")
+                                  ? "\u0622\u06cc\u0627 \u0645\u0646 \u062f\u0686\u0627\u0631 ADHD \u0647\u0633\u062a\u0645\u061f"
+                                  : "\u0622\u06cc\u0627 \u0645\u0646 \u062f\u0686\u0627\u0631 ADHD \u0647\u0633\u062a\u0645\u061f"}
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__kGVdq
+                                )}
+                              >
+                                {"\u0634\u0631\u0648\u0639 \u062a\u0633\u062a"}
+                              </div>
+                            </Stack__>
+                          </div>
+                        </div>
+                      ) : null}
                       <div
                         className={classNames(
                           projectcss.all,
@@ -22937,16 +23154,18 @@ function PlasmicPregnancy__RenderFunc(props: {
                               const actionArgs = {
                                 customFunction: async () => {
                                   return (() => {
-                                    console.log(
-                                      parseInt($ctx.query.version) >= 288
-                                    );
                                     if ($ctx.query.inApp == "true") {
-                                      return window.FlutterChannel.postMessage(
-                                        "#inAppWebView**@@**" +
-                                          " جایزه لیوم " +
-                                          "**@@**" +
+                                      if (parseInt($ctx.query.version) >= 288)
+                                        return window.FlutterChannel.postMessage(
                                           $state.getAds.action
-                                      );
+                                        );
+                                      else
+                                        return window.FlutterChannel.postMessage(
+                                          "#inAppWebView**@@**" +
+                                            "دریافت جایزه" +
+                                            "**@@**" +
+                                            $state.getAds.action
+                                        );
                                     } else
                                       return window.open($state.getAds.action);
                                   })();
