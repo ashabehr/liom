@@ -1,6 +1,27 @@
 {
+  "id": "/",
+  "scope": "https://apps.liom.app/",
   "name": "لیوم",
   "short_name": "لیوم",
+  "description": "تقویم قاعدگی و بارداری",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay"],
+  "start_url": "https://apps.liom.app/login/",
+  "theme_color": "#7444BC",
+  "background_color": "#7444BC",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "fa",
+  "categories": ["اجتماعی", "خدمات"],
+  "iarc_rating_id": "your_iarc_rating_id_here",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "scope_extensions": [{"origin": "https://apps.liom.app/"}],
+  
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  
   "icons": [
     {
       "src": "https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico",
@@ -17,32 +38,61 @@
       "sizes": "128x128",
       "type": "image/x-icon"
     },
-     {
-      "src": "/icons/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
     {
       "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    }
-  ],
-  "splash_screens": [
-    {
-      "src": "https://liom.app/wp-content/uploads/2025/03/Logo-1.webp",
-      "sizes": "640x1136"
+      "type": "image/png"
     },
     {
-      "src": "https://liom.app/wp-content/uploads/2025/03/Logo-1.webp",
-      "sizes": "1242x2208"
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
     }
   ],
-  "theme_color": "#7444BC",
-  "background_color": "#7444BC",
-  "display": "standalone",
-  "start_url": "/login",
-  "scope": "/"
+  
+  "screenshots": [
+    {
+      "src": "/splash/Frame.png",
+      "sizes": "1617x1012",
+      "type": "image/png",
+      "label": "نمایی از برنامه لیوم"
+    }
+  ],
+  
+  "features": [
+    "کراس پلتفرم",
+    "سریع",
+    "کاربرپسند"
+  ],
+  
+  "shortcuts": [
+    {
+      "name": "صفحه درباره ما",
+      "short_name": "درباره",
+      "description": "مشاهده اطلاعات درباره برنامه",
+      "url": "/about",
+      "icons": [{ "src": "assets/icons/192x192.png", "sizes": "192x192" }]
+    }
+  ],
+  
+  "widgets": [
+    {
+      "name": "ویجت لیوم",
+      "tag": "liomWidget",
+      "description": "ویجت نمونه برای برنامه لیوم",
+      "icons": [
+        {
+          "src": "https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico",
+          "sizes": "48x48"
+        }
+      ],
+      "screenshots": [
+        {
+          "src": "/splash/Frame.png",
+          "sizes": "500x500",
+          "label": "تصویر ویجت"
+        }
+      ]
+    }
+  ]
 }
