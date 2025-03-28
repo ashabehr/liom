@@ -2,9 +2,35 @@ import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../../components/plasmic/todo_mvc_app/PlasmicGlobalContextsProvider";
 import { PlasmicHomePage } from "../../components/plasmic/liom_hamyar/PlasmicHomePage";
-import NotificationComponent from '../../components/NotificationComponent';
+import NotificationComponent from '../../components/Notification';
 import { useRouter } from "next/router";
 import Head from "next/head";
+
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/pwa-service-worker.js')
+    .then((registration) => {
+      console.log('PWA Service Worker registered with scope:', registration.scope);
+    })
+    .catch((err) => {
+      console.log('PWA Service Worker registration failed:', err);
+    });
+}
+
+// ثبت Service Worker برای Firebase Messaging
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/firebase-messaging-sw.js')
+    .then((registration) => {
+      console.log('Firebase Messaging Service Worker registered with scope:', registration.scope);
+    })
+    .catch((err) => {
+      console.log('Firebase Messaging Service Worker registration failed:', err);
+    });
+}
+
+
 
 function usePWAStatus() {
   const [pwaStatus, setPwaStatus] = React.useState<'installed' | 'browser'>('browser');
