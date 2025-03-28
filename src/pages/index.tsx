@@ -2,7 +2,7 @@ import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../../components/plasmic/todo_mvc_app/PlasmicGlobalContextsProvider";
 import { PlasmicHomePage } from "../../components/plasmic/liom_hamyar/PlasmicHomePage";
-import NotificationComponent from '../../components/Notification';
+import NotificationComponent from '../../components/Notification/NotificationComponent';
 import { useRouter } from "next/router";
 import Head from "next/head";
 
