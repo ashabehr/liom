@@ -5,39 +5,31 @@ import { PlasmicHomePage } from "../../components/plasmic/liom_hamyar/PlasmicHom
 import { useRouter } from "next/router";
 import Head from "next/head";
 
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/service-worker.js')
+    .then((registration) => {
+      console.log('PWA Service Worker registered with scope:', registration.scope);
+    })
+    .catch((err) => {
+      console.log('PWA Service Worker registration failed:', err);
+    });
+}
+
+
 function usePWAStatus() {
   const [pwaStatus, setPwaStatus] = React.useState<'installed' | 'browser'>('browser');
 
   React.useEffect(() => {
-    // Register service workers
-    if ('serviceWorker' in navigator) {
-      // Register PWA service worker
-      navigator.serviceWorker
-        .register('/service-worker.js')
-        .then((registration) => {
-          console.log('PWA Service Worker registered with scope:', registration.scope);
-        })
-        .catch((err) => {
-          console.log('PWA Service Worker registration failed:', err);
-        });
-
-      // Register Firebase Messaging service worker
-      navigator.serviceWorker
-        .register('/firebase-messaging-sw.js')
-        .then((registration) => {
-          console.log('Firebase Messaging Service Worker registered with scope:', registration.scope);
-        })
-        .catch((err) => {
-          console.log('Firebase Messaging Service Worker registration failed:', err);
-        });
+    // بررسی وجود window برای جلوگیری از خطا در سمت سرور
+    if (typeof window !== 'undefined') {
+      const isStandalone = 
+        ('standalone' in window.navigator && window.navigator['standalone']) ||
+        window.matchMedia('(display-mode: standalone)').matches;
+      
+      setPwaStatus(isStandalone ? 'installed' : 'browser');
     }
-
-    // Check PWA status
-    const isStandalone = 
-      ('standalone' in window.navigator && window.navigator['standalone']) ||
-      window.matchMedia('(display-mode: standalone)').matches;
-    
-    setPwaStatus(isStandalone ? 'installed' : 'browser');
   }, []);
 
   return pwaStatus;
@@ -67,18 +59,19 @@ function HomePage() {
       </Head>
 
       <GlobalContextsProvider>
-        <PageParamsProvider__
-          route={router?.pathname}
-          params={router?.query}
-          query={router?.query}
-        >
-          <PlasmicHomePage>
-            <div className="pwa-status" style={{ display: 'none' }}>
-              {pwaStatus}
-            </div>
-          </PlasmicHomePage>
-        </PageParamsProvider__>
-      </GlobalContextsProvider>
+      <PageParamsProvider__
+        route={router?.pathname}
+        params={router?.query}
+        query={router?.query}
+      >
+        <PlasmicHomePage>
+          {/* محتوای slot برای نمایش وضعیت PWA */}
+          <div className="pwa-status" style={{ display: 'none' }}>
+            {pwaStatus}
+          </div>
+        </PlasmicHomePage>
+      </PageParamsProvider__>
+    </GlobalContextsProvider>
     </>
   );
 }
