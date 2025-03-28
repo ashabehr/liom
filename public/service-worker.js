@@ -1,9 +1,8 @@
 const CACHE_NAME = 'liom-cache-v2';
 const PRECACHE_URLS = [
   '/',
-  '/index.html',
   '/manifest.json',
-  '/favicon.ico',
+  '/icons/favicon.ico',
   '/icons/icon-192x192.png',
   '/icons/icon-512x512.png'
 ];
