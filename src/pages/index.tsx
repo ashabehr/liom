@@ -9,7 +9,7 @@ import Head from "next/head";
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
-    .register('/pwa-service-worker.js')
+    .register('/service-worker.js')
     .then((registration) => {
       console.log('PWA Service Worker registered with scope:', registration.scope);
     })
