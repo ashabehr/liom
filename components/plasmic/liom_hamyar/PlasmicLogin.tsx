@@ -990,7 +990,7 @@ function PlasmicLogin__RenderFunc(props: {
 
               $steps["invokeGlobalAction"] = true
                 ? (() => {
-                    const actionArgs = { args: [2000] };
+                    const actionArgs = { args: [3000] };
                     return $globalActions["Fragment.wait"]?.apply(null, [
                       ...actionArgs.args
                     ]);
@@ -1042,7 +1042,6 @@ function PlasmicLogin__RenderFunc(props: {
               }
 
               $steps["updateLoginPage"] =
-                $state.paramsObject.token != "" &&
                 $state.paramsObject.token != null &&
                 $state.paramsObject.isLogin == "false"
                   ? (() => {
@@ -1139,49 +1138,72 @@ function PlasmicLogin__RenderFunc(props: {
               $steps["runCode3"] = localStorage.getItem("loginInfo")
                 ? (() => {
                     const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          if ($state.paramsObject.redirect_url != null) {
-                            console.log("ننحح");
-                            var baseUrl =
-                              window.location.href.split("redirect_url=")[1] ||
-                              "";
-                            baseUrl = new URL(baseUrl);
-                            const origin = baseUrl.origin;
-                            const pathname =
-                              baseUrl.pathname.split("&")[0] || "";
-                            const searchParams =
-                              baseUrl.searchParams.toString();
-                            baseUrl = searchParams
-                              ? `${origin}${pathname}?${searchParams}`
-                              : `${origin}${pathname}`;
-                          } else if ($state.loginData.result.maleUrl != "")
-                            var baseUrl = "https://apps.liom.app/hamyar";
-                          else if (
-                            $state.loginData.result.healthStatus == "pregnancy"
-                          )
-                            var baseUrl = "https://apps.liom.app/pregnancy/";
-                          else var baseUrl = "https://apps.liom.app/calendar/";
-                          var separator = baseUrl.includes("?")
-                            ? "&token="
-                            : "?token=";
-                          var redirectUrl =
-                            baseUrl +
-                            separator +
-                            $$.uuid.v4().slice(0, 6) +
-                            ($state.loginData.result.token || "") +
-                            $$.uuid.v4().slice(10, 13) +
-                            "&userId=" +
-                            $$.uuid.v4().slice(0, 4) +
-                            ($state.loginData.result.userId || "") +
-                            $$.uuid.v4().slice(0, 4);
-                          console.log(redirectUrl);
-                          return (window.location.href = redirectUrl);
-                        })();
-                      }
+                      destination: (() => {
+                        try {
+                          return (() => {
+                            if (
+                              $state.paramsObject.redirect_url != null &&
+                              $state.paramsObject.redirect_url != ""
+                            ) {
+                              var baseUrl =
+                                window.location.href.split(
+                                  "redirect_url="
+                                )[1] || "";
+                              baseUrl = new URL(baseUrl);
+                              const origin = baseUrl.origin;
+                              const pathname =
+                                baseUrl.pathname.split("&")[0] || "";
+                              const searchParams =
+                                baseUrl.searchParams.toString();
+                              baseUrl = searchParams
+                                ? `${origin}${pathname}?${searchParams}`
+                                : `${origin}${pathname}`;
+                            } else if ($state.loginData.result.maleUrl != "")
+                              var baseUrl = "https://apps.liom.app/hamyar";
+                            else if (
+                              $state.loginData.result.healthStatus ==
+                              "pregnancy"
+                            )
+                              var baseUrl = "https://apps.liom.app/pregnancy/";
+                            else
+                              var baseUrl = "https://apps.liom.app/calendar/";
+                            var separator = baseUrl.includes("?")
+                              ? "&token="
+                              : "?token=";
+                            var redirectUrl =
+                              baseUrl +
+                              separator +
+                              $$.uuid.v4().slice(0, 6) +
+                              ($state.loginData.result.token || "") +
+                              $$.uuid.v4().slice(10, 13) +
+                              "&userId=" +
+                              $$.uuid.v4().slice(0, 4) +
+                              ($state.loginData.result.userId || "") +
+                              $$.uuid.v4().slice(0, 4);
+                            return redirectUrl;
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
                     };
-                    return (({ customFunction }) => {
-                      return customFunction();
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
@@ -1193,45 +1215,33 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["runCode3"] = await $steps["runCode3"];
               }
 
-              $steps["invokeGlobalAction2"] = true
-                ? (() => {
-                    const actionArgs = { args: [4000] };
-                    return $globalActions["Fragment.wait"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction2"] != null &&
-                typeof $steps["invokeGlobalAction2"] === "object" &&
-                typeof $steps["invokeGlobalAction2"].then === "function"
-              ) {
-                $steps["invokeGlobalAction2"] = await $steps[
-                  "invokeGlobalAction2"
-                ];
-              }
+              $steps["updateLoading"] =
+                window.localStorage.getItem("loginInfo") == null
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["loading"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
 
-              $steps["updateLoading"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["loading"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
                 $steps["updateLoading"] != null &&
                 typeof $steps["updateLoading"] === "object" &&
@@ -5015,7 +5025,10 @@ function PlasmicLogin__RenderFunc(props: {
                                   destination: (() => {
                                     try {
                                       return (() => {
-                                        if ($ctx.query.redirect_url != "") {
+                                        if (
+                                          $state.paramsObject.redirect_url !=
+                                          null
+                                        ) {
                                           var baseUrl =
                                             window.location.href.split(
                                               "redirect_url="
@@ -5059,7 +5072,6 @@ function PlasmicLogin__RenderFunc(props: {
                                           ($state.loginData.result.userId ||
                                             "") +
                                           $$.uuid.v4().slice(0, 4);
-                                        console.log(redirectUrl);
                                         return redirectUrl;
                                       })();
                                     } catch (e) {
@@ -14731,7 +14743,10 @@ function PlasmicLogin__RenderFunc(props: {
                                   destination: (() => {
                                     try {
                                       return (() => {
-                                        if ($ctx.query.redirect_url != "") {
+                                        if (
+                                          $state.paramsObject.redirect_url !=
+                                          null
+                                        ) {
                                           var baseUrl =
                                             window.location.href.split(
                                               "redirect_url="
@@ -14775,7 +14790,6 @@ function PlasmicLogin__RenderFunc(props: {
                                           ($state.loginData.result.userId ||
                                             "") +
                                           $$.uuid.v4().slice(0, 4);
-                                        console.log(redirectUrl);
                                         return redirectUrl;
                                       })();
                                     } catch (e) {
@@ -18620,18 +18634,7 @@ function PlasmicLogin__RenderFunc(props: {
             >
               <PlasmicImg__
                 alt={""}
-                className={classNames(sty.img__yi8ED, {
-                  [sty.imgloginPage_mobile__yi8ED6MmOa]: hasVariant(
-                    $state,
-                    "loginPage",
-                    "mobile"
-                  ),
-                  [sty.imgloginPage_name__yi8EDhUiKy]: hasVariant(
-                    $state,
-                    "loginPage",
-                    "name"
-                  )
-                })}
+                className={classNames(sty.img___23Kct)}
                 displayHeight={"150px"}
                 displayMaxHeight={"none"}
                 displayMaxWidth={"100%"}
@@ -18639,7 +18642,12 @@ function PlasmicLogin__RenderFunc(props: {
                 displayMinWidth={"0"}
                 displayWidth={"150px"}
                 loading={"lazy"}
-                src={"https://liom.app/wp-content/uploads/2025/03/Logo-1.webp"}
+                src={{
+                  src: "/plasmic/liom_hamyar/images/image94.webp",
+                  fullWidth: 1280,
+                  fullHeight: 1280,
+                  aspectRatio: undefined
+                }}
               />
 
               <Stack__
