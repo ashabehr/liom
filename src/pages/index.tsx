@@ -2,6 +2,7 @@ import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../../components/plasmic/todo_mvc_app/PlasmicGlobalContextsProvider";
 import { PlasmicHomePage } from "../../components/plasmic/liom_hamyar/PlasmicHomePage";
+import NotificationComponent from '../../components/NotificationComponent';
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -28,8 +29,9 @@ function HomePage() {
 
   return (
     <>
+      <NotificationComponent />
       <Head>
-        <title>لیوم - تقویم قاعدگی و بارداری</title>
+        <title>ایوم | liom</title>
         <meta name="description" content="برنامه مدیریت دوره قاعدگی و بارداری" />
         <meta name="application-name" content="لیوم" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
