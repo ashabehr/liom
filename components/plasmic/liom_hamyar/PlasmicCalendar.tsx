@@ -116,6 +116,7 @@ import Icon134Icon from "./icons/PlasmicIcon__Icon134"; // plasmic-import: PSMkJ
 import Icon135Icon from "./icons/PlasmicIcon__Icon135"; // plasmic-import: YzT3XF612FD4/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import Icon137Icon from "./icons/PlasmicIcon__Icon137"; // plasmic-import: DXdLIMYRuTVZ/icon
+import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
 import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import Icon140Icon from "./icons/PlasmicIcon__Icon140"; // plasmic-import: KzO15XHeI3j-/icon
@@ -60544,11 +60545,11 @@ function PlasmicCalendar__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToBioritm2"] =
+                    $steps["goToSelfCare"] =
                       localStorage.getItem("token") != "undefined" ||
                       localStorage.getItem("token") != null
                         ? (() => {
-                            const actionArgs = { destination: `/Biorhythm` };
+                            const actionArgs = { destination: `/Self-care` };
                             return (({ destination }) => {
                               if (
                                 typeof destination === "string" &&
@@ -60564,11 +60565,11 @@ function PlasmicCalendar__RenderFunc(props: {
                           })()
                         : undefined;
                     if (
-                      $steps["goToBioritm2"] != null &&
-                      typeof $steps["goToBioritm2"] === "object" &&
-                      typeof $steps["goToBioritm2"].then === "function"
+                      $steps["goToSelfCare"] != null &&
+                      typeof $steps["goToSelfCare"] === "object" &&
+                      typeof $steps["goToSelfCare"].then === "function"
                     ) {
-                      $steps["goToBioritm2"] = await $steps["goToBioritm2"];
+                      $steps["goToSelfCare"] = await $steps["goToSelfCare"];
                     }
                   }}
                 >
@@ -60576,7 +60577,7 @@ function PlasmicCalendar__RenderFunc(props: {
                     PlasmicIconType={
                       hasVariant(globalVariants, "screen", "mobile")
                         ? Icon23Icon
-                        : Icon23Icon
+                        : Icon213Icon
                     }
                     className={classNames(projectcss.all, sty.svg__aFaRl)}
                     role={"img"}
@@ -60589,7 +60590,9 @@ function PlasmicCalendar__RenderFunc(props: {
                       sty.text__k76Z8
                     )}
                   >
-                    {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
+                    {
+                      "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f"
+                    }
                   </div>
                 </div>
               </Stack__>

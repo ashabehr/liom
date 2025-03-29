@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
@@ -83,14 +84,12 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicBioritm2.module.css"; // plasmic-import: asaCgPeO3i7V/css
 
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon25Icon from "./icons/PlasmicIcon__Icon25"; // plasmic-import: XHEd0iacr6dw/icon
 import Icon17Icon from "./icons/PlasmicIcon__Icon17"; // plasmic-import: 03X0usOEHK8l/icon
 import Icon16Icon from "./icons/PlasmicIcon__Icon16"; // plasmic-import: JYHABEI9HtQe/icon
-import Icon139Icon from "./icons/PlasmicIcon__Icon139"; // plasmic-import: _VRl9i2RQMu-/icon
-import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5Pd9666/icon
-import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -113,7 +112,9 @@ export const PlasmicBioritm2__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicBioritm2__OverridesType = {
   root?: Flex__<"div">;
+  section?: Flex__<"section">;
   mainHeader?: Flex__<typeof MainHeader>;
+  headerLiom?: Flex__<typeof HeaderLiom>;
   favicon?: Flex__<typeof Embed>;
   biorhythm?: Flex__<typeof ApiRequest>;
   slideinModal4?: Flex__<typeof SlideinModal>;
@@ -539,7 +540,11 @@ function PlasmicBioritm2__RenderFunc(props: {
           }
         )}
       >
-        <section className={classNames(projectcss.all, sty.section__cng3X)}>
+        <section
+          data-plasmic-name={"section"}
+          data-plasmic-override={overrides.section}
+          className={classNames(projectcss.all, sty.section)}
+        >
           <MainHeader
             data-plasmic-name={"mainHeader"}
             data-plasmic-override={overrides.mainHeader}
@@ -692,6 +697,57 @@ function PlasmicBioritm2__RenderFunc(props: {
               </div>
             </Stack__>
           </MainHeader>
+          <HeaderLiom
+            data-plasmic-name={"headerLiom"}
+            data-plasmic-override={overrides.headerLiom}
+            className={classNames("__wab_instance", sty.headerLiom)}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__yquaX)}
+            >
+              <XIcon
+                className={classNames(projectcss.all, sty.svg__ioLLs)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return window.history.back();
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__lffY7
+                )}
+              >
+                {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
+              </div>
+            </Stack__>
+          </HeaderLiom>
         </section>
         <Embed
           data-plasmic-name={"favicon"}
@@ -6230,173 +6286,6 @@ function PlasmicBioritm2__RenderFunc(props: {
           data-plasmic-override={overrides.pullToRefresh}
           className={classNames("__wab_instance", sty.pullToRefresh)}
         />
-
-        <section className={classNames(projectcss.all, sty.section__regal)}>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__uvzWy)}
-          >
-            <div
-              className={classNames(projectcss.all, sty.freeBox__oN50L)}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["goToPage"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return `/calendar/?token=hjklup${window.localStorage.getItem(
-                              "token"
-                            )}kmf`;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return `/calendar`;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
-                ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
-                }
-              }}
-            >
-              <Icon139Icon
-                className={classNames(projectcss.all, sty.svg__nqse)}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__qIiKw
-                )}
-              >
-                {
-                  "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
-                }
-              </div>
-            </div>
-            <div
-              className={classNames(projectcss.all, sty.freeBox___8X9Zx)}
-              onClick={async event => {
-                const $steps = {};
-              }}
-            >
-              <PlasmicIcon__
-                PlasmicIconType={
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? Icon24Icon
-                    : Icon24Icon
-                }
-                className={classNames(projectcss.all, sty.svg__nUtgd)}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__xEwL3
-                )}
-              >
-                {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
-              </div>
-            </div>
-            {(() => {
-              try {
-                return $state.userInfo.m == "71ef2e";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })() ? (
-              <div
-                aria-pressed={undefined}
-                className={classNames(projectcss.all, sty.freeBox__hV8GB)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToFood"] = true
-                    ? (() => {
-                        const actionArgs = { destination: `/food` };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToFood"] != null &&
-                    typeof $steps["goToFood"] === "object" &&
-                    typeof $steps["goToFood"].then === "function"
-                  ) {
-                    $steps["goToFood"] = await $steps["goToFood"];
-                  }
-                }}
-              >
-                <PlasmicIcon__
-                  PlasmicIconType={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? Icon72Icon
-                      : Icon72Icon
-                  }
-                  className={classNames(projectcss.all, sty.svg__gl2Gw)}
-                  role={"img"}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__rdLvh
-                  )}
-                >
-                  {
-                    "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
-                  }
-                </div>
-              </div>
-            ) : null}
-          </Stack__>
-        </section>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
@@ -6405,7 +6294,9 @@ function PlasmicBioritm2__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "section",
     "mainHeader",
+    "headerLiom",
     "favicon",
     "biorhythm",
     "slideinModal4",
@@ -6429,7 +6320,9 @@ const PlasmicDescendants = {
     "button4",
     "pullToRefresh"
   ],
+  section: ["section", "mainHeader", "headerLiom"],
   mainHeader: ["mainHeader"],
+  headerLiom: ["headerLiom"],
   favicon: ["favicon"],
   biorhythm: [
     "biorhythm",
@@ -6474,7 +6367,9 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  section: "section";
   mainHeader: typeof MainHeader;
+  headerLiom: typeof HeaderLiom;
   favicon: typeof Embed;
   biorhythm: typeof ApiRequest;
   slideinModal4: typeof SlideinModal;
@@ -6584,7 +6479,9 @@ export const PlasmicBioritm2 = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    section: makeNodeComponent("section"),
     mainHeader: makeNodeComponent("mainHeader"),
+    headerLiom: makeNodeComponent("headerLiom"),
     favicon: makeNodeComponent("favicon"),
     biorhythm: makeNodeComponent("biorhythm"),
     slideinModal4: makeNodeComponent("slideinModal4"),

@@ -323,6 +323,12 @@ function PlasmicSubItems__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "actionShop",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -340,7 +346,20 @@ function PlasmicSubItems__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicSubItems.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicSubItems.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicSubItems.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -530,7 +549,11 @@ function PlasmicSubItems__RenderFunc(props: {
             >
               {(() => {
                 try {
-                  return $state.subItems.subItems.self_care.length > 0;
+                  return (
+                    $state.subItems.subItems.self_care.filter(
+                      item => item.action != "#rediucePain"
+                    ).length > 0
+                  );
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -560,7 +583,9 @@ function PlasmicSubItems__RenderFunc(props: {
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
-                        return $state.subItems.subItems.self_test;
+                        return $state.subItems.subItems.self_care.filter(
+                          item => item.action != "#rediucePain"
+                        );
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -630,12 +655,84 @@ function PlasmicSubItems__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      switch (currentItem.action) {
-                                        case "hamyarInfo":
-                                          window.open("/hamyar-add", "_self");
-                                          break;
-                                        default:
+                                      if (
+                                        currentItem.action.includes(
+                                          "inAppWebView"
+                                        )
+                                      ) {
+                                        window.open(
+                                          currentItem.action.split("**@@**")[2],
+                                          "_blank",
+                                          "location=no,width=800,height=600"
+                                        );
+                                      } else {
+                                        switch (currentItem.action) {
+                                          case "#irregularQuestion":
+                                            {
+                                              var link = `https://tools.liom.app/self-test/?app=liom&inApp=true&type=irregular&origin=liom_selfcare_pwa&token=${localStorage.getItem(
+                                                "token"
+                                              )}&userId=${
+                                                JSON.parse(
+                                                  window.localStorage.getItem(
+                                                    "userinfo"
+                                                  )
+                                                ).user.id
+                                              }`;
+                                            }
+                                            break;
+                                          case "#directDialog-pregnancy_self_test_sub":
+                                            {
+                                            }
+                                            break;
+                                          case "#irregularPage":
+                                            {
+                                              var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
+                                                "token"
+                                              )}khn&userId=mjgf${
+                                                JSON.parse(
+                                                  window.localStorage.getItem(
+                                                    "userinfo"
+                                                  )
+                                                ).user.id
+                                              }kpmf`;
+                                            }
+                                            break;
+                                          case "#pcos":
+                                            {
+                                              var link = `https://tools.liom.app/self-medication/?type=pcos&token=KOlmhp${localStorage.getItem(
+                                                "token"
+                                              )}khn&userId=mjgf${
+                                                JSON.parse(
+                                                  window.localStorage.getItem(
+                                                    "userinfo"
+                                                  )
+                                                ).user.id
+                                              }kpmf`;
+                                            }
+                                            break;
+                                          case "#rediucePain":
+                                            {
+                                              var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
+                                                "token"
+                                              )}khn&userId=mjgf${
+                                                JSON.parse(
+                                                  window.localStorage.getItem(
+                                                    "userinfo"
+                                                  )
+                                                ).user.id
+                                              }kpmf`;
+                                            }
+                                            break;
+                                          default: {
+                                          }
+                                        }
                                       }
+                                      if (link)
+                                        return window.open(
+                                          link,
+                                          "_blank",
+                                          "location=no,width=800,height=600"
+                                        );
                                     })();
                                   }
                                 };
@@ -913,7 +1010,7 @@ function PlasmicSubItems__RenderFunc(props: {
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
-                        return $state.subItems.subItems.self_care;
+                        return $state.subItems.subItems.self_test;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -939,41 +1036,31 @@ function PlasmicSubItems__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["updateShop"] = true
+                          $steps["runCode2"] = currentItem.shopLink
                             ? (() => {
                                 const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["shop"]
-                                  },
-                                  operation: 0,
-                                  value:
-                                    currentItem.shopLink.split(
-                                      "directDialog-"
-                                    )[1]
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
+                                  customFunction: async () => {
+                                    return (() => {
+                                      $state.shop =
+                                        currentItem.shopLink.split(
+                                          "directDialog-"
+                                        )[1];
+                                      return ($state.actionShop =
+                                        currentItem.action);
+                                    })();
                                   }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
                                 })?.apply(null, [actionArgs]);
                               })()
                             : undefined;
                           if (
-                            $steps["updateShop"] != null &&
-                            typeof $steps["updateShop"] === "object" &&
-                            typeof $steps["updateShop"].then === "function"
+                            $steps["runCode2"] != null &&
+                            typeof $steps["runCode2"] === "object" &&
+                            typeof $steps["runCode2"].then === "function"
                           ) {
-                            $steps["updateShop"] = await $steps["updateShop"];
+                            $steps["runCode2"] = await $steps["runCode2"];
                           }
 
                           $steps["runCode"] = true
@@ -981,12 +1068,84 @@ function PlasmicSubItems__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      switch (currentItem.action) {
-                                        case "hamyarInfo":
-                                          window.open("/hamyar-add", "_self");
-                                          break;
-                                        default:
+                                      if (
+                                        currentItem.action.includes(
+                                          "inAppWebView"
+                                        )
+                                      ) {
+                                        window.open(
+                                          currentItem.action.split("**@@**")[2],
+                                          "_blank",
+                                          "location=no,width=800,height=600"
+                                        );
+                                      } else {
+                                        switch (currentItem.action) {
+                                          case "#irregularQuestion":
+                                            {
+                                              var link = `https://tools.liom.app/self-test/?app=liom&inApp=true&type=irregular&origin=liom_selfcare_pwa&token=${localStorage.getItem(
+                                                "token"
+                                              )}&userId=${
+                                                JSON.parse(
+                                                  window.localStorage.getItem(
+                                                    "userinfo"
+                                                  )
+                                                ).user.id
+                                              }`;
+                                            }
+                                            break;
+                                          case "#directDialog-pregnancy_self_test_sub":
+                                            {
+                                            }
+                                            break;
+                                          case "#irregularPage":
+                                            {
+                                              var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
+                                                "token"
+                                              )}khn&userId=mjgf${
+                                                JSON.parse(
+                                                  window.localStorage.getItem(
+                                                    "userinfo"
+                                                  )
+                                                ).user.id
+                                              }kpmf`;
+                                            }
+                                            break;
+                                          case "#pcos":
+                                            {
+                                              var link = `https://tools.liom.app/self-medication/?type=pcos&token=KOlmhp${localStorage.getItem(
+                                                "token"
+                                              )}khn&userId=mjgf${
+                                                JSON.parse(
+                                                  window.localStorage.getItem(
+                                                    "userinfo"
+                                                  )
+                                                ).user.id
+                                              }kpmf`;
+                                            }
+                                            break;
+                                          case "#rediucePain":
+                                            {
+                                              var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
+                                                "token"
+                                              )}khn&userId=mjgf${
+                                                JSON.parse(
+                                                  window.localStorage.getItem(
+                                                    "userinfo"
+                                                  )
+                                                ).user.id
+                                              }kpmf`;
+                                            }
+                                            break;
+                                          default: {
+                                          }
+                                        }
                                       }
+                                      if (link)
+                                        return window.open(
+                                          link,
+                                          "_blank",
+                                          "location=no,width=800,height=600"
+                                        );
                                     })();
                                   }
                                 };
@@ -1263,7 +1422,9 @@ function PlasmicSubItems__RenderFunc(props: {
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
-                        return $state.subItems.subItems.self_treatment;
+                        return $state.subItems.subItems.self_treatment.filter(
+                          item => item.action != "#pcos"
+                        );
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -1372,12 +1533,84 @@ function PlasmicSubItems__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      switch (currentItem.action) {
-                                        case "hamyarInfo":
-                                          window.open("/hamyar-add", "_self");
-                                          break;
-                                        default:
+                                      if (
+                                        currentItem.action.includes(
+                                          "inAppWebView"
+                                        )
+                                      ) {
+                                        window.open(
+                                          currentItem.action.split("**@@**")[2],
+                                          "_blank",
+                                          "location=no,width=800,height=600"
+                                        );
+                                      } else {
+                                        switch (currentItem.action) {
+                                          case "#irregularQuestion":
+                                            {
+                                              var link = `https://tools.liom.app/self-test/?app=liom&inApp=true&type=irregular&origin=liom_selfcare_pwa&token=${localStorage.getItem(
+                                                "token"
+                                              )}&userId=${
+                                                JSON.parse(
+                                                  window.localStorage.getItem(
+                                                    "userinfo"
+                                                  )
+                                                ).user.id
+                                              }`;
+                                            }
+                                            break;
+                                          case "#directDialog-pregnancy_self_test_sub":
+                                            {
+                                            }
+                                            break;
+                                          case "#irregularPage":
+                                            {
+                                              var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
+                                                "token"
+                                              )}khn&userId=mjgf${
+                                                JSON.parse(
+                                                  window.localStorage.getItem(
+                                                    "userinfo"
+                                                  )
+                                                ).user.id
+                                              }kpmf`;
+                                            }
+                                            break;
+                                          case "#pcos":
+                                            {
+                                              var link = `https://tools.liom.app/self-medication/?type=pcos&token=KOlmhp${localStorage.getItem(
+                                                "token"
+                                              )}khn&userId=mjgf${
+                                                JSON.parse(
+                                                  window.localStorage.getItem(
+                                                    "userinfo"
+                                                  )
+                                                ).user.id
+                                              }kpmf`;
+                                            }
+                                            break;
+                                          case "#rediucePain":
+                                            {
+                                              var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
+                                                "token"
+                                              )}khn&userId=mjgf${
+                                                JSON.parse(
+                                                  window.localStorage.getItem(
+                                                    "userinfo"
+                                                  )
+                                                ).user.id
+                                              }kpmf`;
+                                            }
+                                            break;
+                                          default: {
+                                          }
+                                        }
                                       }
+                                      if (link)
+                                        return window.open(
+                                          link,
+                                          "_blank",
+                                          "location=no,width=800,height=600"
+                                        );
                                     })();
                                   }
                                 };
@@ -1758,6 +1991,112 @@ function PlasmicSubItems__RenderFunc(props: {
               }
             }}
             open={generateStateValueProp($state, ["directDialog2", "open"])}
+            redirectUrl={(() => {
+              try {
+                return (() => {
+                  switch ($state.actionShop) {
+                    case "#irregularQuestion":
+                      {
+                        var link = `https://tools.liom.app/self-test/?app=liom&inApp=true&type=irregular&origin=liom_selfcare_pwa&token=${localStorage.getItem(
+                          "token"
+                        )}&userId=${
+                          JSON.parse(window.localStorage.getItem("userinfo"))
+                            .user.id
+                        }`;
+                      }
+                      break;
+                    case "#directDialog-pregnancy_self_test_sub":
+                      {
+                        var link =
+                          `https://apps.liom.app/shopResult?buyId=${
+                            $state.directDialog2.selectShop.id
+                          }&?offCode=&token=hjk812${localStorage.getItem(
+                            "token"
+                          )}jkp&redirectUrl=` +
+                          encodeURIComponent(
+                            `https://tools.liom.app/self-test/?app=liom&inApp=true&type=pregnantOrNot&origin=liom_selfcare_pwa&token=${localStorage.getItem(
+                              "token"
+                            )}&userId=${
+                              JSON.parse(
+                                window.localStorage.getItem("userinfo")
+                              ).user.id
+                            }`
+                          );
+                      }
+                      break;
+                    case "#directDialog-adhd_sub":
+                      {
+                        var link =
+                          `https://apps.liom.app/shopResult?buyId=${
+                            $state.directDialog2.selectShop.id
+                          }&?offCode=&token=hjk812${localStorage.getItem(
+                            "token"
+                          )}jkp&redirectUrl=` +
+                          encodeURIComponent(
+                            `https://tools.liom.app/self-test/?app=liom&inApp=true&type=adhd&origin=liom_selfcare_pwa&token=${localStorage.getItem(
+                              "token"
+                            )}&userId=${
+                              JSON.parse(
+                                window.localStorage.getItem("userinfo")
+                              ).user.id
+                            }`
+                          );
+                      }
+                      break;
+                    case "#directDialog-skin_care_sub":
+                      {
+                        var link = `https://apps.liom.app/shopResult?buyId=${
+                          $state.directDialog2.selectShop.id
+                        }&?offCode=&token=hjk812${localStorage.getItem(
+                          "token"
+                        )}jkp&redirectUrl=https://apps.liom.app/Self-care/`;
+                      }
+                      break;
+                    case "#irregularPage":
+                      {
+                        var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
+                          "token"
+                        )}khn&userId=mjgf${
+                          JSON.parse(window.localStorage.getItem("userinfo"))
+                            .user.id
+                        }kpmf`;
+                      }
+                      break;
+                    case "#pcos":
+                      {
+                        var link = `https://tools.liom.app/self-medication/?type=pcos&token=KOlmhp${localStorage.getItem(
+                          "token"
+                        )}khn&userId=mjgf${
+                          JSON.parse(window.localStorage.getItem("userinfo"))
+                            .user.id
+                        }kpmf`;
+                      }
+                      break;
+                    case "#rediucePain":
+                      {
+                        var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
+                          "token"
+                        )}khn&userId=mjgf${
+                          JSON.parse(window.localStorage.getItem("userinfo"))
+                            .user.id
+                        }kpmf`;
+                      }
+                      break;
+                    default: {
+                    }
+                  }
+                  return link;
+                })();
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             token={(() => {
               try {
                 return window.localStorage.getItem("token");
@@ -1915,7 +2254,7 @@ export const PlasmicSubItems = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "لیوم | liom",
       description: "",
       ogImageSrc: "",
       canonical: ""

@@ -82,6 +82,8 @@ import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasm
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon188Icon from "./icons/PlasmicIcon__Icon188"; // plasmic-import: Ap0CNp82zKxk/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
+import Icon138Icon from "./icons/PlasmicIcon__Icon138"; // plasmic-import: _v0CaTT-8IBc/icon
+import Icon212Icon from "./icons/PlasmicIcon__Icon212"; // plasmic-import: EV8ARHn8m9ie/icon
 
 createPlasmicElementProxy;
 
@@ -96,7 +98,6 @@ export const PlasmicSelfCare__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSelfCare__OverridesType = {
   root?: Flex__<"div">;
-  section?: Flex__<"section">;
   mainHeader?: Flex__<typeof MainHeader>;
   sideEffect?: Flex__<typeof SideEffect>;
   lineClomp?: Flex__<typeof LineClomp>;
@@ -268,22 +269,6 @@ function PlasmicSelfCare__RenderFunc(props: {
             try {
               return [
                 {
-                  type: "#hamyarIn",
-                  action: `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
-                    "token"
-                  )}khn&userId=mjgf${
-                    JSON.parse(window.localStorage.getItem("userinfo")).user.id
-                  }kpmf`
-                },
-                {
-                  type: "",
-                  action: `https://tools.liom.app/self-medication/?type=skinCare&token=KOlmhp${localStorage.getItem(
-                    "token"
-                  )}khn&userId=mjgf${
-                    JSON.parse(window.localStorage.getItem("userinfo")).user.id
-                  }kpmf`
-                },
-                {
                   type: "#inAppWebView",
                   action: `/self-sms-page?token=${localStorage.getItem(
                     "token"
@@ -294,19 +279,19 @@ function PlasmicSelfCare__RenderFunc(props: {
                   action: `/hamyar-add/?token=${localStorage.getItem("token")}`
                 },
                 {
-                  type: "",
-                  action: `http://tools.liom.app/self-test/?app=liom&type=irregular&userId=khyg${
-                    JSON.parse(window.localStorage.getItem("userinfo")).user.id
-                  }lhun`
+                  type: "#biorhythm",
+                  action: `/Biorhythm/?token=${localStorage.getItem("token")}`
                 },
                 {
                   type: "#appoinment",
-
-                  action: `https://apps.liom.app/clinic/?token=${localStorage.getItem(
+                  action: `/clinic/?token=${localStorage.getItem(
                     "token"
                   )}&userId=${
                     JSON.parse(window.localStorage.getItem("userinfo")).user.id
                   }`
+                },
+                {
+                  type: "#notifSettings"
                 }
               ];
             } catch (e) {
@@ -366,11 +351,7 @@ function PlasmicSelfCare__RenderFunc(props: {
             sty.root
           )}
         >
-          <section
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
-          >
+          <section className={classNames(projectcss.all, sty.section__f9G4)}>
             <MainHeader
               data-plasmic-name={"mainHeader"}
               data-plasmic-override={overrides.mainHeader}
@@ -556,7 +537,9 @@ function PlasmicSelfCare__RenderFunc(props: {
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return $state.selfCare2.result.list.items;
+                      return $state.selfCare2.result.list.items.filter(
+                        item => item.type != "breast_health"
+                      );
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -829,7 +812,9 @@ function PlasmicSelfCare__RenderFunc(props: {
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return $state.selfCare2.result.list.other;
+                      return $state.selfCare2.result.list.other.filter(
+                        item => item.action != "#notifSettings"
+                      );
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -858,9 +843,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                                 destination: (() => {
                                   try {
                                     return $state.tools.find(item =>
-                                      currentItem.action.startsWith(
-                                        currentItem.action
-                                      )
+                                      currentItem.action.includes(item.type)
                                     ).action;
                                   } catch (e) {
                                     if (
@@ -1161,6 +1144,120 @@ function PlasmicSelfCare__RenderFunc(props: {
               />
             </Stack__>
           ) : null}
+          <section className={classNames(projectcss.all, sty.section__pS3H)}>
+            <div className={classNames(projectcss.all, sty.freeBox__yzrXx)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___4NQg7)}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__awpI3)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToCalendar"] = true
+                      ? (() => {
+                          const actionArgs = { destination: `/calendar` };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToCalendar"] != null &&
+                      typeof $steps["goToCalendar"] === "object" &&
+                      typeof $steps["goToCalendar"].then === "function"
+                    ) {
+                      $steps["goToCalendar"] = await $steps["goToCalendar"];
+                    }
+                  }}
+                >
+                  <Icon138Icon
+                    className={classNames(projectcss.all, sty.svg__l5B5)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___2QvJp
+                    )}
+                  >
+                    {
+                      "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                    }
+                  </div>
+                </div>
+                <div
+                  aria-pressed={undefined}
+                  className={classNames(projectcss.all, sty.freeBox__gg4Ka)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToBioritm2"] =
+                      localStorage.getItem("token") != "undefined" ||
+                      localStorage.getItem("token") != null
+                        ? (() => {
+                            const actionArgs = { destination: `/Biorhythm` };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["goToBioritm2"] != null &&
+                      typeof $steps["goToBioritm2"] === "object" &&
+                      typeof $steps["goToBioritm2"].then === "function"
+                    ) {
+                      $steps["goToBioritm2"] = await $steps["goToBioritm2"];
+                    }
+                  }}
+                >
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? Icon212Icon
+                        : Icon212Icon
+                    }
+                    className={classNames(projectcss.all, sty.svg__h0MCv)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__tRec
+                    )}
+                  >
+                    {
+                      "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f"
+                    }
+                  </div>
+                </div>
+              </Stack__>
+            </div>
+          </section>
         </div>
       </div>
     </React.Fragment>
@@ -1170,7 +1267,6 @@ function PlasmicSelfCare__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "section",
     "mainHeader",
     "sideEffect",
     "lineClomp",
@@ -1179,7 +1275,6 @@ const PlasmicDescendants = {
     "img",
     "lineClomp2"
   ],
-  section: ["section", "mainHeader"],
   mainHeader: ["mainHeader"],
   sideEffect: ["sideEffect"],
   lineClomp: ["lineClomp"],
@@ -1193,7 +1288,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  section: "section";
   mainHeader: typeof MainHeader;
   sideEffect: typeof SideEffect;
   lineClomp: typeof LineClomp;
@@ -1288,7 +1382,6 @@ export const PlasmicSelfCare = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    section: makeNodeComponent("section"),
     mainHeader: makeNodeComponent("mainHeader"),
     sideEffect: makeNodeComponent("sideEffect"),
     lineClomp: makeNodeComponent("lineClomp"),

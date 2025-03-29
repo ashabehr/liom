@@ -3119,6 +3119,16 @@
           "id": "KpMP1zk7kNoc",
           "name": "Icon211Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon211.tsx"
+        },
+        {
+          "id": "EV8ARHn8m9ie",
+          "name": "Icon212Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon212.tsx"
+        },
+        {
+          "id": "mG0VeezaR1mF",
+          "name": "Icon213Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon213.tsx"
         }
       ],
       "images": [

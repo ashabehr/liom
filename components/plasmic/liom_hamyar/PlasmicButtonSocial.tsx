@@ -59,6 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -73,9 +75,15 @@ export type PlasmicButtonSocial__VariantsArgs = {};
 type VariantPropType = keyof PlasmicButtonSocial__VariantsArgs;
 export const PlasmicButtonSocial__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicButtonSocial__ArgsType = { type?: string };
+export type PlasmicButtonSocial__ArgsType = {
+  text?: string;
+  onClick?: (event: any) => void;
+};
 type ArgPropType = keyof PlasmicButtonSocial__ArgsType;
-export const PlasmicButtonSocial__ArgProps = new Array<ArgPropType>("type");
+export const PlasmicButtonSocial__ArgProps = new Array<ArgPropType>(
+  "text",
+  "onClick"
+);
 
 export type PlasmicButtonSocial__OverridesType = {
   root?: Flex__<"div">;
@@ -83,7 +91,8 @@ export type PlasmicButtonSocial__OverridesType = {
 };
 
 export interface DefaultButtonSocialProps {
-  type?: string;
+  text?: string;
+  onClick?: (event: any) => void;
   className?: string;
 }
 
@@ -143,6 +152,7 @@ function PlasmicButtonSocial__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root
       )}
+      onClick={args.onClick}
     >
       <div
         data-plasmic-name={"text"}
@@ -152,13 +162,13 @@ function PlasmicButtonSocial__RenderFunc(props: {
         <React.Fragment>
           {(() => {
             try {
-              return $props.type;
+              return $props.text;
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return "\u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0631\u06cc\u067e\u0644\u0627\u06cc";
+                return "";
               }
               throw e;
             }

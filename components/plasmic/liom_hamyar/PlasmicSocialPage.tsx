@@ -75,6 +75,7 @@ import Comment from "../../Comment"; // plasmic-import: Q00r5f4C3XYv/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -121,8 +122,6 @@ export type PlasmicSocialPage__OverridesType = {
   save?: Flex__<typeof Save>;
   popover?: Flex__<typeof AntdPopover>;
   buttonNewest?: Flex__<typeof ButtonSocial>;
-  mostReply?: Flex__<typeof ButtonSocial>;
-  mostLiked?: Flex__<typeof ButtonSocial>;
   comment?: Flex__<typeof Comment>;
   textArea?: Flex__<typeof AntdTextArea>;
   getInfo?: Flex__<typeof ApiRequest>;
@@ -240,6 +239,91 @@ function PlasmicSocialPage__RenderFunc(props: {
         path: "comment[].commentData",
         type: "private",
         variableType: "object"
+      },
+      {
+        path: "comments",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.getInfo.data.result.comments;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "postId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (
+                $ctx.query.post ||
+                new URLSearchParams(window.location.search).get("post")
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "order",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return ["newest", "likeCount", "replyCount "];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return ["newest", "likeCount", "replyCount "];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "orderby",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "egToFa",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -282,9 +366,105 @@ function PlasmicSocialPage__RenderFunc(props: {
             data-plasmic-name={"embedHtml"}
             data-plasmic-override={overrides.embedHtml}
             className={classNames("__wab_instance", sty.embedHtml)}
-            code={
-              "<script>window.addEventListener('scroll', function() {\r\n    const documentHeight = document.documentElement.scrollHeight;\r\n    const windowHeight = window.innerHeight;\r\n    const scrollPosition = window.scrollY || window.pageYOffset || \r\n                          document.body.scrollTop + (document.documentElement && \r\n                          document.documentElement.scrollTop || 0);\r\n    \r\n    if (documentHeight - (scrollPosition + windowHeight) == 100) {\r\n       // loadMoreContent();\r\n       console.log(\"amir\");\r\n    }\r\n});\r\n\r\n// \u062a\u0627\u0628\u0639 \u0628\u0631\u0627\u06cc \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062d\u062a\u0648\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0628\u0627 POST\r\nfunction loadMoreContent() {\r\n    if (window.isLoading) return;\r\n    \r\n    window.isLoading = true;\r\n    \r\n    // \u0646\u0645\u0627\u06cc\u0634 \u0646\u0634\u0627\u0646\u06af\u0631 \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc\r\n    const loader = document.createElement('div');\r\n    loader.textContent = '\u062f\u0631 \u062d\u0627\u0644 \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc...';\r\n    loader.style.textAlign = 'center';\r\n    loader.style.padding = '20px';\r\n    document.body.appendChild(loader);\r\n    \r\n    // \u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0645\u06cc\u200c\u062e\u0648\u0627\u0647\u06cc\u062f \u0627\u0631\u0633\u0627\u0644 \u06a9\u0646\u06cc\u062f\r\n    const postData = {\r\n        page: window.currentPage || 1, // \u0634\u0645\u0627\u0631\u0647 \u0635\u0641\u062d\u0647 \u0641\u0639\u0644\u06cc\r\n        limit: 10 // \u062a\u0639\u062f\u0627\u062f \u0622\u06cc\u062a\u0645\u200c\u0647\u0627\u06cc \u062f\u0631\u062e\u0648\u0627\u0633\u062a\u06cc\r\n    };\r\n    \r\n    // \u0627\u0631\u0633\u0627\u0644 \u062f\u0631\u062e\u0648\u0627\u0633\u062a POST\r\n    fetch('\u0622\u062f\u0631\u0633-\u0633\u0631\u0648\u0631-\u0634\u0645\u0627', {\r\n        method: 'POST',\r\n        headers: {\r\n            'Content-Type': 'application/json',\r\n            // \u0627\u06af\u0631 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u062f\u0627\u0631\u06cc\u062f:\r\n            // 'Authorization': 'Bearer ' + token\r\n        },\r\n        body: JSON.stringify(postData)\r\n    })\r\n    .then(response => {\r\n        if (!response.ok) {\r\n            throw new Error('\u062e\u0637\u0627 \u062f\u0631 \u067e\u0627\u0633\u062e \u0633\u0631\u0648\u0631');\r\n        }\r\n        return response.json();\r\n    })\r\n    .then(data => {\r\n        console.log('\u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u062c\u062f\u06cc\u062f:', data);\r\n        \r\n        // \u067e\u0631\u062f\u0627\u0632\u0634 \u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a\u06cc \u0648 \u0627\u0636\u0627\u0641\u0647 \u0628\u0647 \u0635\u0641\u062d\u0647\r\n        // ...\r\n        \r\n        // \u0627\u0641\u0632\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647 \u0635\u0641\u062d\u0647 \u0628\u0631\u0627\u06cc \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0628\u0639\u062f\u06cc\r\n        window.currentPage = (window.currentPage || 1) + 1;\r\n        \r\n        document.body.removeChild(loader);\r\n        window.isLoading = false;\r\n    })\r\n    .catch(error => {\r\n        console.error('\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u062f\u0627\u062f\u0647:', error);\r\n        document.body.removeChild(loader);\r\n        window.isLoading = false;\r\n    });\r\n}\r\n</script>"
-            }
+            code={(() => {
+              try {
+                return `<script>
+// تنظیمات اولیه
+let isLoading = false;
+let hasMore = true;
+let currentPage = 1;
+const threshold = 100; // 100px قبل از رسیدن به انتهای صفحه لود شود
+
+// تابع بررسی اسکرول
+window.addEventListener('scroll', () => {
+  if (isLoading || !hasMore) return;
+
+  const { scrollTop, scrollHeight } = document.documentElement;
+  const { innerHeight } = window;
+  const isNearBottom = scrollTop + innerHeight >= scrollHeight - threshold;
+
+  if (isNearBottom) {
+    loadMoreData();
+  }
+});
+
+// تابع دریافت داده‌ها
+async function loadMoreData() {
+  isLoading = true;
+
+  // نمایش Loader (اختیاری)
+  const loader = document.createElement('div');
+  loader.id = 'loader';
+  loader.textContent = 'در حال بارگذاری...';
+  loader.style.padding = '1rem';
+  loader.style.textAlign = 'center';
+  document.body.appendChild(loader);
+
+  try {
+    // ارسال درخواست POST
+    const response = await fetch('https://api.example.com/data', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+      // تعداد آیتم‌های درخواستی
+      "postId":${$state.postId},
+        "type": "string",
+        "size": 10,
+        "from": ${$state.comment.length + 1},
+         "orderBy": "newest"
+          
+      })
+    });
+
+    if (!response.ok) throw new Error('خطا در دریافت داده‌ها');
+
+    const newData = await response.json();
+
+    // اگر داده‌ای وجود نداشت، hasMore = false
+    if (!newData || newData.length === 0) {
+      hasMore = false;
+      return;
+    }
+
+    // اضافه کردن داده‌های جدید به صفحه (متناسب با ساختار HTML شما)
+    appendDataToDOM(newData);
+
+    // افزایش شماره صفحه برای درخواست بعدی
+    currentPage++;
+  } catch (error) {
+    console.error('خطا:', error);
+  } finally {
+    // حذف Loader
+    document.getElementById('loader')?.remove();
+    isLoading = false;
+  }
+}
+
+// تابع نمایش داده‌ها در DOM (بسته به نیاز شما تغییر می‌کند)
+function appendDataToDOM(data) {
+  const container = document.getElementById('data-container'); // اطمینان حاصل کنید این المنت وجود دارد
+
+  data.forEach(item => {
+    const itemElement = document.createElement('div');
+    itemElement.className = 'data-item';
+    itemElement.textContent = item.title; // فرض بر این که داده‌ها دارای فیلد title هستند
+    container.appendChild(itemElement);
+  });
+}
+
+// شروع اولین درخواست
+loadMoreData();
+</script>`;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "<script>\r\n// \u0645\u062a\u063a\u06cc\u0631\u0647\u0627\u06cc \u06a9\u0646\u062a\u0631\u0644\r\nlet isLoading = false;\r\nlet hasMore = true;\r\nlet currentPage = 1;\r\n\r\nwindow.addEventListener('scroll', function() {\r\n    const documentHeight = document.documentElement.scrollHeight;\r\n    const windowHeight = window.innerHeight;\r\n    const scrollPosition = window.scrollY  window.pageYOffset  \r\n                         document.body.scrollTop + (document.documentElement && \r\n                         document.documentElement.scrollTop  0);\r\n    \r\n    // 100 \u067e\u06cc\u06a9\u0633\u0644 \u0645\u0627\u0646\u062f\u0647 \u0628\u0647 \u0627\u0646\u062a\u0647\u0627\u06cc \u0635\u0641\u062d\u0647 \u0648 \u0645\u0637\u0645\u0626\u0646 \u0634\u0648\u06cc\u062f \u062f\u0631 \u062d\u0627\u0644 \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0646\u06cc\u0633\u062a \u0648 \u0645\u062d\u062a\u0648\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631\u06cc \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f\r\n    if (documentHeight - (scrollPosition + windowHeight) < 100 && !isLoading && hasMore) {\r\n        loadMoreContent();\r\n        \r\n    }\r\n});\r\n\r\n// \u062a\u0627\u0628\u0639 \u0628\u0631\u0627\u06cc \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062d\u062a\u0648\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0628\u0627 POST\r\nfunction loadMoreContent() {\r\n    isLoading = true;\r\n    \r\n    // \u0646\u0645\u0627\u06cc\u0634 \u0646\u0634\u0627\u0646\u06af\u0631 \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc\r\n    const loader = document.createElement('div');\r\n    loader.textContent = '\u062f\u0631 \u062d\u0627\u0644 \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc...';\r\n    loader.style.textAlign = 'center';\r\n    loader.style.padding = '20px';\r\n    loader.id = 'loading-indicator';\r\n    document.body.appendChild(loader);\r\n    \r\n    // \u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0645\u06cc\u200c\u062e\u0648\u0627\u0647\u06cc\u062f \u0627\u0631\u0633\u0627\u0644 \u06a9\u0646\u06cc\u062f\r\n    const postData = {\r\n        page: currentPage,\r\n        limit: 10\r\n    };\r\n    \r\n    // \u0627\u0631\u0633\u0627\u0644 \u062f\u0631\u062e\u0648\u0627\u0633\u062a POST\r\n    fetch('\u0622\u062f\u0631\u0633-\u0633\u0631\u0648\u0631-\u0634\u0645\u0627', {\r\n        method: 'POST',\r\n        headers: {\r\n            'Content-Type': 'application/json',\r\n            // \u0627\u06af\u0631 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u062f\u0627\u0631\u06cc\u062f:\r\n            // 'Authorization': 'Bearer ' + token\r\n        },\r\n        body: JSON.stringify(postData)\r\n    })\r\n    .then(response => {\r\n        if (!response.ok) {\r\n            throw new Error('\u062e\u0637\u0627 \u062f\u0631 \u067e\u0627\u0633\u062e \u0633\u0631\u0648\u0631');\r\n        }\r\n        return response.json();\r\n    })\r\n    .then(data => {\r\n        // \u062d\u0630\u0641 \u0646\u0634\u0627\u0646\u06af\u0631 \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc\r\n        const loader = document.getElementById('loading-indicator');\r\n        if (loader) document.body.removeChild(loader);\r\n        \r\n        // \u0627\u06af\u0631 \u062f\u0627\u062f\u0647\u200c\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0634\u062f\u060c \u06cc\u0639\u0646\u06cc \u0628\u0647 \u0627\u0646\u062a\u0647\u0627\u06cc \u0645\u062d\u062a\u0648\u0627 \u0631\u0633\u06cc\u062f\u0647\u200c\u0627\u06cc\u0645\r\n        if (!data  data.length === 0) {\r\n            hasMore = false;\r\n            return;\r\n        }\r\n        \r\n        // \u067e\u0631\u062f\u0627\u0632\u0634 \u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a\u06cc \u0648 \u0627\u0636\u0627\u0641\u0647 \u0628\u0647 \u0635\u0641\u062d\u0647\r\n        // ...\r\n        \r\n        // \u0627\u0641\u0632\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647 \u0635\u0641\u062d\u0647 \u0628\u0631\u0627\u06cc \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0628\u0639\u062f\u06cc\r\n        currentPage++;\r\n        isLoading = false;\r\n    })\r\n    .catch(error => {\r\n        console.error('\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u062f\u0627\u062f\u0647:', error);\r\n        const loader = document.getElementById('loading-indicator');\r\n        if (loader) document.body.removeChild(loader);\r\n        isLoading = false;\r\n    });\r\n}\r\n</script>";
+                }
+                throw e;
+              }
+            })()}
           />
 
           <div className={classNames(projectcss.all, sty.freeBox__v5VDg)}>
@@ -1118,35 +1298,133 @@ function PlasmicSocialPage__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__hxWiz)}
                     >
-                      <ButtonSocial
-                        data-plasmic-name={"buttonNewest"}
-                        data-plasmic-override={overrides.buttonNewest}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.buttonNewest
-                        )}
-                        type={
-                          "\u062c\u062f\u06cc\u062f \u062a\u0631\u06cc\u0646 \u0647\u0627"
-                        }
-                      />
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return [
+                              { label: "جدیدترین ها", value: "newest" },
+                              { label: "بیشترین لایک", value: "likecount" },
+                              { label: "بیشترین ریپلای", value: "replycount" }
+                            ];
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (
+                          <ButtonSocial
+                            data-plasmic-name={"buttonNewest"}
+                            data-plasmic-override={overrides.buttonNewest}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.buttonNewest
+                            )}
+                            key={currentIndex}
+                            onClick={async event => {
+                              const $steps = {};
 
-                      <ButtonSocial
-                        data-plasmic-name={"mostReply"}
-                        data-plasmic-override={overrides.mostReply}
-                        className={classNames("__wab_instance", sty.mostReply)}
-                        type={
-                          "\u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0631\u06cc\u067e\u0644\u0627\u06cc"
-                        }
-                      />
+                              $steps["updateOrderby0"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["orderby"]
+                                      },
+                                      operation: 0,
+                                      value: currentItem
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
 
-                      <ButtonSocial
-                        data-plasmic-name={"mostLiked"}
-                        data-plasmic-override={overrides.mostLiked}
-                        className={classNames("__wab_instance", sty.mostLiked)}
-                        type={
-                          "\u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0644\u0627\u06cc\u06a9"
-                        }
-                      />
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateOrderby0"] != null &&
+                                typeof $steps["updateOrderby0"] === "object" &&
+                                typeof $steps["updateOrderby0"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateOrderby0"] = await $steps[
+                                  "updateOrderby0"
+                                ];
+                              }
+
+                              $steps["updatePopoverOpen"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["popover", "open"]
+                                      },
+                                      operation: 0,
+                                      value: !$state.popover
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updatePopoverOpen"] != null &&
+                                typeof $steps["updatePopoverOpen"] ===
+                                  "object" &&
+                                typeof $steps["updatePopoverOpen"].then ===
+                                  "function"
+                              ) {
+                                $steps["updatePopoverOpen"] = await $steps[
+                                  "updatePopoverOpen"
+                                ];
+                              }
+                            }}
+                            text={(() => {
+                              try {
+                                return currentItem.label;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                          />
+                        );
+                      })}
                     </div>
                   }
                   contentText={"Popover contents"}
@@ -1185,6 +1463,31 @@ function PlasmicSocialPage__RenderFunc(props: {
                     }
                   </div>
                 </AntdPopover>
+                <div className={classNames(projectcss.all, sty.freeBox___5Uvo)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__wXf2F
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.orderby.label;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u062c\u062f\u06cc\u062f\u062a\u0631\u06cc\u0646 \u0647\u0627 ";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </div>
               </Stack__>
             </Stack__>
             <Stack__
@@ -1195,7 +1498,7 @@ function PlasmicSocialPage__RenderFunc(props: {
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
-                    return $state.getInfo.data.result.comments;
+                    return $state.comments;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1209,186 +1512,192 @@ function PlasmicSocialPage__RenderFunc(props: {
               ).map((__plasmic_item_0, __plasmic_idx_0) => {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
-                return (() => {
-                  const child$Props = {
-                    className: classNames("__wab_instance", sty.comment),
-                    commentData: generateStateValueProp($state, [
-                      "comment",
-                      __plasmic_idx_0,
-                      "commentData"
-                    ]),
-                    commentId: (() => {
-                      try {
-                        return currentItem.comment.id;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })(),
-                    key: currentIndex,
-                    mainCommentLikeCount: (() => {
-                      try {
-                        return currentItem.likeCount;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })(),
-                    mainImag: (() => {
-                      try {
-                        return currentItem.user.image;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })(),
-                    mainName: (() => {
-                      try {
-                        return currentItem.user.name;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })(),
-                    mainText: (() => {
-                      try {
-                        return currentItem.comment.text;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })(),
-                    mainUsername: (() => {
-                      try {
-                        return currentItem.user.username;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })(),
-                    onCommentDataChange2: async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "comment",
-                        __plasmic_idx_0,
-                        "commentData"
-                      ]).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    },
-                    replyCount: (() => {
-                      try {
-                        return currentItem.replyCount;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })(),
-                    tokennnn: (() => {
-                      try {
-                        return $state.token;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })(),
-                    unnamedGroupOfVariants: (() => {
-                      try {
-                        return (() => {
-                          if (currentItem.replyCount == 0)
-                            return "whenHaveNoReply";
-                          else if (currentItem.replyCount !== 0)
-                            return "whenHaveReply";
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "whenHaveNoReply";
-                        }
-                        throw e;
-                      }
-                    })(),
-                    whenHaveNoReply: undefined
-                  };
-
-                  initializePlasmicStates(
-                    $state,
-                    [
-                      {
-                        name: "comment[].commentData",
-                        initFunc: ({ $props, $state, $queries }) =>
-                          (() => {
-                            try {
+                return (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___6IsXi)}
+                    key={currentIndex}
+                  >
+                    {(() => {
+                      const child$Props = {
+                        commentData: generateStateValueProp($state, [
+                          "comment",
+                          __plasmic_idx_0,
+                          "commentData"
+                        ]),
+                        commentId: (() => {
+                          try {
+                            return currentItem.comment.id;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
                               return undefined;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return {};
-                              }
-                              throw e;
                             }
-                          })()
-                      }
-                    ],
-                    [__plasmic_idx_0]
-                  );
-                  return (
-                    <Comment
-                      data-plasmic-name={"comment"}
-                      data-plasmic-override={overrides.comment}
-                      {...child$Props}
-                    />
-                  );
-                })();
+                            throw e;
+                          }
+                        })(),
+                        mainCommentLikeCount: (() => {
+                          try {
+                            return currentItem.likeCount;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        mainImag: (() => {
+                          try {
+                            return currentItem.user.image;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        mainName: (() => {
+                          try {
+                            return currentItem.user.name;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        mainText: (() => {
+                          try {
+                            return currentItem.comment.text;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        mainUsername: (() => {
+                          try {
+                            return currentItem.user.username;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        onCommentDataChange2: async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "comment",
+                            __plasmic_idx_0,
+                            "commentData"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        },
+                        replyCount: (() => {
+                          try {
+                            return currentItem.replyCount;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        tokennnn: (() => {
+                          try {
+                            return $state.token;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        unnamedGroupOfVariants: (() => {
+                          try {
+                            return (() => {
+                              if (currentItem.replyCount == 0)
+                                return "whenHaveNoReply";
+                              else if (currentItem.replyCount !== 0)
+                                return "whenHaveReply";
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "whenHaveNoReply";
+                            }
+                            throw e;
+                          }
+                        })(),
+                        whenHaveNoReply: undefined
+                      };
+
+                      initializePlasmicStates(
+                        $state,
+                        [
+                          {
+                            name: "comment[].commentData",
+                            initFunc: ({ $props, $state, $queries }) =>
+                              (() => {
+                                try {
+                                  return undefined;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return {};
+                                  }
+                                  throw e;
+                                }
+                              })()
+                          }
+                        ],
+                        [__plasmic_idx_0]
+                      );
+                      return (
+                        <Comment
+                          data-plasmic-name={"comment"}
+                          data-plasmic-override={overrides.comment}
+                          {...child$Props}
+                        />
+                      );
+                    })()}
+                  </div>
+                );
               })}
               <section
                 className={classNames(projectcss.all, sty.section__l5Nnd)}
@@ -1451,7 +1760,6 @@ function PlasmicSocialPage__RenderFunc(props: {
                 </div>
               </section>
             </Stack__>
-            <div className={classNames(projectcss.all, sty.freeBox__oLui3)} />
           </div>
           <ApiRequest
             data-plasmic-name={"getInfo"}
@@ -1459,11 +1767,9 @@ function PlasmicSocialPage__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  postId: "9da0eb68-5a19-4c18-bb15-47b3daa43bf2",
-
+                  postId: $state.postId,
                   commentId: "string",
-                  orderBy: "newest",
-
+                  orderBy: $state.orderby.value,
                   authorization: $state.token
                 };
               } catch (e) {
@@ -1544,8 +1850,6 @@ const PlasmicDescendants = {
     "save",
     "popover",
     "buttonNewest",
-    "mostReply",
-    "mostLiked",
     "comment",
     "textArea",
     "getInfo"
@@ -1558,10 +1862,8 @@ const PlasmicDescendants = {
   reactionBar: ["reactionBar", "like2", "save"],
   like2: ["like2"],
   save: ["save"],
-  popover: ["popover", "buttonNewest", "mostReply", "mostLiked"],
+  popover: ["popover", "buttonNewest"],
   buttonNewest: ["buttonNewest"],
-  mostReply: ["mostReply"],
-  mostLiked: ["mostLiked"],
   comment: ["comment"],
   textArea: ["textArea"],
   getInfo: ["getInfo"]
@@ -1581,8 +1883,6 @@ type NodeDefaultElementType = {
   save: typeof Save;
   popover: typeof AntdPopover;
   buttonNewest: typeof ButtonSocial;
-  mostReply: typeof ButtonSocial;
-  mostLiked: typeof ButtonSocial;
   comment: typeof Comment;
   textArea: typeof AntdTextArea;
   getInfo: typeof ApiRequest;
@@ -1683,8 +1983,6 @@ export const PlasmicSocialPage = Object.assign(
     save: makeNodeComponent("save"),
     popover: makeNodeComponent("popover"),
     buttonNewest: makeNodeComponent("buttonNewest"),
-    mostReply: makeNodeComponent("mostReply"),
-    mostLiked: makeNodeComponent("mostLiked"),
     comment: makeNodeComponent("comment"),
     textArea: makeNodeComponent("textArea"),
     getInfo: makeNodeComponent("getInfo"),
