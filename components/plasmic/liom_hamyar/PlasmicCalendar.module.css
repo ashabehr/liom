@@ -2362,7 +2362,7 @@
   margin-top: calc(0px + 16px) !important;
   margin-bottom: 0px;
   min-width: 0;
-  padding: 0px;
+  padding: 0px 0px 0px 8px;
 }
 .freeBox__uPqhe > :global(.__wab_flex-container) {
   flex-direction: row;

@@ -117,7 +117,6 @@ import Icon135Icon from "./icons/PlasmicIcon__Icon135"; // plasmic-import: YzT3X
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import Icon137Icon from "./icons/PlasmicIcon__Icon137"; // plasmic-import: DXdLIMYRuTVZ/icon
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
-import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import Icon140Icon from "./icons/PlasmicIcon__Icon140"; // plasmic-import: KzO15XHeI3j-/icon
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
@@ -60576,7 +60575,7 @@ function PlasmicCalendar__RenderFunc(props: {
                   <PlasmicIcon__
                     PlasmicIconType={
                       hasVariant(globalVariants, "screen", "mobile")
-                        ? Icon23Icon
+                        ? Icon213Icon
                         : Icon213Icon
                     }
                     className={classNames(projectcss.all, sty.svg__aFaRl)}

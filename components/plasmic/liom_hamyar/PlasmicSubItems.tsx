@@ -660,13 +660,9 @@ function PlasmicSubItems__RenderFunc(props: {
                                           "inAppWebView"
                                         )
                                       ) {
-                                        window.open(
-                                          `/web-viow?link=${encodeURIComponent(
-                                            currentItem.action.split(
-                                              "**@@**"
-                                            )[2]
-                                          )}`
-                                        );
+                                        var link = currentItem.action
+                                          .split("**@@**")[2]
+                                          .replace("inApp=true", "inApp=false");
                                       } else {
                                         switch (currentItem.action) {
                                           case "#irregularQuestion":
@@ -730,11 +726,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                         }
                                       }
                                       if (link)
-                                        return window.open(
-                                          `/web-viow?link=${encodeURIComponent(
-                                            link
-                                          )}`
-                                        );
+                                        return window.open(link, "_self");
                                     })();
                                   }
                                 };
@@ -1075,13 +1067,9 @@ function PlasmicSubItems__RenderFunc(props: {
                                           "inAppWebView"
                                         )
                                       ) {
-                                        window.open(
-                                          `/web-viow?link=${encodeURIComponent(
-                                            currentItem.action.split(
-                                              "**@@**"
-                                            )[2]
-                                          )}`
-                                        );
+                                        var link = currentItem.action
+                                          .split("**@@**")[2]
+                                          .replace("inApp=true", "inApp=false");
                                       } else {
                                         switch (currentItem.action) {
                                           case "#irregularQuestion":
@@ -1145,11 +1133,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                         }
                                       }
                                       if (link)
-                                        return window.open(
-                                          `/web-viow?link=${encodeURIComponent(
-                                            link
-                                          )}`
-                                        );
+                                        return window.open(link, "_self");
                                     })();
                                   }
                                 };
@@ -1493,13 +1477,9 @@ function PlasmicSubItems__RenderFunc(props: {
                                           "inAppWebView"
                                         )
                                       ) {
-                                        window.open(
-                                          `/web-viow?link=${encodeURIComponent(
-                                            currentItem.action.split(
-                                              "**@@**"
-                                            )[2]
-                                          )}`
-                                        );
+                                        var link = currentItem.action
+                                          .split("**@@**")[2]
+                                          .replace("inApp=true", "inApp=false");
                                       } else {
                                         switch (currentItem.action) {
                                           case "#irregularQuestion":
@@ -1563,11 +1543,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                         }
                                       }
                                       if (link)
-                                        return window.open(
-                                          `/web-viow?link=${encodeURIComponent(
-                                            link
-                                          )}`
-                                        );
+                                        return window.open(link, "_self");
                                     })();
                                   }
                                 };
