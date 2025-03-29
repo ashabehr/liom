@@ -329,6 +329,12 @@ function PlasmicSubItems__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "link",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -725,8 +731,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                           }
                                         }
                                       }
-                                      if (link)
-                                        return window.open(link, "_self");
+                                      if (link) return ($state.link = link);
                                     })();
                                   }
                                 };
@@ -741,6 +746,47 @@ function PlasmicSubItems__RenderFunc(props: {
                             typeof $steps["runCode"].then === "function"
                           ) {
                             $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["goToPage"] =
+                            $state.link != ""
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: (() => {
+                                      try {
+                                        return $state.link;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["goToPage"] != null &&
+                            typeof $steps["goToPage"] === "object" &&
+                            typeof $steps["goToPage"].then === "function"
+                          ) {
+                            $steps["goToPage"] = await $steps["goToPage"];
                           }
 
                           $steps["updateDirectDialog2Open"] =
@@ -1132,8 +1178,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                           }
                                         }
                                       }
-                                      if (link)
-                                        return window.open(link, "_self");
+                                      if (link) return ($state.link = link);
                                     })();
                                   }
                                 };
@@ -1148,6 +1193,47 @@ function PlasmicSubItems__RenderFunc(props: {
                             typeof $steps["runCode"].then === "function"
                           ) {
                             $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["goToPage"] =
+                            $state.link != ""
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: (() => {
+                                      try {
+                                        return $state.link;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["goToPage"] != null &&
+                            typeof $steps["goToPage"] === "object" &&
+                            typeof $steps["goToPage"].then === "function"
+                          ) {
+                            $steps["goToPage"] = await $steps["goToPage"];
                           }
 
                           $steps["updateNumber2"] = currentItem.action.includes(
@@ -1542,8 +1628,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                           }
                                         }
                                       }
-                                      if (link)
-                                        return window.open(link, "_self");
+                                      if (link) return ($state.link = link);
                                     })();
                                   }
                                 };
@@ -1558,6 +1643,47 @@ function PlasmicSubItems__RenderFunc(props: {
                             typeof $steps["runCode"].then === "function"
                           ) {
                             $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["goToPage"] =
+                            $state.link != ""
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: (() => {
+                                      try {
+                                        return $state.link;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["goToPage"] != null &&
+                            typeof $steps["goToPage"] === "object" &&
+                            typeof $steps["goToPage"].then === "function"
+                          ) {
+                            $steps["goToPage"] = await $steps["goToPage"];
                           }
 
                           $steps["updateDirectDialog2Open"] =
