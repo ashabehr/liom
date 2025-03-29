@@ -86,7 +86,6 @@
   display: none !important;
 }
 .freeBox__cx2Bk {
-  display: flex;
   flex-direction: row;
   position: relative;
   align-items: center;
@@ -95,6 +94,7 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+  display: none;
   padding: 8px;
 }
 .svg__lnGkb {

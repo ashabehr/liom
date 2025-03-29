@@ -304,7 +304,11 @@ function PlasmicSocialPage__RenderFunc(props: {
         path: "orderby",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+          label:
+            "\u062c\u062f\u06cc\u062f\u062a\u0631\u06cc\u0646 \u0647\u0627",
+          value: "newest"
+        })
       },
       {
         path: "egToFa",
@@ -1304,8 +1308,8 @@ loadMoreData();
                           try {
                             return [
                               { label: "جدیدترین ها", value: "newest" },
-                              { label: "بیشترین لایک", value: "likecount" },
-                              { label: "بیشترین ریپلای", value: "replycount" }
+                              { label: "بیشترین لایک", value: "likeCount" },
+                              { label: "بیشترین ریپلای", value: "replyCount" }
                             ];
                           } catch (e) {
                             if (
@@ -1331,6 +1335,45 @@ loadMoreData();
                             key={currentIndex}
                             onClick={async event => {
                               const $steps = {};
+
+                              $steps["updatePopoverOpen"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["popover", "open"]
+                                      },
+                                      operation: 0,
+                                      value: false
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updatePopoverOpen"] != null &&
+                                typeof $steps["updatePopoverOpen"] ===
+                                  "object" &&
+                                typeof $steps["updatePopoverOpen"].then ===
+                                  "function"
+                              ) {
+                                $steps["updatePopoverOpen"] = await $steps[
+                                  "updatePopoverOpen"
+                                ];
+                              }
 
                               $steps["updateOrderby0"] = true
                                 ? (() => {
@@ -1367,45 +1410,6 @@ loadMoreData();
                               ) {
                                 $steps["updateOrderby0"] = await $steps[
                                   "updateOrderby0"
-                                ];
-                              }
-
-                              $steps["updatePopoverOpen"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["popover", "open"]
-                                      },
-                                      operation: 0,
-                                      value: !$state.popover
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updatePopoverOpen"] != null &&
-                                typeof $steps["updatePopoverOpen"] ===
-                                  "object" &&
-                                typeof $steps["updatePopoverOpen"].then ===
-                                  "function"
-                              ) {
-                                $steps["updatePopoverOpen"] = await $steps[
-                                  "updatePopoverOpen"
                                 ];
                               }
                             }}

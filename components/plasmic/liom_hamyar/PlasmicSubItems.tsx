@@ -661,9 +661,11 @@ function PlasmicSubItems__RenderFunc(props: {
                                         )
                                       ) {
                                         window.open(
-                                          currentItem.action.split("**@@**")[2],
-                                          "_blank",
-                                          "location=no,width=800,height=600"
+                                          `/web-viow?link=${encodeURIComponent(
+                                            currentItem.action.split(
+                                              "**@@**"
+                                            )[2]
+                                          )}`
                                         );
                                       } else {
                                         switch (currentItem.action) {
@@ -729,9 +731,9 @@ function PlasmicSubItems__RenderFunc(props: {
                                       }
                                       if (link)
                                         return window.open(
-                                          link,
-                                          "_blank",
-                                          "location=no,width=800,height=600"
+                                          `/web-viow?link=${encodeURIComponent(
+                                            link
+                                          )}`
                                         );
                                     })();
                                   }
@@ -1074,9 +1076,11 @@ function PlasmicSubItems__RenderFunc(props: {
                                         )
                                       ) {
                                         window.open(
-                                          currentItem.action.split("**@@**")[2],
-                                          "_blank",
-                                          "location=no,width=800,height=600"
+                                          `/web-viow?link=${encodeURIComponent(
+                                            currentItem.action.split(
+                                              "**@@**"
+                                            )[2]
+                                          )}`
                                         );
                                       } else {
                                         switch (currentItem.action) {
@@ -1142,9 +1146,9 @@ function PlasmicSubItems__RenderFunc(props: {
                                       }
                                       if (link)
                                         return window.open(
-                                          link,
-                                          "_blank",
-                                          "location=no,width=800,height=600"
+                                          `/web-viow?link=${encodeURIComponent(
+                                            link
+                                          )}`
                                         );
                                     })();
                                   }
@@ -1450,82 +1454,33 @@ function PlasmicSubItems__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["updateShop"] = currentItem.action.includes(
+                          $steps["runCode2"] = currentItem.action.includes(
                             "directDialog"
                           )
                             ? (() => {
                                 const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["shop"]
-                                  },
-                                  operation: 0,
-                                  value:
-                                    currentItem.shopLink.split(
-                                      "directDialog-"
-                                    )[1]
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
+                                  customFunction: async () => {
+                                    return (() => {
+                                      $state.shop =
+                                        currentItem.shopLink.split(
+                                          "directDialog-"
+                                        )[1];
+                                      return ($state.actionShop =
+                                        currentItem.action);
+                                    })();
                                   }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
                                 })?.apply(null, [actionArgs]);
                               })()
                             : undefined;
                           if (
-                            $steps["updateShop"] != null &&
-                            typeof $steps["updateShop"] === "object" &&
-                            typeof $steps["updateShop"].then === "function"
+                            $steps["runCode2"] != null &&
+                            typeof $steps["runCode2"] === "object" &&
+                            typeof $steps["runCode2"].then === "function"
                           ) {
-                            $steps["updateShop"] = await $steps["updateShop"];
-                          }
-
-                          $steps["updateDirectDialog2Open"] =
-                            currentItem.action.includes("directDialog")
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["directDialog2", "open"]
-                                    },
-                                    operation: 0,
-                                    value: true
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["updateDirectDialog2Open"] != null &&
-                            typeof $steps["updateDirectDialog2Open"] ===
-                              "object" &&
-                            typeof $steps["updateDirectDialog2Open"].then ===
-                              "function"
-                          ) {
-                            $steps["updateDirectDialog2Open"] = await $steps[
-                              "updateDirectDialog2Open"
-                            ];
+                            $steps["runCode2"] = await $steps["runCode2"];
                           }
 
                           $steps["runCode"] = true
@@ -1539,9 +1494,11 @@ function PlasmicSubItems__RenderFunc(props: {
                                         )
                                       ) {
                                         window.open(
-                                          currentItem.action.split("**@@**")[2],
-                                          "_blank",
-                                          "location=no,width=800,height=600"
+                                          `/web-viow?link=${encodeURIComponent(
+                                            currentItem.action.split(
+                                              "**@@**"
+                                            )[2]
+                                          )}`
                                         );
                                       } else {
                                         switch (currentItem.action) {
@@ -1607,9 +1564,9 @@ function PlasmicSubItems__RenderFunc(props: {
                                       }
                                       if (link)
                                         return window.open(
-                                          link,
-                                          "_blank",
-                                          "location=no,width=800,height=600"
+                                          `/web-viow?link=${encodeURIComponent(
+                                            link
+                                          )}`
                                         );
                                     })();
                                   }
@@ -1625,6 +1582,45 @@ function PlasmicSubItems__RenderFunc(props: {
                             typeof $steps["runCode"].then === "function"
                           ) {
                             $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["updateDirectDialog2Open"] =
+                            currentItem.action.includes("directDialog")
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["directDialog2", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateDirectDialog2Open"] != null &&
+                            typeof $steps["updateDirectDialog2Open"] ===
+                              "object" &&
+                            typeof $steps["updateDirectDialog2Open"].then ===
+                              "function"
+                          ) {
+                            $steps["updateDirectDialog2Open"] = await $steps[
+                              "updateDirectDialog2Open"
+                            ];
                           }
                         }}
                       >

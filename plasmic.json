@@ -1767,6 +1767,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicAudioPlayer.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "obr8lLkMly1l",
+          "name": "WebViow",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicWebViow.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/web-viow.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicWebViow.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/web-viow"
         }
       ],
       "icons": [

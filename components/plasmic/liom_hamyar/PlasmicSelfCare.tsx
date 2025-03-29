@@ -289,9 +289,6 @@ function PlasmicSelfCare__RenderFunc(props: {
                   )}&userId=${
                     JSON.parse(window.localStorage.getItem("userinfo")).user.id
                   }`
-                },
-                {
-                  type: "#notifSettings"
                 }
               ];
             } catch (e) {
@@ -371,6 +368,71 @@ function PlasmicSelfCare__RenderFunc(props: {
                   return;
                 }
               }}
+              token={(() => {
+                try {
+                  return localStorage.getItem("token");
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              userinfo={(() => {
+                try {
+                  return JSON.parse(window.localStorage.getItem("userinfo"))
+                    .user;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return {
+                      mobile: false,
+                      username: "guest_3DiroEaKCW",
+                      name: "jjjj",
+                      last_time: {
+                        year: 2025,
+                        month: 2,
+                        day: 9,
+                        hour: 0,
+                        minute: 0,
+                        second: 0,
+                        nanosecond: 0,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      cycle: 20,
+                      length: 5,
+                      image: "https://liom-app.ir/data/profile/default.png",
+                      biorhythm: {
+                        date: "2025-03-05T05:32:07.747Z",
+                        advice:
+                          "- \u0628\u0647 \u06a9\u0633\u06cc \u06a9\u0647 \u062e\u06cc\u0644\u06cc \u062f\u0648\u0633\u062a\u0634 \u062f\u0627\u0631\u06cc \u0632\u0646\u06af \u0628\u0632\u0646 \u06cc\u0627 \u067e\u06cc\u0627\u0645 \u0628\u062f\u0647.\n- \u0627\u06af\u0647 \u0627\u0645\u0631\u0648\u0632 \u0627\u062d\u0633\u0627\u0633 \u0628\u06cc \u062d\u0627\u0644\u06cc \u0648 \u06a9\u0633\u0627\u0644\u062a \u062f\u0627\u0631\u06cc \u0648 \u062f\u0644\u062a \u0646\u0645\u06cc\u062e\u0648\u0627\u062f \u0641\u0639\u0627\u0644\u06cc\u062a \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0627\u0634\u06a9\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc \u0645\u062f\u06cc\u062a\u06cc\u0634\u0646 \u06a9\u0646\u06cc \u062a\u0627 \u0627\u062d\u0633\u0627\u0633 \u062e\u0648\u0628\u06cc \u067e\u06cc\u062f\u0627 \u06a9\u0646\u06cc.\n- \u0627\u0645\u0631\u0648\u0632 \u0632\u0645\u0627\u0646 \u062e\u0648\u0628\u06cc \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u0648 \u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u06a9\u0631\u062f\u0646\u0647.\n",
+                        avg: 13,
+                        physical: -100,
+                        emotional: 43,
+                        intellectual: 95
+                      },
+                      id: "ee975e9c-19dd-42fc-b7d7-8822f621b4f8",
+                      healthStatus: "period",
+                      birthDate: {
+                        year: 2002,
+                        month: 1,
+                        day: 7,
+                        hour: 0,
+                        minute: 0,
+                        second: 0,
+                        nanosecond: 0,
+                        timeZoneOffsetSeconds: 0
+                      }
+                    };
+                  }
+                  throw e;
+                }
+              })()}
             >
               <Stack__
                 as={"div"}
