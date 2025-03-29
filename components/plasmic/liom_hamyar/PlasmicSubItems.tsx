@@ -673,7 +673,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                         switch (currentItem.action) {
                                           case "#irregularQuestion":
                                             {
-                                              var link = `https://tools.liom.app/self-test/?app=liom&inApp=true&type=irregular&origin=liom_selfcare_pwa&token=${localStorage.getItem(
+                                              var link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${localStorage.getItem(
                                                 "token"
                                               )}&userId=${
                                                 JSON.parse(
@@ -681,7 +681,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                                     "userinfo"
                                                   )
                                                 ).user.id
-                                              }`;
+                                              }&home-page=https://apps.liom.app/Self-care/`;
                                             }
                                             break;
                                           case "#directDialog-pregnancy_self_test_sub":
@@ -731,7 +731,10 @@ function PlasmicSubItems__RenderFunc(props: {
                                           }
                                         }
                                       }
-                                      if (link) return ($state.link = link);
+                                      if (link)
+                                        return ($state.link = `/web-viow?link=${encodeURIComponent(
+                                          link
+                                        )}`);
                                     })();
                                   }
                                 };
@@ -1120,7 +1123,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                         switch (currentItem.action) {
                                           case "#irregularQuestion":
                                             {
-                                              var link = `https://tools.liom.app/self-test/?app=liom&inApp=true&type=irregular&origin=liom_selfcare_pwa&token=${localStorage.getItem(
+                                              var link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${localStorage.getItem(
                                                 "token"
                                               )}&userId=${
                                                 JSON.parse(
@@ -1128,7 +1131,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                                     "userinfo"
                                                   )
                                                 ).user.id
-                                              }`;
+                                              }&home-page=https://apps.liom.app/Self-care/`;
                                             }
                                             break;
                                           case "#directDialog-pregnancy_self_test_sub":
@@ -1178,7 +1181,10 @@ function PlasmicSubItems__RenderFunc(props: {
                                           }
                                         }
                                       }
-                                      if (link) return ($state.link = link);
+                                      if (link)
+                                        return ($state.link = `/web-viow?link=${encodeURIComponent(
+                                          link
+                                        )}`);
                                     })();
                                   }
                                 };
@@ -1570,7 +1576,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                         switch (currentItem.action) {
                                           case "#irregularQuestion":
                                             {
-                                              var link = `https://tools.liom.app/self-test/?app=liom&inApp=true&type=irregular&origin=liom_selfcare_pwa&token=${localStorage.getItem(
+                                              var link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${localStorage.getItem(
                                                 "token"
                                               )}&userId=${
                                                 JSON.parse(
@@ -1578,7 +1584,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                                     "userinfo"
                                                   )
                                                 ).user.id
-                                              }`;
+                                              }&home-page=https://apps.liom.app/Self-care/`;
                                             }
                                             break;
                                           case "#directDialog-pregnancy_self_test_sub":
@@ -1628,7 +1634,10 @@ function PlasmicSubItems__RenderFunc(props: {
                                           }
                                         }
                                       }
-                                      if (link) return ($state.link = link);
+                                      if (link)
+                                        return ($state.link = `/web-viow?link=${encodeURIComponent(
+                                          link
+                                        )}`);
                                     })();
                                   }
                                 };
