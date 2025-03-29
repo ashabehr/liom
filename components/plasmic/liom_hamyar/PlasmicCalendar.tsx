@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -92,7 +92,6 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import Subscription from "../../Subscription"; // plasmic-import: RkqUeSl2AMb8/component
 import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
-import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -192,7 +191,6 @@ export type PlasmicCalendar__OverridesType = {
   button21?: Flex__<typeof Button>;
   directDialog?: Flex__<typeof DirectDialog2>;
   mainHeader?: Flex__<typeof MainHeader>;
-  iframe?: Flex__<typeof Iframe>;
   timer?: Flex__<typeof Timer>;
 };
 
@@ -63460,59 +63458,12 @@ function PlasmicCalendar__RenderFunc(props: {
               </Stack__>
             </MainHeader>
           </section>
-          {(
-            hasVariant(globalVariants, "screen", "mobile")
-              ? (() => {
-                  try {
-                    return (() => {
-                      return (
-                        !localStorage.getItem("addHome") &&
-                        /iPhone|iPod/.test(window.navigator.userAgent)
-                      );
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-              : (() => {
-                  try {
-                    return (() => {
-                      return (
-                        !localStorage.getItem("addHome") &&
-                        /iPhone|iPod/.test(window.navigator.userAgent)
-                      );
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-          ) ? (
-            <Iframe
-              data-plasmic-name={"iframe"}
-              data-plasmic-override={overrides.iframe}
-              className={classNames("__wab_instance", sty.iframe)}
-              preview={true}
-              src={"/add-to-home/"}
-            />
-          ) : null}
           <Timer
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
             className={classNames("__wab_instance", sty.timer)}
             intervalSeconds={1}
-            isRunning={true}
+            isRunning={false}
             onTick={async () => {
               const $steps = {};
 
@@ -63545,7 +63496,7 @@ function PlasmicCalendar__RenderFunc(props: {
                 $steps["updateAddHome"] = await $steps["updateAddHome"];
               }
             }}
-            runWhileEditing={true}
+            runWhileEditing={false}
           />
         </div>
       </div>
@@ -63607,7 +63558,6 @@ const PlasmicDescendants = {
     "button21",
     "directDialog",
     "mainHeader",
-    "iframe",
     "timer"
   ],
   favicon: ["favicon"],
@@ -63717,7 +63667,6 @@ const PlasmicDescendants = {
   button21: ["button21"],
   directDialog: ["directDialog"],
   mainHeader: ["mainHeader"],
-  iframe: ["iframe"],
   timer: ["timer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -63776,7 +63725,6 @@ type NodeDefaultElementType = {
   button21: typeof Button;
   directDialog: typeof DirectDialog2;
   mainHeader: typeof MainHeader;
-  iframe: typeof Iframe;
   timer: typeof Timer;
 };
 
@@ -63916,7 +63864,6 @@ export const PlasmicCalendar = Object.assign(
     button21: makeNodeComponent("button21"),
     directDialog: makeNodeComponent("directDialog"),
     mainHeader: makeNodeComponent("mainHeader"),
-    iframe: makeNodeComponent("iframe"),
     timer: makeNodeComponent("timer"),
 
     // Metadata about props expected for PlasmicCalendar

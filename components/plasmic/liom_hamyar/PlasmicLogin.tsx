@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -74,6 +74,7 @@ import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/compone
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -179,6 +180,7 @@ export type PlasmicLogin__OverridesType = {
   button5?: Flex__<typeof Button>;
   rules?: Flex__<typeof AntdModal>;
   top?: Flex__<"div">;
+  iframe?: Flex__<typeof Iframe>;
 };
 
 export interface DefaultLoginProps {}
@@ -803,6 +805,12 @@ function PlasmicLogin__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "addHome",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -943,6 +951,29 @@ function PlasmicLogin__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
+              $steps["runCode4"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if (window.history.length == 1)
+                            return localStorage.setItem("addHome", "true");
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode4"] != null &&
+                typeof $steps["runCode4"] === "object" &&
+                typeof $steps["runCode4"].then === "function"
+              ) {
+                $steps["runCode4"] = await $steps["runCode4"];
+              }
+
               $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
@@ -956,7 +987,7 @@ function PlasmicLogin__RenderFunc(props: {
                           console.log($state.paramsObject);
                           const redirectUrl = $state.paramsObject.redirect_url;
                           let isValid = false;
-                          if (redirectUrl) {
+                          if (redirectUrl && redirectUrl != "") {
                             try {
                               const domain = new URL(redirectUrl).hostname;
                               isValid =
@@ -18687,6 +18718,91 @@ function PlasmicLogin__RenderFunc(props: {
               </Stack__>
             </div>
           ) : null}
+          {(
+            hasVariant(globalVariants, "screen", "mobile")
+              ? (() => {
+                  try {
+                    return (() => {
+                      return (
+                        !localStorage.getItem("addHome") &&
+                        /iPhone|iPod/.test(window.navigator.userAgent)
+                      );
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+              : (() => {
+                  try {
+                    return (() => {
+                      return (
+                        !localStorage.getItem("addHome") &&
+                        /iPhone|iPod/.test(window.navigator.userAgent)
+                      );
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+          ) ? (
+            <Iframe
+              data-plasmic-name={"iframe"}
+              data-plasmic-override={overrides.iframe}
+              className={classNames("__wab_instance", sty.iframe)}
+              preview={true}
+              src={"/add-to-home/"}
+            />
+          ) : null}
+          <Timer
+            className={classNames("__wab_instance", sty.timer__alA4K)}
+            intervalSeconds={1}
+            isRunning={true}
+            onTick={async () => {
+              const $steps = {};
+
+              $steps["updateAddHome"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["addHome"]
+                      },
+                      operation: 0,
+                      value: localStorage.getItem("addHome") ? false : true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateAddHome"] != null &&
+                typeof $steps["updateAddHome"] === "object" &&
+                typeof $steps["updateAddHome"].then === "function"
+              ) {
+                $steps["updateAddHome"] = await $steps["updateAddHome"];
+              }
+            }}
+            runWhileEditing={false}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -18737,7 +18853,8 @@ const PlasmicDescendants = {
     "antdInput5",
     "button5",
     "rules",
-    "top"
+    "top",
+    "iframe"
   ],
   favicon: ["favicon"],
   sideEffect: ["sideEffect"],
@@ -18780,7 +18897,8 @@ const PlasmicDescendants = {
   antdInput5: ["antdInput5"],
   button5: ["button5"],
   rules: ["rules", "top"],
-  top: ["top"]
+  top: ["top"],
+  iframe: ["iframe"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -18829,6 +18947,7 @@ type NodeDefaultElementType = {
   button5: typeof Button;
   rules: typeof AntdModal;
   top: "div";
+  iframe: typeof Iframe;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -18958,6 +19077,7 @@ export const PlasmicLogin = Object.assign(
     button5: makeNodeComponent("button5"),
     rules: makeNodeComponent("rules"),
     top: makeNodeComponent("top"),
+    iframe: makeNodeComponent("iframe"),
 
     // Metadata about props expected for PlasmicLogin
     internalVariantProps: PlasmicLogin__VariantProps,
