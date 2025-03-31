@@ -22,6 +22,12 @@
 .rootdisable {
   background: var(--token-7kGpohB21SKn);
 }
+.rootstyle2_line {
+  border-width: 0px;
+}
+.rootcolor_light_selected {
+  background: var(--token-xZSjH46lB6C3);
+}
 .freeBox {
   width: 100%;
   height: auto;
@@ -38,4 +44,7 @@
 }
 .slotTargetChildrenselected {
   color: var(--token-jgohepLVeKvh);
+}
+.slotTargetChildrencolor_light_selected {
+  color: var(--token-SX03PBUzWAqr);
 }
