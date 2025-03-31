@@ -666,9 +666,14 @@ function PlasmicSubItems__RenderFunc(props: {
                                           "inAppWebView"
                                         )
                                       ) {
-                                        var link = currentItem.action
-                                          .split("**@@**")[2]
-                                          .replace("inApp=true", "inApp=false");
+                                        var link =
+                                          currentItem.action
+                                            .split("**@@**")[2]
+                                            .replace(
+                                              "inApp=true",
+                                              "inApp=false"
+                                            ) +
+                                          `&home-page=https://apps.liom.app/Self-care/`;
                                       } else {
                                         switch (currentItem.action) {
                                           case "#irregularQuestion":
@@ -1116,9 +1121,14 @@ function PlasmicSubItems__RenderFunc(props: {
                                           "inAppWebView"
                                         )
                                       ) {
-                                        var link = currentItem.action
-                                          .split("**@@**")[2]
-                                          .replace("inApp=true", "inApp=false");
+                                        var link =
+                                          currentItem.action
+                                            .split("**@@**")[2]
+                                            .replace(
+                                              "inApp=true",
+                                              "inApp=false"
+                                            ) +
+                                          `&home-page=https://apps.liom.app/Self-care/`;
                                       } else {
                                         switch (currentItem.action) {
                                           case "#irregularQuestion":
@@ -1569,9 +1579,14 @@ function PlasmicSubItems__RenderFunc(props: {
                                           "inAppWebView"
                                         )
                                       ) {
-                                        var link = currentItem.action
-                                          .split("**@@**")[2]
-                                          .replace("inApp=true", "inApp=false");
+                                        var link =
+                                          currentItem.action
+                                            .split("**@@**")[2]
+                                            .replace(
+                                              "inApp=true",
+                                              "inApp=false"
+                                            ) +
+                                          `&home-page=https://apps.liom.app/Self-care/`;
                                       } else {
                                         switch (currentItem.action) {
                                           case "#irregularQuestion":

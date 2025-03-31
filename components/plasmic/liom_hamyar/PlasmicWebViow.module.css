@@ -22,7 +22,6 @@
   grid-column: 4;
 }
 .section {
-  display: grid;
   position: fixed;
   align-content: flex-start;
   justify-items: center;
@@ -33,6 +32,7 @@
   top: 0;
   z-index: 1;
   right: 0;
+  display: none;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(

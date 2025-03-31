@@ -72,6 +72,7 @@ import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-impor
 import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -84,6 +85,7 @@ import sty from "./PlasmicSelfSmsPage.module.css"; // plasmic-import: sERPxqzz7w
 
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
 
@@ -104,6 +106,9 @@ export type PlasmicSelfSmsPage__OverridesType = {
   button2?: Flex__<typeof Button>;
   button?: Flex__<typeof Button>;
   lottie?: Flex__<typeof LottieWrapper>;
+  section?: Flex__<"section">;
+  headerLiom?: Flex__<typeof HeaderLiom>;
+  svg?: Flex__<"svg">;
 };
 
 export interface DefaultSelfSmsPageProps {}
@@ -304,7 +309,24 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
             sty.root
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__s7Ms7)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__s7Ms7)}
+            style={(() => {
+              try {
+                return {
+                  "padding-top": $ctx.query.inApp == "false" ? `58px` : `8px`
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          >
             <Embed
               data-plasmic-name={"embedHtml"}
               data-plasmic-override={overrides.embedHtml}
@@ -36159,6 +36181,81 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               </React.Fragment>
             </div>
           </div>
+          {(() => {
+            try {
+              return $ctx.query.inApp == "false";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <section
+              data-plasmic-name={"section"}
+              data-plasmic-override={overrides.section}
+              className={classNames(projectcss.all, sty.section)}
+            >
+              <HeaderLiom
+                data-plasmic-name={"headerLiom"}
+                data-plasmic-override={overrides.headerLiom}
+                className={classNames("__wab_instance", sty.headerLiom)}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__bNved)}
+                >
+                  <XIcon
+                    data-plasmic-name={"svg"}
+                    data-plasmic-override={overrides.svg}
+                    className={classNames(projectcss.all, sty.svg)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return window.history.back();
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__nJwMo
+                    )}
+                  >
+                    {
+                      "\u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0628\u0647 \u062e\u0648\u062f\u062a"
+                    }
+                  </div>
+                </Stack__>
+              </HeaderLiom>
+            </section>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -36173,14 +36270,20 @@ const PlasmicDescendants = {
     "countdown",
     "button2",
     "button",
-    "lottie"
+    "lottie",
+    "section",
+    "headerLiom",
+    "svg"
   ],
   embedHtml: ["embedHtml"],
   getSub: ["getSub"],
   countdown: ["countdown"],
   button2: ["button2"],
   button: ["button"],
-  lottie: ["lottie"]
+  lottie: ["lottie"],
+  section: ["section", "headerLiom", "svg"],
+  headerLiom: ["headerLiom", "svg"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -36193,6 +36296,9 @@ type NodeDefaultElementType = {
   button2: typeof Button;
   button: typeof Button;
   lottie: typeof LottieWrapper;
+  section: "section";
+  headerLiom: typeof HeaderLiom;
+  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -36286,6 +36392,9 @@ export const PlasmicSelfSmsPage = Object.assign(
     button2: makeNodeComponent("button2"),
     button: makeNodeComponent("button"),
     lottie: makeNodeComponent("lottie"),
+    section: makeNodeComponent("section"),
+    headerLiom: makeNodeComponent("headerLiom"),
+    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicSelfSmsPage
     internalVariantProps: PlasmicSelfSmsPage__VariantProps,

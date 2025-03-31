@@ -272,7 +272,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                   type: "#inAppWebView",
                   action: `/self-sms-page?token=${localStorage.getItem(
                     "token"
-                  )}`
+                  )}&inApp=false`
                 },
                 {
                   type: "#hamyarInfo",
