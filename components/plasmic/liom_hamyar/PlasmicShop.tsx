@@ -95,6 +95,7 @@ import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import Icon141Icon from "./icons/PlasmicIcon__Icon141"; // plasmic-import: AP97-wr5VCl4/icon
 import Icon142Icon from "./icons/PlasmicIcon__Icon142"; // plasmic-import: SJsM-_NDX4Yl/icon
+import Icon215Icon from "./icons/PlasmicIcon__Icon215"; // plasmic-import: VvAUQSc8cOrq/icon
 
 import { differenceInHours as __lib_dateFns__differenceInHours } from "date-fns";
 
@@ -915,11 +916,24 @@ function PlasmicShop__RenderFunc(props: {
               })()}
               style2={"line"}
             >
-              <Icon214Icon
-                className={classNames(projectcss.all, sty.svg__kbRk0)}
-                role={"img"}
-              />
-
+              {(() => {
+                try {
+                  return $state.allowanceUser.length > 0;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Icon214Icon
+                  className={classNames(projectcss.all, sty.svg__kbRk0)}
+                  role={"img"}
+                />
+              ) : null}
               <div
                 className={classNames(
                   projectcss.all,
@@ -4435,134 +4449,223 @@ function PlasmicShop__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__yMcLj)}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__s0QZi)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zljXr
-                    )}
+                {(() => {
+                  try {
+                    return $state.allowanceUser.length > 0;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__f3Jan)}
                   >
-                    {
-                      "\u0639\u0646\u0648\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9"
-                    }
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__xXff
-                    )}
-                  >
-                    {
-                      "\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647"
-                    }
-                  </div>
-                </div>
-                <Embed
-                  data-plasmic-name={"embedHtml"}
-                  data-plasmic-override={overrides.embedHtml}
-                  className={classNames("__wab_instance", sty.embedHtml)}
-                  code={"<hr></hr>"}
-                />
-
-                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                  (() => {
-                    try {
-                      return $state.allowanceUser;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()
-                ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                  const currentItem = __plasmic_item_0;
-                  const currentIndex = __plasmic_idx_0;
-                  return (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__m7Xwk)}
-                      key={currentIndex}
+                      className={classNames(projectcss.all, sty.freeBox__s0QZi)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__wyCVb
+                          sty.text__zljXr
                         )}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem.text;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0639\u0646\u0648\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
+                        {
+                          "\u0639\u0646\u0648\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9"
+                        }
                       </div>
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__d0Z6M
+                          sty.text__xXff
                         )}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (() => {
-                                if (currentItem.always) {
-                                  return "فعال برای همیشه";
-                                } else {
-                                  var t = currentItem.time;
-                                  const targetDate = new Date(
-                                    t.year,
-                                    t.month,
-                                    t.day,
-                                    t.hour,
-                                    t.minute,
-                                    t.second
-                                  );
-                                  const currentDate = new Date();
-                                  const totalHoursRemaining =
-                                    $$.dateFns.differenceInHours(
-                                      targetDate,
-                                      currentDate
-                                    );
-                                  const daysRemaining = Math.floor(
-                                    totalHoursRemaining / 24
-                                  );
-                                  const hoursRemaining =
-                                    totalHoursRemaining % 24;
-                                  return `${daysRemaining} روز ${hoursRemaining} ساعت`;
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
+                        {
+                          "\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647"
+                        }
                       </div>
                     </div>
-                  );
-                })}
+                    <Embed
+                      data-plasmic-name={"embedHtml"}
+                      data-plasmic-override={overrides.embedHtml}
+                      className={classNames("__wab_instance", sty.embedHtml)}
+                      code={"<hr></hr>"}
+                    />
+
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.allowanceUser;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__m7Xwk
+                          )}
+                          key={currentIndex}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__wyCVb
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.text;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u0639\u0646\u0648\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__d0Z6M
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (() => {
+                                    if (currentItem.always) {
+                                      return "فعال برای همیشه";
+                                    } else {
+                                      var t = currentItem.time;
+                                      const targetDate = new Date(
+                                        t.year,
+                                        t.month,
+                                        t.day,
+                                        t.hour,
+                                        t.minute,
+                                        t.second
+                                      );
+                                      const currentDate = new Date();
+                                      const totalHoursRemaining =
+                                        $$.dateFns.differenceInHours(
+                                          targetDate,
+                                          currentDate
+                                        );
+                                      const daysRemaining = Math.floor(
+                                        totalHoursRemaining / 24
+                                      );
+                                      const hoursRemaining =
+                                        totalHoursRemaining % 24;
+                                      return `${daysRemaining} روز ${hoursRemaining} ساعت`;
+                                    }
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </Stack__>
+                ) : null}
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__h9Bb9)}
+                >
+                  <Icon215Icon
+                    className={classNames(projectcss.all, sty.svg__g1Fm6)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateShopPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["shopPage"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateShopPage"] != null &&
+                        typeof $steps["updateShopPage"] === "object" &&
+                        typeof $steps["updateShopPage"].then === "function"
+                      ) {
+                        $steps["updateShopPage"] = await $steps[
+                          "updateShopPage"
+                        ];
+                      }
+                    }}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__gCeYl
+                    )}
+                  >
+                    {
+                      "\u0627\u0641\u0632\u0648\u062f\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                    }
+                  </div>
+                </Stack__>
               </Stack__>
             </Reveal>
           ) : null}
