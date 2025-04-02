@@ -265,6 +265,11 @@ function PlasmicPost__RenderFunc(props: {
             $state,
             "postType",
             "image"
+          ),
+          [sty.freeBoxpostType_voise__eUk9VVlsyu]: hasVariant(
+            $state,
+            "postType",
+            "voise"
           )
         })}
         onClick={async event => {
@@ -360,6 +365,11 @@ function PlasmicPost__RenderFunc(props: {
             $state,
             "postType",
             "image"
+          ),
+          [sty.freeBoxpostType_voise__cx2BkVlsyu]: hasVariant(
+            $state,
+            "postType",
+            "voise"
           )
         })}
       >
@@ -372,7 +382,9 @@ function PlasmicPost__RenderFunc(props: {
         data-plasmic-name={"image3"}
         data-plasmic-override={overrides.image3}
         className={classNames(projectcss.all, sty.image3, {
-          [sty.image3postType_image]: hasVariant($state, "postType", "image")
+          [sty.image3postType_image]: hasVariant($state, "postType", "image"),
+          [sty.image3postType_video]: hasVariant($state, "postType", "video"),
+          [sty.image3postType_voise]: hasVariant($state, "postType", "voise")
         })}
         onClick={async event => {
           const $steps = {};
@@ -444,6 +456,11 @@ function PlasmicPost__RenderFunc(props: {
             "postType",
             "image"
           ),
+          [sty.freeBoxpostType_video__fbVqi1UrG6]: hasVariant(
+            $state,
+            "postType",
+            "video"
+          ),
           [sty.freeBoxpostType_voise__fbVqiVlsyu]: hasVariant(
             $state,
             "postType",
@@ -474,6 +491,16 @@ function PlasmicPost__RenderFunc(props: {
             $state,
             "postType",
             "image"
+          ),
+          [sty.freeBoxpostType_video__oMc1N1UrG6]: hasVariant(
+            $state,
+            "postType",
+            "video"
+          ),
+          [sty.freeBoxpostType_voise__oMc1NVlsyu]: hasVariant(
+            $state,
+            "postType",
+            "voise"
           )
         })}
       >

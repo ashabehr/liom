@@ -5,23 +5,23 @@ import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-we
 import GlobalContextsProvider from "../../components/plasmic/todo_mvc_app/PlasmicGlobalContextsProvider";
 import { UnnamedGlobalGroupOfVariants4Context } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
 import { UnnamedGlobalGroupOfVariants5Context } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
-import { PlasmicSocialPost } from "../../components/plasmic/liom_hamyar/PlasmicSocialPost";
+import { PlasmicSocialMain } from "../../components/plasmic/liom_hamyar/PlasmicSocialMain";
 import { useRouter } from "next/router";
 
-function SocialPost() {
-  // Use PlasmicSocialPost to render this component as it was
+function SocialMain() {
+  // Use PlasmicSocialMain to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicSocialPost are:
+  // Props you can pass into PlasmicSocialMain are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicSocialPost is wrapped by your project's global
+  // By default, PlasmicSocialMain is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
@@ -35,7 +35,7 @@ function SocialPost() {
             params={useRouter()?.query}
             query={useRouter()?.query}
           >
-            <PlasmicSocialPost />
+            <PlasmicSocialMain />
           </PageParamsProvider__>
         </GlobalContextsProvider>
       </UnnamedGlobalGroupOfVariants4Context.Provider>
@@ -43,4 +43,4 @@ function SocialPost() {
   );
 }
 
-export default SocialPost;
+export default SocialMain;

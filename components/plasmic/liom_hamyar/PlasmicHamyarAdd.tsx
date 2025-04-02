@@ -2466,8 +2466,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
               try {
                 return {
                   authorization: $state.token,
-                  type: $state.type,
-                  a: $state.v
+                  type: $state.type
                 };
               } catch (e) {
                 if (

@@ -3088,9 +3088,16 @@ function PlasmicCalendar__RenderFunc(props: {
                       );
                     }
                     let token = tokenFromUrl || localStorage.getItem("token");
-                    return { authorization: token };
+                    $state.variable;
+                    return {
+                      authorization: token,
+                      load: $state.variable
+                    };
                   } catch {
-                    return { authorization: localStorage.getItem("token") };
+                    return {
+                      authorization: localStorage.getItem("token"),
+                      load: $state.variable
+                    };
                   }
                 })();
               } catch (e) {
@@ -60391,25 +60398,38 @@ function PlasmicCalendar__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["refreshData"] = true
+                    $steps["updateVariable"] = true
                       ? (() => {
                           const actionArgs = {
-                            queryInvalidation: ["plasmic_refresh_all"]
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["variable"]
+                            },
+                            operation: 0,
+                            value: $state.variable + 6
                           };
-                          return (async ({ queryInvalidation }) => {
-                            if (!queryInvalidation) {
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
                               return;
                             }
-                            await plasmicInvalidate(queryInvalidation);
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["refreshData"] != null &&
-                      typeof $steps["refreshData"] === "object" &&
-                      typeof $steps["refreshData"].then === "function"
+                      $steps["updateVariable"] != null &&
+                      typeof $steps["updateVariable"] === "object" &&
+                      typeof $steps["updateVariable"].then === "function"
                     ) {
-                      $steps["refreshData"] = await $steps["refreshData"];
+                      $steps["updateVariable"] = await $steps["updateVariable"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {

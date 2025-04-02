@@ -295,20 +295,6 @@
           "path": "/404"
         },
         {
-          "id": "tYS7qTEXu2fL",
-          "name": "NewPage",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNewPage.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/new-page.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicNewPage.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/new-page"
-        },
-        {
           "id": "ICEDCae_eByz",
           "name": "Header2",
           "type": "managed",
@@ -1197,20 +1183,6 @@
           "componentType": "component"
         },
         {
-          "id": "iNHFQ5RIM3Tb",
-          "name": "SocialPage",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSocialPage.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/new-page-2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSocialPage.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/new-page-2"
-        },
-        {
           "id": "nEoiheI66Xy-",
           "name": "ShopResult2",
           "type": "managed",
@@ -1781,6 +1753,61 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/web-viow"
+        },
+        {
+          "id": "tYS7qTEXu2fL",
+          "name": "Social",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSocial.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/new-page.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSocial.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-page"
+        },
+        {
+          "id": "iNHFQ5RIM3Tb",
+          "name": "SocialPost",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSocialPost.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/new-page-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSocialPost.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-page-2"
+        },
+        {
+          "id": "dIQxBnzf8Ez0",
+          "name": "SocialMain",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSocialMain.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/social-main.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSocialMain.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/social-main"
+        },
+        {
+          "id": "SYaNz6kkwV8r",
+          "name": "Story",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicStory.tsx",
+          "importSpec": {
+            "modulePath": "Story.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicStory.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

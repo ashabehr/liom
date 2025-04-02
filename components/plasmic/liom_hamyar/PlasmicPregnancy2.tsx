@@ -2216,6 +2216,31 @@ function PlasmicPregnancy2__RenderFunc(props: {
                           )
                         }
                       )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return window.deepLink("aaaaa");
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
                     >
                       <div
                         className={classNames(
@@ -10317,6 +10342,16 @@ function PlasmicPregnancy2__RenderFunc(props: {
             code={
               '<script>\r\nvar stickySection = document.getElementById("sticky-section");\r\nvar offset = 0; // \u0641\u0627\u0635\u0644\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0645\u06cc\u200c\u062e\u0648\u0627\u0647\u06cc\u062f \u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u062a\u063a\u06cc\u06cc\u0631 \u0648\u0636\u0639\u06cc\u062a \u062f\u0631 \u0646\u0638\u0631 \u0628\u06af\u06cc\u0631\u06cc\u062f.\r\n\r\nwindow.onscroll = function() {\r\n    // \u0645\u0648\u0642\u0639\u06cc\u062a \u062f\u0642\u06cc\u0642 \u0639\u0646\u0635\u0631 \u0646\u0633\u0628\u062a \u0628\u0647 \u067e\u0646\u062c\u0631\u0647 (viewport)\r\n    var rect = stickySection.getBoundingClientRect();\r\n    \r\n    // \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 document.documentElement.scrollTop \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u0648\u0642\u0639\u06cc\u062a \u067e\u06cc\u0645\u0627\u06cc\u0634\r\n    var position = document.documentElement.scrollTop || document.body.scrollTop;\r\n\r\n    // \u0628\u0631\u0631\u0633\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0622\u06cc\u0627 \u0628\u0627\u06cc\u062f \u0648\u0636\u0639\u06cc\u062a \u0628\u0647 "fixed" \u062a\u063a\u06cc\u06cc\u0631 \u06a9\u0646\u062f \u06cc\u0627 \u0646\u0647\r\n    if (position > rect.top +offset) {\r\n        stickySection.style.position = "fixed";\r\n        stickySection.style.top = "0"; // \u0639\u0646\u0635\u0631 \u0627\u0632 \u0628\u0627\u0644\u0627 \u0628\u0647 \u0627\u0646\u062f\u0627\u0632\u0647 \u0635\u0641\u0631 \u067e\u06cc\u06a9\u0633\u0644\u06cc \u0628\u0686\u0633\u0628\u062f.\r\n        console.log("fixed");\r\n    } else {\r\n        stickySection.style.position = "relative";\r\n        stickySection.style.top = "auto"; // \u0628\u0647 \u062d\u0627\u0644\u062a \u0627\u0648\u0644\u06cc\u0647 \u0628\u0631\u06af\u0631\u062f\u062f.\r\n        console.log("relative");\r\n    }\r\n\r\n    // \u0639\u0631\u0636 \u06a9\u0627\u0645\u0644 \u0648 \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0647\u0645\u200c\u067e\u0648\u0634\u0627\u0646\u06cc\r\n    stickySection.style.width = "100%";\r\n    stickySection.style.zIndex = "100";\r\n};\r\n\r\n</script>'
             }
+          />
+
+          <Embed
+            className={classNames("__wab_instance", sty.embedHtml__zvA40)}
+            code={`<script>
+  window.deepLink = function (action) {
+    console.log(action)
+  }
+</script>
+`}
           />
 
           <Embed
