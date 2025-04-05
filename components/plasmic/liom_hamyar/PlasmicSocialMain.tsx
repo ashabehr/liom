@@ -318,6 +318,9 @@ function PlasmicSocialMain__RenderFunc(props: {
               </Stack__>
             </div>
           </div>
+          <div className={classNames(projectcss.all, sty.freeBox__rjNb)}>
+            <div className={classNames(projectcss.all, sty.freeBox__ybpyR)} />
+          </div>
           <DataFetcher
             data-plasmic-name={"getInfo"}
             data-plasmic-override={overrides.getInfo}
@@ -347,6 +350,8 @@ function PlasmicSocialMain__RenderFunc(props: {
             noLayout={false}
             url={"https://n8n.staas.ir/webhook/rest/social"}
           />
+
+          <div className={classNames(projectcss.all, sty.freeBox__ggOLq)} />
         </div>
       </div>
     </React.Fragment>

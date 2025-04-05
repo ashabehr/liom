@@ -301,9 +301,52 @@
 .type:global(.__wab_instance) {
   position: relative;
 }
+.freeBox__rjNb {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  background: var(--token-Y4frplZPI0IJ);
+  min-width: 0;
+  padding: 12px;
+}
+.freeBox__ybpyR {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  background: var(--token-R_Rsn0nP9oIv);
+  min-width: 0;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid var(--token-rGxK1TpZE_rW);
+}
 .getInfo:global(.__wab_instance) {
   width: 100%;
   max-width: 100%;
   object-fit: cover;
   min-width: 0;
+}
+.freeBox__ggOLq {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  left: 283px;
+  top: 436px;
+  z-index: 1;
+  min-width: 0;
+  padding: 8px;
 }
