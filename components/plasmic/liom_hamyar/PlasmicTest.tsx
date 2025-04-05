@@ -88,6 +88,7 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
   button?: Flex__<typeof Button>;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultTestProps {}
@@ -129,6 +130,8 @@ function PlasmicTest__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -204,27 +207,52 @@ function PlasmicTest__RenderFunc(props: {
             onClick={async event => {
               const $steps = {};
 
-              $steps["runCode"] = true
+              $steps["invokeGlobalAction"] = true
                 ? (() => {
                     const actionArgs = {
-                      customFunction: async () => {
-                        return window.open(
-                          "https://apps.liom.app/shop?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyYWRlNjBlLWYyZTEtNDIwNi05NzNiLTIwNDYzYjhlM2FmNCIsImlhdCI6MTczODgzNzg3Nn0.iaZlGzwVEN5P0kQMgdTy2sNsBIbJai8WAG1sSDhqpL4",
-                          "_self"
-                        );
-                      }
+                      args: ["success", "DJLJDLJSJDL", "bottom-center", 10000]
                     };
-                    return (({ customFunction }) => {
-                      return customFunction();
+                    return $globalActions["Fragment.showToast"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["updateIntro"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["intro"]
+                      },
+                      operation: 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
               if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
+                $steps["updateIntro"] != null &&
+                typeof $steps["updateIntro"] === "object" &&
+                typeof $steps["updateIntro"].then === "function"
               ) {
-                $steps["runCode"] = await $steps["runCode"];
+                $steps["updateIntro"] = await $steps["updateIntro"];
               }
             }}
             onColorChange={async (...eventArgs: any) => {
@@ -242,7 +270,19 @@ function PlasmicTest__RenderFunc(props: {
                 return;
               }
             }}
-          />
+          >
+            <div
+              data-plasmic-name={"text"}
+              data-plasmic-override={overrides.text}
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text
+              )}
+            >
+              {" "}
+            </div>
+          </Button>
         </div>
       </div>
     </React.Fragment>
@@ -250,8 +290,9 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button"],
-  button: ["button"]
+  root: ["root", "button", "text"],
+  button: ["button", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -259,6 +300,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   button: typeof Button;
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -347,6 +389,7 @@ export const PlasmicTest = Object.assign(
   {
     // Helper components rendering sub-elements
     button: makeNodeComponent("button"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,
