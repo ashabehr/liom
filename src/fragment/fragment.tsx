@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
 import toast, { ToastPosition, Toaster } from "react-hot-toast";
-type ToastType = "success" | "error" | "loading" | "blank";
 import {
   DataProvider,
   GlobalActionsProvider,
@@ -32,17 +31,17 @@ export const Fragment = ({
 
   const actions = useMemo(
     () => ({
-      showToast: (
-  type: ToastType = "success", // مقدار پیش‌فرض "success"
-  message: string,
-  placement: ToastPosition = "top-right",
-  duration?: number
-) => {
-  toast[type](message, {
-    duration,
-    position: placement,
-  });
-},
+        showToast: (
+        type: "success" | "error" | "blank",
+        message: string,
+        placement: ToastPosition = "top-right",
+        duration?: number
+      ) => {
+        toast[type ?? "success"](message, {
+          duration: duration,
+          position: placement as ToastPosition,
+        });
+      },
       apiRequest: async (
         method: "GET" | "POST" | "DELETE" | "PUT" | "PATCH" = "GET",
         url: string,
@@ -108,12 +107,9 @@ export const Fragment = ({
             error: {
               className: 'custom-toast-error',
             },
-            blank: {
-              className: 'custom-toast-blank',
-            },
-            loading: {
-              className: 'custom-toast-loading',
-            },
+              blank: {
+      className: 'custom-toast-blank', // استایل مخصوص blank
+    },
           }}
         />
       </DataProvider>
@@ -162,7 +158,7 @@ export const fragmentMeta: GlobalContextMeta<FragmentProps> = {
           name: "type",
           type: {
             type: "choice",
-            options: ["success", "error"],
+            options: ["success", "error","blank"],
             defaultValueHint: "success",
           },
         },
