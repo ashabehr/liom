@@ -1808,6 +1808,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicStory.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "0PNG5HW8802G",
+          "name": "Type",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicType.tsx",
+          "importSpec": {
+            "modulePath": "Type.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicType.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

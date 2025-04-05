@@ -1710,8 +1710,91 @@ function PlasmicPregnancy__RenderFunc(props: {
                 className={classNames("__wab_instance", sty.embedHtml__uEqC)}
                 code={`<script>
   window.deepLink = function (action) {
-    console.log(action);
-    console.log("${$state.getAdvice.weekNumber}");
+    if(${$ctx.query.inApp == "true"})
+    {
+     switch (action) {
+      case "clinic": {
+        const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+        let randomStr1 = "";
+        let randomStr2 = "";
+
+        for (let i = 0; i < 6; i++) {
+          const rnd = Math.floor(Math.random() * chars.length);
+          randomStr1 += chars[rnd];
+        }
+        for (let i = 0; i < 6; i++) {
+          const rnd = Math.floor(Math.random() * chars.length);
+          randomStr2 += chars[rnd];
+        }
+
+        var link = "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" + 
+                   randomStr1 + ${$ctx.query.token.slice(
+                     6,
+                     $ctx.query.token.length - 3
+                   )} + randomStr2;
+
+        window.FlutterChannel.postMessage("#inAppWebView**@@**" + "کلینیک لیوم " + "**@@**" + link);
+      }
+        break;
+        
+      case "hamyar":
+        window.FlutterChannel.postMessage("#hamyarInfo");
+        break;
+
+      case "skinCare": {
+        if (${active}) {
+          var link = "https://tools.liom.app/self-medication/?type=skinCare&inApp=true&token=" + 
+                     ${$ctx.query.token} + "&selectStep=0&userId=" + ${
+                  $ctx.query.userId
+                } + 
+                     "&them=" + ${$ctx.query.theme};
+          window.FlutterChannel.postMessage("#inAppWebView**@@**" + "روتین پوستی" + "**@@**" + link);
+        } else {
+          window.FlutterChannel.postMessage("#directDialog-skin_care_sub");
+        }
+      }
+        break;
+
+      case "stretch_marks": {
+        if (${active}) {
+          var link = "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" + 
+                     ${$ctx.query.token} + "&selectStep=0&userId=" + ${
+                  $ctx.query.userId
+                } + 
+                     "&them=" + ${$ctx.query.theme};
+          window.FlutterChannel.postMessage("#inAppWebView**@@**" + "ترک پوستی" + "**@@**" + link);
+        } else {
+          window.FlutterChannel.postMessage("#directDialog-stretch_marks_sub");
+        }
+      }
+        break;
+
+      case "danger": {
+        document.getElementById("collapseDanger").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+        $state.collapseDanger.open = true;
+        if (!${active}) {
+          window.FlutterChannel.postMessage("#directDialog-pregnancy_danger_sub");
+        }
+      }
+        break;
+
+      case "adhd": {
+        var link = "https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=" + 
+                   encodeURIComponent(window.location.href) + "&inApp=" + ${
+                     $ctx.query.inApp
+                   } + 
+                   "&userId=" + ${$ctx.query.userId.slice(
+                     4,
+                     $ctx.query.userId.length - 4
+                   )};
+        window.FlutterChannel.postMessage("#inAppWebView**@@**" + "تست ADHD" + "**@@**" + link);
+      }
+        break;
+    }
+    }
   }
 </script>`}
               />
@@ -2106,7 +2189,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
-                                        return undefined;
+                                        return (() => {
+                                          return window.deepLink("aaaa");
+                                        })();
                                       }
                                     };
                                     return (({ customFunction }) => {
@@ -6521,162 +6606,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                             const actionArgs = {
                                               customFunction: async () => {
                                                 return (() => {
-                                                  window.deepLink(
+                                                  return window.deepLink(
                                                     currentItem.action
                                                   );
-                                                  const allowance =
-                                                    $state?.getUserInfo
-                                                      ?.data?.[0]?.result
-                                                      ?.allowance || [];
-                                                  const filteredItem =
-                                                    allowance.find(item =>
-                                                      item.type.includes(
-                                                        currentItem.action
-                                                      )
-                                                    );
-                                                  const active = filteredItem
-                                                    ? filteredItem.active
-                                                    : false;
-                                                  switch (currentItem.action) {
-                                                    case "clinic":
-                                                      {
-                                                        const chars =
-                                                          "abcdefghijklmnopqrstuvwxyz0123456789";
-                                                        let randomStr1 = "";
-                                                        let randomStr2 = "";
-                                                        for (
-                                                          let i = 0;
-                                                          i < 6;
-                                                          i++
-                                                        ) {
-                                                          const rnd =
-                                                            Math.floor(
-                                                              Math.random() *
-                                                                chars.length
-                                                            );
-                                                          randomStr1 +=
-                                                            chars[rnd];
-                                                        }
-                                                        for (
-                                                          let i = 0;
-                                                          i < 6;
-                                                          i++
-                                                        ) {
-                                                          const rnd =
-                                                            Math.floor(
-                                                              Math.random() *
-                                                                chars.length
-                                                            );
-                                                          randomStr2 +=
-                                                            chars[rnd];
-                                                        }
-                                                        var link =
-                                                          "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
-                                                          randomStr1 +
-                                                          $ctx.query.token.slice(
-                                                            6,
-                                                            $ctx.query.token
-                                                              .length - 3
-                                                          ) +
-                                                          randomStr2;
-                                                        window.FlutterChannel.postMessage(
-                                                          "#inAppWebView**@@**" +
-                                                            "کلینیک لیوم " +
-                                                            "**@@**" +
-                                                            link
-                                                        );
-                                                      }
-                                                      break;
-                                                    case "hamyar":
-                                                      window.FlutterChannel.postMessage(
-                                                        "#hamyarInfo"
-                                                      );
-                                                      break;
-                                                    case "skinCare":
-                                                      {
-                                                        if (active) {
-                                                          var link =
-                                                            "https://tools.liom.app/self-medication/?type=skinCare&inApp=true&token=" +
-                                                            $ctx.query.token +
-                                                            "&selectStep=0&userId=" +
-                                                            $ctx.query.userId +
-                                                            "&them=" +
-                                                            $ctx.query.theme;
-                                                          window.FlutterChannel.postMessage(
-                                                            "#inAppWebView**@@**" +
-                                                              "روتین پوستی" +
-                                                              "**@@**" +
-                                                              link
-                                                          );
-                                                        } else {
-                                                          window.FlutterChannel.postMessage(
-                                                            "#directDialog-skin_care_sub"
-                                                          );
-                                                        }
-                                                      }
-                                                      break;
-                                                    case "stretch_marks":
-                                                      {
-                                                        if (active) {
-                                                          var link =
-                                                            "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
-                                                            $ctx.query.token +
-                                                            "&selectStep=0&userId=" +
-                                                            $ctx.query.userId +
-                                                            "&them=" +
-                                                            $ctx.query.theme;
-                                                          window.FlutterChannel.postMessage(
-                                                            "#inAppWebView**@@**" +
-                                                              "ترک پوستی" +
-                                                              "**@@**" +
-                                                              link
-                                                          );
-                                                        } else {
-                                                          window.FlutterChannel.postMessage(
-                                                            "#directDialog-stretch_marks_sub"
-                                                          );
-                                                        }
-                                                      }
-                                                      break;
-                                                    case "danger":
-                                                      {
-                                                        document
-                                                          .getElementById(
-                                                            "collapseDanger"
-                                                          )
-                                                          .scrollIntoView({
-                                                            behavior: "smooth",
-                                                            block: "start"
-                                                          });
-                                                        $state.collapseDanger.open =
-                                                          true;
-                                                        if (!active) {
-                                                          window.FlutterChannel.postMessage(
-                                                            "#directDialog-pregnancy_danger_sub"
-                                                          );
-                                                        }
-                                                      }
-                                                      break;
-                                                    case "adhd":
-                                                      {
-                                                        var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                          window.location.href
-                                                        )}&inApp=${
-                                                          $ctx.query.inApp
-                                                        }&userId=${$ctx.query.userId.slice(
-                                                          4,
-                                                          $ctx.query.userId
-                                                            .length - 4
-                                                        )}`;
-                                                        window.FlutterChannel.postMessage(
-                                                          "#inAppWebView**@@**" +
-                                                            "تست ADHD" +
-                                                            "**@@**" +
-                                                            link
-                                                        );
-                                                      }
-                                                      break;
-                                                  }
                                                 })();
                                               }
                                             };

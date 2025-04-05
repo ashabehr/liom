@@ -2255,9 +2255,7 @@ function PlasmicPregnancy2__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      return window.test(
-                                        "testtttttttttttttttttttttttttttttttttt"
-                                      );
+                                      return window.test("testttttttt");
                                     })();
                                   }
                                 };
@@ -10349,6 +10347,7 @@ function PlasmicPregnancy2__RenderFunc(props: {
             code={`<script>
   window.deepLink = function (action) {
     console.log(action)
+    console.log(${$state.babySize[9].h})
   }
 </script>
 `}

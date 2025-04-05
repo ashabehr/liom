@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
@@ -98,6 +99,7 @@ export const PlasmicIntro__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicIntro__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   button11?: Flex__<typeof Button>;
   button13?: Flex__<typeof Button>;
   button12?: Flex__<typeof Button>;
@@ -114,7 +116,6 @@ export type PlasmicIntro__OverridesType = {
   dialog2?: Flex__<typeof Dialog>;
   subscription?: Flex__<typeof Subscription>;
   button3?: Flex__<typeof Button>;
-  user?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultIntroProps {}
@@ -224,7 +225,19 @@ function PlasmicIntro__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk4YTU1MDY0LTY3ZTEtNDc1NC04OGRmLTFiOTAzMWQ3NjZlMiIsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNzM1ODI0NDAwfQ.EctK_5ZFB3qyZucWuCPB91Xbby3fojtWk97_Bqx6xgY"
+          (() => {
+            try {
+              return window.localStorage.getItem("token");
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "loadin",
@@ -329,24 +342,6 @@ function PlasmicIntro__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "user.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "user.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "user.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "button11.color",
         type: "private",
         variableType: "text",
@@ -375,6 +370,25 @@ function PlasmicIntro__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "userinfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return JSON.parse(window.localStorage.getItem("userinfo"));
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -614,6 +628,12 @@ function PlasmicIntro__RenderFunc(props: {
             }
           }}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+          />
+
           <div className={classNames(projectcss.all, sty.freeBox__k9FFd)}>
             <PlasmicImg__
               alt={""}
@@ -986,70 +1006,88 @@ function PlasmicIntro__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__nGlzo)}
               >
-                <Button
-                  data-plasmic-name={"button11"}
-                  data-plasmic-override={overrides.button11}
-                  className={classNames("__wab_instance", sty.button11)}
-                  color={generateStateValueProp($state, ["button11", "color"])}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return ($state.dialog.opendialog = true);
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
+                {(() => {
+                  try {
+                    return $state.userinfo.man.hamyarStatus == false;
+                  } catch (e) {
                     if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      $steps["runCode"] = await $steps["runCode"];
+                      return true;
                     }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button11", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  size={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? "compact"
-                      : undefined
+                    throw e;
                   }
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__jEtYi,
+                })() ? (
+                  <Button
+                    data-plasmic-name={"button11"}
+                    data-plasmic-override={overrides.button11}
+                    className={classNames("__wab_instance", sty.button11)}
+                    color={generateStateValueProp($state, [
+                      "button11",
+                      "color"
+                    ])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return ($state.dialog.opendialog = true);
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button11",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    size={
                       hasVariant(globalVariants, "screen", "mobile")
-                        ? "animashen"
-                        : "animashen"
-                    )}
-                  >
-                    {
-                      "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9"
+                        ? "compact"
+                        : undefined
                     }
-                  </div>
-                </Button>
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__jEtYi,
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "animashen"
+                          : "animashen"
+                      )}
+                    >
+                      {
+                        "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9"
+                      }
+                    </div>
+                  </Button>
+                ) : null}
                 {(() => {
                   try {
                     return $state.slid == "slid3";
@@ -1294,7 +1332,7 @@ function PlasmicIntro__RenderFunc(props: {
                       return;
                     }
                   }}
-                  size={"minimal"}
+                  size={"compact"}
                 >
                   <div
                     className={classNames(
@@ -1523,7 +1561,7 @@ function PlasmicIntro__RenderFunc(props: {
                       return;
                     }
                   }}
-                  size={"minimal"}
+                  size={"compact"}
                 >
                   <div
                     className={classNames(
@@ -2444,7 +2482,7 @@ function PlasmicIntro__RenderFunc(props: {
                                               $state.selectedShop
                                             ].price +
                                             "&manId=" +
-                                            $state.user.data.result.man.id
+                                            $state.userinfo.man.id
                                         };
                                       } catch (e) {
                                         if (
@@ -3110,7 +3148,7 @@ function PlasmicIntro__RenderFunc(props: {
                                           $state.selectedShop
                                         ].price +
                                         "&manId=" +
-                                        $state.user.data.result.man.id
+                                        $state.userinfo.man.id
                                     };
                                   } catch (e) {
                                     if (
@@ -3314,106 +3352,6 @@ function PlasmicIntro__RenderFunc(props: {
               </Dialog>
             </ApiRequest>
           </Dialog>
-          <ApiRequest
-            data-plasmic-name={"user"}
-            data-plasmic-override={overrides.user}
-            className={classNames("__wab_instance", sty.user)}
-            config={(() => {
-              try {
-                return {
-                  headers: {
-                    "Content-Type": "application/json"
-                  }
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            errorDisplay={null}
-            loadingDisplay={null}
-            method={"GET"}
-            onError={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["user", "error"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onLoading={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["user", "loading"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["user", "data"]).apply(
-                null,
-                eventArgs
-              );
-
-              (async data => {
-                const $steps = {};
-
-                $steps["updateToken"] = (
-                  $state.user.data?.result?.token ? true : false
-                )
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["token"]
-                        },
-                        operation: 0,
-                        value: $state.user.data.result.token
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateToken"] != null &&
-                  typeof $steps["updateToken"] === "object" &&
-                  typeof $steps["updateToken"].then === "function"
-                ) {
-                  $steps["updateToken"] = await $steps["updateToken"];
-                }
-              }).apply(null, eventArgs);
-            }}
-            params={(() => {
-              try {
-                return {
-                  r: new URLSearchParams(window.location.search).get("r"),
-                  m: new URLSearchParams(window.location.search).get("m")
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            url={"https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -3423,6 +3361,7 @@ function PlasmicIntro__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "button11",
     "button13",
     "button12",
@@ -3438,9 +3377,9 @@ const PlasmicDescendants = {
     "button2",
     "dialog2",
     "subscription",
-    "button3",
-    "user"
+    "button3"
   ],
+  sideEffect: ["sideEffect"],
   button11: ["button11"],
   button13: ["button13"],
   button12: ["button12"],
@@ -3477,14 +3416,14 @@ const PlasmicDescendants = {
   button2: ["button2"],
   dialog2: ["dialog2", "subscription", "button3"],
   subscription: ["subscription"],
-  button3: ["button3"],
-  user: ["user"]
+  button3: ["button3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   button11: typeof Button;
   button13: typeof Button;
   button12: typeof Button;
@@ -3501,7 +3440,6 @@ type NodeDefaultElementType = {
   dialog2: typeof Dialog;
   subscription: typeof Subscription;
   button3: typeof Button;
-  user: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3589,6 +3527,7 @@ export const PlasmicIntro = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     button11: makeNodeComponent("button11"),
     button13: makeNodeComponent("button13"),
     button12: makeNodeComponent("button12"),
@@ -3605,7 +3544,6 @@ export const PlasmicIntro = Object.assign(
     dialog2: makeNodeComponent("dialog2"),
     subscription: makeNodeComponent("subscription"),
     button3: makeNodeComponent("button3"),
-    user: makeNodeComponent("user"),
 
     // Metadata about props expected for PlasmicIntro
     internalVariantProps: PlasmicIntro__VariantProps,

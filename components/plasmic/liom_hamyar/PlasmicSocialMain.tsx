@@ -63,6 +63,8 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
+import Type from "../../Type"; // plasmic-import: 0PNG5HW8802G/component
+import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -88,6 +90,8 @@ export type PlasmicSocialMain__OverridesType = {
   text?: Flex__<"div">;
   story?: Flex__<"div">;
   groupBy?: Flex__<"div">;
+  type?: Flex__<typeof Type>;
+  getInfo?: Flex__<typeof DataFetcher>;
 };
 
 export interface DefaultSocialMainProps {}
@@ -291,8 +295,58 @@ function PlasmicSocialMain__RenderFunc(props: {
               data-plasmic-name={"groupBy"}
               data-plasmic-override={overrides.groupBy}
               className={classNames(projectcss.all, sty.groupBy)}
-            />
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__leuuy)}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
+                  2, 3, 4
+                ]).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <Type
+                      data-plasmic-name={"type"}
+                      data-plasmic-override={overrides.type}
+                      className={classNames("__wab_instance", sty.type)}
+                      key={currentIndex}
+                    />
+                  );
+                })}
+              </Stack__>
+            </div>
           </div>
+          <DataFetcher
+            data-plasmic-name={"getInfo"}
+            data-plasmic-override={overrides.getInfo}
+            body={(() => {
+              try {
+                return undefined;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            className={classNames("__wab_instance", sty.getInfo)}
+            dataName={"fetchedData"}
+            errorDisplay={
+              <DataCtxReader__>{$ctx => "Error fetching data"}</DataCtxReader__>
+            }
+            errorName={"fetchError"}
+            loadingDisplay={
+              <DataCtxReader__>{$ctx => "Loading..."}</DataCtxReader__>
+            }
+            method={"GET"}
+            noLayout={false}
+            url={"https://n8n.staas.ir/webhook/rest/social"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -300,11 +354,13 @@ function PlasmicSocialMain__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "headerSocial", "text", "story", "groupBy"],
+  root: ["root", "headerSocial", "text", "story", "groupBy", "type", "getInfo"],
   headerSocial: ["headerSocial", "text"],
   text: ["text"],
   story: ["story"],
-  groupBy: ["groupBy"]
+  groupBy: ["groupBy", "type"],
+  type: ["type"],
+  getInfo: ["getInfo"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -315,6 +371,8 @@ type NodeDefaultElementType = {
   text: "div";
   story: "div";
   groupBy: "div";
+  type: typeof Type;
+  getInfo: typeof DataFetcher;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -406,6 +464,8 @@ export const PlasmicSocialMain = Object.assign(
     text: makeNodeComponent("text"),
     story: makeNodeComponent("story"),
     groupBy: makeNodeComponent("groupBy"),
+    type: makeNodeComponent("type"),
+    getInfo: makeNodeComponent("getInfo"),
 
     // Metadata about props expected for PlasmicSocialMain
     internalVariantProps: PlasmicSocialMain__VariantProps,
