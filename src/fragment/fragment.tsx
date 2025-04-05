@@ -33,7 +33,7 @@ export const Fragment = ({
   const actions = useMemo(
     () => ({
       showToast: (
-        type: "success" | "error",
+        type: "success" | "error" |"loading" | "blank" ,
         message: string,
         placement: ToastPosition = "top-right",
         duration?: number
@@ -107,6 +107,12 @@ export const Fragment = ({
             },
             error: {
               className: 'custom-toast-error',
+            },
+            blank: {
+              className: 'custom-toast-blank',
+            },
+            loading: {
+              className: 'custom-toast-loading',
             },
           }}
         />
