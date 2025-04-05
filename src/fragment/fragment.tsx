@@ -158,7 +158,7 @@ export const fragmentMeta: GlobalContextMeta<FragmentProps> = {
           name: "type",
           type: {
             type: "choice",
-            options: ["success", "error","blank"],
+            options: ["success", "error", "blank"],
             defaultValueHint: "success",
           },
         },
