@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import toast, { ToastPosition, Toaster } from "react-hot-toast";
-
+type ToastType = "success" | "error" | "loading" | "blank";
 import {
   DataProvider,
   GlobalActionsProvider,
@@ -33,16 +33,16 @@ export const Fragment = ({
   const actions = useMemo(
     () => ({
       showToast: (
-        type: "success" | "error" |"loading" | "blank" ,
-        message: string,
-        placement: ToastPosition = "top-right",
-        duration?: number
-      ) => {
-        toast[type ?? "success"](message, {
-          duration: duration,
-          position: placement as ToastPosition,
-        });
-      },
+  type: ToastType = "success", // مقدار پیش‌فرض "success"
+  message: string,
+  placement: ToastPosition = "top-right",
+  duration?: number
+) => {
+  toast[type](message, {
+    duration,
+    position: placement,
+  });
+},
       apiRequest: async (
         method: "GET" | "POST" | "DELETE" | "PUT" | "PATCH" = "GET",
         url: string,
