@@ -32,7 +32,7 @@ export const Fragment = ({
   const actions = useMemo(
     () => ({
         showToast: (
-        type: "success" | "error" | "blank",
+        type: "success" | "error",
         message: string,
         placement: ToastPosition = "top-right",
         duration?: number
@@ -107,9 +107,6 @@ export const Fragment = ({
             error: {
               className: 'custom-toast-error',
             },
-              blank: {
-      className: 'custom-toast-blank', // استایل مخصوص blank
-    },
           }}
         />
       </DataProvider>
@@ -158,7 +155,7 @@ export const fragmentMeta: GlobalContextMeta<FragmentProps> = {
           name: "type",
           type: {
             type: "choice",
-            options: ["success", "error", "blank"],
+            options: ["success", "error"],
             defaultValueHint: "success",
           },
         },
