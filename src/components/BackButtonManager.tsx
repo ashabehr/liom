@@ -14,7 +14,6 @@ export const BackButtonManager = (props: BackButtonManagerProps) => {
         onBackPress(); // اگر تابعی برای مدیریت دکمه بازگشت تعریف شده باشد، اجرا می‌شود.
       } else {
         // اگر هیچ تابعی تعریف نشده باشد، تاریخچه را دوباره تنظیم کنید.
-        history.pushState(null, null, location.href);
       }
     };
 
