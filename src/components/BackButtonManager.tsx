@@ -1,35 +1,38 @@
 import React, { useEffect } from 'react';
 import { CodeComponentMeta } from "@plasmicapp/host";
-import { useNavigate } from 'react-router-dom';
 
 type BackButtonManagerProps = {
-  onBackPress?: () => void;
+  onBackPress?: () => void; // تابعی که هنگام فشردن دکمه بازگشت اجرا می‌شود
 };
 
 export const BackButtonManager = (props: BackButtonManagerProps) => {
   const { onBackPress } = props;
-  const navigate = useNavigate();
 
   useEffect(() => {
-    const handlePopState = (event: PopStateEvent) => {
-      if (onBackPress) {
-        onBackPress(); // اجرای تابع مشخص شده توسط کاربر
-      } else {
-        // جلوگیری از بازگشت و بازگرداندن به صفحه فعلی
-        navigate('.', { replace: true });
-      }
-    };
+    if (typeof window !== 'undefined' && typeof history !== 'undefined') {
+      const handlePopState = () => {
+        if (onBackPress) {
+          onBackPress(); // اجرای تابع مشخص شده توسط کاربر
+        } else {
+          // بازگرداندن وضعیت به حالت فعلی در تاریخچه
+          history.pushState(null, null, location.href);
+        }
+      };
 
-    // اضافه کردن listener برای مدیریت رویداد popstate
-    window.addEventListener("popstate", handlePopState);
+      // اضافه کردن یک حالت اولیه به تاریخچه
+      history.pushState(null, null, location.href);
 
-    return () => {
-      // حذف listener هنگام پاکسازی کامپوننت
-      window.removeEventListener("popstate", handlePopState);
-    };
-  }, [navigate, onBackPress]);
+      // اضافه کردن رویداد popstate
+      window.addEventListener("popstate", handlePopState);
 
-  return null; // این کامپوننت چیزی در UI نمایش نمی‌دهد
+      // حذف listener هنگام حذف کامپوننت
+      return () => {
+        window.removeEventListener("popstate", handlePopState);
+      };
+    }
+  }, [onBackPress]);
+
+  return null; // این کامپوننت نیازی به رندر چیزی در UI ندارد
 };
 
 export const BackButtonManagerMeta: CodeComponentMeta<BackButtonManagerProps> = {
@@ -38,7 +41,7 @@ export const BackButtonManagerMeta: CodeComponentMeta<BackButtonManagerProps> = 
   props: {
     onBackPress: {
       type: "eventHandler",
-      description: "تابع برای اجرا زمانی که دکمه بازگشت فشرده می‌شود.",
+      description: "تابع برای اجرا هنگام فشردن دکمه بازگشت.",
     },
   },
 };
