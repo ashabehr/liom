@@ -15,12 +15,12 @@ export const BackButtonManager = (props: BackButtonManagerProps) => {
           onBackPress(); // اجرای تابع مشخص شده توسط کاربر
         } else {
           // بازگرداندن وضعیت به حالت فعلی در تاریخچه
-          history.pushState(null, null, location.href);
+          window.history.pushState(null, null, location.href);
         }
       };
 
       // اضافه کردن یک حالت اولیه به تاریخچه
-      history.pushState(null, null, location.href);
+      window.history.pushState(null, null, location.href);
 
       // اضافه کردن رویداد popstate
       window.addEventListener("popstate", handlePopState);
