@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { CodeComponentMeta } from "@plasmicapp/host";
+import { useNavigate } from 'react-router-dom';
 
 type BackButtonManagerProps = {
   onBackPress?: () => void;
@@ -7,29 +8,28 @@ type BackButtonManagerProps = {
 
 export const BackButtonManager = (props: BackButtonManagerProps) => {
   const { onBackPress } = props;
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const handlePopState = () => {
+    const handlePopState = (event: PopStateEvent) => {
       if (onBackPress) {
-        onBackPress(); // اگر تابعی برای مدیریت دکمه بازگشت تعریف شده باشد، اجرا می‌شود.
+        onBackPress(); // اجرای تابع مشخص شده توسط کاربر
       } else {
-        // اگر هیچ تابعی تعریف نشده باشد، تاریخچه را دوباره تنظیم کنید.
+        // جلوگیری از بازگشت و بازگرداندن به صفحه فعلی
+        navigate('.', { replace: true });
       }
     };
 
-    // اضافه کردن یک حالت اولیه به تاریخچه
-    history.pushState(null, null, location.href);
-
-    // تنظیم listener برای دکمه «بازگشت»
+    // اضافه کردن listener برای مدیریت رویداد popstate
     window.addEventListener("popstate", handlePopState);
 
     return () => {
-      // پاکسازی listener هنگام حذف کامپوننت
+      // حذف listener هنگام پاکسازی کامپوننت
       window.removeEventListener("popstate", handlePopState);
     };
-  }, [onBackPress]);
+  }, [navigate, onBackPress]);
 
-  return null; // این کامپوننت چیزی نمایش نمی‌دهد، فقط رویداد مدیریت می‌شود.
+  return null; // این کامپوننت چیزی در UI نمایش نمی‌دهد
 };
 
 export const BackButtonManagerMeta: CodeComponentMeta<BackButtonManagerProps> = {
