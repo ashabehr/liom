@@ -23,6 +23,11 @@
   grid-column: 4;
 }
 @media (max-width: 640px) {
+  .root {
+    padding: 0px;
+  }
+}
+@media (max-width: 640px) {
   .root > * {
     grid-column: 4;
   }
@@ -164,6 +169,13 @@
   width: 100%;
   min-width: 0;
 }
+@media (max-width: 640px) {
+  .reveal__gdcrx:global(.__wab_instance) {
+    width: 100%;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
+  }
+}
 .getData:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -230,7 +242,7 @@
   padding-right: 0;
   left: 0;
   top: auto;
-  z-index: 1;
+  z-index: 10;
   right: 0;
   bottom: 0;
   grid-template-columns:
@@ -1141,8 +1153,12 @@
 @media (max-width: 640px) {
   .freeBox__gf9Nm {
     width: 100%;
-    grid-column-start: 1 !important;
-    grid-column-end: -1 !important;
+    min-width: 0;
+  }
+}
+@media (max-width: 640px) {
+  .freeBox__gf9Nm > :global(.__wab_flex-container) {
+    min-width: 0;
   }
 }
 .freeBox__u2M5M {
@@ -1178,10 +1194,35 @@
   object-fit: cover;
   max-width: 100%;
   width: 100%;
+  max-height: 250px;
   min-width: 0;
 }
 .img__vKrv > picture > img {
   object-fit: cover;
+}
+@media (max-width: 640px) {
+  .img__vKrv {
+    max-height: 120px;
+  }
+}
+.text__lluQq {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  padding-bottom: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  align-self: center;
+  color: var(--token-kjnzcds1FoVY);
+  padding-top: 8px;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .text__lluQq {
+    text-align: center;
+  }
 }
 .freeBox__ugHiK {
   display: flex;
@@ -1266,7 +1307,7 @@
   max-width: 100%;
   text-align: right;
   padding-bottom: 0px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   align-self: center;
   color: var(--token-kjnzcds1FoVY);
@@ -1339,7 +1380,7 @@
   max-width: 100%;
   text-align: right;
   padding-bottom: 4px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 100;
   align-self: center;
   padding-top: 4px;
@@ -1442,7 +1483,7 @@
   max-width: 100%;
   text-align: center;
   padding-bottom: 0px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   align-self: center;
   color: var(--token-kjnzcds1FoVY);
@@ -1521,16 +1562,33 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__gjtvL > :global(.__wab_flex-container) {
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   min-width: 0;
-  padding: 0px;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.freeBox__gjtvL > :global(.__wab_flex-container) > *,
+.freeBox__gjtvL > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__gjtvL > :global(.__wab_flex-container) > picture > img,
+.freeBox__gjtvL
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
 }
 .text__hxyvq {
   width: 100%;
   height: auto;
   max-width: 100%;
   text-align: right;
+  font-size: 16px;
   min-width: 0;
 }
 .text__vUhXl {
@@ -1539,7 +1597,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--token-DFwge94Hey3F);
   min-width: 0;
 }
@@ -1590,7 +1648,7 @@
   max-width: 100%;
   text-align: right;
   padding-bottom: 0px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   align-self: center;
   color: var(--token-kjnzcds1FoVY);
@@ -1665,7 +1723,7 @@
 }
 .text___7Vl3E {
   text-align: right;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--token-64O07uLgKimi);
 }
 .freeBox__diiUf {
@@ -1715,7 +1773,7 @@
   max-width: 100%;
   text-align: right;
   padding-bottom: 8px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   align-self: center;
   color: var(--token-kjnzcds1FoVY);
@@ -1754,7 +1812,7 @@
   width: 100%;
   max-width: 100%;
   object-fit: cover;
-  font-size: 12px;
+  font-size: 14px;
   margin-top: calc(-16px + 12px) !important;
   margin-right: 0px;
   margin-bottom: 0px;
@@ -1790,7 +1848,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -1830,7 +1888,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 12px;
+  font-size: 14px;
   left: auto;
   top: auto;
   z-index: 1;

@@ -3840,7 +3840,7 @@ function PlasmicLogin__RenderFunc(props: {
                           )
                             ? "sara_mohammadi"
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "sara_mohammadi"
+                            ? "user_name"
                             : "9123456789",
                           size: "large",
                           type: hasVariant(
@@ -3850,7 +3850,7 @@ function PlasmicLogin__RenderFunc(props: {
                           )
                             ? "text"
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "text"
+                            ? "email"
                             : hasVariant($state, "loginPage", "mobile")
                             ? "tel"
                             : undefined,
@@ -4261,7 +4261,7 @@ function PlasmicLogin__RenderFunc(props: {
                           )
                             ? "\u0631\u0645\u0632 ..."
                             : hasVariant($state, "loginPage", "userNameLogin")
-                            ? "\u0631\u0645\u0632 ..."
+                            ? "\u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
                             : "9123456789",
                           size: "large",
                           type: hasVariant(
@@ -5738,7 +5738,7 @@ function PlasmicLogin__RenderFunc(props: {
                             "loginPage",
                             "userNameSingup"
                           )
-                            ? "sara_mohammadi"
+                            ? "user_name"
                             : hasVariant($state, "loginPage", "userNameLogin")
                             ? "sara_mohammadi"
                             : "9123456789",
@@ -5748,7 +5748,7 @@ function PlasmicLogin__RenderFunc(props: {
                             "loginPage",
                             "userNameSingup"
                           )
-                            ? "text"
+                            ? "email"
                             : hasVariant($state, "loginPage", "userNameLogin")
                             ? "text"
                             : hasVariant($state, "loginPage", "mobile")
@@ -6162,7 +6162,7 @@ function PlasmicLogin__RenderFunc(props: {
                             "loginPage",
                             "userNameSingup"
                           )
-                            ? "\u0631\u0645\u0632 ..."
+                            ? " \u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
                             : hasVariant($state, "loginPage", "userNameLogin")
                             ? "\u0631\u0645\u0632 ..."
                             : "9123456789",
@@ -6601,7 +6601,7 @@ function PlasmicLogin__RenderFunc(props: {
                           ),
                           id: hasVariant($state, "loginPage", "userNameSingup")
                             ? "inputMobile8"
-                            : undefined,
+                            : ``,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -6619,10 +6619,10 @@ function PlasmicLogin__RenderFunc(props: {
                             "loginPage",
                             "userNameSingup"
                           )
-                            ? "\u062a\u06a9\u0631\u0627\u0631 \u0631\u0645\u0632 ..."
+                            ? "\u062a\u06a9\u0631\u0627\u0631  \u0631\u0645\u0632 \u0639\u0628\u0648\u0631"
                             : hasVariant($state, "loginPage", "userNameLogin")
                             ? "\u0631\u0645\u0632 ..."
-                            : "9123456789",
+                            : "\u0631\u0645\u0632 ...",
                           size: "large",
                           type: hasVariant(
                             $state,
@@ -6634,7 +6634,7 @@ function PlasmicLogin__RenderFunc(props: {
                             ? "password"
                             : hasVariant($state, "loginPage", "mobile")
                             ? "tel"
-                            : undefined,
+                            : "password",
                           value: generateStateValueProp($state, [
                             "antdInput11",
                             "value"
@@ -18803,6 +18803,127 @@ function PlasmicLogin__RenderFunc(props: {
             }}
             runWhileEditing={false}
           />
+
+          {(hasVariant($state, "loginPage", "name") ? true : false) ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__sfpx4, {
+                [sty.freeBoxloginPage_emailCode__sfpx4WqwJl]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "emailCode"
+                ),
+                [sty.freeBoxloginPage_email__sfpx4IYwOs]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "email"
+                ),
+                [sty.freeBoxloginPage_mobileCode__sfpx4M2GXn]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobileCode"
+                ),
+                [sty.freeBoxloginPage_mobile__sfpx46MmOa]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobile"
+                ),
+                [sty.freeBoxloginPage_name__sfpx4HUiKy]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "name"
+                ),
+                [sty.freeBoxloginPage_selectstatus__sfpx4Ni6Lr]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "selectstatus"
+                ),
+                [sty.freeBoxloginPage_userNameLogin__sfpx4H7MIy]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "userNameLogin"
+                ),
+                [sty.freeBoxloginPage_userNameSingup__sfpx4NuYv7]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "userNameSingup"
+                )
+              })}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateLoginPage"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "loginPage",
+                        operation: 1,
+                        value: "mobile"
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        $stateSet($state, vgroup, undefined);
+                        return undefined;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateLoginPage"] != null &&
+                  typeof $steps["updateLoginPage"] === "object" &&
+                  typeof $steps["updateLoginPage"].then === "function"
+                ) {
+                  $steps["updateLoginPage"] = await $steps["updateLoginPage"];
+                }
+              }}
+            >
+              <IconIcon
+                className={classNames(projectcss.all, sty.svg__nSkk1, {
+                  [sty.svgloginPage_emailCode__nSkk1WqwJl]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "emailCode"
+                  ),
+                  [sty.svgloginPage_email__nSkk1IYwOs]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "email"
+                  ),
+                  [sty.svgloginPage_mobileCode__nSkk1M2GXn]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobileCode"
+                  ),
+                  [sty.svgloginPage_mobile__nSkk16MmOa]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobile"
+                  ),
+                  [sty.svgloginPage_name__nSkk1HUiKy]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "name"
+                  ),
+                  [sty.svgloginPage_selectstatus__nSkk1Ni6Lr]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "selectstatus"
+                  ),
+                  [sty.svgloginPage_userNameLogin__nSkk1H7MIy]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "userNameLogin"
+                  ),
+                  [sty.svgloginPage_userNameSingup__nSkk1NuYv7]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "userNameSingup"
+                  )
+                })}
+                role={"img"}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>

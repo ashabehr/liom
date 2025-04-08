@@ -119,6 +119,7 @@ export type PlasmicTextInput__ArgsType = {
     | "tel";
   autoFocus?: boolean;
   errorText?: string;
+  onClick?: (event: any) => void;
   startIcon?: React.ReactNode;
   antdInput2?: React.ReactNode;
   endIcon?: React.ReactNode;
@@ -135,6 +136,7 @@ export const PlasmicTextInput__ArgProps = new Array<ArgPropType>(
   "type",
   "autoFocus",
   "errorText",
+  "onClick",
   "startIcon",
   "antdInput2",
   "endIcon"
@@ -168,6 +170,7 @@ export interface DefaultTextInputProps extends pp.BaseTextInputProps {
     | "tel";
   autoFocus?: boolean;
   errorText?: string;
+  onClick?: (event: any) => void;
   antdInput2?: React.ReactNode;
   color?: SingleChoiceArg<"dark">;
   error?: SingleBooleanChoiceArg<"error">;
@@ -308,6 +311,7 @@ function PlasmicTextInput__RenderFunc(props: {
           )
         }
       )}
+      onClick={args.onClick}
       data-plasmic-trigger-props={[triggerRootFocusVisibleWithinProps]}
     >
       <div

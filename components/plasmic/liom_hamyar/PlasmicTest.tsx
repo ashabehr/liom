@@ -210,7 +210,7 @@ function PlasmicTest__RenderFunc(props: {
               $steps["invokeGlobalAction"] = true
                 ? (() => {
                     const actionArgs = {
-                      args: ["success", "DJLJDLJSJDL", "bottom-center", 10000]
+                      args: ["error", "DJLJDLJSJDL", "bottom-center", 10000]
                     };
                     return $globalActions["Fragment.showToast"]?.apply(null, [
                       ...actionArgs.args

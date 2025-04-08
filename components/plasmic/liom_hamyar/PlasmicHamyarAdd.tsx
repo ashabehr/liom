@@ -63,13 +63,14 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
 import VigetLiom from "../../VigetLiom"; // plasmic-import: BIrjMygSfTRI/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
@@ -93,6 +94,7 @@ import Icon157Icon from "./icons/PlasmicIcon__Icon157"; // plasmic-import: pYMHt
 import Icon153Icon from "./icons/PlasmicIcon__Icon153"; // plasmic-import: P9oglo5LEXFz/icon
 import Icon156Icon from "./icons/PlasmicIcon__Icon156"; // plasmic-import: 1jjGssoVHwzo/icon
 import Icon155Icon from "./icons/PlasmicIcon__Icon155"; // plasmic-import: 23a494aT3I5j/icon
+import Icon217Icon from "./icons/PlasmicIcon__Icon217"; // plasmic-import: LCc0I6S3wL-C/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -111,6 +113,7 @@ export type PlasmicHamyarAdd__OverridesType = {
   root?: Flex__<"div">;
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
+  hamyarList?: Flex__<typeof ApiRequest>;
   number2?: Flex__<typeof AntdModal>;
   textInput?: Flex__<typeof TextInput>;
   antdInput?: Flex__<typeof Input>;
@@ -126,7 +129,7 @@ export type PlasmicHamyarAdd__OverridesType = {
   remove?: Flex__<typeof AntdModal>;
   removeBtn?: Flex__<typeof Button>;
   button9?: Flex__<typeof Button>;
-  hamyarList?: Flex__<typeof ApiRequest>;
+  directDialog2?: Flex__<typeof DirectDialog2>;
   button?: Flex__<typeof Button>;
   vigetLiom?: Flex__<typeof VigetLiom>;
   popover?: Flex__<typeof AntdPopover>;
@@ -261,7 +264,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.query.token;
+              return $ctx.query.token || window.localStorage.getItem("token");
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -397,6 +400,30 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "directDialog2.selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "directDialog2.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "errorMassege",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "v2",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -491,11 +518,119 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                     sty.text__azbDv
                   )}
                 >
-                  {"\u0647\u0645\u06cc\u0627\u0631"}
+                  {
+                    "\u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                  }
                 </div>
               </Stack__>
             </HeaderLiom>
           </section>
+          <ApiRequest
+            data-plasmic-name={"hamyarList"}
+            data-plasmic-override={overrides.hamyarList}
+            children={null}
+            className={classNames("__wab_instance", sty.hamyarList)}
+            errorDisplay={
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__iCc9A)}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__sm2Ku)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__emSkm,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__rXinr,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__ra5M5,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__z6DJi,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__qxwgP,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__mgLUt,
+                      "shimmer"
+                    )}
+                  />
+                </Stack__>
+              </Stack__>
+            }
+            loadingDisplay={null}
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["hamyarList", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "hamyarList",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["hamyarList", "data"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            params={(() => {
+              try {
+                return {
+                  authorization: $state.token,
+                  type: $state.type,
+                  v: $state.v
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/rest/user/hamyar/add"}
+          />
+
           <AntdModal
             data-plasmic-name={"number2"}
             data-plasmic-override={overrides.number2}
@@ -1504,7 +1639,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["updateSmsOpen"] = true
+                    $steps["updateSmsOpen"] = $steps.invokeGlobalAction?.data
+                      ?.success
                       ? (() => {
                           const actionArgs = {
                             variable: {
@@ -1538,7 +1674,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       $steps["updateSmsOpen"] = await $steps["updateSmsOpen"];
                     }
 
-                    $steps["updateName2Open"] = true
+                    $steps["updateName2Open"] = $steps.invokeGlobalAction?.data
+                      ?.success
                       ? (() => {
                           const actionArgs = {
                             variable: {
@@ -1642,6 +1779,29 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       $steps["updateLoadingBtn"] = await $steps[
                         "updateLoadingBtn"
                       ];
+                    }
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                $state.antdInput.value = "";
+                                return ($state.antdInput2.value = "");
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -2377,97 +2537,42 @@ function PlasmicHamyarAdd__RenderFunc(props: {
               </Stack__>
             </Stack__>
           </AntdModal>
-          <ApiRequest
-            data-plasmic-name={"hamyarList"}
-            data-plasmic-override={overrides.hamyarList}
-            className={classNames("__wab_instance", sty.hamyarList)}
-            errorDisplay={null}
-            loadingDisplay={
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__iPrYx)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__tQsAj)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__gloN4,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox___6OAtk,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__eegaF,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox___1FEwb,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__d21Xo,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__ujQUu,
-                      "shimmer"
-                    )}
-                  />
-                </Stack__>
-              </Stack__>
-            }
-            method={"GET"}
-            onError={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["hamyarList", "error"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onLoading={async (...eventArgs: any) => {
+          <DirectDialog2
+            data-plasmic-name={"directDialog2"}
+            data-plasmic-override={overrides.directDialog2}
+            className={classNames("__wab_instance", sty.directDialog2)}
+            onOpenChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
-                "hamyarList",
-                "loading"
+                "directDialog2",
+                "open"
               ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
             }}
-            onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["hamyarList", "data"]).apply(
-                null,
-                eventArgs
-              );
+            onSelectShopChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "directDialog2",
+                "selectShop"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
             }}
-            params={(() => {
+            open={generateStateValueProp($state, ["directDialog2", "open"])}
+            token={(() => {
               try {
-                return {
-                  authorization: $state.token,
-                  type: $state.type
-                };
+                return window.localStorage.getItem("token");
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -2478,8 +2583,25 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                 throw e;
               }
             })()}
-            url={"https://n8n.staas.ir/webhook/rest/user/hamyar/add"}
-          >
+            type={"husband_sms"}
+          />
+
+          {(() => {
+            try {
+              return $state.hamyarList.loading == false &&
+                $state.hamyarList?.data?.result
+                ? true
+                : false;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
             <Stack__
               as={"div"}
               hasGap={true}
@@ -3261,6 +3383,328 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                   ) {
                                     return;
                                   }
+
+                                  (async isChecked => {
+                                    const $steps = {};
+
+                                    $steps["invokeGlobalAction"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              "POST",
+                                              "https://n8n.staas.ir/webhook/rest/user/hamyar/edit",
+                                              undefined,
+                                              (() => {
+                                                try {
+                                                  return {
+                                                    id: currentItem.hamyar.id,
+                                                    type: $state.type,
+                                                    statusSms:
+                                                      $state.switchbest[
+                                                        currentIndex
+                                                      ].isChecked,
+                                                    authorization: $state.token
+                                                  };
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.apiRequest"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["invokeGlobalAction"] != null &&
+                                      typeof $steps["invokeGlobalAction"] ===
+                                        "object" &&
+                                      typeof $steps["invokeGlobalAction"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["invokeGlobalAction"] =
+                                        await $steps["invokeGlobalAction"];
+                                    }
+
+                                    $steps["runCode"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            customFunction: async () => {
+                                              return (() => {
+                                                if (
+                                                  $steps.invokeGlobalAction
+                                                    ?.data?.success == false
+                                                )
+                                                  return ($state.switchbest[
+                                                    currentIndex
+                                                  ].isChecked = false);
+                                              })();
+                                            }
+                                          };
+                                          return (({ customFunction }) => {
+                                            return customFunction();
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["runCode"] != null &&
+                                      typeof $steps["runCode"] === "object" &&
+                                      typeof $steps["runCode"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["runCode"] = await $steps[
+                                        "runCode"
+                                      ];
+                                    }
+
+                                    $steps["updateDirectDialog2Open"] =
+                                      $steps.invokeGlobalAction?.data?.error
+                                        ?.code == 1220046
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: [
+                                                  "directDialog2",
+                                                  "open"
+                                                ]
+                                              },
+                                              operation: 0,
+                                              value: true
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                    if (
+                                      $steps["updateDirectDialog2Open"] !=
+                                        null &&
+                                      typeof $steps[
+                                        "updateDirectDialog2Open"
+                                      ] === "object" &&
+                                      typeof $steps["updateDirectDialog2Open"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateDirectDialog2Open"] =
+                                        await $steps["updateDirectDialog2Open"];
+                                    }
+
+                                    $steps["updateErrorMassege"] =
+                                      $steps.invokeGlobalAction?.data
+                                        ?.success == false
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: ["errorMassege"]
+                                              },
+                                              operation: 0,
+                                              value:
+                                                $steps.invokeGlobalAction?.data
+                                                  ?.error.message
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                    if (
+                                      $steps["updateErrorMassege"] != null &&
+                                      typeof $steps["updateErrorMassege"] ===
+                                        "object" &&
+                                      typeof $steps["updateErrorMassege"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateErrorMassege"] =
+                                        await $steps["updateErrorMassege"];
+                                    }
+
+                                    $steps["invokeGlobalAction2"] = $steps
+                                      .invokeGlobalAction?.data?.success
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              (() => {
+                                                try {
+                                                  return $state.switchbest[
+                                                    currentIndex
+                                                  ].isChecked
+                                                    ? "success"
+                                                    : "error";
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })(),
+                                              (() => {
+                                                try {
+                                                  return $state.switchbest[
+                                                    currentIndex
+                                                  ].isChecked
+                                                    ? ".اطلاع رسانی فعال شد"
+                                                    : "اطلاع رسانی غیرفعال شد.";
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })(),
+                                              "bottom-center",
+                                              3000
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.showToast"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["invokeGlobalAction2"] != null &&
+                                      typeof $steps["invokeGlobalAction2"] ===
+                                        "object" &&
+                                      typeof $steps["invokeGlobalAction2"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["invokeGlobalAction2"] =
+                                        await $steps["invokeGlobalAction2"];
+                                    }
+
+                                    $steps["invokeGlobalAction3"] =
+                                      $state.errorMassege != ""
+                                        ? (() => {
+                                            const actionArgs = {
+                                              args: [
+                                                "error",
+                                                (() => {
+                                                  try {
+                                                    return $state.errorMassege;
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return undefined;
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })(),
+                                                "bottom-center"
+                                              ]
+                                            };
+                                            return $globalActions[
+                                              "Fragment.showToast"
+                                            ]?.apply(null, [
+                                              ...actionArgs.args
+                                            ]);
+                                          })()
+                                        : undefined;
+                                    if (
+                                      $steps["invokeGlobalAction3"] != null &&
+                                      typeof $steps["invokeGlobalAction3"] ===
+                                        "object" &&
+                                      typeof $steps["invokeGlobalAction3"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["invokeGlobalAction3"] =
+                                        await $steps["invokeGlobalAction3"];
+                                    }
+
+                                    $steps["updateV"] = $steps
+                                      .invokeGlobalAction?.data?.success
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["v"]
+                                            },
+                                            operation: 0,
+                                            value: $state.v + "1"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateV"] != null &&
+                                      typeof $steps["updateV"] === "object" &&
+                                      typeof $steps["updateV"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updateV"] = await $steps[
+                                        "updateV"
+                                      ];
+                                    }
+                                  }).apply(null, eventArgs);
                                 }
                               };
 
@@ -3347,8 +3791,241 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                   }}
                 />
               ) : null}
+              {(() => {
+                try {
+                  return !$state.hamyarList?.data?.result[0].rel.statusSms;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__cxARf)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDirectDialog2Open"] = (() => {
+                      var allowanceUser = JSON.parse(
+                        window.localStorage.getItem("allowanceUser")
+                      );
+                      return allowanceUser?.find(
+                        item => item.type == "hamyarSub"
+                      )
+                        ? false
+                        : true;
+                    })()
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["directDialog2", "open"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDirectDialog2Open"] != null &&
+                      typeof $steps["updateDirectDialog2Open"] === "object" &&
+                      typeof $steps["updateDirectDialog2Open"].then ===
+                        "function"
+                    ) {
+                      $steps["updateDirectDialog2Open"] = await $steps[
+                        "updateDirectDialog2Open"
+                      ];
+                    }
+
+                    $steps["invokeGlobalAction"] = (() => {
+                      var allowanceUser = JSON.parse(
+                        window.localStorage.getItem("allowanceUser")
+                      );
+                      return allowanceUser?.find(
+                        item => item.type == "hamyarSub"
+                      )
+                        ? true
+                        : false;
+                    })()
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "POST",
+                              "https://n8n.staas.ir/webhook/rest/user/hamyar/edit",
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    id: $state.hamyarList.data.result[0].hamyar
+                                      .id,
+                                    type: $state.type,
+                                    statusSms: true,
+                                    authorization: $state.token
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+                  }}
+                >
+                  <Icon217Icon
+                    className={classNames(projectcss.all, sty.svg__dg90C)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__u412X
+                    )}
+                  >
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "#FFFFFF" }}
+                      >
+                        {"\u0647\u0645\u06cc\u0627\u0631\u062a "}
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "#FFFFFF", fontWeight: 700 }}
+                      >
+                        {"\u067e\u06cc\u0627\u0645\u06a9\u06cc "}
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "#FFFFFF" }}
+                      >
+                        {
+                          "\u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0645\u06cc\u06a9\u0646\u0647. \u0632\u0648\u062f\u062a\u0631 \u0641\u0639\u0627\u0644\u0634 \u06a9\u0646!"
+                        }
+                      </span>
+                    </React.Fragment>
+                  </div>
+                </Stack__>
+              ) : null}
             </Stack__>
-          </ApiRequest>
+          ) : null}
+          {(() => {
+            try {
+              return $state.hamyarList.loading == true;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__iPrYx)}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__tQsAj)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__gloN4,
+                    "shimmer"
+                  )}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox___6OAtk,
+                    "shimmer"
+                  )}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__eegaF,
+                    "shimmer"
+                  )}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox___1FEwb,
+                    "shimmer"
+                  )}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__d21Xo,
+                    "shimmer"
+                  )}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__ujQUu,
+                    "shimmer"
+                  )}
+                />
+              </Stack__>
+            </Stack__>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -3360,6 +4037,7 @@ const PlasmicDescendants = {
     "root",
     "section",
     "headerLiom",
+    "hamyarList",
     "number2",
     "textInput",
     "antdInput",
@@ -3375,7 +4053,7 @@ const PlasmicDescendants = {
     "remove",
     "removeBtn",
     "button9",
-    "hamyarList",
+    "directDialog2",
     "button",
     "vigetLiom",
     "popover",
@@ -3386,6 +4064,7 @@ const PlasmicDescendants = {
   ],
   section: ["section", "headerLiom"],
   headerLiom: ["headerLiom"],
+  hamyarList: ["hamyarList"],
   number2: ["number2", "textInput", "antdInput", "button2"],
   textInput: ["textInput", "antdInput"],
   antdInput: ["antdInput"],
@@ -3401,16 +4080,7 @@ const PlasmicDescendants = {
   remove: ["remove", "removeBtn", "button9"],
   removeBtn: ["removeBtn"],
   button9: ["button9"],
-  hamyarList: [
-    "hamyarList",
-    "button",
-    "vigetLiom",
-    "popover",
-    "button6",
-    "button7",
-    "switchbest",
-    "img"
-  ],
+  directDialog2: ["directDialog2"],
   button: ["button"],
   vigetLiom: ["vigetLiom", "popover", "button6", "button7", "switchbest"],
   popover: ["popover", "button6", "button7"],
@@ -3426,6 +4096,7 @@ type NodeDefaultElementType = {
   root: "div";
   section: "section";
   headerLiom: typeof HeaderLiom;
+  hamyarList: typeof ApiRequest;
   number2: typeof AntdModal;
   textInput: typeof TextInput;
   antdInput: typeof Input;
@@ -3441,7 +4112,7 @@ type NodeDefaultElementType = {
   remove: typeof AntdModal;
   removeBtn: typeof Button;
   button9: typeof Button;
-  hamyarList: typeof ApiRequest;
+  directDialog2: typeof DirectDialog2;
   button: typeof Button;
   vigetLiom: typeof VigetLiom;
   popover: typeof AntdPopover;
@@ -3538,6 +4209,7 @@ export const PlasmicHamyarAdd = Object.assign(
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
+    hamyarList: makeNodeComponent("hamyarList"),
     number2: makeNodeComponent("number2"),
     textInput: makeNodeComponent("textInput"),
     antdInput: makeNodeComponent("antdInput"),
@@ -3553,7 +4225,7 @@ export const PlasmicHamyarAdd = Object.assign(
     remove: makeNodeComponent("remove"),
     removeBtn: makeNodeComponent("removeBtn"),
     button9: makeNodeComponent("button9"),
-    hamyarList: makeNodeComponent("hamyarList"),
+    directDialog2: makeNodeComponent("directDialog2"),
     button: makeNodeComponent("button"),
     vigetLiom: makeNodeComponent("vigetLiom"),
     popover: makeNodeComponent("popover"),

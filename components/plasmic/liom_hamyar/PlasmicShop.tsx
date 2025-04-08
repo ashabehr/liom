@@ -3027,7 +3027,11 @@ function PlasmicShop__RenderFunc(props: {
                       alt={""}
                       className={classNames(sty.img__vKrv)}
                       displayHeight={"auto"}
-                      displayMaxHeight={"none"}
+                      displayMaxHeight={
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "120px"
+                          : "250px"
+                      }
                       displayMaxWidth={"100%"}
                       displayMinHeight={"0"}
                       displayMinWidth={"0"}
@@ -3053,6 +3057,89 @@ function PlasmicShop__RenderFunc(props: {
                       })()}
                     />
 
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__lluQq
+                      )}
+                    >
+                      {hasVariant(globalVariants, "screen", "mobile") ? (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                var hamyarSub = $state.allowanceUser.find(
+                                  item => item.type == "hamyarSub"
+                                );
+                                if (hamyarSub) {
+                                  var date = new Date(
+                                    hamyarSub.time.year,
+                                    hamyarSub.time.month,
+                                    hamyarSub.time.day,
+                                    hamyarSub.time.hour
+                                  );
+                                  var persianDate = date.toLocaleString(
+                                    "fa-IR",
+                                    {
+                                      calendar: "persian",
+                                      dateStyle: "short"
+                                    }
+                                  );
+                                  return `اشتراک شما تا تاریخ ${persianDate} فعال است`;
+                                } else
+                                  return "همین الان به سلامت خودت اهمیت بده!";
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0647\u0645\u06cc\u0646 \u0627\u0644\u0627\u0646 \u0628\u0647 \u0633\u0644\u0627\u0645\u062a \u062e\u0648\u062f\u062a \u0627\u0647\u0645\u06cc\u062a \u0628\u062f\u0647!";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      ) : (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                var hamyarSub = $state.allowanceUser.find(
+                                  item => item.type == "hamyarSub"
+                                );
+                                if (hamyarSub) {
+                                  var date = new Date(
+                                    hamyarSub.time.year,
+                                    hamyarSub.time.month,
+                                    hamyarSub.time.day,
+                                    hamyarSub.time.hour
+                                  );
+                                  var persianDate = date.toLocaleString(
+                                    "fa-IR",
+                                    {
+                                      calendar: "persian",
+                                      dateStyle: "short"
+                                    }
+                                  );
+                                  return `اشتراک شما تا تاریخ ${persianDate} فعال است`;
+                                } else
+                                  return "همین الان به سلامت خودت اهمیت بده!";
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0647\u0645\u06cc\u0646 \u0627\u0644\u0627\u0646 \u0628\u0647 \u0633\u0644\u0627\u0645\u062a \u062e\u0648\u062f\u062a \u0627\u0647\u0645\u06cc\u062a \u0628\u062f\u0647!";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      )}
+                    </div>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__ugHiK)}
                     >
@@ -3605,7 +3692,7 @@ function PlasmicShop__RenderFunc(props: {
                         data-plasmic-name={"timer"}
                         data-plasmic-override={overrides.timer}
                         className={classNames("__wab_instance", sty.timer)}
-                        intervalSeconds={6}
+                        intervalSeconds={4}
                         isRunning={(() => {
                           try {
                             return $state.timer;
@@ -3793,7 +3880,9 @@ function PlasmicShop__RenderFunc(props: {
                               );
                             })}
                           </Stack__>
-                          <div
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__gjtvL
@@ -3847,7 +3936,7 @@ function PlasmicShop__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
-                          </div>
+                          </Stack__>
                         </Stack__>
                       );
                     })}

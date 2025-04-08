@@ -335,18 +335,3 @@
   object-fit: cover;
   min-width: 0;
 }
-.freeBox__ggOLq {
-  display: flex;
-  flex-direction: row;
-  position: fixed;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  left: 283px;
-  top: 436px;
-  z-index: 1;
-  min-width: 0;
-  padding: 8px;
-}

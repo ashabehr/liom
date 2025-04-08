@@ -1785,6 +1785,18 @@ function PlasmicStatusDay__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "white"
+      },
+      {
+        path: "diableInput",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "diableInput2",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -1963,7 +1975,7 @@ function PlasmicStatusDay__RenderFunc(props: {
           <Embed
             className={classNames("__wab_instance", sty.embedHtml__bv9VP)}
             code={
-              '<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>\r\n'
+              '<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>'
             }
           />
 
@@ -6942,6 +6954,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                     projectcss.__wab_text,
                     sty.text__cRzql
                   )}
+                  id={"yourTargetElementId"}
                 >
                   {"\u0627\u0633\u0645 \u062f\u0627\u0631\u0648"}
                 </div>
@@ -6957,7 +6970,19 @@ function PlasmicStatusDay__RenderFunc(props: {
                           "__wab_instance",
                           sty.inputnameMedicine
                         ),
-                        disabled: false,
+                        disabled: (() => {
+                          try {
+                            return $state.diableInput2;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })(),
                         id: "inputMobile",
                         onChange: async (...eventArgs: any) => {
                           generateStateOnChangePropForCodeComponents(
@@ -7084,6 +7109,28 @@ function PlasmicStatusDay__RenderFunc(props: {
                         typeof $steps["updateOpenBox"].then === "function"
                       ) {
                         $steps["updateOpenBox"] = await $steps["updateOpenBox"];
+                      }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return ($state.diableInput2 = false);
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
                       }
                     }}
                   />
@@ -7937,6 +7984,19 @@ function PlasmicStatusDay__RenderFunc(props: {
                         "aria-label": ``,
                         bordered: false,
                         className: classNames("__wab_instance", sty.jobinput),
+                        disabled: (() => {
+                          try {
+                            return $state.diableInput;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
                         id: "inputMobile",
                         onChange: async (...eventArgs: any) => {
                           generateStateOnChangePropForCodeComponents(
@@ -7979,6 +8039,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         />
                       );
                     })()}
+                    autoFocus={true}
                     className={classNames("__wab_instance", sty.textInput6)}
                     onChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
@@ -8001,6 +8062,49 @@ function PlasmicStatusDay__RenderFunc(props: {
                       ""
                     }
                   />
+
+                  {(() => {
+                    try {
+                      return $state.diableInput;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__ktRL)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return ($state.diableInput = false);
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                    />
+                  ) : null}
                 </div>
               </Stack__>
             </Stack__>

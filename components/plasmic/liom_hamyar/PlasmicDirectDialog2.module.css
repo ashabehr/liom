@@ -218,7 +218,7 @@
   top: auto;
   min-width: 0;
   border-radius: 8px;
-  padding: 0px;
+  padding: 0px 0px 8px;
   border: 1px solid #d2d2d2;
 }
 .freeBox__y9Wx > :global(.__wab_flex-container) {
@@ -579,7 +579,7 @@
   text-overflow: clip;
   cursor: pointer;
   font-family: "Roboto", sans-serif;
-  padding-bottom: 8px;
+  padding: 8px 8px 0px;
 }
 .dialog2:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;

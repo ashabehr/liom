@@ -943,6 +943,19 @@ function PlasmicSocialPost__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                video={(() => {
+                  try {
+                    return undefined;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
               />
 
               <div

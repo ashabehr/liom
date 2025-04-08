@@ -136,6 +136,37 @@ function PlasmicSocialMain__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -350,8 +381,6 @@ function PlasmicSocialMain__RenderFunc(props: {
             noLayout={false}
             url={"https://n8n.staas.ir/webhook/rest/social"}
           />
-
-          <div className={classNames(projectcss.all, sty.freeBox__ggOLq)} />
         </div>
       </div>
     </React.Fragment>

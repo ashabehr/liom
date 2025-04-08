@@ -6996,20 +6996,29 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       const actionArgs = {
                                         customFunction: async () => {
                                           return (() => {
-                                            window.deepLink(currentItem.action);
                                             const allowance =
                                               $state?.getUserInfo?.data?.[0]
                                                 ?.result?.allowance || [];
                                             const filteredItem = allowance.find(
                                               item =>
                                                 item.type.includes(
-                                                  currentItem.action
+                                                  $state.getQuestion?.[0]?.action.slice(
+                                                    1,
+                                                    $state.getQuestion?.[0]
+                                                      ?.action.length
+                                                  )
                                                 )
                                             );
                                             const active = filteredItem
                                               ? filteredItem.active
                                               : false;
-                                            switch (currentItem.action) {
+                                            switch (
+                                              $state.getQuestion?.[0]?.action.slice(
+                                                1,
+                                                $state.getQuestion?.[0]?.action
+                                                  .length
+                                              )
+                                            ) {
                                               case "clinic":
                                                 {
                                                   const chars =
@@ -7158,20 +7167,29 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       const actionArgs = {
                                         customFunction: async () => {
                                           return (() => {
-                                            window.deepLink(currentItem.action);
                                             const allowance =
                                               $state?.getUserInfo?.data?.[0]
                                                 ?.result?.allowance || [];
                                             const filteredItem = allowance.find(
                                               item =>
                                                 item.type.includes(
-                                                  currentItem.action
+                                                  $state.getQuestion?.[0]?.action.slice(
+                                                    1,
+                                                    $state.getQuestion?.[0]
+                                                      ?.action.length
+                                                  )
                                                 )
                                             );
                                             const active = filteredItem
                                               ? filteredItem.active
                                               : false;
-                                            switch (currentItem.action) {
+                                            switch (
+                                              $state.getQuestion?.[0]?.action.slice(
+                                                1,
+                                                $state.getQuestion?.[0]?.action
+                                                  .length
+                                              )
+                                            ) {
                                               case "clinic":
                                                 {
                                                   const chars =
@@ -7327,7 +7345,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                               pageName: "mainPage",
                                               action:
                                                 "clickTools-" +
-                                                currentItem.action,
+                                                $state.getQuestion?.[0]?.action.slice(
+                                                  1,
+                                                  $state.getQuestion?.[0]
+                                                    ?.action.length
+                                                ),
                                               extraData: {}
                                             };
                                           } catch (e) {

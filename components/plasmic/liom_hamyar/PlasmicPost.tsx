@@ -59,7 +59,9 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { Video } from "@plasmicpkgs/plasmic-basic-components";
 import AudioPlayer from "../../AudioPlayer"; // plasmic-import: 8TLNkR4k2mrN/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -67,8 +69,6 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPost.module.css"; // plasmic-import: PIFHnFLcunkZ/css
-
-import MenuIcon from "../fragment_icons/icons/PlasmicIcon__Menu"; // plasmic-import: dmfb3Ga2IoVt/icon
 
 createPlasmicElementProxy;
 
@@ -85,26 +85,31 @@ export type PlasmicPost__ArgsType = {
   data?: string;
   text?: string;
   image2?: string;
+  video?: string;
 };
 type ArgPropType = keyof PlasmicPost__ArgsType;
 export const PlasmicPost__ArgProps = new Array<ArgPropType>(
   "data",
   "text",
-  "image2"
+  "image2",
+  "video"
 );
 
 export type PlasmicPost__OverridesType = {
   root?: Flex__<"div">;
-  firstFreamOfVideo?: Flex__<typeof PlasmicImg__>;
   image3?: Flex__<"div">;
-  image?: Flex__<typeof PlasmicImg__>;
+  img?: Flex__<typeof PlasmicImg__>;
+  htmlVideo?: Flex__<typeof Video>;
   audioPlayer?: Flex__<typeof AudioPlayer>;
+  svg?: Flex__<"svg">;
+  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultPostProps {
   data?: string;
   text?: string;
   image2?: string;
+  video?: string;
   postType?: SingleChoiceArg<"image" | "voise" | "video">;
   className?: string;
 }
@@ -260,125 +265,6 @@ function PlasmicPost__RenderFunc(props: {
         </React.Fragment>
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__eUk9V, {
-          [sty.freeBoxpostType_image__eUk9V2TCWu]: hasVariant(
-            $state,
-            "postType",
-            "image"
-          ),
-          [sty.freeBoxpostType_voise__eUk9VVlsyu]: hasVariant(
-            $state,
-            "postType",
-            "voise"
-          )
-        })}
-        onClick={async event => {
-          const $steps = {};
-
-          $steps["goToPage"] = true
-            ? (() => {
-                const actionArgs = {};
-                return (({ destination }) => {
-                  if (
-                    typeof destination === "string" &&
-                    destination.startsWith("#")
-                  ) {
-                    document
-                      .getElementById(destination.substr(1))
-                      .scrollIntoView({ behavior: "smooth" });
-                  } else {
-                    __nextRouter?.push(destination);
-                  }
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["goToPage"] != null &&
-            typeof $steps["goToPage"] === "object" &&
-            typeof $steps["goToPage"].then === "function"
-          ) {
-            $steps["goToPage"] = await $steps["goToPage"];
-          }
-        }}
-      >
-        <div
-          className={classNames(projectcss.all, sty.freeBox__iQfs, {
-            [sty.freeBoxpostType_image__iQfs2TCWu]: hasVariant(
-              $state,
-              "postType",
-              "image"
-            )
-          })}
-        >
-          <PlasmicImg__
-            data-plasmic-name={"firstFreamOfVideo"}
-            data-plasmic-override={overrides.firstFreamOfVideo}
-            alt={""}
-            className={classNames(sty.firstFreamOfVideo, {
-              [sty.firstFreamOfVideopostType_image]: hasVariant(
-                $state,
-                "postType",
-                "image"
-              ),
-              [sty.firstFreamOfVideopostType_video]: hasVariant(
-                $state,
-                "postType",
-                "video"
-              ),
-              [sty.firstFreamOfVideopostType_voise]: hasVariant(
-                $state,
-                "postType",
-                "voise"
-              )
-            })}
-            displayHeight={"100%"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"none"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={"100%"}
-            loading={"lazy"}
-            src={(() => {
-              try {
-                return undefined;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return {
-                    src: "/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg",
-                    fullWidth: 5349,
-                    fullHeight: 3566,
-                    aspectRatio: undefined
-                  };
-                }
-                throw e;
-              }
-            })()}
-          />
-        </div>
-      </div>
-      <div
-        className={classNames(projectcss.all, sty.freeBox__cx2Bk, {
-          [sty.freeBoxpostType_image__cx2Bk2TCWu]: hasVariant(
-            $state,
-            "postType",
-            "image"
-          ),
-          [sty.freeBoxpostType_voise__cx2BkVlsyu]: hasVariant(
-            $state,
-            "postType",
-            "voise"
-          )
-        })}
-      >
-        <MenuIcon
-          className={classNames(projectcss.all, sty.svg__lnGkb)}
-          role={"img"}
-        />
-      </div>
-      <div
         data-plasmic-name={"image3"}
         data-plasmic-override={overrides.image3}
         className={classNames(projectcss.all, sty.image3, {
@@ -416,15 +302,13 @@ function PlasmicPost__RenderFunc(props: {
         }}
       >
         <PlasmicImg__
-          data-plasmic-name={"image"}
-          data-plasmic-override={overrides.image}
+          data-plasmic-name={"img"}
+          data-plasmic-override={overrides.img}
           alt={""}
-          className={classNames(sty.image, {
-            [sty.imagepostType_image]: hasVariant($state, "postType", "image")
-          })}
-          displayHeight={"100%"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"none"}
+          className={classNames(sty.img)}
+          displayHeight={"auto"}
+          displayMaxHeight={"50%"}
+          displayMaxWidth={"50%"}
           displayMinHeight={"0"}
           displayMinWidth={"0"}
           displayWidth={"auto"}
@@ -437,16 +321,20 @@ function PlasmicPost__RenderFunc(props: {
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return {
-                  src: "/plasmic/liom_hamyar/images/newProjectPng.png",
-                  fullWidth: 1080,
-                  fullHeight: 764,
-                  aspectRatio: undefined
-                };
+                return undefined;
               }
               throw e;
             }
           })()}
+        />
+      </div>
+      <div className={classNames(projectcss.all, sty.freeBox__tbwA)}>
+        <Video
+          data-plasmic-name={"htmlVideo"}
+          data-plasmic-override={overrides.htmlVideo}
+          className={classNames("__wab_instance", sty.htmlVideo)}
+          controls={true}
+          src={`https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm${undefined}`}
         />
       </div>
       <div
@@ -507,32 +395,56 @@ function PlasmicPost__RenderFunc(props: {
         <div className={classNames(projectcss.all, sty.freeBox__rEuUx)}>
           <div className={classNames(projectcss.all, sty.freeBox__apntU)}>
             <svg
-              className={classNames(projectcss.all, sty.svg__oeXlk)}
+              data-plasmic-name={"svg"}
+              data-plasmic-override={overrides.svg}
+              className={classNames(projectcss.all, sty.svg)}
               role={"img"}
             />
           </div>
         </div>
+      </div>
+      <div className={classNames(projectcss.all, sty.freeBox__yYtmm)}>
+        <Embed
+          data-plasmic-name={"embedHtml"}
+          data-plasmic-override={overrides.embedHtml}
+          className={classNames("__wab_instance", sty.embedHtml)}
+          code={
+            "\r\n    <style>\r\n\r\n        \r\n        /* \u0627\u0633\u062a\u0627\u06cc\u0644 \u06a9\u0627\u0646\u062a\u06cc\u0646\u0631 \u0627\u0635\u0644\u06cc \u067e\u0644\u06cc\u0631 */\r\n        .audio-player {\r\n            background-color: white;\r\n            border-radius: 12px;\r\n            padding: 15px;\r\n            box-shadow: 0 2px 10px rgba(0,0,0,0.1);\r\n            margin-bottom: 20px;\r\n            direction: rtl;\r\n        }\r\n\r\n        \r\n        /* \u0627\u0633\u062a\u0627\u06cc\u0644 \u0628\u062e\u0634 \u06a9\u0646\u062a\u0631\u0644\u200c\u0647\u0627\u06cc \u067e\u0644\u06cc\u0631 */\r\n        .player-controls {\r\n            display: flex;\r\n            align-items: center;\r\n            gap: 15px;\r\n        }\r\n        \r\n        /* \u0627\u0633\u062a\u0627\u06cc\u0644 \u062f\u06a9\u0645\u0647 \u067e\u062e\u0634/\u062a\u0648\u0642\u0641 */\r\n        .play-btn {\r\n            width: 48px;\r\n            height: 48px;\r\n            border-radius: 50%;\r\n            background-color: #8254C6;\r\n            border: none;\r\n            cursor: pointer;\r\n            display: flex;\r\n            justify-content: center;\r\n            align-items: center;\r\n            position: relative;\r\n        }\r\n        \r\n        /* \u0622\u06cc\u06a9\u0648\u0646 \u0645\u062b\u0644\u062b\u06cc \u067e\u062e\u0634 */\r\n        .play-btn::before {\r\n            content: \"\";\r\n            width: 0;\r\n            height: 0;\r\n            border-top: 10px solid transparent;\r\n            border-bottom: 10px solid transparent;\r\n            border-left: 16px solid white;\r\n            position: absolute;\r\n            left: 55%;\r\n            transform: translateX(-50%);\r\n        }\r\n        \r\n        /* \u0622\u06cc\u06a9\u0648\u0646 \u0645\u0631\u0628\u0639\u06cc \u062a\u0648\u0642\u0641 (\u0648\u0642\u062a\u06cc \u0622\u0647\u0646\u06af \u062f\u0631 \u062d\u0627\u0644 \u067e\u062e\u0634 \u0627\u0633\u062a) */\r\n        .play-btn.playing::before {\r\n            content: \"\";\r\n            width: 16px;\r\n            height: 16px;\r\n            background: white;\r\n            border: none;\r\n            left: 50%;\r\n        }\r\n        \r\n        /* \u06a9\u0627\u0646\u062a\u06cc\u0646\u0631 \u0646\u0648\u0627\u0631 \u067e\u06cc\u0634\u0631\u0641\u062a */\r\n        .progress-container {\r\n            flex-grow: 1;\r\n            height: 6px;\r\n            background-color: #e0e0e0;\r\n            border-radius: 5px;\r\n            cursor: pointer;\r\n            position: relative;\r\n        }\r\n        \r\n        /* \u0646\u0648\u0627\u0631 \u067e\u06cc\u0634\u0631\u0641\u062a (\u0642\u0633\u0645\u062a \u067e\u0631 \u0634\u062f\u0647) */\r\n        .progress-bar {\r\n            height: 100%;\r\n            background-color: #8254C6;\r\n            border-radius: 5px;\r\n            width: 0%;\r\n            position: relative;\r\n        }\r\n        \r\n        /* \u062f\u0633\u062a\u06af\u06cc\u0631\u0647 \u0646\u0648\u0627\u0631 \u067e\u06cc\u0634\u0631\u0641\u062a */\r\n        .progress-handle {\r\n            width: 14px;\r\n            height: 14px;\r\n            background-color: #8254C6;\r\n            border-radius: 50%;\r\n            position: absolute;\r\n            right: -7px;\r\n            top: 50%;\r\n            transform: translateY(-50%);\r\n            opacity: 0;\r\n            transition: opacity 0.2s;\r\n        }\r\n        \r\n        /* \u0646\u0645\u0627\u06cc\u0634 \u062f\u0633\u062a\u06af\u06cc\u0631\u0647 \u0647\u0646\u06af\u0627\u0645 \u0647\u0627\u0648\u0631 */\r\n        .progress-container:hover .progress-handle {\r\n            opacity: 1;\r\n        }\r\n        \r\n        /* \u0646\u0645\u0627\u06cc\u0634 \u0632\u0645\u0627\u0646 */\r\n        .time-display {\r\n            font-size: 14px;\r\n            color: #555;\r\n            min-width: 80px;\r\n            text-align: center;\r\n        }\r\n        \r\n        /* \u0628\u062e\u0634 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0622\u0647\u0646\u06af */\r\n        .audio-info {\r\n            margin-bottom: 10px;\r\n            display: none;\r\n            \r\n        }\r\n        \r\n        /* \u0639\u0646\u0648\u0627\u0646 \u0622\u0647\u0646\u06af */\r\n        .audio-title {\r\n            font-weight: bold;\r\n            margin-bottom: 5px;\r\n            display: none;\r\n        }\r\n    </style>\r\n    \r\n    <!-- \u0633\u0627\u062e\u062a\u0627\u0631 \u0627\u0635\u0644\u06cc \u067e\u0644\u06cc\u0631 -->\r\n    <div class=\"audio-player\">\r\n        <!-- \u0628\u062e\u0634 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0622\u0647\u0646\u06af -->\r\n        <div class=\"audio-info\">\r\n            <div class=\"audio-title\">\u0646\u0627\u0645 \u0622\u0647\u0646\u06af</div>\r\n            <div class=\"audio-artist\">\u0646\u0627\u0645 \u0647\u0646\u0631\u0645\u0646\u062f</div>\r\n        </div>\r\n        \r\n        <!-- \u0628\u062e\u0634 \u06a9\u0646\u062a\u0631\u0644\u200c\u0647\u0627\u06cc \u067e\u0644\u06cc\u0631 -->\r\n        <div class=\"player-controls\">\r\n            <!-- \u062f\u06a9\u0645\u0647 \u067e\u062e\u0634/\u062a\u0648\u0642\u0641 -->\r\n            <button class=\"play-btn\"></button>\r\n            \r\n            <!-- \u0646\u0648\u0627\u0631 \u067e\u06cc\u0634\u0631\u0641\u062a -->\r\n            <div class=\"progress-container\">\r\n                <div class=\"progress-bar\">\r\n                    <div class=\"progress-handle\"></div>\r\n                </div>\r\n            </div>\r\n            \r\n            <!-- \u0646\u0645\u0627\u06cc\u0634 \u0632\u0645\u0627\u0646 -->\r\n            <div class=\"time-display\">0:00 / 3:45</div>\r\n        </div>\r\n    </div>\r\n\r\n    <script>\r\n        // \u0635\u0628\u0631 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645 \u062a\u0627 DOM \u06a9\u0627\u0645\u0644\u0627\u064b \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0634\u0648\u062f\r\n        document.addEventListener('DOMContentLoaded', function() {\r\n            // \u0627\u06cc\u062c\u0627\u062f \u0627\u0644\u0645\u0627\u0646 \u0635\u0648\u062a\u06cc\r\n            const audioPlayer = new Audio();\r\n            // \u062a\u0646\u0638\u06cc\u0645 \u0622\u062f\u0631\u0633 \u0641\u0627\u06cc\u0644 \u0635\u0648\u062a\u06cc (\u0628\u0627\u06cc\u062f \u062c\u0627\u06cc\u06af\u0632\u06cc\u0646 \u0634\u0648\u062f)\r\n            audioPlayer.src = 'your-audio-file.mp3';\r\n            \r\n            // \u0627\u0646\u062a\u062e\u0627\u0628 \u0627\u0644\u0645\u0627\u0646\u200c\u0647\u0627\u06cc \u0645\u0648\u0631\u062f \u0646\u06cc\u0627\u0632\r\n            const playBtn = document.querySelector('.play-btn');\r\n            const progressContainer = document.querySelector('.progress-container');\r\n            const progressBar = document.querySelector('.progress-bar');\r\n            const timeDisplay = document.querySelector('.time-display');\r\n            \r\n            // \u0645\u062f\u06cc\u0631\u06cc\u062a \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u067e\u062e\u0634/\u062a\u0648\u0642\u0641\r\n            playBtn.addEventListener('click', function() {\r\n                if (audioPlayer.paused) {\r\n                    audioPlayer.play();\r\n                    playBtn.classList.add('playing');\r\n                } else {\r\n                    audioPlayer.pause();\r\n                    playBtn.classList.remove('playing');\r\n                }\r\n            });\r\n            \r\n            // \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc \u0646\u0648\u0627\u0631 \u067e\u06cc\u0634\u0631\u0641\u062a \u0647\u0646\u06af\u0627\u0645 \u067e\u062e\u0634 \u0622\u0647\u0646\u06af\r\n            audioPlayer.addEventListener('timeupdate', function() {\r\n                const currentTime = audioPlayer.currentTime;\r\n                const duration = audioPlayer.duration;\r\n                // \u0645\u062d\u0627\u0633\u0628\u0647 \u062f\u0631\u0635\u062f \u067e\u06cc\u0634\u0631\u0641\u062a\r\n                const progressPercent = (currentTime / duration) * 100;\r\n                progressBar.style.width = progressPercent + '%';\r\n                \r\n                // \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc \u0646\u0645\u0627\u06cc\u0634 \u0632\u0645\u0627\u0646\r\n                timeDisplay.textContent = formatTime(currentTime) + ' / ' + formatTime(duration);\r\n            });\r\n            \r\n            // \u0627\u0645\u06a9\u0627\u0646 \u062c\u0627\u0628\u062c\u0627\u06cc\u06cc \u062f\u0631 \u0622\u0647\u0646\u06af \u0628\u0627 \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u0646\u0648\u0627\u0631 \u067e\u06cc\u0634\u0631\u0641\u062a\r\n            progressContainer.addEventListener('click', function(e) {\r\n                const width = this.clientWidth;\r\n                const clickX = e.offsetX;\r\n                const duration = audioPlayer.duration;\r\n                \r\n                // \u062a\u0646\u0638\u06cc\u0645 \u0632\u0645\u0627\u0646 \u0622\u0647\u0646\u06af \u0628\u0631 \u0627\u0633\u0627\u0633 \u0645\u0648\u0642\u0639\u06cc\u062a \u06a9\u0644\u06cc\u06a9\r\n                audioPlayer.currentTime = (clickX / width) * duration;\r\n            });\r\n            \r\n            // \u0645\u062f\u06cc\u0631\u06cc\u062a \u067e\u0627\u06cc\u0627\u0646 \u0622\u0647\u0646\u06af\r\n            audioPlayer.addEventListener('ended', function() {\r\n                playBtn.classList.remove('playing');\r\n                progressBar.style.width = '0%';\r\n                audioPlayer.currentTime = 0;\r\n            });\r\n            \r\n            // \u062a\u0627\u0628\u0639 \u062a\u0628\u062f\u06cc\u0644 \u062b\u0627\u0646\u06cc\u0647 \u0628\u0647 \u0641\u0631\u0645\u062a \u062f\u0642\u06cc\u0642\u0647:\u062b\u0627\u0646\u06cc\u0647\r\n            function formatTime(seconds) {\r\n                const minutes = Math.floor(seconds / 60);\r\n                const secs = Math.floor(seconds % 60);\r\n                return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;\r\n            }\r\n            \r\n            // \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0622\u0647\u0646\u06af (\u0645\u062f\u062a \u0632\u0645\u0627\u0646)\r\n            audioPlayer.addEventListener('loadedmetadata', function() {\r\n                timeDisplay.textContent = '0:00 / ' + formatTime(audioPlayer.duration);\r\n            });\r\n        });\r\n    </script>\r\n"
+          }
+        />
       </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "firstFreamOfVideo", "image3", "image", "audioPlayer"],
-  firstFreamOfVideo: ["firstFreamOfVideo"],
-  image3: ["image3", "image"],
-  image: ["image"],
-  audioPlayer: ["audioPlayer"]
+  root: [
+    "root",
+    "image3",
+    "img",
+    "htmlVideo",
+    "audioPlayer",
+    "svg",
+    "embedHtml"
+  ],
+  image3: ["image3", "img"],
+  img: ["img"],
+  htmlVideo: ["htmlVideo"],
+  audioPlayer: ["audioPlayer"],
+  svg: ["svg"],
+  embedHtml: ["embedHtml"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  firstFreamOfVideo: typeof PlasmicImg__;
   image3: "div";
-  image: typeof PlasmicImg__;
+  img: typeof PlasmicImg__;
+  htmlVideo: typeof Video;
   audioPlayer: typeof AudioPlayer;
+  svg: "svg";
+  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -595,10 +507,12 @@ export const PlasmicPost = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    firstFreamOfVideo: makeNodeComponent("firstFreamOfVideo"),
     image3: makeNodeComponent("image3"),
-    image: makeNodeComponent("image"),
+    img: makeNodeComponent("img"),
+    htmlVideo: makeNodeComponent("htmlVideo"),
     audioPlayer: makeNodeComponent("audioPlayer"),
+    svg: makeNodeComponent("svg"),
+    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicPost
     internalVariantProps: PlasmicPost__VariantProps,
