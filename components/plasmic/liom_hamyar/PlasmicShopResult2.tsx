@@ -248,7 +248,7 @@ function PlasmicShopResult2__RenderFunc(props: {
         path: "status",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "sdsdsd"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "sasasa"
       },
       {
         path: "disable",
@@ -1328,33 +1328,29 @@ function PlasmicShopResult2__RenderFunc(props: {
             onClick={async event => {
               const $steps = {};
 
-              $steps["updateModalOpen"] = true
+              $steps["goToCommonError"] = true
                 ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["modal", "open"]
-                      },
-                      operation: 0,
-                      value: true
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
+                    const actionArgs = { destination: `/common-error` };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
                       }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
               if (
-                $steps["updateModalOpen"] != null &&
-                typeof $steps["updateModalOpen"] === "object" &&
-                typeof $steps["updateModalOpen"].then === "function"
+                $steps["goToCommonError"] != null &&
+                typeof $steps["goToCommonError"] === "object" &&
+                typeof $steps["goToCommonError"].then === "function"
               ) {
-                $steps["updateModalOpen"] = await $steps["updateModalOpen"];
+                $steps["goToCommonError"] = await $steps["goToCommonError"];
               }
             }}
             onColorChange={async (...eventArgs: any) => {

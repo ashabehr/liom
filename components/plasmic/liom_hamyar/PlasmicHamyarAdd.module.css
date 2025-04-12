@@ -1852,3 +1852,10 @@
   border-radius: 16px;
   padding: 8px;
 }
+.load:global(.__wab_instance) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}

@@ -73,6 +73,9 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSocialMain.module.css"; // plasmic-import: dIQxBnzf8Ez0/css
 
+import Icon179Icon from "./icons/PlasmicIcon__Icon179"; // plasmic-import: qlPLXoOalpf5/icon
+import Icon218Icon from "./icons/PlasmicIcon__Icon218"; // plasmic-import: efUVKFegcS0a/icon
+
 createPlasmicElementProxy;
 
 export type PlasmicSocialMain__VariantMembers = {};
@@ -243,13 +246,13 @@ function PlasmicSocialMain__RenderFunc(props: {
                   />
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__tjxlw)}>
-                  <svg
+                  <Icon179Icon
                     className={classNames(projectcss.all, sty.svg__nafDg)}
                     role={"img"}
                   />
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__egJpI)}>
-                  <svg
+                  <Icon218Icon
                     className={classNames(projectcss.all, sty.svg__fAha)}
                     role={"img"}
                   />

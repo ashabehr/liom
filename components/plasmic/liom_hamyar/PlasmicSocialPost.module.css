@@ -19,7 +19,7 @@
     )
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
   padding: 0px 0px 9px;
-  border-style: solid;
+  border: 1px solid #6b7280;
 }
 .root > * {
   grid-column: 4;
@@ -59,6 +59,7 @@
   top: 0;
   z-index: 1;
   right: 0;
+  background: #ffffff;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(

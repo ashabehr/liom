@@ -1797,6 +1797,25 @@ function PlasmicStatusDay__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "calender",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return JSON.parse(window.localStorage.getItem("calender"));
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -4380,6 +4399,73 @@ function PlasmicStatusDay__RenderFunc(props: {
                       data-plasmic-name={"tabWeek2"}
                       data-plasmic-override={overrides.tabWeek2}
                       className={classNames("__wab_instance", sty.tabWeek2)}
+                      color={(() => {
+                        try {
+                          return (() => {
+                            function parseDate(dateStr) {
+                              const parts = dateStr.split("-");
+                              return new Date(parts[0], parts[1] - 1, parts[2]);
+                            }
+                            function getDayColor(dateStr, cycleData) {
+                              const date = parseDate(dateStr);
+                              const periodStart = new Date(
+                                cycleData.period.start.year,
+                                cycleData.period.start.month - 1,
+                                cycleData.period.start.day
+                              );
+                              const periodEnd = new Date(
+                                cycleData.period.end.year,
+                                cycleData.period.end.month - 1,
+                                cycleData.period.end.day
+                              );
+                              const fertilityStart = new Date(
+                                cycleData.fertility.start.year,
+                                cycleData.fertility.start.month - 1,
+                                cycleData.fertility.start.day
+                              );
+                              const fertilityEnd = new Date(
+                                cycleData.fertility.end.year,
+                                cycleData.fertility.end.month - 1,
+                                cycleData.fertility.end.day
+                              );
+                              const pmsStart = new Date(
+                                cycleData.pms.start.year,
+                                cycleData.pms.start.month - 1,
+                                cycleData.pms.start.day
+                              );
+                              const pmsEnd = new Date(
+                                cycleData.pms.end.year,
+                                cycleData.pms.end.month - 1,
+                                cycleData.pms.end.day
+                              );
+                              if (date >= periodStart && date <= periodEnd) {
+                                return "red";
+                              } else if (
+                                date >= fertilityStart &&
+                                date <= fertilityEnd
+                              ) {
+                                return "yellow";
+                              } else if (date >= pmsStart && date <= pmsEnd) {
+                                return "pms";
+                              } else {
+                                return "";
+                              }
+                            }
+                            return getDayColor(
+                              currentItem.value,
+                              $state.calender[0]
+                            );
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "red";
+                          }
+                          throw e;
+                        }
+                      })()}
                       currentWeek={(() => {
                         try {
                           return (() => {
@@ -4553,33 +4639,93 @@ function PlasmicStatusDay__RenderFunc(props: {
                           </React.Fragment>
                         </div>
                       }
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___1VfrJ
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (() => {
-                                var a = currentItem.label.split("-");
-                                return `${a[1].split(",")[0].trim()}`;
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0627\u0645\u0631\u0648\u0632";
-                              }
-                              throw e;
+                      startend={(() => {
+                        try {
+                          return (() => {
+                            function parseDate(dateStr) {
+                              const parts = dateStr.split("-");
+                              return new Date(parts[0], parts[1] - 1, parts[2]);
                             }
-                          })()}
-                        </React.Fragment>
-                      </div>
+                            function getDayColor(dateStr, cycleData) {
+                              const date = parseDate(dateStr);
+                              const periodStart = new Date(
+                                cycleData.period.start.year,
+                                cycleData.period.start.month - 1,
+                                cycleData.period.start.day
+                              );
+                              const periodEnd = new Date(
+                                cycleData.period.end.year,
+                                cycleData.period.end.month - 1,
+                                cycleData.period.end.day
+                              );
+                              const fertilityStart = new Date(
+                                cycleData.fertility.start.year,
+                                cycleData.fertility.start.month - 1,
+                                cycleData.fertility.start.day
+                              );
+                              const fertilityEnd = new Date(
+                                cycleData.fertility.end.year,
+                                cycleData.fertility.end.month - 1,
+                                cycleData.fertility.end.day
+                              );
+                              const pmsStart = new Date(
+                                cycleData.pms.start.year,
+                                cycleData.pms.start.month - 1,
+                                cycleData.pms.start.day
+                              );
+                              const pmsEnd = new Date(
+                                cycleData.pms.end.year,
+                                cycleData.pms.end.month - 1,
+                                cycleData.pms.end.day
+                              );
+                              if (
+                                date.getTime() === periodStart.getTime() ||
+                                date.getTime() === fertilityStart.getTime() ||
+                                date.getTime() === pmsStart.getTime()
+                              ) {
+                                return "start";
+                              } else if (
+                                date.getTime() === periodEnd.getTime() ||
+                                date.getTime() === fertilityEnd.getTime() ||
+                                date.getTime() === pmsEnd.getTime()
+                              ) {
+                                return "end";
+                              }
+                            }
+                            return getDayColor(
+                              currentItem.value,
+                              $state.calender[0]
+                            );
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (() => {
+                              var a = currentItem.label.split("-");
+                              return `${a[1].split(",")[0].trim()}`;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0627\u0645\u0631\u0648\u0632";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
                     </TabWeek2>
                   );
                 })}

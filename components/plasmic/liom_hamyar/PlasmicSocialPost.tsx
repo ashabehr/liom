@@ -880,6 +880,19 @@ function PlasmicSocialPost__RenderFunc(props: {
               <Post
                 data-plasmic-name={"post"}
                 data-plasmic-override={overrides.post}
+                audioLinkInPost={(() => {
+                  try {
+                    return $state.getInfo.data.result.details.post.action;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
                 className={classNames("__wab_instance", sty.post)}
                 data={(() => {
                   try {
@@ -1938,6 +1951,33 @@ function PlasmicSocialPost__RenderFunc(props: {
                 null,
                 eventArgs
               );
+
+              (async data => {
+                const $steps = {};
+
+                $steps["runCode"] = $state.getInfo?.data?.result?.details
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return (window.audioLink =
+                              $state.getInfo.data.result.details.post.action);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }).apply(null, eventArgs);
             }}
             url={"https://n8n.staas.ir/webhook/rest/social"}
           />

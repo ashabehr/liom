@@ -8403,10 +8403,16 @@ function PlasmicLogin__RenderFunc(props: {
                             "__wab_instance",
                             sty.radioGrop__aUqrd,
                             {
+                              [sty.radioGroploginPage_emailCode__aUqrdwqwJl]:
+                                hasVariant($state, "loginPage", "emailCode"),
+                              [sty.radioGroploginPage_mobileCode__aUqrdm2GXn]:
+                                hasVariant($state, "loginPage", "mobileCode"),
                               [sty.radioGroploginPage_name__aUqrdhUiKy]:
                                 hasVariant($state, "loginPage", "name"),
                               [sty.radioGroploginPage_selectstatus__aUqrdNi6Lr]:
-                                hasVariant($state, "loginPage", "selectstatus")
+                                hasVariant($state, "loginPage", "selectstatus"),
+                              [sty.radioGroploginPage_userNameLogin__aUqrdH7MIy]:
+                                hasVariant($state, "loginPage", "userNameLogin")
                             }
                           )}
                           key={currentIndex}

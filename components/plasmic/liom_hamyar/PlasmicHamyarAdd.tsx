@@ -75,6 +75,7 @@ import VigetLiom from "../../VigetLiom"; // plasmic-import: BIrjMygSfTRI/compone
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
+import Load from "../../Load"; // plasmic-import: MJo5g_R-znVP/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -137,6 +138,7 @@ export type PlasmicHamyarAdd__OverridesType = {
   button7?: Flex__<typeof Button>;
   switchbest?: Flex__<typeof Switchbest>;
   img?: Flex__<typeof PlasmicImg__>;
+  load?: Flex__<typeof Load>;
 };
 
 export interface DefaultHamyarAddProps {}
@@ -424,6 +426,12 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "load.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2570,6 +2578,23 @@ function PlasmicHamyarAdd__RenderFunc(props: {
               }
             }}
             open={generateStateValueProp($state, ["directDialog2", "open"])}
+            redirectUrl={(() => {
+              try {
+                return `https://apps.liom.app/shopResult?buyId=${
+                  $state.directDialog2.selectShop.id
+                }&?offCode=&token=hjk812${localStorage.getItem(
+                  "token"
+                )}jkp&redirectUrl=https://apps.liom.app/Self-care/`;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             token={(() => {
               try {
                 return window.localStorage.getItem("token");
@@ -3387,6 +3412,48 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                   (async isChecked => {
                                     const $steps = {};
 
+                                    $steps["updateLoadLoading"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["load", "loading"]
+                                            },
+                                            operation: 0,
+                                            value: true
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateLoadLoading"] != null &&
+                                      typeof $steps["updateLoadLoading"] ===
+                                        "object" &&
+                                      typeof $steps["updateLoadLoading"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateLoadLoading"] =
+                                        await $steps["updateLoadLoading"];
+                                    }
+
                                     $steps["invokeGlobalAction"] = true
                                       ? (() => {
                                           const actionArgs = {
@@ -3602,7 +3669,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                                 }
                                               })(),
                                               "bottom-center",
-                                              3000
+                                              1998
                                             ]
                                           };
                                           return $globalActions[
@@ -3641,7 +3708,8 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                                     throw e;
                                                   }
                                                 })(),
-                                                "bottom-center"
+                                                "bottom-center",
+                                                2000
                                               ]
                                             };
                                             return $globalActions[
@@ -3703,6 +3771,48 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                       $steps["updateV"] = await $steps[
                                         "updateV"
                                       ];
+                                    }
+
+                                    $steps["updateLoadLoading2"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["load", "loading"]
+                                            },
+                                            operation: 0,
+                                            value: false
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateLoadLoading2"] != null &&
+                                      typeof $steps["updateLoadLoading2"] ===
+                                        "object" &&
+                                      typeof $steps["updateLoadLoading2"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateLoadLoading2"] =
+                                        await $steps["updateLoadLoading2"];
                                     }
                                   }).apply(null, eventArgs);
                                 }
@@ -3811,21 +3921,12 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["updateDirectDialog2Open"] = (() => {
-                      var allowanceUser = JSON.parse(
-                        window.localStorage.getItem("allowanceUser")
-                      );
-                      return allowanceUser?.find(
-                        item => item.type == "hamyarSub"
-                      )
-                        ? false
-                        : true;
-                    })()
+                    $steps["updateLoadLoading2"] = true
                       ? (() => {
                           const actionArgs = {
                             variable: {
                               objRoot: $state,
-                              variablePath: ["directDialog2", "open"]
+                              variablePath: ["load", "loading"]
                             },
                             operation: 0,
                             value: true
@@ -3847,26 +3948,16 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      $steps["updateDirectDialog2Open"] != null &&
-                      typeof $steps["updateDirectDialog2Open"] === "object" &&
-                      typeof $steps["updateDirectDialog2Open"].then ===
-                        "function"
+                      $steps["updateLoadLoading2"] != null &&
+                      typeof $steps["updateLoadLoading2"] === "object" &&
+                      typeof $steps["updateLoadLoading2"].then === "function"
                     ) {
-                      $steps["updateDirectDialog2Open"] = await $steps[
-                        "updateDirectDialog2Open"
+                      $steps["updateLoadLoading2"] = await $steps[
+                        "updateLoadLoading2"
                       ];
                     }
 
-                    $steps["invokeGlobalAction"] = (() => {
-                      var allowanceUser = JSON.parse(
-                        window.localStorage.getItem("allowanceUser")
-                      );
-                      return allowanceUser?.find(
-                        item => item.type == "hamyarSub"
-                      )
-                        ? true
-                        : false;
-                    })()
+                    $steps["invokeGlobalAction"] = true
                       ? (() => {
                           const actionArgs = {
                             args: [
@@ -3908,6 +3999,276 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                     ) {
                       $steps["invokeGlobalAction"] = await $steps[
                         "invokeGlobalAction"
+                      ];
+                    }
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                if (
+                                  $steps.invokeGlobalAction?.data?.success ==
+                                  false
+                                )
+                                  return ($state.switchbest[0].isChecked =
+                                    false);
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["updateDirectDialog2Open"] =
+                      $steps.invokeGlobalAction?.data?.error?.code == 1220046
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["directDialog2", "open"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["updateDirectDialog2Open"] != null &&
+                      typeof $steps["updateDirectDialog2Open"] === "object" &&
+                      typeof $steps["updateDirectDialog2Open"].then ===
+                        "function"
+                    ) {
+                      $steps["updateDirectDialog2Open"] = await $steps[
+                        "updateDirectDialog2Open"
+                      ];
+                    }
+
+                    $steps["updateErrorMassege"] =
+                      $steps.invokeGlobalAction?.data?.success == false
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["errorMassege"]
+                              },
+                              operation: 0,
+                              value:
+                                $steps.invokeGlobalAction?.data?.error.message
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["updateErrorMassege"] != null &&
+                      typeof $steps["updateErrorMassege"] === "object" &&
+                      typeof $steps["updateErrorMassege"].then === "function"
+                    ) {
+                      $steps["updateErrorMassege"] = await $steps[
+                        "updateErrorMassege"
+                      ];
+                    }
+
+                    $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction
+                      ?.data?.success
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              (() => {
+                                try {
+                                  return $state.switchbest[currentIndex]
+                                    .isChecked
+                                    ? "success"
+                                    : "error";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              (() => {
+                                try {
+                                  return $state.switchbest[0].isChecked
+                                    ? ".اطلاع رسانی فعال شد"
+                                    : "اطلاع رسانی غیرفعال شد.";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              "bottom-center",
+                              2000
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction2"] != null &&
+                      typeof $steps["invokeGlobalAction2"] === "object" &&
+                      typeof $steps["invokeGlobalAction2"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction2"] = await $steps[
+                        "invokeGlobalAction2"
+                      ];
+                    }
+
+                    $steps["invokeGlobalAction3"] =
+                      $state.errorMassege != ""
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "error",
+                                (() => {
+                                  try {
+                                    return $state.errorMassege;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                "bottom-center"
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                    if (
+                      $steps["invokeGlobalAction3"] != null &&
+                      typeof $steps["invokeGlobalAction3"] === "object" &&
+                      typeof $steps["invokeGlobalAction3"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction3"] = await $steps[
+                        "invokeGlobalAction3"
+                      ];
+                    }
+
+                    $steps["updateV"] = $steps.invokeGlobalAction?.data?.success
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["v"]
+                            },
+                            operation: 0,
+                            value: $state.v + "1"
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateV"] != null &&
+                      typeof $steps["updateV"] === "object" &&
+                      typeof $steps["updateV"].then === "function"
+                    ) {
+                      $steps["updateV"] = await $steps["updateV"];
+                    }
+
+                    $steps["updateLoadLoading"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["load", "loading"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoadLoading"] != null &&
+                      typeof $steps["updateLoadLoading"] === "object" &&
+                      typeof $steps["updateLoadLoading"].then === "function"
+                    ) {
+                      $steps["updateLoadLoading"] = await $steps[
+                        "updateLoadLoading"
                       ];
                     }
                   }}
@@ -4026,6 +4387,40 @@ function PlasmicHamyarAdd__RenderFunc(props: {
               </Stack__>
             </Stack__>
           ) : null}
+          {(() => {
+            try {
+              return true;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Load
+              data-plasmic-name={"load"}
+              data-plasmic-override={overrides.load}
+              className={classNames("__wab_instance", sty.load)}
+              loading={generateStateValueProp($state, ["load", "loading"])}
+              onLoadingChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["load", "loading"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+            />
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -4060,7 +4455,8 @@ const PlasmicDescendants = {
     "button6",
     "button7",
     "switchbest",
-    "img"
+    "img",
+    "load"
   ],
   section: ["section", "headerLiom"],
   headerLiom: ["headerLiom"],
@@ -4087,7 +4483,8 @@ const PlasmicDescendants = {
   button6: ["button6"],
   button7: ["button7"],
   switchbest: ["switchbest"],
-  img: ["img"]
+  img: ["img"],
+  load: ["load"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4120,6 +4517,7 @@ type NodeDefaultElementType = {
   button7: typeof Button;
   switchbest: typeof Switchbest;
   img: typeof PlasmicImg__;
+  load: typeof Load;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4233,6 +4631,7 @@ export const PlasmicHamyarAdd = Object.assign(
     button7: makeNodeComponent("button7"),
     switchbest: makeNodeComponent("switchbest"),
     img: makeNodeComponent("img"),
+    load: makeNodeComponent("load"),
 
     // Metadata about props expected for PlasmicHamyarAdd
     internalVariantProps: PlasmicHamyarAdd__VariantProps,

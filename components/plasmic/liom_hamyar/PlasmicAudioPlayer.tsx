@@ -81,9 +81,9 @@ export const PlasmicAudioPlayer__VariantProps = new Array<VariantPropType>(
   "postType"
 );
 
-export type PlasmicAudioPlayer__ArgsType = {};
+export type PlasmicAudioPlayer__ArgsType = { audioLink?: string };
 type ArgPropType = keyof PlasmicAudioPlayer__ArgsType;
-export const PlasmicAudioPlayer__ArgProps = new Array<ArgPropType>();
+export const PlasmicAudioPlayer__ArgProps = new Array<ArgPropType>("audioLink");
 
 export type PlasmicAudioPlayer__OverridesType = {
   root?: Flex__<"div">;
@@ -91,6 +91,7 @@ export type PlasmicAudioPlayer__OverridesType = {
 };
 
 export interface DefaultAudioPlayerProps {
+  audioLink?: string;
   postType?: SingleChoiceArg<"video" | "image" | "voise">;
   className?: string;
 }
@@ -142,6 +143,25 @@ function PlasmicAudioPlayer__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.postType
+      },
+      {
+        path: "audioLink2",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.audioLink;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -179,7 +199,7 @@ function PlasmicAudioPlayer__RenderFunc(props: {
         data-plasmic-override={overrides.embedHtml}
         className={classNames("__wab_instance", sty.embedHtml)}
         code={
-          '<div class="audio-player">\r\n    <audio id="audio" controls>\r\n        <source src="https://ts16.tarafdari.com/contents/user714631/content-sound/hiphopologist_-_moon.mp3" >\r\n        \r\n    </audio>\r\n</div>\r\n'
+          '  <div class="audio-player">\r\n        <div class="player-controls">\r\n          <button class="play-btn" onclick="playBtnclick()">\r\n            <svg class="playicon" fill="#ffffff" width="24px" height="24px" viewBox="-1 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>play</title> <path d="M5.92 24.096q0 1.088 0.928 1.728 0.512 0.288 1.088 0.288 0.448 0 0.896-0.224l16.16-8.064q0.48-0.256 0.8-0.736t0.288-1.088-0.288-1.056-0.8-0.736l-16.16-8.064q-0.448-0.224-0.896-0.224-0.544 0-1.088 0.288-0.928 0.608-0.928 1.728v16.16z"></path> </g></svg>\r\n            <svg class="pauseicon" fill="#ffffff" width="24px" height="24px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>pause</title> <path d="M5.92 24.096q0 0.832 0.576 1.408t1.44 0.608h4.032q0.832 0 1.44-0.608t0.576-1.408v-16.16q0-0.832-0.576-1.44t-1.44-0.576h-4.032q-0.832 0-1.44 0.576t-0.576 1.44v16.16zM18.016 24.096q0 0.832 0.608 1.408t1.408 0.608h4.032q0.832 0 1.44-0.608t0.576-1.408v-16.16q0-0.832-0.576-1.44t-1.44-0.576h-4.032q-0.832 0-1.408 0.576t-0.608 1.44v16.16z"></path> </g></svg>\r\n          </button>\r\n          <div class="progress-container">\r\n            <div class="progress-bar">\r\n              <div class="progress-handle"></div>\r\n            </div>\r\n            <div class="remaining-time">00:00</div> <!-- \u0632\u0645\u0627\u0646 \u0628\u0647 \u0627\u06cc\u0646\u062c\u0627 \u0645\u0646\u062a\u0642\u0644 \u0634\u062f -->\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    <script>\r\n            const audioPlayer = new Audio();\r\n            const playBtn = document.querySelector(\'.play-btn\');\r\n            const progressContainer = document.querySelector(\'.progress-container\');\r\n            const progressBar = document.querySelector(\'.progress-bar\');\r\n            const remainingTimeEl = document.querySelector(\'.remaining-time\');\r\n\r\n            function playBtnclick() {\r\n                audioPlayer.src = window.audioLink;\r\n                audioPlayer.load();\r\n                remainingTimeEl.classList.add(\'show\');\r\n                if (audioPlayer.paused) {\r\n                    audioPlayer.play();\r\n                    playBtn.classList.add(\'playing\');\r\n                } else {\r\n                    audioPlayer.pause();\r\n                    playBtn.classList.remove(\'playing\');\r\n                }\r\n            };\r\n\r\n            audioPlayer.addEventListener(\'timeupdate\', function() {\r\n                const currentTime = audioPlayer.currentTime;\r\n                const duration = audioPlayer.duration;\r\n                \r\n                if (duration) {\r\n                    const progressPercent = (currentTime / duration) * 100;\r\n                    progressBar.style.width = progressPercent + \'%\';\r\n                    \r\n                    // \u0646\u0645\u0627\u06cc\u0634 \u0632\u0645\u0627\u0646 \u0628\u0647 \u0635\u0648\u0631\u062a \u0645\u0639\u06a9\u0648\u0633\r\n                    const remainingTime = duration - currentTime;\r\n                    remainingTimeEl.textContent = formatTime(remainingTime);\r\n                }\r\n            });\r\n\r\n            progressContainer.addEventListener(\'click\', function(e) {\r\n                const width = this.clientWidth;\r\n                const clickX = e.offsetX;\r\n                const duration = audioPlayer.duration;\r\n                if (!isNaN(duration)) {\r\n                    audioPlayer.currentTime = (clickX / width) * duration;\r\n                }\r\n            });\r\n\r\n            audioPlayer.addEventListener(\'ended\', function() {\r\n                playBtn.classList.remove(\'playing\');\r\n                progressBar.style.width = \'0%\';\r\n            });\r\n\r\n            audioPlayer.addEventListener(\'loadedmetadata\', function() {\r\n                remainingTimeEl.textContent = formatTime(audioPlayer.duration);\r\n            });\r\n\r\n            function formatTime(seconds) {\r\n                if (isNaN(seconds)) return \'0:00\';\r\n                const minutes = Math.floor(seconds / 60);\r\n                const secs = Math.floor(seconds % 60);\r\n                return `${minutes}:${secs < 10 ? \'0\' : \'\'}${secs}`;\r\n            }\r\n    </script>'
         }
       />
     </div>

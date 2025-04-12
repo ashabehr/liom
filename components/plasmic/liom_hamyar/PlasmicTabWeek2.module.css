@@ -10,6 +10,15 @@
   justify-self: flex-start;
   padding: 0px;
 }
+.rootcolor_red {
+  background: none;
+}
+.rootcolor_yellow {
+  background: none;
+}
+.rootcolor_pms {
+  background: none;
+}
 .freeBox__zg8Bk {
   position: relative;
   width: 100%;
@@ -43,6 +52,23 @@
   border-bottom-left-radius: 100px;
   padding: 0px;
 }
+.freeBoxcolor_red__cxVuc5ZDul {
+  background: var(--token-OcmIk9oDogWZ);
+}
+.freeBoxcolor_yellow__cxVuc2Ss7K {
+  background: var(--token-AIwAzeyxiz1x);
+}
+.freeBoxcolor_pms__cxVuckTqgi {
+  background: var(--token-WxyGMLCV1Pdq);
+}
+.freeBoxstartend_start__cxVucsuJr1 {
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+.freeBoxstartend_end__cxVuc8Tetb {
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+}
 .freeBox__z7MRq {
   display: flex;
   flex-direction: column;
@@ -63,8 +89,11 @@
 }
 .freeBoxselected__z7MRqBlp4 {
   background: none;
+  outline-width: thin;
+  outline-style: solid;
+  outline-offset: -2px;
+  outline-color: var(--token-ODBUExjR6VEF);
   border-radius: 100px;
-  border: 1px solid var(--token-kjnzcds1FoVY);
 }
 .freeBoxdark__z7MRqwBfVe {
   background: var(--token-w7oYmzqeGvkw);
@@ -76,12 +105,34 @@
 .freeBoxcurrentWeek__z7MRqMNoLj {
   box-shadow: none;
   background: none;
+  outline-width: thin;
+  outline-style: solid;
+  outline-color: var(--token-7kGpohB21SKn);
+  outline-offset: -2px;
   border-radius: 100px;
-  border-width: 1px;
+}
+.freeBoxcolor_red__z7MRq5ZDul {
+  background: none;
+}
+.freeBoxcolor_yellow__z7MRq2Ss7K {
+  background: none;
+}
+.freeBoxcolor_pms__z7MRqkTqgi {
+  background: none;
 }
 .freeBoxcurrentWeek_selected__z7MRqMNoLjBlp4 {
   border-top-right-radius: 100px;
   border-top-left-radius: 100px;
+  outline-color: var(--token-ODBUExjR6VEF);
+}
+.freeBoxcolor_red_selected__z7MRq5ZDulBlp4 {
+  outline-color: var(--token-4RAe7M2gInqR);
+}
+.freeBoxcolor_yellow_selected__z7MRq2Ss7KBlp4 {
+  outline-color: var(--token-2ObYh10hZuCh);
+}
+.freeBoxselected_color_pms__z7MRqBlp4KTqgi {
+  outline-color: var(--token-SX03PBUzWAqr);
 }
 .text__gJiGf {
   position: relative;
@@ -101,6 +152,9 @@
 .textdarkSelected__gJiGfkEYvD {
   color: var(--token-SX03PBUzWAqr);
 }
+.textcolor_yellow__gJiGf2Ss7K {
+  color: var(--token-Bjjq_24AWhes);
+}
 .freeBox__xlwI1 {
   position: relative;
   width: 100%;
@@ -112,15 +166,22 @@
   min-width: 0;
 }
 .slotTargetChildren {
-  font-size: 12px;
+  font-size: 14px;
   color: #8f8f8f;
   text-align: center;
-}
-.slotTargetChildrenselected {
-  color: var(--token-SX03PBUzWAqr);
+  font-weight: 700;
 }
 .slotTargetChildrendarkSelected {
   color: var(--token-SX03PBUzWAqr);
+}
+.slotTargetChildrencolor_red {
+  color: var(--token-4RAe7M2gInqR);
+}
+.slotTargetChildrencolor_yellow {
+  color: var(--token-MAnhFXGh8Ir8);
+}
+.slotTargetChildrencolor_pms {
+  color: var(--token-55cSeNPovQFh);
 }
 .text__oQsdd {
   position: relative;

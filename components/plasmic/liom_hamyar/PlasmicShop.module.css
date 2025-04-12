@@ -141,6 +141,16 @@
   border-radius: 8px;
   padding: 8px;
 }
+@media (max-width: 640px) {
+  .freeBox__xsTah {
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
+    padding: 6px;
+  }
+}
 .radioGrop__ufvgm:global(.__wab_instance) {
   max-width: 100%;
 }
@@ -162,6 +172,11 @@
   font-size: 14px;
   font-weight: 500;
   padding-right: 14px;
+}
+@media (max-width: 640px) {
+  .text___7Egz3 {
+    padding-right: 8px;
+  }
 }
 .reveal__gdcrx:global(.__wab_instance) {
   max-width: 100%;
@@ -1202,7 +1217,7 @@
 }
 @media (max-width: 640px) {
   .img__vKrv {
-    max-height: 120px;
+    max-height: 130px;
   }
 }
 .text__lluQq {
@@ -1394,6 +1409,119 @@
   color: var(--token-DFwge94Hey3F);
   flex-shrink: 0;
 }
+@media (max-width: 640px) {
+  .svg__iiaO {
+    display: block;
+  }
+}
+.svg___68Hzw {
+  object-fit: cover;
+  max-width: 100%;
+  width: 15px;
+  height: 15px;
+  color: var(--token-DFwge94Hey3F);
+  flex-shrink: 0;
+}
+.embedHtml__s7MOb:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 100%;
+  min-width: 0;
+}
+.ul__ztybY {
+  display: flex;
+  width: 100%;
+  list-style-type: none;
+  min-width: 0;
+  flex-direction: column;
+  padding: 0px;
+}
+.ul__ztybY > :global(.__wab_flex-container) {
+  min-width: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin-top: calc(0px - 12px);
+  height: calc(100% + 12px);
+}
+.ul__ztybY > :global(.__wab_flex-container) > *,
+.ul__ztybY > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.ul__ztybY > :global(.__wab_flex-container) > picture > img,
+.ul__ztybY
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 12px;
+}
+.li__spI8H {
+  display: flex;
+  flex-direction: column;
+}
+.freeBox__k0VSc {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  left: auto;
+  top: auto;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__k0VSc > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 8px);
+  width: calc(100% + 8px);
+}
+.freeBox__k0VSc > :global(.__wab_flex-container) > *,
+.freeBox__k0VSc > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__k0VSc > :global(.__wab_flex-container) > picture > img,
+.freeBox__k0VSc
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 8px;
+}
+.text__m6PbU {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  padding-bottom: 4px;
+  font-size: 16px;
+  font-weight: 100;
+  align-self: center;
+  padding-top: 4px;
+  min-width: 0;
+}
+.svg__alxL6 {
+  object-fit: cover;
+  max-width: 100%;
+  width: 15px;
+  height: 15px;
+  color: var(--token-DFwge94Hey3F);
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .svg__alxL6 {
+    display: block;
+  }
+}
+.svg___0ZhYi {
+  object-fit: cover;
+  max-width: 100%;
+  width: 15px;
+  height: 15px;
+  color: var(--token-DFwge94Hey3F);
+  flex-shrink: 0;
+}
 .modal:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -1461,7 +1589,7 @@
 }
 @media (max-width: 640px) {
   .freeBox__wvtzn {
-    height: 180px;
+    height: 200px;
     flex-shrink: 0;
   }
 }
@@ -1922,7 +2050,7 @@
   width: 100%;
   height: 300px;
   max-width: 100%;
-  background: none;
+  background: var(--token-R_Rsn0nP9oIv);
   min-width: 0;
   flex-shrink: 0;
   padding: 16px 0px;
@@ -1944,6 +2072,16 @@
   > picture
   > img {
   margin-top: 12px;
+}
+.text__uAv5H {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  color: var(--token-G-IZ_XhVdlqp);
+  font-size: 16px;
+  min-width: 0;
 }
 .shopDialog:global(.__wab_instance) {
   max-width: 100%;
@@ -2066,7 +2204,7 @@
   font-size: 12px;
   min-width: 0;
 }
-.embedHtml:global(.__wab_instance) {
+.embedHtml__xjCy8:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   width: 100%;

@@ -120,6 +120,7 @@ export type PlasmicTextInput__ArgsType = {
   autoFocus?: boolean;
   errorText?: string;
   onClick?: (event: any) => void;
+  lable?: string;
   startIcon?: React.ReactNode;
   antdInput2?: React.ReactNode;
   endIcon?: React.ReactNode;
@@ -137,6 +138,7 @@ export const PlasmicTextInput__ArgProps = new Array<ArgPropType>(
   "autoFocus",
   "errorText",
   "onClick",
+  "lable",
   "startIcon",
   "antdInput2",
   "endIcon"
@@ -171,6 +173,7 @@ export interface DefaultTextInputProps extends pp.BaseTextInputProps {
   autoFocus?: boolean;
   errorText?: string;
   onClick?: (event: any) => void;
+  lable?: string;
   antdInput2?: React.ReactNode;
   color?: SingleChoiceArg<"dark">;
   error?: SingleBooleanChoiceArg<"error">;

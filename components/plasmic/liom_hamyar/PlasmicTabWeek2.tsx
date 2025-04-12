@@ -74,6 +74,8 @@ export type PlasmicTabWeek2__VariantMembers = {
   darkSelected: "darkSelected";
   currentWeek: "currentWeek";
   haveData: "haveData";
+  color: "_null" | "red" | "yellow" | "pms";
+  startend: "start" | "end";
 };
 export type PlasmicTabWeek2__VariantsArgs = {
   selected?: SingleBooleanChoiceArg<"selected">;
@@ -81,6 +83,8 @@ export type PlasmicTabWeek2__VariantsArgs = {
   darkSelected?: SingleBooleanChoiceArg<"darkSelected">;
   currentWeek?: SingleBooleanChoiceArg<"currentWeek">;
   haveData?: SingleBooleanChoiceArg<"haveData">;
+  color?: SingleChoiceArg<"_null" | "red" | "yellow" | "pms">;
+  startend?: SingleChoiceArg<"start" | "end">;
 };
 type VariantPropType = keyof PlasmicTabWeek2__VariantsArgs;
 export const PlasmicTabWeek2__VariantProps = new Array<VariantPropType>(
@@ -88,7 +92,9 @@ export const PlasmicTabWeek2__VariantProps = new Array<VariantPropType>(
   "dark",
   "darkSelected",
   "currentWeek",
-  "haveData"
+  "haveData",
+  "color",
+  "startend"
 );
 
 export type PlasmicTabWeek2__ArgsType = {
@@ -119,6 +125,8 @@ export interface DefaultTabWeek2Props {
   darkSelected?: SingleBooleanChoiceArg<"darkSelected">;
   currentWeek?: SingleBooleanChoiceArg<"currentWeek">;
   haveData?: SingleBooleanChoiceArg<"haveData">;
+  color?: SingleChoiceArg<"_null" | "red" | "yellow" | "pms">;
+  startend?: SingleChoiceArg<"start" | "end">;
   className?: string;
 }
 
@@ -193,6 +201,18 @@ function PlasmicTabWeek2__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.haveData
+      },
+      {
+        path: "color",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.color
+      },
+      {
+        path: "startend",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.startend
       }
     ],
     [$props, $ctx, $refs]
@@ -220,11 +240,17 @@ function PlasmicTabWeek2__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
         {
+          [sty.rootcolor_pms]: hasVariant($state, "color", "pms"),
+          [sty.rootcolor_red]: hasVariant($state, "color", "red"),
+          [sty.rootcolor_yellow]: hasVariant($state, "color", "yellow"),
           [sty.rootcurrentWeek]: hasVariant(
             $state,
             "currentWeek",
             "currentWeek"
           ),
+          [sty.rootcurrentWeek_selected]:
+            hasVariant($state, "selected", "selected") &&
+            hasVariant($state, "currentWeek", "currentWeek"),
           [sty.rootdarkSelected]: hasVariant(
             $state,
             "darkSelected",
@@ -236,15 +262,54 @@ function PlasmicTabWeek2__RenderFunc(props: {
         }
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__zg8Bk)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__zg8Bk, {
+          [sty.freeBoxcolor_yellow__zg8Bk2Ss7K]: hasVariant(
+            $state,
+            "color",
+            "yellow"
+          )
+        })}
+      >
         {renderPlasmicSlot({
           defaultContents: "Enter some text",
           value: args.slot,
-          className: classNames(sty.slotTargetSlot)
+          className: classNames(sty.slotTargetSlot, {
+            [sty.slotTargetSlotcolor_pms]: hasVariant($state, "color", "pms"),
+            [sty.slotTargetSlotcolor_red]: hasVariant($state, "color", "red"),
+            [sty.slotTargetSlotcolor_yellow]: hasVariant(
+              $state,
+              "color",
+              "yellow"
+            ),
+            [sty.slotTargetSlotstartend_start]: hasVariant(
+              $state,
+              "startend",
+              "start"
+            )
+          })
         })}
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__cxVuc, {
+          [sty.freeBoxcolor_pms__cxVuckTqgi]: hasVariant(
+            $state,
+            "color",
+            "pms"
+          ),
+          [sty.freeBoxcolor_red__cxVuc5ZDul]: hasVariant(
+            $state,
+            "color",
+            "red"
+          ),
+          [sty.freeBoxcolor_red_selected__cxVuc5ZDulBlp4]:
+            hasVariant($state, "selected", "selected") &&
+            hasVariant($state, "color", "red"),
+          [sty.freeBoxcolor_yellow__cxVuc2Ss7K]: hasVariant(
+            $state,
+            "color",
+            "yellow"
+          ),
           [sty.freeBoxcurrentWeek__cxVucMNoLj]: hasVariant(
             $state,
             "currentWeek",
@@ -286,11 +351,42 @@ function PlasmicTabWeek2__RenderFunc(props: {
             hasVariant($state, "darkSelected", "darkSelected"),
           [sty.freeBoxselected_dark__cxVucBlp4WBfVe]:
             hasVariant($state, "selected", "selected") &&
-            hasVariant($state, "dark", "dark")
+            hasVariant($state, "dark", "dark"),
+          [sty.freeBoxstartend_end__cxVuc8Tetb]: hasVariant(
+            $state,
+            "startend",
+            "end"
+          ),
+          [sty.freeBoxstartend_start__cxVucsuJr1]: hasVariant(
+            $state,
+            "startend",
+            "start"
+          )
         })}
       >
         <div
           className={classNames(projectcss.all, sty.freeBox__z7MRq, {
+            [sty.freeBoxcolor_pms__z7MRqkTqgi]: hasVariant(
+              $state,
+              "color",
+              "pms"
+            ),
+            [sty.freeBoxcolor_red__z7MRq5ZDul]: hasVariant(
+              $state,
+              "color",
+              "red"
+            ),
+            [sty.freeBoxcolor_red_selected__z7MRq5ZDulBlp4]:
+              hasVariant($state, "selected", "selected") &&
+              hasVariant($state, "color", "red"),
+            [sty.freeBoxcolor_yellow__z7MRq2Ss7K]: hasVariant(
+              $state,
+              "color",
+              "yellow"
+            ),
+            [sty.freeBoxcolor_yellow_selected__z7MRq2Ss7KBlp4]:
+              hasVariant($state, "selected", "selected") &&
+              hasVariant($state, "color", "yellow"),
             [sty.freeBoxcurrentWeek__z7MRqMNoLj]: hasVariant(
               $state,
               "currentWeek",
@@ -314,6 +410,19 @@ function PlasmicTabWeek2__RenderFunc(props: {
               $state,
               "selected",
               "selected"
+            ),
+            [sty.freeBoxselected_color_pms__z7MRqBlp4KTqgi]:
+              hasVariant($state, "selected", "selected") &&
+              hasVariant($state, "color", "pms"),
+            [sty.freeBoxstartend_end__z7MRq8Tetb]: hasVariant(
+              $state,
+              "startend",
+              "end"
+            ),
+            [sty.freeBoxstartend_start__z7MRqsuJr1]: hasVariant(
+              $state,
+              "startend",
+              "start"
             )
           })}
           onClick={args.onClick}
@@ -324,6 +433,19 @@ function PlasmicTabWeek2__RenderFunc(props: {
               projectcss.__wab_text,
               sty.text__gJiGf,
               {
+                [sty.textcolor_red__gJiGf5ZDul]: hasVariant(
+                  $state,
+                  "color",
+                  "red"
+                ),
+                [sty.textcolor_yellow__gJiGf2Ss7K]: hasVariant(
+                  $state,
+                  "color",
+                  "yellow"
+                ),
+                [sty.textcolor_yellow_selected__gJiGf2Ss7KBlp4]:
+                  hasVariant($state, "selected", "selected") &&
+                  hasVariant($state, "color", "yellow"),
                 [sty.textdarkSelected__gJiGfkEYvD]: hasVariant(
                   $state,
                   "darkSelected",
@@ -378,6 +500,27 @@ function PlasmicTabWeek2__RenderFunc(props: {
               defaultContents: "\u0647\u0641\u062a\u0647",
               value: args.children,
               className: classNames(sty.slotTargetChildren, {
+                [sty.slotTargetChildrencolor_pms]: hasVariant(
+                  $state,
+                  "color",
+                  "pms"
+                ),
+                [sty.slotTargetChildrencolor_red]: hasVariant(
+                  $state,
+                  "color",
+                  "red"
+                ),
+                [sty.slotTargetChildrencolor_red_selected]:
+                  hasVariant($state, "selected", "selected") &&
+                  hasVariant($state, "color", "red"),
+                [sty.slotTargetChildrencolor_yellow]: hasVariant(
+                  $state,
+                  "color",
+                  "yellow"
+                ),
+                [sty.slotTargetChildrencolor_yellow_selected]:
+                  hasVariant($state, "selected", "selected") &&
+                  hasVariant($state, "color", "yellow"),
                 [sty.slotTargetChildrendarkSelected]: hasVariant(
                   $state,
                   "darkSelected",
@@ -392,6 +535,11 @@ function PlasmicTabWeek2__RenderFunc(props: {
                   $state,
                   "selected",
                   "selected"
+                ),
+                [sty.slotTargetChildrenstartend_start]: hasVariant(
+                  $state,
+                  "startend",
+                  "start"
                 )
               })
             })}

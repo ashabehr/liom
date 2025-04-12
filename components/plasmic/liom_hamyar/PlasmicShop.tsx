@@ -71,13 +71,13 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import Subscription from "../../Subscription"; // plasmic-import: RkqUeSl2AMb8/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import Star from "../../Star"; // plasmic-import: i69c2Ujsm_H6/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import MobileDialog from "../../MobileDialog"; // plasmic-import: h7ceF9lBthFF/component
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -94,6 +94,7 @@ import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasm
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import Icon141Icon from "./icons/PlasmicIcon__Icon141"; // plasmic-import: AP97-wr5VCl4/icon
+import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
 import Icon142Icon from "./icons/PlasmicIcon__Icon142"; // plasmic-import: SJsM-_NDX4Yl/icon
 import Icon215Icon from "./icons/PlasmicIcon__Icon215"; // plasmic-import: VvAUQSc8cOrq/icon
 
@@ -131,7 +132,6 @@ export type PlasmicShop__OverridesType = {
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
   shopDialog?: Flex__<typeof ApiRequest>;
   mobileDialog?: Flex__<typeof MobileDialog>;
-  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultShopProps {}
@@ -3029,7 +3029,7 @@ function PlasmicShop__RenderFunc(props: {
                       displayHeight={"auto"}
                       displayMaxHeight={
                         hasVariant(globalVariants, "screen", "mobile")
-                          ? "120px"
+                          ? "130px"
                           : "250px"
                       }
                       displayMaxWidth={"100%"}
@@ -3192,7 +3192,25 @@ function PlasmicShop__RenderFunc(props: {
                             !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                             (() => {
                               try {
-                                return $state.getData.data.result.featureList;
+                                return (() => {
+                                  const priority = [
+                                    "self_hamyar_sms",
+                                    "carePartner",
+                                    "breast_cancer_sms",
+                                    "special_advice",
+                                    "irregularPeriod",
+                                    "pcos",
+                                    "skin_care"
+                                  ];
+
+                                  return $state.getData.data.result.featureList
+                                    .sort(
+                                      (a, b) =>
+                                        priority.indexOf(a.type) -
+                                        priority.indexOf(b.type)
+                                    )
+                                    .slice(0, 4);
+                                })();
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -3260,7 +3278,11 @@ function PlasmicShop__RenderFunc(props: {
                                     ];
                                   }
 
-                                  $steps["updateModalOpen"] = true
+                                  $steps["updateModalOpen"] = (() => {
+                                    return !$state.allowanceUser.find(
+                                      item => item.type == "hamyarSub"
+                                    );
+                                  })()
                                     ? (() => {
                                         const actionArgs = {
                                           variable: {
@@ -3301,6 +3323,84 @@ function PlasmicShop__RenderFunc(props: {
                                     $steps["updateModalOpen"] = await $steps[
                                       "updateModalOpen"
                                     ];
+                                  }
+
+                                  $steps["runCode"] = (() => {
+                                    return $state.allowanceUser.find(
+                                      item => item.type == "hamyarSub"
+                                    );
+                                  })()
+                                    ? (() => {
+                                        const actionArgs = {
+                                          customFunction: async () => {
+                                            return (() => {
+                                              var link = "";
+                                              switch (currentItem.action) {
+                                                case "#breastCancerDatePage-1":
+                                                  window.open(`/Self-care/`);
+                                                  break;
+                                                case "#carePartner-1":
+                                                  window.open(
+                                                    `/hamyar-add?token=${window.localStorage.getItem(
+                                                      "token"
+                                                    )}`
+                                                  );
+                                                  break;
+                                                case "#irregularPage-1":
+                                                  link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
+                                                    "token"
+                                                  )}khn&userId=mjgf${
+                                                    JSON.parse(
+                                                      window.localStorage.getItem(
+                                                        "userinfo"
+                                                      )
+                                                    ).user.id
+                                                  }kpm&inApp=false`;
+                                                  break;
+                                                case "#pcos-1":
+                                                  window.open(`/Self-care/`);
+                                                  break;
+                                                case "#notifSettings-1":
+                                                  window.open(
+                                                    `/self-sms-page?token=${localStorage.getItem(
+                                                      "token"
+                                                    )}&inApp=false`
+                                                  );
+                                                  break;
+                                                case "#main-1":
+                                                  window.open("/calendar/");
+                                                  break;
+                                                case "":
+                                                  console.log(
+                                                    "هیچ اکشنی تعریف نشده است."
+                                                  );
+                                                  break;
+                                                default:
+                                                  console.log(
+                                                    "اکشن نامعتبر است."
+                                                  );
+                                                  break;
+                                              }
+                                              if (link != "")
+                                                return window.open(
+                                                  `/web-viow/?link=${encodeURIComponent(
+                                                    link
+                                                  )}`
+                                                );
+                                            })();
+                                          }
+                                        };
+                                        return (({ customFunction }) => {
+                                          return customFunction();
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["runCode"] != null &&
+                                    typeof $steps["runCode"] === "object" &&
+                                    typeof $steps["runCode"].then === "function"
+                                  ) {
+                                    $steps["runCode"] = await $steps["runCode"];
                                   }
                                 }}
                               >
@@ -3355,13 +3455,452 @@ function PlasmicShop__RenderFunc(props: {
                                       })()}
                                     </React.Fragment>
                                   </div>
-                                  <Icon142Icon
+                                  {(
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                      ? (() => {
+                                          try {
+                                            return true;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return true;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      : (() => {
+                                          try {
+                                            return (() => {
+                                              return $state.allowanceUser.find(
+                                                item => item.type == "hamyarSub"
+                                              );
+                                            })();
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return true;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                  ) ? (
+                                    <ChevronLeftIcon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg__iiaO
+                                      )}
+                                      role={"img"}
+                                    />
+                                  ) : null}
+                                  {(() => {
+                                    try {
+                                      return (() => {
+                                        return !$state.allowanceUser.find(
+                                          item => item.type == "hamyarSub"
+                                        );
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return true;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <Icon142Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg___68Hzw
+                                      )}
+                                      role={"img"}
+                                    />
+                                  ) : null}
+                                </Stack__>
+                              </li>
+                            );
+                          })}
+                        </Stack__>
+                        <Embed
+                          className={classNames(
+                            "__wab_instance",
+                            sty.embedHtml__s7MOb
+                          )}
+                          code={"<hr></hr>"}
+                        />
+
+                        <Stack__
+                          as={"ul"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.ul,
+                            sty.ul__ztybY
+                          )}
+                        >
+                          {(_par =>
+                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                            (() => {
+                              try {
+                                return (() => {
+                                  const priority = [
+                                    "self_hamyar_sms",
+                                    "carePartner",
+                                    "breast_cancer_sms",
+                                    "special_advice",
+                                    "irregularPeriod",
+                                    "pcos",
+                                    "skin_care"
+                                  ];
+
+                                  return $state.getData.data.result.featureList
+                                    .sort(
+                                      (a, b) =>
+                                        priority.indexOf(a.type) -
+                                        priority.indexOf(b.type)
+                                    )
+                                    .slice(4);
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()
+                          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                            const currentItem = __plasmic_item_0;
+                            const currentIndex = __plasmic_idx_0;
+                            return (
+                              <li
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.li,
+                                  sty.li__spI8H
+                                )}
+                                key={currentIndex}
+                                onClick={async event => {
+                                  const $steps = {};
+
+                                  $steps["updateModalData"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["modalData"]
+                                          },
+                                          operation: 0,
+                                          value: currentItem
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateModalData"] != null &&
+                                    typeof $steps["updateModalData"] ===
+                                      "object" &&
+                                    typeof $steps["updateModalData"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["updateModalData"] = await $steps[
+                                      "updateModalData"
+                                    ];
+                                  }
+
+                                  $steps["updateModalOpen"] = (() => {
+                                    return !$state.allowanceUser.find(
+                                      item => item.type == "hamyarSub"
+                                    );
+                                  })()
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["modal", "open"]
+                                          },
+                                          operation: 0,
+                                          value: true
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateModalOpen"] != null &&
+                                    typeof $steps["updateModalOpen"] ===
+                                      "object" &&
+                                    typeof $steps["updateModalOpen"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["updateModalOpen"] = await $steps[
+                                      "updateModalOpen"
+                                    ];
+                                  }
+
+                                  $steps["runCode"] = (() => {
+                                    return $state.allowanceUser.find(
+                                      item => item.type == "hamyarSub"
+                                    );
+                                  })()
+                                    ? (() => {
+                                        const actionArgs = {
+                                          customFunction: async () => {
+                                            return (() => {
+                                              var link = "";
+                                              switch (currentItem.action) {
+                                                case "#breastCancerDatePage-1":
+                                                  window.open(`/Self-care/`);
+                                                  break;
+                                                case "#carePartner-1":
+                                                  window.open(
+                                                    `/hamyar-add?token=${window.localStorage.getItem(
+                                                      "token"
+                                                    )}`
+                                                  );
+                                                  break;
+                                                case "#irregularPage-1":
+                                                  link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
+                                                    "token"
+                                                  )}khn&userId=mjgf${
+                                                    JSON.parse(
+                                                      window.localStorage.getItem(
+                                                        "userinfo"
+                                                      )
+                                                    ).user.id
+                                                  }kpm&inApp=false`;
+                                                  break;
+                                                case "#pcos-1":
+                                                  window.open(`/Self-care/`);
+                                                  break;
+                                                case "#notifSettings-1":
+                                                  window.open(
+                                                    `/self-sms-page?token=${localStorage.getItem(
+                                                      "token"
+                                                    )}&inApp=false`
+                                                  );
+                                                  break;
+                                                case "#main-1":
+                                                  window.open("/calendar/");
+                                                  break;
+                                                case "#skin_care":
+                                                  link = `https://tools.liom.app/self-medication/?type=skinCare&token=KOlmhp${localStorage.getItem(
+                                                    "token"
+                                                  )}khn&userId=mjgf${
+                                                    JSON.parse(
+                                                      window.localStorage.getItem(
+                                                        "userinfo"
+                                                      )
+                                                    ).user.id
+                                                  }kpmf&inApp=false`;
+                                                  break;
+                                                case "":
+                                                  console.log(
+                                                    "هیچ اکشنی تعریف نشده است."
+                                                  );
+                                                  break;
+                                                default:
+                                                  console.log(
+                                                    "اکشن نامعتبر است."
+                                                  );
+                                                  break;
+                                              }
+                                              if (link != "")
+                                                return window.open(
+                                                  `/web-viow/?link=${encodeURIComponent(
+                                                    link
+                                                  )}`
+                                                );
+                                            })();
+                                          }
+                                        };
+                                        return (({ customFunction }) => {
+                                          return customFunction();
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["runCode"] != null &&
+                                    typeof $steps["runCode"] === "object" &&
+                                    typeof $steps["runCode"].then === "function"
+                                  ) {
+                                    $steps["runCode"] = await $steps["runCode"];
+                                  }
+                                }}
+                              >
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__k0VSc
+                                  )}
+                                  style={(() => {
+                                    try {
+                                      return {
+                                        "border-bottom":
+                                          currentItem.Special == true
+                                            ? "solid 1px #e0e0e0"
+                                            : "none"
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                >
+                                  <div
                                     className={classNames(
                                       projectcss.all,
-                                      sty.svg__iiaO
+                                      projectcss.__wab_text,
+                                      sty.text__m6PbU
                                     )}
-                                    role={"img"}
-                                  />
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return currentItem.boldTitle;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u062f\u0648\u0631\u0647 \u0647\u0627\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc\u062a \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9\r";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                  {(
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                      ? (() => {
+                                          try {
+                                            return true;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return true;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      : (() => {
+                                          try {
+                                            return (() => {
+                                              return $state.allowanceUser.find(
+                                                item => item.type == "hamyarSub"
+                                              );
+                                            })();
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return true;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                  ) ? (
+                                    <ChevronLeftIcon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg__alxL6
+                                      )}
+                                      role={"img"}
+                                    />
+                                  ) : null}
+                                  {(() => {
+                                    try {
+                                      return (() => {
+                                        return !$state.allowanceUser.find(
+                                          item => item.type == "hamyarSub"
+                                        );
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return true;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <Icon142Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg___0ZhYi
+                                      )}
+                                      role={"img"}
+                                    />
+                                  ) : null}
                                 </Stack__>
                               </li>
                             );
@@ -3692,7 +4231,9 @@ function PlasmicShop__RenderFunc(props: {
                         data-plasmic-name={"timer"}
                         data-plasmic-override={overrides.timer}
                         className={classNames("__wab_instance", sty.timer)}
-                        intervalSeconds={4}
+                        intervalSeconds={
+                          hasVariant(globalVariants, "screen", "mobile") ? 5 : 4
+                        }
                         isRunning={(() => {
                           try {
                             return $state.timer;
@@ -3715,7 +4256,9 @@ function PlasmicShop__RenderFunc(props: {
                                   customFunction: async () => {
                                     return (() => {
                                       var comments =
-                                        document.getElementById("commentBox");
+                                        window.document.getElementById(
+                                          "commentBox"
+                                        );
                                       comments.classList.remove(
                                         "slide-in",
                                         "slide-in-reverse",
@@ -4433,7 +4976,51 @@ function PlasmicShop__RenderFunc(props: {
                     )}
                     overflow={``}
                     position={``}
-                  />
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__uAv5H
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToCommonError"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: `/common-error`
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToCommonError"] != null &&
+                          typeof $steps["goToCommonError"] === "object" &&
+                          typeof $steps["goToCommonError"].then === "function"
+                        ) {
+                          $steps["goToCommonError"] = await $steps[
+                            "goToCommonError"
+                          ];
+                        }
+                      }}
+                    >
+                      {
+                        "\u062e\u0631\u06cc\u062f\u0645 \u0646\u0627\u0645\u0648\u0641\u0642 \u0634\u062f \u0648 \u0627\u0634\u062a\u0631\u0627\u06a9\u0645 \u0641\u0639\u0627\u0644 \u0646\u0634\u062f\u060c \u0686\u06cc\u06a9\u0627\u0631 \u06a9\u0646\u0645\u061f   >"
+                      }
+                    </div>
+                  </Stack__>
                 </Stack__>
               </ApiRequest>
             </Reveal>
@@ -4583,9 +5170,10 @@ function PlasmicShop__RenderFunc(props: {
                       </div>
                     </div>
                     <Embed
-                      data-plasmic-name={"embedHtml"}
-                      data-plasmic-override={overrides.embedHtml}
-                      className={classNames("__wab_instance", sty.embedHtml)}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.embedHtml__xjCy8
+                      )}
                       code={"<hr></hr>"}
                     />
 
@@ -4785,8 +5373,7 @@ const PlasmicDescendants = {
     "star",
     "collapseMother",
     "shopDialog",
-    "mobileDialog",
-    "embedHtml"
+    "mobileDialog"
   ],
   headerLiom: ["headerLiom"],
   getData: [
@@ -4830,8 +5417,7 @@ const PlasmicDescendants = {
   star: ["star"],
   collapseMother: ["collapseMother"],
   shopDialog: ["shopDialog"],
-  mobileDialog: ["mobileDialog"],
-  embedHtml: ["embedHtml"]
+  mobileDialog: ["mobileDialog"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4857,7 +5443,6 @@ type NodeDefaultElementType = {
   collapseMother: typeof AntdSingleCollapse;
   shopDialog: typeof ApiRequest;
   mobileDialog: typeof MobileDialog;
-  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4964,7 +5549,6 @@ export const PlasmicShop = Object.assign(
     collapseMother: makeNodeComponent("collapseMother"),
     shopDialog: makeNodeComponent("shopDialog"),
     mobileDialog: makeNodeComponent("mobileDialog"),
-    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicShop
     internalVariantProps: PlasmicShop__VariantProps,

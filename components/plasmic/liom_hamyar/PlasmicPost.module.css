@@ -102,7 +102,6 @@
   min-width: 0;
   border-radius: 8px;
   padding: 8px;
-  border-width: 1px;
 }
 .freeBoxpostType_image__fbVqi2TCWu {
   display: none;
@@ -181,10 +180,4 @@
   max-width: 100%;
   min-width: 0;
   padding: 8px;
-}
-.embedHtml:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-  width: 100%;
-  min-width: 0;
 }
