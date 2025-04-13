@@ -2189,9 +2189,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
-                                        return (() => {
-                                          return window.deepLink("aaaa");
-                                        })();
+                                        return window.FlutterChannel.postMessage(
+                                          "#directDialog-pregnancySub"
+                                        );
                                       }
                                     };
                                     return (({ customFunction }) => {
