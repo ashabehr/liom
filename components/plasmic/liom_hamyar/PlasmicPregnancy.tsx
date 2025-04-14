@@ -6058,7 +6058,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         );
                                                       } else {
                                                         window.FlutterChannel.postMessage(
-                                                          "#directDialog-skin_care_sub"
+                                                          "#directDialog-pregnancySub"
                                                         );
                                                       }
                                                     }
@@ -6081,7 +6081,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         );
                                                       } else {
                                                         window.FlutterChannel.postMessage(
-                                                          "#directDialog-stretch_marks_sub"
+                                                          "#directDialog-pregnancySub"
                                                         );
                                                       }
                                                     }
@@ -6216,7 +6216,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       );
                                                     else {
                                                       $state.typeBuy =
-                                                        "skin_care_sub";
+                                                        "pregnancySub";
                                                       $state.directDialog2.open =
                                                         true;
                                                     }
@@ -6234,7 +6234,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       );
                                                     else {
                                                       $state.typeBuy =
-                                                        "stretch_marks_sub";
+                                                        "pregnancySub";
                                                       $state.directDialog2.open =
                                                         true;
                                                     }
@@ -7057,7 +7057,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     );
                                                   } else {
                                                     window.FlutterChannel.postMessage(
-                                                      "#directDialog-skin_care_sub"
+                                                      "#directDialog-pregnancySub"
                                                     );
                                                   }
                                                 }
@@ -7080,7 +7080,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     );
                                                   } else {
                                                     window.FlutterChannel.postMessage(
-                                                      "#directDialog-stretch_marks_sub"
+                                                      "#directDialog-pregnancySub"
                                                     );
                                                   }
                                                 }
@@ -7099,7 +7099,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     true;
                                                   if (!active) {
                                                     window.FlutterChannel.postMessage(
-                                                      "#directDialog-pregnancy_danger_sub"
+                                                      "#directDialog-pregnancySub"
                                                     );
                                                   }
                                                 }
@@ -7214,7 +7214,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   );
                                                 else {
                                                   $state.typeBuy =
-                                                    "skin_care_sub";
+                                                    "pregnancySub";
                                                   $state.directDialog2.open =
                                                     true;
                                                 }
@@ -7232,7 +7232,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   );
                                                 else {
                                                   $state.typeBuy =
-                                                    "stretch_marks_sub";
+                                                    "pregnancySub";
                                                   $state.directDialog2.open =
                                                     true;
                                                 }
@@ -7250,7 +7250,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   true;
                                                 if (!active) {
                                                   $state.typeBuy =
-                                                    "pregnancy_danger_sub";
+                                                    "pregnancySub";
                                                   $state.directDialog2.open =
                                                     true;
                                                 }

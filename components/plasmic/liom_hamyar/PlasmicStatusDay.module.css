@@ -909,7 +909,7 @@
   overflow: auto;
   background: none;
   min-width: 0;
-  padding: 100px 0px;
+  padding: 100px 0px 0px;
 }
 .freeBox__zFbgt > :global(.__wab_flex-container) {
   flex-direction: row;
@@ -1000,13 +1000,6 @@
 .getEvent:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-}
-.text__tFvH3 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
 }
 .text__ooctC {
   position: relative;

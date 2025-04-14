@@ -907,6 +907,33 @@ function PlasmicSocialPost__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                fail={(() => {
+                  try {
+                    return $state.getInfo.data.result.details.attachments[0]
+                      .url;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                failName={(() => {
+                  try {
+                    return undefined;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
                 image2={(() => {
                   try {
                     return $state.getInfo.data.result.details.post.image;
@@ -930,6 +957,16 @@ function PlasmicSocialPost__RenderFunc(props: {
                               $state.getInfo.data.result.details.post
                                 .actionText == "نمایش ویدیو"
                             )
+                              "video";
+                            if (
+                              $state.getInfo.data.result.details.post
+                                .actionText == "باز کردن صدا"
+                            )
+                              "voise";
+                            if (
+                              $state.getInfo.data.result.details.post
+                                .actionText == ""
+                            )
                               return "video";
                           })();
                         } catch (e) {
@@ -937,7 +974,7 @@ function PlasmicSocialPost__RenderFunc(props: {
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return "image";
+                            return "video";
                           }
                           throw e;
                         }
@@ -1890,7 +1927,7 @@ function PlasmicSocialPost__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  postId: $state.postId,
+                  postId: "44b295b9-fdaa-4dbb-85b3-80c0b3b9af69",
                   commentId: "string",
                   orderBy: $state.orderby.value,
                   authorization: $state.token

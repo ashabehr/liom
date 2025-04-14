@@ -1860,6 +1860,25 @@ function PlasmicStatusDay__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "d",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return new Date().toLocaleString("en-CA").split(",")[0];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -3057,6 +3076,77 @@ function PlasmicStatusDay__RenderFunc(props: {
                       ) {
                         $steps["runCode"] = await $steps["runCode"];
                       }
+
+                      $steps["updateInDay"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["inDay"]
+                              },
+                              operation: 1
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, undefined);
+                              return undefined;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateInDay"] != null &&
+                        typeof $steps["updateInDay"] === "object" &&
+                        typeof $steps["updateInDay"].then === "function"
+                      ) {
+                        $steps["updateInDay"] = await $steps["updateInDay"];
+                      }
+
+                      $steps["updateD"] = (
+                        $state.statusDay.find(item => item == currentItem.value)
+                          ? true
+                          : false
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["d"]
+                              },
+                              operation: 0,
+                              value: currentItem.value
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateD"] != null &&
+                        typeof $steps["updateD"] === "object" &&
+                        typeof $steps["updateD"].then === "function"
+                      ) {
+                        $steps["updateD"] = await $steps["updateD"];
+                      }
                     }}
                     selected={(() => {
                       try {
@@ -3285,7 +3375,7 @@ function PlasmicStatusDay__RenderFunc(props: {
               body={(() => {
                 try {
                   return (() => {
-                    let dateArray = $state.date.split("-");
+                    let dateArray = $state.d.split("-");
                     let dateObject = {
                       year: Number(dateArray[0]),
                       month: Number(dateArray[1]),
@@ -3318,17 +3408,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   {"Error fetching data"}
                 </div>
               }
-              loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__tFvH3
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              }
+              loadingDisplay={null}
               method={"POST"}
               onError={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, ["getEvent", "error"]).apply(
@@ -3348,7 +3428,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   eventArgs
                 );
               }}
-              url={"https://api.liom.app/calendar/addEvent"}
+              url={"https://n8n.staas.ir/webhook/calendar/addEvent"}
             >
               <Stack__
                 as={"div"}
