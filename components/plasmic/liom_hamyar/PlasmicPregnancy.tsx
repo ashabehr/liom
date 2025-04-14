@@ -711,7 +711,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "typeBuy",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "pregnancy_danger_sub"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "pregnancySub"
       },
       {
         path: "suggest",
@@ -2184,28 +2184,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                             )}
                             onClick={async event => {
                               const $steps = {};
-
-                              $steps["runCode"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return window.FlutterChannel.postMessage(
-                                          "#directDialog-pregnancySub"
-                                        );
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["runCode"] != null &&
-                                typeof $steps["runCode"] === "object" &&
-                                typeof $steps["runCode"].then === "function"
-                              ) {
-                                $steps["runCode"] = await $steps["runCode"];
-                              }
                             }}
                           >
                             <Stack__
@@ -6122,7 +6100,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         true;
                                                       if (!active) {
                                                         window.FlutterChannel.postMessage(
-                                                          "#directDialog-pregnancy_danger_sub"
+                                                          "#directDialog-pregnancySub"
                                                         );
                                                       }
                                                     }
@@ -6274,7 +6252,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       true;
                                                     if (!active) {
                                                       $state.typeBuy =
-                                                        "pregnancy_danger_sub";
+                                                        "pregnancySub";
                                                       $state.directDialog2.open =
                                                         true;
                                                     }
@@ -16066,6 +16044,59 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 onClick={async event => {
                                                   const $steps = {};
 
+                                                  $steps["updateTypeBuy"] = true
+                                                    ? (() => {
+                                                        const actionArgs = {
+                                                          variable: {
+                                                            objRoot: $state,
+                                                            variablePath: [
+                                                              "typeBuy"
+                                                            ]
+                                                          },
+                                                          operation: 0,
+                                                          value: "pregnancySub"
+                                                        };
+                                                        return (({
+                                                          variable,
+                                                          value,
+                                                          startIndex,
+                                                          deleteCount
+                                                        }) => {
+                                                          if (!variable) {
+                                                            return;
+                                                          }
+                                                          const {
+                                                            objRoot,
+                                                            variablePath
+                                                          } = variable;
+
+                                                          $stateSet(
+                                                            objRoot,
+                                                            variablePath,
+                                                            value
+                                                          );
+                                                          return value;
+                                                        })?.apply(null, [
+                                                          actionArgs
+                                                        ]);
+                                                      })()
+                                                    : undefined;
+                                                  if (
+                                                    $steps["updateTypeBuy"] !=
+                                                      null &&
+                                                    typeof $steps[
+                                                      "updateTypeBuy"
+                                                    ] === "object" &&
+                                                    typeof $steps[
+                                                      "updateTypeBuy"
+                                                    ].then === "function"
+                                                  ) {
+                                                    $steps["updateTypeBuy"] =
+                                                      await $steps[
+                                                        "updateTypeBuy"
+                                                      ];
+                                                  }
+
                                                   $steps["goToPage"] = (() => {
                                                     var allowance =
                                                       $state?.user[0]
@@ -16304,7 +16335,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           customFunction:
                                                             async () => {
                                                               return window.FlutterChannel.postMessage(
-                                                                "#directDialog-pregnancy_danger_sub"
+                                                                "#directDialog-pregnancySub"
                                                               );
                                                             }
                                                         };
@@ -16328,78 +16359,83 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       await $steps["runCode"];
                                                   }
 
-                                                  $steps["showToast"] = (() => {
-                                                    var allowance =
-                                                      $state?.user[0]
-                                                        .allowance || [];
-                                                    allowance =
-                                                      JSON.parse(allowance);
-                                                    const filteredItem =
-                                                      allowance[
-                                                        "allowance"
-                                                      ].find(item =>
-                                                        item.type.includes(
-                                                          "danger"
-                                                        )
+                                                  $steps["directDialog"] =
+                                                    (() => {
+                                                      var allowance =
+                                                        $state?.user[0]
+                                                          .allowance || [];
+                                                      allowance =
+                                                        JSON.parse(allowance);
+                                                      const filteredItem =
+                                                        allowance[
+                                                          "allowance"
+                                                        ].find(item =>
+                                                          item.type.includes(
+                                                            "danger"
+                                                          )
+                                                        );
+                                                      const active =
+                                                        filteredItem
+                                                          ? filteredItem.active
+                                                          : false;
+                                                      return (
+                                                        $ctx.query.inApp !=
+                                                          "true" &&
+                                                        !active &&
+                                                        currentItem.vip == 1
                                                       );
-                                                    const active = filteredItem
-                                                      ? filteredItem.active
-                                                      : false;
-                                                    return (
-                                                      $ctx.query.inApp !=
-                                                        "true" &&
-                                                      !active &&
-                                                      currentItem.vip == 1
-                                                    );
-                                                  })()
-                                                    ? (() => {
-                                                        const actionArgs = {
-                                                          variable: {
-                                                            objRoot: $state,
-                                                            variablePath: [
-                                                              "directDialog2",
-                                                              "open"
-                                                            ]
-                                                          },
-                                                          operation: 0,
-                                                          value: true
-                                                        };
-                                                        return (({
-                                                          variable,
-                                                          value,
-                                                          startIndex,
-                                                          deleteCount
-                                                        }) => {
-                                                          if (!variable) {
-                                                            return;
-                                                          }
-                                                          const {
-                                                            objRoot,
-                                                            variablePath
-                                                          } = variable;
+                                                    })()
+                                                      ? (() => {
+                                                          const actionArgs = {
+                                                            variable: {
+                                                              objRoot: $state,
+                                                              variablePath: [
+                                                                "directDialog2",
+                                                                "open"
+                                                              ]
+                                                            },
+                                                            operation: 0,
+                                                            value: true
+                                                          };
+                                                          return (({
+                                                            variable,
+                                                            value,
+                                                            startIndex,
+                                                            deleteCount
+                                                          }) => {
+                                                            if (!variable) {
+                                                              return;
+                                                            }
+                                                            const {
+                                                              objRoot,
+                                                              variablePath
+                                                            } = variable;
 
-                                                          $stateSet(
-                                                            objRoot,
-                                                            variablePath,
-                                                            value
-                                                          );
-                                                          return value;
-                                                        })?.apply(null, [
-                                                          actionArgs
-                                                        ]);
-                                                      })()
-                                                    : undefined;
+                                                            $stateSet(
+                                                              objRoot,
+                                                              variablePath,
+                                                              value
+                                                            );
+                                                            return value;
+                                                          })?.apply(null, [
+                                                            actionArgs
+                                                          ]);
+                                                        })()
+                                                      : undefined;
                                                   if (
-                                                    $steps["showToast"] !=
+                                                    $steps["directDialog"] !=
                                                       null &&
                                                     typeof $steps[
-                                                      "showToast"
+                                                      "directDialog"
                                                     ] === "object" &&
-                                                    typeof $steps["showToast"]
-                                                      .then === "function"
+                                                    typeof $steps[
+                                                      "directDialog"
+                                                    ].then === "function"
                                                   ) {
-                                                    $steps["showToast"] =
-                                                      await $steps["showToast"];
+                                                    $steps["directDialog"] =
+                                                      await $steps[
+                                                        "directDialog"
+                                                      ];
                                                   }
 
                                                   $steps["invokeGlobalAction"] =
@@ -17552,6 +17588,49 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   (async activeIds => {
                                     const $steps = {};
 
+                                    $steps["updateTypeBuy"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["typeBuy"]
+                                            },
+                                            operation: 0,
+                                            value: "pregnancySub"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateTypeBuy"] != null &&
+                                      typeof $steps["updateTypeBuy"] ===
+                                        "object" &&
+                                      typeof $steps["updateTypeBuy"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updateTypeBuy"] = await $steps[
+                                        "updateTypeBuy"
+                                      ];
+                                    }
+
                                     $steps["updateDirectDialog2Open"] = (() => {
                                       const allowance =
                                         $state?.getUserInfo?.data?.[0]?.result
@@ -17636,7 +17715,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           const actionArgs = {
                                             customFunction: async () => {
                                               return window.FlutterChannel.postMessage(
-                                                "#directDialog-pregnancy_danger_sub"
+                                                "#directDialog-pregnancySub"
                                               );
                                             }
                                           };
@@ -18650,13 +18729,57 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       onClick={async event => {
                                         const $steps = {};
 
+                                        $steps["updateTypeBuy"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: ["typeBuy"]
+                                                },
+                                                operation: 0,
+                                                value: "pregnancySub"
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updateTypeBuy"] != null &&
+                                          typeof $steps["updateTypeBuy"] ===
+                                            "object" &&
+                                          typeof $steps["updateTypeBuy"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updateTypeBuy"] =
+                                            await $steps["updateTypeBuy"];
+                                        }
+
                                         $steps["runCode"] =
                                           $ctx.query.inApp == "true"
                                             ? (() => {
                                                 const actionArgs = {
                                                   customFunction: async () => {
                                                     return window.FlutterChannel.postMessage(
-                                                      "#directDialog-pregnancy_danger_sub"
+                                                      "#directDialog-pregnancySub"
                                                     );
                                                   }
                                                 };
@@ -19060,6 +19183,49 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   (async activeIds => {
                                     const $steps = {};
 
+                                    $steps["updateTypeBuy"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["typeBuy"]
+                                            },
+                                            operation: 0,
+                                            value: "pregnancySub"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateTypeBuy"] != null &&
+                                      typeof $steps["updateTypeBuy"] ===
+                                        "object" &&
+                                      typeof $steps["updateTypeBuy"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updateTypeBuy"] = await $steps[
+                                        "updateTypeBuy"
+                                      ];
+                                    }
+
                                     $steps["updateDirectDialog2Open"] = (() => {
                                       const allowance =
                                         $state?.getUserInfo?.data?.[0]?.result
@@ -19142,7 +19308,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           const actionArgs = {
                                             customFunction: async () => {
                                               return window.FlutterChannel.postMessage(
-                                                "#directDialog-pregnancy_danger_sub"
+                                                "#directDialog-pregnancySub"
                                               );
                                             }
                                           };
@@ -20171,13 +20337,57 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       onClick={async event => {
                                         const $steps = {};
 
+                                        $steps["updateTypeBuy"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: ["typeBuy"]
+                                                },
+                                                operation: 0,
+                                                value: "pregnancySub"
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updateTypeBuy"] != null &&
+                                          typeof $steps["updateTypeBuy"] ===
+                                            "object" &&
+                                          typeof $steps["updateTypeBuy"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updateTypeBuy"] =
+                                            await $steps["updateTypeBuy"];
+                                        }
+
                                         $steps["runCode"] =
                                           $ctx.query.inApp == "true"
                                             ? (() => {
                                                 const actionArgs = {
                                                   customFunction: async () => {
                                                     return window.FlutterChannel.postMessage(
-                                                      "#directDialog-pregnancy_danger_sub"
+                                                      "#directDialog-pregnancySub"
                                                     );
                                                   }
                                                 };

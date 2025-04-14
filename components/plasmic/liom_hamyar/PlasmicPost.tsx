@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import { Video } from "@plasmicpkgs/plasmic-basic-components";
 import AudioPlayer from "../../AudioPlayer"; // plasmic-import: 8TLNkR4k2mrN/component
 
@@ -69,13 +70,15 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPost.module.css"; // plasmic-import: PIFHnFLcunkZ/css
 
+import Icon220Icon from "./icons/PlasmicIcon__Icon220"; // plasmic-import: 2OnucKdSTq8d/icon
+
 createPlasmicElementProxy;
 
 export type PlasmicPost__VariantMembers = {
-  postType: "image" | "voise" | "video";
+  postType: "image" | "voise" | "video" | "jastText";
 };
 export type PlasmicPost__VariantsArgs = {
-  postType?: SingleChoiceArg<"image" | "voise" | "video">;
+  postType?: SingleChoiceArg<"image" | "voise" | "video" | "jastText">;
 };
 type VariantPropType = keyof PlasmicPost__VariantsArgs;
 export const PlasmicPost__VariantProps = new Array<VariantPropType>("postType");
@@ -98,10 +101,13 @@ export const PlasmicPost__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicPost__OverridesType = {
   root?: Flex__<"div">;
+  lineClomp2?: Flex__<typeof LineClomp>;
+  lineClomp3?: Flex__<typeof LineClomp>;
   image3?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
   htmlVideo?: Flex__<typeof Video>;
   audioPlayer?: Flex__<typeof AudioPlayer>;
+  lineClomp?: Flex__<typeof LineClomp>;
   svg?: Flex__<"svg">;
 };
 
@@ -111,7 +117,7 @@ export interface DefaultPostProps {
   image2?: string;
   video?: string;
   audioLinkInPost?: string;
-  postType?: SingleChoiceArg<"image" | "voise" | "video">;
+  postType?: SingleChoiceArg<"image" | "voise" | "video" | "jastText">;
   className?: string;
 }
 
@@ -162,6 +168,24 @@ function PlasmicPost__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.postType
+      },
+      {
+        path: "lineClomp.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "lineClomp2.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "lineClomp3.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -190,46 +214,93 @@ function PlasmicPost__RenderFunc(props: {
         sty.root,
         {
           [sty.rootpostType_image]: hasVariant($state, "postType", "image"),
+          [sty.rootpostType_jastText]: hasVariant(
+            $state,
+            "postType",
+            "jastText"
+          ),
           [sty.rootpostType_video]: hasVariant($state, "postType", "video"),
           [sty.rootpostType_voise]: hasVariant($state, "postType", "voise")
         }
       )}
     >
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__nhmSs,
-          {
-            [sty.textpostType_image__nhmSs2TCWu]: hasVariant(
-              $state,
-              "postType",
-              "image"
-            ),
-            [sty.textpostType_voise__nhmSsVlsyu]: hasVariant(
-              $state,
-              "postType",
-              "voise"
-            )
+      <LineClomp
+        data-plasmic-name={"lineClomp2"}
+        data-plasmic-override={overrides.lineClomp2}
+        className={classNames("__wab_instance", sty.lineClomp2)}
+        onLineChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["lineClomp2", "line"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
           }
-        )}
+        }}
       >
-        <React.Fragment>
-          {(() => {
-            try {
-              return $props.data;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "title";
-              }
-              throw e;
+        <LineClomp
+          data-plasmic-name={"lineClomp3"}
+          data-plasmic-override={overrides.lineClomp3}
+          className={classNames("__wab_instance", sty.lineClomp3)}
+          more={true}
+          numberOfLine={4}
+          onLineChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["lineClomp3", "line"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
             }
-          })()}
-        </React.Fragment>
-      </div>
+          }}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__nhmSs,
+              {
+                [sty.textpostType_image__nhmSs2TCWu]: hasVariant(
+                  $state,
+                  "postType",
+                  "image"
+                ),
+                [sty.textpostType_voise__nhmSsVlsyu]: hasVariant(
+                  $state,
+                  "postType",
+                  "voise"
+                )
+              }
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.data;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "title";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+        </LineClomp>
+      </LineClomp>
       <div
         className={classNames(
           projectcss.all,
@@ -270,43 +341,22 @@ function PlasmicPost__RenderFunc(props: {
         data-plasmic-override={overrides.image3}
         className={classNames(projectcss.all, sty.image3, {
           [sty.image3postType_image]: hasVariant($state, "postType", "image"),
+          [sty.image3postType_jastText]: hasVariant(
+            $state,
+            "postType",
+            "jastText"
+          ),
           [sty.image3postType_video]: hasVariant($state, "postType", "video"),
           [sty.image3postType_voise]: hasVariant($state, "postType", "voise")
         })}
-        onClick={async event => {
-          const $steps = {};
-
-          $steps["goToPage"] = true
-            ? (() => {
-                const actionArgs = {};
-                return (({ destination }) => {
-                  if (
-                    typeof destination === "string" &&
-                    destination.startsWith("#")
-                  ) {
-                    document
-                      .getElementById(destination.substr(1))
-                      .scrollIntoView({ behavior: "smooth" });
-                  } else {
-                    __nextRouter?.push(destination);
-                  }
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["goToPage"] != null &&
-            typeof $steps["goToPage"] === "object" &&
-            typeof $steps["goToPage"].then === "function"
-          ) {
-            $steps["goToPage"] = await $steps["goToPage"];
-          }
-        }}
       >
         <PlasmicImg__
           data-plasmic-name={"img"}
           data-plasmic-override={overrides.img}
           alt={""}
-          className={classNames(sty.img)}
+          className={classNames(sty.img, {
+            [sty.imgpostType_image]: hasVariant($state, "postType", "image")
+          })}
           displayHeight={"auto"}
           displayMaxHeight={"50%"}
           displayMaxWidth={"50%"}
@@ -329,13 +379,49 @@ function PlasmicPost__RenderFunc(props: {
           })()}
         />
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__tbwA)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__tbwA, {
+          [sty.freeBoxpostType_image__tbwA2TCWu]: hasVariant(
+            $state,
+            "postType",
+            "image"
+          ),
+          [sty.freeBoxpostType_jastText__tbwAGp8JF]: hasVariant(
+            $state,
+            "postType",
+            "jastText"
+          ),
+          [sty.freeBoxpostType_voise__tbwAVlsyu]: hasVariant(
+            $state,
+            "postType",
+            "voise"
+          )
+        })}
+      >
         <Video
           data-plasmic-name={"htmlVideo"}
           data-plasmic-override={overrides.htmlVideo}
-          className={classNames("__wab_instance", sty.htmlVideo)}
+          className={classNames("__wab_instance", sty.htmlVideo, {
+            [sty.htmlVideopostType_image]: hasVariant(
+              $state,
+              "postType",
+              "image"
+            )
+          })}
           controls={true}
-          src={`https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm${undefined}`}
+          src={(() => {
+            try {
+              return $props.video;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         />
       </div>
       <div
@@ -344,6 +430,11 @@ function PlasmicPost__RenderFunc(props: {
             $state,
             "postType",
             "image"
+          ),
+          [sty.freeBoxpostType_jastText__fbVqiGp8JF]: hasVariant(
+            $state,
+            "postType",
+            "jastText"
           ),
           [sty.freeBoxpostType_video__fbVqi1UrG6]: hasVariant(
             $state,
@@ -388,46 +479,106 @@ function PlasmicPost__RenderFunc(props: {
         />
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__oMc1N, {
-          [sty.freeBoxpostType_image__oMc1N2TCWu]: hasVariant(
+        className={classNames(projectcss.all, sty.freeBox__haeLb, {
+          [sty.freeBoxpostType_jastText__haeLbGp8JF]: hasVariant(
             $state,
             "postType",
-            "image"
-          ),
-          [sty.freeBoxpostType_video__oMc1N1UrG6]: hasVariant(
-            $state,
-            "postType",
-            "video"
-          ),
-          [sty.freeBoxpostType_voise__oMc1NVlsyu]: hasVariant(
-            $state,
-            "postType",
-            "voise"
+            "jastText"
           )
         })}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__rEuUx)}>
-          <div className={classNames(projectcss.all, sty.freeBox__apntU)}>
-            <svg
-              data-plasmic-name={"svg"}
-              data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
-              role={"img"}
-            />
+        <div
+          className={classNames(projectcss.all, sty.freeBox__oMc1N, {
+            [sty.freeBoxpostType_image__oMc1N2TCWu]: hasVariant(
+              $state,
+              "postType",
+              "image"
+            ),
+            [sty.freeBoxpostType_video__oMc1N1UrG6]: hasVariant(
+              $state,
+              "postType",
+              "video"
+            ),
+            [sty.freeBoxpostType_voise__oMc1NVlsyu]: hasVariant(
+              $state,
+              "postType",
+              "voise"
+            )
+          })}
+        >
+          <LineClomp
+            data-plasmic-name={"lineClomp"}
+            data-plasmic-override={overrides.lineClomp}
+            className={classNames("__wab_instance", sty.lineClomp)}
+            numberOfLine={1}
+            onLineChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["lineClomp", "line"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__wys2X
+              )}
+            >
+              {"Enter some text"}
+            </div>
+          </LineClomp>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__rEuUx, {
+              [sty.freeBoxpostType_jastText__rEuUxGp8JF]: hasVariant(
+                $state,
+                "postType",
+                "jastText"
+              )
+            })}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__apntU)}>
+              <Icon220Icon
+                data-plasmic-name={"svg"}
+                data-plasmic-override={overrides.svg}
+                className={classNames(projectcss.all, sty.svg)}
+                role={"img"}
+              />
+            </div>
           </div>
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__yYtmm)} />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "image3", "img", "htmlVideo", "audioPlayer", "svg"],
+  root: [
+    "root",
+    "lineClomp2",
+    "lineClomp3",
+    "image3",
+    "img",
+    "htmlVideo",
+    "audioPlayer",
+    "lineClomp",
+    "svg"
+  ],
+  lineClomp2: ["lineClomp2", "lineClomp3"],
+  lineClomp3: ["lineClomp3"],
   image3: ["image3", "img"],
   img: ["img"],
   htmlVideo: ["htmlVideo"],
   audioPlayer: ["audioPlayer"],
+  lineClomp: ["lineClomp"],
   svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -435,10 +586,13 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  lineClomp2: typeof LineClomp;
+  lineClomp3: typeof LineClomp;
   image3: "div";
   img: typeof PlasmicImg__;
   htmlVideo: typeof Video;
   audioPlayer: typeof AudioPlayer;
+  lineClomp: typeof LineClomp;
   svg: "svg";
 };
 
@@ -502,10 +656,13 @@ export const PlasmicPost = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    lineClomp2: makeNodeComponent("lineClomp2"),
+    lineClomp3: makeNodeComponent("lineClomp3"),
     image3: makeNodeComponent("image3"),
     img: makeNodeComponent("img"),
     htmlVideo: makeNodeComponent("htmlVideo"),
     audioPlayer: makeNodeComponent("audioPlayer"),
+    lineClomp: makeNodeComponent("lineClomp"),
     svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicPost
