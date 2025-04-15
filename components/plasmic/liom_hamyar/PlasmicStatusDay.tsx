@@ -62,8 +62,8 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
@@ -121,6 +121,7 @@ export const PlasmicStatusDay__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicStatusDay__OverridesType = {
   root?: Flex__<"div">;
+  favicon?: Flex__<typeof Embed>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   number2?: Flex__<typeof AntdModal>;
   textInput?: Flex__<typeof TextInput>;
@@ -130,7 +131,6 @@ export type PlasmicStatusDay__OverridesType = {
   button14?: Flex__<typeof Button>;
   tabWeek2?: Flex__<typeof TabWeek2>;
   button12?: Flex__<typeof Button>;
-  getEvent?: Flex__<typeof ApiRequest>;
   selectionBox?: Flex__<"div">;
   color?: Flex__<typeof Choices>;
   selectionBox2?: Flex__<"div">;
@@ -1663,24 +1663,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         path: "statusDay",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                return $state.getSign.data
-                  ? $state.getSign.data.result.map(item => item.split("T")[0])
-                  : [] || [];
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
         path: "inDay",
@@ -1844,24 +1827,6 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
-        path: "getEvent.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "getEvent.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "getEvent.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "d",
         type: "private",
         variableType: "text",
@@ -1879,6 +1844,12 @@ function PlasmicStatusDay__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1921,6 +1892,17 @@ function PlasmicStatusDay__RenderFunc(props: {
             sty.root
           )}
         >
+          <Embed
+            data-plasmic-name={"favicon"}
+            data-plasmic-override={overrides.favicon}
+            className={classNames("__wab_instance", sty.favicon)}
+            code={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+                : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>\r\n"
+            }
+          />
+
           <section className={classNames(projectcss.all, sty.section___4ZTIh)}>
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
@@ -2020,13 +2002,6 @@ function PlasmicStatusDay__RenderFunc(props: {
               </Stack__>
             </HeaderLiom>
           </section>
-          <Embed
-            className={classNames("__wab_instance", sty.embedHtml__bv9VP)}
-            code={
-              '<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>'
-            }
-          />
-
           <AntdModal
             data-plasmic-name={"number2"}
             data-plasmic-override={overrides.number2}
@@ -2463,178 +2438,184 @@ function PlasmicStatusDay__RenderFunc(props: {
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__h4QaM)}
+                  className={classNames(projectcss.all, sty.freeBox__ytIqs)}
                 >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__hhNvG,
-                      "shimmer"
-                    )}
-                  />
-
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__flVtA)}
+                    className={classNames(projectcss.all, sty.freeBox__h4QaM)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
-                        sty.freeBox__tyd3Y,
+                        sty.freeBox__hhNvG,
                         "shimmer"
                       )}
                     />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__utlHe,
-                        "shimmer"
-                      )}
-                    />
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__flVtA)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__tyd3Y,
+                          "shimmer"
+                        )}
+                      />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__qUmcz,
-                        "shimmer"
-                      )}
-                    />
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__utlHe,
+                          "shimmer"
+                        )}
+                      />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__n3Tgr,
-                        "shimmer"
-                      )}
-                    />
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__qUmcz,
+                          "shimmer"
+                        )}
+                      />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__yYfbw,
-                        "shimmer"
-                      )}
-                    />
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__n3Tgr,
+                          "shimmer"
+                        )}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__yYfbw,
+                          "shimmer"
+                        )}
+                      />
+                    </Stack__>
                   </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__wEkZo)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__xdZh7,
-                      "shimmer"
-                    )}
-                  />
-
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__dbsc0)}
+                    className={classNames(projectcss.all, sty.freeBox__wEkZo)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
-                        sty.freeBox___28Qzm,
+                        sty.freeBox__xdZh7,
                         "shimmer"
                       )}
                     />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___3YrZy,
-                        "shimmer"
-                      )}
-                    />
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__dbsc0)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___28Qzm,
+                          "shimmer"
+                        )}
+                      />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__oueyp,
-                        "shimmer"
-                      )}
-                    />
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___3YrZy,
+                          "shimmer"
+                        )}
+                      />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__cmDdw,
-                        "shimmer"
-                      )}
-                    />
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__oueyp,
+                          "shimmer"
+                        )}
+                      />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__rhMv3,
-                        "shimmer"
-                      )}
-                    />
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__cmDdw,
+                          "shimmer"
+                        )}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__rhMv3,
+                          "shimmer"
+                        )}
+                      />
+                    </Stack__>
                   </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__zg9Vl)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__a7Y9C,
-                      "shimmer"
-                    )}
-                  />
-
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__yQsGl)}
+                    className={classNames(projectcss.all, sty.freeBox__zg9Vl)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
-                        sty.freeBox__ynPzn,
+                        sty.freeBox__a7Y9C,
                         "shimmer"
                       )}
                     />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__q3VbU,
-                        "shimmer"
-                      )}
-                    />
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__yQsGl)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__ynPzn,
+                          "shimmer"
+                        )}
+                      />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__kq1J1,
-                        "shimmer"
-                      )}
-                    />
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__q3VbU,
+                          "shimmer"
+                        )}
+                      />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__muZOy,
-                        "shimmer"
-                      )}
-                    />
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__kq1J1,
+                          "shimmer"
+                        )}
+                      />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__zUsXg,
-                        "shimmer"
-                      )}
-                    />
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__muZOy,
+                          "shimmer"
+                        )}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__zUsXg,
+                          "shimmer"
+                        )}
+                      />
+                    </Stack__>
                   </Stack__>
                 </Stack__>
               </Stack__>
@@ -2660,6 +2641,32 @@ function PlasmicStatusDay__RenderFunc(props: {
 
               (async data => {
                 const $steps = {};
+
+                $steps["runCode2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return ($state.statusDay = $state.statusDay.concat(
+                            $state.getSign.data
+                              ? $state.getSign.data.result.map(
+                                  item => item.split("T")[0]
+                                )
+                              : []
+                          ));
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
+                }
 
                 $steps["invokeGlobalAction"] = true
                   ? (() => {
@@ -2736,6 +2743,93 @@ function PlasmicStatusDay__RenderFunc(props: {
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
                 }
+
+                $steps["invokeGlobalAction2"] =
+                  new Date().toLocaleString("en-CA").split(",")[0] ==
+                  $state.date
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://n8n.staas.ir/webhook/calendar/addEvent",
+                            undefined,
+                            (() => {
+                              try {
+                                return (() => {
+                                  let dateArray = $state.d.split("-");
+                                  let dateObject = {
+                                    year: Number(dateArray[0]),
+                                    month: Number(dateArray[1]),
+                                    day: Number(dateArray[2])
+                                  };
+                                  return {
+                                    authorization: $state.token,
+                                    date: dateObject
+                                  };
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                if (
+                  $steps["invokeGlobalAction2"] != null &&
+                  typeof $steps["invokeGlobalAction2"] === "object" &&
+                  typeof $steps["invokeGlobalAction2"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction2"] = await $steps[
+                    "invokeGlobalAction2"
+                  ];
+                }
+
+                $steps["updateInDay"] = (
+                  $steps.invokeGlobalAction2?.data ? true : false
+                )
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["inDay"]
+                        },
+                        operation: 0,
+                        value: $steps.invokeGlobalAction2.data.result
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateInDay"] != null &&
+                  typeof $steps["updateInDay"] === "object" &&
+                  typeof $steps["updateInDay"].then === "function"
+                ) {
+                  $steps["updateInDay"] = await $steps["updateInDay"];
+                }
               }).apply(null, eventArgs);
             }}
             params={(() => {
@@ -2797,6 +2891,48 @@ function PlasmicStatusDay__RenderFunc(props: {
                     typeof $steps["runCode"].then === "function"
                   ) {
                     $steps["runCode"] = await $steps["runCode"];
+                  }
+
+                  $steps["updatePage"] = (
+                    $state.month.find(
+                      item =>
+                        item.value ==
+                        $state.statusDay[$state.statusDay.length - 1]
+                    )
+                      ? true
+                      : false
+                  )
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["page"]
+                          },
+                          operation: 0,
+                          value: $state.page + 1
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updatePage"] != null &&
+                    typeof $steps["updatePage"] === "object" &&
+                    typeof $steps["updatePage"].then === "function"
+                  ) {
+                    $steps["updatePage"] = await $steps["updatePage"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -3110,7 +3246,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         $steps["updateInDay"] = await $steps["updateInDay"];
                       }
 
-                      $steps["updateD"] = (
+                      $steps["updateLoad"] = (
                         $state.statusDay.find(item => item == currentItem.value)
                           ? true
                           : false
@@ -3119,10 +3255,10 @@ function PlasmicStatusDay__RenderFunc(props: {
                             const actionArgs = {
                               variable: {
                                 objRoot: $state,
-                                variablePath: ["d"]
+                                variablePath: ["load"]
                               },
                               operation: 0,
-                              value: currentItem.value
+                              value: true
                             };
                             return (({
                               variable,
@@ -3141,11 +3277,135 @@ function PlasmicStatusDay__RenderFunc(props: {
                           })()
                         : undefined;
                       if (
-                        $steps["updateD"] != null &&
-                        typeof $steps["updateD"] === "object" &&
-                        typeof $steps["updateD"].then === "function"
+                        $steps["updateLoad"] != null &&
+                        typeof $steps["updateLoad"] === "object" &&
+                        typeof $steps["updateLoad"].then === "function"
                       ) {
-                        $steps["updateD"] = await $steps["updateD"];
+                        $steps["updateLoad"] = await $steps["updateLoad"];
+                      }
+
+                      $steps["invokeGlobalAction"] = (
+                        $state.statusDay.find(item => item == currentItem.value)
+                          ? true
+                          : false
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/calendar/addEvent",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return (() => {
+                                      let dateArray = $state.date.split("-");
+                                      let dateObject = {
+                                        year: Number(dateArray[0]),
+                                        month: Number(dateArray[1]),
+                                        day: Number(dateArray[2])
+                                      };
+                                      return {
+                                        authorization: $state.token,
+                                        date: dateObject
+                                      };
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["updateInDay2"] = (
+                        $steps.invokeGlobalAction?.data?.result ? true : false
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["inDay"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction.data.result
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateInDay2"] != null &&
+                        typeof $steps["updateInDay2"] === "object" &&
+                        typeof $steps["updateInDay2"].then === "function"
+                      ) {
+                        $steps["updateInDay2"] = await $steps["updateInDay2"];
+                      }
+
+                      $steps["updateLoad2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["load"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoad2"] != null &&
+                        typeof $steps["updateLoad2"] === "object" &&
+                        typeof $steps["updateLoad2"].then === "function"
+                      ) {
+                        $steps["updateLoad2"] = await $steps["updateLoad2"];
                       }
                     }}
                     selected={(() => {
@@ -3369,67 +3629,19 @@ function PlasmicStatusDay__RenderFunc(props: {
                 </div>
               </Button>
             </Stack__>
-            <ApiRequest
-              data-plasmic-name={"getEvent"}
-              data-plasmic-override={overrides.getEvent}
-              body={(() => {
-                try {
-                  return (() => {
-                    let dateArray = $state.d.split("-");
-                    let dateObject = {
-                      year: Number(dateArray[0]),
-                      month: Number(dateArray[1]),
-                      day: Number(dateArray[2])
-                    };
-                    return {
-                      authorization: $state.token,
-                      date: dateObject
-                    };
-                  })();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
+            {(() => {
+              try {
+                return !$state.load;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
                 }
-              })()}
-              className={classNames("__wab_instance", sty.getEvent)}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ooctC
-                  )}
-                >
-                  {"Error fetching data"}
-                </div>
+                throw e;
               }
-              loadingDisplay={null}
-              method={"POST"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getEvent", "error"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "getEvent",
-                  "loading"
-                ]).apply(null, eventArgs);
-              }}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getEvent", "data"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              url={"https://n8n.staas.ir/webhook/calendar/addEvent"}
-            >
+            })() ? (
               <Stack__
                 as={"div"}
                 hasGap={true}
@@ -5377,7 +5589,263 @@ function PlasmicStatusDay__RenderFunc(props: {
                   </div>
                 </section>
               </Stack__>
-            </ApiRequest>
+            ) : null}
+            {(() => {
+              try {
+                return $state.load;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__jFx8A)}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__fVrcT)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox___4YLem,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__gaHEy)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___5ETsy,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___6KXex,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___4ENa,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__q6Vie,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__m12E,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__uDof)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__m9O5M,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__m6Skz)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__xb77J,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__du1WJ,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__qp3Y6,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___6HgBn,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__mpGz2,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__dUMrG)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__n1Gio,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__kzCZt)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__nbWhx,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__e0Yww,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__cYfvK,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__oh11,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__wyh0,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox___1S7HG)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__kzzU,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__e3Zik)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__ljegu,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__asl2,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__imfHb,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__xAdHh,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___15PkM,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                </Stack__>
+              </Stack__>
+            ) : null}
           </ApiRequest>
           <AntdModal
             data-plasmic-name={"name2"}
@@ -8582,6 +9050,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "favicon",
     "headerLiom",
     "number2",
     "textInput",
@@ -8591,7 +9060,6 @@ const PlasmicDescendants = {
     "button14",
     "tabWeek2",
     "button12",
-    "getEvent",
     "selectionBox",
     "color",
     "selectionBox2",
@@ -8645,6 +9113,7 @@ const PlasmicDescendants = {
     "jobinput",
     "button13"
   ],
+  favicon: ["favicon"],
   headerLiom: ["headerLiom"],
   number2: ["number2", "textInput", "antdInput", "button2"],
   textInput: ["textInput", "antdInput"],
@@ -8655,7 +9124,6 @@ const PlasmicDescendants = {
     "button14",
     "tabWeek2",
     "button12",
-    "getEvent",
     "selectionBox",
     "color",
     "selectionBox2",
@@ -8679,28 +9147,6 @@ const PlasmicDescendants = {
   button14: ["button14"],
   tabWeek2: ["tabWeek2"],
   button12: ["button12"],
-  getEvent: [
-    "getEvent",
-    "selectionBox",
-    "color",
-    "selectionBox2",
-    "intensity",
-    "selectionBox3",
-    "water",
-    "selectionBox4",
-    "discharge",
-    "selectionBox5",
-    "status",
-    "selectionBox6",
-    "selectionBox7",
-    "checkbox",
-    "selectionBox8",
-    "sex",
-    "selectionBox9",
-    "textInput7",
-    "memory",
-    "button"
-  ],
   selectionBox: ["selectionBox", "color"],
   color: ["color"],
   selectionBox2: ["selectionBox2", "intensity"],
@@ -8772,6 +9218,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  favicon: typeof Embed;
   headerLiom: typeof HeaderLiom;
   number2: typeof AntdModal;
   textInput: typeof TextInput;
@@ -8781,7 +9228,6 @@ type NodeDefaultElementType = {
   button14: typeof Button;
   tabWeek2: typeof TabWeek2;
   button12: typeof Button;
-  getEvent: typeof ApiRequest;
   selectionBox: "div";
   color: typeof Choices;
   selectionBox2: "div";
@@ -8921,6 +9367,7 @@ export const PlasmicStatusDay = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    favicon: makeNodeComponent("favicon"),
     headerLiom: makeNodeComponent("headerLiom"),
     number2: makeNodeComponent("number2"),
     textInput: makeNodeComponent("textInput"),
@@ -8930,7 +9377,6 @@ export const PlasmicStatusDay = Object.assign(
     button14: makeNodeComponent("button14"),
     tabWeek2: makeNodeComponent("tabWeek2"),
     button12: makeNodeComponent("button12"),
-    getEvent: makeNodeComponent("getEvent"),
     selectionBox: makeNodeComponent("selectionBox"),
     color: makeNodeComponent("color"),
     selectionBox2: makeNodeComponent("selectionBox2"),

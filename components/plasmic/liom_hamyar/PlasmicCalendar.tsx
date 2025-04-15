@@ -2115,11 +2115,24 @@ function PlasmicCalendar__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/calendar/addEvent",
                         undefined,
-                        "https://n8n.staas.ir/webhook/status_day",
                         (() => {
                           try {
-                            return { userId: $state.userId };
+                            return (() => {
+                              const today = new Date();
+                              const dateObject = {
+                                year: today.getFullYear(),
+                                month: today.getMonth() + 1,
+                                day: today.getDate()
+                              };
+                              return {
+                                authorization:
+                                  window.localStorage.getItem("token"),
+                                date: dateObject
+                              };
+                            })();
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -2174,106 +2187,84 @@ function PlasmicCalendar__RenderFunc(props: {
                 $steps["updateDay"] = await $steps["updateDay"];
               }
 
-              $steps["advices"] =
-                $state.sing.success == true &&
-                $state.day.success == true &&
-                $steps.userinfo?.data?.result?.user?.id
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          undefined,
-                          "https://n8n.staas.ir/webhook/advices",
-                          (() => {
-                            try {
-                              return (() => {
-                                var today = new Date();
-                                let result = [];
-                                today = `${today.getFullYear()}-${(
-                                  today.getMonth() + 1
-                                )
-                                  .toString()
-                                  .padStart(2, "0")}-${today
-                                  .getDate()
-                                  .toString()
-                                  .padStart(2, "0")}`;
-                                if ($state && $state.day && $state.day.data) {
-                                  try {
-                                    var data = $state.day.data;
-                                    if (Array.isArray(data)) {
-                                      var day = data.find(
-                                        item => item.date == today
-                                      );
-                                      if (day) {
-                                        result = [
-                                          day.color || "",
-                                          day.Intensity || "",
-                                          day.Discharge || "",
-                                          day.Status || "",
-                                          day.sex || ""
-                                        ];
-                                      }
-                                    }
-                                  } catch (error) {
-                                    console.error(
-                                      "Error parsing JSON data:",
-                                      error
-                                    );
+              $steps["advices"] = $steps.userinfo?.data?.result?.user?.id
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/advices",
+                        (() => {
+                          try {
+                            return (() => {
+                              let result = [];
+                              if ($state.day) {
+                                try {
+                                  if ($state.day) {
+                                    var day = $state.day.result;
+                                    result = [
+                                      day.bloodColor || "",
+                                      day.bloodType || "",
+                                      day.secretions || "",
+                                      day.mode || "",
+                                      day.sex || ""
+                                    ];
                                   }
-                                }
-                                if (
-                                  $state &&
-                                  $state.sing &&
-                                  $state.sing.result
-                                ) {
-                                  result.push(
-                                    $state.sing.result.before || "",
-                                    $state.sing.result.current || "",
-                                    $state.sing.result.vaginal || "",
-                                    $state.sing.result.venereal || "",
-                                    $state.sing.result.womans || "",
-                                    $state.sing.result.hereditary || "",
-                                    $state.sing.result.others || "",
-                                    $state.sing.result.psychological || ""
+                                } catch (error) {
+                                  console.error(
+                                    "Error parsing JSON data:",
+                                    error
                                   );
                                 }
-                                let combinedArray = result
-                                  .filter(item => item != "")
-                                  .join(",");
-                                return {
-                                  gender: "female",
-                                  status:
-                                    $state &&
-                                    $state.status &&
-                                    $state.status === "blood"
-                                      ? "period"
-                                      : $state.status &&
-                                        $state.status === "fertility"
-                                      ? "pregnancy"
-                                      : $state.status || "unknown",
-                                  maritalStatus: "single",
-                                  education: "",
-                                  job: "",
-                                  keyWord: combinedArray || ""
-                                };
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
                               }
-                              throw e;
+                              if ($state && $state.sing && $state.sing.result) {
+                                result.push(
+                                  $state.sing.result.before || "",
+                                  $state.sing.result.current || "",
+                                  $state.sing.result.vaginal || "",
+                                  $state.sing.result.venereal || "",
+                                  $state.sing.result.womans || "",
+                                  $state.sing.result.hereditary || "",
+                                  $state.sing.result.others || "",
+                                  $state.sing.result.psychological || ""
+                                );
+                              }
+                              let combinedArray = result
+                                .filter(item => item != "")
+                                .join(",");
+                              return {
+                                gender: "female",
+                                status:
+                                  $state &&
+                                  $state.status &&
+                                  $state.status === "blood"
+                                    ? "period"
+                                    : $state.status &&
+                                      $state.status === "fertility"
+                                    ? "pregnancy"
+                                    : $state.status || "unknown",
+                                maritalStatus: "single",
+                                education: "",
+                                job: "",
+                                keyWord: combinedArray || ""
+                              };
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
                             }
-                          })()
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
               if (
                 $steps["advices"] != null &&
                 typeof $steps["advices"] === "object" &&
@@ -2724,6 +2715,63 @@ function PlasmicCalendar__RenderFunc(props: {
                       typeof $steps["goToSelfCare"].then === "function"
                     ) {
                       $steps["goToSelfCare"] = await $steps["goToSelfCare"];
+                    }
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "POST",
+                              "https://api.liom.app/service/log",
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    userId:
+                                      new URLSearchParams(
+                                        window.location.search
+                                      ).get("userId") ||
+                                      JSON.parse(
+                                        window.localStorage.getItem("userinfo")
+                                      ).user.id,
+                                    pageName: "calendar",
+                                    action: "selfCare",
+                                    extraData: {}
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              {
+                                headers: {
+                                  "Content-Type": "application/json",
+                                  Authorization:
+                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                }
+                              }
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
                     }
                   }}
                 >
@@ -17375,14 +17423,15 @@ function PlasmicCalendar__RenderFunc(props: {
                                         break;
                                       case "pms":
                                         var nextPeriodStartDate = new Date(
-                                          $state.userInfo.result.calender[0].period.start.year,
-                                          $state.userInfo.result.calender[0]
-                                            .period.start.month - 1,
-                                          $state.userInfo.result.calender[0].period.start.day
+                                          $state.userInfo.result.calender[0].pms.end.year,
+                                          $state.userInfo.result.calender[0].pms
+                                            .end.month - 1,
+                                          $state.userInfo.result.calender[0].pms.end.day
                                         );
                                         var daysToPeriod = Math.floor(
                                           (nextPeriodStartDate - todayDate) /
-                                            (1000 * 60 * 60 * 24)
+                                            (1000 * 60 * 60 * 24) +
+                                            1
                                         );
                                         return (
                                           daysToPeriod + " روز تا شروع پریود"
@@ -17571,6 +17620,66 @@ function PlasmicCalendar__RenderFunc(props: {
                                 typeof $steps["runCode"].then === "function"
                               ) {
                                 $steps["runCode"] = await $steps["runCode"];
+                              }
+
+                              $steps["invokeGlobalAction"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "POST",
+                                        "https://api.liom.app/service/log",
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return {
+                                              userId:
+                                                new URLSearchParams(
+                                                  window.location.search
+                                                ).get("userId") ||
+                                                JSON.parse(
+                                                  window.localStorage.getItem(
+                                                    "userinfo"
+                                                  )
+                                                ).user.id,
+                                              pageName: "calendar",
+                                              action: "editCycle",
+                                              extraData: {}
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })(),
+                                        {
+                                          headers: {
+                                            "Content-Type": "application/json",
+                                            Authorization:
+                                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                          }
+                                        }
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] = await $steps[
+                                  "invokeGlobalAction"
+                                ];
                               }
                             }}
                             onColorChange={async (...eventArgs: any) => {
@@ -47624,25 +47733,9 @@ function PlasmicCalendar__RenderFunc(props: {
                                 ) : null}
                                 {(() => {
                                   try {
-                                    return (() => {
-                                      var today = new Date();
-                                      today = `${today.getFullYear()}-${(
-                                        today.getMonth() + 1
-                                      )
-                                        .toString()
-                                        .padStart(2, "0")}-${today
-                                        .getDate()
-                                        .toString()
-                                        .padStart(2, "0")}`;
-                                      if ($state.day.success) {
-                                        var data = $state.day.data;
-                                        return data.find(
-                                          item => item.date === today
-                                        )
-                                          ? false
-                                          : true;
-                                      } else return true;
-                                    })();
+                                    return $state.day?.result?.authorization
+                                      ? false
+                                      : true;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -55862,6 +55955,60 @@ function PlasmicCalendar__RenderFunc(props: {
                                             onClick: async event => {
                                               const $steps = {};
 
+                                              $steps["updateIndexusefull"] =
+                                                true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        variable: {
+                                                          objRoot: $state,
+                                                          variablePath: [
+                                                            "itemtodo"
+                                                          ]
+                                                        },
+                                                        operation: 0,
+                                                        value: currentItem
+                                                      };
+                                                      return (({
+                                                        variable,
+                                                        value,
+                                                        startIndex,
+                                                        deleteCount
+                                                      }) => {
+                                                        if (!variable) {
+                                                          return;
+                                                        }
+                                                        const {
+                                                          objRoot,
+                                                          variablePath
+                                                        } = variable;
+
+                                                        $stateSet(
+                                                          objRoot,
+                                                          variablePath,
+                                                          value
+                                                        );
+                                                        return value;
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["updateIndexusefull"] !=
+                                                  null &&
+                                                typeof $steps[
+                                                  "updateIndexusefull"
+                                                ] === "object" &&
+                                                typeof $steps[
+                                                  "updateIndexusefull"
+                                                ].then === "function"
+                                              ) {
+                                                $steps["updateIndexusefull"] =
+                                                  await $steps[
+                                                    "updateIndexusefull"
+                                                  ];
+                                              }
+
                                               $steps["updateModal2Open"] = true
                                                 ? (() => {
                                                     const actionArgs = {
@@ -55916,57 +56063,78 @@ function PlasmicCalendar__RenderFunc(props: {
                                                   ];
                                               }
 
-                                              $steps["updateIndexusefull"] =
+                                              $steps["invokeGlobalAction"] =
                                                 true
                                                   ? (() => {
                                                       const actionArgs = {
-                                                        variable: {
-                                                          objRoot: $state,
-                                                          variablePath: [
-                                                            "itemtodo"
-                                                          ]
-                                                        },
-                                                        operation: 0,
-                                                        value: currentItem
+                                                        args: [
+                                                          "POST",
+                                                          "https://api.liom.app/service/log",
+                                                          undefined,
+                                                          (() => {
+                                                            try {
+                                                              return {
+                                                                userId:
+                                                                  new URLSearchParams(
+                                                                    window.location.search
+                                                                  ).get(
+                                                                    "userId"
+                                                                  ) ||
+                                                                  JSON.parse(
+                                                                    window.localStorage.getItem(
+                                                                      "userinfo"
+                                                                    )
+                                                                  ).user.id,
+                                                                pageName:
+                                                                  "calendar",
+                                                                action:
+                                                                  "todoOpen",
+                                                                extraData: {
+                                                                  type: "todo"
+                                                                }
+                                                              };
+                                                            } catch (e) {
+                                                              if (
+                                                                e instanceof
+                                                                  TypeError ||
+                                                                e?.plasmicType ===
+                                                                  "PlasmicUndefinedDataError"
+                                                              ) {
+                                                                return undefined;
+                                                              }
+                                                              throw e;
+                                                            }
+                                                          })(),
+                                                          {
+                                                            headers: {
+                                                              "Content-Type":
+                                                                "application/json",
+                                                              Authorization:
+                                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                                            }
+                                                          }
+                                                        ]
                                                       };
-                                                      return (({
-                                                        variable,
-                                                        value,
-                                                        startIndex,
-                                                        deleteCount
-                                                      }) => {
-                                                        if (!variable) {
-                                                          return;
-                                                        }
-                                                        const {
-                                                          objRoot,
-                                                          variablePath
-                                                        } = variable;
-
-                                                        $stateSet(
-                                                          objRoot,
-                                                          variablePath,
-                                                          value
-                                                        );
-                                                        return value;
-                                                      })?.apply(null, [
-                                                        actionArgs
+                                                      return $globalActions[
+                                                        "Fragment.apiRequest"
+                                                      ]?.apply(null, [
+                                                        ...actionArgs.args
                                                       ]);
                                                     })()
                                                   : undefined;
                                               if (
-                                                $steps["updateIndexusefull"] !=
+                                                $steps["invokeGlobalAction"] !=
                                                   null &&
                                                 typeof $steps[
-                                                  "updateIndexusefull"
+                                                  "invokeGlobalAction"
                                                 ] === "object" &&
                                                 typeof $steps[
-                                                  "updateIndexusefull"
+                                                  "invokeGlobalAction"
                                                 ].then === "function"
                                               ) {
-                                                $steps["updateIndexusefull"] =
+                                                $steps["invokeGlobalAction"] =
                                                   await $steps[
-                                                    "updateIndexusefull"
+                                                    "invokeGlobalAction"
                                                   ];
                                               }
                                             },
@@ -56499,6 +56667,82 @@ function PlasmicCalendar__RenderFunc(props: {
                                                   $steps["updateModal2Open"] =
                                                     await $steps[
                                                       "updateModal2Open"
+                                                    ];
+                                                }
+
+                                                $steps["invokeGlobalAction"] =
+                                                  true
+                                                    ? (() => {
+                                                        const actionArgs = {
+                                                          args: [
+                                                            "POST",
+                                                            "https://api.liom.app/service/log",
+                                                            undefined,
+                                                            (() => {
+                                                              try {
+                                                                return {
+                                                                  userId:
+                                                                    new URLSearchParams(
+                                                                      window.location.search
+                                                                    ).get(
+                                                                      "userId"
+                                                                    ) ||
+                                                                    JSON.parse(
+                                                                      window.localStorage.getItem(
+                                                                        "userinfo"
+                                                                      )
+                                                                    ).user.id,
+                                                                  pageName:
+                                                                    "calendar",
+                                                                  action:
+                                                                    "todoOpen",
+                                                                  extraData: {
+                                                                    type: "notTodo"
+                                                                  }
+                                                                };
+                                                              } catch (e) {
+                                                                if (
+                                                                  e instanceof
+                                                                    TypeError ||
+                                                                  e?.plasmicType ===
+                                                                    "PlasmicUndefinedDataError"
+                                                                ) {
+                                                                  return undefined;
+                                                                }
+                                                                throw e;
+                                                              }
+                                                            })(),
+                                                            {
+                                                              headers: {
+                                                                "Content-Type":
+                                                                  "application/json",
+                                                                Authorization:
+                                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                                              }
+                                                            }
+                                                          ]
+                                                        };
+                                                        return $globalActions[
+                                                          "Fragment.apiRequest"
+                                                        ]?.apply(null, [
+                                                          ...actionArgs.args
+                                                        ]);
+                                                      })()
+                                                    : undefined;
+                                                if (
+                                                  $steps[
+                                                    "invokeGlobalAction"
+                                                  ] != null &&
+                                                  typeof $steps[
+                                                    "invokeGlobalAction"
+                                                  ] === "object" &&
+                                                  typeof $steps[
+                                                    "invokeGlobalAction"
+                                                  ].then === "function"
+                                                ) {
+                                                  $steps["invokeGlobalAction"] =
+                                                    await $steps[
+                                                      "invokeGlobalAction"
                                                     ];
                                                 }
                                               },

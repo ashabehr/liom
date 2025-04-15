@@ -64,7 +64,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
 import Type from "../../Type"; // plasmic-import: 0PNG5HW8802G/component
-import { DataFetcher } from "@plasmicpkgs/plasmic-query";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -73,6 +73,8 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSocialMain.module.css"; // plasmic-import: dIQxBnzf8Ez0/css
 
+import Icon222Icon from "./icons/PlasmicIcon__Icon222"; // plasmic-import: 9jhVYc_p6C9E/icon
+import Icon221Icon from "./icons/PlasmicIcon__Icon221"; // plasmic-import: YG4DzDPOnL9n/icon
 import Icon179Icon from "./icons/PlasmicIcon__Icon179"; // plasmic-import: qlPLXoOalpf5/icon
 import Icon218Icon from "./icons/PlasmicIcon__Icon218"; // plasmic-import: efUVKFegcS0a/icon
 
@@ -90,11 +92,10 @@ export const PlasmicSocialMain__ArgProps = new Array<ArgPropType>();
 export type PlasmicSocialMain__OverridesType = {
   root?: Flex__<"div">;
   headerSocial?: Flex__<"div">;
-  text?: Flex__<"div">;
   story?: Flex__<"div">;
   groupBy?: Flex__<"div">;
   type?: Flex__<typeof Type>;
-  getInfo?: Flex__<typeof DataFetcher>;
+  getInfo?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultSocialMainProps {}
@@ -148,7 +149,9 @@ function PlasmicSocialMain__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return (() => {
+                return new URLSearchParams(window.location.search).get("token");
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -159,6 +162,24 @@ function PlasmicSocialMain__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "getInfo.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getInfo.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getInfo.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -215,12 +236,10 @@ function PlasmicSocialMain__RenderFunc(props: {
                   />
                 </div>
                 <div
-                  data-plasmic-name={"text"}
-                  data-plasmic-override={overrides.text}
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text
+                    sty.text__kHbyH
                   )}
                 >
                   {"Enter some text"}
@@ -232,7 +251,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.freeBox___4Bgn1)}
               >
                 <div className={classNames(projectcss.all, sty.freeBox__ufykt)}>
-                  <svg
+                  <Icon222Icon
                     className={classNames(projectcss.all, sty.svg__e7Ln2)}
                     role={"img"}
                   />
@@ -240,7 +259,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                 <div
                   className={classNames(projectcss.all, sty.freeBox___4Pi0E)}
                 >
-                  <svg
+                  <Icon221Icon
                     className={classNames(projectcss.all, sty.svg__gGyXh)}
                     role={"img"}
                   />
@@ -267,6 +286,19 @@ function PlasmicSocialMain__RenderFunc(props: {
               data-plasmic-override={overrides.story}
               hasGap={true}
               className={classNames(projectcss.all, sty.story)}
+              style={(() => {
+                try {
+                  return undefined;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             >
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
@@ -354,36 +386,72 @@ function PlasmicSocialMain__RenderFunc(props: {
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__rjNb)}>
             <div className={classNames(projectcss.all, sty.freeBox__ybpyR)} />
-          </div>
-          <DataFetcher
-            data-plasmic-name={"getInfo"}
-            data-plasmic-override={overrides.getInfo}
-            body={(() => {
-              try {
-                return undefined;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
+
+            <ApiRequest
+              data-plasmic-name={"getInfo"}
+              data-plasmic-override={overrides.getInfo}
+              className={classNames("__wab_instance", sty.getInfo)}
+              errorDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__fr80O
+                  )}
+                >
+                  {"Error fetching data"}
+                </div>
               }
-            })()}
-            className={classNames("__wab_instance", sty.getInfo)}
-            dataName={"fetchedData"}
-            errorDisplay={
-              <DataCtxReader__>{$ctx => "Error fetching data"}</DataCtxReader__>
-            }
-            errorName={"fetchError"}
-            loadingDisplay={
-              <DataCtxReader__>{$ctx => "Loading..."}</DataCtxReader__>
-            }
-            method={"GET"}
-            noLayout={false}
-            url={"https://n8n.staas.ir/webhook/rest/social"}
-          />
+              loadingDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__lRjE4
+                  )}
+                >
+                  {"Loading..."}
+                </div>
+              }
+              method={"GET"}
+              onError={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getInfo", "error"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getInfo", "loading"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onSuccess={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getInfo", "data"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              params={(() => {
+                try {
+                  return (() => {
+                    {
+                      return (authorization = $state.token);
+                    }
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              url={"https://n8n.staas.ir/webhook/rest/social"}
+            />
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -391,9 +459,8 @@ function PlasmicSocialMain__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "headerSocial", "text", "story", "groupBy", "type", "getInfo"],
-  headerSocial: ["headerSocial", "text"],
-  text: ["text"],
+  root: ["root", "headerSocial", "story", "groupBy", "type", "getInfo"],
+  headerSocial: ["headerSocial"],
   story: ["story"],
   groupBy: ["groupBy", "type"],
   type: ["type"],
@@ -405,11 +472,10 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   headerSocial: "div";
-  text: "div";
   story: "div";
   groupBy: "div";
   type: typeof Type;
-  getInfo: typeof DataFetcher;
+  getInfo: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -498,7 +564,6 @@ export const PlasmicSocialMain = Object.assign(
   {
     // Helper components rendering sub-elements
     headerSocial: makeNodeComponent("headerSocial"),
-    text: makeNodeComponent("text"),
     story: makeNodeComponent("story"),
     groupBy: makeNodeComponent("groupBy"),
     type: makeNodeComponent("type"),

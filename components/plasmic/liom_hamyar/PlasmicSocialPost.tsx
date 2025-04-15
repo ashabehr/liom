@@ -952,29 +952,14 @@ function PlasmicSocialPost__RenderFunc(props: {
                     ? "image"
                     : (() => {
                         try {
-                          return (() => {
-                            if (
-                              $state.getInfo.data.result.details.post
-                                .actionText == "نمایش ویدیو"
-                            )
-                              "video";
-                            if (
-                              $state.getInfo.data.result.details.post
-                                .actionText == "باز کردن صدا"
-                            )
-                              "voise";
-                            if (
-                              $state.getInfo.data.result.details.post
-                                .actionText == ""
-                            )
-                              return "video";
-                          })();
+                          return $state.getInfo.data.result.details
+                            .attachments[0].type;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return "video";
+                            return [];
                           }
                           throw e;
                         }
@@ -995,7 +980,7 @@ function PlasmicSocialPost__RenderFunc(props: {
                 })()}
                 video={(() => {
                   try {
-                    return undefined;
+                    return $state.getInfo.data.result.details.post.action;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1927,7 +1912,7 @@ function PlasmicSocialPost__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  postId: "44b295b9-fdaa-4dbb-85b3-80c0b3b9af69",
+                  postId: "d7ae45be-9ed4-4062-8fd1-11a53227edd6",
                   commentId: "string",
                   orderBy: $state.orderby.value,
                   authorization: $state.token

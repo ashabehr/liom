@@ -75,10 +75,10 @@ import Icon220Icon from "./icons/PlasmicIcon__Icon220"; // plasmic-import: 2Onuc
 createPlasmicElementProxy;
 
 export type PlasmicPost__VariantMembers = {
-  postType: "image" | "voise" | "video" | "jastText" | "fail";
+  postType: "image" | "voise" | "video" | "jastText" | "file";
 };
 export type PlasmicPost__VariantsArgs = {
-  postType?: SingleChoiceArg<"image" | "voise" | "video" | "jastText" | "fail">;
+  postType?: SingleChoiceArg<"image" | "voise" | "video" | "jastText" | "file">;
 };
 type VariantPropType = keyof PlasmicPost__VariantsArgs;
 export const PlasmicPost__VariantProps = new Array<VariantPropType>("postType");
@@ -123,7 +123,7 @@ export interface DefaultPostProps {
   audioLinkInPost?: string;
   fail?: string;
   failName?: string;
-  postType?: SingleChoiceArg<"image" | "voise" | "video" | "jastText" | "fail">;
+  postType?: SingleChoiceArg<"image" | "voise" | "video" | "jastText" | "file">;
   className?: string;
 }
 
@@ -147,7 +147,10 @@ function PlasmicPost__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          image2:
+            "https://storage.c2.liara.space/liom/2025-03/post/2025-03-28-38fa0b71-308d-49f8-87e0-290a8573a25c.mp4\n"
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -219,7 +222,7 @@ function PlasmicPost__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
         {
-          [sty.rootpostType_fail]: hasVariant($state, "postType", "fail"),
+          [sty.rootpostType_file]: hasVariant($state, "postType", "file"),
           [sty.rootpostType_image]: hasVariant($state, "postType", "image"),
           [sty.rootpostType_jastText]: hasVariant(
             $state,
@@ -235,13 +238,30 @@ function PlasmicPost__RenderFunc(props: {
         data-plasmic-name={"lineClompTitel"}
         data-plasmic-override={overrides.lineClompTitel}
         className={classNames("__wab_instance", sty.lineClompTitel, {
+          [sty.lineClompTitelpostType_image]: hasVariant(
+            $state,
+            "postType",
+            "image"
+          ),
           [sty.lineClompTitelpostType_jastText]: hasVariant(
             $state,
             "postType",
             "jastText"
           )
         })}
-        more={true}
+        more={(() => {
+          try {
+            return undefined;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return "more";
+            }
+            throw e;
+          }
+        })()}
         numberOfLine={4}
         onLineChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["lineClompTitel", "line"]).apply(
@@ -353,7 +373,7 @@ function PlasmicPost__RenderFunc(props: {
         data-plasmic-name={"image3"}
         data-plasmic-override={overrides.image3}
         className={classNames(projectcss.all, sty.image3, {
-          [sty.image3postType_fail]: hasVariant($state, "postType", "fail"),
+          [sty.image3postType_file]: hasVariant($state, "postType", "file"),
           [sty.image3postType_image]: hasVariant($state, "postType", "image"),
           [sty.image3postType_jastText]: hasVariant(
             $state,
@@ -395,10 +415,10 @@ function PlasmicPost__RenderFunc(props: {
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__tbwA, {
-          [sty.freeBoxpostType_fail__tbwASc5R]: hasVariant(
+          [sty.freeBoxpostType_file__tbwASc5R]: hasVariant(
             $state,
             "postType",
-            "fail"
+            "file"
           ),
           [sty.freeBoxpostType_image__tbwA2TCWu]: hasVariant(
             $state,
@@ -421,10 +441,10 @@ function PlasmicPost__RenderFunc(props: {
           data-plasmic-name={"htmlVideo"}
           data-plasmic-override={overrides.htmlVideo}
           className={classNames("__wab_instance", sty.htmlVideo, {
-            [sty.htmlVideopostType_fail]: hasVariant(
+            [sty.htmlVideopostType_file]: hasVariant(
               $state,
               "postType",
-              "fail"
+              "file"
             ),
             [sty.htmlVideopostType_image]: hasVariant(
               $state,
@@ -450,10 +470,10 @@ function PlasmicPost__RenderFunc(props: {
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__fbVqi, {
-          [sty.freeBoxpostType_fail__fbVqiSc5R]: hasVariant(
+          [sty.freeBoxpostType_file__fbVqiSc5R]: hasVariant(
             $state,
             "postType",
-            "fail"
+            "file"
           ),
           [sty.freeBoxpostType_image__fbVqi2TCWu]: hasVariant(
             $state,
@@ -509,6 +529,11 @@ function PlasmicPost__RenderFunc(props: {
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__haeLb, {
+          [sty.freeBoxpostType_file__haeLbSc5R]: hasVariant(
+            $state,
+            "postType",
+            "file"
+          ),
           [sty.freeBoxpostType_jastText__haeLbGp8JF]: hasVariant(
             $state,
             "postType",
@@ -518,10 +543,10 @@ function PlasmicPost__RenderFunc(props: {
       >
         <div
           className={classNames(projectcss.all, sty.freeBox__oMc1N, {
-            [sty.freeBoxpostType_fail__oMc1NSc5R]: hasVariant(
+            [sty.freeBoxpostType_file__oMc1NSc5R]: hasVariant(
               $state,
               "postType",
-              "fail"
+              "file"
             ),
             [sty.freeBoxpostType_image__oMc1N2TCWu]: hasVariant(
               $state,
