@@ -101,6 +101,10 @@
   max-width: 100%;
   margin-bottom: 0px;
   margin-left: calc(0px + 20px) !important;
+  text-align: right;
+  font-size: 18px;
+  color: var(--token-fn6i10-y5r1L);
+  font-weight: 700;
 }
 .freeBox___4Bgn1 {
   display: flex;

@@ -74,7 +74,7 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicSocialMain.module.css"; // plasmic-import: dIQxBnzf8Ez0/css
 
 import Icon222Icon from "./icons/PlasmicIcon__Icon222"; // plasmic-import: 9jhVYc_p6C9E/icon
-import Icon221Icon from "./icons/PlasmicIcon__Icon221"; // plasmic-import: YG4DzDPOnL9n/icon
+import Icon223Icon from "./icons/PlasmicIcon__Icon223"; // plasmic-import: 0ISCKAZ1VQ2U/icon
 import Icon179Icon from "./icons/PlasmicIcon__Icon179"; // plasmic-import: qlPLXoOalpf5/icon
 import Icon218Icon from "./icons/PlasmicIcon__Icon218"; // plasmic-import: efUVKFegcS0a/icon
 
@@ -149,9 +149,10 @@ function PlasmicSocialMain__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (() => {
-                return new URLSearchParams(window.location.search).get("token");
-              })();
+              return (
+                $ctx.query.token ||
+                new URLSearchParams(window.location.search).get("token")
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -242,7 +243,9 @@ function PlasmicSocialMain__RenderFunc(props: {
                     sty.text__kHbyH
                   )}
                 >
-                  {"Enter some text"}
+                  {
+                    "\u0634\u0628\u06a9\u0647 \u0627\u062c\u062a\u0645\u0627\u0639\u06cc"
+                  }
                 </div>
               </Stack__>
               <Stack__
@@ -259,7 +262,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                 <div
                   className={classNames(projectcss.all, sty.freeBox___4Pi0E)}
                 >
-                  <Icon221Icon
+                  <Icon223Icon
                     className={classNames(projectcss.all, sty.svg__gGyXh)}
                     role={"img"}
                   />
@@ -434,11 +437,9 @@ function PlasmicSocialMain__RenderFunc(props: {
               }}
               params={(() => {
                 try {
-                  return (() => {
-                    {
-                      return (authorization = $state.token);
-                    }
-                  })();
+                  return {
+                    authorization: $state.token
+                  };
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

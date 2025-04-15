@@ -809,13 +809,13 @@
   object-fit: cover;
 }
 .freeBox__oav3Y {
+  display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
-  display: none;
   padding: 8px;
 }
 .freeBox__oav3Y > :global(.__wab_flex-container) {
