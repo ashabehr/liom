@@ -73,9 +73,9 @@ export type PlasmicType__VariantsArgs = {};
 type VariantPropType = keyof PlasmicType__VariantsArgs;
 export const PlasmicType__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicType__ArgsType = {};
+export type PlasmicType__ArgsType = { textMenu?: string };
 type ArgPropType = keyof PlasmicType__ArgsType;
-export const PlasmicType__ArgProps = new Array<ArgPropType>();
+export const PlasmicType__ArgProps = new Array<ArgPropType>("textMenu");
 
 export type PlasmicType__OverridesType = {
   root?: Flex__<"div">;
@@ -83,6 +83,7 @@ export type PlasmicType__OverridesType = {
 };
 
 export interface DefaultTypeProps {
+  textMenu?: string;
   className?: string;
 }
 
@@ -148,7 +149,21 @@ function PlasmicType__RenderFunc(props: {
         data-plasmic-override={overrides.text}
         className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
       >
-        {"Enter some text"}
+        <React.Fragment>
+          {(() => {
+            try {
+              return $props.textMenu;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
       </div>
     </div>
   ) as React.ReactElement | null;

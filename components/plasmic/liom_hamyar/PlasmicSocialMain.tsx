@@ -73,6 +73,7 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSocialMain.module.css"; // plasmic-import: dIQxBnzf8Ez0/css
 
+import Icon224Icon from "./icons/PlasmicIcon__Icon224"; // plasmic-import: tFRqmySFPQVw/icon
 import Icon222Icon from "./icons/PlasmicIcon__Icon222"; // plasmic-import: 9jhVYc_p6C9E/icon
 import Icon223Icon from "./icons/PlasmicIcon__Icon223"; // plasmic-import: 0ISCKAZ1VQ2U/icon
 import Icon179Icon from "./icons/PlasmicIcon__Icon179"; // plasmic-import: qlPLXoOalpf5/icon
@@ -231,7 +232,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.freeBox___3Ggli)}
               >
                 <div className={classNames(projectcss.all, sty.freeBox__jcMgv)}>
-                  <svg
+                  <Icon224Icon
                     className={classNames(projectcss.all, sty.svg__k05M)}
                     role={"img"}
                   />
@@ -370,9 +371,21 @@ function PlasmicSocialMain__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__leuuy)}
               >
-                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
-                  2, 3, 4
-                ]).map((__plasmic_item_0, __plasmic_idx_0) => {
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.getInfo.data.result.buttons;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
                   const currentItem = __plasmic_item_0;
                   const currentIndex = __plasmic_idx_0;
                   return (
@@ -381,6 +394,19 @@ function PlasmicSocialMain__RenderFunc(props: {
                       data-plasmic-override={overrides.type}
                       className={classNames("__wab_instance", sty.type)}
                       key={currentIndex}
+                      textMenu={(() => {
+                        try {
+                          return currentItem.text;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
                     />
                   );
                 })}

@@ -4481,7 +4481,22 @@ function PlasmicCalendar__RenderFunc(props: {
             )
               ? true
               : hasVariant(globalVariants, "screen", "mobile")
-              ? true
+              ? (() => {
+                  try {
+                    return (
+                      $state.userInfo?.result?.userStatus == null &&
+                      $state.userInfo.success == true
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
               : (() => {
                   try {
                     return (
@@ -12273,7 +12288,7 @@ function PlasmicCalendar__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 ) : (
-                  "Enter some text"
+                  '\u0628\u0631\u0627\u06cc \u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc " \u062a\u0642\u0648\u06cc\u0645 \u067e\u0631\u06cc\u0648\u062f " \u0644\u0637\u0641\u0627 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646'
                 )}
               </div>
               <Button
@@ -12289,6 +12304,28 @@ function PlasmicCalendar__RenderFunc(props: {
                 color={generateStateValueProp($state, ["button18", "color"])}
                 onClick={async event => {
                   const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return window.sessionStorage.removeItem("cash");
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
 
                   $steps["goToSettingPregnancy2"] = true
                     ? (() => {
@@ -12318,28 +12355,6 @@ function PlasmicCalendar__RenderFunc(props: {
                       "goToSettingPregnancy2"
                     ];
                   }
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return window.sessionStorage.removeItem("cash");
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
                 }}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
@@ -12363,7 +12378,7 @@ function PlasmicCalendar__RenderFunc(props: {
                     "lackOfCourseInformation"
                   )
                     ? undefined
-                    : true
+                    : undefined
                 }
                 size={
                   hasVariant(
@@ -12372,7 +12387,7 @@ function PlasmicCalendar__RenderFunc(props: {
                     "lackOfCourseInformation"
                   )
                     ? undefined
-                    : "compact"
+                    : undefined
                 }
                 startIcon={
                   <PlasmicImg__
@@ -12424,7 +12439,7 @@ function PlasmicCalendar__RenderFunc(props: {
                     "lackOfCourseInformation"
                   )
                     ? "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u062a\u0642\u0648\u06cc\u0645 \u067e\u0631\u06cc\u0648\u062f"
-                    : "\u062a\u0646\u0638\u06cc\u0645 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"}
+                    : "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u062a\u0642\u0648\u06cc\u0645 \u067e\u0631\u06cc\u0648\u062f\u06cc"}
                 </div>
               </Button>
             </Stack__>
@@ -12439,7 +12454,10 @@ function PlasmicCalendar__RenderFunc(props: {
               : hasVariant(globalVariants, "screen", "mobile")
               ? (() => {
                   try {
-                    return $state.userInfo.success == true;
+                    return (
+                      $state.userInfo?.success == true &&
+                      $state.userInfo?.result?.userStatus != null
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
