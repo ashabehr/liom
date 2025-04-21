@@ -1567,6 +1567,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                             throw e;
                           }
                         })()}
+                        selected={false}
                         text={(() => {
                           try {
                             return currentItem.label;

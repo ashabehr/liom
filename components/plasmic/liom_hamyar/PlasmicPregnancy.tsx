@@ -130,6 +130,7 @@ export type PlasmicPregnancy__OverridesType = {
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
   collapseDanger?: Flex__<typeof AntdSingleCollapse>;
   collapseMedicine2?: Flex__<typeof AntdSingleCollapse>;
+  button2?: Flex__<typeof Button>;
   collapseTest?: Flex__<typeof AntdSingleCollapse>;
   collapseBaby?: Flex__<typeof AntdSingleCollapse>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
@@ -415,19 +416,23 @@ function PlasmicPregnancy__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             if ($state.user?.[0]?.dueDate) {
-              let initialDate = new Date($state.user?.[0]?.dueDate);
-              initialDate.setHours(23);
-              initialDate.setMinutes(59);
-              initialDate.setSeconds(59);
-              let daysToSubtract = 280;
-              let resultDate = new Date(initialDate);
-              resultDate.setDate(resultDate.getDate() - daysToSubtract);
-              let today = new Date();
-              let differenceInTime = today - resultDate;
-              let differenceInDays = Math.floor(
-                differenceInTime / (1000 * 60 * 60 * 24)
+              let dueDate = new Date($state.user[0].dueDate);
+              dueDate = new Date(
+                dueDate.getFullYear(),
+                dueDate.getMonth(),
+                dueDate.getDate()
               );
-              return parseInt(280 - differenceInDays) - 1;
+              let startDate = new Date(dueDate);
+              startDate.setDate(startDate.getDate() - 280);
+              let today = new Date();
+              today = new Date(
+                today.getFullYear(),
+                today.getMonth(),
+                today.getDate()
+              );
+              const msInDay = 24 * 60 * 60 * 1000;
+              const diffInDays = Math.floor((today - startDate) / msInDay);
+              return 280 - (diffInDays + 1);
             } else return 0;
           })()
       },
@@ -436,7 +441,21 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          parseInt(((280 - $state.daysPregnant) / 30.4).toFixed())
+          (() => {
+            let daysPregnant = 280 - $state.daysPregnant;
+            let weeksPregnant = Math.floor(daysPregnant / 7);
+            let monthPregnant = Math.floor(weeksPregnant / 4);
+            if (weeksPregnant >= 24 && weeksPregnant < 28) {
+              monthPregnant = 7;
+            } else if (weeksPregnant >= 28 && weeksPregnant < 32) {
+              monthPregnant = 8;
+            } else if (weeksPregnant >= 32 && weeksPregnant < 36) {
+              monthPregnant = 9;
+            } else if (weeksPregnant >= 36 && weeksPregnant < 40) {
+              monthPregnant = 10;
+            }
+            return monthPregnant;
+          })()
       },
       {
         path: "getUserInfo.data",
@@ -891,6 +910,12 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1527,38 +1552,72 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     ]
                                   );
                                 }
-                                fetch("https://n8n.staas.ir/webhook/status", {
-                                  method: "POST",
-                                  headers: {
-                                    "Content-Type": "application/json",
-                                    Authorization:
-                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                  },
-                                  body: JSON.stringify({
-                                    area: "pregnancy",
-                                    duDate:
-                                      gy + "-" + gm + "-" + gd + " 10:10:10",
-                                    userId: $ctx.query.userId.slice(
-                                      4,
-                                      +$ctx.query.userId.length - 4
-                                    ),
-                                    name: name,
-                                    mobile: mobile,
-                                    email: email,
-                                    hamyarData: { hamyarsData },
-                                    allowance: { allowance },
-                                    currentWeek: $state.weeksPregnant
+                                fetch(
+                                  "https://api.liom.app/rest/pregnancy/data",
+                                  {
+                                    method: "GET",
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization:
+                                        "Bearer " +
+                                        $ctx.query.token.slice(
+                                          6,
+                                          $ctx.query.token.length - 3
+                                        )
+                                    }
+                                  }
+                                )
+                                  .then(response => response.json())
+                                  .then(user => {
+                                    console.log("user get liom");
+                                    // console.log(user.result.pregnancy.sex)
+
+                                    fetch(
+                                      "https://n8n.staas.ir/webhook-test/status",
+                                      {
+                                        method: "POST",
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization:
+                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                        },
+                                        body: JSON.stringify({
+                                          area: "pregnancy",
+                                          duDate:
+                                            gy +
+                                            "-" +
+                                            gm +
+                                            "-" +
+                                            gd +
+                                            " 10:10:10",
+                                          userId: $ctx.query.userId.slice(
+                                            4,
+                                            +$ctx.query.userId.length - 4
+                                          ),
+                                          name: name,
+                                          mobile: mobile,
+                                          email: email,
+                                          hamyarData: { hamyarsData },
+                                          allowance: { allowance },
+                                          currentWeek: $state.weeksPregnant,
+                                          baby_gender:
+                                            user?.result?.pregnancy?.sex
+                                        })
+                                      }
+                                    )
+                                      .then(response => {
+                                        return response.json();
+                                      })
+                                      .then(data => {
+                                        console.log("user send");
+                                      })
+                                      .catch(error => {
+                                        console.error("Error3333:", error);
+                                      });
                                   })
-                                })
-                                  .then(response => {
-                                    return response.json();
-                                  })
-                                  .then(data => {
-                                    console.log("user send");
-                                  })
-                                  .catch(error => {
-                                    console.error("Error3333:", error);
-                                  });
+                                  .catch(error =>
+                                    console.error("Error:user get liom", error)
+                                  );
                               } catch (error) {
                                 console.log(
                                   "\u274C خطا مدیریت شد:",
@@ -1638,7 +1697,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["refreshData"] = await $steps["refreshData"];
                   }
 
-                  $steps["invokeGlobalAction"] = true
+                  $steps["log"] = true
                     ? (() => {
                         const actionArgs = {
                           args: [
@@ -1694,13 +1753,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                       })()
                     : undefined;
                   if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
+                    $steps["log"] != null &&
+                    typeof $steps["log"] === "object" &&
+                    typeof $steps["log"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["log"] = await $steps["log"];
                   }
                 }}
                 runWhileEditing={true}
@@ -2184,6 +2241,40 @@ function PlasmicPregnancy__RenderFunc(props: {
                             )}
                             onClick={async event => {
                               const $steps = {};
+
+                              $steps["runCode"] =
+                                $state.user[0].userId ==
+                                "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            var link =
+                                              "https://tools.liom.app/chat-bot/?origin_user_id=" +
+                                              $state?.user?.[0]?.userId +
+                                              "&topic=pregnancyWeek" +
+                                              $state.weeksPregnant;
+                                            return window.FlutterChannel.postMessage(
+                                              "#inAppWebView**@@**" +
+                                                "دکتر لیوم" +
+                                                "**@@**" +
+                                                link
+                                            );
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
                             }}
                           >
                             <Stack__
@@ -17952,53 +18043,96 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       <div
                                         className={classNames(
                                           projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__xsR0,
-                                          {
-                                            [sty.textdarkMod__xsR0OQOo]:
-                                              hasVariant(
-                                                $state,
-                                                "darkMod",
-                                                "darkMod"
-                                              )
-                                          }
+                                          sty.freeBox__aBsZy
                                         )}
                                       >
                                         <div
-                                          className={
-                                            projectcss.__wab_expr_html_text
-                                          }
-                                          dangerouslySetInnerHTML={{
-                                            __html: (() => {
-                                              try {
-                                                return (() => {
-                                                  var supplement = "";
-                                                  const advice =
-                                                    $state?.getAdvice;
-                                                  var filteredItem;
-                                                  filteredItem = advice.find(
-                                                    item =>
-                                                      item.type.includes(
-                                                        "supplement"
-                                                      )
-                                                  );
-                                                  supplement =
-                                                    filteredItem?.text ?? "";
-                                                  return supplement;
-                                                })();
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "";
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__xsR0,
+                                            {
+                                              [sty.textdarkMod__xsR0OQOo]:
+                                                hasVariant(
+                                                  $state,
+                                                  "darkMod",
+                                                  "darkMod"
+                                                )
+                                            }
+                                          )}
+                                        >
+                                          <div
+                                            className={
+                                              projectcss.__wab_expr_html_text
+                                            }
+                                            dangerouslySetInnerHTML={{
+                                              __html: (() => {
+                                                try {
+                                                  return (() => {
+                                                    var supplement = "";
+                                                    const advice =
+                                                      $state?.getAdvice;
+                                                    var filteredItem;
+                                                    filteredItem = advice.find(
+                                                      item =>
+                                                        item.type.includes(
+                                                          "supplement"
+                                                        )
+                                                    );
+                                                    supplement =
+                                                      filteredItem?.text ?? "";
+                                                    return supplement;
+                                                  })();
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return "";
+                                                  }
+                                                  throw e;
                                                 }
-                                                throw e;
-                                              }
-                                            })()
+                                              })()
+                                            }}
+                                          />
+                                        </div>
+                                        <Button
+                                          data-plasmic-name={"button2"}
+                                          data-plasmic-override={
+                                            overrides.button2
+                                          }
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.button2
+                                          )}
+                                          color={generateStateValueProp(
+                                            $state,
+                                            ["button2", "color"]
+                                          )}
+                                          onColorChange={async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                ["button2", "color"]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
                                           }}
-                                        />
+                                        >
+                                          {
+                                            "\u0645\u0634\u0627\u0647\u062f\u0647 \u0645\u0646\u0627\u0628\u0639 \u063a\u0630\u0627\u06cc\u06cc"
+                                          }
+                                        </Button>
                                       </div>
                                     ) : null}
                                     {(() => {
@@ -25284,6 +25418,7 @@ const PlasmicDescendants = {
     "collapseAdvice",
     "collapseDanger",
     "collapseMedicine2",
+    "button2",
     "collapseTest",
     "collapseBaby",
     "collapseMother",
@@ -25307,6 +25442,7 @@ const PlasmicDescendants = {
     "collapseAdvice",
     "collapseDanger",
     "collapseMedicine2",
+    "button2",
     "collapseTest",
     "collapseBaby",
     "collapseMother",
@@ -25326,7 +25462,8 @@ const PlasmicDescendants = {
   switchbest: ["switchbest"],
   collapseAdvice: ["collapseAdvice"],
   collapseDanger: ["collapseDanger"],
-  collapseMedicine2: ["collapseMedicine2"],
+  collapseMedicine2: ["collapseMedicine2", "button2"],
+  button2: ["button2"],
   collapseTest: ["collapseTest"],
   collapseBaby: ["collapseBaby"],
   collapseMother: ["collapseMother", "switchbest2"],
@@ -25354,6 +25491,7 @@ type NodeDefaultElementType = {
   collapseAdvice: typeof AntdSingleCollapse;
   collapseDanger: typeof AntdSingleCollapse;
   collapseMedicine2: typeof AntdSingleCollapse;
+  button2: typeof Button;
   collapseTest: typeof AntdSingleCollapse;
   collapseBaby: typeof AntdSingleCollapse;
   collapseMother: typeof AntdSingleCollapse;
@@ -25462,6 +25600,7 @@ export const PlasmicPregnancy = Object.assign(
     collapseAdvice: makeNodeComponent("collapseAdvice"),
     collapseDanger: makeNodeComponent("collapseDanger"),
     collapseMedicine2: makeNodeComponent("collapseMedicine2"),
+    button2: makeNodeComponent("button2"),
     collapseTest: makeNodeComponent("collapseTest"),
     collapseBaby: makeNodeComponent("collapseBaby"),
     collapseMother: makeNodeComponent("collapseMother"),

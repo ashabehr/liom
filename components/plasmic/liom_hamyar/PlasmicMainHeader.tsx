@@ -112,7 +112,6 @@ export type PlasmicMainHeader__OverridesType = {
   root?: Flex__<"div">;
   drawer?: Flex__<typeof AntdDrawer>;
   button?: Flex__<typeof Button>;
-  pwa?: Flex__<typeof Embed>;
 };
 
 export interface DefaultMainHeaderProps {
@@ -1299,21 +1298,14 @@ function PlasmicMainHeader__RenderFunc(props: {
           </Stack__>
         </Stack__>
       </AntdDrawer>
-      <Embed
-        data-plasmic-name={"pwa"}
-        data-plasmic-override={overrides.pwa}
-        className={classNames("__wab_instance", sty.pwa)}
-        code={""}
-      />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "drawer", "button", "pwa"],
+  root: ["root", "drawer", "button"],
   drawer: ["drawer", "button"],
-  button: ["button"],
-  pwa: ["pwa"]
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1322,7 +1314,6 @@ type NodeDefaultElementType = {
   root: "div";
   drawer: typeof AntdDrawer;
   button: typeof Button;
-  pwa: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1387,7 +1378,6 @@ export const PlasmicMainHeader = Object.assign(
     // Helper components rendering sub-elements
     drawer: makeNodeComponent("drawer"),
     button: makeNodeComponent("button"),
-    pwa: makeNodeComponent("pwa"),
 
     // Metadata about props expected for PlasmicMainHeader
     internalVariantProps: PlasmicMainHeader__VariantProps,

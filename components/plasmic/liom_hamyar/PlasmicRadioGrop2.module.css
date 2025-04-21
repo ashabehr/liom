@@ -3,12 +3,13 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding-right: 8px;
+  padding-bottom: 8px;
+  padding-top: 8px;
   position: relative;
   background: #ffffff;
   justify-self: flex-start;
   border-radius: 8px;
-  padding: 8px;
-  border: 1px solid #c8c7c1;
 }
 .rootselected {
   background: #7444bcb3;
@@ -27,8 +28,8 @@
   background: var(--token-Y4frplZPI0IJ);
   border-style: none;
 }
-.rootcolor_light_selected {
-  background: var(--token-xZSjH46lB6C3);
+.rootselected_color_light {
+  background: #8254c680;
 }
 .freeBox {
   width: auto;
@@ -39,15 +40,15 @@
   flex-direction: row;
   align-items: center;
 }
-.slotTargetChildren {
-  font-size: 16px;
+.text {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-fn6i10-y5r1L);
   font-weight: 700;
   text-align: center;
   white-space: pre;
-}
-.slotTargetChildrenselected {
-  color: var(--token-jgohepLVeKvh);
-}
-.slotTargetChildrencolor_light_selected {
-  color: var(--token-SX03PBUzWAqr);
+  font-family: "Risque";
+  min-width: 0;
 }

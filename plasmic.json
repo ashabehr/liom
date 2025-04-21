@@ -1848,6 +1848,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/common-error"
+        },
+        {
+          "id": "S5lwX58ZN_a3",
+          "name": "RadioGrop2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicRadioGrop2.tsx",
+          "importSpec": {
+            "modulePath": "RadioGrop2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicRadioGrop2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -5684,8 +5697,7 @@
           "componentImportPath": "@plasmicpkgs/react-aria/skinny/registerDialog"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "77tPPMY1MAED1Fqwv1T1ig",

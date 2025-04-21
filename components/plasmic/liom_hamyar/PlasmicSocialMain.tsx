@@ -62,9 +62,11 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
 import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
-import Type from "../../Type"; // plasmic-import: 0PNG5HW8802G/component
+import RadioGrop2 from "../../RadioGrop2"; // plasmic-import: S5lwX58ZN_a3/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -73,7 +75,7 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSocialMain.module.css"; // plasmic-import: dIQxBnzf8Ez0/css
 
-import Icon224Icon from "./icons/PlasmicIcon__Icon224"; // plasmic-import: tFRqmySFPQVw/icon
+import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
 import Icon222Icon from "./icons/PlasmicIcon__Icon222"; // plasmic-import: 9jhVYc_p6C9E/icon
 import Icon223Icon from "./icons/PlasmicIcon__Icon223"; // plasmic-import: 0ISCKAZ1VQ2U/icon
 import Icon179Icon from "./icons/PlasmicIcon__Icon179"; // plasmic-import: qlPLXoOalpf5/icon
@@ -92,10 +94,11 @@ export const PlasmicSocialMain__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSocialMain__OverridesType = {
   root?: Flex__<"div">;
-  headerSocial?: Flex__<"div">;
+  section?: Flex__<"section">;
+  mainHeader?: Flex__<typeof MainHeader>;
   story?: Flex__<"div">;
   groupBy?: Flex__<"div">;
-  type?: Flex__<typeof Type>;
+  radioGrop2?: Flex__<typeof RadioGrop2>;
   getInfo?: Flex__<typeof ApiRequest>;
 };
 
@@ -182,6 +185,18 @@ function PlasmicSocialMain__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "mainHeader.dopen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "choiceType",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -220,69 +235,72 @@ function PlasmicSocialMain__RenderFunc(props: {
             sty.root
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__m2Hyo)}>
-            <div
-              data-plasmic-name={"headerSocial"}
-              data-plasmic-override={overrides.headerSocial}
-              className={classNames(projectcss.all, sty.headerSocial)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___3Ggli)}
-              >
-                <div className={classNames(projectcss.all, sty.freeBox__jcMgv)}>
-                  <Icon224Icon
-                    className={classNames(projectcss.all, sty.svg__k05M)}
-                    role={"img"}
-                  />
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__kHbyH
-                  )}
+          <section
+            data-plasmic-name={"section"}
+            data-plasmic-override={overrides.section}
+            className={classNames(projectcss.all, sty.section)}
+          >
+            <MainHeader
+              data-plasmic-name={"mainHeader"}
+              data-plasmic-override={overrides.mainHeader}
+              className={classNames("__wab_instance", sty.mainHeader)}
+              dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
+              onDopenChange2={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainHeader",
+                  "dopen"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              slot={
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox___4Bgn1)}
                 >
-                  {
-                    "\u0634\u0628\u06a9\u0647 \u0627\u062c\u062a\u0645\u0627\u0639\u06cc"
-                  }
-                </div>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___4Bgn1)}
-              >
-                <div className={classNames(projectcss.all, sty.freeBox__ufykt)}>
-                  <Icon222Icon
-                    className={classNames(projectcss.all, sty.svg__e7Ln2)}
-                    role={"img"}
-                  />
-                </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___4Pi0E)}
-                >
-                  <Icon223Icon
-                    className={classNames(projectcss.all, sty.svg__gGyXh)}
-                    role={"img"}
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__tjxlw)}>
-                  <Icon179Icon
-                    className={classNames(projectcss.all, sty.svg__nafDg)}
-                    role={"img"}
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__egJpI)}>
-                  <Icon218Icon
-                    className={classNames(projectcss.all, sty.svg__fAha)}
-                    role={"img"}
-                  />
-                </div>
-              </Stack__>
-            </div>
-          </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__ufykt)}
+                  >
+                    <Icon222Icon
+                      className={classNames(projectcss.all, sty.svg__e7Ln2)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___4Pi0E)}
+                  >
+                    <Icon223Icon
+                      className={classNames(projectcss.all, sty.svg__gGyXh)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__tjxlw)}
+                  >
+                    <Icon179Icon
+                      className={classNames(projectcss.all, sty.svg__nafDg)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__egJpI)}
+                  >
+                    <Icon218Icon
+                      className={classNames(projectcss.all, sty.svg__fAha)}
+                      role={"img"}
+                    />
+                  </div>
+                </Stack__>
+              }
+            />
+          </section>
           <div className={classNames(projectcss.all, sty.freeBox___2BKpP)}>
             <Stack__
               as={"div"}
@@ -389,12 +407,63 @@ function PlasmicSocialMain__RenderFunc(props: {
                   const currentItem = __plasmic_item_0;
                   const currentIndex = __plasmic_idx_0;
                   return (
-                    <Type
-                      data-plasmic-name={"type"}
-                      data-plasmic-override={overrides.type}
-                      className={classNames("__wab_instance", sty.type)}
+                    <RadioGrop2
+                      data-plasmic-name={"radioGrop2"}
+                      data-plasmic-override={overrides.radioGrop2}
+                      className={classNames("__wab_instance", sty.radioGrop2)}
+                      color={"light"}
                       key={currentIndex}
-                      textMenu={(() => {
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateToken"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["token"]
+                                },
+                                operation: 0
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateToken"] != null &&
+                          typeof $steps["updateToken"] === "object" &&
+                          typeof $steps["updateToken"].then === "function"
+                        ) {
+                          $steps["updateToken"] = await $steps["updateToken"];
+                        }
+                      }}
+                      selected={(() => {
+                        try {
+                          return $state.choiceType == currentItem.type;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      style2={"line"}
+                      text={(() => {
                         try {
                           return currentItem.text;
                         } catch (e) {
@@ -486,11 +555,20 @@ function PlasmicSocialMain__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "headerSocial", "story", "groupBy", "type", "getInfo"],
-  headerSocial: ["headerSocial"],
+  root: [
+    "root",
+    "section",
+    "mainHeader",
+    "story",
+    "groupBy",
+    "radioGrop2",
+    "getInfo"
+  ],
+  section: ["section", "mainHeader"],
+  mainHeader: ["mainHeader"],
   story: ["story"],
-  groupBy: ["groupBy", "type"],
-  type: ["type"],
+  groupBy: ["groupBy", "radioGrop2"],
+  radioGrop2: ["radioGrop2"],
   getInfo: ["getInfo"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -498,10 +576,11 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  headerSocial: "div";
+  section: "section";
+  mainHeader: typeof MainHeader;
   story: "div";
   groupBy: "div";
-  type: typeof Type;
+  radioGrop2: typeof RadioGrop2;
   getInfo: typeof ApiRequest;
 };
 
@@ -590,10 +669,11 @@ export const PlasmicSocialMain = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    headerSocial: makeNodeComponent("headerSocial"),
+    section: makeNodeComponent("section"),
+    mainHeader: makeNodeComponent("mainHeader"),
     story: makeNodeComponent("story"),
     groupBy: makeNodeComponent("groupBy"),
-    type: makeNodeComponent("type"),
+    radioGrop2: makeNodeComponent("radioGrop2"),
     getInfo: makeNodeComponent("getInfo"),
 
     // Metadata about props expected for PlasmicSocialMain

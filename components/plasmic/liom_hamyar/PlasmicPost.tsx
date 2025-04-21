@@ -91,6 +91,8 @@ export type PlasmicPost__ArgsType = {
   audioLinkInPost?: string;
   fail?: string;
   failName?: string;
+  textForBottum?: string;
+  linkForAction?: string;
 };
 type ArgPropType = keyof PlasmicPost__ArgsType;
 export const PlasmicPost__ArgProps = new Array<ArgPropType>(
@@ -100,7 +102,9 @@ export const PlasmicPost__ArgProps = new Array<ArgPropType>(
   "video",
   "audioLinkInPost",
   "fail",
-  "failName"
+  "failName",
+  "textForBottum",
+  "linkForAction"
 );
 
 export type PlasmicPost__OverridesType = {
@@ -123,6 +127,8 @@ export interface DefaultPostProps {
   audioLinkInPost?: string;
   fail?: string;
   failName?: string;
+  textForBottum?: string;
+  linkForAction?: string;
   postType?: SingleChoiceArg<"image" | "voise" | "video" | "jastText" | "file">;
   className?: string;
 }
@@ -650,6 +656,62 @@ function PlasmicPost__RenderFunc(props: {
               />
             </div>
           </div>
+        </div>
+      </div>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__uxQPe, {
+          [sty.freeBoxpostType_jastText__uxQPeGp8JF]: hasVariant(
+            $state,
+            "postType",
+            "jastText"
+          )
+        })}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return window.open($props.linkForAction);
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
+          }
+        }}
+      >
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__v2Gn
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.textForBottum;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
         </div>
       </div>
     </div>

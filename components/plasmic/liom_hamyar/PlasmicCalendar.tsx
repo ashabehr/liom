@@ -1057,14 +1057,16 @@ function PlasmicCalendar__RenderFunc(props: {
                 var currentDay = today.getDate();
                 var todayDate = new Date(currentYear, currentMonth, currentDay);
                 var fertilityStartDate = new Date(
-                  $state.userInfo.result.calender[0].fertility.start.year,
-                  $state.userInfo.result.calender[0].fertility.start.month - 1,
-                  $state.userInfo.result.calender[0].fertility.start.day
+                  $state.userInfo.result.userStatus.fertilityStart
                 );
+                fertilityStartDate.setHours(0, 0, 0, 0);
                 var fertilityEndDate = new Date(
-                  $state.userInfo.result.calender[0].fertility.end.year,
-                  $state.userInfo.result.calender[0].fertility.end.month - 1,
-                  $state.userInfo.result.calender[0].fertility.end.day
+                  $state.userInfo.result.userStatus.fertilityEnd
+                );
+                fertilityEndDate.setDate(fertilityEndDate.getDate() - 1);
+                var daysToEndFertility = fertilityStartDate - todayDate;
+                daysToEndFertility = Math.floor(
+                  daysToEndFertility / (1000 * 60 * 60 * 24)
                 );
                 var peakDay = $state.userInfo.result.calender[0].fertility100;
                 var peakDaytime = new Date(fertilityStartDate);
@@ -1116,8 +1118,12 @@ function PlasmicCalendar__RenderFunc(props: {
                   case "blood":
                     return [
                       `<div style="display: flex; align-items: center; gap: 8px;">
+        <span style="width: 10px; height: 10px; border-radius: 50%; background-color: #EB464A; display: inline-block;"></span>
+        <span>${$state.userInfo.result.userStatus.daysToEndPeriod} روز تا اتمام خونریزی</span>
+      </div>`,
+                      `<div style="display: flex; align-items: center; gap: 8px;">
         <span style="width: 10px; height: 10px; border-radius: 50%; background-color: #FAAD14; display: inline-block;"></span>
-        <span>${$state.userInfo.result.userStatus.daysToEndFertility} روز تا شروع باروری</span>
+        <span>${daysToEndFertility} روز تا شروع باروری</span>
       </div>`,
                       todayDate < peakDaytime
                         ? `<div style="display: flex; align-items: center; gap: 8px;">
@@ -1127,7 +1133,9 @@ function PlasmicCalendar__RenderFunc(props: {
                         : "",
                       `<div style="display: flex; align-items: center; gap: 8px;">
         <span style="width: 10px; height: 10px; border-radius: 50%; background-color: #7444BC; display: inline-block;"></span>
-        <span>${$state.userInfo.result.userStatus.daysToStartPms} روز تا شروع PMS</span>
+        <span>${
+          $state.userInfo.result.userStatus.daysToStartPms - 1
+        } روز تا شروع PMS</span>
       </div>`
                     ].filter(Boolean);
                   default:
@@ -1880,8 +1888,8 @@ function PlasmicCalendar__RenderFunc(props: {
               }
 
               $steps["updateLackOfCourseInformation"] =
-                $steps.userinfo?.data?.result?.user?.name &&
-                !$steps.userinfo?.data?.result?.userStatus?.periodStatus
+                $state.userInfo?.result?.userStatus == null &&
+                $state.userInfo.success == true
                   ? (() => {
                       const actionArgs = {
                         vgroup: "lackOfCourseInformation",
@@ -2121,8 +2129,8 @@ function PlasmicCalendar__RenderFunc(props: {
                         (() => {
                           try {
                             return (() => {
-                              const today = new Date();
-                              const dateObject = {
+                              var today = new Date();
+                              var dateObject = {
                                 year: today.getFullYear(),
                                 month: today.getMonth() + 1,
                                 day: today.getDate()
@@ -2314,9 +2322,17 @@ function PlasmicCalendar__RenderFunc(props: {
                       customFunction: async () => {
                         return (() => {
                           window.sessionStorage.setItem("cash", "true");
-                          return window.sessionStorage.setItem(
+                          window.sessionStorage.setItem(
                             "advice",
                             JSON.stringify($state.advace)
+                          );
+                          window.sessionStorage.setItem(
+                            "sing",
+                            JSON.stringify($state.sing)
+                          );
+                          return window.sessionStorage.setItem(
+                            "day",
+                            JSON.stringify($state.day)
                           );
                         })();
                       }
@@ -2342,6 +2358,12 @@ function PlasmicCalendar__RenderFunc(props: {
                           return (() => {
                             $state.advace = JSON.parse(
                               window.sessionStorage.getItem("advice")
+                            );
+                            $state.sing = JSON.parse(
+                              window.sessionStorage.getItem("sing")
+                            );
+                            $state.day = JSON.parse(
+                              window.sessionStorage.getItem("day")
                             );
                             var user = JSON.parse(
                               window.localStorage.getItem("userinfo")
@@ -17569,16 +17591,15 @@ function PlasmicCalendar__RenderFunc(props: {
                                     switch ($state.status) {
                                       case "blood":
                                         var periodStartDate = new Date(
-                                          $state.userInfo.result.calender[0].period.start.year,
-                                          $state.userInfo.result.calender[0]
-                                            .period.start.month - 1,
-                                          $state.userInfo.result.calender[0].period.start.day
+                                          $state.userInfo.result.userStatus.periodStart
                                         );
                                         var periodEndDate = new Date(
-                                          $state.userInfo.result.calender[0].period.end.year,
-                                          $state.userInfo.result.calender[0]
-                                            .period.end.month - 1,
-                                          $state.userInfo.result.calender[0].period.end.day
+                                          $state.userInfo.result.userStatus.periodEnd
+                                        );
+                                        periodStartDate.setHours(0, 0, 0, 0);
+                                        periodEndDate.setHours(23, 59, 0, 0);
+                                        periodEndDate.setDate(
+                                          periodEndDate.getDate() - 1
                                         );
                                         if (
                                           todayDate >= periodStartDate &&
@@ -17590,8 +17611,8 @@ function PlasmicCalendar__RenderFunc(props: {
                                             Math.floor(
                                               diffTime / (1000 * 60 * 60 * 24)
                                             ) + 1;
-                                          return todayDate.getTime() ===
-                                            periodEndDate.getTime()
+                                          return todayDate.toDateString() ===
+                                            periodEndDate.toDateString()
                                             ? "روز آخر پریود"
                                             : "روز " +
                                                 dayName[dayInPeriod - 1] +
@@ -17600,16 +17621,15 @@ function PlasmicCalendar__RenderFunc(props: {
                                         break;
                                       case "fertility":
                                         var fertilityStartDate = new Date(
-                                          $state.userInfo.result.calender[0].fertility.start.year,
-                                          $state.userInfo.result.calender[0]
-                                            .fertility.start.month - 1,
-                                          $state.userInfo.result.calender[0].fertility.start.day
+                                          $state.userInfo.result.userStatus.fertilityStart
                                         );
                                         var fertilityEndDate = new Date(
-                                          $state.userInfo.result.calender[0].fertility.end.year,
-                                          $state.userInfo.result.calender[0]
-                                            .fertility.end.month - 1,
-                                          $state.userInfo.result.calender[0].fertility.end.day
+                                          $state.userInfo.result.userStatus.fertilityEnd
+                                        );
+                                        fertilityStartDate.setHours(0, 0, 0, 0);
+                                        fertilityEndDate.setHours(23, 59, 0, 0);
+                                        fertilityEndDate.setDate(
+                                          fertilityEndDate.getDate() - 1
                                         );
                                         if (
                                           todayDate >= fertilityStartDate &&
@@ -17641,10 +17661,13 @@ function PlasmicCalendar__RenderFunc(props: {
                                         break;
                                       case "pms":
                                         var nextPeriodStartDate = new Date(
-                                          $state.userInfo.result.calender[0].pms.end.year,
-                                          $state.userInfo.result.calender[0].pms
-                                            .end.month - 1,
-                                          $state.userInfo.result.calender[0].pms.end.day
+                                          $state.userInfo.result.userStatus.pmsEnd
+                                        );
+                                        nextPeriodStartDate.setHours(
+                                          23,
+                                          59,
+                                          0,
+                                          0
                                         );
                                         var daysToPeriod = Math.floor(
                                           (nextPeriodStartDate - todayDate) /
@@ -17657,10 +17680,16 @@ function PlasmicCalendar__RenderFunc(props: {
                                         break;
                                       default:
                                         var lastPeriodEndDate = new Date(
-                                          $state.userInfo.result.calender[0].period.end.year,
-                                          $state.userInfo.result.calender[0]
-                                            .period.end.month - 1,
-                                          $state.userInfo.result.calender[0].period.end.day
+                                          $state.userInfo.result.userStatus.periodEnd
+                                        );
+                                        lastPeriodEndDate.setHours(
+                                          23,
+                                          59,
+                                          0,
+                                          0
+                                        );
+                                        lastPeriodEndDate.setDate(
+                                          lastPeriodEndDate.getDate() - 1
                                         );
                                         if (todayDate > lastPeriodEndDate) {
                                           var nextPeriodStart = new Date(
@@ -27454,22 +27483,7 @@ function PlasmicCalendar__RenderFunc(props: {
                               >
                                 {(() => {
                                   try {
-                                    return (
-                                      $state.sing?.result?.before?.length ==
-                                        0 &&
-                                      $state.sing?.result?.current.length ==
-                                        0 &&
-                                      $state.sing?.result?.vaginal.length ==
-                                        0 &&
-                                      $state.sing?.result?.venereal.length ==
-                                        0 &&
-                                      $state.sing?.result?.womans.length == 0 &&
-                                      $state.sing?.result?.hereditary.length ==
-                                        0 &&
-                                      $state.sing?.result?.others.length == 0 &&
-                                      $state.sing?.result?.psychological
-                                        .length == 0
-                                    );
+                                    return $state.sing.result == null;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||

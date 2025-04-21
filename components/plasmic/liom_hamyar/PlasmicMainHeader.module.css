@@ -11,7 +11,7 @@
   border-bottom-width: 1px;
   border-bottom-style: solid;
   min-width: 0;
-  padding: 12px 16px;
+  padding: 12px;
 }
 .freeBox__tlDKw {
   display: flex;
@@ -53,7 +53,7 @@
   font-weight: 700;
   font-size: 16px;
   color: #919191;
-  white-space: pre-wrap;
+  white-space: pre;
   min-height: 0;
   padding: 8px 8px 0px 16px;
 }
@@ -645,8 +645,4 @@
   font-size: 12px;
   color: var(--token-G-IZ_XhVdlqp);
   min-width: 0;
-}
-.pwa:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
 }

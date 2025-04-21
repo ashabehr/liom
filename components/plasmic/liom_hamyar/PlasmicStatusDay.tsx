@@ -1789,7 +1789,8 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return JSON.parse(window.localStorage.getItem("calender"));
+              return JSON.parse(window.localStorage.getItem("userinfo"))
+                .userStatus;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -3016,41 +3017,37 @@ function PlasmicStatusDay__RenderFunc(props: {
                       try {
                         return (() => {
                           function parseDate(dateStr) {
-                            const parts = dateStr.split("-");
-                            return new Date(parts[0], parts[1] - 1, parts[2]);
+                            var parts = dateStr.split("-");
+                            var date = new Date(
+                              parts[0],
+                              parts[1] - 1,
+                              parts[2]
+                            );
+                            return date;
                           }
-                          function getDayColor(dateStr, cycleData) {
-                            const date = parseDate(dateStr);
-                            const periodStart = new Date(
-                              cycleData.period.start.year,
-                              cycleData.period.start.month - 1,
-                              cycleData.period.start.day
+                          function getDayColor(dateStr) {
+                            var date = parseDate(dateStr);
+                            var periodStart = new Date(
+                              $state.calender.periodStart
                             );
-                            const periodEnd = new Date(
-                              cycleData.period.end.year,
-                              cycleData.period.end.month - 1,
-                              cycleData.period.end.day
+                            periodStart.setHours(0, 0, 0, 0);
+                            var periodEnd = new Date($state.calender.periodEnd);
+                            periodEnd.setHours(23, 59, 59, 999);
+                            periodEnd.setDate(periodEnd.getDate() - 1);
+                            var fertilityStart = new Date(
+                              $state.calender.fertilityStart
                             );
-                            const fertilityStart = new Date(
-                              cycleData.fertility.start.year,
-                              cycleData.fertility.start.month - 1,
-                              cycleData.fertility.start.day
+                            fertilityStart.setHours(0, 0, 0, 0);
+                            var fertilityEnd = new Date(
+                              $state.calender.fertilityEnd
                             );
-                            const fertilityEnd = new Date(
-                              cycleData.fertility.end.year,
-                              cycleData.fertility.end.month - 1,
-                              cycleData.fertility.end.day
-                            );
-                            const pmsStart = new Date(
-                              cycleData.pms.start.year,
-                              cycleData.pms.start.month - 1,
-                              cycleData.pms.start.day
-                            );
-                            const pmsEnd = new Date(
-                              cycleData.pms.end.year,
-                              cycleData.pms.end.month - 1,
-                              cycleData.pms.end.day
-                            );
+                            fertilityEnd.setHours(23, 59, 59, 999);
+                            fertilityEnd.setDate(fertilityEnd.getDate() - 1);
+                            var pmsStart = new Date($state.calender.pmsStart);
+                            pmsStart.setHours(0, 0, 0, 0);
+                            var pmsEnd = new Date($state.calender.pmsEnd);
+                            pmsEnd.setHours(23, 59, 59, 999);
+                            pmsEnd.setDate(pmsEnd.getDate() - 1);
                             if (date >= periodStart && date <= periodEnd) {
                               return "red";
                             } else if (
@@ -3061,13 +3058,10 @@ function PlasmicStatusDay__RenderFunc(props: {
                             } else if (date >= pmsStart && date <= pmsEnd) {
                               return "pms";
                             } else {
-                              return "";
+                              return "_null";
                             }
                           }
-                          return getDayColor(
-                            currentItem.value,
-                            $state.calender[0]
-                          );
+                          return getDayColor(currentItem.value);
                         })();
                       } catch (e) {
                         if (
@@ -3453,59 +3447,61 @@ function PlasmicStatusDay__RenderFunc(props: {
                       try {
                         return (() => {
                           function parseDate(dateStr) {
-                            const parts = dateStr.split("-");
+                            var parts = dateStr.split("-");
                             return new Date(parts[0], parts[1] - 1, parts[2]);
                           }
-                          function getDayColor(dateStr, cycleData) {
-                            const date = parseDate(dateStr);
-                            const periodStart = new Date(
-                              cycleData.period.start.year,
-                              cycleData.period.start.month - 1,
-                              cycleData.period.start.day
+                          function getDayColor(dateStr) {
+                            var date = parseDate(dateStr);
+                            var periodStart = new Date(
+                              $state.calender.periodStart
                             );
-                            const periodEnd = new Date(
-                              cycleData.period.end.year,
-                              cycleData.period.end.month - 1,
-                              cycleData.period.end.day
+                            periodStart.setHours(0, 0, 0, 0);
+                            var periodEnd = new Date($state.calender.periodEnd);
+                            periodEnd.setHours(23, 59, 59, 999);
+                            periodEnd.setDate(periodEnd.getDate() - 1);
+                            var fertilityStart = new Date(
+                              $state.calender.fertilityStart
                             );
-                            const fertilityStart = new Date(
-                              cycleData.fertility.start.year,
-                              cycleData.fertility.start.month - 1,
-                              cycleData.fertility.start.day
+                            fertilityStart.setHours(0, 0, 0, 0);
+                            var fertilityEnd = new Date(
+                              $state.calender.fertilityEnd
                             );
-                            const fertilityEnd = new Date(
-                              cycleData.fertility.end.year,
-                              cycleData.fertility.end.month - 1,
-                              cycleData.fertility.end.day
-                            );
-                            const pmsStart = new Date(
-                              cycleData.pms.start.year,
-                              cycleData.pms.start.month - 1,
-                              cycleData.pms.start.day
-                            );
-                            const pmsEnd = new Date(
-                              cycleData.pms.end.year,
-                              cycleData.pms.end.month - 1,
-                              cycleData.pms.end.day
-                            );
+                            fertilityEnd.setHours(23, 59, 59, 999);
+                            fertilityEnd.setDate(fertilityEnd.getDate() - 1);
+                            var pmsStart = new Date($state.calender.pmsStart);
+                            pmsStart.setHours(0, 0, 0, 0);
+                            var pmsEnd = new Date($state.calender.pmsEnd);
+                            pmsEnd.setHours(23, 59, 59, 999);
+                            pmsEnd.setDate(pmsEnd.getDate() - 1);
                             if (
-                              date.getTime() === periodStart.getTime() ||
-                              date.getTime() === fertilityStart.getTime() ||
-                              date.getTime() === pmsStart.getTime()
+                              date.toDateString() === periodStart.toDateString()
                             ) {
                               return "start";
                             } else if (
-                              date.getTime() === periodEnd.getTime() ||
-                              date.getTime() === fertilityEnd.getTime() ||
-                              date.getTime() === pmsEnd.getTime()
+                              date.toDateString() === periodEnd.toDateString()
+                            ) {
+                              return "end";
+                            } else if (
+                              date.toDateString() ===
+                              fertilityStart.toDateString()
+                            ) {
+                              return "start";
+                            } else if (
+                              date.toDateString() ===
+                              fertilityEnd.toDateString()
+                            ) {
+                              return "end";
+                            } else if (
+                              date.toDateString() === pmsStart.toDateString()
+                            ) {
+                              return "start";
+                            } else if (
+                              date.toDateString() === pmsEnd.toDateString()
                             ) {
                               return "end";
                             }
                           }
-                          return getDayColor(
-                            currentItem.value,
-                            $state.calender[0]
-                          );
+                          return getDayColor(currentItem.value);
                         })();
                       } catch (e) {
                         if (

@@ -936,7 +936,23 @@ function PlasmicSocialPost__RenderFunc(props: {
                 })()}
                 image2={(() => {
                   try {
-                    return $state.getInfo.data.result.details.post.image;
+                    return $state.getInfo.data.result.details.attachments[0]
+                      .url;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                linkForAction={(() => {
+                  try {
+                    return $state.getInfo.data.result.details.post.action
+                      ? $state.getInfo.data.result.details.post.action
+                      : $state.getInfo.data.result.details.attachments[0].url;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -952,8 +968,17 @@ function PlasmicSocialPost__RenderFunc(props: {
                     ? "image"
                     : (() => {
                         try {
-                          return $state.getInfo.data.result.details
-                            .attachments[0].type;
+                          return (
+                            $state.getInfo.data.result.details?.attachments[0]
+                              ?.type ||
+                            ($state.getInfo.data.result.details.post
+                              .actionText === "باز کردن صدا"
+                              ? "voise"
+                              : $state.getInfo.data.result.details.post
+                                  .actionText === "نمایش ویدیو"
+                              ? "video"
+                              : "jastText")
+                          );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -968,6 +993,23 @@ function PlasmicSocialPost__RenderFunc(props: {
                 text={(() => {
                   try {
                     return $state.getInfo.data.result.details.post.text;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                textForBottum={(() => {
+                  try {
+                    return $state.getInfo.data.result.details.post.actionText
+                      ? $state.getInfo.data.result.details.post.actionText
+                      : " نمایش " +
+                          $state.getInfo.data.result.details.attachments[0]
+                            .type;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1912,7 +1954,7 @@ function PlasmicSocialPost__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  postId: "d7ae45be-9ed4-4062-8fd1-11a53227edd6",
+                  postId: "44b295b9-fdaa-4dbb-85b3-80c0b3b9af69",
                   commentId: "string",
                   orderBy: $state.orderby.value,
                   authorization: $state.token
@@ -1923,7 +1965,7 @@ function PlasmicSocialPost__RenderFunc(props: {
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
                   return {
-                    postId: "798941",
+                    postId: "44b295b9-fdaa-4dbb-85b3-80c0b3b9af69",
                     commentId: "string",
                     orderBy: "newest",
                     authorization: "$state.token"
