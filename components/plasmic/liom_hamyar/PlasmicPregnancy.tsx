@@ -1570,7 +1570,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   .then(response => response.json())
                                   .then(user => {
                                     console.log("user get liom");
-                                    // console.log(user.result.pregnancy.sex)
+                                    // console.log(user?.result?.pregnancy?.multiples)
 
                                     fetch(
                                       "https://n8n.staas.ir/webhook/status",
@@ -1601,7 +1601,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           allowance: { allowance },
                                           currentWeek: $state.weeksPregnant,
                                           baby_gender:
-                                            user?.result?.pregnancy?.sex
+                                            user?.result?.pregnancy?.sex,
+                                          multiples:
+                                            user?.result?.pregnancy?.multiples
                                         })
                                       }
                                     )
