@@ -1573,7 +1573,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     // console.log(user.result.pregnancy.sex)
 
                                     fetch(
-                                      "https://n8n.staas.ir/webhook-test/status",
+                                      "https://n8n.staas.ir/webhook/status",
                                       {
                                         method: "POST",
                                         headers: {
