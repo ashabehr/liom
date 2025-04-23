@@ -1553,24 +1553,22 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   );
                                 }
                                 fetch(
-                                  "https://api.liom.app/rest/pregnancy/data",
+                                  "https://n8n.staas.ir/webhook/pregnancyDate?token=" +
+                                    $ctx.query.token.slice(
+                                      6,
+                                      $ctx.query.token.length - 3
+                                    ),
                                   {
                                     method: "GET",
                                     headers: {
-                                      "Content-Type": "application/json",
-                                      Authorization:
-                                        "Bearer " +
-                                        $ctx.query.token.slice(
-                                          6,
-                                          $ctx.query.token.length - 3
-                                        )
+                                      "Content-Type": "application/json"
                                     }
                                   }
                                 )
                                   .then(response => response.json())
                                   .then(user => {
                                     console.log("user get liom");
-                                    // console.log(user?.result?.pregnancy?.multiples)
+                                    console.log(user?.result);
 
                                     fetch(
                                       "https://n8n.staas.ir/webhook/status",

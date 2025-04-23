@@ -82,6 +82,7 @@ import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
 import Medisene from "../../Medisene"; // plasmic-import: S8dzLP5nduJ8/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -133,6 +134,30 @@ export type PlasmicStatusDay__OverridesType = {
   button12?: Flex__<typeof Button>;
   selectionBox?: Flex__<"div">;
   color?: Flex__<typeof Choices>;
+  selectionBox10?: Flex__<"div">;
+  color2?: Flex__<typeof Choices>;
+  selectionBox11?: Flex__<"div">;
+  color3?: Flex__<typeof Choices>;
+  selectionBox12?: Flex__<"div">;
+  color4?: Flex__<typeof Choices>;
+  selectionBox13?: Flex__<"div">;
+  color5?: Flex__<typeof Choices>;
+  selectionBox14?: Flex__<"div">;
+  color6?: Flex__<typeof Choices>;
+  selectionBox15?: Flex__<"div">;
+  color7?: Flex__<typeof Choices>;
+  selectionBox16?: Flex__<"div">;
+  color8?: Flex__<typeof Choices>;
+  selectionBox17?: Flex__<"div">;
+  color9?: Flex__<typeof Choices>;
+  selectionBox18?: Flex__<"div">;
+  color10?: Flex__<typeof Choices>;
+  selectionBox19?: Flex__<"div">;
+  color11?: Flex__<typeof Choices>;
+  selectionBox20?: Flex__<"div">;
+  color12?: Flex__<typeof Choices>;
+  selectionBox21?: Flex__<"div">;
+  color13?: Flex__<typeof Choices>;
   selectionBox2?: Flex__<"div">;
   intensity?: Flex__<typeof Choices>;
   selectionBox3?: Flex__<"div">;
@@ -183,6 +208,7 @@ export type PlasmicStatusDay__OverridesType = {
   textInput6?: Flex__<typeof TextInput>;
   jobinput?: Flex__<typeof Input>;
   button13?: Flex__<typeof Button>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultStatusDayProps {}
@@ -602,6 +628,306 @@ function PlasmicStatusDay__RenderFunc(props: {
               meaning:
                 " \u0645\u062d\u0627\u0641\u0638\u062a \u0634\u062f\u0647 ",
               icon: "\ud83d\ude41"
+            }
+          ],
+          vaginalBleeding: [
+            {
+              value: "none",
+              meaning:
+                "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u0646\u062f\u0627\u0634\u062a\u0645",
+              icon: "\ud83d\ude0a"
+            },
+            {
+              value: "spotting",
+              meaning:
+                "\u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc \u062e\u0641\u06cc\u0641 \u0648 \u06af\u0630\u0631\u0627",
+              icon: "\ud83e\ude78"
+            },
+            {
+              value: "moderateBleeding",
+              meaning:
+                "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u0645\u062a\u0648\u0633\u0637",
+              icon: "\ud83d\ude1f"
+            },
+            {
+              value: "heavyBleedingWithPain",
+              meaning:
+                "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u0634\u062f\u06cc\u062f \u06cc\u0627 \u0647\u0645\u0631\u0627\u0647 \u0628\u0627 \u062f\u0631\u062f \u0634\u06a9\u0645",
+              icon: "\ud83d\udea8"
+            }
+          ],
+          backPain: [
+            {
+              value: "none",
+              meaning:
+                "\u062f\u0631\u062f\u06cc \u0646\u062f\u0627\u0634\u062a\u0645",
+              icon: "\ud83d\ude0c"
+            },
+            {
+              value: "mildPain",
+              meaning: "\u062f\u0631\u062f \u06a9\u0645",
+              icon: "\ud83d\ude42"
+            },
+            {
+              value: "moderatePain",
+              meaning: "\u062f\u0631\u062f \u0645\u062a\u0648\u0633\u0637",
+              icon: "\ud83d\ude23"
+            },
+            {
+              value: "severePain",
+              meaning: "\u062f\u0631\u062f \u0634\u062f\u06cc\u062f",
+              icon: "\ud83d\ude16"
+            }
+          ],
+          swelling: [
+            {
+              value: "none",
+              meaning: "\u0646\u062f\u0627\u0634\u062a\u0645",
+              icon: "\ud83d\ude42"
+            },
+            {
+              value: "limbSwelling",
+              meaning:
+                "\u0648\u0631\u0645 \u062f\u0633\u062a \u0648 \u067e\u0627",
+              icon: "\ud83e\uddb6\ud83d\udd90\ufe0f"
+            },
+            {
+              value: "faceSwelling",
+              meaning: "\u0648\u0631\u0645 \u0635\u0648\u0631\u062a",
+              icon: "\ud83d\ude2f"
+            }
+          ],
+          blurredVision: [
+            {
+              value: "clearVision",
+              meaning:
+                "\u062f\u06cc\u062f \u06a9\u0627\u0645\u0644\u0627\u064b \u0648\u0627\u0636\u062d",
+              icon: "\ud83e\uddd0"
+            },
+            {
+              value: "occasionalBlur",
+              meaning:
+                "\u06af\u0627\u0647\u06cc \u062a\u0627\u0631\u06cc \u062f\u06cc\u062f",
+              icon: "\ud83d\ude10"
+            },
+            {
+              value: "blurAtTimes",
+              meaning:
+                "\u062a\u0627\u0631\u06cc \u062f\u0631 \u0628\u0639\u0636\u06cc \u0633\u0627\u0639\u0627\u062a",
+              icon: "\ud83c\udf2b\ufe0f"
+            },
+            {
+              value: "constantBlur",
+              meaning:
+                "\u062a\u0627\u0631\u06cc \u062f\u06cc\u062f \u0645\u062f\u0627\u0648\u0645 \u06cc\u0627 \u0634\u062f\u06cc\u062f",
+              icon: "\ud83d\ude35"
+            }
+          ],
+          headache: [
+            {
+              value: "none",
+              meaning: "\u0646\u062f\u0627\u0634\u062a\u0645",
+              icon: "\ud83d\ude42"
+            },
+            {
+              value: "mildOccasional",
+              meaning:
+                "\u062e\u0641\u06cc\u0641 \u0648 \u06af\u0630\u0631\u0627",
+              icon: "\ud83d\ude10"
+            },
+            {
+              value: "persistentPainful",
+              meaning: "\u0645\u062f\u0627\u0648\u0645",
+              icon: "\ud83d\ude23"
+            },
+            {
+              value: "severeWithSymptoms",
+              meaning:
+                "\u0628\u0627 \u062a\u0627\u0631\u06cc \u062f\u06cc\u062f \u06cc\u0627 \u062a\u0647\u0648\u0639",
+              icon: "\ud83e\udd15"
+            }
+          ],
+          feverOrChills: [
+            {
+              value: "normalTemp",
+              meaning: "\u0637\u0628\u06cc\u0639\u06cc",
+              icon: "\ud83c\udf21\ufe0f"
+            },
+            {
+              value: "mildFever",
+              meaning:
+                "\u062a\u0628 \u062e\u0641\u06cc\u0641 \u06cc\u0627 \u0627\u062d\u0633\u0627\u0633 \u06af\u0631\u0645\u0627",
+              icon: "\ud83d\ude13"
+            },
+            {
+              value: "highFeverWithChills",
+              meaning:
+                "\u062a\u0628 \u0628\u0627\u0644\u0627 \u0647\u0645\u0631\u0627\u0647 \u0628\u0627 \u0644\u0631\u0632",
+              icon: "\ud83e\udd76"
+            },
+            {
+              value: "persistentFeverOver38",
+              meaning:
+                "\u062a\u0628 \u0645\u062f\u0627\u0648\u0645 \u0628\u06cc\u0634 \u0627\u0632 \u06f3\u06f8 \u062f\u0631\u062c\u0647",
+              icon: "\ud83d\udd25"
+            }
+          ],
+          irregularHeartbeat: [
+            {
+              value: "normalBeat",
+              meaning:
+                "\u0636\u0631\u0628\u0627\u0646 \u0642\u0644\u0628\u0645 \u0637\u0628\u06cc\u0639\u06cc \u0628\u0648\u062f",
+              icon: "\u2764\ufe0f"
+            },
+            {
+              value: "mildPalpitation",
+              meaning:
+                "\u06af\u0627\u0647\u06cc \u062a\u067e\u0634 \u0642\u0644\u0628 \u062e\u0641\u06cc\u0641 \u062f\u0627\u0634\u062a\u0645",
+              icon: "\ud83d\udc93"
+            },
+            {
+              value: "constantPalpitation",
+              meaning:
+                "\u062a\u067e\u0634 \u0642\u0644\u0628 \u0645\u062f\u0627\u0648\u0645 \u0648 \u0622\u0632\u0627\u0631\u062f\u0647\u0646\u062f\u0647",
+              icon: "\ud83d\udc94"
+            },
+            {
+              value: "irregularOrDizzy",
+              meaning:
+                "\u0636\u0631\u0628\u0627\u0646 \u0646\u0627\u0645\u0646\u0638\u0645 \u06cc\u0627 \u0627\u062d\u0633\u0627\u0633 \u0633\u0628\u06a9\u06cc \u0633\u0631",
+              icon: "\ud83d\udcab"
+            }
+          ],
+          urination: [
+            {
+              value: "normal",
+              meaning: "\u0646\u0631\u0645\u0627\u0644",
+              icon: "\ud83d\udebb"
+            },
+            {
+              value: "moreThanUsual",
+              meaning:
+                "\u0632\u06cc\u0627\u062f\u062a\u0631 \u0627\u0632 \u0645\u0639\u0645\u0648\u0644",
+              icon: "\ud83d\udca6"
+            },
+            {
+              value: "mildBurning",
+              meaning:
+                "\u06a9\u0645\u06cc \u0633\u0648\u0632\u0634 \u0647\u0646\u06af\u0627\u0645 \u0627\u062f\u0631\u0627\u0631",
+              icon: "\ud83d\udd25"
+            },
+            {
+              value: "persistentBurning",
+              meaning:
+                "\u0633\u0648\u0632\u0634 \u0648 \u062f\u0631\u062f \u0645\u062f\u0627\u0648\u0645 \u0647\u0646\u06af\u0627\u0645 \u0627\u062f\u0631\u0627\u0631",
+              icon: "\ud83d\ude16"
+            },
+            {
+              value: "frequentPainful",
+              meaning:
+                "\u0646\u06cc\u0627\u0632 \u0645\u06a9\u0631\u0631 \u0628\u0647 \u0627\u062f\u0631\u0627\u0631 \u0647\u0645\u0631\u0627\u0647 \u0628\u0627 \u062f\u0631\u062f",
+              icon: "\ud83d\udebb\ud83d\ude23"
+            }
+          ],
+          skinItch: [
+            {
+              value: "none",
+              meaning:
+                "\u0647\u06cc\u0686 \u062e\u0627\u0631\u0634 \u062e\u0627\u0635\u06cc \u0646\u062f\u0627\u0634\u062a\u0645",
+              icon: "\ud83d\ude0a"
+            },
+            {
+              value: "mildItch",
+              meaning:
+                "\u062e\u0627\u0631\u0634 \u062e\u0641\u06cc\u0641 \u062f\u0631 \u0628\u0631\u062e\u06cc \u0646\u0648\u0627\u062d\u06cc",
+              icon: "\ud83e\ude79"
+            },
+            {
+              value: "persistentItch",
+              meaning:
+                "\u062e\u0627\u0631\u0634 \u0645\u062f\u0627\u0648\u0645 \u0648 \u0622\u0632\u0627\u0631\u062f\u0647\u0646\u062f\u0647",
+              icon: "\ud83d\ude23"
+            },
+            {
+              value: "severeItchInPalms",
+              meaning:
+                "\u062e\u0627\u0631\u0634 \u0634\u062f\u06cc\u062f \u062f\u0631 \u06a9\u0641 \u062f\u0633\u062a\u200c\u0647\u0627 \u06cc\u0627 \u067e\u0627\u0647\u0627",
+              icon: "\ud83e\udd1a\ud83e\uddb6"
+            }
+          ],
+          nauseaOrVomiting: [
+            {
+              value: "none",
+              meaning:
+                "\u0646\u0647\u060c \u0647\u06cc\u0686 \u062a\u0647\u0648\u0639\u06cc \u0646\u062f\u0627\u0634\u062a\u0645",
+              icon: "\ud83d\ude42"
+            },
+            {
+              value: "mildNausea",
+              meaning: "\u062a\u0647\u0648\u0639 \u062e\u0641\u06cc\u0641",
+              icon: "\ud83e\udd22"
+            },
+            {
+              value: "severeNausea",
+              meaning: "\u062a\u0647\u0648\u0639 \u0634\u062f\u06cc\u062f",
+              icon: "\ud83e\udd2e"
+            },
+            {
+              value: "vomiting",
+              meaning: "\u0627\u0633\u062a\u0641\u0631\u0627\u063a",
+              icon: "\ud83e\udd2e\ud83d\udca7"
+            }
+          ],
+          shortnessOfBreath: [
+            {
+              value: "normalBreathing",
+              meaning:
+                "\u062a\u0646\u0641\u0633\u0645 \u0637\u0628\u06cc\u0639\u06cc \u0628\u0648\u062f",
+              icon: "\ud83d\udca8"
+            },
+            {
+              value: "mildBreathlessness",
+              meaning:
+                "\u06af\u0627\u0647\u06cc \u0627\u062d\u0633\u0627\u0633 \u062a\u0646\u06af\u06cc \u0646\u0641\u0633",
+              icon: "\ud83d\ude24"
+            },
+            {
+              value: "persistentBreathlessness",
+              meaning:
+                "\u062a\u0646\u06af\u06cc \u0646\u0641\u0633 \u0645\u062f\u0627\u0648\u0645 \u062f\u0631 \u0641\u0639\u0627\u0644\u06cc\u062a\u200c\u0647\u0627\u06cc \u0631\u0648\u0632\u0627\u0646\u0647",
+              icon: "\ud83d\udca8\ud83d\udcaa"
+            },
+            {
+              value: "severeBreathlessnessEvenResting",
+              meaning:
+                "\u062a\u0646\u06af\u06cc \u0646\u0641\u0633 \u0634\u062f\u06cc\u062f \u062d\u062a\u06cc \u062f\u0631 \u062d\u0627\u0644\u062a \u0627\u0633\u062a\u0631\u0627\u062d\u062a",
+              icon: "\ud83d\ude30"
+            }
+          ],
+          dizzinessOrFainting: [
+            {
+              value: "none",
+              meaning:
+                "\u0647\u06cc\u0686 \u0633\u0631\u06af\u06cc\u062c\u0647\u200c\u0627\u06cc \u0646\u062f\u0627\u0634\u062a\u0645",
+              icon: "\ud83d\ude42"
+            },
+            {
+              value: "mildDizziness",
+              meaning:
+                "\u06af\u0627\u0647\u06cc \u0627\u062d\u0633\u0627\u0633 \u0633\u0631\u06af\u06cc\u062c\u0647 \u062e\u0641\u06cc\u0641",
+              icon: "\ud83d\ude35"
+            },
+            {
+              value: "persistentDizziness",
+              meaning:
+                "\u0633\u0631\u06af\u06cc\u062c\u0647 \u0645\u062f\u0627\u0648\u0645 \u062f\u0631 \u0637\u0648\u0644 \u0631\u0648\u0632",
+              icon: "\ud83d\ude35\u200d\ud83d\udcab"
+            },
+            {
+              value: "fainting",
+              meaning:
+                "\u06cc\u06a9\u200c\u0628\u0627\u0631 \u06cc\u0627 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0686\u0627\u0631 \u063a\u0634 \u0634\u062f\u0645",
+              icon: "\ud83e\udd22\ud83e\udd15"
             }
           ]
         })
@@ -1851,6 +2177,312 @@ function PlasmicStatusDay__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "color2.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [$state.inDay.vaginalBleeding] || [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "color2.selectOne",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "healthStatus",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "pregnancy"
+      },
+      {
+        path: "color3.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [$state.inDay.backPain] || [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "color3.selectOne",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "color4.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [$state.inDay.swelling] || [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "color4.selectOne",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "color5.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [$state.inDay.blurredVision] || [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "color5.selectOne",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "color6.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [$state.inDay.headache] || [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "color6.selectOne",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "color7.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [$state.inDay.feverOrChills] || [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "color7.selectOne",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "color8.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [$state.inDay.irregularHeartbeat] || [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "color8.selectOne",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "color9.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [$state.inDay.vaginalBleeding] || [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "color9.selectOne",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "color10.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [$state.inDay.vaginalBleeding] || [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "color10.selectOne",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "color11.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [$state.inDay.vaginalBleeding] || [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "color11.selectOne",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "color12.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [$state.inDay.vaginalBleeding] || [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "color12.selectOne",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "color13.list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [$state.inDay.vaginalBleeding] || [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "color13.selectOne",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -3643,267 +4275,2095 @@ function PlasmicStatusDay__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__akQn)}
               >
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"selectionBox"}
-                  data-plasmic-override={overrides.selectionBox}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.selectionBox)}
-                >
-                  <VigetLiom2
-                    className={classNames(
-                      "__wab_instance",
-                      sty.vigetLiom2__m7GP6
-                    )}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "period";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox"}
+                    data-plasmic-override={overrides.selectionBox}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox)}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__gXZix
-                      )}
-                    >
-                      {
-                        "\u0631\u0646\u06af \u062e\u0648\u0646 \u067e\u0631\u06cc\u0648\u062f"
-                      }
-                    </div>
-                    <Embed
+                    <VigetLiom2
                       className={classNames(
                         "__wab_instance",
-                        sty.embedHtml__o1Rsy
-                      )}
-                      code={"<hr></hr>"}
-                    />
-
-                    <Choices
-                      data-plasmic-name={"color"}
-                      data-plasmic-override={overrides.color}
-                      beforList={(() => {
-                        try {
-                          return $state.signs.bloodColor;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [
-                              {
-                                title: "\u0633\u0631\u062f\u0631\u062f",
-                                selected: false
-                              },
-                              { title: "\u062f\u0644 \u062f\u0631\u062f" },
-                              {
-                                title:
-                                  "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
-                              },
-                              { title: "\u06a9\u0648\u0641\u062a\u06af\u06cc" },
-                              { title: "\u06a9\u0645\u0631\u062f\u0631\u062f" },
-                              { title: "\u062f\u0631\u062f \u067e\u0627" },
-                              {
-                                title:
-                                  "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
-                              }
-                            ];
-                          }
-                          throw e;
-                        }
-                      })()}
-                      circl={true}
-                      className={classNames("__wab_instance", sty.color)}
-                      html={(() => {
-                        try {
-                          return undefined;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
-                      list={generateStateValueProp($state, ["color", "list"])}
-                      onListChange={async (...eventArgs: any) => {
-                        generateStateOnChangeProp($state, [
-                          "color",
-                          "list"
-                        ]).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                      onSelectOneChange={async (...eventArgs: any) => {
-                        generateStateOnChangeProp($state, [
-                          "color",
-                          "selectOne"
-                        ]).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                      selectOne={generateStateValueProp($state, [
-                        "color",
-                        "selectOne"
-                      ])}
-                      shape={(() => {
-                        try {
-                          return "circle";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
-                    />
-                  </VigetLiom2>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"selectionBox2"}
-                  data-plasmic-override={overrides.selectionBox2}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.selectionBox2)}
-                >
-                  <VigetLiom2
-                    className={classNames(
-                      "__wab_instance",
-                      sty.vigetLiom2__wCf4X
-                    )}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__bjLOo
+                        sty.vigetLiom2__m7GP6
                       )}
                     >
-                      {
-                        "\u0634\u062f\u062a \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"
-                      }
-                    </div>
-                    <Embed
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__gXZix
+                        )}
+                      >
+                        {
+                          "\u0631\u0646\u06af \u062e\u0648\u0646 \u067e\u0631\u06cc\u0648\u062f"
+                        }
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml__o1Rsy
+                        )}
+                        code={"<hr></hr>"}
+                      />
+
+                      <Choices
+                        data-plasmic-name={"color"}
+                        data-plasmic-override={overrides.color}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.bloodColor;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.color)}
+                        html={(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        list={generateStateValueProp($state, ["color", "list"])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
+                          "color",
+                          "selectOne"
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "circle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "pregnancy";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox10"}
+                    data-plasmic-override={overrides.selectionBox10}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox10)}
+                  >
+                    <VigetLiom2
                       className={classNames(
                         "__wab_instance",
-                        sty.embedHtml___5I8Ii
+                        sty.vigetLiom2__hdc4R
                       )}
-                      code={"<hr></hr>"}
-                    />
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__lwyBd
+                        )}
+                      >
+                        {
+                          "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u06cc\u0627 \u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc \u0648\u0627\u0698\u06cc\u0646\u0627\u0644"
+                        }
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml__smlRu
+                        )}
+                        code={"<hr></hr>"}
+                      />
 
-                    <Choices
-                      data-plasmic-name={"intensity"}
-                      data-plasmic-override={overrides.intensity}
-                      beforList={(() => {
-                        try {
-                          return $state.signs.bloodType;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [
-                              {
-                                title: "\u0633\u0631\u062f\u0631\u062f",
-                                selected: false
-                              },
-                              { title: "\u062f\u0644 \u062f\u0631\u062f" },
-                              {
-                                title:
-                                  "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
-                              },
-                              { title: "\u06a9\u0648\u0641\u062a\u06af\u06cc" },
-                              { title: "\u06a9\u0645\u0631\u062f\u0631\u062f" },
-                              { title: "\u062f\u0631\u062f \u067e\u0627" },
-                              {
-                                title:
-                                  "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
-                              }
-                            ];
+                      <Choices
+                        data-plasmic-name={"color2"}
+                        data-plasmic-override={overrides.color2}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.vaginalBleeding;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()}
-                      circl={true}
-                      className={classNames("__wab_instance", sty.intensity)}
-                      html={(() => {
-                        try {
-                          return undefined;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.color2)}
+                        html={(() => {
+                          try {
                             return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
                           }
-                          throw e;
+                        })()}
+                        list={generateStateValueProp($state, [
+                          "color2",
+                          "list"
+                        ])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color2",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color2",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
+                          "color2",
+                          "selectOne"
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "rectangle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "pregnancy";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox11"}
+                    data-plasmic-override={overrides.selectionBox11}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox11)}
+                  >
+                    <VigetLiom2
+                      className={classNames(
+                        "__wab_instance",
+                        sty.vigetLiom2__fwj94
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__vGqtm
+                        )}
+                      >
+                        {
+                          "\u062f\u0631\u062f \u0634\u06a9\u0645 \u06cc\u0627 \u06a9\u0645\u0631"
                         }
-                      })()}
-                      list={generateStateValueProp($state, [
-                        "intensity",
-                        "list"
-                      ])}
-                      onListChange={async (...eventArgs: any) => {
-                        generateStateOnChangeProp($state, [
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml___45Ost
+                        )}
+                        code={"<hr></hr>"}
+                      />
+
+                      <Choices
+                        data-plasmic-name={"color3"}
+                        data-plasmic-override={overrides.color3}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.backPain;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.color3)}
+                        html={(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        list={generateStateValueProp($state, [
+                          "color3",
+                          "list"
+                        ])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color3",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color3",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
+                          "color3",
+                          "selectOne"
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "circle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "pregnancy";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox12"}
+                    data-plasmic-override={overrides.selectionBox12}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox12)}
+                  >
+                    <VigetLiom2
+                      className={classNames(
+                        "__wab_instance",
+                        sty.vigetLiom2__ffkO
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__xHtwo
+                        )}
+                      >
+                        {"\u0648\u0631\u0645"}
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml__s7BFs
+                        )}
+                        code={"<hr></hr>"}
+                      />
+
+                      <Choices
+                        data-plasmic-name={"color4"}
+                        data-plasmic-override={overrides.color4}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.swelling;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.color4)}
+                        html={(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        list={generateStateValueProp($state, [
+                          "color4",
+                          "list"
+                        ])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color4",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color4",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
+                          "color4",
+                          "selectOne"
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "circle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "pregnancy";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox13"}
+                    data-plasmic-override={overrides.selectionBox13}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox13)}
+                  >
+                    <VigetLiom2
+                      className={classNames(
+                        "__wab_instance",
+                        sty.vigetLiom2___8KGnS
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__c1Vs0
+                        )}
+                      >
+                        {"\u062a\u0627\u0631\u06cc \u062f\u06cc\u062f"}
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml__eqs6O
+                        )}
+                        code={"<hr></hr>"}
+                      />
+
+                      <Choices
+                        data-plasmic-name={"color5"}
+                        data-plasmic-override={overrides.color5}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.blurredVision;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.color5)}
+                        html={(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        list={generateStateValueProp($state, [
+                          "color5",
+                          "list"
+                        ])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color5",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color5",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
+                          "color5",
+                          "selectOne"
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "rectangle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "pregnancy";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox14"}
+                    data-plasmic-override={overrides.selectionBox14}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox14)}
+                  >
+                    <VigetLiom2
+                      className={classNames(
+                        "__wab_instance",
+                        sty.vigetLiom2__hwFrL
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__gFUog
+                        )}
+                      >
+                        {"\u0633\u0631\u062f\u0631\u062f"}
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml__p8Js
+                        )}
+                        code={"<hr></hr>"}
+                      />
+
+                      <Choices
+                        data-plasmic-name={"color6"}
+                        data-plasmic-override={overrides.color6}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.headache;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.color6)}
+                        html={(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        list={generateStateValueProp($state, [
+                          "color6",
+                          "list"
+                        ])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color6",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color6",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
+                          "color6",
+                          "selectOne"
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "circle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "pregnancy";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox15"}
+                    data-plasmic-override={overrides.selectionBox15}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox15)}
+                  >
+                    <VigetLiom2
+                      className={classNames(
+                        "__wab_instance",
+                        sty.vigetLiom2___0M5Os
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__lxkBw
+                        )}
+                      >
+                        {"\u062f\u0645\u0627\u06cc \u0628\u062f\u0646"}
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml__c4K10
+                        )}
+                        code={"<hr></hr>"}
+                      />
+
+                      <Choices
+                        data-plasmic-name={"color7"}
+                        data-plasmic-override={overrides.color7}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.feverOrChills;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.color7)}
+                        html={(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        list={generateStateValueProp($state, [
+                          "color7",
+                          "list"
+                        ])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color7",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color7",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
+                          "color7",
+                          "selectOne"
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "rectangle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "pregnancy";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox16"}
+                    data-plasmic-override={overrides.selectionBox16}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox16)}
+                  >
+                    <VigetLiom2
+                      className={classNames(
+                        "__wab_instance",
+                        sty.vigetLiom2__r4E7X
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ni8V9
+                        )}
+                      >
+                        {
+                          " \u062a\u067e\u0634 \u0642\u0644\u0628 \u06cc\u0627 \u0636\u0631\u0628\u0627\u0646 \u0646\u0627\u0645\u0646\u0638\u0645"
+                        }
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml___1VBtG
+                        )}
+                        code={"<hr></hr>"}
+                      />
+
+                      <Choices
+                        data-plasmic-name={"color8"}
+                        data-plasmic-override={overrides.color8}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.irregularHeartbeat;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.color8)}
+                        html={(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        list={generateStateValueProp($state, [
+                          "color8",
+                          "list"
+                        ])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color8",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color8",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
+                          "color8",
+                          "selectOne"
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "rectangle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "pregnancy";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox17"}
+                    data-plasmic-override={overrides.selectionBox17}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox17)}
+                  >
+                    <VigetLiom2
+                      className={classNames(
+                        "__wab_instance",
+                        sty.vigetLiom2__y9H1X
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rSTz
+                        )}
+                      >
+                        {
+                          "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u06cc\u0627 \u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc \u0648\u0627\u0698\u06cc\u0646\u0627\u0644"
+                        }
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml__gpFM
+                        )}
+                        code={"<hr></hr>"}
+                      />
+
+                      <Choices
+                        data-plasmic-name={"color9"}
+                        data-plasmic-override={overrides.color9}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.vaginalBleeding;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.color9)}
+                        html={(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        list={generateStateValueProp($state, [
+                          "color9",
+                          "list"
+                        ])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color9",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color9",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
+                          "color9",
+                          "selectOne"
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "rectangle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "pregnancy";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox18"}
+                    data-plasmic-override={overrides.selectionBox18}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox18)}
+                  >
+                    <VigetLiom2
+                      className={classNames(
+                        "__wab_instance",
+                        sty.vigetLiom2___3Ot22
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__tBqUt
+                        )}
+                      >
+                        {
+                          "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u06cc\u0627 \u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc \u0648\u0627\u0698\u06cc\u0646\u0627\u0644"
+                        }
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml__gihF4
+                        )}
+                        code={"<hr></hr>"}
+                      />
+
+                      <Choices
+                        data-plasmic-name={"color10"}
+                        data-plasmic-override={overrides.color10}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.vaginalBleeding;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.color10)}
+                        html={(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        list={generateStateValueProp($state, [
+                          "color10",
+                          "list"
+                        ])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color10",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color10",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
+                          "color10",
+                          "selectOne"
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "rectangle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "pregnancy";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox19"}
+                    data-plasmic-override={overrides.selectionBox19}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox19)}
+                  >
+                    <VigetLiom2
+                      className={classNames(
+                        "__wab_instance",
+                        sty.vigetLiom2__ySAgu
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__hIxz1
+                        )}
+                      >
+                        {
+                          "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u06cc\u0627 \u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc \u0648\u0627\u0698\u06cc\u0646\u0627\u0644"
+                        }
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml__n5Hw
+                        )}
+                        code={"<hr></hr>"}
+                      />
+
+                      <Choices
+                        data-plasmic-name={"color11"}
+                        data-plasmic-override={overrides.color11}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.vaginalBleeding;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.color11)}
+                        html={(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        list={generateStateValueProp($state, [
+                          "color11",
+                          "list"
+                        ])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color11",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color11",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
+                          "color11",
+                          "selectOne"
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "rectangle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "pregnancy";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox20"}
+                    data-plasmic-override={overrides.selectionBox20}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox20)}
+                  >
+                    <VigetLiom2
+                      className={classNames(
+                        "__wab_instance",
+                        sty.vigetLiom2__fKUg
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__tbeGg
+                        )}
+                      >
+                        {
+                          "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u06cc\u0627 \u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc \u0648\u0627\u0698\u06cc\u0646\u0627\u0644"
+                        }
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml__wsnzd
+                        )}
+                        code={"<hr></hr>"}
+                      />
+
+                      <Choices
+                        data-plasmic-name={"color12"}
+                        data-plasmic-override={overrides.color12}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.vaginalBleeding;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.color12)}
+                        html={(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        list={generateStateValueProp($state, [
+                          "color12",
+                          "list"
+                        ])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color12",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color12",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
+                          "color12",
+                          "selectOne"
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "rectangle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "pregnancy";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox21"}
+                    data-plasmic-override={overrides.selectionBox21}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox21)}
+                  >
+                    <VigetLiom2
+                      className={classNames(
+                        "__wab_instance",
+                        sty.vigetLiom2__nDqV4
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__k2TI2
+                        )}
+                      >
+                        {
+                          "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u06cc\u0627 \u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc \u0648\u0627\u0698\u06cc\u0646\u0627\u0644"
+                        }
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml___987SB
+                        )}
+                        code={"<hr></hr>"}
+                      />
+
+                      <Choices
+                        data-plasmic-name={"color13"}
+                        data-plasmic-override={overrides.color13}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.vaginalBleeding;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.color13)}
+                        html={(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        list={generateStateValueProp($state, [
+                          "color13",
+                          "list"
+                        ])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color13",
+                            "list"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "color13",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
+                          "color13",
+                          "selectOne"
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "rectangle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.healthStatus == "period";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"selectionBox2"}
+                    data-plasmic-override={overrides.selectionBox2}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.selectionBox2)}
+                  >
+                    <VigetLiom2
+                      className={classNames(
+                        "__wab_instance",
+                        sty.vigetLiom2__wCf4X
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__bjLOo
+                        )}
+                      >
+                        {
+                          "\u0634\u062f\u062a \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"
+                        }
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml___5I8Ii
+                        )}
+                        code={"<hr></hr>"}
+                      />
+
+                      <Choices
+                        data-plasmic-name={"intensity"}
+                        data-plasmic-override={overrides.intensity}
+                        beforList={(() => {
+                          try {
+                            return $state.signs.bloodType;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  title: "\u0633\u0631\u062f\u0631\u062f",
+                                  selected: false
+                                },
+                                { title: "\u062f\u0644 \u062f\u0631\u062f" },
+                                {
+                                  title:
+                                    "\u062f\u0631\u062f \u0633\u06cc\u0646\u0647"
+                                },
+                                {
+                                  title: "\u06a9\u0648\u0641\u062a\u06af\u06cc"
+                                },
+                                {
+                                  title: "\u06a9\u0645\u0631\u062f\u0631\u062f"
+                                },
+                                { title: "\u062f\u0631\u062f \u067e\u0627" },
+                                {
+                                  title:
+                                    "\u062d\u0627\u0644\u062a \u062a\u0647\u0648\u0639"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        circl={true}
+                        className={classNames("__wab_instance", sty.intensity)}
+                        html={(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        list={generateStateValueProp($state, [
                           "intensity",
                           "list"
-                        ]).apply(null, eventArgs);
+                        ])}
+                        onListChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "intensity",
+                            "list"
+                          ]).apply(null, eventArgs);
 
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                      onSelectOneChange={async (...eventArgs: any) => {
-                        generateStateOnChangeProp($state, [
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onSelectOneChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "intensity",
+                            "selectOne"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        selectOne={generateStateValueProp($state, [
                           "intensity",
                           "selectOne"
-                        ]).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                      selectOne={generateStateValueProp($state, [
-                        "intensity",
-                        "selectOne"
-                      ])}
-                      shape={(() => {
-                        try {
-                          return "circle";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
+                        ])}
+                        shape={(() => {
+                          try {
+                            return "circle";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()}
-                    />
-                  </VigetLiom2>
-                </Stack__>
+                        })()}
+                      />
+                    </VigetLiom2>
+                  </Stack__>
+                ) : null}
                 <Stack__
                   as={"div"}
                   data-plasmic-name={"selectionBox3"}
@@ -9037,6 +11497,32 @@ function PlasmicStatusDay__RenderFunc(props: {
               </Button>
             </Stack__>
           </Dialog>
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = { args: [] };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -9058,6 +11544,30 @@ const PlasmicDescendants = {
     "button12",
     "selectionBox",
     "color",
+    "selectionBox10",
+    "color2",
+    "selectionBox11",
+    "color3",
+    "selectionBox12",
+    "color4",
+    "selectionBox13",
+    "color5",
+    "selectionBox14",
+    "color6",
+    "selectionBox15",
+    "color7",
+    "selectionBox16",
+    "color8",
+    "selectionBox17",
+    "color9",
+    "selectionBox18",
+    "color10",
+    "selectionBox19",
+    "color11",
+    "selectionBox20",
+    "color12",
+    "selectionBox21",
+    "color13",
     "selectionBox2",
     "intensity",
     "selectionBox3",
@@ -9107,7 +11617,8 @@ const PlasmicDescendants = {
     "todoDialog",
     "textInput6",
     "jobinput",
-    "button13"
+    "button13",
+    "sideEffect"
   ],
   favicon: ["favicon"],
   headerLiom: ["headerLiom"],
@@ -9122,6 +11633,30 @@ const PlasmicDescendants = {
     "button12",
     "selectionBox",
     "color",
+    "selectionBox10",
+    "color2",
+    "selectionBox11",
+    "color3",
+    "selectionBox12",
+    "color4",
+    "selectionBox13",
+    "color5",
+    "selectionBox14",
+    "color6",
+    "selectionBox15",
+    "color7",
+    "selectionBox16",
+    "color8",
+    "selectionBox17",
+    "color9",
+    "selectionBox18",
+    "color10",
+    "selectionBox19",
+    "color11",
+    "selectionBox20",
+    "color12",
+    "selectionBox21",
+    "color13",
     "selectionBox2",
     "intensity",
     "selectionBox3",
@@ -9145,6 +11680,30 @@ const PlasmicDescendants = {
   button12: ["button12"],
   selectionBox: ["selectionBox", "color"],
   color: ["color"],
+  selectionBox10: ["selectionBox10", "color2"],
+  color2: ["color2"],
+  selectionBox11: ["selectionBox11", "color3"],
+  color3: ["color3"],
+  selectionBox12: ["selectionBox12", "color4"],
+  color4: ["color4"],
+  selectionBox13: ["selectionBox13", "color5"],
+  color5: ["color5"],
+  selectionBox14: ["selectionBox14", "color6"],
+  color6: ["color6"],
+  selectionBox15: ["selectionBox15", "color7"],
+  color7: ["color7"],
+  selectionBox16: ["selectionBox16", "color8"],
+  color8: ["color8"],
+  selectionBox17: ["selectionBox17", "color9"],
+  color9: ["color9"],
+  selectionBox18: ["selectionBox18", "color10"],
+  color10: ["color10"],
+  selectionBox19: ["selectionBox19", "color11"],
+  color11: ["color11"],
+  selectionBox20: ["selectionBox20", "color12"],
+  color12: ["color12"],
+  selectionBox21: ["selectionBox21", "color13"],
+  color13: ["color13"],
   selectionBox2: ["selectionBox2", "intensity"],
   intensity: ["intensity"],
   selectionBox3: ["selectionBox3", "water"],
@@ -9207,7 +11766,8 @@ const PlasmicDescendants = {
   todoDialog: ["todoDialog", "textInput6", "jobinput", "button13"],
   textInput6: ["textInput6", "jobinput"],
   jobinput: ["jobinput"],
-  button13: ["button13"]
+  button13: ["button13"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -9226,6 +11786,30 @@ type NodeDefaultElementType = {
   button12: typeof Button;
   selectionBox: "div";
   color: typeof Choices;
+  selectionBox10: "div";
+  color2: typeof Choices;
+  selectionBox11: "div";
+  color3: typeof Choices;
+  selectionBox12: "div";
+  color4: typeof Choices;
+  selectionBox13: "div";
+  color5: typeof Choices;
+  selectionBox14: "div";
+  color6: typeof Choices;
+  selectionBox15: "div";
+  color7: typeof Choices;
+  selectionBox16: "div";
+  color8: typeof Choices;
+  selectionBox17: "div";
+  color9: typeof Choices;
+  selectionBox18: "div";
+  color10: typeof Choices;
+  selectionBox19: "div";
+  color11: typeof Choices;
+  selectionBox20: "div";
+  color12: typeof Choices;
+  selectionBox21: "div";
+  color13: typeof Choices;
   selectionBox2: "div";
   intensity: typeof Choices;
   selectionBox3: "div";
@@ -9276,6 +11860,7 @@ type NodeDefaultElementType = {
   textInput6: typeof TextInput;
   jobinput: typeof Input;
   button13: typeof Button;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -9375,6 +11960,30 @@ export const PlasmicStatusDay = Object.assign(
     button12: makeNodeComponent("button12"),
     selectionBox: makeNodeComponent("selectionBox"),
     color: makeNodeComponent("color"),
+    selectionBox10: makeNodeComponent("selectionBox10"),
+    color2: makeNodeComponent("color2"),
+    selectionBox11: makeNodeComponent("selectionBox11"),
+    color3: makeNodeComponent("color3"),
+    selectionBox12: makeNodeComponent("selectionBox12"),
+    color4: makeNodeComponent("color4"),
+    selectionBox13: makeNodeComponent("selectionBox13"),
+    color5: makeNodeComponent("color5"),
+    selectionBox14: makeNodeComponent("selectionBox14"),
+    color6: makeNodeComponent("color6"),
+    selectionBox15: makeNodeComponent("selectionBox15"),
+    color7: makeNodeComponent("color7"),
+    selectionBox16: makeNodeComponent("selectionBox16"),
+    color8: makeNodeComponent("color8"),
+    selectionBox17: makeNodeComponent("selectionBox17"),
+    color9: makeNodeComponent("color9"),
+    selectionBox18: makeNodeComponent("selectionBox18"),
+    color10: makeNodeComponent("color10"),
+    selectionBox19: makeNodeComponent("selectionBox19"),
+    color11: makeNodeComponent("color11"),
+    selectionBox20: makeNodeComponent("selectionBox20"),
+    color12: makeNodeComponent("color12"),
+    selectionBox21: makeNodeComponent("selectionBox21"),
+    color13: makeNodeComponent("color13"),
     selectionBox2: makeNodeComponent("selectionBox2"),
     intensity: makeNodeComponent("intensity"),
     selectionBox3: makeNodeComponent("selectionBox3"),
@@ -9425,6 +12034,7 @@ export const PlasmicStatusDay = Object.assign(
     textInput6: makeNodeComponent("textInput6"),
     jobinput: makeNodeComponent("jobinput"),
     button13: makeNodeComponent("button13"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicStatusDay
     internalVariantProps: PlasmicStatusDay__VariantProps,
