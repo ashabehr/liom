@@ -1565,7 +1565,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   .then(response => response.json())
                                   .then(user => {
                                     console.log("user get liom");
-                                    console.log(user?.[0].result?.pregnancy);
+                                    // console.log(user?.[0].result?.pregnancy)
 
                                     fetch(
                                       "https://n8n.staas.ir/webhook/status",

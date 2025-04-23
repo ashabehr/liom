@@ -11506,7 +11506,9 @@ function PlasmicStatusDay__RenderFunc(props: {
 
               $steps["invokeGlobalAction"] = true
                 ? (() => {
-                    const actionArgs = { args: [] };
+                    const actionArgs = {
+                      args: [undefined, "https://n8n.staas.ir/webhook/userInfo"]
+                    };
                     return $globalActions["Fragment.apiRequest"]?.apply(null, [
                       ...actionArgs.args
                     ]);
