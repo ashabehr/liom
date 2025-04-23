@@ -1554,10 +1554,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 }
                                 fetch(
                                   "https://n8n.staas.ir/webhook/pregnancyDate?token=" +
-                                    $ctx.query.token.slice(
-                                      6,
-                                      $ctx.query.token.length - 3
-                                    ),
+                                    $ctx.query.token,
                                   {
                                     method: "GET",
                                     headers: {
@@ -1568,7 +1565,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   .then(response => response.json())
                                   .then(user => {
                                     console.log("user get liom");
-                                    console.log(user?.result);
+                                    console.log(user?.[0].result?.pregnancy);
 
                                     fetch(
                                       "https://n8n.staas.ir/webhook/status",
@@ -1599,9 +1596,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           allowance: { allowance },
                                           currentWeek: $state.weeksPregnant,
                                           baby_gender:
-                                            user?.result?.pregnancy?.sex,
+                                            user?.[0].result?.pregnancy?.sex,
                                           multiples:
-                                            user?.result?.pregnancy?.multiples
+                                            user?.[0].result?.pregnancy
+                                              ?.multiples
                                         })
                                       }
                                     )
