@@ -25229,7 +25229,48 @@ function PlasmicPregnancy__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__fihti)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__fihti)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                var link =
+                                  "https://tools.liom.app/chat-bot/?origin_user_id=" +
+                                  $state?.user?.[0]?.userId +
+                                  "&topic=pregnancyWeek" +
+                                  $state.weeksPregnant;
+                                if ($ctx.query.inApp == "true") {
+                                  return window.FlutterChannel.postMessage(
+                                    "#inAppWebView**@@**" +
+                                      "پزشک هوشمند" +
+                                      "**@@**" +
+                                      link
+                                  );
+                                } else {
+                                  return window.open(link, "_self");
+                                }
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                >
                   <Stack__
                     as={"div"}
                     hasGap={true}
