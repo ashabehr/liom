@@ -6284,7 +6284,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       $state.weeksPregnant;
                                                     window.FlutterChannel.postMessage(
                                                       "#inAppWebView**@@**" +
-                                                        "دکتر لیوم" +
+                                                        "پزشک هوشمند" +
                                                         "**@@**" +
                                                         link
                                                     );

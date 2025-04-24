@@ -2103,35 +2103,19 @@ function PlasmicHamyar__RenderFunc(props: {
             }}
           />
 
-          {(
-            hasVariant(globalVariants, "screen", "mobile")
-              ? (() => {
-                  try {
-                    return !($state.user.loading || $state.name == "");
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-              : (() => {
-                  try {
-                    return !$state.user.loading;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-          ) ? (
+          {(() => {
+            try {
+              return !$state.loadingPage;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__kJv6J, {
                 [sty.freeBoxlackOfCourseInformation__kJv6J07Srs]: hasVariant(
@@ -6770,7 +6754,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                               try {
                                                 return {
                                                   userId:
-                                                    $state.user.data.result.man
+                                                    $state.userdata.result.man
                                                       .id,
                                                   todoId: currentItem.id,
                                                   deleteDate: $state.deleteDate
@@ -6818,7 +6802,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                                 return {
                                                   id: currentItem.id,
                                                   userId:
-                                                    $state.user.data.result.man
+                                                    $state.userdata.result.man
                                                       .id
                                                 };
                                               } catch (e) {
@@ -6862,15 +6846,15 @@ function PlasmicHamyar__RenderFunc(props: {
                                               try {
                                                 return {
                                                   userId:
-                                                    $state.user.data.result.man
+                                                    $state.userdata.result.man
                                                       .id,
                                                   pageName: "mainPage",
                                                   action: "checkTodo",
                                                   extraData: {
                                                     refCode: $state.r,
                                                     mobile:
-                                                      $state.user.data.result
-                                                        .man.mobile,
+                                                      $state.userdata.result.man
+                                                        .mobile,
                                                     todoid: currentItem.id
                                                   }
                                                 };
@@ -7165,9 +7149,9 @@ function PlasmicHamyar__RenderFunc(props: {
                         try {
                           return (
                             $state.cyclebox.cycle != "Pregnancy" &&
-                            !$state.user.data.result.todoNotTodoLists.notToDo
+                            !$state.userdata.result.todoNotTodoLists.notToDo
                               .length == 0 &&
-                            !$state.user.data.result.todoNotTodoLists.todo
+                            !$state.userdata.result.todoNotTodoLists.todo
                               .length == 0
                           );
                         } catch (e) {
@@ -7240,7 +7224,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           : (() => {
                               try {
                                 return (
-                                  !$state.user.data.result.todoNotTodoLists.todo
+                                  !$state.userdata.result.todoNotTodoLists.todo
                                     .length == 0 &&
                                   $state.cyclebox.cycle != "Pregnancy"
                                 );
@@ -7618,7 +7602,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                   : [_par])(
                                 (() => {
                                   try {
-                                    return $state.user.data.result
+                                    return $state.userdata.result
                                       .todoNotTodoLists.todo;
                                   } catch (e) {
                                     if (
@@ -7918,7 +7902,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           : (() => {
                               try {
                                 return (
-                                  !$state.user.data.result.todoNotTodoLists
+                                  !$state.userdata.result.todoNotTodoLists
                                     .notToDo.length == 0 &&
                                   $state.cyclebox.cycle != "Pregnancy"
                                 );
@@ -8323,8 +8307,8 @@ function PlasmicHamyar__RenderFunc(props: {
                               !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                               (() => {
                                 try {
-                                  return $state.user.data.result
-                                    .todoNotTodoLists.notToDo;
+                                  return $state.userdata.result.todoNotTodoLists
+                                    .notToDo;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -8700,7 +8684,7 @@ function PlasmicHamyar__RenderFunc(props: {
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                       (() => {
                         try {
-                          return $state.shop.data.result;
+                          return $state.shapData.result;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -9175,19 +9159,19 @@ function PlasmicHamyar__RenderFunc(props: {
                                         "&offCode=" +
                                         $state.discountCode +
                                         "&valueShop=" +
-                                        $state.shop.data.result[
+                                        $state.shapData.result[
                                           $state.subscriptionCurrentIndex
                                         ].type +
                                         "-" +
-                                        $state.shop.data.result[
+                                        $state.shapData.result[
                                           $state.subscriptionCurrentIndex
                                         ].value +
                                         "&price=" +
-                                        $state.shop.data.result[
+                                        $state.shapData.result[
                                           $state.subscriptionCurrentIndex
                                         ].price +
                                         "&manId=" +
-                                        $state.user.data.result.man.id
+                                        $state.userdata.result.man.id
                                     };
                                   } catch (e) {
                                     if (
@@ -9713,8 +9697,8 @@ function PlasmicHamyar__RenderFunc(props: {
                         ? (() => {
                             try {
                               return (
-                                !$state.user.data.result.man.hamyarStatus ||
-                                $state.user?.data?.result?.man
+                                !$state.userdata.result.man.hamyarStatus ||
+                                $state.userdata?.result?.man
                                   ?.timeToEndHamyarTime?.days < 3
                               );
                             } catch (e) {
@@ -9730,8 +9714,8 @@ function PlasmicHamyar__RenderFunc(props: {
                         : (() => {
                             try {
                               return (
-                                !$state.user.data.result.man.hamyarStatus ||
-                                $state.user?.data?.result?.man
+                                !$state.userdata.result.man.hamyarStatus ||
+                                $state.userdata?.result?.man
                                   ?.timeToEndHamyarTime?.days < 3
                               );
                             } catch (e) {
@@ -10307,7 +10291,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                     })()
                                   : (() => {
                                       try {
-                                        return $state.shop.data.result.find(
+                                        return $state.shapData.result.find(
                                           item => item.selected === 1
                                         ).topBadge
                                           ? true
@@ -10340,7 +10324,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                     <React.Fragment>
                                       {(() => {
                                         try {
-                                          return $state.shop.data.result.find(
+                                          return $state.shapData.result.find(
                                             item => item.selected === 1
                                           ).topBadge;
                                         } catch (e) {
@@ -10374,7 +10358,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                   <React.Fragment>
                                     {(() => {
                                       try {
-                                        return $state.shop.data.result.find(
+                                        return $state.shapData.result.find(
                                           item => item.selected === 1
                                         ).title;
                                       } catch (e) {
@@ -10398,7 +10382,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                 >
                                   {(() => {
                                     try {
-                                      return $state.shop.data.result[
+                                      return $state.shapData.result[
                                         $state.selectedShop
                                       ].badge
                                         ? true
@@ -10424,7 +10408,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                       <React.Fragment>
                                         {(() => {
                                           try {
-                                            return $state.shop.data.result
+                                            return $state.shapData.result
                                               .find(item => item.selected === 1)
                                               .fullPrice.toLocaleString(
                                                 "en-US"
@@ -11190,7 +11174,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                                       $state.selectedShop
                                                     ].price +
                                                     "&manId=" +
-                                                    $state.user.data.result.man
+                                                    $state.userdata.result.man
                                                       .id
                                                 };
                                               } catch (e) {
@@ -12273,7 +12257,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                           $state.subscriptionCurrentIndex
                                         ].price +
                                         "&manId=" +
-                                        $state.user.data.result.man.id
+                                        $state.userdata.result.man.id
                                     };
                                   } catch (e) {
                                     if (
@@ -13623,7 +13607,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                                     $state.selectedShop
                                                   ].price +
                                                   "&manId=" +
-                                                  $state.user.data.result.man.id
+                                                  $state.userdata.result.man.id
                                               };
                                             } catch (e) {
                                               if (
@@ -14036,35 +14020,19 @@ function PlasmicHamyar__RenderFunc(props: {
               </AntdTooltip>
             </div>
           ) : null}
-          {(
-            hasVariant(globalVariants, "screen", "mobile")
-              ? (() => {
-                  try {
-                    return $state.user.loading || $state.name == "";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-              : (() => {
-                  try {
-                    return $state.user.loading;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-          ) ? (
+          {(() => {
+            try {
+              return $state.loadingPage;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
             <div className={classNames(projectcss.all, sty.freeBox__q7NB)}>
               <div className={classNames(projectcss.all, sty.freeBox__u5GW)}>
                 <Stack__
@@ -15029,7 +14997,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                 try {
                                   return `/clinic?token=${localStorage.getItem(
                                     "token"
-                                  )}&userId=${$state.user.data.r}&gender=male`;
+                                  )}&userId=${$state.userdata.r}&gender=male`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -15103,7 +15071,7 @@ function PlasmicHamyar__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  userId: $state.user.data.result.man.id
+                  userId: $state.userdata.result.man.id
                 };
               } catch (e) {
                 if (
@@ -15185,7 +15153,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   return {
                     headers: {
                       "Content-Type": "application/json",
-                      Authorization: $state.user.data.result.token
+                      Authorization: $state.userdata.result.token
                     }
                   };
                 } catch (e) {
@@ -16132,7 +16100,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                               $state.selectedShop
                                             ].price +
                                             "&manId=" +
-                                            $state.user.data.result.man.id
+                                            $state.userdata.result.man.id
                                         };
                                       } catch (e) {
                                         if (
@@ -16845,7 +16813,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                           $state.selectedShop
                                         ].price +
                                         "&manId=" +
-                                        $state.user.data.result.man.id
+                                        $state.userdata.result.man.id
                                     };
                                   } catch (e) {
                                     if (

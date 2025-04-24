@@ -68,7 +68,6 @@
     max-height: 100%;
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
-    display: flex;
   }
 }
 .freeBox__tNnSf {
@@ -5675,7 +5674,6 @@
     width: 100%;
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
-    display: flex;
     padding: 0px;
   }
 }
