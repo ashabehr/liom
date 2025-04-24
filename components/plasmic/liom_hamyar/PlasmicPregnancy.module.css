@@ -926,6 +926,13 @@
   > img {
   margin-top: 8px;
 }
+.lottie__upZon:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+}
 .embedHtml__uxJx:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -4949,7 +4956,7 @@
   top: 0px;
   background: var(--token-55cSeNPovQFh);
   z-index: 1;
-  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 16px 0px #00000080;
   min-width: 0;
   min-height: 0;
   border-radius: 30px;

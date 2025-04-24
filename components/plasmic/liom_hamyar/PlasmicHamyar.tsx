@@ -67,6 +67,7 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import Cyclebox from "../../Cyclebox"; // plasmic-import: 47YEdMGPo49m/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
@@ -139,6 +140,7 @@ export const PlasmicHamyar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHamyar__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   cyclebox?: Flex__<typeof Cyclebox>;
   lineClomp?: Flex__<typeof LineClomp>;
   progress?: Flex__<typeof AntdProgress>;
@@ -597,12 +599,12 @@ function PlasmicHamyar__RenderFunc(props: {
                 try {
                   return (() => {
                     if (
-                      $state.user.data.result.user?.healthStatus?.toLowerCase() ===
+                      $state.userdata.result.user?.healthStatus?.toLowerCase() ===
                       "pregnancy"
                     ) {
                       return "Pregnancy";
                     } else {
-                      return $state.user.data.result.userStatus.periodStatus;
+                      return $state.userdata.result.userStatus.periodStatus;
                     }
                   })();
                 } catch (e) {
@@ -619,12 +621,12 @@ function PlasmicHamyar__RenderFunc(props: {
                 try {
                   return (() => {
                     if (
-                      $state.user.data.result.user?.healthStatus?.toLowerCase() ===
+                      $state.userdata.result.user?.healthStatus?.toLowerCase() ===
                       "pregnancy"
                     ) {
                       return "Pregnancy";
                     } else {
-                      return $state.user.data.result.userStatus.periodStatus;
+                      return $state.userdata.result.userStatus.periodStatus;
                     }
                   })();
                 } catch (e) {
@@ -821,39 +823,35 @@ function PlasmicHamyar__RenderFunc(props: {
             ? (() => {
                 try {
                   return (() => {
-                    switch ($state.user.data.result.userStatus.periodStatus) {
+                    switch ($state.userdata.result.userStatus.periodStatus) {
                       case null:
                         return "";
                       case "fertility":
                         if (
-                          $state.user.data.result.userStatus
+                          $state.userdata.result.userStatus
                             .daysToEndFertility == 0
                         )
                           return "تا پایان امروز";
                         return (
-                          $state.user.data.result.userStatus
-                            .daysToEndFertility +
+                          $state.userdata.result.userStatus.daysToEndFertility +
                           " روز " +
                           "دیگر"
                         );
                       case "pms":
-                        if (
-                          $state.user.data.result.userStatus.daysToEndPms == 0
-                        )
+                        if ($state.userdata.result.userStatus.daysToEndPms == 0)
                           return "تا پایان امروز";
                         return (
-                          $state.user.data.result.userStatus.daysToEndPms +
+                          $state.userdata.result.userStatus.daysToEndPms +
                           " روز " +
                           "دیگر"
                         );
                       case "blood":
                         if (
-                          $state.user.data.result.userStatus.daysToEndPeriod ==
-                          0
+                          $state.userdata.result.userStatus.daysToEndPeriod == 0
                         )
                           return "تا پایان امروز";
                         return (
-                          $state.user.data.result.userStatus.daysToEndPeriod +
+                          $state.userdata.result.userStatus.daysToEndPeriod +
                           " روز " +
                           "دیگر"
                         );
@@ -874,39 +872,35 @@ function PlasmicHamyar__RenderFunc(props: {
             : (() => {
                 try {
                   return (() => {
-                    switch ($state.user.data.result.userStatus.periodStatus) {
+                    switch ($state.userdata.result.userStatus.periodStatus) {
                       case null:
                         return "";
                       case "fertility":
                         if (
-                          $state.user.data.result.userStatus
+                          $state.userdata.result.userStatus
                             .daysToEndFertility == 0
                         )
                           return "تا پایان امروز";
                         return (
-                          $state.user.data.result.userStatus
-                            .daysToEndFertility +
+                          $state.userdata.result.userStatus.daysToEndFertility +
                           " روز " +
                           "دیگر"
                         );
                       case "pms":
-                        if (
-                          $state.user.data.result.userStatus.daysToEndPms == 0
-                        )
+                        if ($state.userdata.result.userStatus.daysToEndPms == 0)
                           return "تا پایان امروز";
                         return (
-                          $state.user.data.result.userStatus.daysToEndPms +
+                          $state.userdata.result.userStatus.daysToEndPms +
                           " روز " +
                           "دیگر"
                         );
                       case "blood":
                         if (
-                          $state.user.data.result.userStatus.daysToEndPeriod ==
-                          0
+                          $state.userdata.result.userStatus.daysToEndPeriod == 0
                         )
                           return "تا پایان امروز";
                         return (
-                          $state.user.data.result.userStatus.daysToEndPeriod +
+                          $state.userdata.result.userStatus.daysToEndPeriod +
                           " روز " +
                           "دیگر"
                         );
@@ -1594,6 +1588,24 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "useful[].cycle",
         type: "private",
         variableType: "text"
+      },
+      {
+        path: "userdata",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "loadingPage",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "shapData",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1661,6 +1673,436 @@ function PlasmicHamyar__RenderFunc(props: {
             const $steps = {};
           }}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["userdata"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              r:
+                                $ctx.query.r ||
+                                new URLSearchParams(window.location.search).get(
+                                  "r"
+                                ) ||
+                                "",
+                              m:
+                                $ctx.query.m ||
+                                new URLSearchParams(window.location.search).get(
+                                  "m"
+                                ) ||
+                                ""
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        { headers: { "Content-Type": "application/json" } }
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["userdata"] != null &&
+                typeof $steps["userdata"] === "object" &&
+                typeof $steps["userdata"].then === "function"
+              ) {
+                $steps["userdata"] = await $steps["userdata"];
+              }
+
+              $steps["updateUserdata"] = (
+                $steps.userdata?.data?.success ? true : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["userdata"]
+                      },
+                      operation: 0,
+                      value: $steps.userdata.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateUserdata"] != null &&
+                typeof $steps["updateUserdata"] === "object" &&
+                typeof $steps["updateUserdata"].then === "function"
+              ) {
+                $steps["updateUserdata"] = await $steps["updateUserdata"];
+              }
+
+              $steps["updateTokenUser"] = (
+                $steps.userdata?.data?.success ? true : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["tokenUser"]
+                      },
+                      operation: 0,
+                      value: $steps.userdata.data.result.token
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTokenUser"] != null &&
+                typeof $steps["updateTokenUser"] === "object" &&
+                typeof $steps["updateTokenUser"].then === "function"
+              ) {
+                $steps["updateTokenUser"] = await $steps["updateTokenUser"];
+              }
+
+              $steps["updateName"] = (
+                $steps.userdata?.data?.success ? true : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["name"]
+                      },
+                      operation: 0,
+                      value: $steps.userdata.data.result.user.name
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateName"] != null &&
+                typeof $steps["updateName"] === "object" &&
+                typeof $steps["updateName"].then === "function"
+              ) {
+                $steps["updateName"] = await $steps["updateName"];
+              }
+
+              $steps["runCode"] = (
+                $steps.userdata?.data?.success ? true : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          localStorage.setItem("token", $state.tokenUser);
+                          localStorage.setItem(
+                            "birthDate",
+                            JSON.stringify(
+                              $steps.userdata.data.result.man.birthDate
+                            )
+                          );
+                          $state.userdata.result["r"] = $state.r;
+                          $state.userdata.result["m"] = $state.m;
+                          return localStorage.setItem(
+                            "userinfo",
+                            JSON.stringify($state.userdata.result)
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["updateDeleteDate"] = (
+                $steps.userdata?.data?.result?.userStatus?.periodStatus
+                  ? true
+                  : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["deleteDate"]
+                      },
+                      operation: 0,
+                      value: (() => {
+                        switch (
+                          $steps.userdata.data.result.userStatus.periodStatus
+                        ) {
+                          case null:
+                            return "";
+                          case "fertility":
+                            return $steps.userdata.data.result.userStatus
+                              .fertilityEnd;
+                          case "pms":
+                            return $steps.userdata.data.result.userStatus
+                              .pmsEnd;
+                          case "blood":
+                            return $steps.userdata.data.result.userStatus
+                              .periodEnd;
+                          case "white":
+                            if (
+                              new Date(
+                                $steps.userdata.data.result.userStatus.fertilityStart
+                              ) > new Date()
+                            )
+                              return ($state.deleteDate =
+                                $steps.userdata.data.result.userStatus.fertilityStart);
+                            else
+                              return ($state.deleteDate =
+                                $steps.userdata.data.result.userStatus.pmsStart);
+                          default:
+                            return "-";
+                        }
+                      })()
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDeleteDate"] != null &&
+                typeof $steps["updateDeleteDate"] === "object" &&
+                typeof $steps["updateDeleteDate"].then === "function"
+              ) {
+                $steps["updateDeleteDate"] = await $steps["updateDeleteDate"];
+              }
+
+              $steps["runCode2"] =
+                $steps.userdata?.data?.result?.user?.healthStatus?.toLowerCase() ===
+                "pregnancy"
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return fetch(
+                            `https://n8n.staas.ir/webhook/status/?userId=${$state.userdata.result.user.id}`,
+                            {
+                              method: "GET",
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization:
+                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                              }
+                            }
+                          )
+                            .then(response => response.json())
+                            .then(data => {
+                              const dueDate = data?.[0]?.dueDate;
+                              if (dueDate) {
+                                let initialDate = new Date(dueDate);
+                                let daysToSubtract = 280;
+                                let resultDate = new Date(initialDate);
+                                resultDate.setDate(
+                                  resultDate.getDate() - daysToSubtract
+                                );
+                                let today = new Date();
+                                let differenceInTime = today - resultDate;
+                                let differenceInDays = Math.floor(
+                                  differenceInTime / (1000 * 60 * 60 * 24)
+                                );
+                                let daysRemaining =
+                                  parseInt(280 - differenceInDays) - 1;
+                                let weeksPregnant =
+                                  parseInt((differenceInDays + 1) / 7) === 0
+                                    ? 1
+                                    : parseInt((differenceInDays + 1) / 7) + 1;
+                                let monthsPregnant = parseInt(
+                                  (weeksPregnant / 4).toString().substring(0, 1)
+                                );
+                                $state.pregnancy = {
+                                  days: daysRemaining,
+                                  week: weeksPregnant,
+                                  months: monthsPregnant
+                                };
+                              } else {
+                                console.log("تاریخ زایمان در دسترس نیست.");
+                              }
+                            })
+                            .catch(error => console.error("Error:", error));
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
+              ) {
+                $steps["runCode2"] = await $steps["runCode2"];
+              }
+
+              $steps["updateLoadingPage"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loadingPage"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoadingPage"] != null &&
+                typeof $steps["updateLoadingPage"] === "object" &&
+                typeof $steps["updateLoadingPage"].then === "function"
+              ) {
+                $steps["updateLoadingPage"] = await $steps["updateLoadingPage"];
+              }
+
+              $steps["shop"] = ($steps.userdata?.data?.success ? true : false)
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/hamyar/shop",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              refCode: $state.userdata.result.man.refCode
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return {
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization: $state.userdata.result.token
+                              }
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["shop"] != null &&
+                typeof $steps["shop"] === "object" &&
+                typeof $steps["shop"].then === "function"
+              ) {
+                $steps["shop"] = await $steps["shop"];
+              }
+
+              $steps["updateShapData"] = (
+                $steps.shop?.data.success ? true : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["shapData"]
+                      },
+                      operation: 0,
+                      value: $steps.shop.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateShapData"] != null &&
+                typeof $steps["updateShapData"] === "object" &&
+                typeof $steps["updateShapData"].then === "function"
+              ) {
+                $steps["updateShapData"] = await $steps["updateShapData"];
+              }
+            }}
+          />
+
           {(
             hasVariant(globalVariants, "screen", "mobile")
               ? (() => {
@@ -1746,7 +2188,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         {(() => {
                           try {
                             return (
-                              $state.user.data.result.man.name + " خوش آمدید! "
+                              $state.userdata.result.man.name + " خوش آمدید! "
                             );
                           } catch (e) {
                             if (
@@ -1969,7 +2411,7 @@ function PlasmicHamyar__RenderFunc(props: {
                       try {
                         return (() => {
                           let future1 = new Date(
-                            $state.user.data.result.userStatus.pmsStart
+                            $state.userdata.result.userStatus.pmsStart
                           );
                           let current_date1 = new Date();
                           let delta1 = future1 - current_date1;
@@ -2342,7 +2784,7 @@ function PlasmicHamyar__RenderFunc(props: {
                       "cyclebox",
                       "textsycle"
                     ])}
-                    userData={$state.userData}
+                    userData={$state.userdata}
                   >
                     <Stack__
                       as={"div"}
@@ -2509,7 +2951,7 @@ function PlasmicHamyar__RenderFunc(props: {
                     >
                       {(() => {
                         try {
-                          return !$state.user.data.result.man.hamyarStatus;
+                          return !$state.userdata.result.man.hamyarStatus;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -3027,7 +3469,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         hasVariant(globalVariants, "screen", "mobile")
                           ? (() => {
                               try {
-                                return $state.user.data.result.man.hamyarStatus;
+                                return $state.userdata.result.man.hamyarStatus;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -3040,7 +3482,7 @@ function PlasmicHamyar__RenderFunc(props: {
                             })()
                           : (() => {
                               try {
-                                return $state.user.data.result.man.hamyarStatus;
+                                return $state.userdata.result.man.hamyarStatus;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -3152,7 +3594,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                 try {
                                   return {
                                     boxShadow: `0 0px 4px 2px ${
-                                      $state.user?.data?.result?.man
+                                      $state.userdata?.result?.man
                                         ?.timeToEndHamyarTime?.days > 3
                                         ? "#00C371"
                                         : "#EB464A"
@@ -3174,7 +3616,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                 hasVariant(globalVariants, "screen", "mobile")
                                   ? (() => {
                                       try {
-                                        return $state.user?.data?.result?.man
+                                        return $state.userdata?.result?.man
                                           ?.timeToEndHamyarTime?.days > 3
                                           ? false
                                           : true;
@@ -3191,7 +3633,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                     })()
                                   : (() => {
                                       try {
-                                        return $state.user?.data?.result?.man
+                                        return $state.userdata?.result?.man
                                           ?.timeToEndHamyarTime?.days > 3
                                           ? false
                                           : true;
@@ -3477,7 +3919,7 @@ function PlasmicHamyar__RenderFunc(props: {
                               ) : null}
                               {(() => {
                                 try {
-                                  return $state.user?.data?.result?.man
+                                  return $state.userdata?.result?.man
                                     ?.timeToEndHamyarTime?.days > 3
                                     ? true
                                     : false;
@@ -3528,7 +3970,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                   ),
                                   color: (() => {
                                     try {
-                                      return $state.user?.data?.result?.man
+                                      return $state.userdata?.result?.man
                                         ?.timeToEndHamyarTime?.days > 3
                                         ? "green"
                                         : "red";
@@ -3550,7 +3992,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                   )
                                     ? (() => {
                                         try {
-                                          return $state.user?.data?.result?.man
+                                          return $state.userdata?.result?.man
                                             ?.timeToEndHamyarTime.days /
                                             30 !=
                                             0
@@ -3569,7 +4011,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                       })()
                                     : (() => {
                                         try {
-                                          return $state.user?.data?.result?.man
+                                          return $state.userdata?.result?.man
                                             ?.timeToEndHamyarTime.days /
                                             30 !=
                                             0
@@ -3851,12 +4293,12 @@ function PlasmicHamyar__RenderFunc(props: {
                                       try {
                                         return (() => {
                                           if (
-                                            $state.user.data.result.userStatus
+                                            $state.userdata.userStatus
                                               .daysToEndPms == 0
                                           )
                                             return "تا پایان امروز";
                                           return (
-                                            $state.user.data.result.userStatus
+                                            $state.userdata.result.userStatus
                                               .daysToEndPms +
                                             " روز " +
                                             "دیگر"
@@ -3880,12 +4322,12 @@ function PlasmicHamyar__RenderFunc(props: {
                                       try {
                                         return (() => {
                                           if (
-                                            $state.user.data.result.userStatus
+                                            $state.userdata.result.userStatus
                                               .daysToEndPms == 0
                                           )
                                             return "تا پایان امروز";
                                           return (
-                                            $state.user.data.result.userStatus
+                                            $state.userdata.result.userStatus
                                               .daysToEndPms +
                                             " روز " +
                                             "دیگر"
@@ -3966,7 +4408,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                       try {
                                         return (() => {
                                           let future1 = new Date(
-                                            $state.user.data.result.userStatus.pmsStart
+                                            $state.userdata.result.userStatus.pmsStart
                                           );
                                           let current_date1 = new Date();
                                           let delta1 = future1 - current_date1;
@@ -3997,7 +4439,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                       try {
                                         return (() => {
                                           let future1 = new Date(
-                                            $state.user.data.result.userStatus.pmsStart
+                                            $state.userdata.result.userStatus.pmsStart
                                           );
                                           let current_date1 = new Date();
                                           let delta1 = future1 - current_date1;
@@ -4195,7 +4637,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                   try {
                                     return {
                                       userId:
-                                        $state.user.data?.result.man.id || "",
+                                        $state.userdata?.result.man.id || "",
                                       pageName: "hamyar",
                                       action: "self-test-prematureEjaculation",
                                       extraData: {
@@ -4258,7 +4700,7 @@ function PlasmicHamyar__RenderFunc(props: {
                               customFunction: async () => {
                                 return window.open(
                                   `https://tools.liom.app/self-test/?user_id=${
-                                    $state.user.data.result.man.id
+                                    $state.userdata.result.man.id
                                   }&app=liom&type=prematureEjaculation&origin=hamyar&home-page=${encodeURIComponent(
                                     window.location.href
                                   )}`,
@@ -14061,28 +14503,6 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updateDeleteDate"] = await $steps["updateDeleteDate"];
                 }
 
-                $steps["refreshData"] =
-                  $state.user?.data?.refresh === "true"
-                    ? (() => {
-                        const actionArgs = {
-                          queryInvalidation: ["plasmic_refresh_all"]
-                        };
-                        return (async ({ queryInvalidation }) => {
-                          if (!queryInvalidation) {
-                            return;
-                          }
-                          await plasmicInvalidate(queryInvalidation);
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["refreshData"] != null &&
-                  typeof $steps["refreshData"] === "object" &&
-                  typeof $steps["refreshData"].then === "function"
-                ) {
-                  $steps["refreshData"] = await $steps["refreshData"];
-                }
-
                 $steps["runCode2"] =
                   $state.user.data?.result?.user?.healthStatus?.toLowerCase() ===
                   "pregnancy"
@@ -17608,6 +18028,7 @@ function PlasmicHamyar__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "cyclebox",
     "lineClomp",
     "progress",
@@ -17664,6 +18085,7 @@ const PlasmicDescendants = {
     "dialog3",
     "button13"
   ],
+  sideEffect: ["sideEffect"],
   cyclebox: ["cyclebox", "lineClomp", "progress"],
   lineClomp: ["lineClomp"],
   progress: ["progress"],
@@ -17746,6 +18168,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   cyclebox: typeof Cyclebox;
   lineClomp: typeof LineClomp;
   progress: typeof AntdProgress;
@@ -17888,6 +18311,7 @@ export const PlasmicHamyar = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     cyclebox: makeNodeComponent("cyclebox"),
     lineClomp: makeNodeComponent("lineClomp"),
     progress: makeNodeComponent("progress"),
