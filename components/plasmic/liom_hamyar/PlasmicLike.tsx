@@ -83,11 +83,17 @@ export const PlasmicLike__VariantProps = new Array<VariantPropType>("islike");
 export type PlasmicLike__ArgsType = {
   onIslikeChange?: (val: any) => void;
   likeCountForBar?: string;
+  islikePost?: boolean;
+  postIdForLike?: string;
+  tokenForPostLike?: string;
 };
 type ArgPropType = keyof PlasmicLike__ArgsType;
 export const PlasmicLike__ArgProps = new Array<ArgPropType>(
   "onIslikeChange",
-  "likeCountForBar"
+  "likeCountForBar",
+  "islikePost",
+  "postIdForLike",
+  "tokenForPostLike"
 );
 
 export type PlasmicLike__OverridesType = {
@@ -99,6 +105,9 @@ export type PlasmicLike__OverridesType = {
 export interface DefaultLikeProps {
   onIslikeChange?: (val: any) => void;
   likeCountForBar?: string;
+  islikePost?: boolean;
+  postIdForLike?: string;
+  tokenForPostLike?: string;
   islike?: SingleBooleanChoiceArg<"islike">;
   className?: string;
 }
@@ -124,7 +133,8 @@ function PlasmicLike__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          likeCountForBar: "100"
+          likeCountForBar: "100",
+          islikePost: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -142,6 +152,8 @@ function PlasmicLike__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -262,6 +274,83 @@ function PlasmicLike__RenderFunc(props: {
           typeof $steps["updateIslike2"].then === "function"
         ) {
           $steps["updateIslike2"] = await $steps["updateIslike2"];
+        }
+
+        $steps["invokeGlobalAction"] = $props.islikePost
+          ? (() => {
+              const actionArgs = {
+                args: [
+                  undefined,
+                  "https://n8n.staas.ir/webhook/social/post/like",
+                  (() => {
+                    try {
+                      return {
+                        postId: $props.postIdForLike,
+                        type: "userLiked",
+                        authorization: $props.tokenForPostLike
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                ]
+              };
+              return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                ...actionArgs.args
+              ]);
+            })()
+          : undefined;
+        if (
+          $steps["invokeGlobalAction"] != null &&
+          typeof $steps["invokeGlobalAction"] === "object" &&
+          typeof $steps["invokeGlobalAction"].then === "function"
+        ) {
+          $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+        }
+
+        $steps["invokeGlobalAction2"] = !$props.islikePost
+          ? (() => {
+              const actionArgs = {
+                args: [
+                  "POST",
+                  "https://n8n.staas.ir/webhook/social/post/like",
+                  undefined,
+                  (() => {
+                    try {
+                      return {
+                        postId: $props.postIdForLike,
+
+                        authorization: $props.tokenForPostLike
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                ]
+              };
+              return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                ...actionArgs.args
+              ]);
+            })()
+          : undefined;
+        if (
+          $steps["invokeGlobalAction2"] != null &&
+          typeof $steps["invokeGlobalAction2"] === "object" &&
+          typeof $steps["invokeGlobalAction2"].then === "function"
+        ) {
+          $steps["invokeGlobalAction2"] = await $steps["invokeGlobalAction2"];
         }
       }}
     >

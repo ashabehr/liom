@@ -98,6 +98,7 @@ import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasm
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon204Icon from "./icons/PlasmicIcon__Icon204"; // plasmic-import: MBg4kuRqoYgZ/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
+import Icon225Icon from "./icons/PlasmicIcon__Icon225"; // plasmic-import: lH7mtmG59QOT/icon
 
 createPlasmicElementProxy;
 
@@ -2239,40 +2240,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                             )}
                             onClick={async event => {
                               const $steps = {};
-
-                              $steps["runCode"] =
-                                $state.user[0].userId ==
-                                "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                                  ? (() => {
-                                      const actionArgs = {
-                                        customFunction: async () => {
-                                          return (() => {
-                                            var link =
-                                              "https://tools.liom.app/chat-bot/?origin_user_id=" +
-                                              $state?.user?.[0]?.userId +
-                                              "&topic=pregnancyWeek" +
-                                              $state.weeksPregnant;
-                                            return window.FlutterChannel.postMessage(
-                                              "#inAppWebView**@@**" +
-                                                "دکتر لیوم" +
-                                                "**@@**" +
-                                                link
-                                            );
-                                          })();
-                                        }
-                                      };
-                                      return (({ customFunction }) => {
-                                        return customFunction();
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                              if (
-                                $steps["runCode"] != null &&
-                                typeof $steps["runCode"] === "object" &&
-                                typeof $steps["runCode"].then === "function"
-                              ) {
-                                $steps["runCode"] = await $steps["runCode"];
-                              }
                             }}
                           >
                             <Stack__
@@ -6194,24 +6161,36 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       }
                                                     }
                                                     break;
-                                                  case "adhd":
-                                                    {
-                                                      var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                        window.location.href
-                                                      )}&inApp=${
-                                                        $ctx.query.inApp
-                                                      }&userId=${$ctx.query.userId.slice(
-                                                        4,
-                                                        $ctx.query.userId
-                                                          .length - 4
-                                                      )}`;
-                                                      window.FlutterChannel.postMessage(
-                                                        "#inAppWebView**@@**" +
-                                                          "تست ADHD" +
-                                                          "**@@**" +
-                                                          link
-                                                      );
-                                                    }
+                                                  case "adhd": {
+                                                    var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
+                                                      window.location.href
+                                                    )}&inApp=${
+                                                      $ctx.query.inApp
+                                                    }&userId=${$ctx.query.userId.slice(
+                                                      4,
+                                                      $ctx.query.userId.length -
+                                                        4
+                                                    )}`;
+                                                    window.FlutterChannel.postMessage(
+                                                      "#inAppWebView**@@**" +
+                                                        "تست ADHD" +
+                                                        "**@@**" +
+                                                        link
+                                                    );
+                                                  }
+                                                  case "chatBot":
+                                                    var link =
+                                                      "https://tools.liom.app/chat-bot/?origin_user_id=" +
+                                                      $state?.user?.[0]
+                                                        ?.userId +
+                                                      "&topic=pregnancyWeek" +
+                                                      $state.weeksPregnant;
+                                                    window.FlutterChannel.postMessage(
+                                                      "#inAppWebView**@@**" +
+                                                        "دکتر لیوم" +
+                                                        "**@@**" +
+                                                        link
+                                                    );
                                                     break;
                                                 }
                                               })();
@@ -6288,6 +6267,20 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                               .length - 3
                                                           ) +
                                                           randomStr2,
+                                                        "_self"
+                                                      );
+                                                    }
+                                                    break;
+                                                  case "chatBot":
+                                                    {
+                                                      var link =
+                                                        "https://tools.liom.app/chat-bot/?origin_user_id=" +
+                                                        $state?.user?.[0]
+                                                          ?.userId +
+                                                        "&topic=pregnancyWeek" +
+                                                        $state.weeksPregnant;
+                                                      window.open(
+                                                        link,
                                                         "_self"
                                                       );
                                                     }
@@ -25219,6 +25212,582 @@ function PlasmicPregnancy__RenderFunc(props: {
                 })()}
                 url={"https://n8n.staas.ir/webhook/userInfo"}
               />
+
+              {(() => {
+                try {
+                  return (
+                    $state.user[0].userId ==
+                    "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div className={classNames(projectcss.all, sty.freeBox__fihti)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__nA11A)}
+                  >
+                    <Icon225Icon
+                      className={classNames(projectcss.all, sty.svg__wZurT)}
+                      role={"img"}
+                    />
+
+                    <LottieWrapper
+                      animationData={{
+                        v: "5.6.5",
+                        fr: 60,
+                        ip: 0,
+                        op: 179,
+                        w: 48,
+                        h: 48,
+                        nm: "heart",
+                        ddd: 0,
+                        assets: [],
+                        layers: [
+                          {
+                            ddd: 0,
+                            ind: 1,
+                            ty: 4,
+                            nm: "Warstwa 4 Outlines",
+                            sr: 1,
+                            ks: {
+                              o: { a: 0, k: 100 },
+                              r: { a: 0, k: 0 },
+                              p: { a: 0, k: [24.267, 25.162, 0] },
+                              a: { a: 0, k: [15.809, 12.116, 0] },
+                              s: { a: 0, k: [100, 100, 100] }
+                            },
+                            ao: 0,
+                            shapes: [
+                              {
+                                ty: "gr",
+                                it: [
+                                  {
+                                    ind: 0,
+                                    ty: "sh",
+                                    ks: {
+                                      a: 0,
+                                      k: {
+                                        i: [
+                                          [0, 0],
+                                          [0, 0],
+                                          [0, 0],
+                                          [0, 0],
+                                          [0, 0],
+                                          [0, 0],
+                                          [0, 0]
+                                        ],
+                                        o: [
+                                          [0, 0],
+                                          [0, 0],
+                                          [0, 0],
+                                          [0, 0],
+                                          [0, 0],
+                                          [0, 0],
+                                          [0, 0]
+                                        ],
+                                        v: [
+                                          [-8.309, 0.946],
+                                          [-5.344, 0.946],
+                                          [-3.607, -4.616],
+                                          [0.452, 4.616],
+                                          [4.07, -2.655],
+                                          [5.99, 0.946],
+                                          [8.309, 0.946]
+                                        ],
+                                        c: false
+                                      }
+                                    },
+                                    nm: "Path 1",
+                                    hd: false
+                                  },
+                                  {
+                                    ty: "st",
+                                    c: {
+                                      a: 0,
+                                      k: [
+                                        0.1843137254901961, 0.6862745098039216,
+                                        0.7372549019607844, 1
+                                      ]
+                                    },
+                                    o: { a: 0, k: 100 },
+                                    w: { a: 0, k: 3 },
+                                    lc: 2,
+                                    lj: 2,
+                                    bm: 0,
+                                    nm: "Stroke 1",
+                                    hd: false
+                                  },
+                                  {
+                                    ty: "tr",
+                                    p: { a: 0, k: [15.809, 12.116] },
+                                    a: { a: 0, k: [0, 0] },
+                                    s: { a: 0, k: [100, 100] },
+                                    r: { a: 0, k: 0 },
+                                    o: { a: 0, k: 100 },
+                                    sk: { a: 0, k: 0 },
+                                    sa: { a: 0, k: 0 },
+                                    nm: "Transform"
+                                  }
+                                ],
+                                nm: "Group 1",
+                                bm: 0,
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0 },
+                                e: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 90,
+                                      s: [0]
+                                    },
+                                    { t: 135, s: [100] }
+                                  ]
+                                },
+                                o: { a: 0, k: 0 },
+                                m: 1,
+                                nm: "Trim Paths 1",
+                                hd: false
+                              }
+                            ],
+                            ip: 0,
+                            op: 1800,
+                            st: 0,
+                            bm: 0
+                          },
+                          {
+                            ddd: 0,
+                            ind: 2,
+                            ty: 4,
+                            nm: "Warstwa 6 Outlines 3",
+                            sr: 1,
+                            ks: {
+                              o: { a: 0, k: 100 },
+                              r: { a: 0, k: 0 },
+                              p: { a: 0, k: [24, 24.565, 0] },
+                              a: { a: 0, k: [26.937, 22.824, 0] },
+                              s: { a: 0, k: [100, 100, 100] }
+                            },
+                            ao: 0,
+                            shapes: [
+                              {
+                                ty: "gr",
+                                it: [
+                                  {
+                                    ind: 0,
+                                    ty: "sh",
+                                    ks: {
+                                      a: 0,
+                                      k: {
+                                        i: [
+                                          [0, 0],
+                                          [5.409, 1.996],
+                                          [0, 0],
+                                          [5.744, -2.12],
+                                          [-7.652, -7.881],
+                                          [0, 0],
+                                          [-2.856, 2.641]
+                                        ],
+                                        o: [
+                                          [7.652, -7.881],
+                                          [-5.744, -2.12],
+                                          [0, 0],
+                                          [-5.409, 1.996],
+                                          [6.091, 6.274],
+                                          [0, 0],
+                                          [0, 0]
+                                        ],
+                                        v: [
+                                          [11.785, 4.247],
+                                          [9.402, -13.204],
+                                          [0.001, -10.498],
+                                          [-9.402, -13.204],
+                                          [-11.785, 4.247],
+                                          [0.001, 15.324],
+                                          [4.823, 11.025]
+                                        ],
+                                        c: false
+                                      }
+                                    },
+                                    nm: "Path 1",
+                                    hd: false
+                                  },
+                                  {
+                                    ty: "st",
+                                    c: {
+                                      a: 0,
+                                      k: [
+                                        0.1843137254901961, 0.6862745098039216,
+                                        0.7372549019607844, 1
+                                      ]
+                                    },
+                                    o: { a: 0, k: 100 },
+                                    w: { a: 0, k: 3 },
+                                    lc: 2,
+                                    lj: 2,
+                                    bm: 0,
+                                    nm: "Stroke 1",
+                                    hd: false
+                                  },
+                                  {
+                                    ty: "tr",
+                                    p: { a: 0, k: [26.936, 22.823] },
+                                    a: { a: 0, k: [0, 0] },
+                                    s: { a: 0, k: [100, 100] },
+                                    r: { a: 0, k: 0 },
+                                    o: { a: 0, k: 100 },
+                                    sk: { a: 0, k: 0 },
+                                    sa: { a: 0, k: 0 },
+                                    nm: "Transform"
+                                  }
+                                ],
+                                nm: "Group 1",
+                                bm: 0,
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0 },
+                                e: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.833], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 0,
+                                      s: [0.1]
+                                    },
+                                    {
+                                      i: { x: [0.833], y: [1] },
+                                      o: { x: [0.167], y: [0] },
+                                      t: 20,
+                                      s: [0.1]
+                                    },
+                                    {
+                                      i: { x: [0.833], y: [1] },
+                                      o: { x: [0.167], y: [0] },
+                                      t: 35,
+                                      s: [9]
+                                    },
+                                    {
+                                      i: { x: [0.833], y: [0.833] },
+                                      o: { x: [0.167], y: [0] },
+                                      t: 90,
+                                      s: [9]
+                                    },
+                                    { t: 105, s: [0.1] }
+                                  ]
+                                },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.833], y: [0.833] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 20,
+                                      s: [0]
+                                    },
+                                    { t: 105, s: [359.64] }
+                                  ]
+                                },
+                                m: 1,
+                                nm: "Trim Paths 1",
+                                hd: false
+                              }
+                            ],
+                            ip: 0,
+                            op: 1800,
+                            st: 0,
+                            bm: 0
+                          },
+                          {
+                            ddd: 0,
+                            ind: 3,
+                            ty: 4,
+                            nm: "Warstwa 6 Outlines 2",
+                            sr: 1,
+                            ks: {
+                              o: { a: 0, k: 100 },
+                              r: { a: 0, k: 0 },
+                              p: { a: 0, k: [24, 24.565, 0] },
+                              a: { a: 0, k: [26.937, 22.824, 0] },
+                              s: { a: 0, k: [100, 100, 100] }
+                            },
+                            ao: 0,
+                            shapes: [
+                              {
+                                ty: "gr",
+                                it: [
+                                  {
+                                    ind: 0,
+                                    ty: "sh",
+                                    ks: {
+                                      a: 0,
+                                      k: {
+                                        i: [
+                                          [0, 0],
+                                          [5.409, 1.996],
+                                          [0, 0],
+                                          [5.744, -2.12],
+                                          [-7.652, -7.881],
+                                          [0, 0],
+                                          [-2.856, 2.641]
+                                        ],
+                                        o: [
+                                          [7.652, -7.881],
+                                          [-5.744, -2.12],
+                                          [0, 0],
+                                          [-5.409, 1.996],
+                                          [6.091, 6.274],
+                                          [0, 0],
+                                          [0, 0]
+                                        ],
+                                        v: [
+                                          [11.785, 4.247],
+                                          [9.402, -13.204],
+                                          [0.001, -10.498],
+                                          [-9.402, -13.204],
+                                          [-11.785, 4.247],
+                                          [0.001, 15.324],
+                                          [4.823, 11.025]
+                                        ],
+                                        c: false
+                                      }
+                                    },
+                                    nm: "Path 1",
+                                    hd: false
+                                  },
+                                  {
+                                    ty: "st",
+                                    c: {
+                                      a: 0,
+                                      k: [
+                                        0.1843137254901961, 0.6862745098039216,
+                                        0.7372549019607844, 1
+                                      ]
+                                    },
+                                    o: { a: 0, k: 100 },
+                                    w: { a: 0, k: 3 },
+                                    lc: 2,
+                                    lj: 2,
+                                    bm: 0,
+                                    nm: "Stroke 1",
+                                    hd: false
+                                  },
+                                  {
+                                    ty: "tr",
+                                    p: { a: 0, k: [26.936, 22.823] },
+                                    a: { a: 0, k: [0, 0] },
+                                    s: { a: 0, k: [100, 100] },
+                                    r: { a: 0, k: 0 },
+                                    o: { a: 0, k: 100 },
+                                    sk: { a: 0, k: 0 },
+                                    sa: { a: 0, k: 0 },
+                                    nm: "Transform"
+                                  }
+                                ],
+                                nm: "Group 1",
+                                bm: 0,
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.833], y: [0.833] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 30,
+                                      s: [0]
+                                    },
+                                    { t: 115, s: [100] }
+                                  ]
+                                },
+                                e: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.833], y: [0.833] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 20,
+                                      s: [0]
+                                    },
+                                    { t: 105, s: [100] }
+                                  ]
+                                },
+                                o: { a: 0, k: 0 },
+                                m: 1,
+                                nm: "Trim Paths 1",
+                                hd: false
+                              }
+                            ],
+                            ip: 0,
+                            op: 1800,
+                            st: 0,
+                            bm: 0
+                          },
+                          {
+                            ddd: 0,
+                            ind: 4,
+                            ty: 4,
+                            nm: "Warstwa 6 Outlines",
+                            sr: 1,
+                            ks: {
+                              o: { a: 0, k: 100 },
+                              r: { a: 0, k: 0 },
+                              p: { a: 0, k: [24, 24.565, 0] },
+                              a: { a: 0, k: [26.937, 22.824, 0] },
+                              s: { a: 0, k: [100, 100, 100] }
+                            },
+                            ao: 0,
+                            shapes: [
+                              {
+                                ty: "gr",
+                                it: [
+                                  {
+                                    ind: 0,
+                                    ty: "sh",
+                                    ks: {
+                                      a: 0,
+                                      k: {
+                                        i: [
+                                          [0, 0],
+                                          [5.409, 1.996],
+                                          [0, 0],
+                                          [5.744, -2.12],
+                                          [-7.652, -7.881],
+                                          [0, 0],
+                                          [-2.856, 2.641]
+                                        ],
+                                        o: [
+                                          [7.652, -7.881],
+                                          [-5.744, -2.12],
+                                          [0, 0],
+                                          [-5.409, 1.996],
+                                          [6.091, 6.274],
+                                          [0, 0],
+                                          [0, 0]
+                                        ],
+                                        v: [
+                                          [11.785, 4.247],
+                                          [9.402, -13.204],
+                                          [0.001, -10.498],
+                                          [-9.402, -13.204],
+                                          [-11.785, 4.247],
+                                          [0.001, 15.324],
+                                          [4.823, 11.025]
+                                        ],
+                                        c: false
+                                      }
+                                    },
+                                    nm: "Path 1",
+                                    hd: false
+                                  },
+                                  {
+                                    ty: "st",
+                                    c: {
+                                      a: 0,
+                                      k: [
+                                        0.8509803921568627, 0,
+                                        0.4745098039215686, 1
+                                      ]
+                                    },
+                                    o: { a: 0, k: 100 },
+                                    w: { a: 0, k: 3 },
+                                    lc: 2,
+                                    lj: 2,
+                                    bm: 0,
+                                    nm: "Stroke 1",
+                                    hd: false
+                                  },
+                                  {
+                                    ty: "tr",
+                                    p: { a: 0, k: [26.936, 22.823] },
+                                    a: { a: 0, k: [0, 0] },
+                                    s: { a: 0, k: [100, 100] },
+                                    r: { a: 0, k: 0 },
+                                    o: { a: 0, k: 100 },
+                                    sk: { a: 0, k: 0 },
+                                    sa: { a: 0, k: 0 },
+                                    nm: "Transform"
+                                  }
+                                ],
+                                nm: "Group 1",
+                                bm: 0,
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0 },
+                                e: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.833], y: [0.833] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 20,
+                                      s: [0]
+                                    },
+                                    { t: 105, s: [100] }
+                                  ]
+                                },
+                                o: { a: 0, k: 0 },
+                                m: 1,
+                                nm: "Trim Paths 1",
+                                hd: false
+                              }
+                            ],
+                            ip: 0,
+                            op: 1800,
+                            st: 0,
+                            bm: 0
+                          }
+                        ],
+                        markers: []
+                      }}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.lottie__sUnuH
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___5I0Dh
+                      )}
+                    >
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ color: "var(--token-R_Rsn0nP9oIv)" }}
+                        >
+                          {
+                            "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"
+                          }
+                        </span>
+                      </React.Fragment>
+                    </div>
+                  </Stack__>
+                </div>
+              ) : null}
             </div>
             <DirectDialog2
               data-plasmic-name={"directDialog2"}

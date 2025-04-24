@@ -192,6 +192,9 @@
 .freeBoxunnamedGroupOfVariants_whenHaveNoReply__bb4BNCt3Kq {
   margin-bottom: 0px;
 }
+.lineClomp:global(.__wab_instance) {
+  max-width: 100%;
+}
 .coment {
   position: relative;
   width: 100%;
@@ -470,11 +473,22 @@
   max-width: 100%;
   padding: 8px;
 }
+.freeBox__z7TFc {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
 .text__yJg1C {
   width: auto;
   height: auto;
   max-width: 100%;
-  position: relative;
   text-align: center;
   white-space: pre;
 }
@@ -515,6 +529,9 @@
   margin-bottom: 30px;
   min-width: 0;
   padding: 8px;
+}
+.lineClomp2:global(.__wab_instance) {
+  max-width: 100%;
 }
 .text__lEmW5 {
   position: relative;

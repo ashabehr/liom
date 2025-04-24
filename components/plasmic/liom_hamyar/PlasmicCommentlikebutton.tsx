@@ -152,6 +152,8 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -280,6 +282,51 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
         ) {
           $steps["updateVariableForLikeCountComment"] = await $steps[
             "updateVariableForLikeCountComment"
+          ];
+        }
+
+        $steps["updateVariableForLikeCountComment2"] = true
+          ? (() => {
+              const actionArgs = {
+                args: [
+                  undefined,
+                  "https://n8n.staas.ir/webhook/social/post/like",
+                  (() => {
+                    try {
+                      return (
+                        [
+                          {
+                            postId: "1939127",
+                            type: $props.coomentLikeBool,
+                            authorization: ""
+                          }
+                        ] || ""
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                ]
+              };
+              return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                ...actionArgs.args
+              ]);
+            })()
+          : undefined;
+        if (
+          $steps["updateVariableForLikeCountComment2"] != null &&
+          typeof $steps["updateVariableForLikeCountComment2"] === "object" &&
+          typeof $steps["updateVariableForLikeCountComment2"].then ===
+            "function"
+        ) {
+          $steps["updateVariableForLikeCountComment2"] = await $steps[
+            "updateVariableForLikeCountComment2"
           ];
         }
       }}

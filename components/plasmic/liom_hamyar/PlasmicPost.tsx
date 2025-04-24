@@ -93,6 +93,7 @@ export type PlasmicPost__ArgsType = {
   failName?: string;
   textForBottum?: string;
   linkForAction?: string;
+  title?: string;
 };
 type ArgPropType = keyof PlasmicPost__ArgsType;
 export const PlasmicPost__ArgProps = new Array<ArgPropType>(
@@ -104,12 +105,13 @@ export const PlasmicPost__ArgProps = new Array<ArgPropType>(
   "fail",
   "failName",
   "textForBottum",
-  "linkForAction"
+  "linkForAction",
+  "title"
 );
 
 export type PlasmicPost__OverridesType = {
   root?: Flex__<"div">;
-  lineClompTitel?: Flex__<typeof LineClomp>;
+  lineClompTitle?: Flex__<typeof LineClomp>;
   lineClompText?: Flex__<typeof LineClomp>;
   image3?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
@@ -129,6 +131,7 @@ export interface DefaultPostProps {
   failName?: string;
   textForBottum?: string;
   linkForAction?: string;
+  title?: string;
   postType?: SingleChoiceArg<"image" | "voise" | "video" | "jastText" | "file">;
   className?: string;
 }
@@ -197,7 +200,7 @@ function PlasmicPost__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "lineClompTitel.line",
+        path: "lineClompTitle.line",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -241,36 +244,12 @@ function PlasmicPost__RenderFunc(props: {
       )}
     >
       <LineClomp
-        data-plasmic-name={"lineClompTitel"}
-        data-plasmic-override={overrides.lineClompTitel}
-        className={classNames("__wab_instance", sty.lineClompTitel, {
-          [sty.lineClompTitelpostType_image]: hasVariant(
-            $state,
-            "postType",
-            "image"
-          ),
-          [sty.lineClompTitelpostType_jastText]: hasVariant(
-            $state,
-            "postType",
-            "jastText"
-          )
-        })}
-        more={(() => {
-          try {
-            return undefined;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return "more";
-            }
-            throw e;
-          }
-        })()}
-        numberOfLine={4}
+        data-plasmic-name={"lineClompTitle"}
+        data-plasmic-override={overrides.lineClompTitle}
+        className={classNames("__wab_instance", sty.lineClompTitle)}
+        numberOfLine={1}
         onLineChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["lineClompTitel", "line"]).apply(
+          generateStateOnChangeProp($state, ["lineClompTitle", "line"]).apply(
             null,
             eventArgs
           );
@@ -288,31 +267,19 @@ function PlasmicPost__RenderFunc(props: {
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text__nhmSs,
-            {
-              [sty.textpostType_image__nhmSs2TCWu]: hasVariant(
-                $state,
-                "postType",
-                "image"
-              ),
-              [sty.textpostType_voise__nhmSsVlsyu]: hasVariant(
-                $state,
-                "postType",
-                "voise"
-              )
-            }
+            sty.text__g7I9D
           )}
         >
           <React.Fragment>
             {(() => {
               try {
-                return $props.data;
+                return $props.title;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  return "title";
+                  return "";
                 }
                 throw e;
               }
@@ -323,7 +290,15 @@ function PlasmicPost__RenderFunc(props: {
       <LineClomp
         data-plasmic-name={"lineClompText"}
         data-plasmic-override={overrides.lineClompText}
-        className={classNames("__wab_instance", sty.lineClompText)}
+        className={classNames("__wab_instance", sty.lineClompText, {
+          [sty.lineClompTextpostType_jastText]: hasVariant(
+            $state,
+            "postType",
+            "jastText"
+          )
+        })}
+        more={true}
+        numberOfLine={4}
         onLineChange={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["lineClompText", "line"]).apply(
             null,
@@ -721,7 +696,7 @@ function PlasmicPost__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "lineClompTitel",
+    "lineClompTitle",
     "lineClompText",
     "image3",
     "img",
@@ -730,7 +705,7 @@ const PlasmicDescendants = {
     "lineClomp",
     "svg"
   ],
-  lineClompTitel: ["lineClompTitel"],
+  lineClompTitle: ["lineClompTitle"],
   lineClompText: ["lineClompText"],
   image3: ["image3", "img"],
   img: ["img"],
@@ -744,7 +719,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  lineClompTitel: typeof LineClomp;
+  lineClompTitle: typeof LineClomp;
   lineClompText: typeof LineClomp;
   image3: "div";
   img: typeof PlasmicImg__;
@@ -814,7 +789,7 @@ export const PlasmicPost = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    lineClompTitel: makeNodeComponent("lineClompTitel"),
+    lineClompTitle: makeNodeComponent("lineClompTitle"),
     lineClompText: makeNodeComponent("lineClompText"),
     image3: makeNodeComponent("image3"),
     img: makeNodeComponent("img"),

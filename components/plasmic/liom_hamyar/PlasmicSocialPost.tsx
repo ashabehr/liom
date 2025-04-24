@@ -71,6 +71,7 @@ import Like from "../../Like"; // plasmic-import: ARJf0DiYhPbe/component
 import Save from "../../Save"; // plasmic-import: _x22uBJ4ZqC9/component
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
 import Comment from "../../Comment"; // plasmic-import: Q00r5f4C3XYv/component
+import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
@@ -99,7 +100,6 @@ import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: 4NJq6
 import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: bJ7kVZQK3ovZ/icon
 import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: 2SO3BEHlRKXI/icon
 import Icon184Icon from "./icons/PlasmicIcon__Icon184"; // plasmic-import: qyxzNL8K38N5/icon
-import Icon175Icon from "./icons/PlasmicIcon__Icon175"; // plasmic-import: Lt-K75cYDcq0/icon
 import Icon176Icon from "./icons/PlasmicIcon__Icon176"; // plasmic-import: elrgas2UYaHC/icon
 
 createPlasmicElementProxy;
@@ -116,7 +116,6 @@ export const PlasmicSocialPost__ArgProps = new Array<ArgPropType>();
 export type PlasmicSocialPost__OverridesType = {
   root?: Flex__<"div">;
   headerLiom?: Flex__<typeof HeaderLiom>;
-  img?: Flex__<typeof PlasmicImg__>;
   uploudeTime?: Flex__<typeof UploudeTime>;
   popover2?: Flex__<typeof AntdPopover>;
   post?: Flex__<typeof Post>;
@@ -126,6 +125,7 @@ export type PlasmicSocialPost__OverridesType = {
   popover?: Flex__<typeof AntdPopover>;
   radioGrop?: Flex__<typeof RadioGrop>;
   comment?: Flex__<typeof Comment>;
+  reveal?: Flex__<typeof Reveal>;
   textArea?: Flex__<typeof AntdTextArea>;
   getInfo?: Flex__<typeof ApiRequest>;
   timer?: Flex__<typeof Timer>;
@@ -454,10 +454,8 @@ function PlasmicSocialPost__RenderFunc(props: {
               <div className={classNames(projectcss.all, sty.freeBox__utoeo)}>
                 <div className={classNames(projectcss.all, sty.freeBox__oUuo3)}>
                   <PlasmicImg__
-                    data-plasmic-name={"img"}
-                    data-plasmic-override={overrides.img}
                     alt={""}
-                    className={classNames(sty.img)}
+                    className={classNames(sty.img__jZmxt)}
                     displayHeight={"48px"}
                     displayMaxHeight={"none"}
                     displayMaxWidth={"100%"}
@@ -1020,6 +1018,19 @@ function PlasmicSocialPost__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                title={(() => {
+                  try {
+                    return $state.getInfo.data.result.details.post.title;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
                 video={(() => {
                   try {
                     return $state.getInfo.data.result.details.post.action;
@@ -1128,6 +1139,19 @@ function PlasmicSocialPost__RenderFunc(props: {
                     data-plasmic-override={overrides.like2}
                     className={classNames("__wab_instance", sty.like2)}
                     islike={generateStateValueProp($state, ["like2", "islike"])}
+                    islikePost={(() => {
+                      try {
+                        return $state.getInfo.data.result.details.isLiked;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()}
                     likeCountForBar={(() => {
                       try {
                         return $state.getInfo.data.result.details.likeCount;
@@ -1155,6 +1179,32 @@ function PlasmicSocialPost__RenderFunc(props: {
                         return;
                       }
                     }}
+                    postIdForLike={(() => {
+                      try {
+                        return $state.getInfo.data.result.details.post.id;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    tokenForPostLike={(() => {
+                      try {
+                        return $state.token;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
                   />
 
                   <div
@@ -1267,6 +1317,45 @@ function PlasmicSocialPost__RenderFunc(props: {
                       }
                     })()}
                     className={classNames("__wab_instance", sty.save)}
+                    isBooookMarked={(() => {
+                      try {
+                        return $state.getInfo.data.result.details.isBookmarked;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    postIdBookmark={(() => {
+                      try {
+                        return $state.getInfo.data.result.details.post.id;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    tokenbookmark={(() => {
+                      try {
+                        return $state.token;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
                   />
 
                   <div
@@ -1672,6 +1761,19 @@ function PlasmicSocialPost__RenderFunc(props: {
                             throw e;
                           }
                         })(),
+                        likeComment: (() => {
+                          try {
+                            return currentItem.isLiked;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })(),
                         mainCommentLikeCount: (() => {
                           try {
                             return currentItem.likeCount;
@@ -1890,11 +1992,24 @@ function PlasmicSocialPost__RenderFunc(props: {
                   </div>
                 ) : null}
                 <div className={classNames(projectcss.all, sty.freeBox__dnSli)}>
-                  <Icon175Icon
-                    className={classNames(projectcss.all, sty.svg__vNfKk)}
-                    role={"img"}
-                  />
-
+                  <Reveal
+                    data-plasmic-name={"reveal"}
+                    data-plasmic-override={overrides.reveal}
+                    className={classNames("__wab_instance", sty.reveal)}
+                    triggerOnce={true}
+                  >
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__siBb6)}
+                      displayHeight={"auto"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"none"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"auto"}
+                      src={"https://placekitten.com/300/200"}
+                    />
+                  </Reveal>
                   <div
                     className={classNames(projectcss.all, sty.freeBox___8LXcp)}
                     id={"focus_comment"}
@@ -2200,7 +2315,6 @@ const PlasmicDescendants = {
   root: [
     "root",
     "headerLiom",
-    "img",
     "uploudeTime",
     "popover2",
     "post",
@@ -2210,12 +2324,12 @@ const PlasmicDescendants = {
     "popover",
     "radioGrop",
     "comment",
+    "reveal",
     "textArea",
     "getInfo",
     "timer"
   ],
   headerLiom: ["headerLiom"],
-  img: ["img"],
   uploudeTime: ["uploudeTime"],
   popover2: ["popover2"],
   post: ["post"],
@@ -2225,6 +2339,7 @@ const PlasmicDescendants = {
   popover: ["popover", "radioGrop"],
   radioGrop: ["radioGrop"],
   comment: ["comment"],
+  reveal: ["reveal"],
   textArea: ["textArea"],
   getInfo: ["getInfo"],
   timer: ["timer"]
@@ -2235,7 +2350,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   headerLiom: typeof HeaderLiom;
-  img: typeof PlasmicImg__;
   uploudeTime: typeof UploudeTime;
   popover2: typeof AntdPopover;
   post: typeof Post;
@@ -2245,6 +2359,7 @@ type NodeDefaultElementType = {
   popover: typeof AntdPopover;
   radioGrop: typeof RadioGrop;
   comment: typeof Comment;
+  reveal: typeof Reveal;
   textArea: typeof AntdTextArea;
   getInfo: typeof ApiRequest;
   timer: typeof Timer;
@@ -2336,7 +2451,6 @@ export const PlasmicSocialPost = Object.assign(
   {
     // Helper components rendering sub-elements
     headerLiom: makeNodeComponent("headerLiom"),
-    img: makeNodeComponent("img"),
     uploudeTime: makeNodeComponent("uploudeTime"),
     popover2: makeNodeComponent("popover2"),
     post: makeNodeComponent("post"),
@@ -2346,6 +2460,7 @@ export const PlasmicSocialPost = Object.assign(
     popover: makeNodeComponent("popover"),
     radioGrop: makeNodeComponent("radioGrop"),
     comment: makeNodeComponent("comment"),
+    reveal: makeNodeComponent("reveal"),
     textArea: makeNodeComponent("textArea"),
     getInfo: makeNodeComponent("getInfo"),
     timer: makeNodeComponent("timer"),

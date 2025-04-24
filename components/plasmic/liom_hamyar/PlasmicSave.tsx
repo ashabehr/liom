@@ -80,9 +80,19 @@ export type PlasmicSave__VariantsArgs = {
 type VariantPropType = keyof PlasmicSave__VariantsArgs;
 export const PlasmicSave__VariantProps = new Array<VariantPropType>("click");
 
-export type PlasmicSave__ArgsType = { bokmarkcount?: string };
+export type PlasmicSave__ArgsType = {
+  bokmarkcount?: string;
+  tokenbookmark?: string;
+  postIdBookmark?: string;
+  isBooookMarked?: boolean;
+};
 type ArgPropType = keyof PlasmicSave__ArgsType;
-export const PlasmicSave__ArgProps = new Array<ArgPropType>("bokmarkcount");
+export const PlasmicSave__ArgProps = new Array<ArgPropType>(
+  "bokmarkcount",
+  "tokenbookmark",
+  "postIdBookmark",
+  "isBooookMarked"
+);
 
 export type PlasmicSave__OverridesType = {
   root?: Flex__<"div">;
@@ -92,6 +102,9 @@ export type PlasmicSave__OverridesType = {
 
 export interface DefaultSaveProps {
   bokmarkcount?: string;
+  tokenbookmark?: string;
+  postIdBookmark?: string;
+  isBooookMarked?: boolean;
   click?: SingleBooleanChoiceArg<"click">;
   className?: string;
 }
@@ -116,7 +129,9 @@ function PlasmicSave__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          isBooookMarked: false
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -133,6 +148,8 @@ function PlasmicSave__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -249,6 +266,85 @@ function PlasmicSave__RenderFunc(props: {
           typeof $steps["updateBookmarkcount"].then === "function"
         ) {
           $steps["updateBookmarkcount"] = await $steps["updateBookmarkcount"];
+        }
+
+        $steps["updateBookmarkcount2"] = $props.isBooookMarked
+          ? (() => {
+              const actionArgs = {
+                args: [
+                  undefined,
+                  "https://n8n.staas.ir/webhook/social/post/bookmark",
+                  (() => {
+                    try {
+                      return {
+                        postId: $props.postIdBookmark,
+                        type: "plsmic",
+                        subType: "plasmic",
+                        authorization: $props.tokenbookmark
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                ]
+              };
+              return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                ...actionArgs.args
+              ]);
+            })()
+          : undefined;
+        if (
+          $steps["updateBookmarkcount2"] != null &&
+          typeof $steps["updateBookmarkcount2"] === "object" &&
+          typeof $steps["updateBookmarkcount2"].then === "function"
+        ) {
+          $steps["updateBookmarkcount2"] = await $steps["updateBookmarkcount2"];
+        }
+
+        $steps["updateBookmarkcount3"] = !$props.isBooookMarked
+          ? (() => {
+              const actionArgs = {
+                args: [
+                  "POST",
+                  undefined,
+                  undefined,
+                  (() => {
+                    try {
+                      return {
+                        postId: $props.postIdBookmark,
+                        type: "plsmic",
+                        subType: "plasmic",
+                        authorization: $props.tokenbookmark
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                ]
+              };
+              return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                ...actionArgs.args
+              ]);
+            })()
+          : undefined;
+        if (
+          $steps["updateBookmarkcount3"] != null &&
+          typeof $steps["updateBookmarkcount3"] === "object" &&
+          typeof $steps["updateBookmarkcount3"].then === "function"
+        ) {
+          $steps["updateBookmarkcount3"] = await $steps["updateBookmarkcount3"];
         }
       }}
     >

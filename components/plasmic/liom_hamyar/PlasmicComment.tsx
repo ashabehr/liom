@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import Commentlikebutton from "../../Commentlikebutton"; // plasmic-import: wOOFf0E7TUt2/component
 import Reply from "../../Reply"; // plasmic-import: LqO8252FTurB/component
 import ReplyLikeButton from "../../ReplyLikeButton"; // plasmic-import: DqnrMhkRW1DX/component
@@ -112,6 +113,7 @@ export type PlasmicComment__ArgsType = {
   replyText?: string;
   mainCommentLikeCount?: string;
   replyCount?: string;
+  likeComment?: boolean;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
@@ -128,14 +130,17 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "replyImag",
   "replyText",
   "mainCommentLikeCount",
-  "replyCount"
+  "replyCount",
+  "likeComment"
 );
 
 export type PlasmicComment__OverridesType = {
   root?: Flex__<"div">;
+  lineClomp?: Flex__<typeof LineClomp>;
   coment?: Flex__<"div">;
   commentlikebutton?: Flex__<typeof Commentlikebutton>;
   commentlikebutton2?: Flex__<typeof Commentlikebutton>;
+  lineClomp2?: Flex__<typeof LineClomp>;
   replyLikeButton?: Flex__<typeof ReplyLikeButton>;
 };
 
@@ -154,6 +159,7 @@ export interface DefaultCommentProps {
   replyText?: string;
   mainCommentLikeCount?: string;
   replyCount?: string;
+  likeComment?: boolean;
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
   whenHaveReply?: SingleBooleanChoiceArg<"whenHaveReply">;
   showReply?: SingleBooleanChoiceArg<"showReply">;
@@ -186,7 +192,8 @@ function PlasmicComment__RenderFunc(props: {
         {
           tokennnn:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVjYjg4M2NkLWI3ODYtNGMzZS1iYjhiLTA5ZTgyNzVkYTk4YyIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzM5NjA2MjI2fQ.F7OWRYuvRw2zxjIXAiFCtUVG9fLGRPgvYtPpLWUsz4k",
-          commentId: "3"
+          commentId: "3",
+          likeComment: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -255,6 +262,17 @@ function PlasmicComment__RenderFunc(props: {
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           $props.unnamedGroupOfVariants
+      },
+      {
+        path: "lineClomp.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "lineClomp2[].line",
+        type: "private",
+        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -530,53 +548,75 @@ function PlasmicComment__RenderFunc(props: {
           )
         })}
       >
-        <div
-          data-plasmic-name={"coment"}
-          data-plasmic-override={overrides.coment}
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.coment,
-            {
-              [sty.comentunnamedGroupOfVariants_whenHaveNoReply]: hasVariant(
-                $state,
-                "unnamedGroupOfVariants",
-                "whenHaveNoReply"
-              ),
-              [sty.comentunnamedGroupOfVariants_whenHaveReply]: hasVariant(
-                $state,
-                "unnamedGroupOfVariants",
-                "whenHaveReply"
-              ),
-              [sty.comentwhenHaveNoReply]: hasVariant(
-                $state,
-                "whenHaveNoReply",
-                "whenHaveNoReply"
-              ),
-              [sty.comentwhenHaveReply]: hasVariant(
-                $state,
-                "whenHaveReply",
-                "whenHaveReply"
-              )
+        <LineClomp
+          data-plasmic-name={"lineClomp"}
+          data-plasmic-override={overrides.lineClomp}
+          className={classNames("__wab_instance", sty.lineClomp)}
+          more={true}
+          numberOfLine={4}
+          onLineChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["lineClomp", "line"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
             }
-          )}
+          }}
         >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.mainText;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "";
-                }
-                throw e;
+          <div
+            data-plasmic-name={"coment"}
+            data-plasmic-override={overrides.coment}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.coment,
+              {
+                [sty.comentunnamedGroupOfVariants_whenHaveNoReply]: hasVariant(
+                  $state,
+                  "unnamedGroupOfVariants",
+                  "whenHaveNoReply"
+                ),
+                [sty.comentunnamedGroupOfVariants_whenHaveReply]: hasVariant(
+                  $state,
+                  "unnamedGroupOfVariants",
+                  "whenHaveReply"
+                ),
+                [sty.comentwhenHaveNoReply]: hasVariant(
+                  $state,
+                  "whenHaveNoReply",
+                  "whenHaveNoReply"
+                ),
+                [sty.comentwhenHaveReply]: hasVariant(
+                  $state,
+                  "whenHaveReply",
+                  "whenHaveReply"
+                )
               }
-            })()}
-          </React.Fragment>
-        </div>
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.mainText;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+        </LineClomp>
       </div>
       <Commentlikebutton
         data-plasmic-name={"commentlikebutton"}
@@ -608,6 +648,19 @@ function PlasmicComment__RenderFunc(props: {
             "whenHaveReply"
           )
         })}
+        coomentLikeBool={(() => {
+          try {
+            return $props.likeComment;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return false;
+            }
+            throw e;
+          }
+        })()}
         likeCommentCount={(() => {
           try {
             return $props.mainCommentLikeCount;
@@ -899,7 +952,7 @@ function PlasmicComment__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return " در پاسخ یه";
+                          return " در پاسخ به";
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -940,13 +993,17 @@ function PlasmicComment__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.freeBox___3VbKo)}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__yJg1C
-                    )}
+                    className={classNames(projectcss.all, sty.freeBox__z7TFc)}
                   >
-                    {"Enter some text"}
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__yJg1C
+                      )}
+                    >
+                      {"Enter some text"}
+                    </div>
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__kMrO)}
@@ -963,29 +1020,52 @@ function PlasmicComment__RenderFunc(props: {
                 </div>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__kzmxn)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__lEmW5
-                  )}
+                <LineClomp
+                  data-plasmic-name={"lineClomp2"}
+                  data-plasmic-override={overrides.lineClomp2}
+                  className={classNames("__wab_instance", sty.lineClomp2)}
+                  more={true}
+                  numberOfLine={4}
+                  onLineChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "lineClomp2",
+                      __plasmic_idx_0,
+                      "line"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
                 >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return currentItem.reply.text;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "";
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__lEmW5
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return currentItem.reply.text;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </div>
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </LineClomp>
               </div>
               <Reply
                 className={classNames("__wab_instance", sty.reply__iSisW, {
@@ -1345,14 +1425,18 @@ function PlasmicComment__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "lineClomp",
     "coment",
     "commentlikebutton",
     "commentlikebutton2",
+    "lineClomp2",
     "replyLikeButton"
   ],
+  lineClomp: ["lineClomp", "coment"],
   coment: ["coment"],
   commentlikebutton: ["commentlikebutton"],
   commentlikebutton2: ["commentlikebutton2"],
+  lineClomp2: ["lineClomp2"],
   replyLikeButton: ["replyLikeButton"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1360,9 +1444,11 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  lineClomp: typeof LineClomp;
   coment: "div";
   commentlikebutton: typeof Commentlikebutton;
   commentlikebutton2: typeof Commentlikebutton;
+  lineClomp2: typeof LineClomp;
   replyLikeButton: typeof ReplyLikeButton;
 };
 
@@ -1426,9 +1512,11 @@ export const PlasmicComment = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    lineClomp: makeNodeComponent("lineClomp"),
     coment: makeNodeComponent("coment"),
     commentlikebutton: makeNodeComponent("commentlikebutton"),
     commentlikebutton2: makeNodeComponent("commentlikebutton2"),
+    lineClomp2: makeNodeComponent("lineClomp2"),
     replyLikeButton: makeNodeComponent("replyLikeButton"),
 
     // Metadata about props expected for PlasmicComment

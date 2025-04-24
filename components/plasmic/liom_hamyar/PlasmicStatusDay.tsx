@@ -630,7 +630,7 @@ function PlasmicStatusDay__RenderFunc(props: {
               icon: "\ud83d\ude41"
             }
           ],
-          vaginalBleeding: [
+          bleeding: [
             {
               value: "none",
               meaning:
@@ -686,7 +686,7 @@ function PlasmicStatusDay__RenderFunc(props: {
               icon: "\ud83d\ude42"
             },
             {
-              value: "limbSwelling",
+              value: "handFootSwelling",
               meaning:
                 "\u0648\u0631\u0645 \u062f\u0633\u062a \u0648 \u067e\u0627",
               icon: "\ud83e\uddb6\ud83d\udd90\ufe0f"
@@ -736,7 +736,7 @@ function PlasmicStatusDay__RenderFunc(props: {
               icon: "\ud83d\ude10"
             },
             {
-              value: "persistentPainful",
+              value: "persistentHeadache",
               meaning: "\u0645\u062f\u0627\u0648\u0645",
               icon: "\ud83d\ude23"
             },
@@ -747,7 +747,7 @@ function PlasmicStatusDay__RenderFunc(props: {
               icon: "\ud83e\udd15"
             }
           ],
-          feverOrChills: [
+          fever: [
             {
               value: "normalTemp",
               meaning: "\u0637\u0628\u06cc\u0639\u06cc",
@@ -766,17 +766,16 @@ function PlasmicStatusDay__RenderFunc(props: {
               icon: "\ud83e\udd76"
             },
             {
-              value: "persistentFeverOver38",
+              value: "persistentHighFever",
               meaning:
                 "\u062a\u0628 \u0645\u062f\u0627\u0648\u0645 \u0628\u06cc\u0634 \u0627\u0632 \u06f3\u06f8 \u062f\u0631\u062c\u0647",
               icon: "\ud83d\udd25"
             }
           ],
-          irregularHeartbeat: [
+          heartbeat: [
             {
-              value: "normalBeat",
-              meaning:
-                "\u0636\u0631\u0628\u0627\u0646 \u0642\u0644\u0628\u0645 \u0637\u0628\u06cc\u0639\u06cc \u0628\u0648\u062f",
+              value: "normal",
+              meaning: "\u0637\u0628\u06cc\u0639\u06cc",
               icon: "\u2764\ufe0f"
             },
             {
@@ -832,8 +831,7 @@ function PlasmicStatusDay__RenderFunc(props: {
           skinItch: [
             {
               value: "none",
-              meaning:
-                "\u0647\u06cc\u0686 \u062e\u0627\u0631\u0634 \u062e\u0627\u0635\u06cc \u0646\u062f\u0627\u0634\u062a\u0645",
+              meaning: "\u0646\u062f\u0627\u0634\u062a\u0645",
               icon: "\ud83d\ude0a"
             },
             {
@@ -849,7 +847,7 @@ function PlasmicStatusDay__RenderFunc(props: {
               icon: "\ud83d\ude23"
             },
             {
-              value: "severeItchInPalms",
+              value: "itchInPalmsAndSoles",
               meaning:
                 "\u062e\u0627\u0631\u0634 \u0634\u062f\u06cc\u062f \u062f\u0631 \u06a9\u0641 \u062f\u0633\u062a\u200c\u0647\u0627 \u06cc\u0627 \u067e\u0627\u0647\u0627",
               icon: "\ud83e\udd1a\ud83e\uddb6"
@@ -858,8 +856,7 @@ function PlasmicStatusDay__RenderFunc(props: {
           nauseaOrVomiting: [
             {
               value: "none",
-              meaning:
-                "\u0646\u0647\u060c \u0647\u06cc\u0686 \u062a\u0647\u0648\u0639\u06cc \u0646\u062f\u0627\u0634\u062a\u0645",
+              meaning: "\u0646\u062f\u0627\u0634\u062a\u0645",
               icon: "\ud83d\ude42"
             },
             {
@@ -881,8 +878,7 @@ function PlasmicStatusDay__RenderFunc(props: {
           shortnessOfBreath: [
             {
               value: "normalBreathing",
-              meaning:
-                "\u062a\u0646\u0641\u0633\u0645 \u0637\u0628\u06cc\u0639\u06cc \u0628\u0648\u062f",
+              meaning: "\u0637\u0628\u06cc\u0639\u06cc",
               icon: "\ud83d\udca8"
             },
             {
@@ -898,17 +894,16 @@ function PlasmicStatusDay__RenderFunc(props: {
               icon: "\ud83d\udca8\ud83d\udcaa"
             },
             {
-              value: "severeBreathlessnessEvenResting",
+              value: "breathlessAtRest",
               meaning:
                 "\u062a\u0646\u06af\u06cc \u0646\u0641\u0633 \u0634\u062f\u06cc\u062f \u062d\u062a\u06cc \u062f\u0631 \u062d\u0627\u0644\u062a \u0627\u0633\u062a\u0631\u0627\u062d\u062a",
               icon: "\ud83d\ude30"
             }
           ],
-          dizzinessOrFainting: [
+          dizziness: [
             {
               value: "none",
-              meaning:
-                "\u0647\u06cc\u0686 \u0633\u0631\u06af\u06cc\u062c\u0647\u200c\u0627\u06cc \u0646\u062f\u0627\u0634\u062a\u0645",
+              meaning: "\u0646\u062f\u0627\u0634\u062a\u0645",
               icon: "\ud83d\ude42"
             },
             {
@@ -2185,7 +2180,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return [$state.inDay.vaginalBleeding] || [];
+              return [$state.inDay.bleeding] || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2207,7 +2202,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         path: "healthStatus",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "pregnancy"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "period"
       },
       {
         path: "color3.list",
@@ -2316,7 +2311,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return [$state.inDay.feverOrChills] || [];
+              return [$state.inDay.fever] || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2341,7 +2336,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return [$state.inDay.irregularHeartbeat] || [];
+              return [$state.inDay.heartbeat] || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2366,7 +2361,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return [$state.inDay.vaginalBleeding] || [];
+              return [$state.inDay.urination] || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2391,7 +2386,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return [$state.inDay.vaginalBleeding] || [];
+              return [$state.inDay.skinItch] || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2416,7 +2411,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return [$state.inDay.vaginalBleeding] || [];
+              return [$state.inDay.nauseaOrVomiting] || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2441,7 +2436,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return [$state.inDay.vaginalBleeding] || [];
+              return [$state.inDay.shortnessOfBreath] || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2466,7 +2461,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return [$state.inDay.vaginalBleeding] || [];
+              return [$state.inDay.dizziness] || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2483,6 +2478,78 @@ function PlasmicStatusDay__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "bleeding",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "backPain",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "swelling",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "blurredVision",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "fever",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "heartbeat",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "urination",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "skinItch",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "nauseaOrVomiting",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "shortnessOfBreath",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "dizziness",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "headache",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -4456,7 +4523,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         )}
                       >
                         {
-                          "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u06cc\u0627 \u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc \u0648\u0627\u0698\u06cc\u0646\u0627\u0644"
+                          "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u06cc\u0627 \u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc"
                         }
                       </div>
                       <Embed
@@ -4472,7 +4539,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         data-plasmic-override={overrides.color2}
                         beforList={(() => {
                           try {
-                            return $state.signs.vaginalBleeding;
+                            return $state.signs.bleeding;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -5214,7 +5281,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         data-plasmic-override={overrides.color7}
                         beforList={(() => {
                           try {
-                            return $state.signs.feverOrChills;
+                            return $state.signs.fever;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -5364,7 +5431,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         data-plasmic-override={overrides.color8}
                         beforList={(() => {
                           try {
-                            return $state.signs.irregularHeartbeat;
+                            return $state.signs.heartbeat;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -5497,9 +5564,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           sty.text__rSTz
                         )}
                       >
-                        {
-                          "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u06cc\u0627 \u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc \u0648\u0627\u0698\u06cc\u0646\u0627\u0644"
-                        }
+                        {"\u0627\u062f\u0631\u0627\u0631"}
                       </div>
                       <Embed
                         className={classNames(
@@ -5514,7 +5579,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         data-plasmic-override={overrides.color9}
                         beforList={(() => {
                           try {
-                            return $state.signs.vaginalBleeding;
+                            return $state.signs.urination;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -5647,9 +5712,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           sty.text__tBqUt
                         )}
                       >
-                        {
-                          "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u06cc\u0627 \u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc \u0648\u0627\u0698\u06cc\u0646\u0627\u0644"
-                        }
+                        {"\u062e\u0627\u0631\u0634 \u067e\u0648\u0633\u062a"}
                       </div>
                       <Embed
                         className={classNames(
@@ -5664,7 +5727,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         data-plasmic-override={overrides.color10}
                         beforList={(() => {
                           try {
-                            return $state.signs.vaginalBleeding;
+                            return $state.signs.skinItch;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -5798,7 +5861,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         )}
                       >
                         {
-                          "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u06cc\u0627 \u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc \u0648\u0627\u0698\u06cc\u0646\u0627\u0644"
+                          "\u062a\u0647\u0648\u0639 \u06cc\u0627 \u0627\u0633\u062a\u0641\u0631\u0627\u063a"
                         }
                       </div>
                       <Embed
@@ -5814,7 +5877,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         data-plasmic-override={overrides.color11}
                         beforList={(() => {
                           try {
-                            return $state.signs.vaginalBleeding;
+                            return $state.signs.nauseaOrVomiting;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -5899,7 +5962,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         ])}
                         shape={(() => {
                           try {
-                            return "rectangle";
+                            return "circle";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -5947,9 +6010,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           sty.text__tbeGg
                         )}
                       >
-                        {
-                          "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u06cc\u0627 \u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc \u0648\u0627\u0698\u06cc\u0646\u0627\u0644"
-                        }
+                        {"\u062a\u0646\u06af\u06cc \u0646\u0641\u0633"}
                       </div>
                       <Embed
                         className={classNames(
@@ -5964,7 +6025,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         data-plasmic-override={overrides.color12}
                         beforList={(() => {
                           try {
-                            return $state.signs.vaginalBleeding;
+                            return $state.signs.shortnessOfBreath;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -6097,9 +6158,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           sty.text__k2TI2
                         )}
                       >
-                        {
-                          "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u06cc\u0627 \u0644\u06a9\u0647\u200c\u0628\u06cc\u0646\u06cc \u0648\u0627\u0698\u06cc\u0646\u0627\u0644"
-                        }
+                        {"\u0633\u0631\u06af\u06cc\u062c\u0647"}
                       </div>
                       <Embed
                         className={classNames(
@@ -6114,7 +6173,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         data-plasmic-override={overrides.color13}
                         beforList={(() => {
                           try {
-                            return $state.signs.vaginalBleeding;
+                            return $state.signs.dizziness;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -7767,7 +7826,21 @@ function PlasmicStatusDay__RenderFunc(props: {
                                             todo_list: $state.todolist,
                                             medicine: $state.selectedMedicine,
                                             sex: $state.sex.list[0],
-                                            memory: $state.memory.value
+                                            memory: $state.memory.value,
+                                            bleeding: $state.bleeding,
+                                            backPain: $state.backPain,
+                                            swelling: $state.swelling,
+                                            blurredVision: $state.blurredVision,
+                                            fever: $state.fever,
+                                            heartbeate: $state.heartbeate,
+                                            urination: $state.urination,
+                                            skinItch: $state.skinItch,
+                                            nauseaOrVomiting:
+                                              $state.nauseaOrVomiting,
+                                            shortnessOfBreath:
+                                              $state.shortnessOfBreath,
+                                            dizziness: $state.dizziness,
+                                            headache: $state.headache
                                           };
                                           const cleaned = {};
                                           for (const [
@@ -11507,7 +11580,23 @@ function PlasmicStatusDay__RenderFunc(props: {
               $steps["invokeGlobalAction"] = true
                 ? (() => {
                     const actionArgs = {
-                      args: [undefined, "https://n8n.staas.ir/webhook/userInfo"]
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/userInfo",
+                        (() => {
+                          try {
+                            return { token: $ctx.query.token };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
                     };
                     return $globalActions["Fragment.apiRequest"]?.apply(null, [
                       ...actionArgs.args
@@ -11521,6 +11610,39 @@ function PlasmicStatusDay__RenderFunc(props: {
               ) {
                 $steps["invokeGlobalAction"] = await $steps[
                   "invokeGlobalAction"
+                ];
+              }
+
+              $steps["updateHealthStatus"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["healthStatus"]
+                      },
+                      operation: 0,
+                      value:
+                        $steps.invokeGlobalAction.data?.[0]?.result?.user
+                          ?.healthStatus
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateHealthStatus"] != null &&
+                typeof $steps["updateHealthStatus"] === "object" &&
+                typeof $steps["updateHealthStatus"].then === "function"
+              ) {
+                $steps["updateHealthStatus"] = await $steps[
+                  "updateHealthStatus"
                 ];
               }
             }}
