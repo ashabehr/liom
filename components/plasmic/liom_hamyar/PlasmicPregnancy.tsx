@@ -6278,8 +6278,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   case "chatBot":
                                                     var link =
                                                       "https://tools.liom.app/chat-bot/?origin_user_id=" +
-                                                      $state?.user?.[0]
-                                                        ?.userId +
+                                                      $ctx.query.userId +
                                                       "&topic=pregnancyWeek" +
                                                       $state.weeksPregnant;
                                                     window.FlutterChannel.postMessage(
@@ -25354,7 +25353,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 try {
                   return (
                     $state.user[0].userId ==
-                    "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                      "4ddd1fab-100c-49f0-b843-e70bff8add34" && false
                   );
                 } catch (e) {
                   if (
