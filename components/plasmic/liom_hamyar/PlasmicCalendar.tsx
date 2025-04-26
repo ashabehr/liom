@@ -1842,7 +1842,8 @@ function PlasmicCalendar__RenderFunc(props: {
                       },
                       operation: 0,
                       value:
-                        $steps.userinfo?.data.result.userStatus.periodStatus
+                        $steps.userinfo?.data?.result?.userStatus
+                          ?.periodStatus || ""
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
