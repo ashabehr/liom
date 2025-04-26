@@ -62,6 +62,7 @@ import {
 import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -81,7 +82,9 @@ import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; 
 import Icon190Icon from "./icons/PlasmicIcon__Icon190"; // plasmic-import: tsFhlLw3Wre3/icon
 import Icon193Icon from "./icons/PlasmicIcon__Icon193"; // plasmic-import: mQViEY5IKL9R/icon
 import Icon194Icon from "./icons/PlasmicIcon__Icon194"; // plasmic-import: uU66A14xTk1C/icon
+import Icon226Icon from "./icons/PlasmicIcon__Icon226"; // plasmic-import: i72W_8jC8xCg/icon
 import Icon187Icon from "./icons/PlasmicIcon__Icon187"; // plasmic-import: TGEaylyFP26z/icon
+import Icon157Icon from "./icons/PlasmicIcon__Icon157"; // plasmic-import: pYMHtMPOTSpB/icon
 
 createPlasmicElementProxy;
 
@@ -112,6 +115,9 @@ export type PlasmicMainHeader__OverridesType = {
   root?: Flex__<"div">;
   drawer?: Flex__<typeof AntdDrawer>;
   button?: Flex__<typeof Button>;
+  modal?: Flex__<typeof AntdModal>;
+  button2?: Flex__<typeof Button>;
+  button3?: Flex__<typeof Button>;
 };
 
 export interface DefaultMainHeaderProps {
@@ -145,45 +151,7 @@ function PlasmicMainHeader__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          userinfo: {
-            mobile: false,
-            username: "guest_3DiroEaKCW",
-            name: "jjjj",
-            last_time: {
-              year: 2025,
-              month: 2,
-              day: 9,
-              hour: 0,
-              minute: 0,
-              second: 0,
-              nanosecond: 0,
-              timeZoneOffsetSeconds: 0
-            },
-            cycle: 20,
-            length: 5,
-            image: "https://liom-app.ir/data/profile/default.png",
-            biorhythm: {
-              date: "2025-03-05T05:32:07.747Z",
-              advice:
-                "- \u0628\u0647 \u06a9\u0633\u06cc \u06a9\u0647 \u062e\u06cc\u0644\u06cc \u062f\u0648\u0633\u062a\u0634 \u062f\u0627\u0631\u06cc \u0632\u0646\u06af \u0628\u0632\u0646 \u06cc\u0627 \u067e\u06cc\u0627\u0645 \u0628\u062f\u0647.\n- \u0627\u06af\u0647 \u0627\u0645\u0631\u0648\u0632 \u0627\u062d\u0633\u0627\u0633 \u0628\u06cc \u062d\u0627\u0644\u06cc \u0648 \u06a9\u0633\u0627\u0644\u062a \u062f\u0627\u0631\u06cc \u0648 \u062f\u0644\u062a \u0646\u0645\u06cc\u062e\u0648\u0627\u062f \u0641\u0639\u0627\u0644\u06cc\u062a \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0627\u0634\u06a9\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc \u0645\u062f\u06cc\u062a\u06cc\u0634\u0646 \u06a9\u0646\u06cc \u062a\u0627 \u0627\u062d\u0633\u0627\u0633 \u062e\u0648\u0628\u06cc \u067e\u06cc\u062f\u0627 \u06a9\u0646\u06cc.\n- \u0627\u0645\u0631\u0648\u0632 \u0632\u0645\u0627\u0646 \u062e\u0648\u0628\u06cc \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u0648 \u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u06a9\u0631\u062f\u0646\u0647.\n",
-              avg: 13,
-              physical: -100,
-              emotional: 43,
-              intellectual: 95
-            },
-            id: "ee975e9c-19dd-42fc-b7d7-8822f621b4f8",
-            healthStatus: "period",
-            birthDate: {
-              year: 2002,
-              month: 1,
-              day: 7,
-              hour: 0,
-              minute: 0,
-              second: 0,
-              nanosecond: 0,
-              timeZoneOffsetSeconds: 0
-            }
-          },
+          userinfo: {},
           token:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyYWRlNjBlLWYyZTEtNDIwNi05NzNiLTIwNDYzYjhlM2FmNCIsImlhdCI6MTczODgzNzg3Nn0.iaZlGzwVEN5P0kQMgdTy2sNsBIbJai8WAG1sSDhqpL4"
         },
@@ -248,6 +216,24 @@ function PlasmicMainHeader__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ["line", "yellow"]
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
       }
     ],
     [$props, $ctx, $refs]
@@ -755,136 +741,274 @@ function PlasmicMainHeader__RenderFunc(props: {
           </div>
         }
       >
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__b3Xdd)}
-        >
-          <div
-            className={classNames(projectcss.all, sty.freeBox__v9VFd)}
-            onClick={async event => {
-              const $steps = {};
+        <div className={classNames(projectcss.all, sty.freeBox__kyVHq)}>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__b3Xdd)}
+          >
+            <div
+              className={classNames(projectcss.all, sty.freeBox__v9VFd)}
+              onClick={async event => {
+                const $steps = {};
 
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return window.open("/shop", "_self");
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return window.open("/shop", "_self");
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
 
-              $steps["invokeGlobalAction"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        "POST",
-                        "https://api.liom.app/service/log",
-                        undefined,
-                        (() => {
-                          try {
-                            return {
-                              userId: JSON.parse(
-                                window.localStorage.getItem("userinfo")
-                              ).user.id,
-                              pageName: "calendar",
-                              action: "GoToShop",
-                              extraData: {}
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })(),
-                        (() => {
-                          try {
-                            return {
-                              headers: {
-                                "Content-Type": "application/json",
-                                Authorization:
-                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                $steps["invokeGlobalAction"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://api.liom.app/service/log",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                userId: JSON.parse(
+                                  window.localStorage.getItem("userinfo")
+                                ).user.id,
+                                pageName: "calendar",
+                                action: "GoToShop",
+                                extraData: {}
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
                               }
-                            };
+                              throw e;
+                            }
+                          })(),
+                          (() => {
+                            try {
+                              return {
+                                headers: {
+                                  "Content-Type": "application/json",
+                                  Authorization:
+                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
+
+                $steps["updateDopen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["dopen"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDopen"] != null &&
+                  typeof $steps["updateDopen"] === "object" &&
+                  typeof $steps["updateDopen"].then === "function"
+                ) {
+                  $steps["updateDopen"] = await $steps["updateDopen"];
+                }
+              }}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__xcm9E)}
+              >
+                <Icon188Icon
+                  className={classNames(projectcss.all, sty.svg__jw7Zc)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__rt55J
+                  )}
+                >
+                  {
+                    "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0633\u0644\u0627\u0645\u062a"
+                  }
+                </div>
+              </Stack__>
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={generateStateValueProp($state, ["button", "color"])}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                size={"minimal"}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__pjbda
+                  )}
+                >
+                  {"\u062e\u0631\u06cc\u062f"}
+                </div>
+              </Button>
+            </div>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__uiHmz)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["goToPage"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return `/status-day?userId=${$props.userinfo.id}`;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return undefined;
+                              return `/status-day`;
                             }
                             throw e;
                           }
                         })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
-              ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
-              }
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
 
-              $steps["updateDopen"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["dopen"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
+                $steps["updateDopen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["dopen"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
 
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateDopen"] != null &&
-                typeof $steps["updateDopen"] === "object" &&
-                typeof $steps["updateDopen"].then === "function"
-              ) {
-                $steps["updateDopen"] = await $steps["updateDopen"];
-              }
-            }}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__xcm9E)}
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDopen"] != null &&
+                  typeof $steps["updateDopen"] === "object" &&
+                  typeof $steps["updateDopen"].then === "function"
+                ) {
+                  $steps["updateDopen"] = await $steps["updateDopen"];
+                }
+              }}
             >
-              <Icon188Icon
-                className={classNames(projectcss.all, sty.svg__jw7Zc)}
+              <Icon189Icon
+                className={classNames(projectcss.all, sty.svg__hSoM5)}
                 role={"img"}
               />
 
@@ -892,22 +1016,541 @@ function PlasmicMainHeader__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__rt55J
+                  sty.text__tsCgJ
                 )}
               >
                 {
-                  "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0633\u0644\u0627\u0645\u062a"
+                  "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
+                }
+              </div>
+              <ChevronLeftIcon
+                className={classNames(projectcss.all, sty.svg___3OeW0)}
+                role={"img"}
+              />
+            </Stack__>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__nngrk)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["goToPage"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return `/Signs-page?token=${$props.token}`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return `/Signs-page`;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+
+                $steps["updateDopen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["dopen"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDopen"] != null &&
+                  typeof $steps["updateDopen"] === "object" &&
+                  typeof $steps["updateDopen"].then === "function"
+                ) {
+                  $steps["updateDopen"] = await $steps["updateDopen"];
+                }
+              }}
+            >
+              <Icon190Icon
+                className={classNames(projectcss.all, sty.svg__yq9O)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__nh9B5
+                )}
+              >
+                {
+                  "\u0646\u0634\u0627\u0646\u0647\u200c\u0647\u0627\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc"
+                }
+              </div>
+              <ChevronLeftIcon
+                className={classNames(projectcss.all, sty.svg__yasxJ)}
+                role={"img"}
+              />
+            </Stack__>
+            <Embed
+              className={classNames("__wab_instance", sty.embedHtml__xr84P)}
+              code={"<hr></hr>"}
+            />
+
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__pk8S)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["goToAboutUs"] = true
+                  ? (() => {
+                      const actionArgs = { destination: `/about-us` };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToAboutUs"] != null &&
+                  typeof $steps["goToAboutUs"] === "object" &&
+                  typeof $steps["goToAboutUs"].then === "function"
+                ) {
+                  $steps["goToAboutUs"] = await $steps["goToAboutUs"];
+                }
+
+                $steps["updateDopen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["dopen"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDopen"] != null &&
+                  typeof $steps["updateDopen"] === "object" &&
+                  typeof $steps["updateDopen"].then === "function"
+                ) {
+                  $steps["updateDopen"] = await $steps["updateDopen"];
+                }
+              }}
+            >
+              <Icon193Icon
+                className={classNames(projectcss.all, sty.svg__f8NU)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___1IMnQ
+                )}
+              >
+                {"\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
+              </div>
+              <ChevronLeftIcon
+                className={classNames(projectcss.all, sty.svg__v0Is6)}
+                role={"img"}
+              />
+            </Stack__>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__sLwd)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["goToContactUs"] = true
+                  ? (() => {
+                      const actionArgs = { destination: `/contact-us` };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToContactUs"] != null &&
+                  typeof $steps["goToContactUs"] === "object" &&
+                  typeof $steps["goToContactUs"].then === "function"
+                ) {
+                  $steps["goToContactUs"] = await $steps["goToContactUs"];
+                }
+
+                $steps["updateDopen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["dopen"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDopen"] != null &&
+                  typeof $steps["updateDopen"] === "object" &&
+                  typeof $steps["updateDopen"].then === "function"
+                ) {
+                  $steps["updateDopen"] = await $steps["updateDopen"];
+                }
+              }}
+            >
+              <Icon194Icon
+                className={classNames(projectcss.all, sty.svg__f53AR)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__xkR9L
+                )}
+              >
+                {
+                  "\u062a\u0645\u0627\u0633 \u0628\u0627 \u0645\u0627 \u0648 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc"
+                }
+              </div>
+              <ChevronLeftIcon
+                className={classNames(projectcss.all, sty.svg__qoZqU)}
+                role={"img"}
+              />
+            </Stack__>
+          </Stack__>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__yGyS)}
+          >
+            <Embed
+              className={classNames("__wab_instance", sty.embedHtml___3Onig)}
+              code={"<hr></hr>"}
+            />
+
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox___0Wkzo)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateDopen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["dopen"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDopen"] != null &&
+                  typeof $steps["updateDopen"] === "object" &&
+                  typeof $steps["updateDopen"].then === "function"
+                ) {
+                  $steps["updateDopen"] = await $steps["updateDopen"];
+                }
+
+                $steps["updateModalOpen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["modal", "open"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateModalOpen"] != null &&
+                  typeof $steps["updateModalOpen"] === "object" &&
+                  typeof $steps["updateModalOpen"].then === "function"
+                ) {
+                  $steps["updateModalOpen"] = await $steps["updateModalOpen"];
+                }
+              }}
+            >
+              <Icon226Icon
+                className={classNames(projectcss.all, sty.svg__zvo7P)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__eMuU
+                )}
+              >
+                {
+                  "\u062e\u0631\u0648\u062c \u0627\u0632 \u062d\u0633\u0627\u0628"
                 }
               </div>
             </Stack__>
+          </Stack__>
+        </div>
+      </AntdDrawer>
+      <AntdModal
+        data-plasmic-name={"modal"}
+        data-plasmic-override={overrides.modal}
+        className={classNames("__wab_instance", sty.modal)}
+        defaultStylesClassName={classNames(
+          projectcss.root_reset,
+          projectcss.plasmic_default_styles,
+          projectcss.plasmic_mixins,
+          projectcss.plasmic_tokens,
+          plasmic_antd_5_hostless_css.plasmic_tokens,
+          plasmic_plasmic_rich_components_css.plasmic_tokens
+        )}
+        hideFooter={true}
+        maskClosable={true}
+        modalScopeClassName={sty["modal__modal"]}
+        onOpenChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["modal", "open"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        open={generateStateValueProp($state, ["modal", "open"])}
+        title={
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__wmghd)}
+          >
+            <Icon157Icon
+              className={classNames(projectcss.all, sty.svg__bK9T)}
+              role={"img"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__i3NoB
+              )}
+            >
+              {"\u062e\u0631\u0648\u062c \u0627\u0632 \u062d\u0633\u0627\u0628"}
+            </div>
+          </Stack__>
+        }
+        trigger={null}
+      >
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__ixvfL)}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text___6Bs4D
+            )}
+          >
+            {
+              "\u0627\u0632 \u062e\u0627\u0631\u062c \u0634\u062f\u0646 \u0627\u0632 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u062e\u0648\u062f \u0645\u0637\u0645\u0626\u0646 \u0647\u0633\u062a\u06cc\u062f\u061f"
+            }
+          </div>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__tFs5S)}
+          >
             <Button
-              data-plasmic-name={"button"}
-              data-plasmic-override={overrides.button}
-              className={classNames("__wab_instance", sty.button)}
-              color={generateStateValueProp($state, ["button", "color"])}
+              data-plasmic-name={"button2"}
+              data-plasmic-override={overrides.button2}
+              className={classNames("__wab_instance", sty.button2)}
+              color={generateStateValueProp($state, ["button2", "color"])}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateModalOpen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["modal", "open"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateModalOpen"] != null &&
+                  typeof $steps["updateModalOpen"] === "object" &&
+                  typeof $steps["updateModalOpen"].then === "function"
+                ) {
+                  $steps["updateModalOpen"] = await $steps["updateModalOpen"];
+                }
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            window.localStorage.removeItem("loginInfo");
+                            return (window.location.href = "/login");
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
               onColorChange={async (...eventArgs: any) => {
                 ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "color"])(
+                  generateStateOnChangeProp($state, ["button2", "color"])(
                     eventArgs[0]
                   );
                 }).apply(null, eventArgs);
@@ -920,392 +1563,101 @@ function PlasmicMainHeader__RenderFunc(props: {
                   return;
                 }
               }}
-              size={"minimal"}
+              size={"compact"}
             >
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__pjbda
+                  sty.text__yotZi
                 )}
               >
-                {"\u062e\u0631\u06cc\u062f"}
+                {"\u062e\u0631\u0648\u062c"}
               </div>
             </Button>
-          </div>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__uiHmz)}
-            onClick={async event => {
-              const $steps = {};
+            <Button
+              data-plasmic-name={"button3"}
+              data-plasmic-override={overrides.button3}
+              className={classNames("__wab_instance", sty.button3)}
+              color={generateStateValueProp($state, ["button3", "color"])}
+              onClick={async event => {
+                const $steps = {};
 
-              $steps["goToPage"] = true
-                ? (() => {
-                    const actionArgs = {
-                      destination: (() => {
-                        try {
-                          return `/status-day?userId=${$props.userinfo.id}`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return `/status-day`;
-                          }
-                          throw e;
+                $steps["updateModalOpen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["modal", "open"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
                         }
-                      })()
-                    };
-                    return (({ destination }) => {
-                      if (
-                        typeof destination === "string" &&
-                        destination.startsWith("#")
-                      ) {
-                        document
-                          .getElementById(destination.substr(1))
-                          .scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        __nextRouter?.push(destination);
-                      }
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["goToPage"] != null &&
-                typeof $steps["goToPage"] === "object" &&
-                typeof $steps["goToPage"].then === "function"
-              ) {
-                $steps["goToPage"] = await $steps["goToPage"];
-              }
+                        const { objRoot, variablePath } = variable;
 
-              $steps["updateDopen"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["dopen"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateModalOpen"] != null &&
+                  typeof $steps["updateModalOpen"] === "object" &&
+                  typeof $steps["updateModalOpen"].then === "function"
+                ) {
+                  $steps["updateModalOpen"] = await $steps["updateModalOpen"];
+                }
+              }}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button3", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
 
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateDopen"] != null &&
-                typeof $steps["updateDopen"] === "object" &&
-                typeof $steps["updateDopen"].then === "function"
-              ) {
-                $steps["updateDopen"] = await $steps["updateDopen"];
-              }
-            }}
-          >
-            <Icon189Icon
-              className={classNames(projectcss.all, sty.svg__hSoM5)}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__tsCgJ
-              )}
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              size={"compact"}
             >
-              {
-                "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
-              }
-            </div>
-            <ChevronLeftIcon
-              className={classNames(projectcss.all, sty.svg___3OeW0)}
-              role={"img"}
-            />
-          </Stack__>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__nngrk)}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["goToPage"] = true
-                ? (() => {
-                    const actionArgs = {
-                      destination: (() => {
-                        try {
-                          return `/Signs-page?token=${$props.token}`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return `/Signs-page`;
-                          }
-                          throw e;
-                        }
-                      })()
-                    };
-                    return (({ destination }) => {
-                      if (
-                        typeof destination === "string" &&
-                        destination.startsWith("#")
-                      ) {
-                        document
-                          .getElementById(destination.substr(1))
-                          .scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        __nextRouter?.push(destination);
-                      }
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["goToPage"] != null &&
-                typeof $steps["goToPage"] === "object" &&
-                typeof $steps["goToPage"].then === "function"
-              ) {
-                $steps["goToPage"] = await $steps["goToPage"];
-              }
-
-              $steps["updateDopen"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["dopen"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateDopen"] != null &&
-                typeof $steps["updateDopen"] === "object" &&
-                typeof $steps["updateDopen"].then === "function"
-              ) {
-                $steps["updateDopen"] = await $steps["updateDopen"];
-              }
-            }}
-          >
-            <Icon190Icon
-              className={classNames(projectcss.all, sty.svg__yq9O)}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__nh9B5
-              )}
-            >
-              {
-                "\u0646\u0634\u0627\u0646\u0647\u200c\u0647\u0627\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc"
-              }
-            </div>
-            <ChevronLeftIcon
-              className={classNames(projectcss.all, sty.svg__yasxJ)}
-              role={"img"}
-            />
-          </Stack__>
-          <Embed
-            className={classNames("__wab_instance", sty.embedHtml__xr84P)}
-            code={"<hr></hr>"}
-          />
-
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__pk8S)}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["goToAboutUs"] = true
-                ? (() => {
-                    const actionArgs = { destination: `/about-us` };
-                    return (({ destination }) => {
-                      if (
-                        typeof destination === "string" &&
-                        destination.startsWith("#")
-                      ) {
-                        document
-                          .getElementById(destination.substr(1))
-                          .scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        __nextRouter?.push(destination);
-                      }
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["goToAboutUs"] != null &&
-                typeof $steps["goToAboutUs"] === "object" &&
-                typeof $steps["goToAboutUs"].then === "function"
-              ) {
-                $steps["goToAboutUs"] = await $steps["goToAboutUs"];
-              }
-
-              $steps["updateDopen"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["dopen"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateDopen"] != null &&
-                typeof $steps["updateDopen"] === "object" &&
-                typeof $steps["updateDopen"].then === "function"
-              ) {
-                $steps["updateDopen"] = await $steps["updateDopen"];
-              }
-            }}
-          >
-            <Icon193Icon
-              className={classNames(projectcss.all, sty.svg__f8NU)}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___1IMnQ
-              )}
-            >
-              {"\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
-            </div>
-            <ChevronLeftIcon
-              className={classNames(projectcss.all, sty.svg__v0Is6)}
-              role={"img"}
-            />
-          </Stack__>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__sLwd)}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["goToContactUs"] = true
-                ? (() => {
-                    const actionArgs = { destination: `/contact-us` };
-                    return (({ destination }) => {
-                      if (
-                        typeof destination === "string" &&
-                        destination.startsWith("#")
-                      ) {
-                        document
-                          .getElementById(destination.substr(1))
-                          .scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        __nextRouter?.push(destination);
-                      }
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["goToContactUs"] != null &&
-                typeof $steps["goToContactUs"] === "object" &&
-                typeof $steps["goToContactUs"].then === "function"
-              ) {
-                $steps["goToContactUs"] = await $steps["goToContactUs"];
-              }
-
-              $steps["updateDopen"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["dopen"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateDopen"] != null &&
-                typeof $steps["updateDopen"] === "object" &&
-                typeof $steps["updateDopen"].then === "function"
-              ) {
-                $steps["updateDopen"] = await $steps["updateDopen"];
-              }
-            }}
-          >
-            <Icon194Icon
-              className={classNames(projectcss.all, sty.svg__f53AR)}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__xkR9L
-              )}
-            >
-              {
-                "\u062a\u0645\u0627\u0633 \u0628\u0627 \u0645\u0627 \u0648 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc"
-              }
-            </div>
-            <ChevronLeftIcon
-              className={classNames(projectcss.all, sty.svg__qoZqU)}
-              role={"img"}
-            />
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___05X3Z
+                )}
+              >
+                {"\u062e\u06cc\u0631"}
+              </div>
+            </Button>
           </Stack__>
         </Stack__>
-      </AntdDrawer>
+      </AntdModal>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "drawer", "button"],
+  root: ["root", "drawer", "button", "modal", "button2", "button3"],
   drawer: ["drawer", "button"],
-  button: ["button"]
+  button: ["button"],
+  modal: ["modal", "button2", "button3"],
+  button2: ["button2"],
+  button3: ["button3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1314,6 +1666,9 @@ type NodeDefaultElementType = {
   root: "div";
   drawer: typeof AntdDrawer;
   button: typeof Button;
+  modal: typeof AntdModal;
+  button2: typeof Button;
+  button3: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1378,6 +1733,9 @@ export const PlasmicMainHeader = Object.assign(
     // Helper components rendering sub-elements
     drawer: makeNodeComponent("drawer"),
     button: makeNodeComponent("button"),
+    modal: makeNodeComponent("modal"),
+    button2: makeNodeComponent("button2"),
+    button3: makeNodeComponent("button3"),
 
     // Metadata about props expected for PlasmicMainHeader
     internalVariantProps: PlasmicMainHeader__VariantProps,

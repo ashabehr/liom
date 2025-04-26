@@ -126,6 +126,9 @@
 .rootshape_round_size_compact {
   padding: 6px;
 }
+.rootcolor_line_color_yellow {
+  border-color: var(--token-bASdKwkcGC-_);
+}
 .root___focusVisibleWithin {
   box-shadow: none;
   outline: none;

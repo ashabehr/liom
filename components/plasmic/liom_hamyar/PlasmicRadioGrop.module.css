@@ -6,6 +6,8 @@
   position: relative;
   background: #ffffff;
   justify-self: flex-start;
+  width: 100%;
+  min-width: 0;
   border-radius: 8px;
   padding: 8px;
   border: 1px solid #c8c7c1;
@@ -31,13 +33,14 @@
   background: var(--token-xZSjH46lB6C3);
 }
 .freeBox {
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 100%;
   justify-content: center;
   display: flex;
   flex-direction: row;
   align-items: center;
+  min-width: 0;
 }
 .slotTargetChildren {
   font-size: 16px;

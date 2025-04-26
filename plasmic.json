@@ -3283,6 +3283,11 @@
           "id": "lH7mtmG59QOT",
           "name": "Icon225Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon225.tsx"
+        },
+        {
+          "id": "i72W_8jC8xCg",
+          "name": "Icon226Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon226.tsx"
         }
       ],
       "images": [

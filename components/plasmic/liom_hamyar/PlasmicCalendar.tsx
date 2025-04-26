@@ -1406,7 +1406,20 @@ function PlasmicCalendar__RenderFunc(props: {
         path: "mainHeader.dopen",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.dopen;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "profile",
@@ -1851,19 +1864,17 @@ function PlasmicCalendar__RenderFunc(props: {
               }
 
               $steps["runCode"] = (
-                $steps.userinfo?.data?.success
-                  ? $steps.userinfo?.data?.success
-                  : false
+                $steps.userinfo?.data?.success ? true : false
               )
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          localStorage.setItem(
+                          window.localStorage.setItem(
                             "userinfo",
                             JSON.stringify($steps.userinfo?.data.result)
                           );
-                          localStorage.setItem(
+                          window.localStorage.setItem(
                             "birthDate",
                             JSON.stringify(
                               $steps.userinfo?.data.result.user.birthDate
@@ -2713,8 +2724,7 @@ function PlasmicCalendar__RenderFunc(props: {
                     const $steps = {};
 
                     $steps["goToSelfCare"] =
-                      localStorage.getItem("token") != "undefined" ||
-                      localStorage.getItem("token") != null
+                      window.localStorage.getItem("userinfo") != null
                         ? (() => {
                             const actionArgs = { destination: `/Self-care` };
                             return (({ destination }) => {
@@ -4335,32 +4345,33 @@ function PlasmicCalendar__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["updateMainHeaderDopen"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["mainHeader", "dopen"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
+                    $steps["updateMainHeaderDopen"] =
+                      window.localStorage.getItem("userinfo") != null
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["mainHeader", "dopen"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
 
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                     if (
                       $steps["updateMainHeaderDopen"] != null &&
                       typeof $steps["updateMainHeaderDopen"] === "object" &&

@@ -85,10 +85,10 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { AntdTooltip } from "@plasmicpkgs/antd5/skinny/registerTooltip";
 import Heart from "../../Heart"; // plasmic-import: OuOhJXUpgiRr/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
 import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
@@ -173,15 +173,10 @@ export type PlasmicHamyar__OverridesType = {
   button6?: Flex__<typeof Button>;
   tooltip?: Flex__<typeof AntdTooltip>;
   heart?: Flex__<typeof Heart>;
-  user?: Flex__<typeof ApiRequest>;
-  shop?: Flex__<typeof ApiRequest>;
-  advice?: Flex__<typeof ApiRequest>;
-  todo?: Flex__<typeof ApiRequest>;
   favicon?: Flex__<typeof Embed>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   section?: Flex__<"section">;
   embedHtml?: Flex__<typeof Embed>;
-  countNotif?: Flex__<typeof ApiRequest>;
   dialog?: Flex__<typeof Dialog>;
   shopDialog?: Flex__<typeof ApiRequest>;
   dialogTitle?: Flex__<typeof DialogTitle>;
@@ -296,42 +291,6 @@ function PlasmicHamyar__RenderFunc(props: {
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           hasVariant(globalVariants, "screen", "mobile") ? false : false
-      },
-      {
-        path: "user.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "user.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "user.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "shop.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "shop.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "shop.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "shopModalMobile.click",
@@ -720,24 +679,6 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "advice.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "advice.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "advice.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "modal.open",
         type: "private",
         variableType: "boolean",
@@ -795,24 +736,6 @@ function PlasmicHamyar__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "countNotif.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "countNotif.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "countNotif.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "cyclebox.textsycle",
@@ -920,24 +843,6 @@ function PlasmicHamyar__RenderFunc(props: {
               })()
       },
       {
-        path: "todo.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "todo.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "todo.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "checkbox[].isChecked",
         type: "private",
         variableType: "boolean"
@@ -986,7 +891,19 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return (() => {
+                const whiteMessages =
+                  $state.payam.find(item => item[$state.cyclebox.cycle])?.[
+                    $state.cyclebox.cycle
+                  ] || [];
+                const randomMessage =
+                  whiteMessages.length > 0
+                    ? whiteMessages[
+                        Math.floor(Math.random() * whiteMessages.length)
+                      ]
+                    : "";
+                return randomMessage;
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1606,6 +1523,18 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "advices",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "toDos",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1702,6 +1631,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                   "m"
                                 ) ||
                                 ""
+                              //   "token": (
+                              //     ($ctx?.query?.token ?? "").trim() === ""
+                              // ? new URLSearchParams(window.location.search).get("token")
+                              //       : $ctx.query.token
+                              //   ) || ""
                             };
                           } catch (e) {
                             if (
@@ -1986,6 +1920,33 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["runCode2"] = await $steps["runCode2"];
               }
 
+              $steps["variant"] =
+                $state.userdata?.result?.user?.name &&
+                !$state.userdata?.result?.userStatus?.periodStatus
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "lackOfCourseInformation",
+                        operation: 4,
+                        value: "lackOfCourseInformation"
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        $stateSet($state, vgroup, true);
+                        return true;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["variant"] != null &&
+                typeof $steps["variant"] === "object" &&
+                typeof $steps["variant"].then === "function"
+              ) {
+                $steps["variant"] = await $steps["variant"];
+              }
+
               $steps["updateLoadingPage"] = true
                 ? (() => {
                     const actionArgs = {
@@ -2099,6 +2060,203 @@ function PlasmicHamyar__RenderFunc(props: {
                 typeof $steps["updateShapData"].then === "function"
               ) {
                 $steps["updateShapData"] = await $steps["updateShapData"];
+              }
+
+              $steps["advice"] = ($steps.userdata?.data?.success ? true : false)
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/hamyar/advice",
+                        (() => {
+                          try {
+                            return {
+                              status:
+                                $state.cyclebox.cycle == "Pregnancy"
+                                  ? $state.pregnancy?.week.toString()
+                                  : $state.cyclebox.cycle,
+                              limit: 1
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["advice"] != null &&
+                typeof $steps["advice"] === "object" &&
+                typeof $steps["advice"].then === "function"
+              ) {
+                $steps["advice"] = await $steps["advice"];
+              }
+
+              $steps["updateAdvices"] = ($steps.advice?.data ? true : false)
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["advices"]
+                      },
+                      operation: 0,
+                      value: $steps.advice.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateAdvices"] != null &&
+                typeof $steps["updateAdvices"] === "object" &&
+                typeof $steps["updateAdvices"].then === "function"
+              ) {
+                $steps["updateAdvices"] = await $steps["updateAdvices"];
+              }
+
+              $steps["todo"] = ($steps.userdata?.data?.success ? true : false)
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/hamyar/todo",
+                        (() => {
+                          try {
+                            return {
+                              status: $state.cyclebox.cycle,
+                              userId: $state.userdata.result.man.id
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["todo"] != null &&
+                typeof $steps["todo"] === "object" &&
+                typeof $steps["todo"].then === "function"
+              ) {
+                $steps["todo"] = await $steps["todo"];
+              }
+
+              $steps["updateToDos"] = ($steps.todo?.data ? true : false)
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["toDos"]
+                      },
+                      operation: 0,
+                      value: $steps.todo.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateToDos"] != null &&
+                typeof $steps["updateToDos"] === "object" &&
+                typeof $steps["updateToDos"].then === "function"
+              ) {
+                $steps["updateToDos"] = await $steps["updateToDos"];
+              }
+
+              $steps["log"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://api.liom.app/service/log",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              userId: $state.userdata.result.man.id,
+                              pageName: "mainPage",
+                              action: "loadePage",
+                              extraData: {
+                                refCode: $state.userdata.result.r,
+                                mobile: $state.userdata.result.m
+                              }
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return {
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization:
+                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                              }
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["log"] != null &&
+                typeof $steps["log"] === "object" &&
+                typeof $steps["log"].then === "function"
+              ) {
+                $steps["log"] = await $steps["log"];
               }
             }}
           />
@@ -6542,7 +6700,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         <React.Fragment>
                           {(() => {
                             try {
-                              return $state.advice.data[0].doc;
+                              return $state.advices[0].doc;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -6611,7 +6769,9 @@ function PlasmicHamyar__RenderFunc(props: {
                         sty.freeBox___4OOqT
                       )}
                     >
-                      <div
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___70Fr
@@ -6682,7 +6842,7 @@ function PlasmicHamyar__RenderFunc(props: {
                             />
                           )}
                         </div>
-                      </div>
+                      </Stack__>
                       <Stack__
                         as={"div"}
                         hasGap={true}
@@ -6695,7 +6855,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                           (() => {
                             try {
-                              return $state.todo.data;
+                              return $state.toDos;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -9671,7 +9831,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 </div>
                 {(() => {
                   try {
-                    return !$state.shop.loading;
+                    return $state.shapData.success;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -10438,7 +10598,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                       {(() => {
                                         try {
                                           return (
-                                            $state.shop.data.result
+                                            $state.shapData.result
                                               .find(item => item.selected === 1)
                                               .price.toLocaleString("en-US") +
                                             " تومان "
@@ -10459,7 +10619,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                 </div>
                                 {(() => {
                                   try {
-                                    return $state.shop.data.result[
+                                    return $state.shapData.result[
                                       $state.selectedShop
                                     ].badge
                                       ? true
@@ -10491,7 +10651,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                       <React.Fragment>
                                         {(() => {
                                           try {
-                                            return $state.shop.data.result.find(
+                                            return $state.shapData.result.find(
                                               item => item.selected === 1
                                             ).badge;
                                           } catch (e) {
@@ -11058,7 +11218,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                           },
                                           operation: 0,
                                           value:
-                                            $state.shop.data.result.findIndex(
+                                            $state.shapData.result.findIndex(
                                               item => item.selected === 1
                                             )
                                         };
@@ -11103,7 +11263,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                             variablePath: ["buyId"]
                                           },
                                           operation: 0,
-                                          value: $state.shop.data.result.find(
+                                          value: $state.shapData.result.find(
                                             item => item.selected === 1
                                           ).id
                                         };
@@ -11162,15 +11322,15 @@ function PlasmicHamyar__RenderFunc(props: {
                                                     "&offCode=" +
                                                     $state.discountCode +
                                                     "&valueShop=" +
-                                                    $state.shop.data.result[
+                                                    $state.shapData.result[
                                                       $state.selectedShop
                                                     ].type +
                                                     "-" +
-                                                    $state.shop.data.result[
+                                                    $state.shapData.result[
                                                       $state.selectedShop
                                                     ].value +
                                                     "&price=" +
-                                                    $state.shop.data.result[
+                                                    $state.shapData.result[
                                                       $state.selectedShop
                                                     ].price +
                                                     "&manId=" +
@@ -11435,7 +11595,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                                 $state.subscriptionCurrentIndex
                                               ].clickitem = true;
                                               return ($state.buyId =
-                                                $state.shop.data.result[
+                                                $state.shapData.result[
                                                   $state.subscriptionCurrentIndex
                                                 ].id);
                                             })();
@@ -11483,7 +11643,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                                   $state.subscriptionCurrentIndex
                                                 ].clickitem = true;
                                                 return ($state.buyId =
-                                                  $state.shop.data.result[
+                                                  $state.shapData.result[
                                                     $state.subscriptionCurrentIndex
                                                   ].id);
                                               })();
@@ -11815,7 +11975,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                         (() => {
                           try {
-                            return $state.shop.data.result;
+                            return $state.shapData.result;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -12245,15 +12405,15 @@ function PlasmicHamyar__RenderFunc(props: {
                                         "&offCode=" +
                                         $state.discountCode +
                                         "&valueShop=" +
-                                        $state.shop.data.result[
+                                        $state.shapData.result[
                                           $state.subscriptionCurrentIndex
                                         ].type +
                                         "-" +
-                                        $state.shop.data.result[
+                                        $state.shapData.result[
                                           $state.subscriptionCurrentIndex
                                         ].value +
                                         "&price=" +
-                                        $state.shop.data.result[
+                                        $state.shapData.result[
                                           $state.subscriptionCurrentIndex
                                         ].price +
                                         "&manId=" +
@@ -12869,7 +13029,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return $state.shop.data.result[
+                                      return $state.shapData.result[
                                         $state.selectedShop
                                       ].title;
                                     } catch (e) {
@@ -12893,7 +13053,7 @@ function PlasmicHamyar__RenderFunc(props: {
                               >
                                 {(() => {
                                   try {
-                                    return $state.shop.data.result[
+                                    return $state.shapData.result[
                                       $state.selectedShop
                                     ].badge
                                       ? true
@@ -12919,7 +13079,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                     <React.Fragment>
                                       {(() => {
                                         try {
-                                          return $state.shop.data.result[
+                                          return $state.shapData.result[
                                             $state.selectedShop
                                           ].fullPrice.toLocaleString("en-US");
                                         } catch (e) {
@@ -12947,7 +13107,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                     {(() => {
                                       try {
                                         return (
-                                          $state.shop.data.result[
+                                          $state.shapData.result[
                                             $state.selectedShop
                                           ].price.toLocaleString("en-US") +
                                           " تومان "
@@ -12968,7 +13128,7 @@ function PlasmicHamyar__RenderFunc(props: {
                               </div>
                               {(() => {
                                 try {
-                                  return $state.shop.data.result[
+                                  return $state.shapData.result[
                                     $state.selectedShop
                                   ].badge
                                     ? true
@@ -13000,7 +13160,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                     <React.Fragment>
                                       {(() => {
                                         try {
-                                          return $state.shop.data.result[
+                                          return $state.shapData.result[
                                             $state.selectedShop
                                           ].badge;
                                         } catch (e) {
@@ -13540,7 +13700,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                         },
                                         operation: 0,
                                         value:
-                                          $state.shop.data.result[
+                                          $state.shapData.result[
                                             $state.selectedShop
                                           ].id
                                       };
@@ -13595,15 +13755,15 @@ function PlasmicHamyar__RenderFunc(props: {
                                                   "&offCode=" +
                                                   $state.discountCode +
                                                   "&valueShop=" +
-                                                  $state.shop.data.result[
+                                                  $state.shapData.result[
                                                     $state.selectedShop
                                                   ].type +
                                                   "-" +
-                                                  $state.shop.data.result[
+                                                  $state.shapData.result[
                                                     $state.selectedShop
                                                   ].value +
                                                   "&price=" +
-                                                  $state.shop.data.result[
+                                                  $state.shapData.result[
                                                     $state.selectedShop
                                                   ].price +
                                                   "&manId=" +
@@ -13857,7 +14017,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                               $state.subscriptionCurrentIndex
                                             ].clickitem = true;
                                             return ($state.buyId =
-                                              $state.shop.data.result[
+                                              $state.shapData.result[
                                                 $state.subscriptionCurrentIndex
                                               ].id);
                                           })();
@@ -13905,7 +14065,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                                 $state.subscriptionCurrentIndex
                                               ].clickitem = true;
                                               return ($state.buyId =
-                                                $state.shop.data.result[
+                                                $state.shapData.result[
                                                   $state.subscriptionCurrentIndex
                                                 ].id);
                                             })();
@@ -14122,669 +14282,6 @@ function PlasmicHamyar__RenderFunc(props: {
               </div>
             </div>
           ) : null}
-          <ApiRequest
-            data-plasmic-name={"user"}
-            data-plasmic-override={overrides.user}
-            body={
-              hasVariant(globalVariants, "screen", "mobile")
-                ? (() => {
-                    try {
-                      return {
-                        r: $state.r || "",
-                        m: $state.m || "",
-                        token:
-                          (($ctx?.query?.token ?? "").trim() === ""
-                            ? new URLSearchParams(window.location.search).get(
-                                "token"
-                              )
-                            : $ctx.query.token) || ""
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                : (() => {
-                    try {
-                      return {
-                        r:
-                          $ctx.query.r ||
-                          new URLSearchParams(window.location.search).get(
-                            "r"
-                          ) ||
-                          "",
-                        m:
-                          $ctx.query.m ||
-                          new URLSearchParams(window.location.search).get(
-                            "m"
-                          ) ||
-                          "",
-                        token:
-                          (($ctx?.query?.token ?? "").trim() === ""
-                            ? new URLSearchParams(window.location.search).get(
-                                "token"
-                              )
-                            : $ctx.query.token) || ""
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-            }
-            className={classNames("__wab_instance", sty.user, {
-              [sty.userlackOfCourseInformation]: hasVariant(
-                $state,
-                "lackOfCourseInformation",
-                "lackOfCourseInformation"
-              )
-            })}
-            config={{ headers: { "Content-Type": "application/json" } }}
-            errorDisplay={null}
-            loadingDisplay={null}
-            method={"POST"}
-            onError={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["user", "error"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onLoading={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["user", "loading"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["user", "data"]).apply(
-                null,
-                eventArgs
-              );
-
-              (async data => {
-                const $steps = {};
-
-                $steps["invokeGlobalAction2"] =
-                  ($state.name == "" &&
-                    $ctx.query.r != "" &&
-                    $ctx.query.m != "") ||
-                  $ctx.query.m != "3ZjitMAEm"
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            "POST",
-                            "https://api.liom.app/service/log",
-                            undefined,
-                            (() => {
-                              try {
-                                return {
-                                  userId: $state.user.data.result.man.id,
-                                  pageName: "mainPage",
-                                  action: "loadePage",
-                                  extraData: {
-                                    refCode: $state.r,
-                                    mobile: $state.m
-                                  }
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })(),
-                            {
-                              headers: {
-                                "Content-Type": "application/json",
-                                Authorization:
-                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                              }
-                            }
-                          ]
-                        };
-                        return $globalActions["Fragment.apiRequest"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                if (
-                  $steps["invokeGlobalAction2"] != null &&
-                  typeof $steps["invokeGlobalAction2"] === "object" &&
-                  typeof $steps["invokeGlobalAction2"].then === "function"
-                ) {
-                  $steps["invokeGlobalAction2"] = await $steps[
-                    "invokeGlobalAction2"
-                  ];
-                }
-
-                $steps["goToExpired"] =
-                  $state.user?.data?.success == false
-                    ? (() => {
-                        const actionArgs = { destination: `/expired` };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["goToExpired"] != null &&
-                  typeof $steps["goToExpired"] === "object" &&
-                  typeof $steps["goToExpired"].then === "function"
-                ) {
-                  $steps["goToExpired"] = await $steps["goToExpired"];
-                }
-
-                $steps["updateTokenUser"] = (
-                  $state.user.data?.success ? $state.user.data.success : false
-                )
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["tokenUser"]
-                        },
-                        operation: 0,
-                        value: $state.user.data.result.token
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateTokenUser"] != null &&
-                  typeof $steps["updateTokenUser"] === "object" &&
-                  typeof $steps["updateTokenUser"].then === "function"
-                ) {
-                  $steps["updateTokenUser"] = await $steps["updateTokenUser"];
-                }
-
-                $steps["updateName"] = (
-                  $state.user.data?.success ? $state.user.data.success : false
-                )
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["name"]
-                        },
-                        operation: 0,
-                        value: $state.user.data.result.user.name
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateName"] != null &&
-                  typeof $steps["updateName"] === "object" &&
-                  typeof $steps["updateName"].then === "function"
-                ) {
-                  $steps["updateName"] = await $steps["updateName"];
-                }
-
-                $steps["runCode"] = (
-                  $state.user.data?.success ? $state.user.data.success : false
-                )
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            localStorage.setItem("token", $state.tokenUser);
-                            localStorage.setItem(
-                              "birthDate",
-                              JSON.stringify(
-                                $state.user.data.result.man.birthDate
-                              )
-                            );
-                            $state.user.data.result["r"] = $state.r;
-                            $state.user.data.result["m"] = $state.m;
-                            return localStorage.setItem(
-                              "userinfo",
-                              JSON.stringify($state.user.data.result)
-                            );
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
-
-                $steps["updateDeleteDate"] = (
-                  $state.user.data?.result?.userStatus?.periodStatus
-                    ? true
-                    : false
-                )
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["deleteDate"]
-                        },
-                        operation: 0,
-                        value: (() => {
-                          switch (
-                            $state.user.data.result.userStatus.periodStatus
-                          ) {
-                            case null:
-                              return "";
-                            case "fertility":
-                              return $state.user.data.result.userStatus
-                                .fertilityEnd;
-                            case "pms":
-                              return $state.user.data.result.userStatus.pmsEnd;
-                            case "blood":
-                              return $state.user.data.result.userStatus
-                                .periodEnd;
-                            case "white":
-                              if (
-                                new Date(
-                                  $state.user.data.result.userStatus.fertilityStart
-                                ) > new Date()
-                              )
-                                return ($state.deleteDate =
-                                  $state.user.data.result.userStatus.fertilityStart);
-                              else
-                                return ($state.deleteDate =
-                                  $state.user.data.result.userStatus.pmsStart);
-                            default:
-                              return "-";
-                          }
-                        })()
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateDeleteDate"] != null &&
-                  typeof $steps["updateDeleteDate"] === "object" &&
-                  typeof $steps["updateDeleteDate"].then === "function"
-                ) {
-                  $steps["updateDeleteDate"] = await $steps["updateDeleteDate"];
-                }
-
-                $steps["runCode2"] =
-                  $state.user.data?.result?.user?.healthStatus?.toLowerCase() ===
-                  "pregnancy"
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return fetch(
-                                `https://n8n.staas.ir/webhook/status/?userId=${$state.user.data.result.user.id}`,
-                                {
-                                  method: "GET",
-                                  headers: {
-                                    "Content-Type": "application/json",
-                                    Authorization:
-                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                  }
-                                }
-                              )
-                                .then(response => response.json())
-                                .then(data => {
-                                  const dueDate = data?.[0]?.dueDate;
-                                  if (dueDate) {
-                                    let initialDate = new Date(dueDate);
-                                    let daysToSubtract = 280;
-                                    let resultDate = new Date(initialDate);
-                                    resultDate.setDate(
-                                      resultDate.getDate() - daysToSubtract
-                                    );
-                                    let today = new Date();
-                                    let differenceInTime = today - resultDate;
-                                    let differenceInDays = Math.floor(
-                                      differenceInTime / (1000 * 60 * 60 * 24)
-                                    );
-                                    let daysRemaining =
-                                      parseInt(280 - differenceInDays) - 1;
-                                    let weeksPregnant =
-                                      parseInt((differenceInDays + 1) / 7) === 0
-                                        ? 1
-                                        : parseInt((differenceInDays + 1) / 7) +
-                                          1;
-                                    let monthsPregnant = parseInt(
-                                      (weeksPregnant / 4)
-                                        .toString()
-                                        .substring(0, 1)
-                                    );
-                                    $state.pregnancy = {
-                                      days: daysRemaining,
-                                      week: weeksPregnant,
-                                      months: monthsPregnant
-                                    };
-                                  } else {
-                                    console.log("تاریخ زایمان در دسترس نیست.");
-                                  }
-                                })
-                                .catch(error => console.error("Error:", error));
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["runCode2"] != null &&
-                  typeof $steps["runCode2"] === "object" &&
-                  typeof $steps["runCode2"].then === "function"
-                ) {
-                  $steps["runCode2"] = await $steps["runCode2"];
-                }
-
-                $steps["updateLackOfCourseInformation"] =
-                  $state.user?.data?.result?.user?.name &&
-                  !$state.user?.data?.result?.userStatus?.periodStatus
-                    ? (() => {
-                        const actionArgs = {
-                          vgroup: "lackOfCourseInformation",
-                          operation: 4,
-                          value: "lackOfCourseInformation"
-                        };
-                        return (({ vgroup, value }) => {
-                          if (typeof value === "string") {
-                            value = [value];
-                          }
-
-                          $stateSet($state, vgroup, true);
-                          return true;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["updateLackOfCourseInformation"] != null &&
-                  typeof $steps["updateLackOfCourseInformation"] === "object" &&
-                  typeof $steps["updateLackOfCourseInformation"].then ===
-                    "function"
-                ) {
-                  $steps["updateLackOfCourseInformation"] = await $steps[
-                    "updateLackOfCourseInformation"
-                  ];
-                }
-              }).apply(null, eventArgs);
-            }}
-            url={
-              hasVariant(globalVariants, "screen", "mobile")
-                ? "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"
-                : "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"
-            }
-          >
-            <ApiRequest
-              data-plasmic-name={"shop"}
-              data-plasmic-override={overrides.shop}
-              body={(() => {
-                try {
-                  return { refCode: $state.user.data.result.man.refCode };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              className={classNames("__wab_instance", sty.shop)}
-              config={(() => {
-                try {
-                  return {
-                    headers: {
-                      "Content-Type": "application/json",
-                      Authorization: $state.user.data.result.token
-                    }
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              errorDisplay={null}
-              loadingDisplay={null}
-              method={"POST"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["shop", "error"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["shop", "loading"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["shop", "data"]).apply(
-                  null,
-                  eventArgs
-                );
-
-                (async data => {
-                  const $steps = {};
-                }).apply(null, eventArgs);
-              }}
-              url={"https://n8n.staas.ir/webhook/hamyar/shop"}
-            />
-
-            <ApiRequest
-              data-plasmic-name={"advice"}
-              data-plasmic-override={overrides.advice}
-              className={classNames("__wab_instance", sty.advice)}
-              errorDisplay={null}
-              loadingDisplay={null}
-              method={"GET"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["advice", "error"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["advice", "loading"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["advice", "data"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              params={(() => {
-                try {
-                  return {
-                    status:
-                      $state.cyclebox.cycle == "Pregnancy"
-                        ? $state.pregnancy.week.toString()
-                        : $state.cyclebox.cycle,
-                    limit: 1
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              url={"https://n8n.staas.ir/webhook/hamyar/advice"}
-            />
-
-            <ApiRequest
-              data-plasmic-name={"todo"}
-              data-plasmic-override={overrides.todo}
-              className={classNames("__wab_instance", sty.todo)}
-              errorDisplay={null}
-              loadingDisplay={null}
-              method={"GET"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["todo", "error"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["todo", "loading"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["todo", "data"]).apply(
-                  null,
-                  eventArgs
-                );
-
-                (async data => {
-                  const $steps = {};
-
-                  $steps["updateP"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["p"]
-                          },
-                          operation: 0,
-                          value: (() => {
-                            const whiteMessages =
-                              $state.payam.find(
-                                item => item[$state.cyclebox.cycle]
-                              )?.[$state.cyclebox.cycle] || [];
-                            const randomMessage =
-                              whiteMessages.length > 0
-                                ? whiteMessages[
-                                    Math.floor(
-                                      Math.random() * whiteMessages.length
-                                    )
-                                  ]
-                                : "";
-                            return randomMessage;
-                          })()
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateP"] != null &&
-                    typeof $steps["updateP"] === "object" &&
-                    typeof $steps["updateP"].then === "function"
-                  ) {
-                    $steps["updateP"] = await $steps["updateP"];
-                  }
-                }).apply(null, eventArgs);
-              }}
-              params={(() => {
-                try {
-                  return {
-                    status: $state.cyclebox.cycle,
-                    userId: $state.user.data.result.man.id
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              url={"https://n8n.staas.ir/webhook/hamyar/todo"}
-            />
-          </ApiRequest>
           <Embed
             data-plasmic-name={"favicon"}
             data-plasmic-override={overrides.favicon}
@@ -15063,49 +14560,6 @@ function PlasmicHamyar__RenderFunc(props: {
             code={
               "<!-- Hotjar Tracking Code for Site 5171830 (name missing) -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5171830,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
             }
-          />
-
-          <ApiRequest
-            data-plasmic-name={"countNotif"}
-            data-plasmic-override={overrides.countNotif}
-            body={(() => {
-              try {
-                return {
-                  userId: $state.userdata.result.man.id
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            className={classNames("__wab_instance", sty.countNotif)}
-            errorDisplay={null}
-            loadingDisplay={null}
-            method={"POST"}
-            onError={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["countNotif", "error"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onLoading={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "countNotif",
-                "loading"
-              ]).apply(null, eventArgs);
-            }}
-            onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["countNotif", "data"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            url={"https://n8n.staas.ir/webhook/hamyar/notif"}
           />
 
           <Dialog
@@ -15998,7 +15452,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                     variablePath: ["buyId"]
                                   },
                                   operation: 0,
-                                  value: $state.shop.data.result.find(
+                                  value: $state.shapData.result.find(
                                     item => item.selected === 1
                                   ).id
                                 };
@@ -16034,7 +15488,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                     variablePath: ["selectedShop"]
                                   },
                                   operation: 0,
-                                  value: $state.shop.data.result.findIndex(
+                                  value: $state.shapData.result.findIndex(
                                     item => item.selected === 1
                                   )
                                 };
@@ -16088,15 +15542,15 @@ function PlasmicHamyar__RenderFunc(props: {
                                             "&offCode=" +
                                             $state.discountCode +
                                             "&valueShop=" +
-                                            $state.shop.data.result[
+                                            $state.shapData.result[
                                               $state.selectedShop
                                             ].type +
                                             "-" +
-                                            $state.shop.data.result[
+                                            $state.shapData.result[
                                               $state.selectedShop
                                             ].value +
                                             "&price=" +
-                                            $state.shop.data.result[
+                                            $state.shapData.result[
                                               $state.selectedShop
                                             ].price +
                                             "&manId=" +
@@ -16801,15 +16255,15 @@ function PlasmicHamyar__RenderFunc(props: {
                                         "&offCode=" +
                                         $state.discountCode +
                                         "&valueShop=" +
-                                        $state.shop.data.result[
+                                        $state.shapData.result[
                                           $state.selectedShop
                                         ].type +
                                         "-" +
-                                        $state.shop.data.result[
+                                        $state.shapData.result[
                                           $state.selectedShop
                                         ].value +
                                         "&price=" +
-                                        $state.shop.data.result[
+                                        $state.shapData.result[
                                           $state.selectedShop
                                         ].price +
                                         "&manId=" +
@@ -17000,7 +16454,7 @@ function PlasmicHamyar__RenderFunc(props: {
           </Dialog>
           {(() => {
             try {
-              return $state.intro;
+              return !$state.intro;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -17043,12 +16497,16 @@ function PlasmicHamyar__RenderFunc(props: {
               src={(() => {
                 try {
                   return (() => {
-                    var urlParams = new URLSearchParams(window.location.search);
+                    var urlParams = new window.URLSearchParams(
+                      window.location.search
+                    );
                     return (
                       "https://apps.liom.app/intro/?r=" +
                       urlParams.get("r") +
                       "&m=" +
-                      urlParams.get("m")
+                      urlParams.get("m") +
+                      "&token=" +
+                      urlParams.get("token")
                     );
                   })();
                 } catch (e) {
@@ -17103,7 +16561,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["updateIntro"] = await $steps["updateIntro"];
               }
             }}
-            runWhileEditing={false}
+            runWhileEditing={true}
           />
 
           <Dialog
@@ -18029,15 +17487,10 @@ const PlasmicDescendants = {
     "button6",
     "tooltip",
     "heart",
-    "user",
-    "shop",
-    "advice",
-    "todo",
     "favicon",
     "pullToRefresh",
     "section",
     "embedHtml",
-    "countNotif",
     "dialog",
     "shopDialog",
     "dialogTitle",
@@ -18086,15 +17539,10 @@ const PlasmicDescendants = {
   button6: ["button6"],
   tooltip: ["tooltip", "heart"],
   heart: ["heart"],
-  user: ["user", "shop", "advice", "todo"],
-  shop: ["shop"],
-  advice: ["advice"],
-  todo: ["todo"],
   favicon: ["favicon"],
   pullToRefresh: ["pullToRefresh"],
   section: ["section"],
   embedHtml: ["embedHtml"],
-  countNotif: ["countNotif"],
   dialog: [
     "dialog",
     "shopDialog",
@@ -18169,15 +17617,10 @@ type NodeDefaultElementType = {
   button6: typeof Button;
   tooltip: typeof AntdTooltip;
   heart: typeof Heart;
-  user: typeof ApiRequest;
-  shop: typeof ApiRequest;
-  advice: typeof ApiRequest;
-  todo: typeof ApiRequest;
   favicon: typeof Embed;
   pullToRefresh: typeof PullToRefresh;
   section: "section";
   embedHtml: typeof Embed;
-  countNotif: typeof ApiRequest;
   dialog: typeof Dialog;
   shopDialog: typeof ApiRequest;
   dialogTitle: typeof DialogTitle;
@@ -18312,15 +17755,10 @@ export const PlasmicHamyar = Object.assign(
     button6: makeNodeComponent("button6"),
     tooltip: makeNodeComponent("tooltip"),
     heart: makeNodeComponent("heart"),
-    user: makeNodeComponent("user"),
-    shop: makeNodeComponent("shop"),
-    advice: makeNodeComponent("advice"),
-    todo: makeNodeComponent("todo"),
     favicon: makeNodeComponent("favicon"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     section: makeNodeComponent("section"),
     embedHtml: makeNodeComponent("embedHtml"),
-    countNotif: makeNodeComponent("countNotif"),
     dialog: makeNodeComponent("dialog"),
     shopDialog: makeNodeComponent("shopDialog"),
     dialogTitle: makeNodeComponent("dialogTitle"),

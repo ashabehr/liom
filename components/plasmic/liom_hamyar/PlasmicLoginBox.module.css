@@ -49,7 +49,7 @@
 }
 .slotTargetSlot {
   font-weight: 700;
-  color: #a4a4a4;
+  color: var(--token-DFwge94Hey3F);
   text-align: center;
 }
 .lottie:global(.__wab_instance) {

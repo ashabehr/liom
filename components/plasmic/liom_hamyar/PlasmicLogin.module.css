@@ -12619,6 +12619,11 @@
 .radioGrop__j8RGh:global(.__wab_instance) {
   max-width: 100%;
 }
+.radioGroploginPage_selectstatus__j8RGhNi6Lr:global(.__wab_instance) {
+  width: 100%;
+  align-self: flex-end;
+  min-width: 0;
+}
 .freeBox__q86T {
   display: flex;
   flex-direction: column;
@@ -12637,6 +12642,7 @@
 .freeBoxloginPage_selectstatus__q86Tni6Lr {
   display: flex;
   flex-direction: column;
+  width: 100%;
   padding: 8px 0px;
 }
 .freeBoxloginPage_selectstatus__q86Tni6Lr > :global(.__wab_flex-container) {
@@ -12819,6 +12825,12 @@
 }
 .textloginPage_selectstatus__owVdCni6Lr {
   text-align: right;
+}
+@media (max-width: 640px) {
+  .textloginPage_selectstatus__owVdCni6Lr {
+    white-space: pre-wrap;
+    text-align: justify;
+  }
 }
 .section__bZwSb {
   display: grid;
