@@ -1,3 +1,4 @@
+// ایمپورت اسکریپت‌های firebase
 importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js');
 importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-compat.js');
 
@@ -7,7 +8,7 @@ const firebaseConfig = {
   authDomain: "liom-31952.firebaseapp.com",
   databaseURL: "https://liom-31952.firebaseio.com",
   projectId: "liom-31952",
-  storageBucket: "liom-31952.firebasestorage.app",
+  storageBucket: "liom-31952.appspot.com",
   messagingSenderId: "518322220404",
   appId: "1:518322220404:web:09527c8a42f2f017d89021",
   measurementId: "G-TVWYWYEH1D"
@@ -17,42 +18,62 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
-// دریافت پیام‌ها در پس‌زمینه
+// دریافت پیام در پس‌زمینه
 messaging.onBackgroundMessage(async (payload) => {
-  console.log('پیام پس‌زمینه دریافت شد: ', payload);
+  console.log('📩 پیام پس‌زمینه دریافت شد: ', payload);
 
   const notificationTitle = payload.notification.title;
   const notificationOptions = {
     body: payload.notification.body,
-    icon: "/icons/favicon.ico",
+    icon: payload.data?.image || "/icons/favicon.ico", // اگر تصویر داشت
+    image: payload.data?.image, // تصویر اصلی نوتیفیکیشن (درصورت پشتیبانی مرورگر)
     data: {
-      url: payload.data.url || "/login" // ذخیره URL یا داده اضافی
+      action: payload.data?.action || null // ذخیره کردن action برای کلیک بعدی
     }
   };
 
-  // نمایش نوتیفیکیشن
   try {
     await self.registration.showNotification(notificationTitle, notificationOptions);
   } catch (error) {
-    console.error("خطا در نمایش نوتیفیکیشن: ", error);
+    console.error("❗️خطا در نمایش نوتیفیکیشن:", error);
   }
 });
 
-// رویداد کلیک روی نوتیفیکیشن
+// مدیریت کلیک روی نوتیفیکیشن با استفاده از switch
 self.addEventListener('notificationclick', (event) => {
   const notification = event.notification;
-  const notificationData = notification.data; // داده‌های نوتیفیکیشن
-
-  // بستن نوتیفیکیشن
+  const action = notification.data?.action;
   notification.close();
 
-  // اگر داده URL وجود داشت، باز کردن URL
-  if (notificationData && notificationData.url) {
-    event.waitUntil(
-      clients.openWindow(notificationData.url) // باز کردن URL
-    );
-  } else {
-    // اگر URL نبود، می‌تونی کار دیگری انجام بدی (مثلاً نمایش صفحه اصلی)
-    event.waitUntil(clients.openWindow('/'));
+  let targetUrl = '/'; // مسیر پیش‌فرض
+
+  if (action) {
+    const pureAction = action.replace('#', '').split('-')[0];
+    const actionParam = action.split('-')[1];
+
+    switch (pureAction) {
+      case 'healthSubscription':
+        targetUrl = `/shop`;
+        break;
+      case 'profileSettings':
+        targetUrl = `/profile/settings`;
+        break;
+      case 'specialOffer':
+        targetUrl = `/offers/special`;
+        break;
+      case 'orderStatus':
+        targetUrl = `/orders/status/`;
+        break;
+      case 'newFeature':
+        targetUrl = `/features/new`;
+        break;
+      default:
+        targetUrl = '/login';
+        break;
+    }
   }
+
+  event.waitUntil(
+    clients.openWindow(targetUrl)
+  );
 });
