@@ -16452,75 +16452,62 @@ function PlasmicHamyar__RenderFunc(props: {
               </Dialog>
             </ApiRequest>
           </Dialog>
-          {(() => {
-            try {
-              return !$state.intro;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <Iframe
-              data-plasmic-name={"iframe"}
-              data-plasmic-override={overrides.iframe}
-              className={classNames("__wab_instance", sty.iframe)}
-              onLoad={async event => {
-                const $steps = {};
+          <Iframe
+            data-plasmic-name={"iframe"}
+            data-plasmic-override={overrides.iframe}
+            className={classNames("__wab_instance", sty.iframe)}
+            onLoad={async event => {
+              const $steps = {};
 
-                $steps["refreshData"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        queryInvalidation: ["plasmic_refresh_all"]
-                      };
-                      return (async ({ queryInvalidation }) => {
-                        if (!queryInvalidation) {
-                          return;
-                        }
-                        await plasmicInvalidate(queryInvalidation);
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
+              $steps["refreshData"] = true
+                ? (() => {
+                    const actionArgs = {
+                      queryInvalidation: ["plasmic_refresh_all"]
+                    };
+                    return (async ({ queryInvalidation }) => {
+                      if (!queryInvalidation) {
+                        return;
+                      }
+                      await plasmicInvalidate(queryInvalidation);
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["refreshData"] != null &&
+                typeof $steps["refreshData"] === "object" &&
+                typeof $steps["refreshData"].then === "function"
+              ) {
+                $steps["refreshData"] = await $steps["refreshData"];
+              }
+            }}
+            preview={true}
+            src={(() => {
+              try {
+                return (() => {
+                  var urlParams = new window.URLSearchParams(
+                    window.location.search
+                  );
+                  return (
+                    "https://apps.liom.app/intro/?r=" +
+                    urlParams.get("r") +
+                    "&m=" +
+                    urlParams.get("m") +
+                    "&token=" +
+                    urlParams.get("token")
+                  );
+                })();
+              } catch (e) {
                 if (
-                  $steps["refreshData"] != null &&
-                  typeof $steps["refreshData"] === "object" &&
-                  typeof $steps["refreshData"].then === "function"
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  $steps["refreshData"] = await $steps["refreshData"];
+                  return undefined;
                 }
-              }}
-              preview={true}
-              src={(() => {
-                try {
-                  return (() => {
-                    var urlParams = new window.URLSearchParams(
-                      window.location.search
-                    );
-                    return (
-                      "https://apps.liom.app/intro/?r=" +
-                      urlParams.get("r") +
-                      "&m=" +
-                      urlParams.get("m") +
-                      "&token=" +
-                      urlParams.get("token")
-                    );
-                  })();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-            />
-          ) : null}
+                throw e;
+              }
+            })()}
+          />
+
           <Timer
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
