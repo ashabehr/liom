@@ -53,10 +53,13 @@ self.addEventListener('notificationclick', (event) => {
 
     switch (pureAction) {
       case 'healthSubscription':
-        targetUrl = `/shop`;
+        targetUrl = `https://apps.liom.app/shop`;
         break;
-      case 'profileSettings':
-        targetUrl = `/profile/settings`;
+      case 'maincalendar':
+        targetUrl = `https://apps.liom.app/calendar`;
+        break;
+      case '"calendar"':
+        targetUrl = `https://apps.liom.app/calendar`;
         break;
       case 'specialOffer':
         targetUrl = `/offers/special`;
@@ -68,7 +71,7 @@ self.addEventListener('notificationclick', (event) => {
         targetUrl = `/features/new`;
         break;
       default:
-        targetUrl = '/login';
+        targetUrl = 'https://apps.liom.app/login';
         break;
     }
   }
