@@ -7366,7 +7366,6 @@
   position: fixed;
   right: 0;
   background: #f3f3f3;
-  display: none;
 }
 .timer:global(.__wab_instance) {
   max-width: 100%;
