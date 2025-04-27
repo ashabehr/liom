@@ -1949,35 +1949,6 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["variant"] = await $steps["variant"];
               }
 
-              $steps["updateLoadingPage"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["loadingPage"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateLoadingPage"] != null &&
-                typeof $steps["updateLoadingPage"] === "object" &&
-                typeof $steps["updateLoadingPage"].then === "function"
-              ) {
-                $steps["updateLoadingPage"] = await $steps["updateLoadingPage"];
-              }
-
               $steps["shop"] = ($steps.userdata?.data?.success ? true : false)
                 ? (() => {
                     const actionArgs = {
@@ -2197,6 +2168,35 @@ function PlasmicHamyar__RenderFunc(props: {
                 typeof $steps["updateToDos"].then === "function"
               ) {
                 $steps["updateToDos"] = await $steps["updateToDos"];
+              }
+
+              $steps["updateLoadingPage"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loadingPage"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoadingPage"] != null &&
+                typeof $steps["updateLoadingPage"] === "object" &&
+                typeof $steps["updateLoadingPage"].then === "function"
+              ) {
+                $steps["updateLoadingPage"] = await $steps["updateLoadingPage"];
               }
 
               $steps["log"] = true
