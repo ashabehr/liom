@@ -73,22 +73,18 @@ export type PlasmicUploudeTime__VariantsArgs = {};
 type VariantPropType = keyof PlasmicUploudeTime__VariantsArgs;
 export const PlasmicUploudeTime__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicUploudeTime__ArgsType = {
-  children?: React.ReactNode;
-  createdTime?: any;
-};
+export type PlasmicUploudeTime__ArgsType = { createdTime?: any };
 type ArgPropType = keyof PlasmicUploudeTime__ArgsType;
 export const PlasmicUploudeTime__ArgProps = new Array<ArgPropType>(
-  "children",
   "createdTime"
 );
 
 export type PlasmicUploudeTime__OverridesType = {
   root?: Flex__<"div">;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultUploudeTimeProps {
-  children?: React.ReactNode;
   createdTime?: any;
   className?: string;
 }
@@ -136,19 +132,19 @@ function PlasmicUploudeTime__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "variablefortime",
+        path: "variable",
         type: "private",
-        variableType: "text",
+        variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return $props.createdTime;
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return undefined;
+                return {};
               }
               throw e;
             }
@@ -181,46 +177,41 @@ function PlasmicUploudeTime__RenderFunc(props: {
         sty.root
       )}
     >
-      {renderPlasmicSlot({
-        defaultContents: (
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__kalOi
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return (() => {})();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "\u0632\u0645\u0627\u0646 \u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc ";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </div>
-        ),
-        value: args.children
-      })}
+      <div
+        data-plasmic-name={"text"}
+        data-plasmic-override={overrides.text}
+        className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
+      >
+        <React.Fragment>
+          {(() => {
+            try {
+              return (() => {})();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "\u0632\u0645\u0627\u0646 \u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc ";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -283,6 +274,7 @@ export const PlasmicUploudeTime = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicUploudeTime
     internalVariantProps: PlasmicUploudeTime__VariantProps,

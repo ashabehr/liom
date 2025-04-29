@@ -1305,6 +1305,11 @@ function PlasmicLogin__RenderFunc(props: {
                 "loginPage",
                 "mobileCode"
               ),
+              [sty.serviceWorkerloginPage_mobile]: hasVariant(
+                $state,
+                "loginPage",
+                "mobile"
+              ),
               [sty.serviceWorkerloginPage_name]: hasVariant(
                 $state,
                 "loginPage",
@@ -5031,7 +5036,13 @@ function PlasmicLogin__RenderFunc(props: {
                                         "loginInfo",
                                         JSON.stringify($state.loginData)
                                       );
-                                      return window.setCookie(
+                                      var setCookie = (name, value, days) => {
+                                        const expires = new Date(
+                                          Date.now() + days * 86400000
+                                        ).toUTCString();
+                                        document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                                      };
+                                      return setCookie(
                                         "token",
                                         JSON.stringify([
                                           $state.loginData.result.token
@@ -10189,7 +10200,13 @@ function PlasmicLogin__RenderFunc(props: {
                                           "loginInfo",
                                           JSON.stringify($state.loginData)
                                         );
-                                        return window.setCookie(
+                                        var setCookie = (name, value, days) => {
+                                          const expires = new Date(
+                                            Date.now() + days * 86400000
+                                          ).toUTCString();
+                                          document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                                        };
+                                        return setCookie(
                                           "token",
                                           JSON.stringify([
                                             $state.loginData.result.token
@@ -14768,7 +14785,13 @@ function PlasmicLogin__RenderFunc(props: {
                                         "loginInfo",
                                         JSON.stringify($state.loginData)
                                       );
-                                      return window.setCookie(
+                                      var setCookie = (name, value, days) => {
+                                        const expires = new Date(
+                                          Date.now() + days * 86400000
+                                        ).toUTCString();
+                                        document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                                      };
+                                      return setCookie(
                                         "token",
                                         JSON.stringify([
                                           $state.loginData.result.token

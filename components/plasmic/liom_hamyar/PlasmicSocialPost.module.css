@@ -304,15 +304,6 @@
 .uploudeTime:global(.__wab_instance) {
   position: relative;
 }
-.text__kMc7N {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  font-size: 12px;
-  color: #535353;
-  text-align: center;
-  min-width: 0;
-}
 .freeBox__tfdqU {
   display: flex;
   flex-direction: row;
