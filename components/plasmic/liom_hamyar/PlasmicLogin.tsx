@@ -9453,9 +9453,10 @@ function PlasmicLogin__RenderFunc(props: {
 
                           $steps["invokeGlobalAction"] =
                             ($state.type == "mobile" ||
-                              $state.type == "email") &&
-                            $state.gender != "female" &&
-                            $ctx.query.redirect_url != null
+                              $state.type === "email") &&
+                            ($state.gender === "male" ||
+                              ($state.gender === "female" &&
+                                $ctx.query.redirect_url != null))
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -9621,8 +9622,9 @@ function PlasmicLogin__RenderFunc(props: {
 
                           $steps["invokeGlobalAction2"] =
                             $state.type == "userName" &&
-                            $state.gender != "female" &&
-                            $ctx.query.redirect_url != null
+                            ($state.gender === "male" ||
+                              ($state.gender === "female" &&
+                                $ctx.query.redirect_url != null))
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -9786,8 +9788,9 @@ function PlasmicLogin__RenderFunc(props: {
 
                           $steps["invokeGlobalAction3"] =
                             $state.type == "guest" &&
-                            $state.gender != "female" &&
-                            $ctx.query.redirect_url != null
+                            ($state.gender === "male" ||
+                              ($state.gender === "female" &&
+                                $ctx.query.redirect_url != null))
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -9982,7 +9985,7 @@ function PlasmicLogin__RenderFunc(props: {
                                 true) &&
                             ($state?.type == "mobile" ||
                               $state?.gender == "female") &&
-                            $state.paramsObject.redirect_url != null
+                            $ctx.query.redirect_url != null
                               ? (() => {
                                   const actionArgs = {
                                     destination: (() => {
@@ -10129,7 +10132,7 @@ function PlasmicLogin__RenderFunc(props: {
 
                           $steps["updateTextInputValue5"] =
                             $state.gender == "female" &&
-                            $state.paramsObject.redirect_url == null
+                            $ctx.query.redirect_url == null
                               ? (() => {
                                   const actionArgs = {
                                     vgroup: "loginPage",
