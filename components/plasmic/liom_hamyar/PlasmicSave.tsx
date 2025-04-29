@@ -293,6 +293,28 @@ function PlasmicSave__RenderFunc(props: {
           $steps["updateIsbookMarked"] = await $steps["updateIsbookMarked"];
         }
 
+        $steps["updateBookmarkcount4"] = true
+          ? (() => {
+              const actionArgs = { vgroup: "click", operation: 2 };
+              return (({ vgroup, value }) => {
+                if (typeof value === "string") {
+                  value = [value];
+                }
+
+                const oldValue = $stateGet($state, vgroup);
+                $stateSet($state, vgroup, !oldValue);
+                return !oldValue;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateBookmarkcount4"] != null &&
+          typeof $steps["updateBookmarkcount4"] === "object" &&
+          typeof $steps["updateBookmarkcount4"].then === "function"
+        ) {
+          $steps["updateBookmarkcount4"] = await $steps["updateBookmarkcount4"];
+        }
+
         $steps["updateBookmarkcount2"] = !$state.isbookMarked
           ? (() => {
               const actionArgs = {
@@ -370,28 +392,6 @@ function PlasmicSave__RenderFunc(props: {
           typeof $steps["updateBookmarkcount3"].then === "function"
         ) {
           $steps["updateBookmarkcount3"] = await $steps["updateBookmarkcount3"];
-        }
-
-        $steps["updateBookmarkcount4"] = true
-          ? (() => {
-              const actionArgs = { vgroup: "click", operation: 2 };
-              return (({ vgroup, value }) => {
-                if (typeof value === "string") {
-                  value = [value];
-                }
-
-                const oldValue = $stateGet($state, vgroup);
-                $stateSet($state, vgroup, !oldValue);
-                return !oldValue;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateBookmarkcount4"] != null &&
-          typeof $steps["updateBookmarkcount4"] === "object" &&
-          typeof $steps["updateBookmarkcount4"].then === "function"
-        ) {
-          $steps["updateBookmarkcount4"] = await $steps["updateBookmarkcount4"];
         }
       }}
     >
