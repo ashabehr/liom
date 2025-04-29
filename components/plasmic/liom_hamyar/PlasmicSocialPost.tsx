@@ -603,7 +603,7 @@ function PlasmicSocialPost__RenderFunc(props: {
                       data-plasmic-name={"uploudeTime"}
                       data-plasmic-override={overrides.uploudeTime}
                       className={classNames("__wab_instance", sty.uploudeTime)}
-                      createdTime={(() => {
+                      posttime={(() => {
                         try {
                           return $state.getInfo.data.result.details.post
                             .updatedAt;

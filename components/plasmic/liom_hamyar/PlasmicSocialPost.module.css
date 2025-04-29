@@ -296,9 +296,10 @@
   position: relative;
   align-items: center;
   justify-content: flex-end;
-  width: 51px;
+  width: 100%;
   height: auto;
   max-width: 100%;
+  min-width: 0;
   padding: 16px 12px 8px 0px;
 }
 .uploudeTime:global(.__wab_instance) {

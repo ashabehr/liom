@@ -1148,45 +1148,29 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["urlToken"] = await $steps["urlToken"];
               }
 
-              $steps["goToPage"] = (
-                $steps.urlToken?.dara?.success == true ? true : false
+              $steps["runCode5"] = (
+                $steps.urlToken?.data?.success ? true : false
               )
                 ? (() => {
                     const actionArgs = {
-                      destination: (() => {
-                        try {
-                          return $steps.urlToken.dara.url;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()
-                    };
-                    return (({ destination }) => {
-                      if (
-                        typeof destination === "string" &&
-                        destination.startsWith("#")
-                      ) {
-                        document
-                          .getElementById(destination.substr(1))
-                          .scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        __nextRouter?.push(destination);
+                      customFunction: async () => {
+                        return (() => {
+                          console.log($steps.urlToken.data.url);
+                          return window.open($steps.urlToken.data.url, "_self");
+                        })();
                       }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
               if (
-                $steps["goToPage"] != null &&
-                typeof $steps["goToPage"] === "object" &&
-                typeof $steps["goToPage"].then === "function"
+                $steps["runCode5"] != null &&
+                typeof $steps["runCode5"] === "object" &&
+                typeof $steps["runCode5"].then === "function"
               ) {
-                $steps["goToPage"] = await $steps["goToPage"];
+                $steps["runCode5"] = await $steps["runCode5"];
               }
 
               $steps["updateLoginPage"] =

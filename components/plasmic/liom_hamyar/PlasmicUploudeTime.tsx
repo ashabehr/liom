@@ -73,11 +73,9 @@ export type PlasmicUploudeTime__VariantsArgs = {};
 type VariantPropType = keyof PlasmicUploudeTime__VariantsArgs;
 export const PlasmicUploudeTime__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicUploudeTime__ArgsType = { createdTime?: any };
+export type PlasmicUploudeTime__ArgsType = { posttime?: any };
 type ArgPropType = keyof PlasmicUploudeTime__ArgsType;
-export const PlasmicUploudeTime__ArgProps = new Array<ArgPropType>(
-  "createdTime"
-);
+export const PlasmicUploudeTime__ArgProps = new Array<ArgPropType>("posttime");
 
 export type PlasmicUploudeTime__OverridesType = {
   root?: Flex__<"div">;
@@ -85,7 +83,7 @@ export type PlasmicUploudeTime__OverridesType = {
 };
 
 export interface DefaultUploudeTimeProps {
-  createdTime?: any;
+  posttime?: any;
   className?: string;
 }
 
@@ -138,7 +136,7 @@ function PlasmicUploudeTime__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.createdTime;
+              return $props.posttime;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -185,7 +183,24 @@ function PlasmicUploudeTime__RenderFunc(props: {
         <React.Fragment>
           {(() => {
             try {
-              return (() => {})();
+              return (() => {
+                function pad(n) {
+                  return n.toString().padStart(2, "0");
+                }
+                const today = new Date();
+                const timePost =
+                  `${$props.posttime.year}-${pad($props.posttime.month)}-${pad(
+                    $props.posttime.day
+                  )}T` +
+                  `${pad($props.posttime.hour)}:${pad(
+                    $props.posttime.minute
+                  )}:${pad($props.posttime.second)}`;
+                const inputDate = new Date(timePost);
+                if (isNaN(inputDate.getTime())) {
+                  return `تاریخ ورودی نامعتبر است: ${timePost}`;
+                }
+                return inputDate;
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
