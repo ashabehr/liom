@@ -467,7 +467,9 @@ function PlasmicLogin__RenderFunc(props: {
         path: "loginData",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+          result: { token: "" }
+        })
       },
       {
         path: "typeLogin",
@@ -987,6 +989,41 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["runCode4"] = await $steps["runCode4"];
               }
 
+              $steps["updateType"] =
+                $state.paramsObject.isLogin == "false"
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["type"]
+                        },
+                        operation: 0,
+                        value: "google"
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateType"] != null &&
+                typeof $steps["updateType"] === "object" &&
+                typeof $steps["updateType"].then === "function"
+              ) {
+                $steps["updateType"] = await $steps["updateType"];
+              }
+
               $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
@@ -1041,7 +1078,7 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
 
-              $steps["invokeGlobalAction"] = true
+              $steps["invokeGlobalAction"] = false
                 ? (() => {
                     const actionArgs = { args: [3000] };
                     return $globalActions["Fragment.wait"]?.apply(null, [
@@ -1057,120 +1094,6 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["invokeGlobalAction"] = await $steps[
                   "invokeGlobalAction"
                 ];
-              }
-
-              $steps["updateType"] =
-                $state.paramsObject.isLogin == "false"
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["type"]
-                        },
-                        operation: 0,
-                        value: "google"
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["updateType"] != null &&
-                typeof $steps["updateType"] === "object" &&
-                typeof $steps["updateType"].then === "function"
-              ) {
-                $steps["updateType"] = await $steps["updateType"];
-              }
-
-              $steps["urlToken"] =
-                $state.token != ""
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          undefined,
-                          "https://n8n.staas.ir/webhook/users/profile",
-                          (() => {
-                            try {
-                              return {
-                                redirectTo: $state.paramsObject.redirect_url
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          undefined,
-                          (() => {
-                            try {
-                              return {
-                                headers: { Authorization: $state.token }
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
-              if (
-                $steps["urlToken"] != null &&
-                typeof $steps["urlToken"] === "object" &&
-                typeof $steps["urlToken"].then === "function"
-              ) {
-                $steps["urlToken"] = await $steps["urlToken"];
-              }
-
-              $steps["runCode5"] = (
-                $steps.urlToken?.data?.success ? true : false
-              )
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          console.log($steps.urlToken.data.url);
-                          return window.open($steps.urlToken.data.url, "_self");
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode5"] != null &&
-                typeof $steps["runCode5"] === "object" &&
-                typeof $steps["runCode5"].then === "function"
-              ) {
-                $steps["runCode5"] = await $steps["runCode5"];
               }
 
               $steps["updateLoginPage"] =
@@ -1218,9 +1141,16 @@ function PlasmicLogin__RenderFunc(props: {
                                     : ""
                               }
                             };
-                            return localStorage.setItem(
-                              "loginInfo",
-                              JSON.stringify(loginuserinfo)
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.loginData.result.token]),
+                              100
                             );
                           })();
                         }
@@ -1347,8 +1277,87 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["runCode3"] = await $steps["runCode3"];
               }
 
+              $steps["urlToken"] =
+                $state.token != ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/users/profile",
+                          (() => {
+                            try {
+                              return {
+                                redirectTo: $state.paramsObject.redirect_url
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                headers: { Authorization: $state.token }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["urlToken"] != null &&
+                typeof $steps["urlToken"] === "object" &&
+                typeof $steps["urlToken"].then === "function"
+              ) {
+                $steps["urlToken"] = await $steps["urlToken"];
+              }
+
+              $steps["runCode5"] = (
+                $steps.urlToken?.data?.success ? true : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          console.log($steps.urlToken.data.url);
+                          return window.open($steps.urlToken.data.url, "_self");
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode5"] != null &&
+                typeof $steps["runCode5"] === "object" &&
+                typeof $steps["runCode5"].then === "function"
+              ) {
+                $steps["runCode5"] = await $steps["runCode5"];
+              }
+
               $steps["updateLoading"] =
-                window.localStorage.getItem("loginInfo") == null
+                $state.token == ""
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -5120,10 +5129,6 @@ function PlasmicLogin__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      localStorage.setItem(
-                                        "loginInfo",
-                                        JSON.stringify($state.loginData)
-                                      );
                                       var setCookie = (name, value, days) => {
                                         const expires = new Date(
                                           Date.now() + days * 86400000
@@ -10280,10 +10285,6 @@ function PlasmicLogin__RenderFunc(props: {
                                   const actionArgs = {
                                     customFunction: async () => {
                                       return (() => {
-                                        localStorage.setItem(
-                                          "loginInfo",
-                                          JSON.stringify($state.loginData)
-                                        );
                                         var setCookie = (name, value, days) => {
                                           const expires = new Date(
                                             Date.now() + days * 86400000
@@ -14865,10 +14866,6 @@ function PlasmicLogin__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      localStorage.setItem(
-                                        "loginInfo",
-                                        JSON.stringify($state.loginData)
-                                      );
                                       var setCookie = (name, value, days) => {
                                         const expires = new Date(
                                           Date.now() + days * 86400000

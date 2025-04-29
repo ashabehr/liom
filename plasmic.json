@@ -1861,6 +1861,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicRadioGrop2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "YKRzh6kAfLN2",
+          "name": "Uptime",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicUptime.tsx",
+          "importSpec": {
+            "modulePath": "Uptime.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicUptime.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

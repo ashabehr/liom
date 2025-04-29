@@ -65,6 +65,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import UploudeTime from "../../UploudeTime"; // plasmic-import: aUO_fJR7ceN4/component
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
+import Uptime from "../../Uptime"; // plasmic-import: YKRzh6kAfLN2/component
 import Post from "../../Post"; // plasmic-import: PIFHnFLcunkZ/component
 import ReactionBar from "../../ReactionBar"; // plasmic-import: 4BabvpvQ8lyP/component
 import Like from "../../Like"; // plasmic-import: ARJf0DiYhPbe/component
@@ -118,6 +119,7 @@ export type PlasmicSocialPost__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   uploudeTime?: Flex__<typeof UploudeTime>;
   popover2?: Flex__<typeof AntdPopover>;
+  uptime?: Flex__<typeof Uptime>;
   post?: Flex__<typeof Post>;
   reactionBar?: Flex__<typeof ReactionBar>;
   like2?: Flex__<typeof Like>;
@@ -920,6 +922,25 @@ function PlasmicSocialPost__RenderFunc(props: {
                         />
                       </AntdPopover>
                     </Stack__>
+                    <Uptime
+                      data-plasmic-name={"uptime"}
+                      data-plasmic-override={overrides.uptime}
+                      className={classNames("__wab_instance", sty.uptime)}
+                      posttime={(() => {
+                        try {
+                          return $state.getInfo.data.result.details.post
+                            .updatedAt;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return {};
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__fiSpi)}
@@ -2377,6 +2398,7 @@ const PlasmicDescendants = {
     "headerLiom",
     "uploudeTime",
     "popover2",
+    "uptime",
     "post",
     "reactionBar",
     "like2",
@@ -2392,6 +2414,7 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom"],
   uploudeTime: ["uploudeTime"],
   popover2: ["popover2"],
+  uptime: ["uptime"],
   post: ["post"],
   reactionBar: ["reactionBar", "like2", "save"],
   like2: ["like2"],
@@ -2412,6 +2435,7 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   uploudeTime: typeof UploudeTime;
   popover2: typeof AntdPopover;
+  uptime: typeof Uptime;
   post: typeof Post;
   reactionBar: typeof ReactionBar;
   like2: typeof Like;
@@ -2513,6 +2537,7 @@ export const PlasmicSocialPost = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     uploudeTime: makeNodeComponent("uploudeTime"),
     popover2: makeNodeComponent("popover2"),
+    uptime: makeNodeComponent("uptime"),
     post: makeNodeComponent("post"),
     reactionBar: makeNodeComponent("reactionBar"),
     like2: makeNodeComponent("like2"),

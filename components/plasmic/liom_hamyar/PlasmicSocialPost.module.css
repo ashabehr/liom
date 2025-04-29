@@ -651,6 +651,9 @@
   font-size: 18px;
   min-width: 0;
 }
+.uptime:global(.__wab_instance) {
+  position: relative;
+}
 .freeBox__fiSpi {
   display: flex;
   flex-direction: row;
