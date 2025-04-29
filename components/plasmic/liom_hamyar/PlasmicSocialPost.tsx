@@ -594,6 +594,48 @@ function PlasmicSocialPost__RenderFunc(props: {
                       </div>
                     </div>
                   </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__eox6V
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (() => {
+                            const today = new Date();
+                            const inputDate = new Date("2025-04-20T14:30:00");
+                            const diffInMillis =
+                              today.getTime() - inputDate.getTime();
+                            const diffInDays = Math.floor(
+                              diffInMillis / (1000 * 3600 * 24)
+                            );
+                            const diffInHours = Math.floor(
+                              (diffInMillis % (1000 * 3600 * 24)) /
+                                (1000 * 3600)
+                            );
+                            const diffInMinutes = Math.floor(
+                              (diffInMillis % (1000 * 3600)) / (1000 * 60)
+                            );
+                            const diffInSeconds = Math.floor(
+                              (diffInMillis % (1000 * 60)) / 1000
+                            );
+                            return `اختلاف: ${diffInDays} روز, ${diffInHours} ساعت, ${diffInMinutes} دقیقه, ${diffInSeconds} ثانیه`;
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__uC3N)}>
                   <div

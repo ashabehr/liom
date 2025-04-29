@@ -9496,8 +9496,7 @@ function PlasmicLogin__RenderFunc(props: {
                           $steps["invokeGlobalAction"] =
                             ($state.type == "mobile" ||
                               $state.type == "email") &&
-                            $state.gender != "female" &&
-                            $state.paramsObject.redirect_url != null
+                            $state.gender != "female"
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -9663,8 +9662,7 @@ function PlasmicLogin__RenderFunc(props: {
 
                           $steps["invokeGlobalAction2"] =
                             $state.type == "userName" &&
-                            $state.gender != "female" &&
-                            $state.paramsObject.redirect_url != null
+                            $state.gender != "female"
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -9827,9 +9825,7 @@ function PlasmicLogin__RenderFunc(props: {
                           }
 
                           $steps["invokeGlobalAction3"] =
-                            $state.type == "guest" &&
-                            $state.gender != "female" &&
-                            $state.paramsObject.redirect_url != null
+                            $state.type == "guest" && $state.gender != "female"
                               ? (() => {
                                   const actionArgs = {
                                     args: [
