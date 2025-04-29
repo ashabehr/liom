@@ -186,20 +186,10 @@ function PlasmicUploudeTime__RenderFunc(props: {
             <React.Fragment>
               {(() => {
                 try {
-                  return function getMinutesSincePost(postNanoTime) {
-                    // زمان فعلی در نانوثانیه
-                    const currentNanoTime = process.hrtime.bigint();
-
-                    // محاسبه تفاوت
-                    const differenceNanoTime =
-                      currentNanoTime - BigInt(postNanoTime);
-
-                    // تبدیل نانوثانیه به دقیقه
-                    const differenceMinutes =
-                      Number(differenceNanoTime) / (1000 * 1000 * 1000 * 60);
-
-                    return differenceMinutes;
-                  };
+                  return (() => {
+                    const currentDate = new Date();
+                    return currentDate;
+                  })();
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
