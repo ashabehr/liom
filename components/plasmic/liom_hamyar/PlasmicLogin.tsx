@@ -989,41 +989,6 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["runCode4"] = await $steps["runCode4"];
               }
 
-              $steps["updateType"] =
-                $state.paramsObject.isLogin == "false"
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["type"]
-                        },
-                        operation: 0,
-                        value: "google"
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["updateType"] != null &&
-                typeof $steps["updateType"] === "object" &&
-                typeof $steps["updateType"].then === "function"
-              ) {
-                $steps["updateType"] = await $steps["updateType"];
-              }
-
               $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
@@ -1078,22 +1043,39 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
 
-              $steps["invokeGlobalAction"] = false
-                ? (() => {
-                    const actionArgs = { args: [3000] };
-                    return $globalActions["Fragment.wait"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
+              $steps["updateType"] =
+                $state.paramsObject.isLogin == "false"
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["type"]
+                        },
+                        operation: 0,
+                        value: "google"
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
+                $steps["updateType"] != null &&
+                typeof $steps["updateType"] === "object" &&
+                typeof $steps["updateType"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["updateType"] = await $steps["updateType"];
               }
 
               $steps["updateLoginPage"] =
@@ -1166,35 +1148,6 @@ function PlasmicLogin__RenderFunc(props: {
                 typeof $steps["runCode2"].then === "function"
               ) {
                 $steps["runCode2"] = await $steps["runCode2"];
-              }
-
-              $steps["updateLoginData"] = localStorage.getItem("loginInfo")
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["loginData"]
-                      },
-                      operation: 0,
-                      value: JSON.parse(localStorage.getItem("loginInfo"))
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateLoginData"] != null &&
-                typeof $steps["updateLoginData"] === "object" &&
-                typeof $steps["updateLoginData"].then === "function"
-              ) {
-                $steps["updateLoginData"] = await $steps["updateLoginData"];
               }
 
               $steps["runCode3"] = false
@@ -9501,7 +9454,8 @@ function PlasmicLogin__RenderFunc(props: {
                           $steps["invokeGlobalAction"] =
                             ($state.type == "mobile" ||
                               $state.type == "email") &&
-                            $state.gender != "female"
+                            $state.gender != "female" &&
+                            $ctx.query.redirect_url != null
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -9667,7 +9621,8 @@ function PlasmicLogin__RenderFunc(props: {
 
                           $steps["invokeGlobalAction2"] =
                             $state.type == "userName" &&
-                            $state.gender != "female"
+                            $state.gender != "female" &&
+                            $ctx.query.redirect_url != null
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -9830,7 +9785,9 @@ function PlasmicLogin__RenderFunc(props: {
                           }
 
                           $steps["invokeGlobalAction3"] =
-                            $state.type == "guest" && $state.gender != "female"
+                            $state.type == "guest" &&
+                            $state.gender != "female" &&
+                            $ctx.query.redirect_url != null
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -12720,11 +12677,18 @@ function PlasmicLogin__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      $state.loginData.result.healthStatus =
-                                        $state.status;
-                                      return localStorage.setItem(
-                                        "loginInfo",
-                                        JSON.stringify($state.loginData)
+                                      var setCookie = (name, value, days) => {
+                                        const expires = new Date(
+                                          Date.now() + days * 86400000
+                                        ).toUTCString();
+                                        document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                                      };
+                                      return setCookie(
+                                        "token",
+                                        JSON.stringify([
+                                          $state.loginData.result.token
+                                        ]),
+                                        100
                                       );
                                     })();
                                   }
