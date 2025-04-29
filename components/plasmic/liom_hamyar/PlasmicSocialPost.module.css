@@ -821,6 +821,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
+  z-index: 2;
   padding: 8px;
 }
 .freeBox__xagh6 > :global(.__wab_flex-container) {

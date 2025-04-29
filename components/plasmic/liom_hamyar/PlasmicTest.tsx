@@ -63,7 +63,6 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
@@ -97,7 +96,6 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
   button?: Flex__<typeof Button>;
-  embedHtml?: Flex__<typeof Embed>;
   modal?: Flex__<typeof AntdModal>;
   apiRequest2?: Flex__<typeof ApiRequest>;
   button3?: Flex__<typeof Button>;
@@ -277,38 +275,6 @@ function PlasmicTest__RenderFunc(props: {
             color={generateStateValueProp($state, ["button", "color"])}
             onClick={async event => {
               const $steps = {};
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const setCookie = (name, value, days) => {
-                            const expires = new Date(
-                              Date.now() + days * 86400000
-                            ).toUTCString();
-                            document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.plasmic.app; secure; SameSite=Lax`;
-                          };
-                          return setCookie(
-                            "token",
-                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
-                            7
-                          );
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
             }}
             onColorChange={async (...eventArgs: any) => {
               ((...eventArgs) => {
@@ -336,15 +302,6 @@ function PlasmicTest__RenderFunc(props: {
               {" "}
             </div>
           </Button>
-          <Embed
-            data-plasmic-name={"embedHtml"}
-            data-plasmic-override={overrides.embedHtml}
-            className={classNames("__wab_instance", sty.embedHtml)}
-            code={
-              "<script>\r\n  window.setCookie = function (name, value, days) {\r\n  const expires = new Date(Date.now() + days * 864e5).toUTCString();\r\n  document.cookie = ${name}=${value}; expires=${expires}; path=/; domain=.plasmic.app; secure; SameSite=Lax;\r\n};\r\n\r\n\r\n</script>"
-            }
-          />
-
           <AntdModal
             data-plasmic-name={"modal"}
             data-plasmic-override={overrides.modal}
@@ -676,7 +633,6 @@ const PlasmicDescendants = {
   root: [
     "root",
     "button",
-    "embedHtml",
     "modal",
     "apiRequest2",
     "button3",
@@ -685,7 +641,6 @@ const PlasmicDescendants = {
     "sideEffect"
   ],
   button: ["button"],
-  embedHtml: ["embedHtml"],
   modal: ["modal", "apiRequest2", "button3", "shop2", "buttonLiom8"],
   apiRequest2: ["apiRequest2", "button3", "shop2", "buttonLiom8"],
   button3: ["button3"],
@@ -699,7 +654,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   button: typeof Button;
-  embedHtml: typeof Embed;
   modal: typeof AntdModal;
   apiRequest2: typeof ApiRequest;
   button3: typeof Button;
@@ -794,7 +748,6 @@ export const PlasmicTest = Object.assign(
   {
     // Helper components rendering sub-elements
     button: makeNodeComponent("button"),
-    embedHtml: makeNodeComponent("embedHtml"),
     modal: makeNodeComponent("modal"),
     apiRequest2: makeNodeComponent("apiRequest2"),
     button3: makeNodeComponent("button3"),

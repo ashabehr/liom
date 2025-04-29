@@ -134,7 +134,7 @@ function PlasmicLike__RenderFunc(props: {
       Object.assign(
         {
           likeCountForBar: "100",
-          islikePost: true
+          islikePost: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)

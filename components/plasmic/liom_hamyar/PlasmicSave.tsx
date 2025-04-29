@@ -242,57 +242,6 @@ function PlasmicSave__RenderFunc(props: {
       onClick={async event => {
         const $steps = {};
 
-        $steps["updateClick"] = true
-          ? (() => {
-              const actionArgs = {
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["click"]
-                },
-                operation: 0,
-                value: !$state.click
-              };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
-
-                $stateSet(objRoot, variablePath, value);
-                return value;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateClick"] != null &&
-          typeof $steps["updateClick"] === "object" &&
-          typeof $steps["updateClick"].then === "function"
-        ) {
-          $steps["updateClick"] = await $steps["updateClick"];
-        }
-
-        $steps["updateBookmarkcount4"] = true
-          ? (() => {
-              const actionArgs = { vgroup: "click", operation: 2 };
-              return (({ vgroup, value }) => {
-                if (typeof value === "string") {
-                  value = [value];
-                }
-
-                const oldValue = $stateGet($state, vgroup);
-                $stateSet($state, vgroup, !oldValue);
-                return !oldValue;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateBookmarkcount4"] != null &&
-          typeof $steps["updateBookmarkcount4"] === "object" &&
-          typeof $steps["updateBookmarkcount4"].then === "function"
-        ) {
-          $steps["updateBookmarkcount4"] = await $steps["updateBookmarkcount4"];
-        }
-
         $steps["runCode"] = true
           ? (() => {
               const actionArgs = {
@@ -315,7 +264,36 @@ function PlasmicSave__RenderFunc(props: {
           $steps["runCode"] = await $steps["runCode"];
         }
 
-        $steps["updateBookmarkcount2"] = $props.isBooookMarked
+        $steps["updateIsbookMarked"] = true
+          ? (() => {
+              const actionArgs = {
+                variable: {
+                  objRoot: $state,
+                  variablePath: ["isbookMarked"]
+                },
+                operation: 0,
+                value: !$state.isbookMarked
+              };
+              return (({ variable, value, startIndex, deleteCount }) => {
+                if (!variable) {
+                  return;
+                }
+                const { objRoot, variablePath } = variable;
+
+                $stateSet(objRoot, variablePath, value);
+                return value;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateIsbookMarked"] != null &&
+          typeof $steps["updateIsbookMarked"] === "object" &&
+          typeof $steps["updateIsbookMarked"].then === "function"
+        ) {
+          $steps["updateIsbookMarked"] = await $steps["updateIsbookMarked"];
+        }
+
+        $steps["updateBookmarkcount2"] = !$state.isbookMarked
           ? (() => {
               const actionArgs = {
                 args: [
@@ -354,7 +332,7 @@ function PlasmicSave__RenderFunc(props: {
           $steps["updateBookmarkcount2"] = await $steps["updateBookmarkcount2"];
         }
 
-        $steps["updateBookmarkcount3"] = !$props.isBooookMarked
+        $steps["updateBookmarkcount3"] = $state.isbookMarked
           ? (() => {
               const actionArgs = {
                 args: [
@@ -392,6 +370,28 @@ function PlasmicSave__RenderFunc(props: {
           typeof $steps["updateBookmarkcount3"].then === "function"
         ) {
           $steps["updateBookmarkcount3"] = await $steps["updateBookmarkcount3"];
+        }
+
+        $steps["updateBookmarkcount4"] = true
+          ? (() => {
+              const actionArgs = { vgroup: "click", operation: 2 };
+              return (({ vgroup, value }) => {
+                if (typeof value === "string") {
+                  value = [value];
+                }
+
+                const oldValue = $stateGet($state, vgroup);
+                $stateSet($state, vgroup, !oldValue);
+                return !oldValue;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateBookmarkcount4"] != null &&
+          typeof $steps["updateBookmarkcount4"] === "object" &&
+          typeof $steps["updateBookmarkcount4"].then === "function"
+        ) {
+          $steps["updateBookmarkcount4"] = await $steps["updateBookmarkcount4"];
         }
       }}
     >
