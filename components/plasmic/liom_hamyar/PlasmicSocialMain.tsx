@@ -497,70 +497,69 @@ function PlasmicSocialMain__RenderFunc(props: {
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__rjNb)}>
             <div className={classNames(projectcss.all, sty.freeBox__ybpyR)} />
-
-            <ApiRequest
-              data-plasmic-name={"getInfo"}
-              data-plasmic-override={overrides.getInfo}
-              className={classNames("__wab_instance", sty.getInfo)}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__fr80O
-                  )}
-                >
-                  {"Error fetching data"}
-                </div>
-              }
-              loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__lRjE4
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              }
-              method={"GET"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getInfo", "error"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getInfo", "loading"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getInfo", "data"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              params={(() => {
-                try {
-                  return {
-                    authorization: $state.token
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              url={"https://n8n.staas.ir/webhook/rest/social"}
-            />
           </div>
+          <ApiRequest
+            data-plasmic-name={"getInfo"}
+            data-plasmic-override={overrides.getInfo}
+            className={classNames("__wab_instance", sty.getInfo)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__fr80O
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__lRjE4
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getInfo", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getInfo", "loading"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getInfo", "data"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            params={(() => {
+              try {
+                return {
+                  authorization: $state.token
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/rest/social"}
+          />
         </div>
       </div>
     </React.Fragment>

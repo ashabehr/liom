@@ -63,6 +63,12 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -73,6 +79,9 @@ import sty from "./PlasmicTest.module.css"; // plasmic-import: sfemSfmG6qsw/css
 
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappySquareSvgrepoComSvg2"; // plasmic-import: xOMaWtcuO4fo/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
+import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: r-c9byRGfifF/icon
 
 createPlasmicElementProxy;
 
@@ -88,7 +97,13 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
   button?: Flex__<typeof Button>;
-  text?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
+  modal?: Flex__<typeof AntdModal>;
+  apiRequest2?: Flex__<typeof ApiRequest>;
+  button3?: Flex__<typeof Button>;
+  shop2?: Flex__<typeof ApiRequest>;
+  buttonLiom8?: Flex__<typeof Button>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultTestProps {}
@@ -131,8 +146,6 @@ function PlasmicTest__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const $globalActions = useGlobalActions?.();
-
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -161,6 +174,60 @@ function PlasmicTest__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest2.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest2.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "green"
+      },
+      {
+        path: "shop2.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "shop2.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "shop2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "buttonLiom8.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -170,6 +237,10 @@ function PlasmicTest__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
   });
 
   return (
@@ -207,52 +278,36 @@ function PlasmicTest__RenderFunc(props: {
             onClick={async event => {
               const $steps = {};
 
-              $steps["invokeGlobalAction"] = true
+              $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
-                      args: ["error", "DJLJDLJSJDL", "bottom-center", 10000]
-                    };
-                    return $globalActions["Fragment.showToast"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
-              ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
-              }
-
-              $steps["updateIntro"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["intro"]
-                      },
-                      operation: 0
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
+                      customFunction: async () => {
+                        return (() => {
+                          const setCookie = (name, value, days) => {
+                            const expires = new Date(
+                              Date.now() + days * 86400000
+                            ).toUTCString();
+                            document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.plasmic.app; secure; SameSite=Lax`;
+                          };
+                          return setCookie(
+                            "token",
+                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+                            7
+                          );
+                        })();
                       }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
               if (
-                $steps["updateIntro"] != null &&
-                typeof $steps["updateIntro"] === "object" &&
-                typeof $steps["updateIntro"].then === "function"
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
               ) {
-                $steps["updateIntro"] = await $steps["updateIntro"];
+                $steps["runCode"] = await $steps["runCode"];
               }
             }}
             onColorChange={async (...eventArgs: any) => {
@@ -272,17 +327,345 @@ function PlasmicTest__RenderFunc(props: {
             }}
           >
             <div
-              data-plasmic-name={"text"}
-              data-plasmic-override={overrides.text}
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text
+                sty.text__hvQeb
               )}
             >
               {" "}
             </div>
           </Button>
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              "<script>\r\n  window.setCookie = function (name, value, days) {\r\n  const expires = new Date(Date.now() + days * 864e5).toUTCString();\r\n  document.cookie = ${name}=${value}; expires=${expires}; path=/; domain=.plasmic.app; secure; SameSite=Lax;\r\n};\r\n\r\n\r\n</script>"
+            }
+          />
+
+          <AntdModal
+            data-plasmic-name={"modal"}
+            data-plasmic-override={overrides.modal}
+            className={classNames("__wab_instance", sty.modal)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            hideFooter={true}
+            maskClosable={false}
+            modalScopeClassName={sty["modal__modal"]}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["modal", "open"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            open={generateStateValueProp($state, ["modal", "open"])}
+            title={null}
+            trigger={null}
+          >
+            <ApiRequest
+              data-plasmic-name={"apiRequest2"}
+              data-plasmic-override={overrides.apiRequest2}
+              className={classNames("__wab_instance", sty.apiRequest2)}
+              errorDisplay={null}
+              loadingDisplay={
+                <div className={classNames(projectcss.all, sty.freeBox__mDl60)}>
+                  <Icon115Icon
+                    className={classNames(projectcss.all, sty.svg__l5Bx)}
+                    role={"img"}
+                  />
+                </div>
+              }
+              method={"GET"}
+              onError={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "apiRequest2",
+                  "error"
+                ]).apply(null, eventArgs);
+              }}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "apiRequest2",
+                  "loading"
+                ]).apply(null, eventArgs);
+              }}
+              onSuccess={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "apiRequest2",
+                  "data"
+                ]).apply(null, eventArgs);
+              }}
+              url={"https://n8n.staas.ir/webhook/selfTestPayment"}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__tvyK6)}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___0Ra8W)}
+                >
+                  <EmojiHappySquareSvgrepoComSvg2Icon
+                    className={classNames(projectcss.all, sty.svg__ks6I)}
+                    role={"img"}
+                  />
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__dzVh)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__syMOz
+                    )}
+                  >
+                    {
+                      "\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642"
+                    }
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__nbtOr
+                    )}
+                  >
+                    {
+                      "\u0627\u0632 \u062e\u0631\u06cc\u062f\u062a \u0645\u0645\u0646\u0648\u0646\u06cc\u0645! \u06af\u0641\u062a\u06af\u0648 \u0641\u0639\u0627\u0644 \u0634\u062f \u0648 \u062d\u0627\u0644\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647 \u0633\u0648\u0627\u0644\u0627\u062a\u062a \u062f\u0631\u0628\u0627\u0631\u0647 \u0633\u0644\u0627\u0645\u062a \u0648 \u0628\u062f\u0646\u062a \u067e\u0627\u0633\u062e \u0628\u062f\u06cc \u0648  \u0628\u0647 \u0633\u0644\u0627\u0645\u062a\u06cc \u062e\u0648\u062f\u062a \u0631\u0633\u06cc\u062f\u06af\u06cc \u06a9\u0646\u06cc."
+                    }
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___5EpBd
+                    )}
+                  >
+                    {hasVariant(globalVariants, "screen", "mobile")
+                      ? "\u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc >"
+                      : "Enter some text"}
+                  </div>
+                </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox___24Mu)}
+                >
+                  <Button
+                    data-plasmic-name={"button3"}
+                    data-plasmic-override={overrides.button3}
+                    className={classNames("__wab_instance", sty.button3)}
+                    color={generateStateValueProp($state, ["button3", "color"])}
+                    endIcon={
+                      <Icon12Icon
+                        className={classNames(projectcss.all, sty.svg__zfL6Q)}
+                        role={"img"}
+                      />
+                    }
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button3", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__wTzSm
+                      )}
+                    >
+                      {"\u062a\u0627\u06cc\u06cc\u062f"}
+                    </div>
+                  </Button>
+                </Stack__>
+              </Stack__>
+              <ApiRequest
+                data-plasmic-name={"shop2"}
+                data-plasmic-override={overrides.shop2}
+                className={classNames("__wab_instance", sty.shop2)}
+                errorDisplay={null}
+                loadingDisplay={null}
+                method={"POST"}
+                onError={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["shop2", "error"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                onLoading={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["shop2", "loading"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                onSuccess={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["shop2", "data"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                url={"https://n8n.staas.ir/webhook/selfTest/shop"}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__vaw16)}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__t0T7U)}
+                  >
+                    <EmojiSadSquareSvgrepoComSvgIcon
+                      className={classNames(projectcss.all, sty.svg___23TKh)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__kfGot)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pgAt
+                      )}
+                    >
+                      {
+                        "\u067e\u0631\u062f\u0627\u062e\u062a \u0646\u0627\u0645\u0648\u0641\u0642"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__wimZe
+                      )}
+                    >
+                      {
+                        "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f . "
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__nfX1Q
+                      )}
+                    >
+                      {hasVariant(globalVariants, "screen", "mobile")
+                        ? "\u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc >"
+                        : "Enter some text"}
+                    </div>
+                  </div>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__pw2Dt)}
+                  >
+                    <Button
+                      data-plasmic-name={"buttonLiom8"}
+                      data-plasmic-override={overrides.buttonLiom8}
+                      className={classNames("__wab_instance", sty.buttonLiom8)}
+                      color={generateStateValueProp($state, [
+                        "buttonLiom8",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon115Icon
+                          className={classNames(projectcss.all, sty.svg__t6Kuc)}
+                          role={"img"}
+                        />
+                      }
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "buttonLiom8",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__svFhp
+                        )}
+                      >
+                        {"\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"}
+                      </div>
+                    </Button>
+                  </Stack__>
+                </Stack__>
+              </ApiRequest>
+            </ApiRequest>
+            <div className={classNames(projectcss.all, sty.freeBox__vIpHu)} />
+          </AntdModal>
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const setCookie = (name, value, days) => {
+                            const expires = new Date(
+                              Date.now() + days * 86400000
+                            ).toUTCString();
+                            document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                          };
+                          setCookie(
+                            "token",
+                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+                            7
+                          );
+                          return setCookie("app", "liom", 7);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -290,9 +673,25 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "text"],
-  button: ["button", "text"],
-  text: ["text"]
+  root: [
+    "root",
+    "button",
+    "embedHtml",
+    "modal",
+    "apiRequest2",
+    "button3",
+    "shop2",
+    "buttonLiom8",
+    "sideEffect"
+  ],
+  button: ["button"],
+  embedHtml: ["embedHtml"],
+  modal: ["modal", "apiRequest2", "button3", "shop2", "buttonLiom8"],
+  apiRequest2: ["apiRequest2", "button3", "shop2", "buttonLiom8"],
+  button3: ["button3"],
+  shop2: ["shop2", "buttonLiom8"],
+  buttonLiom8: ["buttonLiom8"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -300,7 +699,13 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   button: typeof Button;
-  text: "div";
+  embedHtml: typeof Embed;
+  modal: typeof AntdModal;
+  apiRequest2: typeof ApiRequest;
+  button3: typeof Button;
+  shop2: typeof ApiRequest;
+  buttonLiom8: typeof Button;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -389,7 +794,13 @@ export const PlasmicTest = Object.assign(
   {
     // Helper components rendering sub-elements
     button: makeNodeComponent("button"),
-    text: makeNodeComponent("text"),
+    embedHtml: makeNodeComponent("embedHtml"),
+    modal: makeNodeComponent("modal"),
+    apiRequest2: makeNodeComponent("apiRequest2"),
+    button3: makeNodeComponent("button3"),
+    shop2: makeNodeComponent("shop2"),
+    buttonLiom8: makeNodeComponent("buttonLiom8"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

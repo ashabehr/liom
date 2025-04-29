@@ -229,7 +229,7 @@ function PlasmicSocialPost__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return $state.getInfo.data.result.details.isLiked;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -905,20 +905,6 @@ function PlasmicSocialPost__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                fail={(() => {
-                  try {
-                    return $state.getInfo.data.result.details.attachments[0]
-                      .url;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
                 failName={(() => {
                   try {
                     return undefined;
@@ -1317,6 +1303,19 @@ function PlasmicSocialPost__RenderFunc(props: {
                       }
                     })()}
                     className={classNames("__wab_instance", sty.save)}
+                    click={(() => {
+                      try {
+                        return $state.getInfo.data.result.details.isBookmarked;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
                     isBooookMarked={(() => {
                       try {
                         return $state.getInfo.data.result.details.isBookmarked;

@@ -159,7 +159,20 @@ function PlasmicSave__RenderFunc(props: {
         path: "click",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.click
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.isbookMarked;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.click
       },
       {
         path: "bookmarkcount",
@@ -175,6 +188,25 @@ function PlasmicSave__RenderFunc(props: {
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
                 return 0;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "isbookMarked",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.isBooookMarked;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
               }
               throw e;
             }
@@ -239,33 +271,48 @@ function PlasmicSave__RenderFunc(props: {
           $steps["updateClick"] = await $steps["updateClick"];
         }
 
-        $steps["updateBookmarkcount"] = true
+        $steps["updateBookmarkcount4"] = true
           ? (() => {
-              const actionArgs = {
-                operation: 0,
-                value: ($state.bookmarkcount += $state.click ? 1 : -1),
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["bookmarkcount"]
+              const actionArgs = { vgroup: "click", operation: 2 };
+              return (({ vgroup, value }) => {
+                if (typeof value === "string") {
+                  value = [value];
                 }
-              };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
 
-                $stateSet(objRoot, variablePath, value);
-                return value;
+                const oldValue = $stateGet($state, vgroup);
+                $stateSet($state, vgroup, !oldValue);
+                return !oldValue;
               })?.apply(null, [actionArgs]);
             })()
           : undefined;
         if (
-          $steps["updateBookmarkcount"] != null &&
-          typeof $steps["updateBookmarkcount"] === "object" &&
-          typeof $steps["updateBookmarkcount"].then === "function"
+          $steps["updateBookmarkcount4"] != null &&
+          typeof $steps["updateBookmarkcount4"] === "object" &&
+          typeof $steps["updateBookmarkcount4"].then === "function"
         ) {
-          $steps["updateBookmarkcount"] = await $steps["updateBookmarkcount"];
+          $steps["updateBookmarkcount4"] = await $steps["updateBookmarkcount4"];
+        }
+
+        $steps["runCode"] = true
+          ? (() => {
+              const actionArgs = {
+                customFunction: async () => {
+                  return ($state.bookmarkcount =
+                    parseInt($state.bookmarkcount) +
+                    ($state.isbookMarked ? -1 : 1));
+                }
+              };
+              return (({ customFunction }) => {
+                return customFunction();
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["runCode"] != null &&
+          typeof $steps["runCode"] === "object" &&
+          typeof $steps["runCode"].then === "function"
+        ) {
+          $steps["runCode"] = await $steps["runCode"];
         }
 
         $steps["updateBookmarkcount2"] = $props.isBooookMarked
@@ -312,7 +359,7 @@ function PlasmicSave__RenderFunc(props: {
               const actionArgs = {
                 args: [
                   "POST",
-                  undefined,
+                  "https://n8n.staas.ir/webhook/social/post/bookmark",
                   undefined,
                   (() => {
                     try {

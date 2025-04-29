@@ -2019,7 +2019,7 @@
   width: 100%;
   align-self: flex-start;
   min-width: 0;
-  display: none !important;
+  display: none;
 }
 .img__xJ4Uc > picture > img {
   object-fit: cover;

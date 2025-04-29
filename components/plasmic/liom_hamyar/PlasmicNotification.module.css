@@ -167,7 +167,7 @@
 .img___6DKUy {
   object-fit: cover;
   max-width: 30%;
-  display: none !important;
+  display: none;
 }
 .img___6DKUy > picture > img {
   object-fit: cover;
@@ -179,7 +179,7 @@
 }
 .imgnoNotification___6DKUyobwoa {
   max-width: 30%;
-  display: block !important;
+  display: block;
 }
 @media (max-width: 640px) {
   .imgnoNotification___6DKUyobwoa {

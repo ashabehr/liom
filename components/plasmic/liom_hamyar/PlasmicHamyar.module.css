@@ -2022,7 +2022,7 @@
   width: 100%;
   align-self: flex-start;
   min-width: 0;
-  display: none !important;
+  display: none;
 }
 .img__vPzRa > picture > img {
   object-fit: cover;

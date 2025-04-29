@@ -702,7 +702,7 @@
   max-width: 100%;
   width: 20px;
   flex-shrink: 0;
-  display: none !important;
+  display: none;
 }
 .img__ilr51 > picture > img {
   object-fit: cover;
@@ -1613,7 +1613,7 @@
   max-width: 100%;
   width: 20px;
   flex-shrink: 0;
-  display: none !important;
+  display: none;
   margin: -5px;
 }
 .img__uy5Yr > picture > img {

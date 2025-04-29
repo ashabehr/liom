@@ -1738,7 +1738,7 @@
 }
 @media (max-width: 640px) {
   .img__dmqvY {
-    display: none !important;
+    display: none;
   }
 }
 .button6:global(.__wab_instance) {
@@ -1840,7 +1840,7 @@
 }
 @media (max-width: 640px) {
   .img__djHjx {
-    display: none !important;
+    display: none;
   }
 }
 .button7:global(.__wab_instance) {
@@ -2091,7 +2091,7 @@
   top: 0%;
   left: 0%;
   flex-shrink: 0;
-  display: none !important;
+  display: none;
 }
 .img__stYx6 > picture > img {
   object-fit: cover;
@@ -2103,7 +2103,7 @@
   width: 80px;
   height: 80px;
   flex-shrink: 0;
-  display: block !important;
+  display: block;
 }
 @media (max-width: 640px) {
   .img_1_docters__stYx6Pv2Kd {
@@ -2121,7 +2121,7 @@
   position: relative;
   left: auto;
   top: auto;
-  display: block !important;
+  display: block;
 }
 @media (max-width: 640px) {
   .img_1_chatviow__stYx6AYJmT {
@@ -2440,7 +2440,7 @@
   max-width: 100%;
   width: 79px;
   height: 79px;
-  display: block !important;
+  display: block;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -2823,7 +2823,7 @@
   max-width: 100%;
   width: 79px;
   height: 79px;
-  display: block !important;
+  display: block;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -3502,7 +3502,7 @@
   filter: none;
   width: 118px;
   height: 118px;
-  display: block !important;
+  display: block;
   position: sticky;
   top: 0px;
   left: 0px;

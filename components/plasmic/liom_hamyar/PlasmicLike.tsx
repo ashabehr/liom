@@ -134,7 +134,7 @@ function PlasmicLike__RenderFunc(props: {
       Object.assign(
         {
           likeCountForBar: "100",
-          islikePost: false
+          islikePost: true
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -185,6 +185,25 @@ function PlasmicLike__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "isLikeForBar",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.islikePost;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -219,21 +238,18 @@ function PlasmicLike__RenderFunc(props: {
         $steps["updateIslike"] = true
           ? (() => {
               const actionArgs = {
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["islike"]
-                },
-                operation: 0,
-                value: !$state.islike
+                vgroup: "islike",
+                operation: 2,
+                value: "islike"
               };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
+              return (({ vgroup, value }) => {
+                if (typeof value === "string") {
+                  value = [value];
                 }
-                const { objRoot, variablePath } = variable;
 
-                $stateSet(objRoot, variablePath, value);
-                return value;
+                const oldValue = $stateGet($state, vgroup);
+                $stateSet($state, vgroup, !oldValue);
+                return !oldValue;
               })?.apply(null, [actionArgs]);
             })()
           : undefined;
@@ -248,14 +264,34 @@ function PlasmicLike__RenderFunc(props: {
         $steps["updateIslike2"] = true
           ? (() => {
               const actionArgs = {
+                customFunction: async () => {
+                  return ($state.likeCountForLikeBar =
+                    parseInt($state.likeCountForLikeBar) +
+                    ($state.isLikeForBar ? -1 : 1));
+                }
+              };
+              return (({ customFunction }) => {
+                return customFunction();
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateIslike2"] != null &&
+          typeof $steps["updateIslike2"] === "object" &&
+          typeof $steps["updateIslike2"].then === "function"
+        ) {
+          $steps["updateIslike2"] = await $steps["updateIslike2"];
+        }
+
+        $steps["updateIsLikeForBar"] = true
+          ? (() => {
+              const actionArgs = {
                 variable: {
                   objRoot: $state,
-                  variablePath: ["likeCountForLikeBar"]
+                  variablePath: ["isLikeForBar"]
                 },
                 operation: 0,
-                value: ($state.likeCountForLikeBar =
-                  parseInt($state.likeCountForLikeBar) +
-                  ($state.islike ? -1 : 1))
+                value: !$state.isLikeForBar
               };
               return (({ variable, value, startIndex, deleteCount }) => {
                 if (!variable) {
@@ -269,14 +305,14 @@ function PlasmicLike__RenderFunc(props: {
             })()
           : undefined;
         if (
-          $steps["updateIslike2"] != null &&
-          typeof $steps["updateIslike2"] === "object" &&
-          typeof $steps["updateIslike2"].then === "function"
+          $steps["updateIsLikeForBar"] != null &&
+          typeof $steps["updateIsLikeForBar"] === "object" &&
+          typeof $steps["updateIsLikeForBar"].then === "function"
         ) {
-          $steps["updateIslike2"] = await $steps["updateIslike2"];
+          $steps["updateIsLikeForBar"] = await $steps["updateIsLikeForBar"];
         }
 
-        $steps["invokeGlobalAction"] = $props.islikePost
+        $steps["invokeGlobalAction"] = !$state.isLikeForBar
           ? (() => {
               const actionArgs = {
                 args: [
@@ -314,7 +350,7 @@ function PlasmicLike__RenderFunc(props: {
           $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
         }
 
-        $steps["invokeGlobalAction2"] = !$props.islikePost
+        $steps["invokeGlobalAction2"] = $state.isLikeForBar
           ? (() => {
               const actionArgs = {
                 args: [
@@ -325,7 +361,6 @@ function PlasmicLike__RenderFunc(props: {
                     try {
                       return {
                         postId: $props.postIdForLike,
-
                         authorization: $props.tokenForPostLike
                       };
                     } catch (e) {
@@ -369,7 +404,9 @@ function PlasmicLike__RenderFunc(props: {
       <div
         data-plasmic-name={"text"}
         data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
+        className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
+          [sty.textislike]: hasVariant($state, "islike", "islike")
+        })}
       >
         <React.Fragment>
           {(() => {
