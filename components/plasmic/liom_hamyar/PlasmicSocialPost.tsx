@@ -603,6 +603,20 @@ function PlasmicSocialPost__RenderFunc(props: {
                       data-plasmic-name={"uploudeTime"}
                       data-plasmic-override={overrides.uploudeTime}
                       className={classNames("__wab_instance", sty.uploudeTime)}
+                      createdTime={(() => {
+                        try {
+                          return $state.getInfo.data.result.details.post
+                            .updatedAt;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
                     />
 
                     <Stack__
@@ -2005,8 +2019,13 @@ function PlasmicSocialPost__RenderFunc(props: {
                       displayMaxWidth={"none"}
                       displayMinHeight={"0"}
                       displayMinWidth={"0"}
-                      displayWidth={"auto"}
-                      src={"https://placekitten.com/300/200"}
+                      displayWidth={"24px"}
+                      src={{
+                        src: "/plasmic/liom_hamyar/images/image96.svg",
+                        fullWidth: 24,
+                        fullHeight: 24,
+                        aspectRatio: 1
+                      }}
                     />
                   </Reveal>
                   <div

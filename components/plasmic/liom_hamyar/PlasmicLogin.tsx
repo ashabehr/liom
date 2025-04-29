@@ -911,6 +911,11 @@ function PlasmicLogin__RenderFunc(props: {
             data-plasmic-name={"favicon"}
             data-plasmic-override={overrides.favicon}
             className={classNames("__wab_instance", sty.favicon, {
+              [sty.faviconloginPage_mobileCode]: hasVariant(
+                $state,
+                "loginPage",
+                "mobileCode"
+              ),
               [sty.faviconloginPage_name]: hasVariant(
                 $state,
                 "loginPage",
@@ -918,7 +923,9 @@ function PlasmicLogin__RenderFunc(props: {
               )
             })}
             code={
-              hasVariant(globalVariants, "screen", "mobile")
+              hasVariant($state, "loginPage", "mobileCode")
+                ? "<script>\r\n(function() {\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc favicon\r\n    var faviconLink = document.querySelector(\"link[rel='icon']\");\r\n    if (!faviconLink) {\r\n        faviconLink = document.createElement('link');\r\n        faviconLink.rel = 'icon';\r\n        document.head.appendChild(faviconLink);\r\n    }\r\n    faviconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc apple-touch-icon\r\n    var appleTouchIconLink = document.querySelector(\"link[rel='apple-touch-icon']\");\r\n    if (!appleTouchIconLink) {\r\n        appleTouchIconLink = document.createElement('link');\r\n        appleTouchIconLink.rel = 'apple-touch-icon';\r\n        document.head.appendChild(appleTouchIconLink);\r\n    }\r\n    appleTouchIconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n\r\n\r\nwindow.setCookie = (name, value, days) => {\r\n  const expires = new Date(Date.now() + days * 864e5).toUTCString();\r\n  document.cookie = ${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax;\r\n};\r\n\r\nwindow.getCookie = (name) => {\r\n  const cookies = document.cookie.split(\"; \");\r\n  for (let cookie of cookies) {\r\n    const [key, value] = cookie.split(\"=\");\r\n    if (key === name) return value;\r\n  }\r\n  return null;\r\n};\r\n</script>"
+                : hasVariant(globalVariants, "screen", "mobile")
                 ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
                 : "<script>\r\n(function() {\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc favicon\r\n    var faviconLink = document.querySelector(\"link[rel='icon']\");\r\n    if (!faviconLink) {\r\n        faviconLink = document.createElement('link');\r\n        faviconLink.rel = 'icon';\r\n        document.head.appendChild(faviconLink);\r\n    }\r\n    faviconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc apple-touch-icon\r\n    var appleTouchIconLink = document.querySelector(\"link[rel='apple-touch-icon']\");\r\n    if (!appleTouchIconLink) {\r\n        appleTouchIconLink = document.createElement('link');\r\n        appleTouchIconLink.rel = 'apple-touch-icon';\r\n        document.head.appendChild(appleTouchIconLink);\r\n    }\r\n    appleTouchIconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>"
             }
@@ -5019,10 +5026,19 @@ function PlasmicLogin__RenderFunc(props: {
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
-                                    return localStorage.setItem(
-                                      "loginInfo",
-                                      JSON.stringify($state.loginData)
-                                    );
+                                    return (() => {
+                                      localStorage.setItem(
+                                        "loginInfo",
+                                        JSON.stringify($state.loginData)
+                                      );
+                                      return window.setCookie(
+                                        "token",
+                                        JSON.stringify([
+                                          $state.loginData.result.token
+                                        ]),
+                                        100
+                                      );
+                                    })();
                                   }
                                 };
                                 return (({ customFunction }) => {
@@ -10168,10 +10184,19 @@ function PlasmicLogin__RenderFunc(props: {
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
-                                      return localStorage.setItem(
-                                        "loginInfo",
-                                        JSON.stringify($state.loginData)
-                                      );
+                                      return (() => {
+                                        localStorage.setItem(
+                                          "loginInfo",
+                                          JSON.stringify($state.loginData)
+                                        );
+                                        return window.setCookie(
+                                          "token",
+                                          JSON.stringify([
+                                            $state.loginData.result.token
+                                          ]),
+                                          100
+                                        );
+                                      })();
                                     }
                                   };
                                   return (({ customFunction }) => {
@@ -14738,10 +14763,19 @@ function PlasmicLogin__RenderFunc(props: {
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
-                                    return localStorage.setItem(
-                                      "loginInfo",
-                                      JSON.stringify($state.loginData)
-                                    );
+                                    return (() => {
+                                      localStorage.setItem(
+                                        "loginInfo",
+                                        JSON.stringify($state.loginData)
+                                      );
+                                      return window.setCookie(
+                                        "token",
+                                        JSON.stringify([
+                                          $state.loginData.result.token
+                                        ]),
+                                        100
+                                      );
+                                    })();
                                   }
                                 };
                                 return (({ customFunction }) => {

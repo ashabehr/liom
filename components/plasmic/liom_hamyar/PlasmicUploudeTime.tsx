@@ -73,9 +73,15 @@ export type PlasmicUploudeTime__VariantsArgs = {};
 type VariantPropType = keyof PlasmicUploudeTime__VariantsArgs;
 export const PlasmicUploudeTime__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicUploudeTime__ArgsType = { children?: React.ReactNode };
+export type PlasmicUploudeTime__ArgsType = {
+  children?: React.ReactNode;
+  createdTime?: any;
+};
 type ArgPropType = keyof PlasmicUploudeTime__ArgsType;
-export const PlasmicUploudeTime__ArgProps = new Array<ArgPropType>("children");
+export const PlasmicUploudeTime__ArgProps = new Array<ArgPropType>(
+  "children",
+  "createdTime"
+);
 
 export type PlasmicUploudeTime__OverridesType = {
   root?: Flex__<"div">;
@@ -83,6 +89,7 @@ export type PlasmicUploudeTime__OverridesType = {
 
 export interface DefaultUploudeTimeProps {
   children?: React.ReactNode;
+  createdTime?: any;
   className?: string;
 }
 
@@ -186,10 +193,7 @@ function PlasmicUploudeTime__RenderFunc(props: {
             <React.Fragment>
               {(() => {
                 try {
-                  return (() => {
-                    const currentDate = new Date();
-                    return currentDate;
-                  })();
+                  return (() => {})();
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

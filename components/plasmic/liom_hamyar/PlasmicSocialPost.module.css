@@ -304,7 +304,7 @@
 .uploudeTime:global(.__wab_instance) {
   position: relative;
 }
-.text__mY991 {
+.text__kMc7N {
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -1081,7 +1081,7 @@
 }
 .img__siBb6 {
   object-fit: cover;
-  width: auto;
+  width: 24px;
 }
 .img__siBb6 > picture > img {
   object-fit: cover;
