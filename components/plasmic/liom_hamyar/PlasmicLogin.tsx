@@ -1011,11 +1011,20 @@ function PlasmicLogin__RenderFunc(props: {
                             }
                           }
                           if (redirectUrl && isValid) {
-                            return console.log("ok");
+                            console.log("ok");
                           } else if (redirectUrl) {
                             window.location.href = "/expired";
-                            return console.log("no");
+                            console.log("no");
                           }
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
                         })();
                       }
                     };
@@ -1083,6 +1092,101 @@ function PlasmicLogin__RenderFunc(props: {
                 typeof $steps["updateType"].then === "function"
               ) {
                 $steps["updateType"] = await $steps["updateType"];
+              }
+
+              $steps["urlToken"] =
+                $state.token != ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/users/profile",
+                          (() => {
+                            try {
+                              return {
+                                redirectTo: $state.paramsObject.redirect_url
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                headers: { Authorization: $state.token }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["urlToken"] != null &&
+                typeof $steps["urlToken"] === "object" &&
+                typeof $steps["urlToken"].then === "function"
+              ) {
+                $steps["urlToken"] = await $steps["urlToken"];
+              }
+
+              $steps["goToPage"] = (
+                $steps.urlToken?.dara?.success == true ? true : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      destination: (() => {
+                        try {
+                          return $steps.urlToken.dara.url;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                    };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goToPage"] != null &&
+                typeof $steps["goToPage"] === "object" &&
+                typeof $steps["goToPage"].then === "function"
+              ) {
+                $steps["goToPage"] = await $steps["goToPage"];
               }
 
               $steps["updateLoginPage"] =
@@ -1179,7 +1283,7 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["updateLoginData"] = await $steps["updateLoginData"];
               }
 
-              $steps["runCode3"] = localStorage.getItem("loginInfo")
+              $steps["runCode3"] = false
                 ? (() => {
                     const actionArgs = {
                       destination: (() => {
