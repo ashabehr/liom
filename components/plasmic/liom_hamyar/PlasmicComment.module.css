@@ -279,39 +279,37 @@
 .freeBoxunnamedGroupOfVariants_whenHaveNoReply__eZremCt3Kq {
   display: none;
 }
-.reply__cmcBj:global(.__wab_instance) {
+.reply:global(.__wab_instance) {
   left: auto;
   top: auto;
   position: relative;
   bottom: auto;
   right: auto;
 }
-.replywhenHaveNoReply__cmcBjuOheY:global(.__wab_instance) {
+.replywhenHaveNoReply:global(.__wab_instance) {
   display: none;
 }
-.replywhenHaveReply__cmcBjs2LwI:global(.__wab_instance) {
+.replywhenHaveReply:global(.__wab_instance) {
   display: none;
 }
-.replyshowReply__cmcBj5MJbg:global(.__wab_instance) {
+.replyshowReply:global(.__wab_instance) {
   position: relative;
   left: auto;
   top: auto;
   bottom: auto;
   right: auto;
 }
-.replyunnamedGroupOfVariants_showReply__cmcBjkDgzF:global(.__wab_instance) {
+.replyunnamedGroupOfVariants_showReply:global(.__wab_instance) {
   position: relative;
   left: auto;
   top: auto;
   bottom: auto;
   right: auto;
 }
-.replyunnamedGroupOfVariants_whenHaveReply__cmcBjKmMee:global(.__wab_instance) {
+.replyunnamedGroupOfVariants_whenHaveReply:global(.__wab_instance) {
   display: none;
 }
-.replyunnamedGroupOfVariants_whenHaveNoReply__cmcBjCt3Kq:global(
-    .__wab_instance
-  ) {
+.replyunnamedGroupOfVariants_whenHaveNoReply:global(.__wab_instance) {
   display: none;
 }
 .commentlikebutton2:global(.__wab_instance) {
@@ -546,7 +544,7 @@
   font-weight: 500;
   min-width: 0;
 }
-.reply__iSisW:global(.__wab_instance) {
+.reply2:global(.__wab_instance) {
   max-width: 100%;
   position: absolute;
   left: auto;
@@ -561,7 +559,7 @@
   bottom: -20px;
   right: 85px;
 }
-.reply__ub0Bo:global(.__wab_instance) {
+.reply3:global(.__wab_instance) {
   max-width: 100%;
   position: absolute;
   left: auto;
@@ -569,10 +567,10 @@
   bottom: -20px;
   right: 10px;
 }
-.replyshowReply__ub0Bo5MJbg:global(.__wab_instance) {
+.reply3showReply:global(.__wab_instance) {
   display: none;
 }
-.replyunnamedGroupOfVariants_showReply__ub0BokDgzF:global(.__wab_instance) {
+.reply3unnamedGroupOfVariants_showReply:global(.__wab_instance) {
   display: none;
 }
 .freeBox__xZam2 {

@@ -81,6 +81,7 @@ export type PlasmicComment__VariantMembers = {
   whenHaveReply: "whenHaveReply";
   showReply: "showReply";
   unnamedGroupOfVariants: "showReply" | "whenHaveReply" | "whenHaveNoReply";
+  whenIsAdminTrue: "whenIsAdminTrue";
 };
 export type PlasmicComment__VariantsArgs = {
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
@@ -89,13 +90,15 @@ export type PlasmicComment__VariantsArgs = {
   unnamedGroupOfVariants?: SingleChoiceArg<
     "showReply" | "whenHaveReply" | "whenHaveNoReply"
   >;
+  whenIsAdminTrue?: SingleBooleanChoiceArg<"whenIsAdminTrue">;
 };
 type VariantPropType = keyof PlasmicComment__VariantsArgs;
 export const PlasmicComment__VariantProps = new Array<VariantPropType>(
   "whenHaveNoReply",
   "whenHaveReply",
   "showReply",
-  "unnamedGroupOfVariants"
+  "unnamedGroupOfVariants",
+  "whenIsAdminTrue"
 );
 
 export type PlasmicComment__ArgsType = {
@@ -115,6 +118,7 @@ export type PlasmicComment__ArgsType = {
   replyCount?: string;
   likeComment?: boolean;
   dataUserCurrent?: string;
+  onClick?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
@@ -133,7 +137,8 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "mainCommentLikeCount",
   "replyCount",
   "likeComment",
-  "dataUserCurrent"
+  "dataUserCurrent",
+  "onClick"
 );
 
 export type PlasmicComment__OverridesType = {
@@ -141,9 +146,12 @@ export type PlasmicComment__OverridesType = {
   lineClomp?: Flex__<typeof LineClomp>;
   coment?: Flex__<"div">;
   commentlikebutton?: Flex__<typeof Commentlikebutton>;
+  reply?: Flex__<typeof Reply>;
   commentlikebutton2?: Flex__<typeof Commentlikebutton>;
   lineClomp2?: Flex__<typeof LineClomp>;
+  reply2?: Flex__<typeof Reply>;
   replyLikeButton?: Flex__<typeof ReplyLikeButton>;
+  reply3?: Flex__<typeof Reply>;
 };
 
 export interface DefaultCommentProps {
@@ -163,12 +171,14 @@ export interface DefaultCommentProps {
   replyCount?: string;
   likeComment?: boolean;
   dataUserCurrent?: string;
+  onClick?: (event: any) => void;
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
   whenHaveReply?: SingleBooleanChoiceArg<"whenHaveReply">;
   showReply?: SingleBooleanChoiceArg<"showReply">;
   unnamedGroupOfVariants?: SingleChoiceArg<
     "showReply" | "whenHaveReply" | "whenHaveNoReply"
   >;
+  whenIsAdminTrue?: SingleBooleanChoiceArg<"whenIsAdminTrue">;
   className?: string;
 }
 
@@ -295,6 +305,48 @@ function PlasmicComment__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "reply.afterClickUpdateData",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "reply2[].afterClickUpdateData",
+        type: "private",
+        variableType: "object"
+      },
+      {
+        path: "reply3.afterClickUpdateData",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "currentDataForSendReply",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "whenIsAdminTrue",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.whenIsAdminTrue
       }
     ],
     [$props, $ctx, $refs]
@@ -743,32 +795,54 @@ function PlasmicComment__RenderFunc(props: {
         })}
       >
         <Reply
-          className={classNames("__wab_instance", sty.reply__cmcBj, {
-            [sty.replyshowReply__cmcBj5MJbg]: hasVariant(
-              $state,
-              "showReply",
-              "showReply"
-            ),
-            [sty.replyunnamedGroupOfVariants_showReply__cmcBjkDgzF]: hasVariant(
+          data-plasmic-name={"reply"}
+          data-plasmic-override={overrides.reply}
+          afterClickUpdateData={generateStateValueProp($state, [
+            "reply",
+            "afterClickUpdateData"
+          ])}
+          className={classNames("__wab_instance", sty.reply, {
+            [sty.replyshowReply]: hasVariant($state, "showReply", "showReply"),
+            [sty.replyunnamedGroupOfVariants_showReply]: hasVariant(
               $state,
               "unnamedGroupOfVariants",
               "showReply"
             ),
-            [sty.replyunnamedGroupOfVariants_whenHaveNoReply__cmcBjCt3Kq]:
-              hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
-            [sty.replyunnamedGroupOfVariants_whenHaveReply__cmcBjKmMee]:
-              hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
-            [sty.replywhenHaveNoReply__cmcBjuOheY]: hasVariant(
+            [sty.replyunnamedGroupOfVariants_whenHaveNoReply]: hasVariant(
+              $state,
+              "unnamedGroupOfVariants",
+              "whenHaveNoReply"
+            ),
+            [sty.replyunnamedGroupOfVariants_whenHaveReply]: hasVariant(
+              $state,
+              "unnamedGroupOfVariants",
+              "whenHaveReply"
+            ),
+            [sty.replywhenHaveNoReply]: hasVariant(
               $state,
               "whenHaveNoReply",
               "whenHaveNoReply"
             ),
-            [sty.replywhenHaveReply__cmcBjs2LwI]: hasVariant(
+            [sty.replywhenHaveReply]: hasVariant(
               $state,
               "whenHaveReply",
               "whenHaveReply"
             )
           })}
+          onAfterClickUpdateDataChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "reply",
+              "afterClickUpdateData"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
         />
 
         <Commentlikebutton
@@ -1089,18 +1163,60 @@ function PlasmicComment__RenderFunc(props: {
                   </div>
                 </LineClomp>
               </div>
-              <Reply
-                className={classNames("__wab_instance", sty.reply__iSisW, {
-                  [sty.replyshowReply__iSisW5MJbg]: hasVariant(
-                    $state,
-                    "showReply",
-                    "showReply"
-                  ),
-                  [sty.replyunnamedGroupOfVariants_showReply__iSisWkDgzF]:
-                    hasVariant($state, "unnamedGroupOfVariants", "showReply")
-                })}
-              />
+              {(() => {
+                const child$Props = {
+                  afterClickUpdateData: generateStateValueProp($state, [
+                    "reply2",
+                    __plasmic_idx_0,
+                    "afterClickUpdateData"
+                  ]),
+                  className: classNames("__wab_instance", sty.reply2, {
+                    [sty.reply2showReply]: hasVariant(
+                      $state,
+                      "showReply",
+                      "showReply"
+                    ),
+                    [sty.reply2unnamedGroupOfVariants_showReply]: hasVariant(
+                      $state,
+                      "unnamedGroupOfVariants",
+                      "showReply"
+                    )
+                  }),
+                  onAfterClickUpdateDataChange: async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "reply2",
+                      __plasmic_idx_0,
+                      "afterClickUpdateData"
+                    ]).apply(null, eventArgs);
 
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }
+                };
+
+                initializePlasmicStates(
+                  $state,
+                  [
+                    {
+                      name: "reply2[].afterClickUpdateData",
+                      initFunc: ({ $props, $state, $queries }) => ({})
+                    }
+                  ],
+                  [__plasmic_idx_0]
+                );
+                return (
+                  <Reply
+                    data-plasmic-name={"reply2"}
+                    data-plasmic-override={overrides.reply2}
+                    {...child$Props}
+                  />
+                );
+              })()}
               <ReplyLikeButton
                 data-plasmic-name={"replyLikeButton"}
                 data-plasmic-override={overrides.replyLikeButton}
@@ -1132,27 +1248,35 @@ function PlasmicComment__RenderFunc(props: {
         })}
       </div>
       <Reply
-        className={classNames("__wab_instance", sty.reply__ub0Bo, {
-          [sty.replyshowReply__ub0Bo5MJbg]: hasVariant(
-            $state,
-            "showReply",
-            "showReply"
-          ),
-          [sty.replyunnamedGroupOfVariants_showReply__ub0BokDgzF]: hasVariant(
+        data-plasmic-name={"reply3"}
+        data-plasmic-override={overrides.reply3}
+        afterClickUpdateData={generateStateValueProp($state, [
+          "reply3",
+          "afterClickUpdateData"
+        ])}
+        className={classNames("__wab_instance", sty.reply3, {
+          [sty.reply3showReply]: hasVariant($state, "showReply", "showReply"),
+          [sty.reply3unnamedGroupOfVariants_showReply]: hasVariant(
             $state,
             "unnamedGroupOfVariants",
             "showReply"
           ),
-          [sty.replyunnamedGroupOfVariants_whenHaveNoReply__ub0BoCt3Kq]:
-            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
-          [sty.replyunnamedGroupOfVariants_whenHaveReply__ub0BoKmMee]:
-            hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
-          [sty.replywhenHaveNoReply__ub0BouOheY]: hasVariant(
+          [sty.reply3unnamedGroupOfVariants_whenHaveNoReply]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "whenHaveNoReply"
+          ),
+          [sty.reply3unnamedGroupOfVariants_whenHaveReply]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "whenHaveReply"
+          ),
+          [sty.reply3whenHaveNoReply]: hasVariant(
             $state,
             "whenHaveNoReply",
             "whenHaveNoReply"
           ),
-          [sty.replywhenHaveReply__ub0Bos2LwI]: hasVariant(
+          [sty.reply3whenHaveReply]: hasVariant(
             $state,
             "whenHaveReply",
             "whenHaveReply"
@@ -1171,6 +1295,21 @@ function PlasmicComment__RenderFunc(props: {
             throw e;
           }
         })()}
+        onAfterClickUpdateDataChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, [
+            "reply3",
+            "afterClickUpdateData"
+          ]).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onClick={args.onClick}
       />
 
       <div
@@ -1463,16 +1602,22 @@ const PlasmicDescendants = {
     "lineClomp",
     "coment",
     "commentlikebutton",
+    "reply",
     "commentlikebutton2",
     "lineClomp2",
-    "replyLikeButton"
+    "reply2",
+    "replyLikeButton",
+    "reply3"
   ],
   lineClomp: ["lineClomp", "coment"],
   coment: ["coment"],
   commentlikebutton: ["commentlikebutton"],
+  reply: ["reply"],
   commentlikebutton2: ["commentlikebutton2"],
   lineClomp2: ["lineClomp2"],
-  replyLikeButton: ["replyLikeButton"]
+  reply2: ["reply2"],
+  replyLikeButton: ["replyLikeButton"],
+  reply3: ["reply3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1482,9 +1627,12 @@ type NodeDefaultElementType = {
   lineClomp: typeof LineClomp;
   coment: "div";
   commentlikebutton: typeof Commentlikebutton;
+  reply: typeof Reply;
   commentlikebutton2: typeof Commentlikebutton;
   lineClomp2: typeof LineClomp;
+  reply2: typeof Reply;
   replyLikeButton: typeof ReplyLikeButton;
+  reply3: typeof Reply;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1550,9 +1698,12 @@ export const PlasmicComment = Object.assign(
     lineClomp: makeNodeComponent("lineClomp"),
     coment: makeNodeComponent("coment"),
     commentlikebutton: makeNodeComponent("commentlikebutton"),
+    reply: makeNodeComponent("reply"),
     commentlikebutton2: makeNodeComponent("commentlikebutton2"),
     lineClomp2: makeNodeComponent("lineClomp2"),
+    reply2: makeNodeComponent("reply2"),
     replyLikeButton: makeNodeComponent("replyLikeButton"),
+    reply3: makeNodeComponent("reply3"),
 
     // Metadata about props expected for PlasmicComment
     internalVariantProps: PlasmicComment__VariantProps,

@@ -77,10 +77,18 @@ export type PlasmicReply__VariantsArgs = {};
 type VariantPropType = keyof PlasmicReply__VariantsArgs;
 export const PlasmicReply__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicReply__ArgsType = { dataUserForCurrent?: any };
+export type PlasmicReply__ArgsType = {
+  dataUserForCurrent?: any;
+  afterClickUpdateData?: any;
+  onAfterClickUpdateDataChange?: (val: string) => void;
+  onClick?: (event: any) => void;
+};
 type ArgPropType = keyof PlasmicReply__ArgsType;
 export const PlasmicReply__ArgProps = new Array<ArgPropType>(
-  "dataUserForCurrent"
+  "dataUserForCurrent",
+  "afterClickUpdateData",
+  "onAfterClickUpdateDataChange",
+  "onClick"
 );
 
 export type PlasmicReply__OverridesType = {
@@ -91,6 +99,9 @@ export type PlasmicReply__OverridesType = {
 
 export interface DefaultReplyProps {
   dataUserForCurrent?: any;
+  afterClickUpdateData?: any;
+  onAfterClickUpdateDataChange?: (val: string) => void;
+  onClick?: (event: any) => void;
   className?: string;
 }
 
@@ -137,10 +148,12 @@ function PlasmicReply__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "dataUser",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        path: "afterClickUpdateData",
+        type: "writable",
+        variableType: "object",
+
+        valueProp: "afterClickUpdateData",
+        onChangeProp: "onAfterClickUpdateDataChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -168,52 +181,7 @@ function PlasmicReply__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root
       )}
-      onClick={async event => {
-        const $steps = {};
-
-        $steps["runCode"] = true
-          ? (() => {
-              const actionArgs = {
-                customFunction: async () => {
-                  return (() => {
-                    var comment = document.getElementById("focus_comment");
-                    return comment.firstElementChild.focus();
-                  })();
-                }
-              };
-              return (({ customFunction }) => {
-                return customFunction();
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["runCode"] != null &&
-          typeof $steps["runCode"] === "object" &&
-          typeof $steps["runCode"].then === "function"
-        ) {
-          $steps["runCode"] = await $steps["runCode"];
-        }
-
-        $steps["updateStateVariable"] = true
-          ? (() => {
-              const actionArgs = {};
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
-                undefined;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateStateVariable"] != null &&
-          typeof $steps["updateStateVariable"] === "object" &&
-          typeof $steps["updateStateVariable"].then === "function"
-        ) {
-          $steps["updateStateVariable"] = await $steps["updateStateVariable"];
-        }
-      }}
+      onClick={args.onClick}
     >
       <div
         data-plasmic-name={"text"}

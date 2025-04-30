@@ -74,6 +74,7 @@ import Comment from "../../Comment"; // plasmic-import: Q00r5f4C3XYv/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -101,6 +102,8 @@ import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: bJ7kV
 import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: 2SO3BEHlRKXI/icon
 import Icon184Icon from "./icons/PlasmicIcon__Icon184"; // plasmic-import: qyxzNL8K38N5/icon
 import Icon176Icon from "./icons/PlasmicIcon__Icon176"; // plasmic-import: elrgas2UYaHC/icon
+import Icon227Icon from "./icons/PlasmicIcon__Icon227"; // plasmic-import: HYZYMCyfZITX/icon
+import XIcon2 from "../fragment_icons/icons/PlasmicIcon__X"; // plasmic-import: zb1oqVXdrxPK/icon
 
 createPlasmicElementProxy;
 
@@ -127,6 +130,8 @@ export type PlasmicSocialPost__OverridesType = {
   comment?: Flex__<typeof Comment>;
   reveal?: Flex__<typeof Reveal>;
   textArea?: Flex__<typeof AntdTextArea>;
+  lineClomp?: Flex__<typeof LineClomp>;
+  lineClomp2?: Flex__<typeof LineClomp>;
   getInfo?: Flex__<typeof ApiRequest>;
   timer?: Flex__<typeof Timer>;
 };
@@ -352,6 +357,24 @@ function PlasmicSocialPost__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "currentUserDataAfterClick",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "lineClomp.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "lineClomp2.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1868,6 +1891,72 @@ function PlasmicSocialPost__RenderFunc(props: {
                             throw e;
                           }
                         })(),
+                        onClick: async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      var comment =
+                                        window.document.getElementById(
+                                          "focus_comment"
+                                        );
+                                      return comment.firstElementChild.focus();
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["updateCurrentUserDataAfterClick"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["currentUserDataAfterClick"]
+                                  },
+                                  operation: 0,
+                                  value: currentItem
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateCurrentUserDataAfterClick"] != null &&
+                            typeof $steps["updateCurrentUserDataAfterClick"] ===
+                              "object" &&
+                            typeof $steps["updateCurrentUserDataAfterClick"]
+                              .then === "function"
+                          ) {
+                            $steps["updateCurrentUserDataAfterClick"] =
+                              await $steps["updateCurrentUserDataAfterClick"];
+                          }
+                        },
                         onCommentDataChange: async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
                             "comment",
@@ -2093,42 +2182,112 @@ function PlasmicSocialPost__RenderFunc(props: {
                       role={"img"}
                     />
                   </div>
-                  <div
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox__wpwh6)}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__nlf4S
-                      )}
+                    <Icon227Icon
+                      className={classNames(projectcss.all, sty.svg__iRmL)}
+                      role={"img"}
+                    />
+
+                    <LineClomp
+                      data-plasmic-name={"lineClomp"}
+                      data-plasmic-override={overrides.lineClomp}
+                      className={classNames("__wab_instance", sty.lineClomp)}
+                      onLineChange={async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "lineClomp",
+                          "line"
+                        ]).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
                     >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return undefined;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__jn8Hz
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (
+                                $state.currentUserDataAfterClick.user.name +
+                                " :     "
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__k8Xb
-                      )}
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </LineClomp>
+                    <LineClomp
+                      data-plasmic-name={"lineClomp2"}
+                      data-plasmic-override={overrides.lineClomp2}
+                      className={classNames("__wab_instance", sty.lineClomp2)}
+                      numberOfLine={1}
+                      onLineChange={async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "lineClomp2",
+                          "line"
+                        ]).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
                     >
-                      {"Enter some text"}
-                    </div>
-                  </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ypNoJ
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.currentUserDataAfterClick.comment
+                                .text;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </LineClomp>
+                    <XIcon2
+                      className={classNames(projectcss.all, sty.svg___0AiE2)}
+                      role={"img"}
+                    />
+                  </Stack__>
                 </div>
               </section>
             </Stack__>
@@ -2396,6 +2555,8 @@ const PlasmicDescendants = {
     "comment",
     "reveal",
     "textArea",
+    "lineClomp",
+    "lineClomp2",
     "getInfo",
     "timer"
   ],
@@ -2411,6 +2572,8 @@ const PlasmicDescendants = {
   comment: ["comment"],
   reveal: ["reveal"],
   textArea: ["textArea"],
+  lineClomp: ["lineClomp"],
+  lineClomp2: ["lineClomp2"],
   getInfo: ["getInfo"],
   timer: ["timer"]
 } as const;
@@ -2431,6 +2594,8 @@ type NodeDefaultElementType = {
   comment: typeof Comment;
   reveal: typeof Reveal;
   textArea: typeof AntdTextArea;
+  lineClomp: typeof LineClomp;
+  lineClomp2: typeof LineClomp;
   getInfo: typeof ApiRequest;
   timer: typeof Timer;
 };
@@ -2532,6 +2697,8 @@ export const PlasmicSocialPost = Object.assign(
     comment: makeNodeComponent("comment"),
     reveal: makeNodeComponent("reveal"),
     textArea: makeNodeComponent("textArea"),
+    lineClomp: makeNodeComponent("lineClomp"),
+    lineClomp2: makeNodeComponent("lineClomp2"),
     getInfo: makeNodeComponent("getInfo"),
     timer: makeNodeComponent("timer"),
 
