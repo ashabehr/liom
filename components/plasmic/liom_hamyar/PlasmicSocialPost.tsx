@@ -2110,29 +2110,43 @@ function PlasmicSocialPost__RenderFunc(props: {
                   </div>
                 ) : null}
                 <div className={classNames(projectcss.all, sty.freeBox__dnSli)}>
-                  <Reveal
-                    data-plasmic-name={"reveal"}
-                    data-plasmic-override={overrides.reveal}
-                    className={classNames("__wab_instance", sty.reveal)}
-                    triggerOnce={true}
-                  >
-                    <PlasmicImg__
-                      alt={""}
-                      className={classNames(sty.img__siBb6)}
-                      displayHeight={"auto"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"none"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"24px"}
-                      src={{
-                        src: "/plasmic/liom_hamyar/images/image96.svg",
-                        fullWidth: 24,
-                        fullHeight: 24,
-                        aspectRatio: 1
-                      }}
-                    />
-                  </Reveal>
+                  {(() => {
+                    try {
+                      return $state.textArea.value?.length > 0;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <Reveal
+                      data-plasmic-name={"reveal"}
+                      data-plasmic-override={overrides.reveal}
+                      className={classNames("__wab_instance", sty.reveal)}
+                      triggerOnce={true}
+                    >
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__siBb6)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"none"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"24px"}
+                        src={{
+                          src: "/plasmic/liom_hamyar/images/image96.svg",
+                          fullWidth: 24,
+                          fullHeight: 24,
+                          aspectRatio: 1
+                        }}
+                      />
+                    </Reveal>
+                  ) : null}
                   <div
                     className={classNames(projectcss.all, sty.freeBox___8LXcp)}
                     id={"focus_comment"}
@@ -2182,112 +2196,168 @@ function PlasmicSocialPost__RenderFunc(props: {
                       role={"img"}
                     />
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__wpwh6)}
-                  >
-                    <Icon227Icon
-                      className={classNames(projectcss.all, sty.svg__iRmL)}
-                      role={"img"}
-                    />
-
-                    <LineClomp
-                      data-plasmic-name={"lineClomp"}
-                      data-plasmic-override={overrides.lineClomp}
-                      className={classNames("__wab_instance", sty.lineClomp)}
-                      onLineChange={async (...eventArgs: any) => {
-                        generateStateOnChangeProp($state, [
-                          "lineClomp",
-                          "line"
-                        ]).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
+                  {(() => {
+                    try {
+                      return (
+                        $state.currentUserDataAfterClick.user?.id !== undefined
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__wpwh6)}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__jn8Hz
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (
-                                $state.currentUserDataAfterClick.user.name +
-                                " :     "
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </LineClomp>
-                    <LineClomp
-                      data-plasmic-name={"lineClomp2"}
-                      data-plasmic-override={overrides.lineClomp2}
-                      className={classNames("__wab_instance", sty.lineClomp2)}
-                      numberOfLine={1}
-                      onLineChange={async (...eventArgs: any) => {
-                        generateStateOnChangeProp($state, [
-                          "lineClomp2",
-                          "line"
-                        ]).apply(null, eventArgs);
+                      <Icon227Icon
+                        className={classNames(projectcss.all, sty.svg__iRmL)}
+                        role={"img"}
+                      />
 
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__ypNoJ
-                        )}
+                      <LineClomp
+                        data-plasmic-name={"lineClomp"}
+                        data-plasmic-override={overrides.lineClomp}
+                        className={classNames("__wab_instance", sty.lineClomp)}
+                        onLineChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "lineClomp",
+                            "line"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return $state.currentUserDataAfterClick.comment
-                                .text;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__jn8Hz
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (
+                                  $state.currentUserDataAfterClick.user.name +
+                                  " :     "
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </LineClomp>
-                    <XIcon2
-                      className={classNames(projectcss.all, sty.svg___0AiE2)}
-                      role={"img"}
-                    />
-                  </Stack__>
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </LineClomp>
+                      <LineClomp
+                        data-plasmic-name={"lineClomp2"}
+                        data-plasmic-override={overrides.lineClomp2}
+                        className={classNames("__wab_instance", sty.lineClomp2)}
+                        numberOfLine={1}
+                        onLineChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "lineClomp2",
+                            "line"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__ypNoJ
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.currentUserDataAfterClick.comment
+                                  .text;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </LineClomp>
+                      <XIcon2
+                        className={classNames(projectcss.all, sty.svg___0AiE2)}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateCurrentUserDataAfterClick"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["currentUserDataAfterClick"]
+                                  },
+                                  operation: 0,
+                                  value: {}
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateCurrentUserDataAfterClick"] != null &&
+                            typeof $steps["updateCurrentUserDataAfterClick"] ===
+                              "object" &&
+                            typeof $steps["updateCurrentUserDataAfterClick"]
+                              .then === "function"
+                          ) {
+                            $steps["updateCurrentUserDataAfterClick"] =
+                              await $steps["updateCurrentUserDataAfterClick"];
+                          }
+                        }}
+                        role={"img"}
+                      />
+                    </Stack__>
+                  ) : null}
                 </div>
               </section>
             </Stack__>

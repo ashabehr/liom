@@ -1222,7 +1222,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                             )
                               .then(response => response.json())
                               .then(data => {
-                                if (typeof data?.[0]?.dueDate == "undefined") {
+                                if (
+                                  typeof data?.[0]?.dueDate == "undefined" ||
+                                  data?.[0]?.dueDate == null
+                                ) {
                                   $state.isNoData = true;
                                 } else {
                                   $state.isNoData = false;
