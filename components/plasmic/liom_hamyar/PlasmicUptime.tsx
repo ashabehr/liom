@@ -154,7 +154,36 @@ function PlasmicUptime__RenderFunc(props: {
         <React.Fragment>
           {(() => {
             try {
-              return (() => {})();
+              return (() => {
+                function pad(n) {
+                  return n.toString().padStart(2, "0");
+                }
+                const today = new Date();
+                const updatedAt = $props.posttime || {};
+                const postTime =
+                  `${updatedAt.year}-${pad(updatedAt.month)}-${pad(
+                    updatedAt.day
+                  )}T` +
+                  `${pad(updatedAt.hour)}:${pad(updatedAt.minute)}:${pad(
+                    updatedAt.second
+                  )}`;
+                const inputDate = new Date(postTime);
+                const diffInMillis = today.getTime() - inputDate.getTime();
+                const diffInDays = Math.floor(
+                  diffInMillis / (1000 * 3600 * 24)
+                );
+                const diffInHours = Math.floor(
+                  (diffInMillis % (1000 * 3600 * 24)) / (1000 * 3600)
+                );
+                const diffInMinutes = Math.floor(
+                  (diffInMillis % (1000 * 3600)) / (1000 * 60)
+                );
+                const diffInSeconds = Math.floor(
+                  (diffInMillis % (1000 * 60)) / 1000
+                );
+                return ` اختلاف: ${diffInDays} روز, ${diffInHours} ساعت, ${diffInMinutes} دقیقه, ${diffInSeconds} ثانیه`;
+                return $props.posttime;
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||

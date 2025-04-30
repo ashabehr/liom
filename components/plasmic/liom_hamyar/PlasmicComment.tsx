@@ -101,7 +101,7 @@ export const PlasmicComment__VariantProps = new Array<VariantPropType>(
 export type PlasmicComment__ArgsType = {
   tokennnn?: string;
   commentData?: any;
-  onCommentDataChange2?: (val: string) => void;
+  onCommentDataChange?: (val: string) => void;
   commentId?: string;
   mainName?: string;
   mainUsername?: string;
@@ -114,12 +114,13 @@ export type PlasmicComment__ArgsType = {
   mainCommentLikeCount?: string;
   replyCount?: string;
   likeComment?: boolean;
+  dataUserCurrent?: string;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "tokennnn",
   "commentData",
-  "onCommentDataChange2",
+  "onCommentDataChange",
   "commentId",
   "mainName",
   "mainUsername",
@@ -131,7 +132,8 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "replyText",
   "mainCommentLikeCount",
   "replyCount",
-  "likeComment"
+  "likeComment",
+  "dataUserCurrent"
 );
 
 export type PlasmicComment__OverridesType = {
@@ -147,7 +149,7 @@ export type PlasmicComment__OverridesType = {
 export interface DefaultCommentProps {
   tokennnn?: string;
   commentData?: any;
-  onCommentDataChange2?: (val: string) => void;
+  onCommentDataChange?: (val: string) => void;
   commentId?: string;
   mainName?: string;
   mainUsername?: string;
@@ -160,6 +162,7 @@ export interface DefaultCommentProps {
   mainCommentLikeCount?: string;
   replyCount?: string;
   likeComment?: boolean;
+  dataUserCurrent?: string;
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
   whenHaveReply?: SingleBooleanChoiceArg<"whenHaveReply">;
   showReply?: SingleBooleanChoiceArg<"showReply">;
@@ -230,7 +233,7 @@ function PlasmicComment__RenderFunc(props: {
         variableType: "object",
 
         valueProp: "commentData",
-        onChangeProp: "onCommentDataChange2"
+        onChangeProp: "onCommentDataChange"
       },
       {
         path: "whenHaveReply",
@@ -273,6 +276,25 @@ function PlasmicComment__RenderFunc(props: {
         path: "lineClomp2[].line",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "variableForDataUser",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.dataUserCurrent;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1136,6 +1158,19 @@ function PlasmicComment__RenderFunc(props: {
             "whenHaveReply"
           )
         })}
+        dataUserForCurrent={(() => {
+          try {
+            return $state.variableForDataUser;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
       />
 
       <div

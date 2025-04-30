@@ -188,18 +188,29 @@ function PlasmicUploudeTime__RenderFunc(props: {
                   return n.toString().padStart(2, "0");
                 }
                 const today = new Date();
-                const timePost =
-                  `${$props.posttime.year}-${pad($props.posttime.month)}-${pad(
-                    $props.posttime.day
+                const updatedAt = $state.time;
+                const postTime =
+                  `${updatedAt.year}-${pad(updatedAt.month)}-${pad(
+                    updatedAt.day
                   )}T` +
-                  `${pad($props.posttime.hour)}:${pad(
-                    $props.posttime.minute
-                  )}:${pad($props.posttime.second)}`;
-                const inputDate = new Date(timePost);
-                if (isNaN(inputDate.getTime())) {
-                  return `تاریخ ورودی نامعتبر است: ${timePost}`;
-                }
-                return inputDate;
+                  `${pad(updatedAt.hour)}:${pad(updatedAt.minute)}:${pad(
+                    updatedAt.second
+                  )}`;
+                const inputDate = new Date(postTime);
+                const diffInMillis = today.getTime() - inputDate.getTime();
+                const diffInDays = Math.floor(
+                  diffInMillis / (1000 * 3600 * 24)
+                );
+                const diffInHours = Math.floor(
+                  (diffInMillis % (1000 * 3600 * 24)) / (1000 * 3600)
+                );
+                const diffInMinutes = Math.floor(
+                  (diffInMillis % (1000 * 3600)) / (1000 * 60)
+                );
+                const diffInSeconds = Math.floor(
+                  (diffInMillis % (1000 * 60)) / 1000
+                );
+                return `اختلاف: ${diffInDays} روز, ${diffInHours} ساعت, ${diffInMinutes} دقیقه, ${diffInSeconds} ثانیه`;
               })();
             } catch (e) {
               if (

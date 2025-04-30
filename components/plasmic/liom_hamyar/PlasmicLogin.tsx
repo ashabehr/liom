@@ -1078,33 +1078,6 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["updateType"] = await $steps["updateType"];
               }
 
-              $steps["updateLoginPage"] =
-                $state.paramsObject.token != null &&
-                $state.paramsObject.isLogin == "false"
-                  ? (() => {
-                      const actionArgs = {
-                        vgroup: "loginPage",
-                        operation: 0,
-                        value: "name"
-                      };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
-                        }
-
-                        $stateSet($state, vgroup, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["updateLoginPage"] != null &&
-                typeof $steps["updateLoginPage"] === "object" &&
-                typeof $steps["updateLoginPage"].then === "function"
-              ) {
-                $steps["updateLoginPage"] = await $steps["updateLoginPage"];
-              }
-
               $steps["runCode2"] =
                 $state.paramsObject.isLogin == "true" ||
                 $state.paramsObject.sex == "female"
@@ -1131,7 +1104,7 @@ function PlasmicLogin__RenderFunc(props: {
                             };
                             return setCookie(
                               "token",
-                              JSON.stringify([$state.loginData.result.token]),
+                              JSON.stringify([$state.paramsObject.token]),
                               100
                             );
                           })();
@@ -1148,6 +1121,33 @@ function PlasmicLogin__RenderFunc(props: {
                 typeof $steps["runCode2"].then === "function"
               ) {
                 $steps["runCode2"] = await $steps["runCode2"];
+              }
+
+              $steps["updateLoginPage"] =
+                $state.paramsObject.token != null &&
+                $state.paramsObject.isLogin == "false"
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "loginPage",
+                        operation: 0,
+                        value: "name"
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        $stateSet($state, vgroup, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateLoginPage"] != null &&
+                typeof $steps["updateLoginPage"] === "object" &&
+                typeof $steps["updateLoginPage"].then === "function"
+              ) {
+                $steps["updateLoginPage"] = await $steps["updateLoginPage"];
               }
 
               $steps["runCode3"] = false

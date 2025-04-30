@@ -77,9 +77,11 @@ export type PlasmicReply__VariantsArgs = {};
 type VariantPropType = keyof PlasmicReply__VariantsArgs;
 export const PlasmicReply__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicReply__ArgsType = {};
+export type PlasmicReply__ArgsType = { dataUserForCurrent?: any };
 type ArgPropType = keyof PlasmicReply__ArgsType;
-export const PlasmicReply__ArgProps = new Array<ArgPropType>();
+export const PlasmicReply__ArgProps = new Array<ArgPropType>(
+  "dataUserForCurrent"
+);
 
 export type PlasmicReply__OverridesType = {
   root?: Flex__<"div">;
@@ -88,6 +90,7 @@ export type PlasmicReply__OverridesType = {
 };
 
 export interface DefaultReplyProps {
+  dataUserForCurrent?: any;
   className?: string;
 }
 
@@ -131,6 +134,24 @@ function PlasmicReply__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "dataUser",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -171,6 +192,26 @@ function PlasmicReply__RenderFunc(props: {
           typeof $steps["runCode"].then === "function"
         ) {
           $steps["runCode"] = await $steps["runCode"];
+        }
+
+        $steps["updateStateVariable"] = true
+          ? (() => {
+              const actionArgs = {};
+              return (({ variable, value, startIndex, deleteCount }) => {
+                if (!variable) {
+                  return;
+                }
+                const { objRoot, variablePath } = variable;
+                undefined;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateStateVariable"] != null &&
+          typeof $steps["updateStateVariable"] === "object" &&
+          typeof $steps["updateStateVariable"].then === "function"
+        ) {
+          $steps["updateStateVariable"] = await $steps["updateStateVariable"];
         }
       }}
     >
