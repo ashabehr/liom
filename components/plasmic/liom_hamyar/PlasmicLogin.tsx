@@ -5152,7 +5152,8 @@ function PlasmicLogin__RenderFunc(props: {
                                       return (() => {
                                         if (
                                           $state.paramsObject.redirect_url !=
-                                          null
+                                            null &&
+                                          $state.paramsObject.redirect_url != ""
                                         ) {
                                           var baseUrl =
                                             window.location.href.split(
@@ -5188,10 +5189,8 @@ function PlasmicLogin__RenderFunc(props: {
                                         var redirectUrl =
                                           baseUrl +
                                           separator +
-                                          $$.uuid.v4().slice(0, 6) +
                                           ($state.loginData.result.token ||
                                             "") +
-                                          $$.uuid.v4().slice(10, 13) +
                                           "&userId=" +
                                           $$.uuid.v4().slice(0, 4) +
                                           ($state.loginData.result.userId ||
@@ -10020,10 +10019,8 @@ function PlasmicLogin__RenderFunc(props: {
                                             var redirectUrl =
                                               baseUrl +
                                               separator +
-                                              $$.uuid.v4().slice(0, 6) +
                                               ($state.loginData.result.token ||
                                                 "") +
-                                              $$.uuid.v4().slice(10, 13) +
                                               "&userId=" +
                                               $$.uuid.v4().slice(0, 4) +
                                               ($state.loginData.result.userId ||
@@ -10091,10 +10088,8 @@ function PlasmicLogin__RenderFunc(props: {
                                           var redirectUrl =
                                             baseUrl +
                                             separator +
-                                            $$.uuid.v4().slice(0, 6) +
                                             ($state.loginData.result.token ||
                                               "") +
-                                            $$.uuid.v4().slice(10, 13) +
                                             "&userId=" +
                                             $$.uuid.v4().slice(0, 4) +
                                             ($state.loginData.result.userId ||
@@ -10292,9 +10287,7 @@ function PlasmicLogin__RenderFunc(props: {
                                       return window.open(
                                         $ctx.query.redirect_url +
                                           "?token=" +
-                                          $$.uuid.v4().slice(0, 6) +
                                           $ctx.query.token +
-                                          $$.uuid.v4().slice(10, 13) +
                                           "&userId=" +
                                           $$.uuid.v4().slice(0, 4) +
                                           $ctx.query.userId +
@@ -14908,7 +14901,8 @@ function PlasmicLogin__RenderFunc(props: {
                                       return (() => {
                                         if (
                                           $state.paramsObject.redirect_url !=
-                                          null
+                                            null &&
+                                          $state.paramsObject.redirect_url != ""
                                         ) {
                                           var baseUrl =
                                             window.location.href.split(
@@ -14944,10 +14938,8 @@ function PlasmicLogin__RenderFunc(props: {
                                         var redirectUrl =
                                           baseUrl +
                                           separator +
-                                          $$.uuid.v4().slice(0, 6) +
                                           ($state.loginData.result.token ||
                                             "") +
-                                          $$.uuid.v4().slice(10, 13) +
                                           "&userId=" +
                                           $$.uuid.v4().slice(0, 4) +
                                           ($state.loginData.result.userId ||
