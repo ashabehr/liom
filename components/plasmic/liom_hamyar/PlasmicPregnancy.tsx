@@ -6143,6 +6143,17 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 const active = filteredItem
                                                   ? filteredItem.active
                                                   : false;
+                                                var token =
+                                                  $ctx.query.token ||
+                                                  new URLSearchParams(
+                                                    window.location.search
+                                                  ).get("token");
+                                                if (!token.startsWith("ey")) {
+                                                  token = token.slice(
+                                                    6,
+                                                    token.length - 3
+                                                  );
+                                                }
                                                 switch (currentItem.action) {
                                                   case "clinic":
                                                     {
@@ -6284,7 +6295,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       $state?.user?.[0]
                                                         ?.userId +
                                                       "&topic=pregnancyWeek" +
-                                                      $state.weeksPregnant;
+                                                      $state.weeksPregnant +
+                                                      "&token=" +
+                                                      token;
                                                     window.FlutterChannel.postMessage(
                                                       "#inAppWebView**@@**" +
                                                         "پزشک هوشمند" +
@@ -6327,6 +6340,17 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 const active = filteredItem
                                                   ? filteredItem.active
                                                   : false;
+                                                var token =
+                                                  $ctx.query.token ||
+                                                  new URLSearchParams(
+                                                    window.location.search
+                                                  ).get("token");
+                                                if (!token.startsWith("ey")) {
+                                                  token = token.slice(
+                                                    6,
+                                                    token.length - 3
+                                                  );
+                                                }
                                                 switch (currentItem.action) {
                                                   case "clinic":
                                                     {
@@ -6378,7 +6402,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         $state?.user?.[0]
                                                           ?.userId +
                                                         "&topic=pregnancyWeek" +
-                                                        $state.weeksPregnant;
+                                                        $state.weeksPregnant +
+                                                        "&token=" +
+                                                        token;
                                                       window.open(
                                                         link,
                                                         "_self"

@@ -2109,7 +2109,11 @@ function PlasmicSocialPost__RenderFunc(props: {
                     </div>
                   </div>
                 ) : null}
-                <div className={classNames(projectcss.all, sty.freeBox__dnSli)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__dnSli)}
+                >
                   {(() => {
                     try {
                       return $state.textArea.value?.length > 0;
@@ -2126,25 +2130,49 @@ function PlasmicSocialPost__RenderFunc(props: {
                     <Reveal
                       data-plasmic-name={"reveal"}
                       data-plasmic-override={overrides.reveal}
+                      cascade={true}
                       className={classNames("__wab_instance", sty.reveal)}
+                      damping={0}
+                      duration={500}
+                      effect={"rotate"}
+                      reverse={(() => {
+                        try {
+                          return $state.textArea.value?.length == 0;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
                       triggerOnce={true}
                     >
-                      <PlasmicImg__
-                        alt={""}
-                        className={classNames(sty.img__siBb6)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"none"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"24px"}
-                        src={{
-                          src: "/plasmic/liom_hamyar/images/image96.svg",
-                          fullWidth: 24,
-                          fullHeight: 24,
-                          aspectRatio: 1
-                        }}
-                      />
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__pZ5Hb
+                        )}
+                      >
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img__siBb6)}
+                          displayHeight={"24px"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"none"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"24px"}
+                          src={{
+                            src: "/plasmic/liom_hamyar/images/image97.svg",
+                            fullWidth: 24,
+                            fullHeight: 24,
+                            aspectRatio: 1
+                          }}
+                        />
+                      </div>
                     </Reveal>
                   ) : null}
                   <div
@@ -2358,7 +2386,7 @@ function PlasmicSocialPost__RenderFunc(props: {
                       />
                     </Stack__>
                   ) : null}
-                </div>
+                </Stack__>
               </section>
             </Stack__>
           </div>
@@ -2368,7 +2396,7 @@ function PlasmicSocialPost__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  postId: "589b5912-56ce-4bf3-b524-1914c33ccf8b",
+                  postId: $state.postId,
                   commentId: "string",
                   orderBy: $state.orderby.value,
                   authorization: $state.token
