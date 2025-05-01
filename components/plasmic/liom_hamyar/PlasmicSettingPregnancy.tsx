@@ -3001,17 +3001,31 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return (
-                                      "https://apps.liom.app/pregnancy/?token=" +
-                                      $ctx.query.token +
-                                      "&userId=" +
-                                      $ctx.query.userId +
-                                      "&theme=" +
-                                      $ctx.query.theme +
-                                      "&inApp=false" +
-                                      "&version=" +
-                                      $ctx.query.version
-                                    );
+                                    return (() => {
+                                      var token =
+                                        $ctx.query.token ||
+                                        new URLSearchParams(
+                                          window.location.search
+                                        ).get("token");
+                                      if (!token.startsWith("ey")) {
+                                        token = token.slice(
+                                          6,
+                                          token.length - 3
+                                        );
+                                      }
+                                      ({ token: token });
+                                      return (
+                                        "https://apps.liom.app/pregnancy/?token=" +
+                                        token +
+                                        "&userId=" +
+                                        $ctx.query.userId +
+                                        "&theme=" +
+                                        $ctx.query.theme +
+                                        "&inApp=false" +
+                                        "&version=" +
+                                        $ctx.query.version
+                                      );
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -3274,11 +3288,15 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
             }}
             params={(() => {
               try {
-                return {
-                  token:
+                return (() => {
+                  var token =
                     $ctx.query.token ||
-                    new URLSearchParams(window.location.search).get("token")
-                };
+                    new URLSearchParams(window.location.search).get("token");
+                  if (!token.startsWith("ey")) {
+                    token = token.slice(6, token.length - 3);
+                  }
+                  return { token: token };
+                })();
               } catch (e) {
                 if (
                   e instanceof TypeError ||

@@ -1278,18 +1278,28 @@ function PlasmicPregnancy__RenderFunc(props: {
                         const actionArgs = {
                           destination: (() => {
                             try {
-                              return (
-                                "https://apps.liom.app/setting-pregnancy/?token=" +
-                                $ctx.query.token +
-                                "&userId=" +
-                                $ctx.query.userId +
-                                "&theme=" +
-                                $ctx.query.theme +
-                                "&inApp=" +
-                                $ctx.query.inApp +
-                                "&inBo=t" +
-                                $ctx.query.inBot
-                              );
+                              return (() => {
+                                var token =
+                                  $ctx.query.token ||
+                                  new URLSearchParams(
+                                    window.location.search
+                                  ).get("token");
+                                if (!token.startsWith("ey")) {
+                                  token = token.slice(6, token.length - 3);
+                                }
+                                return (
+                                  "https://apps.liom.app/setting-pregnancy/?token=" +
+                                  token +
+                                  "&userId=" +
+                                  $ctx.query.userId +
+                                  "&theme=" +
+                                  $ctx.query.theme +
+                                  "&inApp=" +
+                                  $ctx.query.inApp +
+                                  "&inBo=t" +
+                                  $ctx.query.inBot
+                                );
+                              })();
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1363,60 +1373,62 @@ function PlasmicPregnancy__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return fetch(
-                              "https://n8n.staas.ir/webhook/self/info/?token=" +
-                                $ctx.query.token.slice(
-                                  6,
-                                  (
-                                    $ctx.query.token ||
-                                    new URLSearchParams(
-                                      window.location.search
-                                    ).get("token")
-                                  ).length - 3
-                                ) +
-                                "&userId=" +
-                                $ctx.query.userId.slice(
-                                  4,
-                                  (
-                                    $ctx.query.userId ||
-                                    new URLSearchParams(
-                                      window.location.search
-                                    ).get("userId")
-                                  ).length - 4
-                                ) +
-                                "&type=danger",
-                              { method: "GET" }
-                            )
-                              .then(response => response.json())
-                              .then(data => {
-                                console.log("get step");
-                                fetch(
-                                  "https://n8n.staas.ir/webhook/selfTreatment/?stepId=" +
-                                    data.data[$state.weeksPregnant - 1].id +
-                                    "&userId=" +
-                                    $ctx.query.userId.slice(
-                                      4,
-                                      (
-                                        $ctx.query.userId ||
-                                        new URLSearchParams(
-                                          window.location.search
-                                        ).get("userId")
-                                      ).length - 4
-                                    ),
-                                  { method: "GET" }
-                                )
-                                  .then(response => response.json())
-                                  .then(data2 => {
-                                    console.log("get item");
-                                    $state.getDangerItem = data2;
-                                  })
-                                  .catch(error =>
-                                    console.error("Error-item:", error)
-                                  );
-                              })
-                              .catch(error =>
-                                console.error("Error-step:", error)
-                              );
+                            return (() => {
+                              var token =
+                                $ctx.query.token ||
+                                new URLSearchParams(window.location.search).get(
+                                  "token"
+                                );
+                              if (!token.startsWith("ey")) {
+                                token = token.slice(6, token.length - 3);
+                              }
+                              return fetch(
+                                "https://n8n.staas.ir/webhook/self/info/?token=" +
+                                  token +
+                                  "&userId=" +
+                                  $ctx.query.userId.slice(
+                                    4,
+                                    (
+                                      $ctx.query.userId ||
+                                      new URLSearchParams(
+                                        window.location.search
+                                      ).get("userId")
+                                    ).length - 4
+                                  ) +
+                                  "&type=danger",
+                                { method: "GET" }
+                              )
+                                .then(response => response.json())
+                                .then(data => {
+                                  console.log("get step");
+                                  fetch(
+                                    "https://n8n.staas.ir/webhook/selfTreatment/?stepId=" +
+                                      data.data[$state.weeksPregnant - 1].id +
+                                      "&userId=" +
+                                      $ctx.query.userId.slice(
+                                        4,
+                                        (
+                                          $ctx.query.userId ||
+                                          new URLSearchParams(
+                                            window.location.search
+                                          ).get("userId")
+                                        ).length - 4
+                                      ),
+                                    { method: "GET" }
+                                  )
+                                    .then(response => response.json())
+                                    .then(data2 => {
+                                      console.log("get item");
+                                      $state.getDangerItem = data2;
+                                    })
+                                    .catch(error =>
+                                      console.error("Error-item:", error)
+                                    );
+                                })
+                                .catch(error =>
+                                  console.error("Error-step:", error)
+                                );
+                            })();
                           }
                         };
                         return (({ customFunction }) => {
@@ -1563,6 +1575,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                           customFunction: async () => {
                             return setTimeout(() => {
                               try {
+                                var token =
+                                  $ctx.query.token ||
+                                  new URLSearchParams(
+                                    window.location.search
+                                  ).get("token");
+                                if (!token.startsWith("ey")) {
+                                  token = token.slice(6, token.length - 3);
+                                }
                                 var name =
                                   $state.getUserInfo.data?.[0]?.result?.user
                                     ?.name ?? "";
@@ -1655,7 +1675,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 }
                                 fetch(
                                   "https://n8n.staas.ir/webhook/pregnancyDate?token=" +
-                                    $ctx.query.token,
+                                    token,
                                   {
                                     method: "GET",
                                     headers: {
@@ -4160,16 +4180,29 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       const actionArgs = {
                                         destination: (() => {
                                           try {
-                                            return (
-                                              "https://apps.liom.app/setting-pregnancy/?token=" +
-                                              $ctx.query.token +
-                                              "&userId=" +
-                                              $ctx.query.userId +
-                                              "&theme=" +
-                                              $ctx.query.theme +
-                                              "&version=" +
-                                              $ctx.query.version
-                                            );
+                                            return (() => {
+                                              var token =
+                                                $ctx.query.token ||
+                                                new URLSearchParams(
+                                                  window.location.search
+                                                ).get("token");
+                                              if (!token.startsWith("ey")) {
+                                                token = token.slice(
+                                                  6,
+                                                  token.length - 3
+                                                );
+                                              }
+                                              return (
+                                                "https://apps.liom.app/setting-pregnancy/?token=" +
+                                                token +
+                                                "&userId=" +
+                                                $ctx.query.userId +
+                                                "&theme=" +
+                                                $ctx.query.theme +
+                                                "&version=" +
+                                                $ctx.query.version
+                                              );
+                                            })();
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||
@@ -6212,7 +6245,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       if (active) {
                                                         var link =
                                                           "https://tools.liom.app/self-medication/?type=skinCare&inApp=true&token=" +
-                                                          $ctx.query.token +
+                                                          token +
                                                           "&selectStep=0&userId=" +
                                                           $ctx.query.userId +
                                                           "&them=" +
@@ -6235,7 +6268,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       if (active) {
                                                         var link =
                                                           "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
-                                                          $ctx.query.token +
+                                                          token +
                                                           "&selectStep=0&userId=" +
                                                           $ctx.query.userId +
                                                           "&them=" +
@@ -6415,7 +6448,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     if (active)
                                                       window.open(
                                                         "https://tools.liom.app/self-medication/?type=skinCare&inApp=false&token=" +
-                                                          $ctx.query.token +
+                                                          token +
                                                           "&selectStep=0&userId=" +
                                                           $ctx.query.userId +
                                                           "&them=" +
@@ -6433,7 +6466,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     if (active)
                                                       window.open(
                                                         "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=false&token=" +
-                                                          $ctx.query.token +
+                                                          token +
                                                           "&selectStep=0&userId=" +
                                                           $ctx.query.userId +
                                                           "&them=" +
@@ -10172,14 +10205,27 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     const actionArgs = {
                                       destination: (() => {
                                         try {
-                                          return `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                            window.location.href
-                                          )}&inApp=${
-                                            $ctx.query.inApp
-                                          }&userId=${$ctx.query.userId.slice(
-                                            4,
-                                            $ctx.query.userId.length - 4
-                                          )}`;
+                                          return (() => {
+                                            var token =
+                                              $ctx.query.token ||
+                                              new URLSearchParams(
+                                                window.location.search
+                                              ).get("token");
+                                            if (!token.startsWith("ey")) {
+                                              token = token.slice(
+                                                6,
+                                                token.length - 3
+                                              );
+                                            }
+                                            return `https://tools.liom.app/self-test/?token=${token}&app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
+                                              window.location.href
+                                            )}&inApp=${
+                                              $ctx.query.inApp
+                                            }&userId=${$ctx.query.userId.slice(
+                                              4,
+                                              $ctx.query.userId.length - 4
+                                            )}`;
+                                          })();
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -16372,37 +16418,54 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         const actionArgs = {
                                                           destination: (() => {
                                                             try {
-                                                              return (
-                                                                "https://tools.liom.app/self-medication-step/?secId=" +
-                                                                currentItem.id +
-                                                                "&stepId=" +
-                                                                currentItem.stepId +
-                                                                "&style=" +
-                                                                currentItem.styleType +
-                                                                "&type=danger" +
-                                                                "&token=" +
-                                                                $ctx.query
-                                                                  .token +
-                                                                "&inApp=" +
-                                                                $ctx.query
-                                                                  .inApp +
-                                                                "&userId=" +
-                                                                $ctx.query
-                                                                  .userId +
-                                                                "&selectStep=" +
-                                                                $state.selectedWeek +
-                                                                "&version=" +
-                                                                $ctx.query
-                                                                  .version +
-                                                                "&title=" +
-                                                                currentItem.title +
-                                                                "|" +
-                                                                "هفته " +
-                                                                $state.selectedWeek +
-                                                                " اُم" +
-                                                                "&theme=" +
-                                                                $ctx.query.theme
-                                                              );
+                                                              return (() => {
+                                                                var token =
+                                                                  $ctx.query
+                                                                    .token;
+                                                                if (
+                                                                  !token.startsWith(
+                                                                    "ey"
+                                                                  )
+                                                                ) {
+                                                                  token =
+                                                                    token.slice(
+                                                                      6,
+                                                                      token.length -
+                                                                        3
+                                                                    );
+                                                                }
+                                                                return (
+                                                                  "https://tools.liom.app/self-medication-step/?secId=" +
+                                                                  currentItem.id +
+                                                                  "&stepId=" +
+                                                                  currentItem.stepId +
+                                                                  "&style=" +
+                                                                  currentItem.styleType +
+                                                                  "&type=danger" +
+                                                                  "&token=" +
+                                                                  token +
+                                                                  "&inApp=" +
+                                                                  $ctx.query
+                                                                    .inApp +
+                                                                  "&userId=" +
+                                                                  $ctx.query
+                                                                    .userId +
+                                                                  "&selectStep=" +
+                                                                  $state.selectedWeek +
+                                                                  "&version=" +
+                                                                  $ctx.query
+                                                                    .version +
+                                                                  "&title=" +
+                                                                  currentItem.title +
+                                                                  "|" +
+                                                                  "هفته " +
+                                                                  $state.selectedWeek +
+                                                                  " اُم" +
+                                                                  "&theme=" +
+                                                                  $ctx.query
+                                                                    .theme
+                                                                );
+                                                              })();
                                                             } catch (e) {
                                                               if (
                                                                 e instanceof
@@ -16487,6 +16550,21 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           customFunction:
                                                             async () => {
                                                               return (() => {
+                                                                var token =
+                                                                  $ctx.query
+                                                                    .token;
+                                                                if (
+                                                                  !token.startsWith(
+                                                                    "ey"
+                                                                  )
+                                                                ) {
+                                                                  token =
+                                                                    token.slice(
+                                                                      6,
+                                                                      token.length -
+                                                                        3
+                                                                    );
+                                                                }
                                                                 var link =
                                                                   "https://tools.liom.app/self-medication-step/?secId=" +
                                                                   currentItem.id +
@@ -16496,8 +16574,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                                   currentItem.styleType +
                                                                   "&type=danger" +
                                                                   "&token=" +
-                                                                  $ctx.query
-                                                                    .token +
+                                                                  token +
                                                                   "&inApp=" +
                                                                   $ctx.query
                                                                     .inApp +
@@ -26031,11 +26108,19 @@ function PlasmicPregnancy__RenderFunc(props: {
               open={generateStateValueProp($state, ["directDialog2", "open"])}
               redirectUrl={(() => {
                 try {
-                  return `https://tools.liom.app/shopResult?buyId=${
-                    $state.directDialog2.selectShop.id
-                  }&?offCode=&token=${
-                    $ctx.query.token
-                  }&redirectUrl=${encodeURIComponent(window.location.href)}`;
+                  return (() => {
+                    var token =
+                      $ctx.query.token ||
+                      new URLSearchParams(window.location.search).get("token");
+                    if (!token.startsWith("ey")) {
+                      token = token.slice(6, token.length - 3);
+                    }
+                    return `https://tools.liom.app/shopResult?buyId=${
+                      $state.directDialog2.selectShop.id
+                    }&?offCode=&token=${token}&redirectUrl=${encodeURIComponent(
+                      window.location.href
+                    )}`;
+                  })();
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -26048,7 +26133,14 @@ function PlasmicPregnancy__RenderFunc(props: {
               })()}
               token={(() => {
                 try {
-                  return $ctx.query.token.slice(6, $ctx.query.token.length - 3);
+                  return (() => {
+                    var token =
+                      $ctx.query.token ||
+                      new URLSearchParams(window.location.search).get("token");
+                    if (!token.startsWith("ey")) {
+                      return (token = token.slice(6, token.length - 3));
+                    }
+                  })();
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
