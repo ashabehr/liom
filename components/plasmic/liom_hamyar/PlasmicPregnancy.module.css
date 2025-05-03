@@ -1083,13 +1083,12 @@
 }
 .text__xJ4 {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   white-space: pre;
   flex-shrink: 1;
   text-align: center;
-  min-width: 0;
 }
 @media (max-width: 640px) {
   .text__xJ4 {
