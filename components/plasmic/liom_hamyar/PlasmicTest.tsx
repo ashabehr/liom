@@ -65,7 +65,6 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -101,7 +100,6 @@ export type PlasmicTest__OverridesType = {
   button3?: Flex__<typeof Button>;
   shop2?: Flex__<typeof ApiRequest>;
   buttonLiom8?: Flex__<typeof Button>;
-  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultTestProps {}
@@ -143,6 +141,8 @@ function PlasmicTest__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -275,6 +275,32 @@ function PlasmicTest__RenderFunc(props: {
             color={generateStateValueProp($state, ["button", "color"])}
             onClick={async event => {
               const $steps = {};
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "adhd",
+                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U",
+                        "fssfssfsdfsfsfsdfdsfds",
+                        "true",
+                        "dark"
+                      ]
+                    };
+                    return $globalActions["Fragment.deepLink"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
             }}
             onColorChange={async (...eventArgs: any) => {
               ((...eventArgs) => {
@@ -582,47 +608,6 @@ function PlasmicTest__RenderFunc(props: {
             </ApiRequest>
             <div className={classNames(projectcss.all, sty.freeBox__vIpHu)} />
           </AntdModal>
-          <SideEffect
-            data-plasmic-name={"sideEffect"}
-            data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
-            onMount={async () => {
-              const $steps = {};
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const setCookie = (name, value, days) => {
-                            const expires = new Date(
-                              Date.now() + days * 86400000
-                            ).toUTCString();
-                            document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
-                          };
-                          setCookie(
-                            "token",
-                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
-                            7
-                          );
-                          return setCookie("app", "liom", 7);
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-            }}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -637,16 +622,14 @@ const PlasmicDescendants = {
     "apiRequest2",
     "button3",
     "shop2",
-    "buttonLiom8",
-    "sideEffect"
+    "buttonLiom8"
   ],
   button: ["button"],
   modal: ["modal", "apiRequest2", "button3", "shop2", "buttonLiom8"],
   apiRequest2: ["apiRequest2", "button3", "shop2", "buttonLiom8"],
   button3: ["button3"],
   shop2: ["shop2", "buttonLiom8"],
-  buttonLiom8: ["buttonLiom8"],
-  sideEffect: ["sideEffect"]
+  buttonLiom8: ["buttonLiom8"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -659,7 +642,6 @@ type NodeDefaultElementType = {
   button3: typeof Button;
   shop2: typeof ApiRequest;
   buttonLiom8: typeof Button;
-  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -753,7 +735,6 @@ export const PlasmicTest = Object.assign(
     button3: makeNodeComponent("button3"),
     shop2: makeNodeComponent("shop2"),
     buttonLiom8: makeNodeComponent("buttonLiom8"),
-    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

@@ -27,6 +27,10 @@
     grid-column: 4;
   }
 }
+.sideEffect:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .favicon:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -4679,8 +4683,4 @@
   right: auto;
   bottom: auto;
   display: none;
-}
-.sideEffect:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
 }

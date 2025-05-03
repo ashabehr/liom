@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
@@ -82,7 +83,6 @@ import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
 import Medisene from "../../Medisene"; // plasmic-import: S8dzLP5nduJ8/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -122,6 +122,7 @@ export const PlasmicStatusDay__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicStatusDay__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   favicon?: Flex__<typeof Embed>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   number2?: Flex__<typeof AntdModal>;
@@ -208,7 +209,6 @@ export type PlasmicStatusDay__OverridesType = {
   textInput6?: Flex__<typeof TextInput>;
   jobinput?: Flex__<typeof Input>;
   button13?: Flex__<typeof Button>;
-  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultStatusDayProps {}
@@ -2550,6 +2550,12 @@ function PlasmicStatusDay__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -2592,6 +2598,211 @@ function PlasmicStatusDay__RenderFunc(props: {
             sty.root
           )}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["params"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          return urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["params"] != null &&
+                typeof $steps["params"] === "object" &&
+                typeof $steps["params"].then === "function"
+              ) {
+                $steps["params"] = await $steps["params"];
+              }
+
+              $steps["clearParams"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const searchParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          searchParams.delete("token");
+                          searchParams.delete("userId");
+                          searchParams.delete("user_id");
+                          const newUrl = `${
+                            window.location.pathname
+                          }?${searchParams.toString()}`;
+                          return window.history.replaceState(null, "", newUrl);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["clearParams"] != null &&
+                typeof $steps["clearParams"] === "object" &&
+                typeof $steps["clearParams"].then === "function"
+              ) {
+                $steps["clearParams"] = await $steps["clearParams"];
+              }
+
+              $steps["setCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if (
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token.trim() !== ""
+                          ) {
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.paramsObject.token]),
+                              100
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["setCookie"] != null &&
+                typeof $steps["setCookie"] === "object" &&
+                typeof $steps["setCookie"].then === "function"
+              ) {
+                $steps["setCookie"] = await $steps["setCookie"];
+              }
+
+              $steps["getCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getCookie"] != null &&
+                typeof $steps["getCookie"] === "object" &&
+                typeof $steps["getCookie"].then === "function"
+              ) {
+                $steps["getCookie"] = await $steps["getCookie"];
+              }
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/userInfo",
+                        (() => {
+                          try {
+                            return { token: $state.token };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["updateHealthStatus"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["healthStatus"]
+                      },
+                      operation: 0,
+                      value:
+                        $steps.invokeGlobalAction.data?.[0]?.result?.user
+                          ?.healthStatus
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateHealthStatus"] != null &&
+                typeof $steps["updateHealthStatus"] === "object" &&
+                typeof $steps["updateHealthStatus"].then === "function"
+              ) {
+                $steps["updateHealthStatus"] = await $steps[
+                  "updateHealthStatus"
+                ];
+              }
+            }}
+          />
+
           <Embed
             data-plasmic-name={"favicon"}
             data-plasmic-override={overrides.favicon}
@@ -11570,83 +11781,6 @@ function PlasmicStatusDay__RenderFunc(props: {
               </Button>
             </Stack__>
           </Dialog>
-          <SideEffect
-            data-plasmic-name={"sideEffect"}
-            data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
-            onMount={async () => {
-              const $steps = {};
-
-              $steps["invokeGlobalAction"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        undefined,
-                        "https://n8n.staas.ir/webhook/userInfo",
-                        (() => {
-                          try {
-                            return { token: $ctx.query.token };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
-              ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
-              }
-
-              $steps["updateHealthStatus"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["healthStatus"]
-                      },
-                      operation: 0,
-                      value:
-                        $steps.invokeGlobalAction.data?.[0]?.result?.user
-                          ?.healthStatus
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateHealthStatus"] != null &&
-                typeof $steps["updateHealthStatus"] === "object" &&
-                typeof $steps["updateHealthStatus"].then === "function"
-              ) {
-                $steps["updateHealthStatus"] = await $steps[
-                  "updateHealthStatus"
-                ];
-              }
-            }}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -11656,6 +11790,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "favicon",
     "headerLiom",
     "number2",
@@ -11741,9 +11876,9 @@ const PlasmicDescendants = {
     "todoDialog",
     "textInput6",
     "jobinput",
-    "button13",
-    "sideEffect"
+    "button13"
   ],
+  sideEffect: ["sideEffect"],
   favicon: ["favicon"],
   headerLiom: ["headerLiom"],
   number2: ["number2", "textInput", "antdInput", "button2"],
@@ -11890,14 +12025,14 @@ const PlasmicDescendants = {
   todoDialog: ["todoDialog", "textInput6", "jobinput", "button13"],
   textInput6: ["textInput6", "jobinput"],
   jobinput: ["jobinput"],
-  button13: ["button13"],
-  sideEffect: ["sideEffect"]
+  button13: ["button13"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   favicon: typeof Embed;
   headerLiom: typeof HeaderLiom;
   number2: typeof AntdModal;
@@ -11984,7 +12119,6 @@ type NodeDefaultElementType = {
   textInput6: typeof TextInput;
   jobinput: typeof Input;
   button13: typeof Button;
-  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -12072,6 +12206,7 @@ export const PlasmicStatusDay = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     favicon: makeNodeComponent("favicon"),
     headerLiom: makeNodeComponent("headerLiom"),
     number2: makeNodeComponent("number2"),
@@ -12158,7 +12293,6 @@ export const PlasmicStatusDay = Object.assign(
     textInput6: makeNodeComponent("textInput6"),
     jobinput: makeNodeComponent("jobinput"),
     button13: makeNodeComponent("button13"),
-    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicStatusDay
     internalVariantProps: PlasmicStatusDay__VariantProps,
