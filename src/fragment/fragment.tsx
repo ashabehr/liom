@@ -233,6 +233,31 @@ export const fragmentMeta: GlobalContextMeta<FragmentProps> = {
         },
       ],
     },
+    deepLink: {
+      displayName: "Deep Link",
+      parameters: [
+        {
+          name: "action",
+          type: { type: "string", required: true },
+        },
+        {
+          name: "token",
+          type: { type: "string", required: true },
+        },
+        {
+          name: "userId",
+          type: { type: "string", required: true },
+        },
+        {
+          name: "inApp",
+          type: { type: "string", required: true },
+        },
+        {
+          name: "theme",
+          type: { type: "string", required: true },
+        },
+      ]
+    },
     apiRequest: {
       displayName: "API Request",
       parameters: [
