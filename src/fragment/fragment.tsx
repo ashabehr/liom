@@ -1,3 +1,11 @@
+declare global {
+  interface Window {
+    FlutterChannel?: {
+      postMessage: (message: string) => void;
+    };
+  }
+}
+
 import React, { useEffect, useMemo, useState } from "react";
 import toast, { ToastPosition, Toaster } from "react-hot-toast";
 import {
