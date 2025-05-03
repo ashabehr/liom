@@ -83,9 +83,9 @@ export const Fragment = ({
       deepLink: (action: string, token: string, userId: string, inApp: string, theme : string ) => { 
         
           const sendMessage = (title: string, link: string) => {
-              if (window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(`#inAppWebView**@@**${title}**@@**${link}`);
-              } else {
+              } else if (typeof window !== "undefined") {
                 window.open(link, "_blank");
               }
           };
