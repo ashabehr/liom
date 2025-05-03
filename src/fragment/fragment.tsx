@@ -101,7 +101,7 @@ export const Fragment = ({
           switch (action) {
         
             case "adhd": {
-              const link = https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(window.location.href)}&inApp=${inApp}&token=${token};
+              const link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&inApp=${inApp}&token=${token}`;
               sendMessage("تست ADHD", link);
               break;
             }
