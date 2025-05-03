@@ -79,6 +79,26 @@ export const Fragment = ({
       wait: (duration: number = 1000) => {
         return new Promise((resolve) => setTimeout(resolve, duration));
       },
+      
+      deepLink: (action: string, token: string, userId: string, inApp: string, theme : string ) => { 
+        
+          const sendMessage = (title: string, link: string) => {
+            if (window.FlutterChannel?.postMessage) {
+              window.FlutterChannel.postMessage(`#inAppWebView**@@**${title}**@@**${link}`);
+            } else {
+              window.open(link, "_blank");
+            }
+          };
+        
+          switch (action) {
+        
+            case "adhd": {
+              const link = https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(window.location.href)}&inApp=${inApp}&token=${token};
+              sendMessage("تست ADHD", link);
+              break;
+            }
+          }
+        }
     }),
     []
   );
