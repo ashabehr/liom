@@ -1600,6 +1600,18 @@ function PlasmicCalendar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1674,43 +1686,6 @@ function PlasmicCalendar__RenderFunc(props: {
           )}
           onLoad={async event => {
             const $steps = {};
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        if (
-                          $ctx.query.token ||
-                          new URLSearchParams(window.location.search).get(
-                            "token"
-                          )
-                        ) {
-                          var app =
-                            $ctx.query.token ||
-                            new URLSearchParams(window.location.search).get(
-                              "token"
-                            );
-                          app = app.slice(6, app.length - 3);
-                          localStorage.setItem("token", app);
-                        }
-                        if (window.history.length == 1)
-                          return localStorage.setItem("addHome", "true");
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
           }}
         >
           <SideEffect
@@ -1731,6 +1706,102 @@ function PlasmicCalendar__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
+              $steps["params"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          return urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["params"] != null &&
+                typeof $steps["params"] === "object" &&
+                typeof $steps["params"].then === "function"
+              ) {
+                $steps["params"] = await $steps["params"];
+              }
+
+              $steps["setCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if (
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token.trim() !== ""
+                          ) {
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.paramsObject.token]),
+                              100
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["setCookie"] != null &&
+                typeof $steps["setCookie"] === "object" &&
+                typeof $steps["setCookie"].then === "function"
+              ) {
+                $steps["setCookie"] = await $steps["setCookie"];
+              }
+
+              $steps["getCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getCookie"] != null &&
+                typeof $steps["getCookie"] === "object" &&
+                typeof $steps["getCookie"].then === "function"
+              ) {
+                $steps["getCookie"] = await $steps["getCookie"];
+              }
+
               $steps["userinfo"] =
                 window.sessionStorage.getItem("cash") != "true"
                   ? (() => {
@@ -1740,35 +1811,9 @@ function PlasmicCalendar__RenderFunc(props: {
                           "https://n8n.staas.ir/webhook/calendar/getData",
                           (() => {
                             try {
-                              return (() => {
-                                try {
-                                  let tokenFromUrl =
-                                    $ctx.query.token ||
-                                    new URLSearchParams(
-                                      window.location.search
-                                    ).get("token");
-                                  if (tokenFromUrl) {
-                                    tokenFromUrl = tokenFromUrl.slice(
-                                      6,
-                                      tokenFromUrl.length - 3
-                                    );
-                                  }
-                                  let token =
-                                    tokenFromUrl ||
-                                    localStorage.getItem("token");
-                                  $state.variable;
-                                  return {
-                                    authorization: token,
-                                    load: $state.variable
-                                  };
-                                } catch {
-                                  return {
-                                    authorization:
-                                      localStorage.getItem("token"),
-                                    load: $state.variable
-                                  };
-                                }
-                              })();
+                              return {
+                                authorization: localStorage.getItem("token")
+                              };
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1982,7 +2027,7 @@ function PlasmicCalendar__RenderFunc(props: {
               $steps["goToExpired"] = (
                 $steps.userinfo?.data?.success == false
                   ? $steps.userinfo?.data.success
-                  : false && localStorag.getItem("token")
+                  : false && $state.token == ""
               )
                 ? (() => {
                     const actionArgs = { destination: `/expired` };
@@ -2074,9 +2119,7 @@ function PlasmicCalendar__RenderFunc(props: {
                         "https://n8n.staas.ir/webhook/calendar/getSign",
                         (() => {
                           try {
-                            return {
-                              authorization: localStorage.getItem("token")
-                            };
+                            return { authorization: $state.token };
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -2148,8 +2191,7 @@ function PlasmicCalendar__RenderFunc(props: {
                                 day: today.getDate()
                               };
                               return {
-                                authorization:
-                                  window.localStorage.getItem("token"),
+                                authorization: $state.token,
                                 date: dateObject
                               };
                             })();
@@ -4311,7 +4353,7 @@ function PlasmicCalendar__RenderFunc(props: {
               }}
               token={(() => {
                 try {
-                  return localStorage.getItem("token");
+                  return $state.token;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

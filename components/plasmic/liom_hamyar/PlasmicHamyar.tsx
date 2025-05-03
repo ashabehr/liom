@@ -639,15 +639,14 @@ function PlasmicHamyar__RenderFunc(props: {
             try {
               return (() => {
                 let future_date = new Date(
-                  $state.user.data.result.man.hamyarTime.year,
-                  $state.user.data.result.man.hamyarTime.month - 1,
-                  $state.user.data.result.man.hamyarTime.day,
-                  $state.user.data.result.man.hamyarTime.hour,
-                  $state.user.data.result.man.hamyarTime.minute,
-                  $state.user.data.result.man.hamyarTime.second
+                  $state.userdata.result.man.hamyarTime.year,
+                  $state.userdata.result.man.hamyarTime.month - 1,
+                  $state.userdata.result.man.hamyarTime.day,
+                  $state.userdata.result.man.hamyarTime.hour + 3,
+                  $state.userdata.result.man.hamyarTime.minute,
+                  $state.userdata.result.man.hamyarTime.second
                 );
-                let offset = 3.5 * 60 * 60 * 1000;
-                return future_date.setTime(future_date.getTime() + offset);
+                return future_date.setTime(future_date.getTime());
               })();
             } catch (e) {
               if (
@@ -1325,8 +1324,8 @@ function PlasmicHamyar__RenderFunc(props: {
                 try {
                   return (() => {
                     let current_date = new Date();
-                    let delta = $state.expdate - current_date;
-                    return Math.floor(delta / 1000);
+                    let delta = $state.expdate;
+                    return Math.floor((delta - current_date.getTime()) / 1000);
                   })();
                 } catch (e) {
                   if (
@@ -1340,11 +1339,9 @@ function PlasmicHamyar__RenderFunc(props: {
               })()
             : (() => {
                 try {
-                  return (() => {
-                    let current_date = new Date();
-                    let delta = $state.expdate - current_date;
-                    return Math.floor(delta / 1000);
-                  })();
+                  return Math.floor(
+                    (new Date($state.expdate) - new Date()) / 1000
+                  );
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -4155,12 +4152,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                       })()
                                     : (() => {
                                         try {
-                                          return $state.userdata?.result?.man
-                                            ?.timeToEndHamyarTime.days /
-                                            30 !=
-                                            0
-                                            ? "moanth"
-                                            : "dey";
+                                          return "dey";
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -4220,11 +4212,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                               try {
                                                 return (() => {
                                                   let current_date = new Date();
-                                                  let delta =
-                                                    $state.expdate -
-                                                    current_date;
+                                                  let delta = $state.expdate;
                                                   return Math.floor(
-                                                    delta / 1000
+                                                    (delta -
+                                                      current_date.getTime()) /
+                                                      1000
                                                   );
                                                 })();
                                               } catch (e) {
@@ -4240,15 +4232,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                             })()
                                           : (() => {
                                               try {
-                                                return (() => {
-                                                  let current_date = new Date();
-                                                  let delta =
-                                                    $state.expdate -
-                                                    current_date;
-                                                  return Math.floor(
-                                                    delta / 1000
-                                                  );
-                                                })();
+                                                return Math.floor(
+                                                  (new Date($state.expdate) -
+                                                    new Date()) /
+                                                    1000
+                                                );
                                               } catch (e) {
                                                 if (
                                                   e instanceof TypeError ||
@@ -4843,8 +4831,8 @@ function PlasmicHamyar__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return window.open(
-                                  `https://tools.liom.app/self-test/?user_id=${
-                                    $state.userdata.result.man.id
+                                  `https://tools.liom.app/self-test/?token=${
+                                    $state.userdata.result.token
                                   }&app=liom&type=prematureEjaculation&origin=hamyar&home-page=${encodeURIComponent(
                                     window.location.href
                                   )}`,
@@ -16456,7 +16444,7 @@ function PlasmicHamyar__RenderFunc(props: {
           </Dialog>
           {(() => {
             try {
-              return $state.intro;
+              return (() => {})();
             } catch (e) {
               if (
                 e instanceof TypeError ||
