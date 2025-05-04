@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -101,6 +102,7 @@ export const PlasmicSettingCycle3__ArgProps = new Array<ArgPropType>();
 export type PlasmicSettingCycle3__OverridesType = {
   root?: Flex__<"div">;
   embedHtml?: Flex__<typeof Embed>;
+  sideEffect?: Flex__<typeof SideEffect>;
   img?: Flex__<typeof PlasmicImg__>;
   dateOfBirthBox?: Flex__<typeof AntdInput>;
   lastTimeBox?: Flex__<typeof AntdInput>;
@@ -455,20 +457,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return localStorage.getItem("token");
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "loadbtn",
@@ -848,6 +837,45 @@ function PlasmicSettingCycle3__RenderFunc(props: {
             code={
               '<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>'
             }
+          />
+
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
           />
 
           <div className={classNames(projectcss.all, sty.freeBox__orcb)}>
@@ -3859,6 +3887,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "embedHtml",
+    "sideEffect",
     "img",
     "dateOfBirthBox",
     "lastTimeBox",
@@ -3880,6 +3909,7 @@ const PlasmicDescendants = {
     "button6"
   ],
   embedHtml: ["embedHtml"],
+  sideEffect: ["sideEffect"],
   img: ["img"],
   dateOfBirthBox: ["dateOfBirthBox"],
   lastTimeBox: ["lastTimeBox"],
@@ -3906,6 +3936,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   embedHtml: typeof Embed;
+  sideEffect: typeof SideEffect;
   img: typeof PlasmicImg__;
   dateOfBirthBox: typeof AntdInput;
   lastTimeBox: typeof AntdInput;
@@ -4013,6 +4044,7 @@ export const PlasmicSettingCycle3 = Object.assign(
   {
     // Helper components rendering sub-elements
     embedHtml: makeNodeComponent("embedHtml"),
+    sideEffect: makeNodeComponent("sideEffect"),
     img: makeNodeComponent("img"),
     dateOfBirthBox: makeNodeComponent("dateOfBirthBox"),
     lastTimeBox: makeNodeComponent("lastTimeBox"),
