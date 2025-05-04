@@ -88,12 +88,14 @@ export const Fragment = ({
         return new Promise((resolve) => setTimeout(resolve, duration));
       },
       
-      deepLink: (action: string, token: string, userId: string, inApp: string, theme : string ) => { 
+      deepLink: (action: string, token: string, userId: string, inApp: string, theme : string ,inWebViow : boolean =false) => { 
         
-          const sendMessage = (title: string, link: string) => {
+          const sendMessage = (title: string, link: string,inWebViow:boolean) => {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(`#inAppWebView**@@**${title}**@@**${link}`);
               } else if (typeof window !== "undefined") {
+                if(inWebViow)
+                  link=`/web-viow?link=${encodeURIComponent(link)}`;
                 window.open(link, "_blank");
               }
           };
@@ -101,7 +103,7 @@ export const Fragment = ({
           switch (action) {
             case "#adhd": {
               const link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&inApp=${inApp}&token=${token}`;
-              sendMessage("تست ADHD", link);
+              sendMessage("تست ADHD", link,inWebViow);
               break;
             }
             case "#clinic": {
@@ -114,24 +116,65 @@ export const Fragment = ({
               const randomStr2 = generateRandomString(6);
               const link = `https://checkup.liom-app.ir/moshavereh/psychology/4?token=${randomStr1 + token + randomStr2}`;
           
-              sendMessage("کلینیک لیوم", link);
+              sendMessage("کلینیک لیوم", link,inWebViow);
               break;
             }
             case "#skinCare": {
               const link = `https://tools.liom.app/self-medication/?type=skinCare&inApp=${inApp}&token=${token}&selectStep=0&userId=${userId}&them=${theme}`;
-              sendMessage("روتین پوستی", link);
+              sendMessage("روتین پوستی", link,inWebViow);
               break;
             }
             case "#stretch_marks": {
 
               const link = `https://tools.liom.app/self-medication/?type=stretch_marks&inApp=${inApp}&token=${token}&selectStep=0&userId=${userId}&them=${theme}`;
-              sendMessage("ترک پوستی", link);
+              sendMessage("ترک پوستی", link,inWebViow);
               break;
+            }
+            case "#hamyarInfo": {
+                const link = `/hamyar-add/?token=${token}`;
+                sendMessage("اطلاعات همیار", link,inWebViow);
+                break;
+            }
+            case "#biorhythm": {
+                const link = `/Biorhythm/?token=${token}`;
+                sendMessage("بیوریتم", link,inWebViow);
+                break;
+            }
+            case "#appoinment": {
+                const link = `/clinic/?token=${token}&userId=${userId}`;
+                sendMessage("نوبت دهی", link,inWebViow);
+                break;
             }
             case "#directDialog": {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
               window.FlutterChannel.postMessage(action);}
               break;
+            }
+            case "#irregularQuestion": {
+                const link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${token}&userId=${userId}&home-page=https://apps.liom.app/Self-care/`;
+                sendMessage("تست نامنظمی", link, inWebView);
+                break;
+            }
+            case "#irregularPage": {
+                const link = `https://tools.liom.app/self-medication/?type=irregular&token=${token}&userId=${userId}`;
+                sendMessage("درمان نامنظمی", link, inWebView);
+                break;
+            }
+            case "#pcos": {
+                const link = `https://tools.liom.app/self-medication/?type=pcos&token=${token}&userId=${userId}`;
+                sendMessage("درمان تنبلی تخمدان", link, inWebView);
+                break;
+            }
+            case "#rediucePain": {
+                const link = `https://tools.liom.app/self-medication/?type=irregular&token=${token}&userId=${userId}`;
+                sendMessage("کاهش درد", link, inWebView);
+                break;
+            }
+
+            default:
+            if (action.startsWith("#inAppWebView")) {
+                const link = action.split("**@@**");
+                sendMessage(link[1], link[2],inWebViow);
             }
           }
       }
