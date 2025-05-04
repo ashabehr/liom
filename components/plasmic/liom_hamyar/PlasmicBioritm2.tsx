@@ -862,7 +862,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                     return {
                       headers: {
                         "Content-Type": "application/json",
-                        Authorization: localStorage.getItem("token")
+                        Authorization: $state.token
                       }
                     };
                   } catch (e) {
@@ -6379,7 +6379,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       return (() => {
                         if (
                           $state.paramsObject?.token !== undefined &&
-                          $state.paramsObject?.token.trim() !== ""
+                          $state.paramsObject?.token?.trim() !== ""
                         ) {
                           if (!$state.paramsObject.token.startsWith("ey"))
                             $state.paramsObject.token =
@@ -6442,105 +6442,111 @@ function PlasmicBioritm2__RenderFunc(props: {
               $steps["getCookie"] = await $steps["getCookie"];
             }
 
-            $steps["userGuset"] = true
-              ? (() => {
-                  const actionArgs = {
-                    args: [
-                      "POST",
-                      "https://api.liom.app/auth/signup/guest",
-                      undefined,
-                      (() => {
-                        try {
-                          return (() => {
-                            function pseudoUUID() {
-                              let timestamp = Date.now().toString(36);
-                              let randomStr = Math.random()
-                                .toString(36)
-                                .substr(2, 8);
-                              return timestamp + "-" + randomStr;
-                            }
-                            return {
-                              name: "کاربر مهمان",
-                              gateway: "biorhythm",
-                              country: "98",
-                              isCountryPending: false,
-                              lang: "fa",
-                              version: "",
-                              os: (() => {
-                                const userAgent = window.navigator.userAgent;
-                                const platform = window.navigator.userAgent;
-                                if (/Windows/i.test(platform)) return "Windows";
-                                if (/Mac/i.test(platform)) return "macOS";
-                                if (/Linux/i.test(platform)) return "Linux";
-                                if (/Android/i.test(userAgent))
-                                  return "Android";
-                                if (/iPhone|iPad|iPod/i.test(userAgent))
-                                  return "iOS";
-                                return "Unknown OS";
-                              })(),
-                              osVersion: (() => {
-                                const userAgent = window.navigator.userAgent;
-                                if (/Windows NT 10.0/.test(userAgent))
-                                  return "Windows 10";
-                                if (/Windows NT 6.3/.test(userAgent))
-                                  return "Windows 8.1";
-                                if (/Windows NT 6.2/.test(userAgent))
-                                  return "Windows 8";
-                                if (/Windows NT 6.1/.test(userAgent))
-                                  return "Windows 7";
-                                if (/Mac OS X (\d+[\._]\d+)/.test(userAgent))
-                                  return `macOS ${RegExp.$1.replace("_", ".")}`;
-                                if (/Android (\d+(\.\d+)?)/.test(userAgent))
-                                  return `Android ${RegExp.$1}`;
-                                if (
-                                  /CPU (iPhone )?OS (\d+_\d+)/.test(userAgent)
-                                )
-                                  return `iOS ${RegExp.$2.replace("_", ".")}`;
-                                return "Unknown Version";
-                              })(),
-                              sex: $state.gender || "",
-                              additionalData: {
-                                ip: "132465",
-                                name: "test1"
-                              },
-                              device: (() => {
-                                const userAgent = window.navigator.userAgent;
-                                if (
-                                  /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                    userAgent
+            $steps["userGuset"] =
+              $state.token == ""
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://api.liom.app/auth/signup/guest",
+                        undefined,
+                        (() => {
+                          try {
+                            return (() => {
+                              function pseudoUUID() {
+                                let timestamp = Date.now().toString(36);
+                                let randomStr = Math.random()
+                                  .toString(36)
+                                  .substr(2, 8);
+                                return timestamp + "-" + randomStr;
+                              }
+                              return {
+                                name: "کاربر مهمان",
+                                gateway: "biorhythm",
+                                country: "98",
+                                isCountryPending: false,
+                                lang: "fa",
+                                version: "",
+                                os: (() => {
+                                  const userAgent = window.navigator.userAgent;
+                                  const platform = window.navigator.userAgent;
+                                  if (/Windows/i.test(platform))
+                                    return "Windows";
+                                  if (/Mac/i.test(platform)) return "macOS";
+                                  if (/Linux/i.test(platform)) return "Linux";
+                                  if (/Android/i.test(userAgent))
+                                    return "Android";
+                                  if (/iPhone|iPad|iPod/i.test(userAgent))
+                                    return "iOS";
+                                  return "Unknown OS";
+                                })(),
+                                osVersion: (() => {
+                                  const userAgent = window.navigator.userAgent;
+                                  if (/Windows NT 10.0/.test(userAgent))
+                                    return "Windows 10";
+                                  if (/Windows NT 6.3/.test(userAgent))
+                                    return "Windows 8.1";
+                                  if (/Windows NT 6.2/.test(userAgent))
+                                    return "Windows 8";
+                                  if (/Windows NT 6.1/.test(userAgent))
+                                    return "Windows 7";
+                                  if (/Mac OS X (\d+[\._]\d+)/.test(userAgent))
+                                    return `macOS ${RegExp.$1.replace(
+                                      "_",
+                                      "."
+                                    )}`;
+                                  if (/Android (\d+(\.\d+)?)/.test(userAgent))
+                                    return `Android ${RegExp.$1}`;
+                                  if (
+                                    /CPU (iPhone )?OS (\d+_\d+)/.test(userAgent)
                                   )
-                                ) {
-                                  return "Mobile";
-                                } else if (/Tablet|iPad/i.test(userAgent)) {
-                                  return "Tablet";
-                                } else {
-                                  return "Desktop";
-                                }
-                              })(),
-                              fcm:
-                                window.localStorage.getItem("fcmToken") || " ",
-                              uniqueId: pseudoUUID(),
-                              device_type: window.navigator.platform,
-                              postLang: "fa"
-                            };
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
+                                    return `iOS ${RegExp.$2.replace("_", ".")}`;
+                                  return "Unknown Version";
+                                })(),
+                                sex: $state.gender || "",
+                                additionalData: {
+                                  ip: "132465",
+                                  name: "test1"
+                                },
+                                device: (() => {
+                                  const userAgent = window.navigator.userAgent;
+                                  if (
+                                    /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                      userAgent
+                                    )
+                                  ) {
+                                    return "Mobile";
+                                  } else if (/Tablet|iPad/i.test(userAgent)) {
+                                    return "Tablet";
+                                  } else {
+                                    return "Desktop";
+                                  }
+                                })(),
+                                fcm:
+                                  window.localStorage.getItem("fcmToken") ||
+                                  " ",
+                                uniqueId: pseudoUUID(),
+                                device_type: window.navigator.platform,
+                                postLang: "fa"
+                              };
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()
-                    ]
-                  };
-                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                    ...actionArgs.args
-                  ]);
-                })()
-              : undefined;
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
             if (
               $steps["userGuset"] != null &&
               typeof $steps["userGuset"] === "object" &&
@@ -6549,32 +6555,35 @@ function PlasmicBioritm2__RenderFunc(props: {
               $steps["userGuset"] = await $steps["userGuset"];
             }
 
-            $steps["setCookieGuset"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        var setCookie = (name, value, days) => {
-                          const expires = new Date(
-                            Date.now() + days * 86400000
-                          ).toUTCString();
-                          document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
-                        };
-                        setCookie(
-                          "token",
-                          JSON.stringify([$steps.userGuset.data.result.token]),
-                          100
-                        );
-                        return ($state.token =
-                          $steps.usergust.data.result.token);
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
+            $steps["setCookieGuset"] =
+              $steps.userGuset?.data?.success ?? false
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var setCookie = (name, value, days) => {
+                            const expires = new Date(
+                              Date.now() + days * 86400000
+                            ).toUTCString();
+                            document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                          };
+                          setCookie(
+                            "token",
+                            JSON.stringify([
+                              $steps.userGuset.data.result.token
+                            ]),
+                            100
+                          );
+                          return ($state.token =
+                            $steps.usergust.data.result.token);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
             if (
               $steps["setCookieGuset"] != null &&
               typeof $steps["setCookieGuset"] === "object" &&
