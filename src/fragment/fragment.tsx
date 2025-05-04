@@ -327,6 +327,10 @@ export const fragmentMeta: GlobalContextMeta<FragmentProps> = {
           name: "theme",
           type: { type: "string", required: true },
         },
+               {
+          name: "inWebViow",
+          type: { type: "boolean", required: false }, 
+        },
       ]
     },
     apiRequest: {
