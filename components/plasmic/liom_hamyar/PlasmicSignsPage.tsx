@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
@@ -104,6 +105,7 @@ export const PlasmicSignsPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSignsPage__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   number2?: Flex__<typeof AntdModal>;
   textInput?: Flex__<typeof TextInput>;
@@ -254,20 +256,7 @@ function PlasmicSignsPage__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $ctx.query.token;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "relation",
@@ -956,6 +945,303 @@ function PlasmicSignsPage__RenderFunc(props: {
             sty.root
           )}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["params"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          return urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["params"] != null &&
+                typeof $steps["params"] === "object" &&
+                typeof $steps["params"].then === "function"
+              ) {
+                $steps["params"] = await $steps["params"];
+              }
+
+              $steps["clearParams"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const searchParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          searchParams.delete("token");
+                          searchParams.delete("userId");
+                          searchParams.delete("user_id");
+                          const newUrl = `${
+                            window.location.pathname
+                          }?${searchParams.toString()}`;
+                          return window.history.replaceState(null, "", newUrl);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["clearParams"] != null &&
+                typeof $steps["clearParams"] === "object" &&
+                typeof $steps["clearParams"].then === "function"
+              ) {
+                $steps["clearParams"] = await $steps["clearParams"];
+              }
+
+              $steps["setCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if (
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token.trim() !== ""
+                          ) {
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.paramsObject.token]),
+                              100
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["setCookie"] != null &&
+                typeof $steps["setCookie"] === "object" &&
+                typeof $steps["setCookie"].then === "function"
+              ) {
+                $steps["setCookie"] = await $steps["setCookie"];
+              }
+
+              $steps["getCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getCookie"] != null &&
+                typeof $steps["getCookie"] === "object" &&
+                typeof $steps["getCookie"].then === "function"
+              ) {
+                $steps["getCookie"] = await $steps["getCookie"];
+              }
+
+              $steps["userGuset"] =
+                $state.token == ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://api.liom.app/auth/signup/guest",
+                          undefined,
+                          (() => {
+                            try {
+                              return (() => {
+                                function pseudoUUID() {
+                                  let timestamp = Date.now().toString(36);
+                                  let randomStr = Math.random()
+                                    .toString(36)
+                                    .substr(2, 8);
+                                  return timestamp + "-" + randomStr;
+                                }
+                                return {
+                                  name: "کاربر مهمان",
+                                  gateway: "sings-page",
+                                  country: "98",
+                                  isCountryPending: false,
+                                  lang: "fa",
+                                  version: "",
+                                  os: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    const platform = window.navigator.userAgent;
+                                    if (/Windows/i.test(platform))
+                                      return "Windows";
+                                    if (/Mac/i.test(platform)) return "macOS";
+                                    if (/Linux/i.test(platform)) return "Linux";
+                                    if (/Android/i.test(userAgent))
+                                      return "Android";
+                                    if (/iPhone|iPad|iPod/i.test(userAgent))
+                                      return "iOS";
+                                    return "Unknown OS";
+                                  })(),
+                                  osVersion: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    if (/Windows NT 10.0/.test(userAgent))
+                                      return "Windows 10";
+                                    if (/Windows NT 6.3/.test(userAgent))
+                                      return "Windows 8.1";
+                                    if (/Windows NT 6.2/.test(userAgent))
+                                      return "Windows 8";
+                                    if (/Windows NT 6.1/.test(userAgent))
+                                      return "Windows 7";
+                                    if (
+                                      /Mac OS X (\d+[\._]\d+)/.test(userAgent)
+                                    )
+                                      return `macOS ${RegExp.$1.replace(
+                                        "_",
+                                        "."
+                                      )}`;
+                                    if (/Android (\d+(\.\d+)?)/.test(userAgent))
+                                      return `Android ${RegExp.$1}`;
+                                    if (
+                                      /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                        userAgent
+                                      )
+                                    )
+                                      return `iOS ${RegExp.$2.replace(
+                                        "_",
+                                        "."
+                                      )}`;
+                                    return "Unknown Version";
+                                  })(),
+                                  sex: $state.gender || "",
+                                  additionalData: {
+                                    ip: "132465",
+                                    name: "test1"
+                                  },
+                                  device: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    if (
+                                      /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                        userAgent
+                                      )
+                                    ) {
+                                      return "Mobile";
+                                    } else if (/Tablet|iPad/i.test(userAgent)) {
+                                      return "Tablet";
+                                    } else {
+                                      return "Desktop";
+                                    }
+                                  })(),
+                                  fcm:
+                                    window.localStorage.getItem("fcmToken") ||
+                                    " ",
+                                  uniqueId: pseudoUUID(),
+                                  device_type: window.navigator.platform,
+                                  postLang: "fa"
+                                };
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["userGuset"] != null &&
+                typeof $steps["userGuset"] === "object" &&
+                typeof $steps["userGuset"].then === "function"
+              ) {
+                $steps["userGuset"] = await $steps["userGuset"];
+              }
+
+              $steps["setCookieGuset"] =
+                $steps.userGuset?.data?.success ?? false
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            setCookie(
+                              "token",
+                              JSON.stringify([
+                                $steps.userGuset.data.result.token
+                              ]),
+                              100
+                            );
+                            return ($state.token =
+                              $steps.userGuset.data.result.token);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["setCookieGuset"] != null &&
+                typeof $steps["setCookieGuset"] === "object" &&
+                typeof $steps["setCookieGuset"].then === "function"
+              ) {
+                $steps["setCookieGuset"] = await $steps["setCookieGuset"];
+              }
+            }}
+          />
+
           <section className={classNames(projectcss.all, sty.section__gfKhl)}>
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
@@ -4188,6 +4474,7 @@ function PlasmicSignsPage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "headerLiom",
     "number2",
     "textInput",
@@ -4221,6 +4508,7 @@ const PlasmicDescendants = {
     "venereal",
     "button"
   ],
+  sideEffect: ["sideEffect"],
   headerLiom: ["headerLiom"],
   number2: ["number2", "textInput", "antdInput", "button2"],
   textInput: ["textInput", "antdInput"],
@@ -4276,6 +4564,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   headerLiom: typeof HeaderLiom;
   number2: typeof AntdModal;
   textInput: typeof TextInput;
@@ -4395,6 +4684,7 @@ export const PlasmicSignsPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     headerLiom: makeNodeComponent("headerLiom"),
     number2: makeNodeComponent("number2"),
     textInput: makeNodeComponent("textInput"),

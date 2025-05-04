@@ -146,6 +146,10 @@
   bottom: auto;
   display: none;
 }
+.sideEffect__kRrSb:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .timer:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -1629,7 +1633,7 @@
   min-width: 0;
   display: none;
 }
-.sideEffect:global(.__wab_instance) {
+.sideEffect___6Ep57:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }

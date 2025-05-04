@@ -68,13 +68,13 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
@@ -126,7 +126,6 @@ export type PlasmicPregnancy__OverridesType = {
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   progress?: Flex__<typeof AntdProgress>;
   tabWeek?: Flex__<typeof TabWeek>;
-  sideEffect?: Flex__<typeof SideEffect>;
   switchbest?: Flex__<typeof Switchbest>;
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
   collapseDanger?: Flex__<typeof AntdSingleCollapse>;
@@ -643,7 +642,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "isTimer",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "getAdvice",
@@ -1014,6 +1013,25 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U"
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "userId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1146,11 +1164,437 @@ function PlasmicPregnancy__RenderFunc(props: {
                   }
                 </Button>
               </Stack__>
+              <SideEffect
+                className={classNames("__wab_instance", sty.sideEffect__kRrSb)}
+                onMount={async () => {
+                  const $steps = {};
+
+                  $steps["getParams"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              const queryString = window.location.search;
+                              const urlParams = new URLSearchParams(
+                                queryString
+                              );
+                              urlParams.forEach((value, key) => {
+                                $state.paramsObject[key] = value;
+                              });
+                              return console.log(urlParams);
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["getParams"] != null &&
+                    typeof $steps["getParams"] === "object" &&
+                    typeof $steps["getParams"].then === "function"
+                  ) {
+                    $steps["getParams"] = await $steps["getParams"];
+                  }
+
+                  $steps["clearParams"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              const searchParams = new URLSearchParams(
+                                window.location.search
+                              );
+                              searchParams.delete("token");
+                              searchParams.delete("userId");
+                              searchParams.delete("user_id");
+                              const newUrl = `${
+                                window.location.pathname
+                              }?${searchParams.toString()}`;
+                              return window.history.replaceState(
+                                null,
+                                "",
+                                newUrl
+                              );
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["clearParams"] != null &&
+                    typeof $steps["clearParams"] === "object" &&
+                    typeof $steps["clearParams"].then === "function"
+                  ) {
+                    $steps["clearParams"] = await $steps["clearParams"];
+                  }
+
+                  $steps["setCookie"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              if (
+                                $state.paramsObject.token !== undefined &&
+                                $state.paramsObject.token.trim() !== ""
+                              ) {
+                                if (!$state.paramsObject.token.startsWith("ey"))
+                                  $state.paramsObject.token =
+                                    $state.paramsObject.token.slice(6, -3);
+                                var setCookie = (name, value, days) => {
+                                  const expires = new Date(
+                                    Date.now() + days * 86400000
+                                  ).toUTCString();
+                                  document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                                };
+                                return setCookie(
+                                  "token",
+                                  JSON.stringify([$state.paramsObject.token]),
+                                  100
+                                );
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["setCookie"] != null &&
+                    typeof $steps["setCookie"] === "object" &&
+                    typeof $steps["setCookie"].then === "function"
+                  ) {
+                    $steps["setCookie"] = await $steps["setCookie"];
+                  }
+
+                  $steps["getCookie"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              var getCookie = name => {
+                                const cookies = document.cookie.split("; ");
+                                for (let cookie of cookies) {
+                                  const [key, value] = cookie.split("=");
+                                  if (key === name) return JSON.parse(value)[0];
+                                }
+                                return "";
+                              };
+                              return ($state.token = getCookie("token"));
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["getCookie"] != null &&
+                    typeof $steps["getCookie"] === "object" &&
+                    typeof $steps["getCookie"].then === "function"
+                  ) {
+                    $steps["getCookie"] = await $steps["getCookie"];
+                  }
+
+                  $steps["userGuest"] =
+                    $state.token == ""
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "POST",
+                              "https://api.liom.app/auth/signup/guest",
+                              undefined,
+                              (() => {
+                                try {
+                                  return (() => {
+                                    function pseudoUUID() {
+                                      let timestamp = Date.now().toString(36);
+                                      let randomStr = Math.random()
+                                        .toString(36)
+                                        .substr(2, 8);
+                                      return timestamp + "-" + randomStr;
+                                    }
+                                    return {
+                                      name: "کاربر مهمان",
+                                      gateway: "pregnancy",
+                                      country: "98",
+                                      isCountryPending: false,
+                                      lang: "fa",
+                                      version: "",
+                                      os: (() => {
+                                        const userAgent =
+                                          window.navigator.userAgent;
+                                        const platform =
+                                          window.navigator.userAgent;
+                                        if (/Windows/i.test(platform))
+                                          return "Windows";
+                                        if (/Mac/i.test(platform))
+                                          return "macOS";
+                                        if (/Linux/i.test(platform))
+                                          return "Linux";
+                                        if (/Android/i.test(userAgent))
+                                          return "Android";
+                                        if (/iPhone|iPad|iPod/i.test(userAgent))
+                                          return "iOS";
+                                        return "Unknown OS";
+                                      })(),
+                                      osVersion: (() => {
+                                        const userAgent =
+                                          window.navigator.userAgent;
+                                        if (/Windows NT 10.0/.test(userAgent))
+                                          return "Windows 10";
+                                        if (/Windows NT 6.3/.test(userAgent))
+                                          return "Windows 8.1";
+                                        if (/Windows NT 6.2/.test(userAgent))
+                                          return "Windows 8";
+                                        if (/Windows NT 6.1/.test(userAgent))
+                                          return "Windows 7";
+                                        if (
+                                          /Mac OS X (\d+[\._]\d+)/.test(
+                                            userAgent
+                                          )
+                                        )
+                                          return `macOS ${RegExp.$1.replace(
+                                            "_",
+                                            "."
+                                          )}`;
+                                        if (
+                                          /Android (\d+(\.\d+)?)/.test(
+                                            userAgent
+                                          )
+                                        )
+                                          return `Android ${RegExp.$1}`;
+                                        if (
+                                          /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                            userAgent
+                                          )
+                                        )
+                                          return `iOS ${RegExp.$2.replace(
+                                            "_",
+                                            "."
+                                          )}`;
+                                        return "Unknown Version";
+                                      })(),
+                                      sex: $state.gender || "",
+                                      additionalData: {
+                                        ip: "132465",
+                                        name: "test1"
+                                      },
+                                      device: (() => {
+                                        const userAgent =
+                                          window.navigator.userAgent;
+                                        if (
+                                          /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                            userAgent
+                                          )
+                                        ) {
+                                          return "Mobile";
+                                        } else if (
+                                          /Tablet|iPad/i.test(userAgent)
+                                        ) {
+                                          return "Tablet";
+                                        } else {
+                                          return "Desktop";
+                                        }
+                                      })(),
+                                      fcm:
+                                        window.localStorage.getItem(
+                                          "fcmToken"
+                                        ) || " ",
+                                      uniqueId: pseudoUUID(),
+                                      device_type: window.navigator.platform,
+                                      postLang: "fa"
+                                    };
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                  if (
+                    $steps["userGuest"] != null &&
+                    typeof $steps["userGuest"] === "object" &&
+                    typeof $steps["userGuest"].then === "function"
+                  ) {
+                    $steps["userGuest"] = await $steps["userGuest"];
+                  }
+
+                  $steps["setCookie2"] =
+                    $steps.userGuest?.data?.success ?? false
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                var setCookie = (name, value, days) => {
+                                  const expires = new Date(
+                                    Date.now() + days * 86400000
+                                  ).toUTCString();
+                                  document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                                };
+                                setCookie(
+                                  "token",
+                                  JSON.stringify([
+                                    $steps.userGuest.data.result.token
+                                  ]),
+                                  100
+                                );
+                                return ($state.token =
+                                  $steps.userGuest.data.result.token);
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["setCookie2"] != null &&
+                    typeof $steps["setCookie2"] === "object" &&
+                    typeof $steps["setCookie2"].then === "function"
+                  ) {
+                    $steps["setCookie2"] = await $steps["setCookie2"];
+                  }
+
+                  $steps["getUser"] =
+                    $state.token != ""
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              undefined,
+                              "https://n8n.staas.ir/webhook/users/profile",
+                              undefined,
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    headers: { Authorization: $state.token }
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                  if (
+                    $steps["getUser"] != null &&
+                    typeof $steps["getUser"] === "object" &&
+                    typeof $steps["getUser"].then === "function"
+                  ) {
+                    $steps["getUser"] = await $steps["getUser"];
+                  }
+
+                  $steps["setUserId"] =
+                    $steps.getUser?.data?.id != ""
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["userId"]
+                            },
+                            operation: 0,
+                            value: $steps.getUser.data.id
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["setUserId"] != null &&
+                    typeof $steps["setUserId"] === "object" &&
+                    typeof $steps["setUserId"].then === "function"
+                  ) {
+                    $steps["setUserId"] = await $steps["setUserId"];
+                  }
+
+                  $steps["updateIsTimer"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["isTimer"]
+                          },
+                          operation: 4,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          const oldValue = $stateGet(objRoot, variablePath);
+                          $stateSet(objRoot, variablePath, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateIsTimer"] != null &&
+                    typeof $steps["updateIsTimer"] === "object" &&
+                    typeof $steps["updateIsTimer"].then === "function"
+                  ) {
+                    $steps["updateIsTimer"] = await $steps["updateIsTimer"];
+                  }
+                }}
+              />
+
               <Timer
                 data-plasmic-name={"timer"}
                 data-plasmic-override={overrides.timer}
                 className={classNames("__wab_instance", sty.timer)}
-                intervalSeconds={2}
+                intervalSeconds={1}
                 isRunning={(() => {
                   try {
                     return !$state.isTimer;
@@ -1207,10 +1651,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           customFunction: async () => {
                             return fetch(
                               "https://n8n.staas.ir/webhook/status/?userId=" +
-                                $ctx.query.userId.slice(
-                                  4,
-                                  $ctx.query.userId.length - 4
-                                ),
+                                $state.userId,
                               {
                                 method: "GET",
                                 headers: {
@@ -1279,19 +1720,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                           destination: (() => {
                             try {
                               return (() => {
-                                var token =
-                                  $ctx.query.token ||
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("token");
-                                if (!token.startsWith("ey")) {
-                                  token = token.slice(6, token.length - 3);
-                                }
+                                var token = $state.token;
                                 return (
                                   "https://apps.liom.app/setting-pregnancy/?token=" +
                                   token +
                                   "&userId=" +
-                                  $ctx.query.userId +
+                                  $state.userId +
                                   "&theme=" +
                                   $ctx.query.theme +
                                   "&inApp=" +
@@ -1374,27 +1808,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
-                              var token =
-                                $ctx.query.token ||
-                                new URLSearchParams(window.location.search).get(
-                                  "token"
-                                );
-                              if (!token.startsWith("ey")) {
-                                token = token.slice(6, token.length - 3);
-                              }
+                              var token = $state.token;
                               return fetch(
                                 "https://n8n.staas.ir/webhook/self/info/?token=" +
                                   token +
                                   "&userId=" +
-                                  $ctx.query.userId.slice(
-                                    4,
-                                    (
-                                      $ctx.query.userId ||
-                                      new URLSearchParams(
-                                        window.location.search
-                                      ).get("userId")
-                                    ).length - 4
-                                  ) +
+                                  $state.userId +
                                   "&type=danger",
                                 { method: "GET" }
                               )
@@ -1405,15 +1824,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     "https://n8n.staas.ir/webhook/selfTreatment/?stepId=" +
                                       data.data[$state.weeksPregnant - 1].id +
                                       "&userId=" +
-                                      $ctx.query.userId.slice(
-                                        4,
-                                        (
-                                          $ctx.query.userId ||
-                                          new URLSearchParams(
-                                            window.location.search
-                                          ).get("userId")
-                                        ).length - 4
-                                      ),
+                                      $state.userId,
                                     { method: "GET" }
                                   )
                                     .then(response => response.json())
@@ -1450,7 +1861,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           customFunction: async () => {
                             return fetch(
                               "https://n8n.staas.ir/webhook/task/?appKey=com.diacotdj.liom&userId=" +
-                                $ctx.query.userId +
+                                $state.userId +
                                 "&weekNumber=" +
                                 $state.weeksPregnant,
                               { method: "GET" }
@@ -1575,14 +1986,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           customFunction: async () => {
                             return setTimeout(() => {
                               try {
-                                var token =
-                                  $ctx.query.token ||
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("token");
-                                if (!token.startsWith("ey")) {
-                                  token = token.slice(6, token.length - 3);
-                                }
+                                var token = $state.token;
                                 var name =
                                   $state.getUserInfo.data?.[0]?.result?.user
                                     ?.name ?? "";
@@ -1706,10 +2110,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                             "-" +
                                             gd +
                                             " 10:10:10",
-                                          userId: $ctx.query.userId.slice(
-                                            4,
-                                            +$ctx.query.userId.length - 4
-                                          ),
+                                          userId: $state.userId,
                                           name: name,
                                           mobile: mobile,
                                           email: email,
@@ -1826,10 +2227,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             (() => {
                               try {
                                 return {
-                                  userId: $ctx.query.userId.slice(
-                                    4,
-                                    $ctx.query.userId.length - 4
-                                  ),
+                                  userId: $state.userId,
                                   pageName: "mainPage_pregnancy",
                                   action: "loadPage",
                                   extraData: {}
@@ -9761,11 +10159,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                               {"Enter some text"}
                             </div>
                             <SideEffect
-                              data-plasmic-name={"sideEffect"}
-                              data-plasmic-override={overrides.sideEffect}
                               className={classNames(
                                 "__wab_instance",
-                                sty.sideEffect
+                                sty.sideEffect___6Ep57
                               )}
                             />
 
@@ -26091,7 +26487,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 params={(() => {
                   try {
                     return {
-                      token: $ctx.query.token
+                      token: $state.token
                     };
                   } catch (e) {
                     if (
@@ -26929,7 +27325,6 @@ const PlasmicDescendants = {
     "pullToRefresh",
     "progress",
     "tabWeek",
-    "sideEffect",
     "switchbest",
     "collapseAdvice",
     "collapseDanger",
@@ -26953,7 +27348,6 @@ const PlasmicDescendants = {
     "pullToRefresh",
     "progress",
     "tabWeek",
-    "sideEffect",
     "switchbest",
     "collapseAdvice",
     "collapseDanger",
@@ -26974,7 +27368,6 @@ const PlasmicDescendants = {
   pullToRefresh: ["pullToRefresh"],
   progress: ["progress"],
   tabWeek: ["tabWeek"],
-  sideEffect: ["sideEffect"],
   switchbest: ["switchbest"],
   collapseAdvice: ["collapseAdvice"],
   collapseDanger: ["collapseDanger"],
@@ -27002,7 +27395,6 @@ type NodeDefaultElementType = {
   pullToRefresh: typeof PullToRefresh;
   progress: typeof AntdProgress;
   tabWeek: typeof TabWeek;
-  sideEffect: typeof SideEffect;
   switchbest: typeof Switchbest;
   collapseAdvice: typeof AntdSingleCollapse;
   collapseDanger: typeof AntdSingleCollapse;
@@ -27111,7 +27503,6 @@ export const PlasmicPregnancy = Object.assign(
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     progress: makeNodeComponent("progress"),
     tabWeek: makeNodeComponent("tabWeek"),
-    sideEffect: makeNodeComponent("sideEffect"),
     switchbest: makeNodeComponent("switchbest"),
     collapseAdvice: makeNodeComponent("collapseAdvice"),
     collapseDanger: makeNodeComponent("collapseDanger"),
