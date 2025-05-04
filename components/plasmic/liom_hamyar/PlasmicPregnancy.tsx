@@ -1031,7 +1031,8 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "userId",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "4ddd1fab-100c-49f0-b843-e70bff8add34"
       }
     ],
     [$props, $ctx, $refs]
@@ -1209,6 +1210,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               searchParams.delete("token");
                               searchParams.delete("userId");
                               searchParams.delete("user_id");
+                              searchParams.delete("origin_user_id");
                               const newUrl = `${
                                 window.location.pathname
                               }?${searchParams.toString()}`;
@@ -1807,39 +1809,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {
-                              var token = $state.token;
-                              return fetch(
-                                "https://n8n.staas.ir/webhook/self/info/?token=" +
-                                  token +
-                                  "&userId=" +
-                                  $state.userId +
-                                  "&type=danger",
-                                { method: "GET" }
-                              )
-                                .then(response => response.json())
-                                .then(data => {
-                                  console.log("get step");
-                                  fetch(
-                                    "https://n8n.staas.ir/webhook/selfTreatment/?stepId=" +
-                                      data.data[$state.weeksPregnant - 1].id +
-                                      "&userId=" +
-                                      $state.userId,
-                                    { method: "GET" }
-                                  )
-                                    .then(response => response.json())
-                                    .then(data2 => {
-                                      console.log("get item");
-                                      $state.getDangerItem = data2;
-                                    })
-                                    .catch(error =>
-                                      console.error("Error-item:", error)
-                                    );
-                                })
-                                .catch(error =>
-                                  console.error("Error-step:", error)
-                                );
-                            })();
+                            return (() => {})();
                           }
                         };
                         return (({ customFunction }) => {
@@ -25460,7 +25430,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               }
                               userId={(() => {
                                 try {
-                                  return $ctx.query.userId;
+                                  return $state.userId;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
