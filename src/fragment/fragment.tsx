@@ -99,14 +99,47 @@ export const Fragment = ({
           };
         
           switch (action) {
-        
-            case "adhd": {
+            case "#adhd": {
               const link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&inApp=${inApp}&token=${token}`;
               sendMessage("تست ADHD", link);
               break;
             }
+            case "#clinic": {
+              const generateRandomString = (length: number) => {
+                const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+                return Array.from({ length }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+              };
+              
+              const randomStr1 = generateRandomString(6);
+              const randomStr2 = generateRandomString(6);
+              const link = `https://checkup.liom-app.ir/moshavereh/psychology/4?token=${randomStr1 + token + randomStr2}`;
+          
+              sendMessage("کلینیک لیوم", link);
+              break;
+            }
+            case "#skinCare": {
+              const link = `https://tools.liom.app/self-medication/?type=skinCare&inApp=${inApp}&token=${token}&selectStep=0&userId=${userId}&them=${theme}`;
+              sendMessage("روتین پوستی", link);
+              break;
+            }
+            case "#stretch_marks": {
+
+              const link = `https://tools.liom.app/self-medication/?type=stretch_marks&inApp=${inApp}&token=${token}&selectStep=0&userId=${userId}&them=${theme}`;
+              sendMessage("ترک پوستی", link);
+              break;
+            }
+            case "#danger":
+              window.document.getElementById("collapseDanger").scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+              break;
+            case "#directDialog": {
+              window.FlutterChannel.postMessage(action);
+              break;
+            }
           }
-        }
+      }
     }),
     []
   );
