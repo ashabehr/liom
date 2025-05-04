@@ -152,22 +152,22 @@ export const Fragment = ({
             }
             case "#irregularQuestion": {
                 const link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${token}&userId=${userId}&home-page=https://apps.liom.app/Self-care/`;
-                sendMessage("تست نامنظمی", link, inWebView);
+                sendMessage("تست نامنظمی", link,inWebViow);
                 break;
             }
             case "#irregularPage": {
                 const link = `https://tools.liom.app/self-medication/?type=irregular&token=${token}&userId=${userId}`;
-                sendMessage("درمان نامنظمی", link, inWebView);
+                sendMessage("درمان نامنظمی", link,inWebViow);
                 break;
             }
             case "#pcos": {
                 const link = `https://tools.liom.app/self-medication/?type=pcos&token=${token}&userId=${userId}`;
-                sendMessage("درمان تنبلی تخمدان", link, inWebView);
+                sendMessage("درمان تنبلی تخمدان", link,inWebViow);
                 break;
             }
             case "#rediucePain": {
                 const link = `https://tools.liom.app/self-medication/?type=irregular&token=${token}&userId=${userId}`;
-                sendMessage("کاهش درد", link, inWebView);
+                sendMessage("کاهش درد", link,inWebViow);
                 break;
             }
 
