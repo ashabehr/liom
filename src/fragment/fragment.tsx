@@ -128,13 +128,6 @@ export const Fragment = ({
               sendMessage("ترک پوستی", link);
               break;
             }
-            case "#danger":
-              if (typeof window !== "undefined" ) {
-              window.document.getElementById("collapseDanger").scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });}
-              break;
             case "#directDialog": {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
               window.FlutterChannel.postMessage(action);}
