@@ -1203,7 +1203,23 @@ function PlasmicPregnancy__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {})();
+                            return (() => {
+                              const searchParams = new URLSearchParams(
+                                window.location.search
+                              );
+                              searchParams.delete("token");
+                              searchParams.delete("userId");
+                              searchParams.delete("user_id");
+                              searchParams.delete("origin_user_id");
+                              const newUrl = `${
+                                window.location.pathname
+                              }?${searchParams.toString()}`;
+                              return window.history.replaceState(
+                                null,
+                                "",
+                                newUrl
+                              );
+                            })();
                           }
                         };
                         return (({ customFunction }) => {

@@ -308,7 +308,7 @@ function PlasmicSelfCare__RenderFunc(props: {
         variableType: "boolean"
       },
       {
-        path: "stateParamsObject",
+        path: "paramsObject",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
