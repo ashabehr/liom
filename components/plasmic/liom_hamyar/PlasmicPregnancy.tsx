@@ -1809,7 +1809,39 @@ function PlasmicPregnancy__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {})();
+                            return (() => {
+                              var token = $state.token;
+                              return fetch(
+                                "https://n8n.staas.ir/webhook/self/info/?token=" +
+                                  token +
+                                  "&userId=" +
+                                  $state.userId +
+                                  "&type=pregnancy_danger_sub",
+                                { method: "GET" }
+                              )
+                                .then(response => response.json())
+                                .then(data => {
+                                  console.log("get step");
+                                  fetch(
+                                    "https://n8n.staas.ir/webhook/selfTreatment/?stepId=" +
+                                      data.data[$state.weeksPregnant - 1].id +
+                                      "&userId=" +
+                                      $state.userId,
+                                    { method: "GET" }
+                                  )
+                                    .then(response => response.json())
+                                    .then(data2 => {
+                                      console.log("get item");
+                                      $state.getDangerItem = data2;
+                                    })
+                                    .catch(error =>
+                                      console.error("Error-item:", error)
+                                    );
+                                })
+                                .catch(error =>
+                                  console.error("Error-step:", error)
+                                );
+                            })();
                           }
                         };
                         return (({ customFunction }) => {
