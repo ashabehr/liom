@@ -6549,11 +6549,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 const active = filteredItem
                                                   ? filteredItem.active
                                                   : false;
-                                                var token =
-                                                  $ctx.query.token ||
-                                                  new URLSearchParams(
-                                                    window.location.search
-                                                  ).get("token");
+                                                var token = $state.token;
                                                 if (!token.startsWith("ey")) {
                                                   token = token.slice(
                                                     6,
@@ -6616,7 +6612,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           "https://tools.liom.app/self-medication/?type=skinCare&inApp=true&token=" +
                                                           token +
                                                           "&selectStep=0&userId=" +
-                                                          $ctx.query.userId +
+                                                          $state.userId +
                                                           "&them=" +
                                                           $ctx.query.theme;
                                                         window.FlutterChannel.postMessage(
@@ -6639,7 +6635,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
                                                           token +
                                                           "&selectStep=0&userId=" +
-                                                          $ctx.query.userId +
+                                                          $state.userId +
                                                           "&them=" +
                                                           $ctx.query.theme;
                                                         window.FlutterChannel.postMessage(
@@ -6679,11 +6675,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       window.location.href
                                                     )}&inApp=${
                                                       $ctx.query.inApp
-                                                    }&userId=${$ctx.query.userId.slice(
-                                                      4,
-                                                      $ctx.query.userId.length -
-                                                        4
-                                                    )}`;
+                                                    }&userId=${$state.userId}`;
                                                     window.FlutterChannel.postMessage(
                                                       "#inAppWebView**@@**" +
                                                         "تست ADHD" +
@@ -6694,8 +6686,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   case "chatBot":
                                                     var link =
                                                       "https://tools.liom.app/chat-bot/?origin_user_id=" +
-                                                      $state?.user?.[0]
-                                                        ?.userId +
+                                                      $state?.userId +
                                                       "&topic=pregnancyWeek" +
                                                       $state.weeksPregnant +
                                                       "&token=" +
@@ -6742,11 +6733,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 const active = filteredItem
                                                   ? filteredItem.active
                                                   : false;
-                                                var token =
-                                                  $ctx.query.token ||
-                                                  new URLSearchParams(
-                                                    window.location.search
-                                                  ).get("token");
+                                                var token = $state.token;
                                                 if (!token.startsWith("ey")) {
                                                   token = token.slice(
                                                     6,
@@ -6797,8 +6784,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     {
                                                       var link =
                                                         "https://tools.liom.app/chat-bot/?origin_user_id=" +
-                                                        $state?.user?.[0]
-                                                          ?.userId +
+                                                        $state?.userId +
                                                         "&topic=pregnancyWeek" +
                                                         $state.weeksPregnant +
                                                         "&token=" +
@@ -6815,7 +6801,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         "https://tools.liom.app/self-medication/?type=skinCare&inApp=false&token=" +
                                                           token +
                                                           "&selectStep=0&userId=" +
-                                                          $ctx.query.userId +
+                                                          $state.userId +
                                                           "&them=" +
                                                           $ctx.query.theme,
                                                         "_self"
@@ -6833,7 +6819,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=false&token=" +
                                                           token +
                                                           "&selectStep=0&userId=" +
-                                                          $ctx.query.userId +
+                                                          $state.userId +
                                                           "&them=" +
                                                           $ctx.query.theme,
                                                         "_self"
@@ -6868,11 +6854,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       window.location.href
                                                     )}&inApp=${
                                                       $ctx.query.inApp
-                                                    }&userId=${$ctx.query.userId.slice(
-                                                      4,
-                                                      $ctx.query.userId.length -
-                                                        4
-                                                    )}`;
+                                                    }&userId=${$state.userId}`;
                                                     break;
                                                 }
                                               })();
@@ -7248,11 +7230,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     const active = filteredItem
                                                       ? filteredItem.active
                                                       : false;
-                                                    var token =
-                                                      $ctx.query.token ||
-                                                      new URLSearchParams(
-                                                        window.location.search
-                                                      ).get("token");
+                                                    var token = $state.token;
                                                     if (
                                                       !token.startsWith("ey")
                                                     ) {
@@ -7321,8 +7299,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                               "https://tools.liom.app/self-medication/?type=skinCare&inApp=true&token=" +
                                                               token +
                                                               "&selectStep=0&userId=" +
-                                                              $ctx.query
-                                                                .userId +
+                                                              $state.userId +
                                                               "&them=" +
                                                               $ctx.query.theme;
                                                             window.FlutterChannel.postMessage(
@@ -7345,8 +7322,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                               "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
                                                               token +
                                                               "&selectStep=0&userId=" +
-                                                              $ctx.query
-                                                                .userId +
+                                                              $state.userId +
                                                               "&them=" +
                                                               $ctx.query.theme;
                                                             window.FlutterChannel.postMessage(
@@ -7387,11 +7363,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           window.location.href
                                                         )}&inApp=${
                                                           $ctx.query.inApp
-                                                        }&userId=${$ctx.query.userId.slice(
-                                                          4,
-                                                          $ctx.query.userId
-                                                            .length - 4
-                                                        )}`;
+                                                        }&userId=${
+                                                          $state.userId
+                                                        }`;
                                                         window.FlutterChannel.postMessage(
                                                           "#inAppWebView**@@**" +
                                                             "تست ADHD" +
@@ -7402,8 +7376,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       case "chatBot":
                                                         var link =
                                                           "https://tools.liom.app/chat-bot/?origin_user_id=" +
-                                                          $state?.user?.[0]
-                                                            ?.userId +
+                                                          $state?.userId +
                                                           "&topic=pregnancyWeek" +
                                                           $state.weeksPregnant +
                                                           "&token=" +
@@ -7454,11 +7427,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     const active = filteredItem
                                                       ? filteredItem.active
                                                       : false;
-                                                    var token =
-                                                      $ctx.query.token ||
-                                                      new URLSearchParams(
-                                                        window.location.search
-                                                      ).get("token");
+                                                    var token = $state.token;
                                                     if (
                                                       !token.startsWith("ey")
                                                     ) {
@@ -7515,8 +7484,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         {
                                                           var link =
                                                             "https://tools.liom.app/chat-bot/?origin_user_id=" +
-                                                            $state?.user?.[0]
-                                                              ?.userId +
+                                                            $state?.userId +
                                                             "&topic=pregnancyWeek" +
                                                             $state.weeksPregnant +
                                                             "&token=" +
@@ -7533,8 +7501,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                             "https://tools.liom.app/self-medication/?type=skinCare&inApp=false&token=" +
                                                               token +
                                                               "&selectStep=0&userId=" +
-                                                              $ctx.query
-                                                                .userId +
+                                                              $state.userId +
                                                               "&them=" +
                                                               $ctx.query.theme,
                                                             "_self"
@@ -7552,8 +7519,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                             "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=false&token=" +
                                                               token +
                                                               "&selectStep=0&userId=" +
-                                                              $ctx.query
-                                                                .userId +
+                                                              $state.userId +
                                                               "&them=" +
                                                               $ctx.query.theme,
                                                             "_self"
@@ -7588,11 +7554,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           window.location.href
                                                         )}&inApp=${
                                                           $ctx.query.inApp
-                                                        }&userId=${$ctx.query.userId.slice(
-                                                          4,
-                                                          $ctx.query.userId
-                                                            .length - 4
-                                                        )}`;
+                                                        }&userId=${
+                                                          $state.userId
+                                                        }`;
                                                         break;
                                                     }
                                                   })();

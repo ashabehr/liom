@@ -1016,7 +1016,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                         return (() => {
                           if (
                             $state.paramsObject.token !== undefined &&
-                            $state.paramsObject.token.trim() !== ""
+                            $state.paramsObject?.token?.trim() !== ""
                           ) {
                             if (!$state.paramsObject.token.startsWith("ey"))
                               $state.paramsObject.token =
