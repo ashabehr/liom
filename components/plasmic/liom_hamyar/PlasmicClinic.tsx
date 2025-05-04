@@ -649,6 +649,237 @@ function PlasmicClinic__RenderFunc(props: {
                 $steps["clearParams"] = await $steps["clearParams"];
               }
 
+              $steps["setCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if (
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token.trim() !== ""
+                          ) {
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.paramsObject.token]),
+                              100
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["setCookie"] != null &&
+                typeof $steps["setCookie"] === "object" &&
+                typeof $steps["setCookie"].then === "function"
+              ) {
+                $steps["setCookie"] = await $steps["setCookie"];
+              }
+
+              $steps["getCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getCookie"] != null &&
+                typeof $steps["getCookie"] === "object" &&
+                typeof $steps["getCookie"].then === "function"
+              ) {
+                $steps["getCookie"] = await $steps["getCookie"];
+              }
+
+              $steps["userGuset"] =
+                $state.token == ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://api.liom.app/auth/signup/guest",
+                          undefined,
+                          (() => {
+                            try {
+                              return (() => {
+                                function pseudoUUID() {
+                                  let timestamp = Date.now().toString(36);
+                                  let randomStr = Math.random()
+                                    .toString(36)
+                                    .substr(2, 8);
+                                  return timestamp + "-" + randomStr;
+                                }
+                                return {
+                                  name: "کاربر مهمان",
+                                  gateway: "clinic",
+                                  country: "98",
+                                  isCountryPending: false,
+                                  lang: "fa",
+                                  version: "",
+                                  os: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    const platform = window.navigator.userAgent;
+                                    if (/Windows/i.test(platform))
+                                      return "Windows";
+                                    if (/Mac/i.test(platform)) return "macOS";
+                                    if (/Linux/i.test(platform)) return "Linux";
+                                    if (/Android/i.test(userAgent))
+                                      return "Android";
+                                    if (/iPhone|iPad|iPod/i.test(userAgent))
+                                      return "iOS";
+                                    return "Unknown OS";
+                                  })(),
+                                  osVersion: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    if (/Windows NT 10.0/.test(userAgent))
+                                      return "Windows 10";
+                                    if (/Windows NT 6.3/.test(userAgent))
+                                      return "Windows 8.1";
+                                    if (/Windows NT 6.2/.test(userAgent))
+                                      return "Windows 8";
+                                    if (/Windows NT 6.1/.test(userAgent))
+                                      return "Windows 7";
+                                    if (
+                                      /Mac OS X (\d+[\._]\d+)/.test(userAgent)
+                                    )
+                                      return `macOS ${RegExp.$1.replace(
+                                        "_",
+                                        "."
+                                      )}`;
+                                    if (/Android (\d+(\.\d+)?)/.test(userAgent))
+                                      return `Android ${RegExp.$1}`;
+                                    if (
+                                      /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                        userAgent
+                                      )
+                                    )
+                                      return `iOS ${RegExp.$2.replace(
+                                        "_",
+                                        "."
+                                      )}`;
+                                    return "Unknown Version";
+                                  })(),
+                                  sex: $state.gender || "",
+                                  additionalData: {
+                                    ip: "132465",
+                                    name: "test1"
+                                  },
+                                  device: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    if (
+                                      /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                        userAgent
+                                      )
+                                    ) {
+                                      return "Mobile";
+                                    } else if (/Tablet|iPad/i.test(userAgent)) {
+                                      return "Tablet";
+                                    } else {
+                                      return "Desktop";
+                                    }
+                                  })(),
+                                  fcm:
+                                    window.localStorage.getItem("fcmToken") ||
+                                    " ",
+                                  uniqueId: pseudoUUID(),
+                                  device_type: window.navigator.platform,
+                                  postLang: "fa"
+                                };
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["userGuset"] != null &&
+                typeof $steps["userGuset"] === "object" &&
+                typeof $steps["userGuset"].then === "function"
+              ) {
+                $steps["userGuset"] = await $steps["userGuset"];
+              }
+
+              $steps["setCookieGuset"] =
+                $steps.userGuset?.data?.success ?? false
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            setCookie(
+                              "token",
+                              JSON.stringify([
+                                $steps.userGuset.data.result.token
+                              ]),
+                              100
+                            );
+                            return ($state.token =
+                              $steps.userGuset.data.result.token);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["setCookieGuset"] != null &&
+                typeof $steps["setCookieGuset"] === "object" &&
+                typeof $steps["setCookieGuset"].then === "function"
+              ) {
+                $steps["setCookieGuset"] = await $steps["setCookieGuset"];
+              }
+
               $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
@@ -657,10 +888,6 @@ function PlasmicClinic__RenderFunc(props: {
                           var urlParams = new URLSearchParams(
                             window.location.search
                           );
-                          if (!localStorage.getItem("ClinicToken")) {
-                            var app = urlParams.get("token");
-                            localStorage.setItem("ClinicToken", app);
-                          }
                           var status = urlParams.get("status");
                           if (status == "false") {
                             var chatstart = JSON.parse(
@@ -721,12 +948,8 @@ function PlasmicClinic__RenderFunc(props: {
                         (() => {
                           try {
                             return {
-                              token: localStorage.getItem("ClinicToken"),
-                              gender:
-                                $state.gender ||
-                                new URLSearchParams(
-                                  new URL(window.location.href).search
-                                ).get("gender")
+                              token: $state.token,
+                              gender: $state.paramsObject.gender
                             };
                           } catch (e) {
                             if (
@@ -846,18 +1069,11 @@ function PlasmicClinic__RenderFunc(props: {
                         (() => {
                           try {
                             return {
-                              userId:
-                                $ctx.query.userId ||
-                                new URLSearchParams(window.location.search).get(
-                                  "userId"
-                                ),
+                              userId: $state.paramsObject.userId,
                               pageName: "clinic",
                               action: "loadePage",
                               extraData: {
-                                gender:
-                                  new URLSearchParams(
-                                    new URL(window.location.href).search
-                                  ).get("gender") || "female"
+                                gender: $state.paramsObject.gender || "female"
                               }
                             };
                           } catch (e) {
@@ -895,9 +1111,7 @@ function PlasmicClinic__RenderFunc(props: {
                         "https://n8n.staas.ir/webhook/seve/clinicToken",
                         (() => {
                           try {
-                            return {
-                              token: localStorage.getItem("ClinicToken")
-                            };
+                            return { token: $state.token };
                           } catch (e) {
                             if (
                               e instanceof TypeError ||

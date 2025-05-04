@@ -1195,7 +1195,42 @@ function PlasmicSelfCare__RenderFunc(props: {
 
                         $steps["invokeGlobalAction"] = true
                           ? (() => {
-                              const actionArgs = { args: [] };
+                              const actionArgs = {
+                                args: [
+                                  (() => {
+                                    try {
+                                      return currentItem.action;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return $state.token;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  "lll",
+                                  undefined,
+                                  undefined,
+                                  true
+                                ]
+                              };
                               return $globalActions["Fragment.deepLink"]?.apply(
                                 null,
                                 [...actionArgs.args]

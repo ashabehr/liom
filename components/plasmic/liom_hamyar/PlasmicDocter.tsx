@@ -209,20 +209,7 @@ function PlasmicDocter__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return localStorage.getItem("ClinicToken");
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "getList",
@@ -885,7 +872,7 @@ function PlasmicDocter__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  token: "Bearer " + localStorage.getItem("ClinicToken"),
+                  token: "Bearer " + $state.token,
                   id: $ctx.query.id
                 };
               } catch (e) {
