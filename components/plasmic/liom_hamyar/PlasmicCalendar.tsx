@@ -2003,9 +2003,7 @@ function PlasmicCalendar__RenderFunc(props: {
                           "https://n8n.staas.ir/webhook/calendar/getData",
                           (() => {
                             try {
-                              return {
-                                authorization: localStorage.getItem("token")
-                              };
+                              return { authorization: $state.token };
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
