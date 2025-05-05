@@ -45,10 +45,17 @@ export const Fragment = ({
         placement: ToastPosition = "top-right",
         duration?: number
       ) => {
-        toast[type](message, {
-          duration: duration,
-          position: placement,
-        });
+        if (validTypes.includes(type)) {
+          toast[type](message, {
+            duration,
+            position: placement,
+          });
+        } else {
+          toast("🔔 " + message, {
+            duration,
+            position: placement,
+          });
+        }
       },
       apiRequest: async (
         method: "GET" | "POST" | "DELETE" | "PUT" | "PATCH" = "GET",
