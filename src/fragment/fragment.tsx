@@ -45,17 +45,23 @@ export const Fragment = ({
         placement: ToastPosition = "top-right",
         duration?: number
       ) => {
-        if (validTypes.includes(type)) {
-          toast[type](message, {
-            duration,
-            position: placement,
-          });
-        } else {
-          toast("🔔 " + message, {
-            duration,
-            position: placement,
-          });
-        }
+         if (type === "warning") {
+            toast.custom((t) => (
+              <div className={`toast-warning ${t.visible ? 'show' : 'hide'}`}>
+                ⚠️ {message}
+              </div>
+            ));
+          } else if (type === "info") {
+            toast.custom((t) => (
+              <div className={`toast-info ${t.visible ? 'show' : 'hide'}`}>
+                ℹ️ {message}
+              </div>
+            ));
+          } else if (["success", "error"].includes(type)) {
+            toast[type](message, {
+              duration,
+              position: placement,
+            });
       },
       apiRequest: async (
         method: "GET" | "POST" | "DELETE" | "PUT" | "PATCH" = "GET",
