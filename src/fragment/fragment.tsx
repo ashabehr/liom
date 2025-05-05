@@ -40,29 +40,15 @@ export const Fragment = ({
   const actions = useMemo(
     () => ({
         showToast: (
-        type: "success" | "error" |  "info" | "warning",
+        type: "success" | "error" |  "custom",
         message: string,
         placement: ToastPosition = "top-right",
         duration?: number
       ) => {
-         if (type === "warning") {
-            toast.custom((t) => (
-              <div className={`toast-warning ${t.visible ? 'show' : 'hide'}`}>
-                ⚠️ {message}
-              </div>
-            ));
-          } else if (type === "info") {
-            toast.custom((t) => (
-              <div className={`toast-info ${t.visible ? 'show' : 'hide'}`}>
-                ℹ️ {message}
-              </div>
-            ));
-          } else if (["success", "error"].includes(type)) {
-            toast[type](message, {
+        toast[type](message, {
               duration,
               position: placement,
             });
-         }
       },
       apiRequest: async (
         method: "GET" | "POST" | "DELETE" | "PUT" | "PATCH" = "GET",
@@ -217,15 +203,9 @@ export const Fragment = ({
             success: {
               className: 'custom-toast-success',
             },
-            error: {
-              className: 'custom-toast-error',
-            },
-            info: { 
+            custom: { 
               className: 'custom-toast-info' 
-            },
-            warning: {
-              className: 'custom-toast-warning' 
-            },
+            }
           }}
         />
       </DataProvider>
@@ -274,7 +254,7 @@ export const fragmentMeta: GlobalContextMeta<FragmentProps> = {
           name: "type",
           type: {
             type: "choice",
-            options: ["success", "error", "info", "warning"],
+            options: ["success", "error", "custom"],
             defaultValueHint: "success",
           },
         },
