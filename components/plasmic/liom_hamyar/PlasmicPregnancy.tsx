@@ -26495,9 +26495,20 @@ function PlasmicPregnancy__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return console.log(
-                                $state?.getUserInfo?.data?.[0]
-                              );
+                              return (() => {
+                                console.log($state?.getUserInfo?.data?.[0]);
+                                return console.log(
+                                  "selfHamyarSms:" +
+                                    $state.getUserInfo.data[0].result.user
+                                      .selfHamyarSms +
+                                    "/selfHamyarSmsSubStatus:" +
+                                    $state.getUserInfo.data[0].result.user
+                                      .selfHamyarSmsSubStatus +
+                                    "/hamyar-statusSms:" +
+                                    $state.getUserInfo.data[0].result.hamyars[0]
+                                      .rel.statusSms
+                                );
+                              })();
                             }
                           };
                           return (({ customFunction }) => {
