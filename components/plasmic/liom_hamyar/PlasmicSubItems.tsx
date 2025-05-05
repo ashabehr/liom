@@ -165,20 +165,7 @@ function PlasmicSubItems__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $ctx.query.token;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "relation",
@@ -789,113 +776,13 @@ function PlasmicSubItems__RenderFunc(props: {
                             $steps["updateShop"] = await $steps["updateShop"];
                           }
 
-                          $steps["runCode"] = true
+                          $steps["invokeGlobalAction"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      if (
-                                        currentItem.action.includes(
-                                          "inAppWebView"
-                                        )
-                                      ) {
-                                        var link =
-                                          currentItem.action
-                                            .split("**@@**")[2]
-                                            .replace(
-                                              "inApp=true",
-                                              "inApp=false"
-                                            ) +
-                                          `&home-page=https://apps.liom.app/Self-care/`;
-                                      } else {
-                                        switch (currentItem.action) {
-                                          case "#irregularQuestion":
-                                            {
-                                              var link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${localStorage.getItem(
-                                                "token"
-                                              )}&userId=${
-                                                JSON.parse(
-                                                  window.localStorage.getItem(
-                                                    "userinfo"
-                                                  )
-                                                ).user.id
-                                              }&home-page=https://apps.liom.app/Self-care/`;
-                                            }
-                                            break;
-                                          case "#directDialog-pregnancy_self_test_sub":
-                                            {
-                                            }
-                                            break;
-                                          case "#irregularPage":
-                                            {
-                                              var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
-                                                "token"
-                                              )}khn&userId=mjgf${
-                                                JSON.parse(
-                                                  window.localStorage.getItem(
-                                                    "userinfo"
-                                                  )
-                                                ).user.id
-                                              }kpmf`;
-                                            }
-                                            break;
-                                          case "#pcos":
-                                            {
-                                              var link = `https://tools.liom.app/self-medication/?type=pcos&token=KOlmhp${localStorage.getItem(
-                                                "token"
-                                              )}khn&userId=mjgf${
-                                                JSON.parse(
-                                                  window.localStorage.getItem(
-                                                    "userinfo"
-                                                  )
-                                                ).user.id
-                                              }kpmf`;
-                                            }
-                                            break;
-                                          case "#rediucePain":
-                                            {
-                                              var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
-                                                "token"
-                                              )}khn&userId=mjgf${
-                                                JSON.parse(
-                                                  window.localStorage.getItem(
-                                                    "userinfo"
-                                                  )
-                                                ).user.id
-                                              }kpmf`;
-                                            }
-                                            break;
-                                          default: {
-                                          }
-                                        }
-                                      }
-                                      if (link)
-                                        return ($state.link = `/web-viow?link=${encodeURIComponent(
-                                          link
-                                        )}`);
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-
-                          $steps["goToPage"] =
-                            $state.link != ""
-                              ? (() => {
-                                  const actionArgs = {
-                                    destination: (() => {
+                                  args: [
+                                    (() => {
                                       try {
-                                        return $state.link;
+                                        return currentItem.action;
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -906,28 +793,41 @@ function PlasmicSubItems__RenderFunc(props: {
                                         }
                                         throw e;
                                       }
-                                    })()
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
-                                    }
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                                    })(),
+                                    (() => {
+                                      try {
+                                        return $state.token;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })(),
+                                    undefined,
+                                    undefined,
+                                    undefined,
+                                    true
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.deepLink"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
                           if (
-                            $steps["goToPage"] != null &&
-                            typeof $steps["goToPage"] === "object" &&
-                            typeof $steps["goToPage"].then === "function"
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
                           ) {
-                            $steps["goToPage"] = await $steps["goToPage"];
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
                           }
 
                           $steps["updateDirectDialog2Open"] =
@@ -1244,113 +1144,13 @@ function PlasmicSubItems__RenderFunc(props: {
                             $steps["runCode2"] = await $steps["runCode2"];
                           }
 
-                          $steps["runCode"] = true
+                          $steps["invokeGlobalAction"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      if (
-                                        currentItem.action.includes(
-                                          "inAppWebView"
-                                        )
-                                      ) {
-                                        var link =
-                                          currentItem.action
-                                            .split("**@@**")[2]
-                                            .replace(
-                                              "inApp=true",
-                                              "inApp=false"
-                                            ) +
-                                          `&home-page=https://apps.liom.app/Self-care/`;
-                                      } else {
-                                        switch (currentItem.action) {
-                                          case "#irregularQuestion":
-                                            {
-                                              var link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${localStorage.getItem(
-                                                "token"
-                                              )}&userId=${
-                                                JSON.parse(
-                                                  window.localStorage.getItem(
-                                                    "userinfo"
-                                                  )
-                                                ).user.id
-                                              }&home-page=https://apps.liom.app/Self-care/`;
-                                            }
-                                            break;
-                                          case "#directDialog-pregnancy_self_test_sub":
-                                            {
-                                            }
-                                            break;
-                                          case "#irregularPage":
-                                            {
-                                              var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
-                                                "token"
-                                              )}khn&userId=mjgf${
-                                                JSON.parse(
-                                                  window.localStorage.getItem(
-                                                    "userinfo"
-                                                  )
-                                                ).user.id
-                                              }kpmf`;
-                                            }
-                                            break;
-                                          case "#pcos":
-                                            {
-                                              var link = `https://tools.liom.app/self-medication/?type=pcos&token=KOlmhp${localStorage.getItem(
-                                                "token"
-                                              )}khn&userId=mjgf${
-                                                JSON.parse(
-                                                  window.localStorage.getItem(
-                                                    "userinfo"
-                                                  )
-                                                ).user.id
-                                              }kpmf`;
-                                            }
-                                            break;
-                                          case "#rediucePain":
-                                            {
-                                              var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
-                                                "token"
-                                              )}khn&userId=mjgf${
-                                                JSON.parse(
-                                                  window.localStorage.getItem(
-                                                    "userinfo"
-                                                  )
-                                                ).user.id
-                                              }kpmf`;
-                                            }
-                                            break;
-                                          default: {
-                                          }
-                                        }
-                                      }
-                                      if (link)
-                                        return ($state.link = `/web-viow?link=${encodeURIComponent(
-                                          link
-                                        )}`);
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-
-                          $steps["goToPage"] =
-                            $state.link != ""
-                              ? (() => {
-                                  const actionArgs = {
-                                    destination: (() => {
+                                  args: [
+                                    (() => {
                                       try {
-                                        return $state.link;
+                                        return currentItem.action;
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -1361,28 +1161,41 @@ function PlasmicSubItems__RenderFunc(props: {
                                         }
                                         throw e;
                                       }
-                                    })()
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
-                                    }
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                                    })(),
+                                    (() => {
+                                      try {
+                                        return $state.token;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })(),
+                                    undefined,
+                                    undefined,
+                                    undefined,
+                                    true
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.deepLink"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
                           if (
-                            $steps["goToPage"] != null &&
-                            typeof $steps["goToPage"] === "object" &&
-                            typeof $steps["goToPage"].then === "function"
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
                           ) {
-                            $steps["goToPage"] = await $steps["goToPage"];
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
                           }
 
                           $steps["updateNumber2"] = currentItem.action.includes(
@@ -1702,113 +1515,13 @@ function PlasmicSubItems__RenderFunc(props: {
                             $steps["runCode2"] = await $steps["runCode2"];
                           }
 
-                          $steps["runCode"] = true
+                          $steps["invokeGlobalAction"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      if (
-                                        currentItem.action.includes(
-                                          "inAppWebView"
-                                        )
-                                      ) {
-                                        var link =
-                                          currentItem.action
-                                            .split("**@@**")[2]
-                                            .replace(
-                                              "inApp=true",
-                                              "inApp=false"
-                                            ) +
-                                          `&home-page=https://apps.liom.app/Self-care/`;
-                                      } else {
-                                        switch (currentItem.action) {
-                                          case "#irregularQuestion":
-                                            {
-                                              var link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${localStorage.getItem(
-                                                "token"
-                                              )}&userId=${
-                                                JSON.parse(
-                                                  window.localStorage.getItem(
-                                                    "userinfo"
-                                                  )
-                                                ).user.id
-                                              }&home-page=https://apps.liom.app/Self-care/`;
-                                            }
-                                            break;
-                                          case "#directDialog-pregnancy_self_test_sub":
-                                            {
-                                            }
-                                            break;
-                                          case "#irregularPage":
-                                            {
-                                              var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
-                                                "token"
-                                              )}khn&userId=mjgf${
-                                                JSON.parse(
-                                                  window.localStorage.getItem(
-                                                    "userinfo"
-                                                  )
-                                                ).user.id
-                                              }kpmf`;
-                                            }
-                                            break;
-                                          case "#pcos":
-                                            {
-                                              var link = `https://tools.liom.app/self-medication/?type=pcos&token=KOlmhp${localStorage.getItem(
-                                                "token"
-                                              )}khn&userId=mjgf${
-                                                JSON.parse(
-                                                  window.localStorage.getItem(
-                                                    "userinfo"
-                                                  )
-                                                ).user.id
-                                              }kpmf`;
-                                            }
-                                            break;
-                                          case "#rediucePain":
-                                            {
-                                              var link = `https://tools.liom.app/self-medication/?type=irregular&token=KOlmhp${localStorage.getItem(
-                                                "token"
-                                              )}khn&userId=mjgf${
-                                                JSON.parse(
-                                                  window.localStorage.getItem(
-                                                    "userinfo"
-                                                  )
-                                                ).user.id
-                                              }kpmf`;
-                                            }
-                                            break;
-                                          default: {
-                                          }
-                                        }
-                                      }
-                                      if (link)
-                                        return ($state.link = `/web-viow?link=${encodeURIComponent(
-                                          link
-                                        )}`);
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-
-                          $steps["goToPage"] =
-                            $state.link != ""
-                              ? (() => {
-                                  const actionArgs = {
-                                    destination: (() => {
+                                  args: [
+                                    (() => {
                                       try {
-                                        return $state.link;
+                                        return currentItem.action;
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -1819,28 +1532,41 @@ function PlasmicSubItems__RenderFunc(props: {
                                         }
                                         throw e;
                                       }
-                                    })()
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
-                                    }
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                                    })(),
+                                    (() => {
+                                      try {
+                                        return $state.token;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })(),
+                                    undefined,
+                                    undefined,
+                                    undefined,
+                                    true
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.deepLink"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
                           if (
-                            $steps["goToPage"] != null &&
-                            typeof $steps["goToPage"] === "object" &&
-                            typeof $steps["goToPage"].then === "function"
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
                           ) {
-                            $steps["goToPage"] = await $steps["goToPage"];
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
                           }
 
                           $steps["updateDirectDialog2Open"] =
@@ -2354,7 +2080,7 @@ function PlasmicSubItems__RenderFunc(props: {
             })()}
             token={(() => {
               try {
-                return window.localStorage.getItem("token");
+                return $state.token;
               } catch (e) {
                 if (
                   e instanceof TypeError ||

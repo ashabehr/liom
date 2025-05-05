@@ -74,6 +74,7 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
+import InformationBox from "../../InformationBox"; // plasmic-import: CRVLEAaVQvJw/component
 import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
@@ -125,6 +126,7 @@ export type PlasmicPregnancy__OverridesType = {
   favIcone?: Flex__<typeof Embed>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   progress?: Flex__<typeof AntdProgress>;
+  informationBox?: Flex__<typeof InformationBox>;
   tabWeek?: Flex__<typeof TabWeek>;
   switchbest?: Flex__<typeof Switchbest>;
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
@@ -6494,6 +6496,52 @@ function PlasmicPregnancy__RenderFunc(props: {
                           </div>
                         </div>
                       </div>
+                      {(() => {
+                        try {
+                          return (
+                            $state.userId ==
+                            "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return false;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <InformationBox
+                          data-plasmic-name={"informationBox"}
+                          data-plasmic-override={overrides.informationBox}
+                          btn1={{
+                            text: "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0647 \u0647\u0645\u0633\u0631\u0645",
+                            backColor: "#ffffff00",
+                            textColor: "#000000",
+                            type: "switch",
+                            borderColor: "#000000"
+                          }}
+                          btn2={{
+                            text: "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0647 \u062e\u0648\u062f\u0645",
+                            backColor: "#ffffff00",
+                            textColor: "#000000",
+                            type: "switch",
+                            isChecked: true
+                          }}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.informationBox
+                          )}
+                          text={
+                            "\u0645\u062a\u0646 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a"
+                          }
+                          title={
+                            "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc"
+                          }
+                          userId={$state.userId}
+                        />
+                      ) : null}
                       <div
                         className={classNames(
                           projectcss.all,
@@ -27204,6 +27252,7 @@ const PlasmicDescendants = {
     "favIcone",
     "pullToRefresh",
     "progress",
+    "informationBox",
     "tabWeek",
     "switchbest",
     "collapseAdvice",
@@ -27227,6 +27276,7 @@ const PlasmicDescendants = {
     "favIcone",
     "pullToRefresh",
     "progress",
+    "informationBox",
     "tabWeek",
     "switchbest",
     "collapseAdvice",
@@ -27247,6 +27297,7 @@ const PlasmicDescendants = {
   favIcone: ["favIcone"],
   pullToRefresh: ["pullToRefresh"],
   progress: ["progress"],
+  informationBox: ["informationBox"],
   tabWeek: ["tabWeek"],
   switchbest: ["switchbest"],
   collapseAdvice: ["collapseAdvice"],
@@ -27274,6 +27325,7 @@ type NodeDefaultElementType = {
   favIcone: typeof Embed;
   pullToRefresh: typeof PullToRefresh;
   progress: typeof AntdProgress;
+  informationBox: typeof InformationBox;
   tabWeek: typeof TabWeek;
   switchbest: typeof Switchbest;
   collapseAdvice: typeof AntdSingleCollapse;
@@ -27382,6 +27434,7 @@ export const PlasmicPregnancy = Object.assign(
     favIcone: makeNodeComponent("favIcone"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     progress: makeNodeComponent("progress"),
+    informationBox: makeNodeComponent("informationBox"),
     tabWeek: makeNodeComponent("tabWeek"),
     switchbest: makeNodeComponent("switchbest"),
     collapseAdvice: makeNodeComponent("collapseAdvice"),

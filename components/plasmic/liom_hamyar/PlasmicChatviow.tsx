@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Search from "../../Search"; // plasmic-import: fmyovDT1Cvc-/component
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
@@ -95,6 +96,7 @@ export const PlasmicChatviow__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicChatviow__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   favicon?: Flex__<typeof Embed>;
   section?: Flex__<"section">;
   svg?: Flex__<"svg">;
@@ -167,20 +169,7 @@ function PlasmicChatviow__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return localStorage.getItem("ClinicToken");
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "chats",
@@ -331,6 +320,45 @@ function PlasmicChatviow__RenderFunc(props: {
             sty.root
           )}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          />
+
           <Embed
             data-plasmic-name={"favicon"}
             data-plasmic-override={overrides.favicon}
@@ -750,7 +778,7 @@ function PlasmicChatviow__RenderFunc(props: {
             }}
             params={(() => {
               try {
-                return { token: localStorage.getItem("ClinicToken") };
+                return { token: $state.token };
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -1238,6 +1266,7 @@ function PlasmicChatviow__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "favicon",
     "section",
     "svg",
@@ -1249,6 +1278,7 @@ const PlasmicDescendants = {
     "seen",
     "lineClomp"
   ],
+  sideEffect: ["sideEffect"],
   favicon: ["favicon"],
   section: ["section", "svg", "search", "antdInput"],
   svg: ["svg"],
@@ -1265,6 +1295,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   favicon: typeof Embed;
   section: "section";
   svg: "svg";
@@ -1362,6 +1393,7 @@ export const PlasmicChatviow = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     favicon: makeNodeComponent("favicon"),
     section: makeNodeComponent("section"),
     svg: makeNodeComponent("svg"),

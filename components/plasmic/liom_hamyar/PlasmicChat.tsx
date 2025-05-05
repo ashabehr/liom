@@ -67,6 +67,7 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
@@ -113,6 +114,7 @@ export const PlasmicChat__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicChat__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   chat?: Flex__<"div">;
   top?: Flex__<"div">;
   image?: Flex__<"div">;
@@ -443,6 +445,12 @@ function PlasmicChat__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -666,6 +674,243 @@ function PlasmicChat__RenderFunc(props: {
             }
           }}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["params"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          return urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["params"] != null &&
+                typeof $steps["params"] === "object" &&
+                typeof $steps["params"].then === "function"
+              ) {
+                $steps["params"] = await $steps["params"];
+              }
+
+              $steps["runCode2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
+              ) {
+                $steps["runCode2"] = await $steps["runCode2"];
+              }
+
+              $steps["invokeGlobalAction"] = (
+                $state.paramsObject.sessionID ? true : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/help/getHelpRecord",
+                        (() => {
+                          try {
+                            return {
+                              sessionID: $state.paramsObject.sessionID,
+                              token: $state.token
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["updateVariable"] = (
+                $steps.invokeGlobalAction?.data ? true : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["variable"]
+                      },
+                      operation: 0,
+                      value: $steps.invokeGlobalAction.data.list.map(
+                        (item, index, array) => {
+                          let seen = -2;
+                          var hasNextUser0 = array
+                            .slice(index + 1)
+                            .some(msg => msg.isUser === 0);
+                          if (item.isUser == 1 && hasNextUser0) {
+                            seen = 2;
+                          } else if (item.isUser == 1) {
+                            seen = 1;
+                          }
+                          return {
+                            ...item,
+                            seen
+                          };
+                        }
+                      )
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateVariable"] != null &&
+                typeof $steps["updateVariable"] === "object" &&
+                typeof $steps["updateVariable"].then === "function"
+              ) {
+                $steps["updateVariable"] = await $steps["updateVariable"];
+              }
+
+              $steps["updateDoctor"] = (
+                $steps.invokeGlobalAction?.data ? true : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["doctor"]
+                      },
+                      operation: 0,
+                      value: $steps.invokeGlobalAction.data.doctor
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDoctor"] != null &&
+                typeof $steps["updateDoctor"] === "object" &&
+                typeof $steps["updateDoctor"].then === "function"
+              ) {
+                $steps["updateDoctor"] = await $steps["updateDoctor"];
+              }
+
+              $steps["runCode"] =
+                $state.variable[0]?.status == -1
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return undefined$state.variable.push({
+                            text: "",
+                            isUser: -1
+                          });
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["updateLoadingPage"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loadingPage"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoadingPage"] != null &&
+                typeof $steps["updateLoadingPage"] === "object" &&
+                typeof $steps["updateLoadingPage"].then === "function"
+              ) {
+                $steps["updateLoadingPage"] = await $steps["updateLoadingPage"];
+              }
+            }}
+          />
+
           <div
             data-plasmic-name={"chat"}
             data-plasmic-override={overrides.chat}
@@ -3283,6 +3528,7 @@ function PlasmicChat__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "chat",
     "top",
     "image",
@@ -3310,6 +3556,7 @@ const PlasmicDescendants = {
     "favicon",
     "pullToRefresh"
   ],
+  sideEffect: ["sideEffect"],
   chat: [
     "chat",
     "top",
@@ -3373,6 +3620,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   chat: "div";
   top: "div";
   image: "div";
@@ -3486,6 +3734,7 @@ export const PlasmicChat = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     chat: makeNodeComponent("chat"),
     top: makeNodeComponent("top"),
     image: makeNodeComponent("image"),

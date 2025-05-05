@@ -1874,6 +1874,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicUptime.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "CRVLEAaVQvJw",
+          "name": "InformationBox",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicInformationBox.tsx",
+          "importSpec": {
+            "modulePath": "InformationBox.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicInformationBox.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

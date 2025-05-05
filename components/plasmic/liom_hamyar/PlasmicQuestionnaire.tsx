@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Question from "../../Question"; // plasmic-import: Z2cK5LB8JLFR/component
@@ -96,6 +97,7 @@ export const PlasmicQuestionnaire__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicQuestionnaire__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   favicon?: Flex__<typeof Embed>;
   top3?: Flex__<"div">;
   svg?: Flex__<"svg">;
@@ -407,6 +409,45 @@ function PlasmicQuestionnaire__RenderFunc(props: {
             sty.root
           )}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          />
+
           <Embed
             data-plasmic-name={"favicon"}
             data-plasmic-override={overrides.favicon}
@@ -610,7 +651,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                   listID: new URLSearchParams(
                     new URL(window.location.href).search
                   ).get("listID"),
-                  token: localStorage.getItem("ClinicToken")
+                  token: $state.token
                 };
               } catch (e) {
                 if (
@@ -1411,6 +1452,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                 </Stack__>
               </section>
             </Stack__>
+            <div className={classNames(projectcss.all, sty.freeBox__pknRw)} />
           </ApiRequest>
         </div>
       </div>
@@ -1421,6 +1463,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "favicon",
     "top3",
     "svg",
@@ -1433,6 +1476,7 @@ const PlasmicDescendants = {
     "button5",
     "button6"
   ],
+  sideEffect: ["sideEffect"],
   favicon: ["favicon"],
   top3: ["top3", "svg"],
   svg: ["svg"],
@@ -1459,6 +1503,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   favicon: typeof Embed;
   top3: "div";
   svg: "svg";
@@ -1557,6 +1602,7 @@ export const PlasmicQuestionnaire = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     favicon: makeNodeComponent("favicon"),
     top3: makeNodeComponent("top3"),
     svg: makeNodeComponent("svg"),

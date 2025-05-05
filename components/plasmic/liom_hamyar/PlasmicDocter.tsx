@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -103,6 +104,7 @@ export const PlasmicDocter__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicDocter__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   dialog2?: Flex__<typeof Dialog>;
   shop2?: Flex__<typeof ApiRequest>;
   button12?: Flex__<typeof Button>;
@@ -475,6 +477,45 @@ function PlasmicDocter__RenderFunc(props: {
             sty.root
           )}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          />
+
           <Dialog
             data-plasmic-name={"dialog2"}
             data-plasmic-override={overrides.dialog2}
@@ -3170,6 +3211,7 @@ function PlasmicDocter__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "dialog2",
     "shop2",
     "button12",
@@ -3201,6 +3243,7 @@ const PlasmicDescendants = {
     "button11",
     "headerLiom"
   ],
+  sideEffect: ["sideEffect"],
   dialog2: ["dialog2", "shop2", "button12"],
   shop2: ["shop2", "button12"],
   button12: ["button12"],
@@ -3295,6 +3338,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   dialog2: typeof Dialog;
   shop2: typeof ApiRequest;
   button12: typeof Button;
@@ -3412,6 +3456,7 @@ export const PlasmicDocter = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     dialog2: makeNodeComponent("dialog2"),
     shop2: makeNodeComponent("shop2"),
     button12: makeNodeComponent("button12"),

@@ -806,6 +806,9 @@
   height: 80px;
   flex-shrink: 0;
 }
+.informationBox:global(.__wab_instance) {
+  position: relative;
+}
 .freeBox__rEBo7 {
   display: flex;
   flex-direction: row;
