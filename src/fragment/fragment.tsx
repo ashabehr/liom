@@ -96,7 +96,7 @@ export const Fragment = ({
               } else if (typeof window !== "undefined") {
                 if(inWebViow)
                   link=`/web-viow?link=${encodeURIComponent(link)}`;
-                window.open(link, "_blank");
+                  window.open(link, "_self");
               }
           };
         
