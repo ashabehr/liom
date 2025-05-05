@@ -49,7 +49,8 @@ self.addEventListener('notificationclick', (event) => {
 
   if (action) {
     const pureAction = action.replace('#', '').split('-')[0];
-    const actionParam = action.split('-')[1];
+    const actionParam = action.replace('#', '').split('-').slice(1).join('-');
+
 
     switch (pureAction) {
       case 'healthSubscription':
@@ -69,6 +70,9 @@ self.addEventListener('notificationclick', (event) => {
         break;
       case 'newFeature':
         targetUrl = `/features/new`;
+        break;
+      case 'post':
+        targetUrl = `https://old.liom.app/social/?post=${actionParam}`;
         break;
       default:
         targetUrl = 'https://apps.liom.app/login';
