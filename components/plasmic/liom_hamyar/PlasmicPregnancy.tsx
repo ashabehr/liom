@@ -6498,10 +6498,23 @@ function PlasmicPregnancy__RenderFunc(props: {
                       </div>
                       {(() => {
                         try {
-                          return (
-                            $state.userId ==
-                            "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                          );
+                          return (() => {
+                            const show =
+                              window.localStorage.getItem(
+                                "showSuggestActiveSms"
+                              ) || true;
+                            return (
+                              $state.userId ==
+                                "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
+                              show &&
+                              ($state.getUserInfo.data[0].result.user
+                                .selfHamyarSms ||
+                                $state.getUserInfo.data[0].result.user
+                                  .selfHamyarSmsSubStatus) &&
+                              $state.getUserInfo.data[0].result.hamyars[0].rel
+                                .statusSms
+                            );
+                          })();
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -6515,21 +6528,65 @@ function PlasmicPregnancy__RenderFunc(props: {
                         <InformationBox
                           data-plasmic-name={"informationBox"}
                           data-plasmic-override={overrides.informationBox}
-                          btn1={{
-                            text: "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0647 \u0647\u0645\u0633\u0631\u0645",
-                            backColor: "#ffffff00",
-                            textColor: "#000000",
-                            type: "switch",
-                            borderColor: "#000000"
-                          }}
-                          btn2={{
-                            text: "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0647 \u062e\u0648\u062f\u0645",
-                            backColor: "#ffffff00",
-                            textColor: "#000000",
-                            type: "switch",
-                            isChecked: true,
-                            borderColor: "#000000"
-                          }}
+                          btn1={(() => {
+                            try {
+                              return {
+                                text: "اطلاع رسانی به همسرم",
+                                backColor: "#ffffff00",
+                                textColor: "#000000",
+                                type: "switch",
+                                borderColor: "#000000",
+                                isChecked:
+                                  $state.getUserInfo.data[0].result.hamyars[0]
+                                    .rel.statusSms
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return {
+                                  text: "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0647 \u0647\u0645\u0633\u0631\u0645",
+                                  backColor: "#ffffff00",
+                                  textColor: "#000000",
+                                  type: "switch",
+                                  borderColor: "#000000"
+                                };
+                              }
+                              throw e;
+                            }
+                          })()}
+                          btn2={(() => {
+                            try {
+                              return {
+                                text: "اطلاع رسانی به خودم",
+                                backColor: "#ffffff00",
+                                textColor: "#000000",
+                                type: "switch",
+                                isChecked:
+                                  $state.getUserInfo.data[0].result.user
+                                    .selfHamyarSms ||
+                                  $state.getUserInfo.data[0].result.user
+                                    .selfHamyarSmsSubStatus,
+                                borderColor: "#000000"
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return {
+                                  text: "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0647 \u062e\u0648\u062f\u0645",
+                                  backColor: "#ffffff00",
+                                  textColor: "#000000",
+                                  type: "switch",
+                                  isChecked: false,
+                                  borderColor: "#000000"
+                                };
+                              }
+                              throw e;
+                            }
+                          })()}
                           className={classNames(
                             "__wab_instance",
                             sty.informationBox

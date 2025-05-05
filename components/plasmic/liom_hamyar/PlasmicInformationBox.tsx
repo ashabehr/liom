@@ -246,7 +246,35 @@ function PlasmicInformationBox__RenderFunc(props: {
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__ej0Pr)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__kM61V)}>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__kM61V)}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return window.localStorage.setItem(
+                        "showSuggestActiveSms",
+                        false
+                      );
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
+        >
           <div
             className={classNames(
               projectcss.all,
@@ -424,7 +452,10 @@ function PlasmicInformationBox__RenderFunc(props: {
               className={classNames(projectcss.all, sty.freeBox__dzSt5)}
               style={(() => {
                 try {
-                  return { "background-color": $props.btn2.backColor };
+                  return {
+                    "background-color": $props.btn2.backColor,
+                    border: "1px solid " + $props.btn2.borderColor
+                  };
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

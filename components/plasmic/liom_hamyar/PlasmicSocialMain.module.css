@@ -281,6 +281,7 @@
 .story__sYbB:global(.__wab_instance) {
   position: relative;
   flex-shrink: 0;
+  display: none;
 }
 @media (max-width: 640px) {
   .story__sYbB:global(.__wab_instance) {
