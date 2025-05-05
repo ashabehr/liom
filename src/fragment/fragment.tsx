@@ -40,16 +40,37 @@ export const Fragment = ({
   const actions = useMemo(
     () => ({
         showToast: (
-        type: "success" | "error" |  "custom",
-        message: string,
-        placement: ToastPosition = "top-right",
-        duration?: number
-      ) => {
-        toast[type](message, {
-              duration,
-              position: placement,
-            });
-      },
+          type: "success" | "error" | "custom",
+          message: string,
+          placement: ToastPosition = "top-right",
+          duration: number = 3000
+        ) => {
+          if (type === "custom") {
+            toast.custom((t) => (
+              <div
+                className={`bg-white text-gray-800 shadow-md rounded px-4 py-2 border-l-4 ${
+                  t.visible ? "animate-enter" : "animate-leave"
+                } ${t.visible ? "border-blue-500" : "border-gray-300"}`}
+                style={{
+                  transition: "all 0.3s ease",
+                  maxWidth: "300px",
+                  margin: "0.5rem",
+                }}
+                  >
+                    <span className="font-semibold mr-2">🔔</span>
+                    {message}
+                  </div>
+                ), {
+                  duration,
+                  position: placement,
+                });
+              } else {
+                toast[type](message, {
+                  duration,
+                  position: placement,
+                });
+              }
+            },
       apiRequest: async (
         method: "GET" | "POST" | "DELETE" | "PUT" | "PATCH" = "GET",
         url: string,
@@ -201,6 +222,9 @@ export const Fragment = ({
             className: 'custom-toast',
             // کلاس‌های مخصوص برای انواع مختلف toast
             success: {
+              className: 'custom-toast-success',
+            },
+            error: {
               className: 'custom-toast-success',
             },
             custom: { 
