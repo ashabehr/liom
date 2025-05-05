@@ -953,6 +953,9 @@
     margin-bottom: 0px;
   }
 }
+.comment:global(.__wab_instance) {
+  margin-bottom: 0px;
+}
 .section__l5Nnd {
   position: fixed;
   padding-right: 0;

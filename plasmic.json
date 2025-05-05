@@ -1775,7 +1775,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSocialPost.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/new-page-2.tsx"
+            "modulePath": "../src/pages/social post share.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSocialPost.module.css",
           "scheme": "blackbox",

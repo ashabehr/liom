@@ -6527,17 +6527,28 @@ function PlasmicPregnancy__RenderFunc(props: {
                             backColor: "#ffffff00",
                             textColor: "#000000",
                             type: "switch",
-                            isChecked: true
+                            isChecked: true,
+                            borderColor: "#000000"
                           }}
                           className={classNames(
                             "__wab_instance",
                             sty.informationBox
                           )}
-                          text={
-                            "\u0645\u062a\u0646 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a\u062a"
-                          }
+                          text={(() => {
+                            try {
+                              return "اول هر هفته بارداریت بهت خبر میدیم که توی کدوم هفته‌ای و <b>چی کار باید بکنی</b>! بهت میگیم این هفته <b>سونوگرافی داری</b> یا وقت انجام یه <b>آزمایش مهمه</b>،اینجوری دیگه لازم نیست<b> نگران باشی که چیزی یادت بره</b> ✨";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
                           title={
-                            "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc"
+                            "\u0627\u0637\u0644\u0627\u0639\u200c\u0631\u0633\u0627\u0646\u06cc \u0647\u0641\u062a\u06af\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9"
                           }
                           userId={$state.userId}
                         />

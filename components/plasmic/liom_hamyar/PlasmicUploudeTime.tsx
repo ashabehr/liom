@@ -198,19 +198,26 @@ function PlasmicUploudeTime__RenderFunc(props: {
                   )}`;
                 const inputDate = new Date(postTime);
                 const diffInMillis = today.getTime() - inputDate.getTime();
+                const diffInMinutes = Math.floor(diffInMillis / (1000 * 60));
+                const diffInHours = Math.floor(diffInMillis / (1000 * 3600));
                 const diffInDays = Math.floor(
                   diffInMillis / (1000 * 3600 * 24)
                 );
-                const diffInHours = Math.floor(
-                  (diffInMillis % (1000 * 3600 * 24)) / (1000 * 3600)
-                );
-                const diffInMinutes = Math.floor(
-                  (diffInMillis % (1000 * 3600)) / (1000 * 60)
-                );
-                const diffInSeconds = Math.floor(
-                  (diffInMillis % (1000 * 60)) / 1000
-                );
-                return `اختلاف: ${diffInDays} روز, ${diffInHours} ساعت, ${diffInMinutes} دقیقه, ${diffInSeconds} ثانیه`;
+                const diffInWeeks = Math.floor(diffInDays / 7);
+                const diffInMonths = Math.floor(diffInDays / 30);
+                let result = "";
+                if (diffInMinutes < 60) {
+                  result = `${diffInMinutes} دیقیه پیش`;
+                } else if (diffInHours < 24) {
+                  result = `${diffInHours} ساعت پیش`;
+                } else if (diffInDays < 7) {
+                  result = `${diffInDays}  روز پیش`;
+                } else if (diffInDays < 30) {
+                  result = `${diffInWeeks}  هفته پیش`;
+                } else {
+                  result = `${diffInMonths} ماه پیش`;
+                }
+                return result;
               })();
             } catch (e) {
               if (

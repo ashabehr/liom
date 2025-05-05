@@ -1782,6 +1782,7 @@ function PlasmicSocialPost__RenderFunc(props: {
                   >
                     {(() => {
                       const child$Props = {
+                        className: classNames("__wab_instance", sty.comment),
                         commentData: generateStateValueProp($state, [
                           "comment",
                           __plasmic_idx_0,

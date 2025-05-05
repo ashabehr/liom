@@ -279,15 +279,9 @@ function PlasmicTest__RenderFunc(props: {
               $steps["invokeGlobalAction"] = true
                 ? (() => {
                     const actionArgs = {
-                      args: [
-                        "adhd",
-                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U",
-                        "fssfssfsdfsfsfsdfdsfds",
-                        "true",
-                        "dark"
-                      ]
+                      args: ["custom", "fsdffs", "bottom-left", 3000]
                     };
-                    return $globalActions["Fragment.deepLink"]?.apply(null, [
+                    return $globalActions["Fragment.showToast"]?.apply(null, [
                       ...actionArgs.args
                     ]);
                   })()

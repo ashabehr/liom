@@ -61,6 +61,8 @@ import {
 
 import { AntdSwitch } from "@plasmicpkgs/antd5/skinny/registerSwitch";
 
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -218,6 +220,10 @@ function PlasmicInformationBox__RenderFunc(props: {
     $refs
   });
 
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
+  });
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -235,7 +241,11 @@ function PlasmicInformationBox__RenderFunc(props: {
         sty.root
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__ej0Pr)}>
+      <Stack__
+        as={"div"}
+        hasGap={true}
+        className={classNames(projectcss.all, sty.freeBox__ej0Pr)}
+      >
         <div className={classNames(projectcss.all, sty.freeBox__kM61V)}>
           <div
             className={classNames(
@@ -274,21 +284,24 @@ function PlasmicInformationBox__RenderFunc(props: {
             sty.text__qoH7V
           )}
         >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.text;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "";
+          <div
+            className={projectcss.__wab_expr_html_text}
+            dangerouslySetInnerHTML={{
+              __html: (() => {
+                try {
+                  return $props.text;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
+              })()
+            }}
+          />
         </div>
         <Stack__
           as={"div"}
@@ -504,7 +517,7 @@ function PlasmicInformationBox__RenderFunc(props: {
             </Stack__>
           ) : null}
         </Stack__>
-      </div>
+      </Stack__>
     </div>
   ) as React.ReactElement | null;
 }
