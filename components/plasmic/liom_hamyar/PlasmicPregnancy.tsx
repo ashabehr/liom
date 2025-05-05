@@ -6516,17 +6516,19 @@ function PlasmicPregnancy__RenderFunc(props: {
                       </div>
                       {(() => {
                         try {
-                          return (
+                          return (() => {
                             $state.userId ==
-                              "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
-                            // $state.suggestActiveSms == "true"
-                            (!$state.getUserInfo.data[0].result.user
-                              .selfHamyarSms ||
-                              $state.getUserInfo.data[0].result.user
-                                .selfHamyarSmsSubStatus) &&
-                            !$state.getUserInfo.data[0].result.hamyars[0].rel
-                              .statusSms
-                          );
+                              "4ddd1fab-100c-49f0-b843-e70bff8add34";
+                            return (
+                              $state.suggestActiveSms == "true" &&
+                              (!$state.getUserInfo.data[0].result.user
+                                .selfHamyarSms ||
+                                $state.getUserInfo.data[0].result.user
+                                  .selfHamyarSmsSubStatus) &&
+                              !$state.getUserInfo.data[0].result.hamyars[0].rel
+                                .statusSms
+                            );
+                          })();
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -6603,6 +6605,85 @@ function PlasmicPregnancy__RenderFunc(props: {
                             "__wab_instance",
                             sty.informationBox
                           )}
+                          onClickBtn1={async event => {
+                            const $steps = {};
+
+                            $steps["goToPage"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "#hamyar",
+                                      (() => {
+                                        try {
+                                          return $state.token;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return $state.userId;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return $ctx.query.inApp;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return $ctx.query.theme;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.deepLink"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["goToPage"] != null &&
+                              typeof $steps["goToPage"] === "object" &&
+                              typeof $steps["goToPage"].then === "function"
+                            ) {
+                              $steps["goToPage"] = await $steps["goToPage"];
+                            }
+                          }}
                           text={(() => {
                             try {
                               return "اول هر هفته بارداریت بهت خبر میدیم که توی کدوم هفته‌ای و <b>چی کار باید بکنی</b>! بهت میگیم این هفته <b>سونوگرافی داری</b> یا وقت انجام یه <b>آزمایش مهمه</b>،اینجوری دیگه لازم نیست<b> نگران باشی که چیزی یادت بره</b> ✨";

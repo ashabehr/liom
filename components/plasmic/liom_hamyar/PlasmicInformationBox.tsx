@@ -85,6 +85,8 @@ export type PlasmicInformationBox__ArgsType = {
   text?: string;
   btn1?: any;
   btn2?: any;
+  onClickBtn1?: (event: any) => void;
+  onClickBtn2?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicInformationBox__ArgsType;
 export const PlasmicInformationBox__ArgProps = new Array<ArgPropType>(
@@ -92,7 +94,9 @@ export const PlasmicInformationBox__ArgProps = new Array<ArgPropType>(
   "title",
   "text",
   "btn1",
-  "btn2"
+  "btn2",
+  "onClickBtn1",
+  "onClickBtn2"
 );
 
 export type PlasmicInformationBox__OverridesType = {
@@ -108,6 +112,8 @@ export interface DefaultInformationBoxProps {
   text?: string;
   btn1?: any;
   btn2?: any;
+  onClickBtn1?: (event: any) => void;
+  onClickBtn2?: (event: any) => void;
   className?: string;
 }
 
@@ -340,6 +346,7 @@ function PlasmicInformationBox__RenderFunc(props: {
             as={"div"}
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__vHEq)}
+            onClick={args.onClickBtn1}
             style={(() => {
               try {
                 return {
@@ -450,6 +457,7 @@ function PlasmicInformationBox__RenderFunc(props: {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__dzSt5)}
+              onClick={args.onClickBtn2}
               style={(() => {
                 try {
                   return {
