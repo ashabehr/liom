@@ -40,14 +40,14 @@ export const Fragment = ({
   const actions = useMemo(
     () => ({
         showToast: (
-        type: "success" | "error",
+        type: "success" | "error" |  "info" | "warning",
         message: string,
         placement: ToastPosition = "top-right",
         duration?: number
       ) => {
-        toast[type ?? "success"](message, {
+        toast[type](message, {
           duration: duration,
-          position: placement as ToastPosition,
+          position: placement,
         });
       },
       apiRequest: async (
@@ -206,6 +206,12 @@ export const Fragment = ({
             error: {
               className: 'custom-toast-error',
             },
+            info: { 
+              className: 'custom-toast-info' 
+            },
+            warning: {
+              className: 'custom-toast-warning' 
+            },
           }}
         />
       </DataProvider>
@@ -254,7 +260,7 @@ export const fragmentMeta: GlobalContextMeta<FragmentProps> = {
           name: "type",
           type: {
             type: "choice",
-            options: ["success", "error"],
+            options: ["success", "error", "info", "warning"],
             defaultValueHint: "success",
           },
         },
