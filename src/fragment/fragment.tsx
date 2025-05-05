@@ -62,6 +62,7 @@ export const Fragment = ({
               duration,
               position: placement,
             });
+         }
       },
       apiRequest: async (
         method: "GET" | "POST" | "DELETE" | "PUT" | "PATCH" = "GET",
