@@ -1035,6 +1035,29 @@ function PlasmicPregnancy__RenderFunc(props: {
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           "4ddd1fab-100c-49f0-b843-e70bff8add34"
+      },
+      {
+        path: "suggestActiveSms",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                return (
+                  window.localStorage.getItem("showSuggestActiveSms") || "true"
+                );
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1530,8 +1553,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                               variablePath: ["userId"]
                             },
                             operation: 0,
-                            value: $steps.getUser.data.id
-                            // "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                            value:
+                              // $steps.getUser.data.id
+                              "4ddd1fab-100c-49f0-b843-e70bff8add34"
                           };
                           return (({
                             variable,
@@ -1653,40 +1677,34 @@ function PlasmicPregnancy__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {
-                              console.log($state.userId);
-                              console.log($state.token);
-                              return fetch(
-                                "https://n8n.staas.ir/webhook/status/?userId=" +
-                                  $state.userId,
-                                {
-                                  method: "GET",
-                                  headers: {
-                                    "Content-Type": "application/json",
-                                    Authorization:
-                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                  }
+                            return fetch(
+                              "https://n8n.staas.ir/webhook/status/?userId=" +
+                                $state.userId,
+                              {
+                                method: "GET",
+                                headers: {
+                                  "Content-Type": "application/json",
+                                  Authorization:
+                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
                                 }
-                              )
-                                .then(response => response.json())
-                                .then(data => {
-                                  console.log(data);
-                                  if (
-                                    typeof data?.[0]?.dueDate == "undefined" ||
-                                    data?.[0]?.dueDate == null
-                                  ) {
-                                    $state.isNoData = true;
-                                  } else {
-                                    $state.isNoData = false;
-                                    $state.user = data;
-                                    $state.loading = false;
-                                  }
-                                  console.log("user get");
-                                })
-                                .catch(error =>
-                                  console.error("Error3:", error)
-                                );
-                            })();
+                              }
+                            )
+                              .then(response => response.json())
+                              .then(data => {
+                                // console.log(data);
+                                if (
+                                  typeof data?.[0]?.dueDate == "undefined" ||
+                                  data?.[0]?.dueDate == null
+                                ) {
+                                  $state.isNoData = true;
+                                } else {
+                                  $state.isNoData = false;
+                                  $state.user = data;
+                                  $state.loading = false;
+                                }
+                                console.log("user get");
+                              })
+                              .catch(error => console.error("Error3:", error));
                           }
                         };
                         return (({ customFunction }) => {
@@ -2101,7 +2119,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   .then(response => response.json())
                                   .then(user => {
                                     console.log("user get liom");
-                                    // console.log(user?.[0].result?.pregnancy)
+                                    // console.log(user)
 
                                     fetch(
                                       "https://n8n.staas.ir/webhook/status",
@@ -6498,23 +6516,17 @@ function PlasmicPregnancy__RenderFunc(props: {
                       </div>
                       {(() => {
                         try {
-                          return (() => {
-                            const show =
-                              window.localStorage.getItem(
-                                "showSuggestActiveSms"
-                              ) || true;
-                            return (
-                              $state.userId ==
-                                "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
-                              show &&
-                              ($state.getUserInfo.data[0].result.user
-                                .selfHamyarSms ||
-                                $state.getUserInfo.data[0].result.user
-                                  .selfHamyarSmsSubStatus) &&
-                              $state.getUserInfo.data[0].result.hamyars[0].rel
-                                .statusSms
-                            );
-                          })();
+                          return (
+                            $state.userId ==
+                              "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
+                            // $state.suggestActiveSms == "true"
+                            (!$state.getUserInfo.data[0].result.user
+                              .selfHamyarSms ||
+                              $state.getUserInfo.data[0].result.user
+                                .selfHamyarSmsSubStatus) &&
+                            !$state.getUserInfo.data[0].result.hamyars[0].rel
+                              .statusSms
+                          );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -26478,6 +26490,28 @@ function PlasmicPregnancy__RenderFunc(props: {
 
                   (async data => {
                     const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return console.log(
+                                $state?.getUserInfo?.data?.[0]
+                              );
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
                   }).apply(null, eventArgs);
                 }}
                 params={(() => {
