@@ -109,7 +109,7 @@ export const Fragment = ({
         return new Promise((resolve) => setTimeout(resolve, duration));
       },
       
-      deepLink: (action: string, token: string, userId: string, inApp: string, theme : string ,inWebViow : boolean =false) => { 
+      deepLink: (action: string, token: string, userId: string, inApp: string, theme : string ,inWebViow : boolean =false, params: Record<string, string | string[]> = {},) => { 
         
           const sendMessage = (title: string, link: string,inWebViow:boolean) => {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
@@ -120,6 +120,22 @@ export const Fragment = ({
                   window.open(link, "_self");
               }
           };
+              const buildQueryString = (params: Record<string, string | string[]>): string => {
+                  const query = new URLSearchParams();
+                
+                  for (const key in params) {
+                    const value = params[key];
+                    if (Array.isArray(value)) {
+                      value.forEach((val) => query.append(key, val));
+                    } else {
+                      query.append(key, value);
+                    }
+                  }
+                
+                  return query.toString();
+                };
+
+
         
           switch (action) {
             case "#adhd": {
@@ -151,11 +167,6 @@ export const Fragment = ({
               sendMessage("ترک پوستی", link,inWebViow);
               break;
             }
-            case "#hamyarInfo": {
-                const link = `/hamyar-add/?token=${token}`;
-                sendMessage("اطلاعات همیار", link,inWebViow);
-                break;
-            }
             case "#biorhythm": {
                 const link = `/Biorhythm/?token=${token}`;
                 sendMessage("بیوریتم", link,inWebViow);
@@ -170,6 +181,26 @@ export const Fragment = ({
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
               window.FlutterChannel.postMessage(action);}
               break;
+            }
+            case "#hamyarInfo": {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                window.FlutterChannel.postMessage(action);}
+              else {    
+                  const link = `/hamyar-add/?token=${token}`;
+                  link=`/web-viow?link=${encodeURIComponent(link)}`;
+                  window.open(link, "_self");
+              break;
+            }
+            case "#chatBot": {
+                const queryString = buildQueryString(params);
+                const link = `https://tools.liom.app/chat-bot/?token=${token}&userId=${userId}&${queryString}`;
+                sendMessage("پزشک هوشمند", link,inWebViow);
+                break;
+            }
+            case "#selfSms": {
+                const link = `https://apps.liom.app/self-sms-page/?inApp=${inApp}&token=${token}`;
+                sendMessage("پیامک به خود", link,inWebViow);
+                break;
             }
             case "#irregularQuestion": {
                 const link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${token}&userId=${userId}&home-page=https://apps.liom.app/Self-care/`;
