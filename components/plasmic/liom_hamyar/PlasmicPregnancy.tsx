@@ -1554,9 +1554,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                               variablePath: ["userId"]
                             },
                             operation: 0,
-                            value:
-                              // $steps.getUser.data.id
-                              "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                            value: $steps.getUser.data.id
+                            // "4ddd1fab-100c-49f0-b843-e70bff8add34"
                           };
                           return (({
                             variable,
