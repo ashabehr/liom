@@ -526,7 +526,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   }
                 }).apply(null, eventArgs);
               }}
-              url={"https://n8n.staas.ir/webhook-test/sub"}
+              url={"https://n8n.staas.ir/webhook/sub"}
             />
 
             <div className={classNames(projectcss.all, sty.freeBox___2HVpP)}>
