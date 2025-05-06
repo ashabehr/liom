@@ -87,6 +87,7 @@ export type PlasmicInformationBox__ArgsType = {
   btn2?: any;
   onClickBtn1?: (event: any) => void;
   onClickBtn2?: (event: any) => void;
+  onClickClose?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicInformationBox__ArgsType;
 export const PlasmicInformationBox__ArgProps = new Array<ArgPropType>(
@@ -96,7 +97,8 @@ export const PlasmicInformationBox__ArgProps = new Array<ArgPropType>(
   "btn1",
   "btn2",
   "onClickBtn1",
-  "onClickBtn2"
+  "onClickBtn2",
+  "onClickClose"
 );
 
 export type PlasmicInformationBox__OverridesType = {
@@ -114,6 +116,7 @@ export interface DefaultInformationBoxProps {
   btn2?: any;
   onClickBtn1?: (event: any) => void;
   onClickBtn2?: (event: any) => void;
+  onClickClose?: (event: any) => void;
   className?: string;
 }
 
@@ -170,6 +173,7 @@ function PlasmicInformationBox__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -254,32 +258,7 @@ function PlasmicInformationBox__RenderFunc(props: {
       >
         <div
           className={classNames(projectcss.all, sty.freeBox__kM61V)}
-          onClick={async event => {
-            const $steps = {};
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return window.localStorage.setItem(
-                        "showSuggestActiveSms",
-                        false
-                      );
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
-          }}
+          onClick={args.onClickClose}
         >
           <div
             className={classNames(

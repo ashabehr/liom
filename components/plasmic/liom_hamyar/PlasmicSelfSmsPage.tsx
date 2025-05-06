@@ -147,6 +147,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -341,12 +342,18 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               data-plasmic-override={overrides.getSub}
               body={(() => {
                 try {
-                  return {
-                    Authorization:
+                  return (() => {
+                    var token =
                       $ctx.query.token ||
-                      new URLSearchParams(window.location.search).get("token"),
-                    sub: "selfHamyarSmsSubStatus"
-                  };
+                      new URLSearchParams(window.location.search).get("token");
+                    if (!token.startsWith("ey")) {
+                      token = token.slice(6, token.length - 3);
+                    }
+                    return {
+                      Authorization: token,
+                      sub: "selfHamyarSmsSubStatus"
+                    };
+                  })();
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -519,7 +526,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   }
                 }).apply(null, eventArgs);
               }}
-              url={"https://n8n.staas.ir/webhook/sub"}
+              url={"https://n8n.staas.ir/webhook-test/sub"}
             />
 
             <div className={classNames(projectcss.all, sty.freeBox___2HVpP)}>

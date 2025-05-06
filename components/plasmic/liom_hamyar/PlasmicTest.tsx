@@ -138,6 +138,7 @@ function PlasmicTest__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -278,10 +279,8 @@ function PlasmicTest__RenderFunc(props: {
 
               $steps["invokeGlobalAction"] = true
                 ? (() => {
-                    const actionArgs = {
-                      args: ["custom", "fsdffs", "bottom-left", 3000]
-                    };
-                    return $globalActions["Fragment.showToast"]?.apply(null, [
+                    const actionArgs = { args: ["#hamyarInfo"] };
+                    return $globalActions["Fragment.deepLink"]?.apply(null, [
                       ...actionArgs.args
                     ]);
                   })()

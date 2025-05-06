@@ -3,7 +3,8 @@
 import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../../components/plasmic/todo_mvc_app/PlasmicGlobalContextsProvider";
-
+import { UnnamedGlobalGroupOfVariants4Context } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
+import { UnnamedGlobalGroupOfVariants5Context } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
 import { PlasmicSettingPregnancy2 } from "../../components/plasmic/liom_hamyar/PlasmicSettingPregnancy2";
 import { useRouter } from "next/router";
 
@@ -26,15 +27,19 @@ function SettingPregnancy2() {
   // (https://nextjs.org/docs/advanced-features/custom-app).
 
   return (
-    <GlobalContextsProvider>
-      <PageParamsProvider__
-        route={useRouter()?.pathname}
-        params={useRouter()?.query}
-        query={useRouter()?.query}
-      >
-        <PlasmicSettingPregnancy2 />
-      </PageParamsProvider__>
-    </GlobalContextsProvider>
+    <UnnamedGlobalGroupOfVariants5Context.Provider value={undefined}>
+      <UnnamedGlobalGroupOfVariants4Context.Provider value={undefined}>
+        <GlobalContextsProvider>
+          <PageParamsProvider__
+            route={useRouter()?.pathname}
+            params={useRouter()?.query}
+            query={useRouter()?.query}
+          >
+            <PlasmicSettingPregnancy2 />
+          </PageParamsProvider__>
+        </GlobalContextsProvider>
+      </UnnamedGlobalGroupOfVariants4Context.Provider>
+    </UnnamedGlobalGroupOfVariants5Context.Provider>
   );
 }
 

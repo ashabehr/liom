@@ -180,6 +180,7 @@ function PlasmicPregnancy__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -6612,7 +6613,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               ? (() => {
                                   const actionArgs = {
                                     args: [
-                                      "#hamyar",
+                                      "#hamyarInfo",
                                       (() => {
                                         try {
                                           return $state.token;
@@ -6761,6 +6762,32 @@ function PlasmicPregnancy__RenderFunc(props: {
                               typeof $steps["goToPage"].then === "function"
                             ) {
                               $steps["goToPage"] = await $steps["goToPage"];
+                            }
+                          }}
+                          onClickClose={async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return window.localStorage.setItem(
+                                        "showSuggestActiveSms",
+                                        "false"
+                                      );
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
                             }
                           }}
                           text={(() => {
