@@ -186,7 +186,7 @@ export const Fragment = ({
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
-                  const link = `/hamyar-add/?token=${token}`;
+                  let link = `/hamyar-add/?token=${token}`;
                   link=`/web-viow?link=${encodeURIComponent(link)}`;
                   window.open(link, "_self");
               break;
