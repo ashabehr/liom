@@ -101,7 +101,6 @@ export const PlasmicAgePregnant__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicAgePregnant__OverridesType = {
   root?: Flex__<"div">;
-  img?: Flex__<typeof PlasmicImg__>;
   dateModal?: Flex__<typeof SlideinModal>;
   datePickers?: Flex__<typeof DatePickers>;
   button?: Flex__<typeof Button>;
@@ -325,6 +324,122 @@ function PlasmicAgePregnant__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "sizeByFruit",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          "",
+          "\u062a\u062e\u0645\u06a9",
+          "\u0644\u0642\u0627\u062d",
+          "\u06a9\u0627\u0634\u062a",
+          "\u062f\u0627\u0646\u0647 \u06a9\u0646\u062c\u062f",
+          "\u0639\u062f\u0633",
+          "\u0628\u0644\u0648\u0628\u0631\u06cc",
+          "\u0644\u0648\u0628\u06cc\u0627",
+          "\u0627\u0646\u06af\u0648\u0631",
+          "\u067e\u0631\u062a\u0642\u0627\u0644 \u0645\u06cc\u0646\u06cc\u0627\u062a\u0648\u0631\u06cc",
+          "\u0627\u0646\u062c\u06cc\u0631",
+          "\u0644\u06cc\u0645\u0648 \u062a\u0631\u0634",
+          "\u063a\u0644\u0627\u0641 \u0646\u062e\u0648\u062f \u0641\u0631\u0646\u06af\u06cc",
+          "\u0644\u06cc\u0645\u0648 \u0634\u06cc\u0631\u06cc\u0646",
+          "\u0633\u06cc\u0628",
+          "\u0622\u0648\u0648\u06a9\u0627\u062f\u0648",
+          "\u0634\u0644\u063a\u0645",
+          "\u0641\u0644\u0641\u0644 \u062f\u0644\u0645\u0647",
+          "\u06af\u0648\u062c\u0647 ",
+          "\u0645\u0648\u0632",
+          "\u0647\u0648\u06cc\u062c",
+          "\u06a9\u062f\u0648 \u0633\u0628\u0632",
+          "\u0627\u0646\u0628\u0647",
+          "\u0628\u0644\u0627\u0644",
+          "\u0631\u0648\u062a\u0627\u0628\u0627\u06af\u0627",
+          "\u067e\u06cc\u0627\u0632\u0686\u0647",
+          "\u06af\u0644 \u06a9\u0644\u0645",
+          "\u0628\u0627\u062f\u0645\u062c\u0627\u0646",
+          "\u06a9\u062f\u0648 \u062d\u0644\u0648\u0627\u06cc\u06cc",
+          "\u06a9\u0644\u0645 \u0628\u0631\u06af \u0628\u0632\u0631\u06af",
+          "\u0646\u0627\u0631\u06af\u06cc\u0644",
+          "\u06a9\u0631\u0641\u0633",
+          "\u0622\u0646\u0627\u0646\u0627\u0633",
+          "\u062e\u0631\u0628\u0632\u0647",
+          "\u0645\u0644\u0648\u0646",
+          "\u06a9\u0627\u0647\u0648",
+          "\u0628\u0631\u06af \u0686\u063a\u0646\u062f\u0631 \u0633\u0648\u0626\u06cc\u0633\u06cc",
+          "\u062a\u0631\u0647 \u0641\u0631\u0646\u06af\u06cc",
+          "\u0647\u0646\u062f\u0648\u0627\u0646\u0647",
+          "\u06a9\u062f\u0648 \u062a\u0646\u0628\u0644",
+          "\u0646\u0648\u0632\u0627\u062f"
+        ]
+      },
+      {
+        path: "babySize",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          { h: "1.9", w: "1" },
+          { h: "2.3", w: "2" },
+          { h: "3.1", w: "4" },
+          { h: "4.1", w: "7" },
+          { h: "5.4", w: "14" },
+          { h: "7.4", w: "23" },
+          { h: "8.7", w: "43" },
+          { h: "10.1", w: "70" },
+          { h: "11.6", w: "100" },
+          { h: "13", w: "140" },
+          { h: "14.2", w: "190" },
+          { h: "15.3", w: "240" },
+          { h: "25.6", w: "300" },
+          { h: "26.7", w: "360" },
+          { h: "27.8", w: "430" },
+          { h: "28.9", w: "500" },
+          { h: "30", w: "600" },
+          { h: "34.6", w: "660" },
+          { h: "35.6", w: "760" },
+          { h: "36.6", w: "875" },
+          { h: "37.6", w: "1" },
+          { h: "38.6", w: "1.2" },
+          { h: "39.9", w: "1.3" },
+          { h: "41.1", w: "1.5" },
+          { h: "42.4", w: "1.7" },
+          { h: "43.7", w: "1.9" },
+          { h: "45", w: "2.1" },
+          { h: "46.2", w: "2.4" },
+          { h: "47.4", w: "2.6" },
+          { h: "48.6", w: "2.9" },
+          { h: "49.8", w: "3.1" },
+          { h: "50.7", w: "3.3" },
+          { h: "51.2", w: "3.5" }
+        ]
       }
     ],
     [$props, $ctx, $refs]
@@ -433,11 +548,13 @@ function PlasmicAgePregnant__RenderFunc(props: {
                 }}
               >
                 <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
                   alt={""}
-                  className={classNames(sty.img, {
-                    [sty.imgdark]: hasVariant($state, "dark", "dark")
+                  className={classNames(sty.img__yp97O, {
+                    [sty.imgdark__yp97OoOgpk]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
                   })}
                   displayHeight={"auto"}
                   displayMaxHeight={"none"}
@@ -1786,72 +1903,331 @@ function PlasmicAgePregnant__RenderFunc(props: {
                 </div>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__lqKXp)}>
-              {(() => {
-                try {
-                  return $state.showResult;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return false;
-                  }
-                  throw e;
+            {(() => {
+              try {
+                return $state.showResult;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
                 }
-              })() ? (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__xNcYl)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__mf7Gd
-                    )}
-                  >
-                    {
-                      "\u0645\u062d\u0627\u0633\u0628\u0647 \u0633\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__lqKXp)}>
+                {(() => {
+                  try {
+                    return $state.showResult;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
                     }
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__dv7KJ
-                    )}
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__xNcYl)}
                   >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return (() => {
-                            return $state.agePregnant.week > 0
-                              ? "سن بارداری شما " +
-                                  $state.agePregnant.week +
-                                  " هفته و " +
-                                  $state.agePregnant.day +
-                                  " روز می‌باشد."
-                              : "سن بارداری شما " +
-                                  $state.agePregnant.day +
-                                  " روز می‌باشد.";
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0633\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0634\u0645\u0627 18 \u0647\u0641\u062a\u0647 0 \u0631\u0648\u0632 \u0645\u06cc \u0628\u0627\u0634\u062f.\u200d";
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__mf7Gd
+                      )}
+                    >
+                      {
+                        "\u0645\u062d\u0627\u0633\u0628\u0647 \u0633\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__dv7KJ
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (() => {
+                              return $state.agePregnant.week > 0
+                                ? "سن بارداری شما " +
+                                    $state.agePregnant.week +
+                                    " هفته و " +
+                                    $state.agePregnant.day +
+                                    " روز می‌باشد."
+                                : "سن بارداری شما " +
+                                    $state.agePregnant.day +
+                                    " روز می‌باشد.";
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0633\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0634\u0645\u0627 18 \u0647\u0641\u062a\u0647 0 \u0631\u0648\u0632 \u0645\u06cc \u0628\u0627\u0634\u062f.\u200d";
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Stack__>
+                ) : null}
+                <div className={classNames(projectcss.all, sty.freeBox__yM6Oo)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__czJKt)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__idZhp)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__vCoKv
+                        )}
+                      >
+                        {(() => {
+                          try {
+                            return true;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___3Wtof
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__cflMx
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___9Zcuz
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        " هفته " +
+                                        ($state.agePregnant.week + 1) +
+                                        " بارداری "
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </div>
+                          </div>
+                        ) : null}
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__lleoZ
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__vZhWe
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (() => {
+                                    var emoji;
+                                    var random = Math.floor(Math.random() * 4);
+                                    switch (random) {
+                                      case 0:
+                                        emoji = "\uD83D\uDE0D";
+                                        break;
+                                      case 1:
+                                        emoji = "\uD83D\uDE00";
+                                        break;
+                                      case 2:
+                                        emoji = "\uD83D\uDE18";
+                                        break;
+                                      case 3:
+                                        emoji = "\u2763️";
+                                        break;
+                                    }
+                                    return (
+                                      "فرزندت این هفته اندازه یک " +
+                                      $state.sizeByFruit[
+                                        $state.agePregnant.week + 1
+                                      ] +
+                                      " است " +
+                                      emoji
+                                    );
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__e6R80
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__vxnLp
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (
+                                    "وزن فرزندت : " +
+                                    $state.babySize[$state.agePregnant.week].w +
+                                    ($state.agePregnant.week >= 27
+                                      ? " کیلوگرم "
+                                      : " گرم ")
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__luWzF
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (
+                                    "قد فرزندت : " +
+                                    $state.babySize[$state.agePregnant.week].h +
+                                    " سانتی متر "
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__p2Eoa
+                        )}
+                      >
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img__kqhO)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          height={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? "120"
+                              : "150"
+                          }
+                          loading={"lazy"}
+                          src={(() => {
+                            try {
+                              return (() => {
+                                var week;
+                                if ($state.agePregnant.week + 1 < 10)
+                                  week = "0" + ($state.agePregnant.week + 1);
+                                else week = "" + ($state.agePregnant.week + 1);
+                                return (
+                                  "https://liom.storage.c2.liara.space/config/pregnancy/week" +
+                                  week +
+                                  ".png"
+                                );
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                          width={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? "120"
+                              : "150"
+                          }
+                        />
+                      </div>
+                    </div>
                   </div>
-                </Stack__>
-              ) : null}
-            </div>
+                </div>
+              </div>
+            ) : null}
             <div className={classNames(projectcss.all, sty.freeBox__oyxk)}>
               <div className={classNames(projectcss.all, sty.freeBox__g5QmI)}>
                 <Button
@@ -2073,7 +2449,21 @@ function PlasmicAgePregnant__RenderFunc(props: {
                     }
                   }}
                 >
-                  {"\u0645\u062d\u0627\u0633\u0628\u0647"}
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.showResult ? "محاسبه مجدد" : "محاسبه";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0645\u062d\u0627\u0633\u0628\u0647";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
                 </Button>
               </div>
             </div>
@@ -2087,7 +2477,6 @@ function PlasmicAgePregnant__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "img",
     "dateModal",
     "datePickers",
     "button",
@@ -2095,7 +2484,6 @@ const PlasmicDescendants = {
     "lastTimeBox",
     "button3"
   ],
-  img: ["img"],
   dateModal: ["dateModal", "datePickers", "button"],
   datePickers: ["datePickers"],
   button: ["button"],
@@ -2108,7 +2496,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  img: typeof PlasmicImg__;
   dateModal: typeof SlideinModal;
   datePickers: typeof DatePickers;
   button: typeof Button;
@@ -2202,7 +2589,6 @@ export const PlasmicAgePregnant = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    img: makeNodeComponent("img"),
     dateModal: makeNodeComponent("dateModal"),
     datePickers: makeNodeComponent("datePickers"),
     button: makeNodeComponent("button"),

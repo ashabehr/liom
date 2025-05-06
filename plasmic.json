@@ -1901,6 +1901,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/age-pregnant"
+        },
+        {
+          "id": "k265x_vi3L7I",
+          "name": "TabWeek3",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicTabWeek3.tsx",
+          "importSpec": {
+            "modulePath": "TabWeek3.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicTabWeek3.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
