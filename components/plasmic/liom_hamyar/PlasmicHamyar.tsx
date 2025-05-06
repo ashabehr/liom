@@ -118,7 +118,6 @@ import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: UbRafB34Z
 import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
 import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
-import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5Pd9666/icon
 import Icon202Icon from "./icons/PlasmicIcon__Icon202"; // plasmic-import: lD6NOJADOGZx/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
@@ -14523,7 +14522,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   <PlasmicIcon__
                     PlasmicIconType={
                       hasVariant(globalVariants, "screen", "mobile")
-                        ? Icon24Icon
+                        ? Icon23Icon
                         : Icon23Icon
                     }
                     className={classNames(projectcss.all, sty.svg__pL0UZ)}
