@@ -189,6 +189,7 @@ export const Fragment = ({
                   let link = `/hamyar-add/?token=${token}`;
                   link=`/web-viow?link=${encodeURIComponent(link)}`;
                   window.open(link, "_self");
+              }
               break;
             }
             case "#chatBot": {
