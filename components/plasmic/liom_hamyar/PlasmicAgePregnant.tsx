@@ -1917,74 +1917,66 @@ function PlasmicAgePregnant__RenderFunc(props: {
               }
             })() ? (
               <div className={classNames(projectcss.all, sty.freeBox__lqKXp)}>
-                {(() => {
-                  try {
-                    return $state.showResult;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__xNcYl)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__mf7Gd
-                      )}
-                    >
-                      {
-                        "\u0645\u062d\u0627\u0633\u0628\u0647 \u0633\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
-                      }
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__dv7KJ
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (() => {
-                              return $state.agePregnant.week > 0
-                                ? "سن بارداری شما " +
-                                    $state.agePregnant.week +
-                                    " هفته و " +
-                                    $state.agePregnant.day +
-                                    " روز می‌باشد."
-                                : "سن بارداری شما " +
-                                    $state.agePregnant.day +
-                                    " روز می‌باشد.";
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "\u0633\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0634\u0645\u0627 18 \u0647\u0641\u062a\u0647 0 \u0631\u0648\u0632 \u0645\u06cc \u0628\u0627\u0634\u062f.\u200d";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                  </Stack__>
-                ) : null}
                 <div className={classNames(projectcss.all, sty.freeBox__yM6Oo)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__czJKt)}
                   >
+                    {(() => {
+                      try {
+                        return $state.showResult;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__xNcYl
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__dv7KJ
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  return $state.agePregnant.week > 0
+                                    ? "سن بارداری شما " +
+                                        $state.agePregnant.week +
+                                        " هفته و " +
+                                        $state.agePregnant.day +
+                                        " روز می‌باشد."
+                                    : "سن بارداری شما " +
+                                        $state.agePregnant.day +
+                                        " روز می‌باشد.";
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0633\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0634\u0645\u0627 18 \u0647\u0641\u062a\u0647 0 \u0631\u0648\u0632 \u0645\u06cc \u0628\u0627\u0634\u062f.\u200d";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </Stack__>
+                    ) : null}
                     <div
                       className={classNames(projectcss.all, sty.freeBox__idZhp)}
                     >
@@ -2190,7 +2182,7 @@ function PlasmicAgePregnant__RenderFunc(props: {
                           height={
                             hasVariant(globalVariants, "screen", "mobile")
                               ? "120"
-                              : "150"
+                              : "120"
                           }
                           loading={"lazy"}
                           src={(() => {
@@ -2219,7 +2211,7 @@ function PlasmicAgePregnant__RenderFunc(props: {
                           width={
                             hasVariant(globalVariants, "screen", "mobile")
                               ? "120"
-                              : "150"
+                              : "120"
                           }
                         />
                       </div>
