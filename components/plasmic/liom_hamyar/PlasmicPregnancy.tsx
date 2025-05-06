@@ -6517,19 +6517,17 @@ function PlasmicPregnancy__RenderFunc(props: {
                       </div>
                       {(() => {
                         try {
-                          return (() => {
+                          return (
                             $state.userId ==
-                              "4ddd1fab-100c-49f0-b843-e70bff8add34";
-                            return (
-                              $state.suggestActiveSms == "true" &&
-                              (!$state.getUserInfo.data[0].result.user
-                                .selfHamyarSms ||
-                                $state.getUserInfo.data[0].result.user
-                                  .selfHamyarSmsSubStatus) &&
-                              !$state.getUserInfo.data[0].result.hamyars[0].rel
-                                .statusSms
-                            );
-                          })();
+                              "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
+                            $state.suggestActiveSms == "true" &&
+                            (!$state.getUserInfo.data[0].result.user
+                              .selfHamyarSms ||
+                              $state.getUserInfo.data[0].result.user
+                                .selfHamyarSmsSubStatus) &&
+                            !$state.getUserInfo.data[0].result.hamyars[0].rel
+                              .statusSms
+                          );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
