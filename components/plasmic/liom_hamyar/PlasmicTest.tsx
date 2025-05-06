@@ -279,8 +279,10 @@ function PlasmicTest__RenderFunc(props: {
 
               $steps["invokeGlobalAction"] = true
                 ? (() => {
-                    const actionArgs = { args: ["#hamyarInfo"] };
-                    return $globalActions["Fragment.deepLink"]?.apply(null, [
+                    const actionArgs = {
+                      args: ["success", "dfdfdfd", undefined, 3000]
+                    };
+                    return $globalActions["Fragment.showToast"]?.apply(null, [
                       ...actionArgs.args
                     ]);
                   })()
