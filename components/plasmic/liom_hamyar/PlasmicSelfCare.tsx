@@ -83,6 +83,7 @@ import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld
 import Icon188Icon from "./icons/PlasmicIcon__Icon188"; // plasmic-import: Ap0CNp82zKxk/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
 import Icon138Icon from "./icons/PlasmicIcon__Icon138"; // plasmic-import: _v0CaTT-8IBc/icon
+import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: liLrwe8fcuIp/icon
 import Icon212Icon from "./icons/PlasmicIcon__Icon212"; // plasmic-import: EV8ARHn8m9ie/icon
 
 createPlasmicElementProxy;
@@ -355,155 +356,170 @@ function PlasmicSelfCare__RenderFunc(props: {
             sty.root
           )}
         >
-          <section className={classNames(projectcss.all, sty.section__f9G4)}>
-            <MainHeader
-              data-plasmic-name={"mainHeader"}
-              data-plasmic-override={overrides.mainHeader}
-              className={classNames("__wab_instance", sty.mainHeader)}
-              dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
-              onDopenChange2={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "mainHeader",
-                  "dopen"
-                ]).apply(null, eventArgs);
+          {(() => {
+            try {
+              return $state.paramsObject.hamyar != "true";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <section className={classNames(projectcss.all, sty.section__f9G4)}>
+              <MainHeader
+                data-plasmic-name={"mainHeader"}
+                data-plasmic-override={overrides.mainHeader}
+                className={classNames("__wab_instance", sty.mainHeader)}
+                dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
+                onDopenChange2={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "mainHeader",
+                    "dopen"
+                  ]).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              token={(() => {
-                try {
-                  return localStorage.getItem("token");
-                } catch (e) {
                   if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
                   ) {
-                    return undefined;
+                    return;
                   }
-                  throw e;
-                }
-              })()}
-              userinfo={(() => {
-                try {
-                  return JSON.parse(window.localStorage.getItem("userinfo"))
-                    .user;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return {
-                      mobile: false,
-                      username: "guest_3DiroEaKCW",
-                      name: "jjjj",
-                      last_time: {
-                        year: 2025,
-                        month: 2,
-                        day: 9,
-                        hour: 0,
-                        minute: 0,
-                        second: 0,
-                        nanosecond: 0,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      cycle: 20,
-                      length: 5,
-                      image: "https://liom-app.ir/data/profile/default.png",
-                      biorhythm: {
-                        date: "2025-03-05T05:32:07.747Z",
-                        advice:
-                          "- \u0628\u0647 \u06a9\u0633\u06cc \u06a9\u0647 \u062e\u06cc\u0644\u06cc \u062f\u0648\u0633\u062a\u0634 \u062f\u0627\u0631\u06cc \u0632\u0646\u06af \u0628\u0632\u0646 \u06cc\u0627 \u067e\u06cc\u0627\u0645 \u0628\u062f\u0647.\n- \u0627\u06af\u0647 \u0627\u0645\u0631\u0648\u0632 \u0627\u062d\u0633\u0627\u0633 \u0628\u06cc \u062d\u0627\u0644\u06cc \u0648 \u06a9\u0633\u0627\u0644\u062a \u062f\u0627\u0631\u06cc \u0648 \u062f\u0644\u062a \u0646\u0645\u06cc\u062e\u0648\u0627\u062f \u0641\u0639\u0627\u0644\u06cc\u062a \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0627\u0634\u06a9\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc \u0645\u062f\u06cc\u062a\u06cc\u0634\u0646 \u06a9\u0646\u06cc \u062a\u0627 \u0627\u062d\u0633\u0627\u0633 \u062e\u0648\u0628\u06cc \u067e\u06cc\u062f\u0627 \u06a9\u0646\u06cc.\n- \u0627\u0645\u0631\u0648\u0632 \u0632\u0645\u0627\u0646 \u062e\u0648\u0628\u06cc \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u0648 \u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u06a9\u0631\u062f\u0646\u0647.\n",
-                        avg: 13,
-                        physical: -100,
-                        emotional: 43,
-                        intellectual: 95
-                      },
-                      id: "ee975e9c-19dd-42fc-b7d7-8822f621b4f8",
-                      healthStatus: "period",
-                      birthDate: {
-                        year: 2002,
-                        month: 1,
-                        day: 7,
-                        hour: 0,
-                        minute: 0,
-                        second: 0,
-                        nanosecond: 0,
-                        timeZoneOffsetSeconds: 0
-                      }
-                    };
-                  }
-                  throw e;
-                }
-              })()}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__pPUj)}
-              >
-                <Icon185Icon
-                  className={classNames(projectcss.all, sty.svg__ijX4Q)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateMainHeaderDopen"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["mainHeader", "dopen"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
+                }}
+                token={(() => {
+                  try {
+                    return localStorage.getItem("token");
+                  } catch (e) {
                     if (
-                      $steps["updateMainHeaderDopen"] != null &&
-                      typeof $steps["updateMainHeaderDopen"] === "object" &&
-                      typeof $steps["updateMainHeaderDopen"].then === "function"
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      $steps["updateMainHeaderDopen"] = await $steps[
-                        "updateMainHeaderDopen"
-                      ];
+                      return undefined;
                     }
-                  }}
-                  role={"img"}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___8J3Qe
-                  )}
-                >
-                  {
-                    "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f"
+                    throw e;
                   }
-                </div>
-              </Stack__>
-            </MainHeader>
-          </section>
+                })()}
+                userinfo={(() => {
+                  try {
+                    return JSON.parse(window.localStorage.getItem("userinfo"))
+                      .user;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return {
+                        mobile: false,
+                        username: "guest_3DiroEaKCW",
+                        name: "jjjj",
+                        last_time: {
+                          year: 2025,
+                          month: 2,
+                          day: 9,
+                          hour: 0,
+                          minute: 0,
+                          second: 0,
+                          nanosecond: 0,
+                          timeZoneOffsetSeconds: 0
+                        },
+                        cycle: 20,
+                        length: 5,
+                        image: "https://liom-app.ir/data/profile/default.png",
+                        biorhythm: {
+                          date: "2025-03-05T05:32:07.747Z",
+                          advice:
+                            "- \u0628\u0647 \u06a9\u0633\u06cc \u06a9\u0647 \u062e\u06cc\u0644\u06cc \u062f\u0648\u0633\u062a\u0634 \u062f\u0627\u0631\u06cc \u0632\u0646\u06af \u0628\u0632\u0646 \u06cc\u0627 \u067e\u06cc\u0627\u0645 \u0628\u062f\u0647.\n- \u0627\u06af\u0647 \u0627\u0645\u0631\u0648\u0632 \u0627\u062d\u0633\u0627\u0633 \u0628\u06cc \u062d\u0627\u0644\u06cc \u0648 \u06a9\u0633\u0627\u0644\u062a \u062f\u0627\u0631\u06cc \u0648 \u062f\u0644\u062a \u0646\u0645\u06cc\u062e\u0648\u0627\u062f \u0641\u0639\u0627\u0644\u06cc\u062a \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0627\u0634\u06a9\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc \u0645\u062f\u06cc\u062a\u06cc\u0634\u0646 \u06a9\u0646\u06cc \u062a\u0627 \u0627\u062d\u0633\u0627\u0633 \u062e\u0648\u0628\u06cc \u067e\u06cc\u062f\u0627 \u06a9\u0646\u06cc.\n- \u0627\u0645\u0631\u0648\u0632 \u0632\u0645\u0627\u0646 \u062e\u0648\u0628\u06cc \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u0648 \u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u06a9\u0631\u062f\u0646\u0647.\n",
+                          avg: 13,
+                          physical: -100,
+                          emotional: 43,
+                          intellectual: 95
+                        },
+                        id: "ee975e9c-19dd-42fc-b7d7-8822f621b4f8",
+                        healthStatus: "period",
+                        birthDate: {
+                          year: 2002,
+                          month: 1,
+                          day: 7,
+                          hour: 0,
+                          minute: 0,
+                          second: 0,
+                          nanosecond: 0,
+                          timeZoneOffsetSeconds: 0
+                        }
+                      };
+                    }
+                    throw e;
+                  }
+                })()}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__pPUj)}
+                >
+                  <Icon185Icon
+                    className={classNames(projectcss.all, sty.svg__ijX4Q)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateMainHeaderDopen"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["mainHeader", "dopen"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateMainHeaderDopen"] != null &&
+                        typeof $steps["updateMainHeaderDopen"] === "object" &&
+                        typeof $steps["updateMainHeaderDopen"].then ===
+                          "function"
+                      ) {
+                        $steps["updateMainHeaderDopen"] = await $steps[
+                          "updateMainHeaderDopen"
+                        ];
+                      }
+                    }}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___8J3Qe
+                    )}
+                  >
+                    {
+                      "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f"
+                    }
+                  </div>
+                </Stack__>
+              </MainHeader>
+            </section>
+          ) : null}
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
@@ -1459,6 +1475,22 @@ function PlasmicSelfCare__RenderFunc(props: {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__tSqzz)}
+              style={(() => {
+                try {
+                  return {
+                    "padding-top":
+                      $state.paramsObject.hamyar == "true" ? "16px" : ""
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             >
               <Stack__
                 as={"div"}
@@ -1521,54 +1553,128 @@ function PlasmicSelfCare__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox___4NQg7)}
               >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__awpI3)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToCalendar"] = true
-                      ? (() => {
-                          const actionArgs = { destination: `/calendar` };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
+                {(() => {
+                  try {
+                    return $state.paramsObject.hamyar != "true";
+                  } catch (e) {
                     if (
-                      $steps["goToCalendar"] != null &&
-                      typeof $steps["goToCalendar"] === "object" &&
-                      typeof $steps["goToCalendar"].then === "function"
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      $steps["goToCalendar"] = await $steps["goToCalendar"];
+                      return true;
                     }
-                  }}
-                >
-                  <Icon138Icon
-                    className={classNames(projectcss.all, sty.svg__l5B5)}
-                    role={"img"}
-                  />
-
+                    throw e;
+                  }
+                })() ? (
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___2QvJp
-                    )}
+                    className={classNames(projectcss.all, sty.freeBox__awpI3)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToCalendar"] = true
+                        ? (() => {
+                            const actionArgs = { destination: `/calendar` };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToCalendar"] != null &&
+                        typeof $steps["goToCalendar"] === "object" &&
+                        typeof $steps["goToCalendar"].then === "function"
+                      ) {
+                        $steps["goToCalendar"] = await $steps["goToCalendar"];
+                      }
+                    }}
                   >
-                    {
-                      "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
-                    }
+                    <Icon138Icon
+                      className={classNames(projectcss.all, sty.svg__l5B5)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___2QvJp
+                      )}
+                    >
+                      {
+                        "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                      }
+                    </div>
                   </div>
-                </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.paramsObject.hamyar == "true";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___7PIRr)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToHamyar"] = true
+                        ? (() => {
+                            const actionArgs = { destination: `/hamyar` };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToHamyar"] != null &&
+                        typeof $steps["goToHamyar"] === "object" &&
+                        typeof $steps["goToHamyar"].then === "function"
+                      ) {
+                        $steps["goToHamyar"] = await $steps["goToHamyar"];
+                      }
+                    }}
+                  >
+                    <Icon6Icon
+                      className={classNames(projectcss.all, sty.svg__naXZ)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___2Dg7
+                      )}
+                    >
+                      {"\u0647\u0645\u06cc\u0627\u0631"}
+                    </div>
+                  </div>
+                ) : null}
                 <div
                   aria-pressed={undefined}
                   className={classNames(projectcss.all, sty.freeBox__gg4Ka)}

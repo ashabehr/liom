@@ -6517,8 +6517,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                       {(() => {
                         try {
                           return (
-                            $state.userId ==
-                              "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
                             $state.suggestActiveSms == "true" &&
                             (!$state.getUserInfo.data[0].result.user
                               .selfHamyarSms ||

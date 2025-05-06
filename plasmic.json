@@ -1890,17 +1890,17 @@
         },
         {
           "id": "CSu8HTSIVdMU",
-          "name": "SettingPregnancy2",
+          "name": "AgePregnant",
           "type": "managed",
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSettingPregnancy2.tsx",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicAgePregnant.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/setting-pregnancy-2.tsx"
+            "modulePath": "../src/pages/age-pregnant.tsx"
           },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSettingPregnancy2.module.css",
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicAgePregnant.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/setting-pregnancy-2"
+          "path": "/age-pregnant"
         }
       ],
       "icons": [

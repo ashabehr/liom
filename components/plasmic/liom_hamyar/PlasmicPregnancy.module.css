@@ -935,9 +935,13 @@
   flex-shrink: 0;
 }
 .embedHtml__uxJx:global(.__wab_instance) {
-  max-width: 100%;
   object-fit: cover;
   width: auto;
+  height: auto;
+  text-align: center;
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 1;
 }
 .text__eHFeM {
   position: relative;
