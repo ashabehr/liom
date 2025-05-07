@@ -1769,20 +1769,6 @@
           "path": "/new-page"
         },
         {
-          "id": "iNHFQ5RIM3Tb",
-          "name": "SocialPost",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSocialPost.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/social-post .tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSocialPost.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/new-page-2"
-        },
-        {
           "id": "dIQxBnzf8Ez0",
           "name": "SocialMain",
           "type": "managed",
@@ -1928,6 +1914,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/result-age-pregnant"
+        },
+        {
+          "id": "iNHFQ5RIM3Tb",
+          "name": "Post2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPost2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/post.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicPost2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/post"
         }
       ],
       "icons": [

@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
@@ -104,6 +105,7 @@ export const PlasmicSettingPregnancy__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSettingPregnancy__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   img?: Flex__<typeof PlasmicImg__>;
   dateModal?: Flex__<typeof SlideinModal>;
   week2?: Flex__<typeof Pickers>;
@@ -381,6 +383,25 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U"
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "userId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "1"
       }
     ],
     [$props, $ctx, $refs]
@@ -436,6 +457,303 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
             code={
               "<script>\n  let isBlocked = false; // \u0645\u062a\u063a\u06cc\u0631 \u0628\u0631\u0627\u06cc \u06a9\u0646\u062a\u0631\u0644 \u0645\u0633\u062f\u0648\u062f \u0634\u062f\u0646 \u062f\u06a9\u0645\u0647\n  let shouldBlockBackButton; // \u0645\u062a\u063a\u06cc\u0631 \u0628\u0631\u0627\u06cc \u0648\u0636\u0639\u06cc\u062a \u0628\u0644\u0648\u06a9\u0647 \u0628\u0648\u062f\u0646 \u062f\u06a9\u0645\u0647\n\n  document.addEventListener('DOMContentLoaded', function() {\n    // \u0628\u0631\u0631\u0633\u06cc \u0627\u06cc\u0646\u06a9\u0647 window.plasmicParent \u0648 window.plasmicParent.state \u0645\u0648\u062c\u0648\u062f \u0647\u0633\u062a\u0646\u062f\n    if (window.plasmicParent && window.plasmicParent.state) {\n      // \u0645\u0642\u062f\u0627\u0631\u062f\u0647\u06cc \u0628\u0647 \u0645\u062a\u063a\u06cc\u0631 \u0641\u0642\u0637 \u0627\u06af\u0631 \u0645\u0642\u062f\u0627\u0631\u062f\u0647\u06cc \u0646\u0634\u062f\u0647 \u0628\u0627\u0634\u062f\n      // if (shouldBlockBackButton === undefined) {\n        shouldBlockBackButton = window.plasmicParent.state.shouldBlockBackButton;\n        console.log(\"value\u06f2: \" + shouldBlockBackButton);\n      // }\n    } else {\n      console.log(\"window.plasmicParent \u06cc\u0627 state \u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a.\");\n    }\n  });\n\n  window.addEventListener('popstate', function(event) {\n    // \u0627\u06af\u0631 \u0642\u0628\u0644\u0627\u064b \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0634\u062f\u0647 \u0628\u0627\u0634\u062f\u060c \u0627\u062c\u0627\u0632\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u06cc\u200c\u062f\u0647\u06cc\u0645\n    if (isBlocked) {\n      console.log('\u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u062f\u0648\u0628\u0627\u0631\u0647 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a.');\n      isBlocked = false; // \u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u062d\u0627\u0644\u062a \u0639\u0627\u062f\u06cc\n      return; // \u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0639\u0642\u0628\n    }\n\n    // \u0627\u06af\u0631 \u0628\u0627\u06cc\u062f \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0634\u0648\u062f\n    if (shouldBlockBackButton) {\n      console.log('\u0634\u0631\u0637 \u0628\u0631\u0642\u0631\u0627\u0631 \u0627\u0633\u062a! \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0645\u06cc\u200c\u0634\u0648\u062f.');\n      event.preventDefault(); // \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0628\u0627\u0632\u06af\u0634\u062a\n      isBlocked = true; // \u0645\u0633\u062f\u0648\u062f \u06a9\u0631\u062f\u0646 \u062f\u06a9\u0645\u0647 \u0628\u0631\u0627\u06cc \u06cc\u06a9 \u0628\u0627\u0631\n    } else {\n      console.log('\u0634\u0631\u0637 \u0628\u0631\u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a\u060c \u0628\u0627\u0632\u06af\u0634\u062a \u0627\u0646\u062c\u0627\u0645 \u0645\u06cc\u200c\u0634\u0648\u062f.');\n    }\n  });\n</script>\n"
             }
+          />
+
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["getParams"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          return urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getParams"] != null &&
+                typeof $steps["getParams"] === "object" &&
+                typeof $steps["getParams"].then === "function"
+              ) {
+                $steps["getParams"] = await $steps["getParams"];
+              }
+
+              $steps["clearParams"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const searchParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          searchParams.delete("token");
+                          searchParams.delete("userId");
+                          searchParams.delete("user_id");
+                          searchParams.delete("origin_user_id");
+                          const newUrl = `${
+                            window.location.pathname
+                          }?${searchParams.toString()}`;
+                          return window.history.replaceState(null, "", newUrl);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["clearParams"] != null &&
+                typeof $steps["clearParams"] === "object" &&
+                typeof $steps["clearParams"].then === "function"
+              ) {
+                $steps["clearParams"] = await $steps["clearParams"];
+              }
+
+              $steps["setCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if (
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token.trim() !== ""
+                          ) {
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.paramsObject.token]),
+                              100
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["setCookie"] != null &&
+                typeof $steps["setCookie"] === "object" &&
+                typeof $steps["setCookie"].then === "function"
+              ) {
+                $steps["setCookie"] = await $steps["setCookie"];
+              }
+
+              $steps["getCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getCookie"] != null &&
+                typeof $steps["getCookie"] === "object" &&
+                typeof $steps["getCookie"].then === "function"
+              ) {
+                $steps["getCookie"] = await $steps["getCookie"];
+              }
+
+              $steps["userGuest"] =
+                $state.token == ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://api.liom.app/auth/signup/guest",
+                          undefined,
+                          (() => {
+                            try {
+                              return (() => {
+                                function pseudoUUID() {
+                                  let timestamp = Date.now().toString(36);
+                                  let randomStr = Math.random()
+                                    .toString(36)
+                                    .substr(2, 8);
+                                  return timestamp + "-" + randomStr;
+                                }
+                                return {
+                                  name: "کاربر مهمان",
+                                  gateway: "pregnancy",
+                                  country: "98",
+                                  isCountryPending: false,
+                                  lang: "fa",
+                                  version: "",
+                                  os: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    const platform = window.navigator.userAgent;
+                                    if (/Windows/i.test(platform))
+                                      return "Windows";
+                                    if (/Mac/i.test(platform)) return "macOS";
+                                    if (/Linux/i.test(platform)) return "Linux";
+                                    if (/Android/i.test(userAgent))
+                                      return "Android";
+                                    if (/iPhone|iPad|iPod/i.test(userAgent))
+                                      return "iOS";
+                                    return "Unknown OS";
+                                  })(),
+                                  osVersion: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    if (/Windows NT 10.0/.test(userAgent))
+                                      return "Windows 10";
+                                    if (/Windows NT 6.3/.test(userAgent))
+                                      return "Windows 8.1";
+                                    if (/Windows NT 6.2/.test(userAgent))
+                                      return "Windows 8";
+                                    if (/Windows NT 6.1/.test(userAgent))
+                                      return "Windows 7";
+                                    if (
+                                      /Mac OS X (\d+[\._]\d+)/.test(userAgent)
+                                    )
+                                      return `macOS ${RegExp.$1.replace(
+                                        "_",
+                                        "."
+                                      )}`;
+                                    if (/Android (\d+(\.\d+)?)/.test(userAgent))
+                                      return `Android ${RegExp.$1}`;
+                                    if (
+                                      /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                        userAgent
+                                      )
+                                    )
+                                      return `iOS ${RegExp.$2.replace(
+                                        "_",
+                                        "."
+                                      )}`;
+                                    return "Unknown Version";
+                                  })(),
+                                  sex: $state.gender || "",
+                                  additionalData: {
+                                    ip: "132465",
+                                    name: "test1"
+                                  },
+                                  device: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    if (
+                                      /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                        userAgent
+                                      )
+                                    ) {
+                                      return "Mobile";
+                                    } else if (/Tablet|iPad/i.test(userAgent)) {
+                                      return "Tablet";
+                                    } else {
+                                      return "Desktop";
+                                    }
+                                  })(),
+                                  fcm:
+                                    window.localStorage.getItem("fcmToken") ||
+                                    " ",
+                                  uniqueId: pseudoUUID(),
+                                  device_type: window.navigator.platform,
+                                  postLang: "fa"
+                                };
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["userGuest"] != null &&
+                typeof $steps["userGuest"] === "object" &&
+                typeof $steps["userGuest"].then === "function"
+              ) {
+                $steps["userGuest"] = await $steps["userGuest"];
+              }
+
+              $steps["setCookie2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var setCookie = (name, value, days) => {
+                            const expires = new Date(
+                              Date.now() + days * 86400000
+                            ).toUTCString();
+                            document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                          };
+                          setCookie(
+                            "token",
+                            JSON.stringify([
+                              $steps.userGuest.data.result.token
+                            ]),
+                            100
+                          );
+                          return ($state.token =
+                            $steps.userGuest.data.result.token);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["setCookie2"] != null &&
+                typeof $steps["setCookie2"] === "object" &&
+                typeof $steps["setCookie2"].then === "function"
+              ) {
+                $steps["setCookie2"] = await $steps["setCookie2"];
+              }
+            }}
           />
 
           {(() => {
@@ -2788,10 +3106,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                           "-" +
                                           $state.duDate[2] +
                                           " 10:10:10",
-                                        userId: $ctx.query.userId.slice(
-                                          4,
-                                          +$ctx.query.userId.length - 4
-                                        )
+                                        userId: $state.userId
                                       };
                                     } catch (e) {
                                       if (
@@ -3003,23 +3318,12 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                 destination: (() => {
                                   try {
                                     return (() => {
-                                      var token =
-                                        $ctx.query.token ||
-                                        new URLSearchParams(
-                                          window.location.search
-                                        ).get("token");
-                                      if (!token.startsWith("ey")) {
-                                        token = token.slice(
-                                          6,
-                                          token.length - 3
-                                        );
-                                      }
-                                      ({ token: token });
+                                      var token = $state.token;
                                       return (
                                         "https://apps.liom.app/pregnancy/?token=" +
                                         token +
                                         "&userId=" +
-                                        $ctx.query.userId +
+                                        $state.userId +
                                         "&theme=" +
                                         $ctx.query.theme +
                                         "&inApp=false" +
@@ -3062,18 +3366,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         }
 
                         $steps["invokeGlobalAction4"] = (() => {
-                          if (
-                            $ctx.query.userId.slice(
-                              4,
-                              $ctx.query.userId.length - 4
-                            ) == "314149" ||
-                            $ctx.query.userId.slice(
-                              4,
-                              $ctx.query.userId.length - 4
-                            ) == "1"
-                          ) {
-                            return false;
-                          }
                           var jy = $state.dateOfBirth.year;
                           var jm = $state.dateOfBirth.month;
                           var jd = $state.dateOfBirth.day;
@@ -3152,11 +3444,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                     try {
                                       return {
                                         userId:
-                                          $ctx.query.userId?.length > 0
-                                            ? $ctx.query.userId.slice(
-                                                4,
-                                                $ctx.query.userId.length - 4
-                                              )
+                                          $state.userId > 0
+                                            ? $state.userId
                                             : "guest",
                                         pageName: "settingPage",
                                         action: "click-saveDate",
@@ -3289,15 +3578,9 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
             }}
             params={(() => {
               try {
-                return (() => {
-                  var token =
-                    $ctx.query.token ||
-                    new URLSearchParams(window.location.search).get("token");
-                  if (!token.startsWith("ey")) {
-                    token = token.slice(6, token.length - 3);
-                  }
-                  return { token: token };
-                })();
+                return {
+                  token: $state.token
+                };
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -3857,6 +4140,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "img",
     "dateModal",
     "week2",
@@ -3869,6 +4153,7 @@ const PlasmicDescendants = {
     "getUserInfo",
     "lottie"
   ],
+  sideEffect: ["sideEffect"],
   img: ["img"],
   dateModal: ["dateModal", "week2", "day2", "datePickers", "button"],
   week2: ["week2"],
@@ -3886,6 +4171,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   img: typeof PlasmicImg__;
   dateModal: typeof SlideinModal;
   week2: typeof Pickers;
@@ -3984,6 +4270,7 @@ export const PlasmicSettingPregnancy = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     img: makeNodeComponent("img"),
     dateModal: makeNodeComponent("dateModal"),
     week2: makeNodeComponent("week2"),
