@@ -473,9 +473,10 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         return (() => {
                           const queryString = window.location.search;
                           const urlParams = new URLSearchParams(queryString);
-                          return urlParams.forEach((value, key) => {
+                          urlParams.forEach((value, key) => {
                             $state.paramsObject[key] = value;
                           });
+                          return ($state.userId = $state.paramsObject.userId);
                         })();
                       }
                     };
@@ -2926,6 +2927,26 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       ])}
                       onClick={async event => {
                         const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return $state.userId;
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
 
                         $steps["invokeGlobalAction2"] = (() => {
                           var jy = $state.dateOfBirth.year;
