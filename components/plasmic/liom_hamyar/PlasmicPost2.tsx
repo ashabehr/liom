@@ -122,6 +122,7 @@ export type PlasmicPost2__OverridesType = {
   sideEffect?: Flex__<typeof SideEffect>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   getInfo?: Flex__<typeof ApiRequest>;
+  loding?: Flex__<"div">;
   uploudeTime?: Flex__<typeof UploudeTime>;
   popover2?: Flex__<typeof AntdPopover>;
   post?: Flex__<typeof Post>;
@@ -221,8 +222,7 @@ function PlasmicPost2__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRmNzhiOTU0LWM2YTMtNGRiOS04YmYyLTI3MmE5MGU2ZGRiZCIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzQ0NzAwNjA0fQ.zC2EWB7gRSxxuiwN8qB-XeEsQ2iEYcLAnT5dVX3Icw0"
+        initFunc: ({ $props, $state, $queries, $ctx }) => '"'
       },
       {
         path: "popover2.open",
@@ -666,7 +666,225 @@ function PlasmicPost2__RenderFunc(props: {
             })()}
             className={classNames("__wab_instance", sty.getInfo)}
             errorDisplay={null}
-            loadingDisplay={null}
+            loadingDisplay={
+              <Stack__
+                as={"div"}
+                data-plasmic-name={"loding"}
+                data-plasmic-override={overrides.loding}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.loding)}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__hCsIg)}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___8XFxp)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__d8OWl,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__b96Px,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__uDa1S,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__t0E0U,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__fOzy9,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__bhVEl)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__apcVq,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___7Tq9J,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__q73Nu,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__u5QeB)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__cHfn1,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__ybSy3,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__lWiX,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__jjf5Y)}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__vUhY)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__v88LV,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__mAyF5,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__svTe,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__x9APb,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox___2Ptqz,
+                      "shimmer"
+                    )}
+                  />
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__qgoIj)}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__wo1OL)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__aRyJa,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__k09WV,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox___8Ht5,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox___9VmP,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox___42GqH,
+                      "shimmer"
+                    )}
+                  />
+                </Stack__>
+              </Stack__>
+            }
             method={"PUT"}
             onError={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["getInfo", "error"]).apply(
@@ -2869,185 +3087,6 @@ function PlasmicPost2__RenderFunc(props: {
             }}
             runWhileEditing={false}
           />
-
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__rYzsg)}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__hCsIg)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___8XFxp)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__d8OWl,
-                    "shimmer"
-                  )}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__b96Px,
-                    "shimmer"
-                  )}
-                />
-              </Stack__>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__uDa1S,
-                  "shimmer"
-                )}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__t0E0U,
-                  "shimmer"
-                )}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__fOzy9,
-                  "shimmer"
-                )}
-              />
-
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__bhVEl)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__apcVq,
-                    "shimmer"
-                  )}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox___7Tq9J,
-                    "shimmer"
-                  )}
-                />
-              </Stack__>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__jjf5Y)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__vUhY)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__v88LV,
-                    "shimmer"
-                  )}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__mAyF5,
-                    "shimmer"
-                  )}
-                />
-              </Stack__>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__svTe,
-                  "shimmer"
-                )}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__x9APb,
-                  "shimmer"
-                )}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox___2Ptqz,
-                  "shimmer"
-                )}
-              />
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__qgoIj)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__wo1OL)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__aRyJa,
-                    "shimmer"
-                  )}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__k09WV,
-                    "shimmer"
-                  )}
-                />
-              </Stack__>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox___8Ht5,
-                  "shimmer"
-                )}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox___9VmP,
-                  "shimmer"
-                )}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox___42GqH,
-                  "shimmer"
-                )}
-              />
-            </Stack__>
-          </Stack__>
         </div>
       </div>
     </React.Fragment>
@@ -3060,6 +3099,7 @@ const PlasmicDescendants = {
     "sideEffect",
     "headerLiom",
     "getInfo",
+    "loding",
     "uploudeTime",
     "popover2",
     "post",
@@ -3079,6 +3119,7 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom"],
   getInfo: [
     "getInfo",
+    "loding",
     "uploudeTime",
     "popover2",
     "post",
@@ -3093,6 +3134,7 @@ const PlasmicDescendants = {
     "lineClomp",
     "lineClomp2"
   ],
+  loding: ["loding"],
   uploudeTime: ["uploudeTime"],
   popover2: ["popover2"],
   post: ["post"],
@@ -3116,6 +3158,7 @@ type NodeDefaultElementType = {
   sideEffect: typeof SideEffect;
   headerLiom: typeof HeaderLiom;
   getInfo: typeof ApiRequest;
+  loding: "div";
   uploudeTime: typeof UploudeTime;
   popover2: typeof AntdPopover;
   post: typeof Post;
@@ -3220,6 +3263,7 @@ export const PlasmicPost2 = Object.assign(
     sideEffect: makeNodeComponent("sideEffect"),
     headerLiom: makeNodeComponent("headerLiom"),
     getInfo: makeNodeComponent("getInfo"),
+    loding: makeNodeComponent("loding"),
     uploudeTime: makeNodeComponent("uploudeTime"),
     popover2: makeNodeComponent("popover2"),
     post: makeNodeComponent("post"),
