@@ -476,9 +476,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           urlParams.forEach((value, key) => {
                             $state.paramsObject[key] = value;
                           });
-                          console.log($state.paramsObject);
-                          $state.userId = $state.paramsObject.userId;
-                          return console.log($state.userId);
+                          return ($state.userId = $state.paramsObject.userId);
                         })();
                       }
                     };
@@ -3436,26 +3434,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   typeof $steps["updateIsGetInfo"].then === "function"
                 ) {
                   $steps["updateIsGetInfo"] = await $steps["updateIsGetInfo"];
-                }
-
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return console.log($state.getUserInfo.data[0].result);
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
                 }
               }).apply(null, eventArgs);
             }}
