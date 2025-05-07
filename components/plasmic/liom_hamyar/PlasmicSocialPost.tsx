@@ -62,7 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import UploudeTime from "../../UploudeTime"; // plasmic-import: aUO_fJR7ceN4/component
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import Post from "../../Post"; // plasmic-import: PIFHnFLcunkZ/component
@@ -88,7 +88,6 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSocialPost.module.css"; // plasmic-import: iNHFQ5RIM3Tb/css
 
-import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon146Icon from "./icons/PlasmicIcon__Icon146"; // plasmic-import: oL3Gq5u9-MHL/icon
 import Icon180Icon from "./icons/PlasmicIcon__Icon180"; // plasmic-import: GPPgWNu-3jGf/icon
 import Icon179Icon from "./icons/PlasmicIcon__Icon179"; // plasmic-import: qlPLXoOalpf5/icon
@@ -103,7 +102,7 @@ import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: 2SO3B
 import Icon184Icon from "./icons/PlasmicIcon__Icon184"; // plasmic-import: qyxzNL8K38N5/icon
 import Icon176Icon from "./icons/PlasmicIcon__Icon176"; // plasmic-import: elrgas2UYaHC/icon
 import Icon227Icon from "./icons/PlasmicIcon__Icon227"; // plasmic-import: HYZYMCyfZITX/icon
-import XIcon2 from "../fragment_icons/icons/PlasmicIcon__X"; // plasmic-import: zb1oqVXdrxPK/icon
+import XIcon from "../fragment_icons/icons/PlasmicIcon__X"; // plasmic-import: zb1oqVXdrxPK/icon
 
 createPlasmicElementProxy;
 
@@ -118,7 +117,7 @@ export const PlasmicSocialPost__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSocialPost__OverridesType = {
   root?: Flex__<"div">;
-  headerLiom?: Flex__<typeof HeaderLiom>;
+  sideEffect?: Flex__<typeof SideEffect>;
   uploudeTime?: Flex__<typeof UploudeTime>;
   popover2?: Flex__<typeof AntdPopover>;
   post?: Flex__<typeof Post>;
@@ -376,6 +375,12 @@ function PlasmicSocialPost__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "stateParamsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -418,62 +423,50 @@ function PlasmicSocialPost__RenderFunc(props: {
             sty.root
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__v5VDg)}>
-            <section className={classNames(projectcss.all, sty.section__fKamc)}>
-              <HeaderLiom
-                data-plasmic-name={"headerLiom"}
-                data-plasmic-override={overrides.headerLiom}
-                className={classNames("__wab_instance", sty.headerLiom)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__c54Bd)}
-                >
-                  <XIcon
-                    className={classNames(projectcss.all, sty.svg__goOmW)}
-                    onClick={async event => {
-                      const $steps = {};
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
 
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  return window.history.back();
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
+              $steps["updateTextAreaValue"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["textArea", "value"]
+                      },
+                      operation: 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
                       }
-                    }}
-                    role={"img"}
-                  />
+                      const { objRoot, variablePath } = variable;
 
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ppbsd
-                    )}
-                  >
-                    {
-                      "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647"
-                    }
-                  </div>
-                </Stack__>
-              </HeaderLiom>
-            </section>
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTextAreaValue"] != null &&
+                typeof $steps["updateTextAreaValue"] === "object" &&
+                typeof $steps["updateTextAreaValue"].then === "function"
+              ) {
+                $steps["updateTextAreaValue"] = await $steps[
+                  "updateTextAreaValue"
+                ];
+              }
+            }}
+          />
+
+          <div className={classNames(projectcss.all, sty.freeBox__v5VDg)}>
+            <section
+              className={classNames(projectcss.all, sty.section__fKamc)}
+            />
+
             <div className={classNames(projectcss.all, sty.freeBox__f0Ap)}>
               <div className={classNames(projectcss.all, sty.freeBox__utoeo)}>
                 <div className={classNames(projectcss.all, sty.freeBox__oUuo3)}>
@@ -2342,7 +2335,7 @@ function PlasmicSocialPost__RenderFunc(props: {
                           </React.Fragment>
                         </div>
                       </LineClomp>
-                      <XIcon2
+                      <XIcon
                         className={classNames(projectcss.all, sty.svg___0AiE2)}
                         onClick={async event => {
                           const $steps = {};
@@ -2643,7 +2636,7 @@ function PlasmicSocialPost__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "headerLiom",
+    "sideEffect",
     "uploudeTime",
     "popover2",
     "post",
@@ -2660,7 +2653,7 @@ const PlasmicDescendants = {
     "getInfo",
     "timer"
   ],
-  headerLiom: ["headerLiom"],
+  sideEffect: ["sideEffect"],
   uploudeTime: ["uploudeTime"],
   popover2: ["popover2"],
   post: ["post"],
@@ -2682,7 +2675,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  headerLiom: typeof HeaderLiom;
+  sideEffect: typeof SideEffect;
   uploudeTime: typeof UploudeTime;
   popover2: typeof AntdPopover;
   post: typeof Post;
@@ -2785,7 +2778,7 @@ export const PlasmicSocialPost = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    headerLiom: makeNodeComponent("headerLiom"),
+    sideEffect: makeNodeComponent("sideEffect"),
     uploudeTime: makeNodeComponent("uploudeTime"),
     popover2: makeNodeComponent("popover2"),
     post: makeNodeComponent("post"),

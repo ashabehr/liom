@@ -6522,7 +6522,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                             //   ($state.getUserInfo.data[0].result.user.selfHamyarSmsSubStatus)
                             // )
                             // && (!$state.getUserInfo.data[0].result.hamyars[0].rel.statusSms)
-                            false
+                            $state.userId ==
+                            "4ddd1fab-100c-49f0-b843-e70bff8add34"
                           );
                         } catch (e) {
                           if (
@@ -7529,7 +7530,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     onClick={async event => {
                                       const $steps = {};
 
-                                      $steps["invokeGlobalAction"] = true
+                                      $steps["deepLink"] = true
                                         ? (() => {
                                             const actionArgs = {
                                               args: [
@@ -7602,6 +7603,25 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     }
                                                     throw e;
                                                   }
+                                                })(),
+                                                undefined,
+                                                (() => {
+                                                  try {
+                                                    return {
+                                                      topic:
+                                                        "pregnancyWeek" +
+                                                        $state.weeksPregnant
+                                                    };
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return undefined;
+                                                    }
+                                                    throw e;
+                                                  }
                                                 })()
                                               ]
                                             };
@@ -7613,14 +7633,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           })()
                                         : undefined;
                                       if (
-                                        $steps["invokeGlobalAction"] != null &&
-                                        typeof $steps["invokeGlobalAction"] ===
+                                        $steps["deepLink"] != null &&
+                                        typeof $steps["deepLink"] ===
                                           "object" &&
-                                        typeof $steps["invokeGlobalAction"]
-                                          .then === "function"
+                                        typeof $steps["deepLink"].then ===
+                                          "function"
                                       ) {
-                                        $steps["invokeGlobalAction"] =
-                                          await $steps["invokeGlobalAction"];
+                                        $steps["deepLink"] = await $steps[
+                                          "deepLink"
+                                        ];
                                       }
 
                                       $steps["log"] = true
