@@ -666,151 +666,7 @@ function PlasmicPost2__RenderFunc(props: {
             })()}
             className={classNames("__wab_instance", sty.getInfo)}
             errorDisplay={null}
-            loadingDisplay={
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__rYzsg)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__hCsIg)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__uDa1S,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__t0E0U,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__fOzy9,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox___7Tq9J,
-                      "shimmer"
-                    )}
-                  />
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__jjf5Y)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__vUhY)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__v88LV,
-                        "shimmer"
-                      )}
-                    />
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__mAyF5,
-                        "shimmer"
-                      )}
-                    />
-                  </Stack__>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__svTe,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__x9APb,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox___2Ptqz,
-                      "shimmer"
-                    )}
-                  />
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__qgoIj)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__wo1OL)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__aRyJa,
-                        "shimmer"
-                      )}
-                    />
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__k09WV,
-                        "shimmer"
-                      )}
-                    />
-                  </Stack__>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox___8Ht5,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox___9VmP,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox___42GqH,
-                      "shimmer"
-                    )}
-                  />
-                </Stack__>
-              </Stack__>
-            }
+            loadingDisplay={null}
             method={"PUT"}
             onError={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["getInfo", "error"]).apply(
@@ -3013,6 +2869,185 @@ function PlasmicPost2__RenderFunc(props: {
             }}
             runWhileEditing={false}
           />
+
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__rYzsg)}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__hCsIg)}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___8XFxp)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__d8OWl,
+                    "shimmer"
+                  )}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__b96Px,
+                    "shimmer"
+                  )}
+                />
+              </Stack__>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__uDa1S,
+                  "shimmer"
+                )}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__t0E0U,
+                  "shimmer"
+                )}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__fOzy9,
+                  "shimmer"
+                )}
+              />
+
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__bhVEl)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__apcVq,
+                    "shimmer"
+                  )}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox___7Tq9J,
+                    "shimmer"
+                  )}
+                />
+              </Stack__>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__jjf5Y)}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__vUhY)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__v88LV,
+                    "shimmer"
+                  )}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__mAyF5,
+                    "shimmer"
+                  )}
+                />
+              </Stack__>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__svTe,
+                  "shimmer"
+                )}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__x9APb,
+                  "shimmer"
+                )}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox___2Ptqz,
+                  "shimmer"
+                )}
+              />
+            </Stack__>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__qgoIj)}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__wo1OL)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__aRyJa,
+                    "shimmer"
+                  )}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__k09WV,
+                    "shimmer"
+                  )}
+                />
+              </Stack__>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox___8Ht5,
+                  "shimmer"
+                )}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox___9VmP,
+                  "shimmer"
+                )}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox___42GqH,
+                  "shimmer"
+                )}
+              />
+            </Stack__>
+          </Stack__>
         </div>
       </div>
     </React.Fragment>
