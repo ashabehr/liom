@@ -1914,6 +1914,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicTabWeek3.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "-_waIfkF0kiE",
+          "name": "ResultAgePregnant",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicResultAgePregnant.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/result-age-pregnant.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicResultAgePregnant.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/result-age-pregnant"
         }
       ],
       "icons": [

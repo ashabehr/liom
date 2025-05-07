@@ -6608,7 +6608,65 @@ function PlasmicPregnancy__RenderFunc(props: {
                               ? (() => {
                                   const actionArgs = {
                                     args: [
-                                      "#hamyarInfo",
+                                      (() => {
+                                        try {
+                                          return (() => {
+                                            const allowance =
+                                              $state?.getUserInfo?.data?.[0]
+                                                ?.result?.allowance || [];
+                                            var become_father = allowance.find(
+                                              item =>
+                                                item.type ==
+                                                "pregnancy_sub_become_father"
+                                            )
+                                              ? allowance.find(
+                                                  item =>
+                                                    item.type ==
+                                                    "pregnancy_sub_become_father"
+                                                ).active
+                                              : false;
+                                            var baby_growth = allowance.find(
+                                              item =>
+                                                item.type ==
+                                                "pregnancy_sub_baby_growth"
+                                            )
+                                              ? allowance.find(
+                                                  item =>
+                                                    item.type ==
+                                                    "pregnancy_sub_baby_growth"
+                                                ).active
+                                              : false;
+                                            var better_relation =
+                                              allowance.find(
+                                                item =>
+                                                  item.type ==
+                                                  "pregnancy_sub_better_relation"
+                                              )
+                                                ? allowance.find(
+                                                    item =>
+                                                      item.type ==
+                                                      "pregnancy_sub_better_relation"
+                                                  ).active
+                                                : false;
+                                            return !(
+                                              become_father &&
+                                              baby_growth &&
+                                              better_relation
+                                            )
+                                              ? "#hamyarInfo"
+                                              : "#directDialog-pregnancySub";
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
                                       (() => {
                                         try {
                                           return $state.token;
@@ -6678,6 +6736,159 @@ function PlasmicPregnancy__RenderFunc(props: {
                               typeof $steps["goToPage"].then === "function"
                             ) {
                               $steps["goToPage"] = await $steps["goToPage"];
+                            }
+
+                            $steps["updateTypeBuy"] = (() => {
+                              const allowance =
+                                $state?.getUserInfo?.data?.[0]?.result
+                                  ?.allowance || [];
+                              var become_father = allowance.find(
+                                item =>
+                                  item.type == "pregnancy_sub_become_father"
+                              )
+                                ? allowance.find(
+                                    item =>
+                                      item.type == "pregnancy_sub_become_father"
+                                  ).active
+                                : false;
+                              var baby_growth = allowance.find(
+                                item => item.type == "pregnancy_sub_baby_growth"
+                              )
+                                ? allowance.find(
+                                    item =>
+                                      item.type == "pregnancy_sub_baby_growth"
+                                  ).active
+                                : false;
+                              var better_relation = allowance.find(
+                                item =>
+                                  item.type == "pregnancy_sub_better_relation"
+                              )
+                                ? allowance.find(
+                                    item =>
+                                      item.type ==
+                                      "pregnancy_sub_better_relation"
+                                  ).active
+                                : false;
+                              return (
+                                !(
+                                  become_father &&
+                                  baby_growth &&
+                                  better_relation
+                                ) && $ctx.query.inApp != "true"
+                              );
+                            })()
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["typeBuy"]
+                                    },
+                                    operation: 0,
+                                    value: "pregnancySub"
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateTypeBuy"] != null &&
+                              typeof $steps["updateTypeBuy"] === "object" &&
+                              typeof $steps["updateTypeBuy"].then === "function"
+                            ) {
+                              $steps["updateTypeBuy"] = await $steps[
+                                "updateTypeBuy"
+                              ];
+                            }
+
+                            $steps["updateDirectDialog2Open"] = (() => {
+                              const allowance =
+                                $state?.getUserInfo?.data?.[0]?.result
+                                  ?.allowance || [];
+                              var become_father = allowance.find(
+                                item =>
+                                  item.type == "pregnancy_sub_become_father"
+                              )
+                                ? allowance.find(
+                                    item =>
+                                      item.type == "pregnancy_sub_become_father"
+                                  ).active
+                                : false;
+                              var baby_growth = allowance.find(
+                                item => item.type == "pregnancy_sub_baby_growth"
+                              )
+                                ? allowance.find(
+                                    item =>
+                                      item.type == "pregnancy_sub_baby_growth"
+                                  ).active
+                                : false;
+                              var better_relation = allowance.find(
+                                item =>
+                                  item.type == "pregnancy_sub_better_relation"
+                              )
+                                ? allowance.find(
+                                    item =>
+                                      item.type ==
+                                      "pregnancy_sub_better_relation"
+                                  ).active
+                                : false;
+                              return (
+                                !(
+                                  become_father &&
+                                  baby_growth &&
+                                  better_relation
+                                ) && $ctx.query.inApp != "true"
+                              );
+                            })()
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["directDialog2", "open"]
+                                    },
+                                    operation: 4
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    const oldValue = $stateGet(
+                                      objRoot,
+                                      variablePath
+                                    );
+                                    $stateSet(objRoot, variablePath, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateDirectDialog2Open"] != null &&
+                              typeof $steps["updateDirectDialog2Open"] ===
+                                "object" &&
+                              typeof $steps["updateDirectDialog2Open"].then ===
+                                "function"
+                            ) {
+                              $steps["updateDirectDialog2Open"] = await $steps[
+                                "updateDirectDialog2Open"
+                              ];
                             }
                           }}
                           onClickBtn2={async event => {
@@ -7641,6 +7852,50 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       ) {
                                         $steps["deepLink"] = await $steps[
                                           "deepLink"
+                                        ];
+                                      }
+
+                                      $steps["runCode"] =
+                                        $ctx.query.inApp != "true"
+                                          ? (() => {
+                                              const actionArgs = {
+                                                customFunction: async () => {
+                                                  return (() => {
+                                                    const allowance =
+                                                      $state?.getUserInfo
+                                                        ?.data?.[0]?.result
+                                                        ?.allowance || [];
+                                                    const filteredItem =
+                                                      allowance.find(item =>
+                                                        item.type.includes(
+                                                          currentItem.action
+                                                        )
+                                                      );
+                                                    const active = filteredItem
+                                                      ? filteredItem.active
+                                                      : false;
+                                                    if (!active) {
+                                                      $state.typeBuy =
+                                                        "pregnancySub";
+                                                      return ($state.directDialog2.open =
+                                                        true);
+                                                    }
+                                                  })();
+                                                }
+                                              };
+                                              return (({ customFunction }) => {
+                                                return customFunction();
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                      if (
+                                        $steps["runCode"] != null &&
+                                        typeof $steps["runCode"] === "object" &&
+                                        typeof $steps["runCode"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["runCode"] = await $steps[
+                                          "runCode"
                                         ];
                                       }
 
