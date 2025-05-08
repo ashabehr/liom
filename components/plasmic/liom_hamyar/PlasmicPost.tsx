@@ -70,8 +70,6 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPost.module.css"; // plasmic-import: PIFHnFLcunkZ/css
 
-import Icon220Icon from "./icons/PlasmicIcon__Icon220"; // plasmic-import: 2OnucKdSTq8d/icon
-
 createPlasmicElementProxy;
 
 export type PlasmicPost__VariantMembers = {
@@ -117,8 +115,6 @@ export type PlasmicPost__OverridesType = {
   img?: Flex__<typeof PlasmicImg__>;
   htmlVideo?: Flex__<typeof Video>;
   audioPlayer?: Flex__<typeof AudioPlayer>;
-  lineClomp?: Flex__<typeof LineClomp>;
-  svg?: Flex__<"svg">;
 };
 
 export interface DefaultPostProps {
@@ -189,12 +185,6 @@ function PlasmicPost__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.postType
       },
       {
-        path: "lineClomp.line",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "lineClompText.line",
         type: "private",
         variableType: "boolean",
@@ -244,306 +234,283 @@ function PlasmicPost__RenderFunc(props: {
         }
       )}
     >
-      <LineClomp
-        data-plasmic-name={"lineClompTitle"}
-        data-plasmic-override={overrides.lineClompTitle}
-        className={classNames("__wab_instance", sty.lineClompTitle)}
-        numberOfLine={1}
-        onLineChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["lineClompTitle", "line"]).apply(
-            null,
-            eventArgs
-          );
+      <div className={classNames(projectcss.all, sty.freeBox__tjGb4)}>
+        <LineClomp
+          data-plasmic-name={"lineClompTitle"}
+          data-plasmic-override={overrides.lineClompTitle}
+          className={classNames("__wab_instance", sty.lineClompTitle)}
+          numberOfLine={1}
+          onLineChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["lineClompTitle", "line"]).apply(
+              null,
+              eventArgs
+            );
 
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-      >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__g7I9D
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.title;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
-      </LineClomp>
-      <LineClomp
-        data-plasmic-name={"lineClompText"}
-        data-plasmic-override={overrides.lineClompText}
-        className={classNames("__wab_instance", sty.lineClompText, {
-          [sty.lineClompTextpostType_jastText]: hasVariant(
-            $state,
-            "postType",
-            "jastText"
-          )
-        })}
-        more={true}
-        numberOfLine={4}
-        onLineChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, ["lineClompText", "line"]).apply(
-            null,
-            eventArgs
-          );
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-      >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__rkw2,
-            {
-              [sty.textpostType_image__rkw22TCWu]: hasVariant(
-                $state,
-                "postType",
-                "image"
-              ),
-              [sty.textpostType_voise__rkw2Vlsyu]: hasVariant(
-                $state,
-                "postType",
-                "voise"
-              )
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
             }
-          )}
+          }}
         >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.text;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "text";
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__g7I9D
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.title;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
-      </LineClomp>
-      <div
-        data-plasmic-name={"image3"}
-        data-plasmic-override={overrides.image3}
-        className={classNames(projectcss.all, sty.image3, {
-          [sty.image3postType_file]: hasVariant($state, "postType", "file"),
-          [sty.image3postType_image]: hasVariant($state, "postType", "image"),
-          [sty.image3postType_jastText]: hasVariant(
-            $state,
-            "postType",
-            "jastText"
-          ),
-          [sty.image3postType_video]: hasVariant($state, "postType", "video"),
-          [sty.image3postType_voise]: hasVariant($state, "postType", "voise")
-        })}
-      >
-        <PlasmicImg__
-          data-plasmic-name={"img"}
-          data-plasmic-override={overrides.img}
-          alt={""}
-          className={classNames(sty.img, {
-            [sty.imgpostType_image]: hasVariant($state, "postType", "image")
+              })()}
+            </React.Fragment>
+          </div>
+        </LineClomp>
+        <LineClomp
+          data-plasmic-name={"lineClompText"}
+          data-plasmic-override={overrides.lineClompText}
+          className={classNames("__wab_instance", sty.lineClompText, {
+            [sty.lineClompTextpostType_jastText]: hasVariant(
+              $state,
+              "postType",
+              "jastText"
+            )
           })}
-          displayHeight={"auto"}
-          displayMaxHeight={"50%"}
-          displayMaxWidth={"50%"}
-          displayMinHeight={"0"}
-          displayMinWidth={"0"}
-          displayWidth={"auto"}
-          loading={"lazy"}
-          src={(() => {
-            try {
-              return $props.image2;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
+          more={true}
+          numberOfLine={4}
+          onLineChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["lineClompText", "line"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
             }
-          })()}
-        />
-      </div>
-      <div
-        className={classNames(projectcss.all, sty.freeBox__tbwA, {
-          [sty.freeBoxpostType_file__tbwASc5R]: hasVariant(
-            $state,
-            "postType",
-            "file"
-          ),
-          [sty.freeBoxpostType_image__tbwA2TCWu]: hasVariant(
-            $state,
-            "postType",
-            "image"
-          ),
-          [sty.freeBoxpostType_jastText__tbwAGp8JF]: hasVariant(
-            $state,
-            "postType",
-            "jastText"
-          ),
-          [sty.freeBoxpostType_voise__tbwAVlsyu]: hasVariant(
-            $state,
-            "postType",
-            "voise"
-          )
-        })}
-      >
-        <Video
-          data-plasmic-name={"htmlVideo"}
-          data-plasmic-override={overrides.htmlVideo}
-          className={classNames("__wab_instance", sty.htmlVideo, {
-            [sty.htmlVideopostType_file]: hasVariant(
+          }}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__rkw2,
+              {
+                [sty.textpostType_image__rkw22TCWu]: hasVariant(
+                  $state,
+                  "postType",
+                  "image"
+                ),
+                [sty.textpostType_voise__rkw2Vlsyu]: hasVariant(
+                  $state,
+                  "postType",
+                  "voise"
+                )
+              }
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.text;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "text";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+        </LineClomp>
+        <div
+          data-plasmic-name={"image3"}
+          data-plasmic-override={overrides.image3}
+          className={classNames(projectcss.all, sty.image3, {
+            [sty.image3postType_file]: hasVariant($state, "postType", "file"),
+            [sty.image3postType_image]: hasVariant($state, "postType", "image"),
+            [sty.image3postType_jastText]: hasVariant(
+              $state,
+              "postType",
+              "jastText"
+            ),
+            [sty.image3postType_video]: hasVariant($state, "postType", "video"),
+            [sty.image3postType_voise]: hasVariant($state, "postType", "voise")
+          })}
+        >
+          <PlasmicImg__
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(sty.img, {
+              [sty.imgpostType_image]: hasVariant($state, "postType", "image")
+            })}
+            displayHeight={"auto"}
+            displayMaxHeight={"50%"}
+            displayMaxWidth={"50%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            loading={"lazy"}
+            src={(() => {
+              try {
+                return $props.image2;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          />
+        </div>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__tbwA, {
+            [sty.freeBoxpostType_file__tbwASc5R]: hasVariant(
               $state,
               "postType",
               "file"
             ),
-            [sty.htmlVideopostType_image]: hasVariant(
-              $state,
-              "postType",
-              "image"
-            )
-          })}
-          controls={true}
-          src={(() => {
-            try {
-              return $props.video;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()}
-        />
-      </div>
-      <div
-        className={classNames(projectcss.all, sty.freeBox__fbVqi, {
-          [sty.freeBoxpostType_file__fbVqiSc5R]: hasVariant(
-            $state,
-            "postType",
-            "file"
-          ),
-          [sty.freeBoxpostType_image__fbVqi2TCWu]: hasVariant(
-            $state,
-            "postType",
-            "image"
-          ),
-          [sty.freeBoxpostType_jastText__fbVqiGp8JF]: hasVariant(
-            $state,
-            "postType",
-            "jastText"
-          ),
-          [sty.freeBoxpostType_video__fbVqi1UrG6]: hasVariant(
-            $state,
-            "postType",
-            "video"
-          ),
-          [sty.freeBoxpostType_voise__fbVqiVlsyu]: hasVariant(
-            $state,
-            "postType",
-            "voise"
-          )
-        })}
-      >
-        <AudioPlayer
-          data-plasmic-name={"audioPlayer"}
-          data-plasmic-override={overrides.audioPlayer}
-          audioLink={(() => {
-            try {
-              return $props.audioLinkInPost;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()}
-          className={classNames("__wab_instance", sty.audioPlayer, {
-            [sty.audioPlayerpostType_image]: hasVariant(
+            [sty.freeBoxpostType_image__tbwA2TCWu]: hasVariant(
               $state,
               "postType",
               "image"
             ),
-            [sty.audioPlayerpostType_voise]: hasVariant(
+            [sty.freeBoxpostType_jastText__tbwAGp8JF]: hasVariant(
+              $state,
+              "postType",
+              "jastText"
+            ),
+            [sty.freeBoxpostType_voise__tbwAVlsyu]: hasVariant(
               $state,
               "postType",
               "voise"
             )
           })}
-        />
-      </div>
-      <div
-        className={classNames(projectcss.all, sty.freeBox__haeLb, {
-          [sty.freeBoxpostType_file__haeLbSc5R]: hasVariant(
-            $state,
-            "postType",
-            "file"
-          ),
-          [sty.freeBoxpostType_jastText__haeLbGp8JF]: hasVariant(
-            $state,
-            "postType",
-            "jastText"
-          )
-        })}
-      >
+        >
+          <Video
+            data-plasmic-name={"htmlVideo"}
+            data-plasmic-override={overrides.htmlVideo}
+            className={classNames("__wab_instance", sty.htmlVideo, {
+              [sty.htmlVideopostType_file]: hasVariant(
+                $state,
+                "postType",
+                "file"
+              ),
+              [sty.htmlVideopostType_image]: hasVariant(
+                $state,
+                "postType",
+                "image"
+              )
+            })}
+            controls={true}
+            src={(() => {
+              try {
+                return $props.video;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          />
+        </div>
         <div
-          className={classNames(projectcss.all, sty.freeBox__oMc1N, {
-            [sty.freeBoxpostType_file__oMc1NSc5R]: hasVariant(
+          className={classNames(projectcss.all, sty.freeBox__fbVqi, {
+            [sty.freeBoxpostType_file__fbVqiSc5R]: hasVariant(
               $state,
               "postType",
               "file"
             ),
-            [sty.freeBoxpostType_image__oMc1N2TCWu]: hasVariant(
+            [sty.freeBoxpostType_image__fbVqi2TCWu]: hasVariant(
               $state,
               "postType",
               "image"
             ),
-            [sty.freeBoxpostType_video__oMc1N1UrG6]: hasVariant(
+            [sty.freeBoxpostType_jastText__fbVqiGp8JF]: hasVariant(
+              $state,
+              "postType",
+              "jastText"
+            ),
+            [sty.freeBoxpostType_video__fbVqi1UrG6]: hasVariant(
               $state,
               "postType",
               "video"
             ),
-            [sty.freeBoxpostType_voise__oMc1NVlsyu]: hasVariant(
+            [sty.freeBoxpostType_voise__fbVqiVlsyu]: hasVariant(
               $state,
               "postType",
               "voise"
+            )
+          })}
+        >
+          <AudioPlayer
+            data-plasmic-name={"audioPlayer"}
+            data-plasmic-override={overrides.audioPlayer}
+            audioLink={(() => {
+              try {
+                return $props.audioLinkInPost;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            className={classNames("__wab_instance", sty.audioPlayer, {
+              [sty.audioPlayerpostType_image]: hasVariant(
+                $state,
+                "postType",
+                "image"
+              ),
+              [sty.audioPlayerpostType_voise]: hasVariant(
+                $state,
+                "postType",
+                "voise"
+              )
+            })}
+          />
+        </div>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__uxQPe, {
+            [sty.freeBoxpostType_image__uxQPe2TCWu]: hasVariant(
+              $state,
+              "postType",
+              "image"
+            ),
+            [sty.freeBoxpostType_jastText__uxQPeGp8JF]: hasVariant(
+              $state,
+              "postType",
+              "jastText"
             )
           })}
           onClick={async event => {
@@ -553,7 +520,7 @@ function PlasmicPost__RenderFunc(props: {
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
-                      return window.open($props.fail);
+                      return window.open($props.linkForAction);
                     }
                   };
                   return (({ customFunction }) => {
@@ -570,124 +537,29 @@ function PlasmicPost__RenderFunc(props: {
             }
           }}
         >
-          <LineClomp
-            data-plasmic-name={"lineClomp"}
-            data-plasmic-override={overrides.lineClomp}
-            className={classNames("__wab_instance", sty.lineClomp)}
-            numberOfLine={1}
-            onLineChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["lineClomp", "line"]).apply(
-                null,
-                eventArgs
-              );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__wys2X
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $props.failName;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-          </LineClomp>
           <div
-            className={classNames(projectcss.all, sty.freeBox__rEuUx, {
-              [sty.freeBoxpostType_jastText__rEuUxGp8JF]: hasVariant(
-                $state,
-                "postType",
-                "jastText"
-              )
-            })}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__v2Gn
+            )}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__apntU)}>
-              <Icon220Icon
-                data-plasmic-name={"svg"}
-                data-plasmic-override={overrides.svg}
-                className={classNames(projectcss.all, sty.svg)}
-                role={"img"}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className={classNames(projectcss.all, sty.freeBox__uxQPe, {
-          [sty.freeBoxpostType_jastText__uxQPeGp8JF]: hasVariant(
-            $state,
-            "postType",
-            "jastText"
-          )
-        })}
-        onClick={async event => {
-          const $steps = {};
-
-          $steps["runCode"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return window.open($props.linkForAction);
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.textForBottum;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
                   }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["runCode"] != null &&
-            typeof $steps["runCode"] === "object" &&
-            typeof $steps["runCode"].then === "function"
-          ) {
-            $steps["runCode"] = await $steps["runCode"];
-          }
-        }}
-      >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__v2Gn
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.textForBottum;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "";
+                  throw e;
                 }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
+              })()}
+            </React.Fragment>
+          </div>
         </div>
       </div>
     </div>
@@ -702,18 +574,14 @@ const PlasmicDescendants = {
     "image3",
     "img",
     "htmlVideo",
-    "audioPlayer",
-    "lineClomp",
-    "svg"
+    "audioPlayer"
   ],
   lineClompTitle: ["lineClompTitle"],
   lineClompText: ["lineClompText"],
   image3: ["image3", "img"],
   img: ["img"],
   htmlVideo: ["htmlVideo"],
-  audioPlayer: ["audioPlayer"],
-  lineClomp: ["lineClomp"],
-  svg: ["svg"]
+  audioPlayer: ["audioPlayer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -726,8 +594,6 @@ type NodeDefaultElementType = {
   img: typeof PlasmicImg__;
   htmlVideo: typeof Video;
   audioPlayer: typeof AudioPlayer;
-  lineClomp: typeof LineClomp;
-  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -796,8 +662,6 @@ export const PlasmicPost = Object.assign(
     img: makeNodeComponent("img"),
     htmlVideo: makeNodeComponent("htmlVideo"),
     audioPlayer: makeNodeComponent("audioPlayer"),
-    lineClomp: makeNodeComponent("lineClomp"),
-    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicPost
     internalVariantProps: PlasmicPost__VariantProps,

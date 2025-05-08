@@ -1928,6 +1928,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/post"
+        },
+        {
+          "id": "b99R9DzKyA4P",
+          "name": "Post2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPost2.tsx",
+          "importSpec": {
+            "modulePath": "Post2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicPost2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -3365,6 +3378,16 @@
           "id": "FJ1pKTHtXYhO",
           "name": "Icon228Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon228.tsx"
+        },
+        {
+          "id": "bi0P207Qf6SQ",
+          "name": "Icon229Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon229.tsx"
+        },
+        {
+          "id": "Z1yDsg70sSq3",
+          "name": "Icon230Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon230.tsx"
         }
       ],
       "images": [

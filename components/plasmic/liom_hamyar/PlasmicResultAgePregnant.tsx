@@ -73,6 +73,8 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicResultAgePregnant.module.css"; // plasmic-import: -_waIfkF0kiE/css
 
+import Icon230Icon from "./icons/PlasmicIcon__Icon230"; // plasmic-import: Z1yDsg70sSq3/icon
+import Icon229Icon from "./icons/PlasmicIcon__Icon229"; // plasmic-import: bi0P207Qf6SQ/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
@@ -482,31 +484,22 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                         sty.text__kIe9H
                       )}
                     >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (() => {
-                              return $state.agePregnant.week > 0
-                                ? "سن بارداری شما " +
-                                    $state.agePregnant.week +
-                                    " هفته و " +
-                                    $state.agePregnant.day +
-                                    " روز می‌باشد."
-                                : "سن بارداری شما " +
-                                    $state.agePregnant.day +
-                                    " روز می‌باشد.";
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "\u0633\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0634\u0645\u0627 18 \u0647\u0641\u062a\u0647 0 \u0631\u0648\u0632 \u0645\u06cc \u0628\u0627\u0634\u062f.\u200d";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            return $state.agePregnant.week > 0
+                              ? "سن بارداری شما <b>" +
+                                  $state.agePregnant.week +
+                                  "</b> هفته و <b>" +
+                                  $state.agePregnant.day +
+                                  "</b> روز می‌باشد."
+                              : "سن بارداری شما <b>" +
+                                  $state.agePregnant.day +
+                                  "</b> روز می‌باشد.";
+                          })()
+                        }}
+                      />
                     </div>
                   </Stack__>
                   <div
@@ -634,62 +627,105 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                           sty.freeBox__orysH
                         )}
                       >
-                        <div
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__v7BKe
+                            sty.freeBox__oV5Xj
                           )}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  "وزن فرزندت : " +
-                                  $state.babySize[$state.agePregnant.week].w +
-                                  ($state.agePregnant.week >= 27
-                                    ? " کیلوگرم "
-                                    : " گرم ")
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                        <div
+                          <Icon230Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__wUpJ
+                            )}
+                            role={"img"}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__rJ5Bn
+                            )}
+                          >
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return (
+                                      "وزن فرزندت : " +
+                                      ($state.agePregnant.week >= 27
+                                        ? "<b> kg </b>"
+                                        : "<b> g <b/>") +
+                                      $state.babySize[$state.agePregnant.week].w
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          </div>
+                        </Stack__>
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__rJ5Bn
+                            sty.freeBox__urD9W
                           )}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  "قد فرزندت : " +
-                                  $state.babySize[$state.agePregnant.week].h +
-                                  " سانتی متر "
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
+                          <Icon229Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__wfFwu
+                            )}
+                            role={"img"}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___9C7Dq
+                            )}
+                          >
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return (
+                                      "قد فرزندت : " +
+                                      $state.babySize[$state.agePregnant.week]
+                                        .h +
+                                      "<b> cm </b>"
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          </div>
+                        </Stack__>
                       </Stack__>
                     </div>
                   </div>

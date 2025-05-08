@@ -183,7 +183,7 @@
     {
       "name": "Basic/Input-Background",
       "type": "color",
-      "value": "#E5E7EB",
+      "value": "rgb(230,230,230)",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
