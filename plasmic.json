@@ -1930,7 +1930,20 @@
           "path": "/post"
         },
         {
-          "id": "b99R9DzKyA4P",
+          "id": "5V4ceo3a5FXI",
+          "name": "BuyComponenct2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicBuyComponenct2.tsx",
+          "importSpec": {
+            "modulePath": "BuyComponenct2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicBuyComponenct2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "1mzmY9DmVGqo",
           "name": "Post2",
           "type": "managed",
           "projectId": "suVPi77vb6vv9K5rYJwyxC",

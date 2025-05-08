@@ -1021,8 +1021,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "paramsObject",
@@ -1034,8 +1033,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "userId",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "4ddd1fab-100c-49f0-b843-e70bff8add34"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "suggestActiveSms",
@@ -1555,7 +1553,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                             },
                             operation: 0,
                             value: $steps.getUser.data.id
-                            // "4ddd1fab-100c-49f0-b843-e70bff8add34"
                           };
                           return (({
                             variable,
@@ -1579,6 +1576,80 @@ function PlasmicPregnancy__RenderFunc(props: {
                     typeof $steps["setUserId"].then === "function"
                   ) {
                     $steps["setUserId"] = await $steps["setUserId"];
+                  }
+
+                  $steps["getUser2"] =
+                    // $state.userId == ""
+                    false
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              undefined,
+                              "https://n8n.staas.ir/webhook/getLiomId",
+                              (() => {
+                                try {
+                                  return { token: $state.token };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                  if (
+                    $steps["getUser2"] != null &&
+                    typeof $steps["getUser2"] === "object" &&
+                    typeof $steps["getUser2"].then === "function"
+                  ) {
+                    $steps["getUser2"] = await $steps["getUser2"];
+                  }
+
+                  $steps["updateUserId"] =
+                    // $state.userId == ''
+                    false
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["userId"]
+                            },
+                            operation: 0,
+                            value: $steps.getUser2.data?.[0]?.userId
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["updateUserId"] != null &&
+                    typeof $steps["updateUserId"] === "object" &&
+                    typeof $steps["updateUserId"].then === "function"
+                  ) {
+                    $steps["updateUserId"] = await $steps["updateUserId"];
                   }
 
                   $steps["updateIsTimer"] = true
@@ -1805,7 +1876,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               $state.loadingAdvice = true;
                               return fetch(
                                 "https://n8n.staas.ir/webhook/getAdvice-v2/?weekNumber=" +
-                                  10,
+                                  $state.selectedWeek,
                                 { method: "GET" }
                               )
                                 .then(response => response.json())
@@ -25883,6 +25954,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                       />
                     </div>
                   ) : null}
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__wg9XO)}
+                  />
                 </div>
               ) : null}
               {(

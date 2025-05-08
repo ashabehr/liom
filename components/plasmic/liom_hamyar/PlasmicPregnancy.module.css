@@ -4202,6 +4202,15 @@
 .img__q5PPt > picture > img {
   object-fit: cover;
 }
+.freeBox__wg9XO {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
 .freeBox__vg0Ol {
   display: flex;
   flex-direction: column;
