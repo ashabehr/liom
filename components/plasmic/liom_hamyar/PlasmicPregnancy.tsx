@@ -6707,11 +6707,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       "pregnancy_sub_better_relation"
                                                   ).active
                                                 : false;
-                                            return become_father &&
+                                            var a =
+                                              become_father &&
                                               baby_growth &&
                                               better_relation
-                                              ? "#hamyarInfo"
-                                              : "#directDialog-pregnancySub";
+                                                ? "#hamyarInfo"
+                                                : "#directDialog-pregnancySub";
+                                            console.log(a);
+                                            return a;
                                           })();
                                         } catch (e) {
                                           if (
