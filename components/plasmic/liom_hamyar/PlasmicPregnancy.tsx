@@ -7805,7 +7805,23 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     onClick={async event => {
                                       const $steps = {};
 
-                                      $steps["deepLink"] = true
+                                      $steps["deepLink"] = (() => {
+                                        const allowance =
+                                          $state?.getUserInfo?.data?.[0]?.result
+                                            ?.allowance || [];
+                                        const filteredItem = allowance.find(
+                                          item =>
+                                            item.type.includes(
+                                              currentItem.shopType
+                                            )
+                                        );
+                                        const active = filteredItem
+                                          ? filteredItem.active
+                                          : false;
+                                        return (
+                                          active || currentItem.shopType == ""
+                                        );
+                                      })()
                                         ? (() => {
                                             const actionArgs = {
                                               args: [
@@ -7938,7 +7954,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     const active = filteredItem
                                                       ? filteredItem.active
                                                       : false;
-                                                    if (!active) {
+                                                    if (
+                                                      !active &&
+                                                      currentItem.shopType != ""
+                                                    ) {
                                                       $state.typeBuy =
                                                         "pregnancySub";
                                                       return ($state.directDialog2.open =
