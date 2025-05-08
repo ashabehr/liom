@@ -43,7 +43,6 @@
   display: none;
 }
 .freeBox__fKYih {
-  display: flex;
   flex-direction: row;
   position: relative;
   align-items: stretch;
@@ -53,6 +52,7 @@
   max-width: 100%;
   background: #ffffff;
   min-width: 0;
+  display: none;
   padding: 8px 16px;
 }
 @media (max-width: 640px) {

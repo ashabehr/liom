@@ -380,99 +380,81 @@ function PlasmicAgePregnant__RenderFunc(props: {
             }
           />
 
-          {(() => {
-            try {
-              return $ctx.query.inApp != "true";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })() ? (
+          <div
+            className={classNames(projectcss.all, sty.freeBox__fKYih, {
+              [sty.freeBoxdark__fKYihOOgpk]: hasVariant($state, "dark", "dark")
+            })}
+          >
             <div
-              className={classNames(projectcss.all, sty.freeBox__fKYih, {
-                [sty.freeBoxdark__fKYihOOgpk]: hasVariant(
-                  $state,
-                  "dark",
-                  "dark"
-                )
-              })}
+              className={classNames(projectcss.all, sty.freeBox___6PuWs)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return window.history.back();
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
             >
-              <div
-                className={classNames(projectcss.all, sty.freeBox___6PuWs)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return window.history.back();
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
+              <PlasmicImg__
+                data-plasmic-name={"img"}
+                data-plasmic-override={overrides.img}
+                alt={""}
+                className={classNames(sty.img, {
+                  [sty.imgdark]: hasVariant($state, "dark", "dark")
+                })}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"20px"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/liom_hamyar/images/image38.svg",
+                  fullWidth: 24,
+                  fullHeight: 24,
+                  aspectRatio: 1
                 }}
-              >
-                <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
-                  alt={""}
-                  className={classNames(sty.img, {
-                    [sty.imgdark]: hasVariant($state, "dark", "dark")
-                  })}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"20px"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image38.svg",
-                    fullWidth: 24,
-                    fullHeight: 24,
-                    aspectRatio: 1
-                  }}
-                />
+              />
 
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__cdeaf,
-                    {
-                      [sty.textdark__cdeafOOgpk]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
-                >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__cdeaf,
                   {
-                    "\u0645\u062d\u0627\u0633\u0628\u0647 \u0633\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                    [sty.textdark__cdeafOOgpk]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
                   }
-                </div>
+                )}
+              >
+                {
+                  "\u0645\u062d\u0627\u0633\u0628\u0647 \u0633\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                }
               </div>
             </div>
-          ) : null}
+          </div>
           <div className={classNames(projectcss.all, sty.freeBox__fX9Pk)}>
             <div className={classNames(projectcss.all, sty.freeBox___3U3CK)}>
               <div className={classNames(projectcss.all, sty.freeBox___9IxYp)}>
@@ -1803,7 +1785,7 @@ function PlasmicAgePregnant__RenderFunc(props: {
                             },
                             operation: 0,
                             value: (() => {
-                              const dueDateStr = "2025-08-01";
+                              const dueDateStr = $state.duDate.toString();
                               const dueDate = new Date(dueDateStr);
                               const today = new Date();
                               dueDate.setHours(0, 0, 0, 0);
