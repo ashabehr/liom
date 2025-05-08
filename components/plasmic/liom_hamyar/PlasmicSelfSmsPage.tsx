@@ -67,6 +67,7 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
@@ -100,6 +101,7 @@ export const PlasmicSelfSmsPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSelfSmsPage__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   embedHtml?: Flex__<typeof Embed>;
   getSub?: Flex__<typeof ApiRequest>;
   countdown?: Flex__<typeof Countdown>;
@@ -266,6 +268,24 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "nothing"
+      },
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "userId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -328,6 +348,148 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               }
             })()}
           >
+            <SideEffect
+              data-plasmic-name={"sideEffect"}
+              data-plasmic-override={overrides.sideEffect}
+              className={classNames("__wab_instance", sty.sideEffect)}
+              onMount={async () => {
+                const $steps = {};
+
+                $steps["getParams"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            const queryString = window.location.search;
+                            const urlParams = new URLSearchParams(queryString);
+                            urlParams.forEach((value, key) => {
+                              $state.paramsObject[key] = value;
+                            });
+                            return ($state.userId = $state.paramsObject.userId);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["getParams"] != null &&
+                  typeof $steps["getParams"] === "object" &&
+                  typeof $steps["getParams"].then === "function"
+                ) {
+                  $steps["getParams"] = await $steps["getParams"];
+                }
+
+                $steps["clearParams"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            const searchParams = new URLSearchParams(
+                              window.location.search
+                            );
+                            searchParams.delete("token");
+                            searchParams.delete("userId");
+                            searchParams.delete("user_id");
+                            searchParams.delete("origin_user_id");
+                            const newUrl = `${
+                              window.location.pathname
+                            }?${searchParams.toString()}`;
+                            return window.history.replaceState(
+                              null,
+                              "",
+                              newUrl
+                            );
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["clearParams"] != null &&
+                  typeof $steps["clearParams"] === "object" &&
+                  typeof $steps["clearParams"].then === "function"
+                ) {
+                  $steps["clearParams"] = await $steps["clearParams"];
+                }
+
+                $steps["setCookie"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            if (
+                              $state.paramsObject.token !== undefined &&
+                              $state.paramsObject.token.trim() !== ""
+                            ) {
+                              if (!$state.paramsObject.token.startsWith("ey"))
+                                $state.paramsObject.token =
+                                  $state.paramsObject.token.slice(6, -3);
+                              var setCookie = (name, value, days) => {
+                                const expires = new Date(
+                                  Date.now() + days * 86400000
+                                ).toUTCString();
+                                document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                              };
+                              return setCookie(
+                                "token",
+                                JSON.stringify([$state.paramsObject.token]),
+                                100
+                              );
+                            }
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["setCookie"] != null &&
+                  typeof $steps["setCookie"] === "object" &&
+                  typeof $steps["setCookie"].then === "function"
+                ) {
+                  $steps["setCookie"] = await $steps["setCookie"];
+                }
+
+                $steps["getCookie"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            var getCookie = name => {
+                              const cookies = document.cookie.split("; ");
+                              for (let cookie of cookies) {
+                                const [key, value] = cookie.split("=");
+                                if (key === name) return JSON.parse(value)[0];
+                              }
+                              return "";
+                            };
+                            return ($state.token = getCookie("token"));
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["getCookie"] != null &&
+                  typeof $steps["getCookie"] === "object" &&
+                  typeof $steps["getCookie"].then === "function"
+                ) {
+                  $steps["getCookie"] = await $steps["getCookie"];
+                }
+              }}
+            />
+
             <Embed
               data-plasmic-name={"embedHtml"}
               data-plasmic-override={overrides.embedHtml}
@@ -342,18 +504,10 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               data-plasmic-override={overrides.getSub}
               body={(() => {
                 try {
-                  return (() => {
-                    var token =
-                      $ctx.query.token ||
-                      new URLSearchParams(window.location.search).get("token");
-                    if (!token.startsWith("ey")) {
-                      token = token.slice(6, token.length - 3);
-                    }
-                    return {
-                      Authorization: token,
-                      sub: "selfHamyarSmsSubStatus"
-                    };
-                  })();
+                  return {
+                    Authorization: $state.token,
+                    sub: "selfHamyarSmsSubStatus"
+                  };
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -469,11 +623,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                             (() => {
                               try {
                                 return {
-                                  userId:
-                                    $ctx.query.userId ||
-                                    new URLSearchParams(
-                                      window.location.search
-                                    ).get("userId"),
+                                  userId: $state.userId,
                                   pageName: "selfSmsPage",
                                   action: "loadPage",
                                   extraData: {}
@@ -1469,7 +1619,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                       (() => {
                                         try {
                                           return {
-                                            Authorization: $ctx.query.token,
+                                            Authorization: $state.token,
                                             type: "selfHamyarSms",
                                             data: false
                                           };
@@ -1514,7 +1664,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                     (() => {
                                       try {
                                         return {
-                                          Authorization: $ctx.query.token,
+                                          Authorization: $state.token,
                                           type: "selfHamyarSms",
                                           data: true
                                         };
@@ -1882,7 +2032,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                   (() => {
                                     try {
                                       return {
-                                        Authorization: $ctx.query.token,
+                                        Authorization: $state.token,
                                         type: "selfHamyarSms",
                                         data: false
                                       };
@@ -1924,7 +2074,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                 (() => {
                                   try {
                                     return {
-                                      Authorization: $ctx.query.token,
+                                      Authorization: $state.token,
                                       type: "selfHamyarSms",
                                       data: true
                                     };
@@ -36138,55 +36288,6 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               }}
               className={classNames("__wab_instance", sty.lottie)}
             />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___2LDfX
-              )}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            return alert("Received message: ---- ");
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
-              }}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $state.flutter;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
           </div>
           {(() => {
             try {
@@ -36272,6 +36373,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "embedHtml",
     "getSub",
     "countdown",
@@ -36282,6 +36384,7 @@ const PlasmicDescendants = {
     "headerLiom",
     "svg"
   ],
+  sideEffect: ["sideEffect"],
   embedHtml: ["embedHtml"],
   getSub: ["getSub"],
   countdown: ["countdown"],
@@ -36297,6 +36400,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   embedHtml: typeof Embed;
   getSub: typeof ApiRequest;
   countdown: typeof Countdown;
@@ -36393,6 +36497,7 @@ export const PlasmicSelfSmsPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     embedHtml: makeNodeComponent("embedHtml"),
     getSub: makeNodeComponent("getSub"),
     countdown: makeNodeComponent("countdown"),

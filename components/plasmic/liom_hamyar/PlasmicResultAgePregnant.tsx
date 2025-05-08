@@ -888,17 +888,6 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                   "\u0627\u0628\u0632\u0631\u0627\u0647\u0627\u06cc \u067e\u06cc\u0634\u0646\u0647\u0627\u062f\u06cc \u0644\u06cc\u0648\u0645:"
                 }
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___3R7EC
-                )}
-              >
-                {
-                  "\u0628\u0631\u0627\u06cc \u0645\u0634\u0627\u0647\u062f\u0647 \u0648 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u062f\u06cc\u06af\u0631 \u0627\u0628\u0632\u0631\u0627\u0647\u0627 \u0645\u06cc\u062a\u0648\u0646\u06cc\u062f \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a\u200c\u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631(\u0628\u0627\u0632\u0627\u0631\u060c \u0645\u0627\u06cc\u06a9\u062a \u0648 \u067e\u0644\u06cc \u0627\u0633\u062a\u0648\u0631) \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f."
-                }
-              </div>
               <div className={classNames(projectcss.all, sty.freeBox__zylr0)}>
                 {(() => {
                   const child$Props = {
@@ -1653,7 +1642,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                                     customFunction: async () => {
                                       return (() => {
                                         return window.open(
-                                          "https://apps.liom.app/login/?gateway=pregnancy&redirect_url=https://apps.liom.app/pregnancy/?inApp=false",
+                                          "https://liom.app/link/",
                                           "_self"
                                         );
                                       })();
@@ -1694,24 +1683,19 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                             <React.Fragment>
                               <React.Fragment>
                                 {
-                                  "\u0644\u06cc\u0648\u0645\u060c \u0627\u0628\u0632\u0627\u0631\u06cc \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0627\u0633\u062a. \u0628\u0631\u0627\u06cc \u0648\u0631\u0648\u062f \u0628\u0647 \u0644\u06cc\u0648\u0645 \u0648  \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u062f\u06cc\u06af\u0631 \u0627\u0628\u0632\u0631\u0627\u0647\u0627 \u0648 \u0645\u0637\u0627\u0644\u0628 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc "
+                                  "\u0628\u0627 \u0644\u06cc\u0648\u0645\u060c \u0647\u0648\u0634\u0645\u0646\u062f\u0627\u0646\u0647 \u067e\u0631\u06cc\u0648\u062f \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0631\u0648 \u0645\u062f\u06cc\u0631\u06cc\u062a \u06a9\u0646! \u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u0628\u0632\u0627\u0631\u0647\u0627 \u0648 \u0645\u0637\u0627\u0644\u0628 \u0645\u0641\u06cc\u062f\u060c "
                                 }
                               </React.Fragment>
                               <span
                                 className={
                                   "plasmic_default__all plasmic_default__span"
                                 }
-                                style={{
-                                  textDecorationLine: "underline",
-                                  color: "var(--token-R_Rsn0nP9oIv)"
-                                }}
+                                style={{ textDecorationLine: "underline" }}
                               >
                                 {"\u0627\u06cc\u0646\u062c\u0627"}
                               </span>
                               <React.Fragment>
-                                {
-                                  " \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f."
-                                }
+                                {" \u06a9\u0644\u06cc\u06a9 \u06a9\u0646."}
                               </React.Fragment>
                             </React.Fragment>
                           </div>
@@ -2490,7 +2474,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                                     customFunction: async () => {
                                       return (() => {
                                         return window.open(
-                                          "https://apps.liom.app/login/?gateway=pregnancy&redirect_url=https://apps.liom.app/pregnancy/?inApp=false",
+                                          "https://liom.app/link/",
                                           "_self"
                                         );
                                       })();
@@ -2531,7 +2515,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                             <React.Fragment>
                               <React.Fragment>
                                 {
-                                  "\u0644\u06cc\u0648\u0645\u060c \u0627\u0628\u0632\u0627\u0631\u06cc \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0627\u0633\u062a. \u0628\u0631\u0627\u06cc \u0648\u0631\u0648\u062f \u0628\u0647 \u0644\u06cc\u0648\u0645 \u0648  \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u062f\u06cc\u06af\u0631 \u0627\u0628\u0632\u0631\u0627\u0647\u0627 \u0648 \u0645\u0637\u0627\u0644\u0628 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc "
+                                  "\u00ab\u0644\u06cc\u0648\u0645\u00bb \u0627\u0628\u0632\u0627\u0631\u06cc \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0627\u0633\u062a. \u0628\u0631\u0627\u06cc \u0648\u0631\u0648\u062f \u0628\u0647 \u0644\u06cc\u0648\u0645 \u0648 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0633\u0627\u06cc\u0631 \u0627\u0628\u0632\u0627\u0631\u0647\u0627 \u0648 \u0645\u0637\u0627\u0644\u0628 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc\u060c "
                                 }
                               </React.Fragment>
                               <span
