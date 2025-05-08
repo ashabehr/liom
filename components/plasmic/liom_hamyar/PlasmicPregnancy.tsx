@@ -6582,7 +6582,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             // )
                             // && (!$state.getUserInfo.data[0].result.hamyars[0].rel.statusSms)
                             $state.userId ==
-                              "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
+                              "4ddd1fab-100c-49f0-b843-e70bff8add34" ||
                             $state.userId ==
                               "b6945f4d-7ab6-4a77-92aa-e4f0944cc61c"
                           );
@@ -6801,7 +6801,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                             }
 
                             $steps["updateTypeBuy"] = (() => {
-                              console.log($state.getUserInfo.data[0]);
                               const allowance =
                                 $state?.getUserInfo?.data?.[0]?.result
                                   ?.allowance || [];
@@ -7747,7 +7746,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             try {
                               return (
                                 $state.userId ==
-                                  "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
+                                  "4ddd1fab-100c-49f0-b843-e70bff8add34" ||
                                 $state.userId ==
                                   "b6945f4d-7ab6-4a77-92aa-e4f0944cc61c"
                               );
