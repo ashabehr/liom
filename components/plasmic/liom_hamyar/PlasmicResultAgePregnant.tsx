@@ -1882,24 +1882,11 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                           >
                             <React.Fragment>
                               {(() => {
-                                try {
-                                  return (() => {
-                                    const advice = $state?.advice;
-                                    const filteredItem = advice.find(item =>
-                                      item.type.includes("baby")
-                                    );
-                                    return filteredItem?.text ?? "";
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return '\n  const advice = $state?.getAdvice;\n  const filteredItem = advice.find(item => item.type.includes("mother"));\n  return filteredItem?.text ?? "";\n';
-                                  }
-                                  throw e;
-                                }
+                                const advice = $state?.advice;
+                                const filteredItem = advice.find(item =>
+                                  item.type.includes("baby")
+                                );
+                                return filteredItem?.text ?? "";
                               })()}
                             </React.Fragment>
                           </div>
