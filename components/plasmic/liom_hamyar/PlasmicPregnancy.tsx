@@ -1121,74 +1121,88 @@ function PlasmicPregnancy__RenderFunc(props: {
                 )
               })}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__sY11Y)}
-                id={"reloadButton"}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return location.reload();
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+              {(() => {
+                try {
+                  return $state.userId == "" && !$state.isTimer;
+                } catch (e) {
                   if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    $steps["runCode"] = await $steps["runCode"];
+                    return false;
                   }
-                }}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__qivmg
-                  )}
-                >
-                  {
-                    "\u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0622\u0645\u062f\u0647 \u0644\u0637\u0641\u0627 \u0628\u0631\u0627\u06cc \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f \u0635\u0642\u062d\u0647 \u0631\u0648 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f"
-                  }
-                </div>
-                <Button
-                  data-plasmic-name={"button"}
-                  data-plasmic-override={overrides.button}
-                  className={classNames("__wab_instance", sty.button)}
-                  color={generateStateValueProp($state, ["button", "color"])}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
+                  throw e;
+                }
+              })() ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__sY11Y)}
+                  id={"reloadButton"}
+                  onClick={async event => {
+                    const $steps = {};
 
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return location.reload();
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                     if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
                     ) {
-                      return;
+                      $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
                 >
-                  {
-                    "\u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f \u0635\u0641\u062d\u0647"
-                  }
-                </Button>
-              </Stack__>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__qivmg
+                    )}
+                  >
+                    {
+                      "\u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0622\u0645\u062f\u0647 \u0644\u0637\u0641\u0627 \u0628\u0631\u0627\u06cc \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f \u0635\u0642\u062d\u0647 \u0631\u0648 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f"
+                    }
+                  </div>
+                  <Button
+                    data-plasmic-name={"button"}
+                    data-plasmic-override={overrides.button}
+                    className={classNames("__wab_instance", sty.button)}
+                    color={generateStateValueProp($state, ["button", "color"])}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                  >
+                    {
+                      "\u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f \u0635\u0641\u062d\u0647"
+                    }
+                  </Button>
+                </Stack__>
+              ) : null}
               <SideEffect
                 className={classNames("__wab_instance", sty.sideEffect__kRrSb)}
                 onMount={async () => {
@@ -1579,8 +1593,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                   }
 
                   $steps["getUser2"] =
-                    // $state.userId == ""
-                    false
+                    $state.userId == ""
                       ? (() => {
                           const actionArgs = {
                             args: [
@@ -1617,8 +1630,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                   }
 
                   $steps["updateUserId"] =
-                    // $state.userId == ''
-                    false
+                    $state.userId == ""
                       ? (() => {
                           const actionArgs = {
                             variable: {

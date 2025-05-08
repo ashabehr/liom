@@ -76,12 +76,12 @@
   }
 }
 .freeBox__sY11Y {
+  display: flex;
   flex-direction: column;
   position: relative;
   width: auto;
   height: auto;
   max-width: 100%;
-  display: none;
   padding: 8px;
 }
 .freeBox__sY11Y > :global(.__wab_flex-container) {
