@@ -6707,11 +6707,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       "pregnancy_sub_better_relation"
                                                   ).active
                                                 : false;
-                                            return !(
-                                              become_father &&
+                                            return become_father &&
                                               baby_growth &&
                                               better_relation
-                                            )
                                               ? "#hamyarInfo"
                                               : "#directDialog-pregnancySub";
                                           })();
@@ -6798,6 +6796,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             }
 
                             $steps["updateTypeBuy"] = (() => {
+                              console.log($state.getUserInfo.data[0]);
                               const allowance =
                                 $state?.getUserInfo?.data?.[0]?.result
                                   ?.allowance || [];
@@ -7927,7 +7926,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     const filteredItem =
                                                       allowance.find(item =>
                                                         item.type.includes(
-                                                          currentItem.action
+                                                          currentItem.shopType
                                                         )
                                                       );
                                                     const active = filteredItem

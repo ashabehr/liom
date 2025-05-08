@@ -1801,7 +1801,6 @@ function PlasmicAgePregnant__RenderFunc(props: {
                               );
                               const week = Math.floor(safeDaysPassed / 7);
                               const day = safeDaysPassed % 7;
-                              $state.showResult = true;
                               return {
                                 week: week,
                                 day: day
