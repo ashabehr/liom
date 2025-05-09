@@ -500,7 +500,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                           (() => {
                             try {
                               return {
-                                weekNumber: $state.agePregnant.week + 1
+                                weekNumber: parseInt($ctx.query.week) + 1
                               };
                             } catch (e) {
                               if (
