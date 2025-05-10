@@ -361,6 +361,12 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -491,6 +497,33 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
               onMount={async () => {
                 const $steps = {};
 
+                $steps["parms"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            const queryString = window.location.search;
+                            const urlParams = new URLSearchParams(queryString);
+                            urlParams.forEach((value, key) => {
+                              $state.paramsObject[key] = value;
+                            });
+                            return ($state.userId = $state.paramsObject.userId);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["parms"] != null &&
+                  typeof $steps["parms"] === "object" &&
+                  typeof $steps["parms"].then === "function"
+                ) {
+                  $steps["parms"] = await $steps["parms"];
+                }
+
                 $steps["invokeGlobalAction"] = true
                   ? (() => {
                       const actionArgs = {
@@ -500,7 +533,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                           (() => {
                             try {
                               return {
-                                weekNumber: parseInt($ctx.query.week) + 1
+                                weekNumber:
+                                  parseInt($state.paramsObject.week) + 1
                               };
                             } catch (e) {
                               if (
