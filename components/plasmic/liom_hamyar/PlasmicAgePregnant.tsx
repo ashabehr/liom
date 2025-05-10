@@ -101,6 +101,8 @@ export const PlasmicAgePregnant__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicAgePregnant__OverridesType = {
   root?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
+  favIcone?: Flex__<typeof Embed>;
   img?: Flex__<typeof PlasmicImg__>;
   dateModal?: Flex__<typeof SlideinModal>;
   datePickers?: Flex__<typeof DatePickers>;
@@ -207,7 +209,7 @@ function PlasmicAgePregnant__RenderFunc(props: {
         path: "typeInterDate",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "lastTime"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "dateOfBirth"
       },
       {
         path: "lastTimeBox.value",
@@ -340,7 +342,20 @@ function PlasmicAgePregnant__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicAgePregnant.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicAgePregnant.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicAgePregnant.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -367,16 +382,20 @@ function PlasmicAgePregnant__RenderFunc(props: {
           )}
         >
           <Embed
-            className={classNames("__wab_instance", sty.embedHtml__viHb3)}
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
             code={
               "<!-- Hotjar Tracking Code for setting-pregnancy -->\n<script>\n    (function(h,o,t,j,a,r){\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n        h._hjSettings={hjid:5226515,hjsv:6};\n        a=o.getElementsByTagName('head')[0];\n        r=o.createElement('script');r.async=1;\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n        a.appendChild(r);\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\n</script>\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>"
             }
           />
 
           <Embed
-            className={classNames("__wab_instance", sty.embedHtml__ia79S)}
+            data-plasmic-name={"favIcone"}
+            data-plasmic-override={overrides.favIcone}
+            className={classNames("__wab_instance", sty.favIcone)}
             code={
-              "<script>\n  let isBlocked = false; // \u0645\u062a\u063a\u06cc\u0631 \u0628\u0631\u0627\u06cc \u06a9\u0646\u062a\u0631\u0644 \u0645\u0633\u062f\u0648\u062f \u0634\u062f\u0646 \u062f\u06a9\u0645\u0647\n  let shouldBlockBackButton; // \u0645\u062a\u063a\u06cc\u0631 \u0628\u0631\u0627\u06cc \u0648\u0636\u0639\u06cc\u062a \u0628\u0644\u0648\u06a9\u0647 \u0628\u0648\u062f\u0646 \u062f\u06a9\u0645\u0647\n\n  document.addEventListener('DOMContentLoaded', function() {\n    // \u0628\u0631\u0631\u0633\u06cc \u0627\u06cc\u0646\u06a9\u0647 window.plasmicParent \u0648 window.plasmicParent.state \u0645\u0648\u062c\u0648\u062f \u0647\u0633\u062a\u0646\u062f\n    if (window.plasmicParent && window.plasmicParent.state) {\n      // \u0645\u0642\u062f\u0627\u0631\u062f\u0647\u06cc \u0628\u0647 \u0645\u062a\u063a\u06cc\u0631 \u0641\u0642\u0637 \u0627\u06af\u0631 \u0645\u0642\u062f\u0627\u0631\u062f\u0647\u06cc \u0646\u0634\u062f\u0647 \u0628\u0627\u0634\u062f\n      // if (shouldBlockBackButton === undefined) {\n        shouldBlockBackButton = window.plasmicParent.state.shouldBlockBackButton;\n        console.log(\"value\u06f2: \" + shouldBlockBackButton);\n      // }\n    } else {\n      console.log(\"window.plasmicParent \u06cc\u0627 state \u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a.\");\n    }\n  });\n\n  window.addEventListener('popstate', function(event) {\n    // \u0627\u06af\u0631 \u0642\u0628\u0644\u0627\u064b \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0634\u062f\u0647 \u0628\u0627\u0634\u062f\u060c \u0627\u062c\u0627\u0632\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u06cc\u200c\u062f\u0647\u06cc\u0645\n    if (isBlocked) {\n      console.log('\u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u062f\u0648\u0628\u0627\u0631\u0647 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a.');\n      isBlocked = false; // \u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u062d\u0627\u0644\u062a \u0639\u0627\u062f\u06cc\n      return; // \u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0639\u0642\u0628\n    }\n\n    // \u0627\u06af\u0631 \u0628\u0627\u06cc\u062f \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0634\u0648\u062f\n    if (shouldBlockBackButton) {\n      console.log('\u0634\u0631\u0637 \u0628\u0631\u0642\u0631\u0627\u0631 \u0627\u0633\u062a! \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0645\u06cc\u200c\u0634\u0648\u062f.');\n      event.preventDefault(); // \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0628\u0627\u0632\u06af\u0634\u062a\n      isBlocked = true; // \u0645\u0633\u062f\u0648\u062f \u06a9\u0631\u062f\u0646 \u062f\u06a9\u0645\u0647 \u0628\u0631\u0627\u06cc \u06cc\u06a9 \u0628\u0627\u0631\n    } else {\n      console.log('\u0634\u0631\u0637 \u0628\u0631\u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a\u060c \u0628\u0627\u0632\u06af\u0634\u062a \u0627\u0646\u062c\u0627\u0645 \u0645\u06cc\u200c\u0634\u0648\u062f.');\n    }\n  });\n</script>\n"
+              "<script>\n(function() {\n    var link = document.querySelector(\"link[rel='icon']\");\n    if (!link) {\n        link = document.createElement('link');\n        link.rel = 'icon';\n        document.head.appendChild(link);\n    }\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\n})();\n</script>\n\n"
             }
           />
 
@@ -554,10 +573,38 @@ function PlasmicAgePregnant__RenderFunc(props: {
                             "__wab_instance",
                             sty.datePickers
                           )}
-                          customYears={[
-                            { value: 1403, label: "1403" },
-                            { value: 1404, label: "1404" }
-                          ]}
+                          customYears={(() => {
+                            try {
+                              return $state.typeInterDate == "dateOfBirth"
+                                ? [
+                                    {
+                                      value: 1404,
+                                      label: "1404"
+                                    }
+                                  ]
+                                : [
+                                    {
+                                      value: 1403,
+                                      label: "1403"
+                                    },
+                                    {
+                                      value: 1404,
+                                      label: "1404"
+                                    }
+                                  ];
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [
+                                  { value: 1403, label: "1403" },
+                                  { value: 1404, label: "1404" }
+                                ];
+                              }
+                              throw e;
+                            }
+                          })()}
                           onChange={async (...eventArgs: any) => {
                             generateStateOnChangeProp($state, [
                               "datePickers",
@@ -1916,6 +1963,8 @@ function PlasmicAgePregnant__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "embedHtml",
+    "favIcone",
     "img",
     "dateModal",
     "datePickers",
@@ -1924,6 +1973,8 @@ const PlasmicDescendants = {
     "lastTimeBox",
     "button3"
   ],
+  embedHtml: ["embedHtml"],
+  favIcone: ["favIcone"],
   img: ["img"],
   dateModal: ["dateModal", "datePickers", "button"],
   datePickers: ["datePickers"],
@@ -1937,6 +1988,8 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  embedHtml: typeof Embed;
+  favIcone: typeof Embed;
   img: typeof PlasmicImg__;
   dateModal: typeof SlideinModal;
   datePickers: typeof DatePickers;
@@ -2031,6 +2084,8 @@ export const PlasmicAgePregnant = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    embedHtml: makeNodeComponent("embedHtml"),
+    favIcone: makeNodeComponent("favIcone"),
     img: makeNodeComponent("img"),
     dateModal: makeNodeComponent("dateModal"),
     datePickers: makeNodeComponent("datePickers"),
@@ -2045,7 +2100,7 @@ export const PlasmicAgePregnant = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "محاسبه سن بارداری",
       description: "",
       ogImageSrc: "",
       canonical: ""

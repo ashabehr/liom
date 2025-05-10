@@ -100,6 +100,8 @@ export type PlasmicTest__OverridesType = {
   button3?: Flex__<typeof Button>;
   shop2?: Flex__<typeof ApiRequest>;
   buttonLiom8?: Flex__<typeof Button>;
+  img?: Flex__<typeof PlasmicImg__>;
+  buttonLiom?: Flex__<typeof Button>;
 };
 
 export interface DefaultTestProps {}
@@ -224,6 +226,12 @@ function PlasmicTest__RenderFunc(props: {
       },
       {
         path: "buttonLiom8.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "buttonLiom.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -603,6 +611,75 @@ function PlasmicTest__RenderFunc(props: {
             </ApiRequest>
             <div className={classNames(projectcss.all, sty.freeBox__vIpHu)} />
           </AntdModal>
+          <div className={classNames(projectcss.all, sty.freeBox__meIye)}>
+            <div className={classNames(projectcss.all, sty.freeBox__rFH)}>
+              <div className={classNames(projectcss.all, sty.freeBox__oSgO7)}>
+                <PlasmicImg__
+                  data-plasmic-name={"img"}
+                  data-plasmic-override={overrides.img}
+                  alt={""}
+                  className={classNames(sty.img)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"none"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"40%"}
+                  loading={"lazy"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__y5Mxg
+                  )}
+                >
+                  {
+                    "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0628\u0647 \u0645\u062d\u062a\u0648\u0627 \u0644\u0637\u0641\u0627 \u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
+                  }
+                </div>
+                <Button
+                  data-plasmic-name={"buttonLiom"}
+                  data-plasmic-override={overrides.buttonLiom}
+                  className={classNames("__wab_instance", sty.buttonLiom)}
+                  color={generateStateValueProp($state, [
+                    "buttonLiom",
+                    "color"
+                  ])}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom",
+                        "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  size={"minimal"}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___6EJz3
+                    )}
+                  >
+                    {
+                      "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9"
+                    }
+                  </div>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -617,14 +694,18 @@ const PlasmicDescendants = {
     "apiRequest2",
     "button3",
     "shop2",
-    "buttonLiom8"
+    "buttonLiom8",
+    "img",
+    "buttonLiom"
   ],
   button: ["button"],
   modal: ["modal", "apiRequest2", "button3", "shop2", "buttonLiom8"],
   apiRequest2: ["apiRequest2", "button3", "shop2", "buttonLiom8"],
   button3: ["button3"],
   shop2: ["shop2", "buttonLiom8"],
-  buttonLiom8: ["buttonLiom8"]
+  buttonLiom8: ["buttonLiom8"],
+  img: ["img"],
+  buttonLiom: ["buttonLiom"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -637,6 +718,8 @@ type NodeDefaultElementType = {
   button3: typeof Button;
   shop2: typeof ApiRequest;
   buttonLiom8: typeof Button;
+  img: typeof PlasmicImg__;
+  buttonLiom: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -730,6 +813,8 @@ export const PlasmicTest = Object.assign(
     button3: makeNodeComponent("button3"),
     shop2: makeNodeComponent("shop2"),
     buttonLiom8: makeNodeComponent("buttonLiom8"),
+    img: makeNodeComponent("img"),
+    buttonLiom: makeNodeComponent("buttonLiom"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,
