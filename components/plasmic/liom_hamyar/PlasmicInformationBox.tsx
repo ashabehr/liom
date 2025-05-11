@@ -582,7 +582,7 @@ function PlasmicInformationBox__RenderFunc(props: {
                                 variablePath: ["_switch", "checked"]
                               },
                               operation: 0,
-                              value: $props.btn1.isChecked
+                              value: $props.btn2.isChecked
                             };
                             return (({
                               variable,
