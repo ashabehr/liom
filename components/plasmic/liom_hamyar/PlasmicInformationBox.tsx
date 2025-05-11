@@ -410,11 +410,52 @@ function PlasmicInformationBox__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                disabled={false}
                 onChange={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
                     "_switch",
                     "checked"
                   ]).apply(null, eventArgs);
+
+                  (async checked => {
+                    const $steps = {};
+
+                    $steps["updateSwitchChecked"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["_switch", "checked"]
+                            },
+                            operation: 0,
+                            value: $props.btn1.isChecked
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSwitchChecked"] != null &&
+                      typeof $steps["updateSwitchChecked"] === "object" &&
+                      typeof $steps["updateSwitchChecked"].then === "function"
+                    ) {
+                      $steps["updateSwitchChecked"] = await $steps[
+                        "updateSwitchChecked"
+                      ];
+                    }
+                  }).apply(null, eventArgs);
                 }}
               />
             ) : null}
@@ -529,6 +570,46 @@ function PlasmicInformationBox__RenderFunc(props: {
                       "switch2",
                       "checked"
                     ]).apply(null, eventArgs);
+
+                    (async checked => {
+                      const $steps = {};
+
+                      $steps["updateSwitchChecked"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["_switch", "checked"]
+                              },
+                              operation: 0,
+                              value: $props.btn1.isChecked
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateSwitchChecked"] != null &&
+                        typeof $steps["updateSwitchChecked"] === "object" &&
+                        typeof $steps["updateSwitchChecked"].then === "function"
+                      ) {
+                        $steps["updateSwitchChecked"] = await $steps[
+                          "updateSwitchChecked"
+                        ];
+                      }
+                    }).apply(null, eventArgs);
                   }}
                 />
               ) : null}
