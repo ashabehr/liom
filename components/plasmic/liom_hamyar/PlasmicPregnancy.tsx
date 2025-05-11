@@ -7985,6 +7985,46 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         ];
                                       }
 
+                                      $steps["runCode2"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              customFunction: async () => {
+                                                return (() => {
+                                                  if (
+                                                    currentItem.action ==
+                                                    "#ganger"
+                                                  ) {
+                                                    document
+                                                      .getElementById(
+                                                        "collapseDanger"
+                                                      )
+                                                      .scrollIntoView({
+                                                        behavior: "smooth",
+                                                        block: "start"
+                                                      });
+                                                    return ($state.collapseDanger.open =
+                                                      true);
+                                                  }
+                                                })();
+                                              }
+                                            };
+                                            return (({ customFunction }) => {
+                                              return customFunction();
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["runCode2"] != null &&
+                                        typeof $steps["runCode2"] ===
+                                          "object" &&
+                                        typeof $steps["runCode2"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["runCode2"] = await $steps[
+                                          "runCode2"
+                                        ];
+                                      }
+
                                       $steps["log"] = true
                                         ? (() => {
                                             const actionArgs = {
