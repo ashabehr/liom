@@ -137,7 +137,7 @@ export const Fragment = ({
 
 
         
-          switch (action) {
+          switch (action.split('-')[0]) {
             case "#adhd": {
               const link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&inApp=${inApp}&token=${token}`;
               sendMessage("تست ADHD", link,inWebViow);
