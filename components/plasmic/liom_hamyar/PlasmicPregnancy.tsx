@@ -6576,13 +6576,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                       {(() => {
                         try {
                           return (
-                            $state.suggestActiveSms == "true" &&
-                            (!$state.getUserInfo.data[0].result.user
-                              .selfHamyarSms ||
-                              $state.getUserInfo.data[0].result.user
-                                .selfHamyarSmsSubStatus) &&
-                            !$state.getUserInfo.data[0].result.hamyars[0].rel
-                              .statusSms
+                            $state.suggestActiveSms == "true" // &&
+                            // (!($state.getUserInfo.data[0].result.user.selfHamyarSms) ||
+                            //   ($state.getUserInfo.data[0].result.user.selfHamyarSmsSubStatus)
+                            // )
+                            // && (!$state.getUserInfo.data[0].result.hamyars[0].rel.statusSms)
                           );
                         } catch (e) {
                           if (
