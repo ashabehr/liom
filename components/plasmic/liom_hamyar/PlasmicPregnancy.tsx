@@ -7992,7 +7992,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 return (() => {
                                                   if (
                                                     currentItem.action ==
-                                                    "#ganger"
+                                                    "#danger"
                                                   ) {
                                                     document
                                                       .getElementById(
