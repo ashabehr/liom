@@ -7931,42 +7931,49 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         ];
                                       }
 
-                                      $steps["runCode"] =
-                                        $ctx.query.inApp != "true"
-                                          ? (() => {
-                                              const actionArgs = {
-                                                customFunction: async () => {
-                                                  return (() => {
-                                                    const allowance =
-                                                      $state?.getUserInfo
-                                                        ?.data?.[0]?.result
-                                                        ?.allowance || [];
-                                                    const filteredItem =
-                                                      allowance.find(item =>
-                                                        item.type.includes(
-                                                          currentItem.shopType
-                                                        )
-                                                      );
-                                                    const active = filteredItem
-                                                      ? filteredItem.active
-                                                      : false;
+                                      $steps["runCode"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              customFunction: async () => {
+                                                return (() => {
+                                                  const allowance =
+                                                    $state?.getUserInfo
+                                                      ?.data?.[0]?.result
+                                                      ?.allowance || [];
+                                                  const filteredItem =
+                                                    allowance.find(item =>
+                                                      item.type.includes(
+                                                        currentItem.shopType
+                                                      )
+                                                    );
+                                                  const active = filteredItem
+                                                    ? filteredItem.active
+                                                    : false;
+                                                  if (
+                                                    !active &&
+                                                    currentItem.shopType != ""
+                                                  ) {
                                                     if (
-                                                      !active &&
-                                                      currentItem.shopType != ""
+                                                      $ctx.query.inApp != "true"
                                                     ) {
                                                       $state.typeBuy =
                                                         "pregnancySub";
                                                       return ($state.directDialog2.open =
                                                         true);
+                                                    } else {
+                                                      return window.FlutterChannel.postMessage(
+                                                        "#directDialog-pregnancySub"
+                                                      );
                                                     }
-                                                  })();
-                                                }
-                                              };
-                                              return (({ customFunction }) => {
-                                                return customFunction();
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
+                                                  }
+                                                })();
+                                              }
+                                            };
+                                            return (({ customFunction }) => {
+                                              return customFunction();
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
                                       if (
                                         $steps["runCode"] != null &&
                                         typeof $steps["runCode"] === "object" &&
@@ -8534,124 +8541,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     $steps["log"] = await $steps["log"];
                                   }
                                 }}
-                              >
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__ltp6Z
-                                  )}
-                                  style={(() => {
-                                    try {
-                                      return {
-                                        "background-color": currentItem.color
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                >
-                                  <Embed
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.embedHtml__mmgEu
-                                    )}
-                                    code={currentItem.icon}
-                                  />
-
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__nHeKy
-                                    )}
-                                    style={(() => {
-                                      try {
-                                        return {
-                                          color: currentItem.textColor
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  >
-                                    {hasVariant(
-                                      globalVariants,
-                                      "screen",
-                                      "mobile"
-                                    ) ? (
-                                      <div
-                                        className={
-                                          projectcss.__wab_expr_html_text
-                                        }
-                                        dangerouslySetInnerHTML={{
-                                          __html: (() => {
-                                            try {
-                                              return (
-                                                currentItem.title +
-                                                "<b>" +
-                                                "  >" +
-                                                "</b>"
-                                              );
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "";
-                                              }
-                                              throw e;
-                                            }
-                                          })()
-                                        }}
-                                      />
-                                    ) : (
-                                      <div
-                                        className={
-                                          projectcss.__wab_expr_html_text
-                                        }
-                                        dangerouslySetInnerHTML={{
-                                          __html: (() => {
-                                            try {
-                                              return (
-                                                currentItem.title +
-                                                "<b>" +
-                                                "  >" +
-                                                "</b>"
-                                              );
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "";
-                                              }
-                                              throw e;
-                                            }
-                                          })()
-                                        }}
-                                      />
-                                    )}
-                                  </div>
-                                </Stack__>
-                              </Stack__>
+                              />
                             );
                           })}
                         </Stack__>
@@ -9725,6 +9615,112 @@ function PlasmicPregnancy__RenderFunc(props: {
                               </Stack__>
                             );
                           })}
+                        </Stack__>
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__ltp6Z
+                          )}
+                          style={(() => {
+                            try {
+                              return {
+                                "background-color": currentItem.color
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                        >
+                          <Embed
+                            className={classNames(
+                              "__wab_instance",
+                              sty.embedHtml__mmgEu
+                            )}
+                            code={currentItem.icon}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__nHeKy
+                            )}
+                            style={(() => {
+                              try {
+                                return {
+                                  color: currentItem.textColor
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                          >
+                            {hasVariant(globalVariants, "screen", "mobile") ? (
+                              <div
+                                className={projectcss.__wab_expr_html_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: (() => {
+                                    try {
+                                      return (
+                                        currentItem.title +
+                                        "<b>" +
+                                        "  >" +
+                                        "</b>"
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                }}
+                              />
+                            ) : (
+                              <div
+                                className={projectcss.__wab_expr_html_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: (() => {
+                                    try {
+                                      return (
+                                        currentItem.title +
+                                        "<b>" +
+                                        "  >" +
+                                        "</b>"
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                }}
+                              />
+                            )}
+                          </div>
                         </Stack__>
                       </div>
                       <div
