@@ -563,6 +563,26 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                   ];
                 }
 
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return console.log($steps.invokeGlobalAction.data);
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
                 $steps["setAdvice"] = true
                   ? (() => {
                       const actionArgs = {
@@ -1639,8 +1659,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                                   try {
                                     return (() => {
                                       const advice = $state?.advice;
-                                      const filteredItem = advice.find(item =>
-                                        item.type.includes("mother")
+                                      const filteredItem = advice?.find?.(
+                                        item => item?.type?.includes?.("mother")
                                       );
                                       return filteredItem?.text ?? "";
                                     })();
@@ -1916,8 +1936,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                             <React.Fragment>
                               {(() => {
                                 const advice = $state?.advice;
-                                const filteredItem = advice.find(item =>
-                                  item.type.includes("baby")
+                                const filteredItem = advice?.find?.(item =>
+                                  item?.type?.includes?.("baby")
                                 );
                                 return filteredItem?.text ?? "";
                               })()}
