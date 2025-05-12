@@ -78,9 +78,9 @@ import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
-import Modal from "../../Modal"; // plasmic-import: QbRTw0YJhCri/component
-import Button2 from "../../Button2"; // plasmic-import: 1nEX6muyZgg5/component
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import Tilt from "@plasmicpkgs/react-parallax-tilt";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -108,8 +108,6 @@ import Icon184Icon from "./icons/PlasmicIcon__Icon184"; // plasmic-import: qyxzN
 import Icon176Icon from "./icons/PlasmicIcon__Icon176"; // plasmic-import: elrgas2UYaHC/icon
 import Icon227Icon from "./icons/PlasmicIcon__Icon227"; // plasmic-import: HYZYMCyfZITX/icon
 import XIcon2 from "../fragment_icons/icons/PlasmicIcon__X"; // plasmic-import: zb1oqVXdrxPK/icon
-import CircleIcon from "./icons/PlasmicIcon__Circle"; // plasmic-import: PH6a1Mes3Ebj/icon
-import ChevronDownIcon from "./icons/PlasmicIcon__ChevronDown"; // plasmic-import: vefs_9-4aiux/icon
 import IconSvgIcon from "./icons/PlasmicIcon__IconSvg"; // plasmic-import: -XPXy44VZe9n/icon
 import LogoPwaSvgrepoComSvgIcon from "./icons/PlasmicIcon__LogoPwaSvgrepoComSvg"; // plasmic-import: xd3icqtlIdjI/icon
 import BrokenLink2SvgrepoComSvgIcon from "./icons/PlasmicIcon__BrokenLink2SvgrepoComSvg"; // plasmic-import: blnLvMghko66/icon
@@ -146,7 +144,8 @@ export type PlasmicPost2__OverridesType = {
   lineClomp?: Flex__<typeof LineClomp>;
   lineClomp2?: Flex__<typeof LineClomp>;
   timer?: Flex__<typeof Timer>;
-  modal?: Flex__<typeof Modal>;
+  modal?: Flex__<typeof AntdModal>;
+  button?: Flex__<typeof AntdButton>;
 };
 
 export interface DefaultPost2Props {}
@@ -403,10 +402,10 @@ function PlasmicPost2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "modal.isOpen",
+        path: "modal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -955,45 +954,6 @@ function PlasmicPost2__RenderFunc(props: {
                 <div className={classNames(projectcss.all, sty.freeBox__utoeo)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__oUuo3)}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateModalIsOpen"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["modal", "isOpen"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateModalIsOpen"] != null &&
-                        typeof $steps["updateModalIsOpen"] === "object" &&
-                        typeof $steps["updateModalIsOpen"].then === "function"
-                      ) {
-                        $steps["updateModalIsOpen"] = await $steps[
-                          "updateModalIsOpen"
-                        ];
-                      }
-                    }}
                   >
                     <PlasmicImg__
                       alt={""}
@@ -3193,330 +3153,336 @@ function PlasmicPost2__RenderFunc(props: {
             runWhileEditing={false}
           />
 
-          <Modal
+          <AntdModal
             data-plasmic-name={"modal"}
             data-plasmic-override={overrides.modal}
             className={classNames("__wab_instance", sty.modal)}
-            content={
-              <div className={classNames(projectcss.all, sty.freeBox__kQvc9)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox___6NTf)}
-                >
-                  <Tilt
-                    className={classNames("__wab_instance", sty.tilt__g7QL)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___6Ld1I
-                      )}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["goToPage"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                destination: (() => {
-                                  try {
-                                    return window.open(
-                                      "https://myket.ir/app/com.diacotdj.liom"
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["goToPage"] != null &&
-                          typeof $steps["goToPage"] === "object" &&
-                          typeof $steps["goToPage"].then === "function"
-                        ) {
-                          $steps["goToPage"] = await $steps["goToPage"];
-                        }
-                      }}
-                    >
-                      <IconSvgIcon
-                        className={classNames(projectcss.all, sty.svg__hFzG)}
-                        role={"img"}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__mDlo2
-                        )}
-                      >
-                        {
-                          "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u06cc\u06a9\u062a "
-                        }
-                      </div>
-                    </Stack__>
-                  </Tilt>
-                  <Tilt
-                    className={classNames("__wab_instance", sty.tilt__a5R6H)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__qmtsw)}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["goToPage"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                destination: (() => {
-                                  try {
-                                    return window.open("https://web.liom.app/");
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["goToPage"] != null &&
-                          typeof $steps["goToPage"] === "object" &&
-                          typeof $steps["goToPage"].then === "function"
-                        ) {
-                          $steps["goToPage"] = await $steps["goToPage"];
-                        }
-                      }}
-                    >
-                      <LogoPwaSvgrepoComSvgIcon
-                        className={classNames(projectcss.all, sty.svg__ywMxv)}
-                        role={"img"}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__xzkud
-                        )}
-                      >
-                        {
-                          "\u0648\u0631\u0648\u062f \u0628\u0647 \u0646\u0633\u062e\u0647 \u0648\u0628"
-                        }
-                      </div>
-                    </Stack__>
-                  </Tilt>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox___59Bqc)}
-                >
-                  <Tilt
-                    className={classNames("__wab_instance", sty.tilt__htGeM)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__pHLi9)}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["goToPage"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                destination: (() => {
-                                  try {
-                                    return window.open(
-                                      "https://old.liom.app/view/link/liom_google_6.6.9.apk"
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["goToPage"] != null &&
-                          typeof $steps["goToPage"] === "object" &&
-                          typeof $steps["goToPage"].then === "function"
-                        ) {
-                          $steps["goToPage"] = await $steps["goToPage"];
-                        }
-                      }}
-                    >
-                      <BrokenLink2SvgrepoComSvgIcon
-                        className={classNames(projectcss.all, sty.svg__oNlMo)}
-                        role={"img"}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__h3Pak
-                        )}
-                      >
-                        {
-                          "\u062f\u0627\u0646\u0644\u0648\u062f \u0628\u0627 \u0644\u06cc\u0646\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645 "
-                        }
-                      </div>
-                    </Stack__>
-                  </Tilt>
-                  <Tilt
-                    className={classNames("__wab_instance", sty.tilt__ezFjY)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___2MjFe
-                      )}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["goToPage"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                destination: (() => {
-                                  try {
-                                    return window.open(
-                                      "https://cafebazaar.ir/app/com.diacotdj.liom"
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["goToPage"] != null &&
-                          typeof $steps["goToPage"] === "object" &&
-                          typeof $steps["goToPage"].then === "function"
-                        ) {
-                          $steps["goToPage"] = await $steps["goToPage"];
-                        }
-                      }}
-                    >
-                      <CafeBazaarLogoSvgIcon
-                        className={classNames(projectcss.all, sty.svg__duxye)}
-                        role={"img"}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__uZBb
-                        )}
-                      >
-                        {
-                          "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u06a9\u0627\u0641\u0647 \u0628\u0627\u0632\u0627\u0631"
-                        }
-                      </div>
-                    </Stack__>
-                  </Tilt>
-                </Stack__>
-              </div>
-            }
-            isOpen={generateStateValueProp($state, ["modal", "isOpen"])}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            hideFooter={true}
+            maskClosable={false}
+            modalScopeClassName={sty["modal__modal"]}
             onOpenChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["modal", "isOpen"]).apply(
+              generateStateOnChangeProp($state, ["modal", "open"]).apply(
                 null,
                 eventArgs
               );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
             }}
-          />
+            open={generateStateValueProp($state, ["modal", "open"])}
+            title={"Modal title"}
+            trigger={
+              <AntdButton
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__gl2AF
+                  )}
+                >
+                  {"Show modal"}
+                </div>
+              </AntdButton>
+            }
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__jgZby)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__sW6A9)}
+              >
+                <Tilt className={classNames("__wab_instance", sty.tilt___9A36)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__eBzU7)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return window.open(
+                                    "https://myket.ir/app/com.diacotdj.liom"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <IconSvgIcon
+                      className={classNames(projectcss.all, sty.svg___14Bd9)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__hwaFn
+                      )}
+                    >
+                      {
+                        "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u06cc\u06a9\u062a "
+                      }
+                    </div>
+                  </Stack__>
+                </Tilt>
+                <Tilt className={classNames("__wab_instance", sty.tilt__ggu5V)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__nYEgS)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return window.open("https://web.liom.app/");
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <LogoPwaSvgrepoComSvgIcon
+                      className={classNames(projectcss.all, sty.svg__hpqA)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__drcPz
+                      )}
+                    >
+                      {
+                        "\u0648\u0631\u0648\u062f \u0628\u0647 \u0646\u0633\u062e\u0647 \u0648\u0628"
+                      }
+                    </div>
+                  </Stack__>
+                </Tilt>
+              </Stack__>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__gtFi5)}
+              >
+                <Tilt className={classNames("__wab_instance", sty.tilt__nzrtn)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___1VkT5)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return window.open(
+                                    "https://old.liom.app/view/link/liom_google_6.6.9.apk"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <BrokenLink2SvgrepoComSvgIcon
+                      className={classNames(projectcss.all, sty.svg__deguc)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__eY1K
+                      )}
+                    >
+                      {
+                        "\u062f\u0627\u0646\u0644\u0648\u062f \u0628\u0627 \u0644\u06cc\u0646\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645 "
+                      }
+                    </div>
+                  </Stack__>
+                </Tilt>
+                <Tilt className={classNames("__wab_instance", sty.tilt__ekQUi)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__c7CHa)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return window.open(
+                                    "https://cafebazaar.ir/app/com.diacotdj.liom"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <CafeBazaarLogoSvgIcon
+                      className={classNames(projectcss.all, sty.svg__pnNm3)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__jWd98
+                      )}
+                    >
+                      {
+                        "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u06a9\u0627\u0641\u0647 \u0628\u0627\u0632\u0627\u0631"
+                      }
+                    </div>
+                  </Stack__>
+                </Tilt>
+              </Stack__>
+            </div>
+          </AntdModal>
         </div>
       </div>
     </React.Fragment>
@@ -3544,7 +3510,8 @@ const PlasmicDescendants = {
     "lineClomp",
     "lineClomp2",
     "timer",
-    "modal"
+    "modal",
+    "button"
   ],
   sideEffect: ["sideEffect"],
   headerLiom: ["headerLiom"],
@@ -3580,7 +3547,8 @@ const PlasmicDescendants = {
   lineClomp: ["lineClomp"],
   lineClomp2: ["lineClomp2"],
   timer: ["timer"],
-  modal: ["modal"]
+  modal: ["modal", "button"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3605,7 +3573,8 @@ type NodeDefaultElementType = {
   lineClomp: typeof LineClomp;
   lineClomp2: typeof LineClomp;
   timer: typeof Timer;
-  modal: typeof Modal;
+  modal: typeof AntdModal;
+  button: typeof AntdButton;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3712,6 +3681,7 @@ export const PlasmicPost2 = Object.assign(
     lineClomp2: makeNodeComponent("lineClomp2"),
     timer: makeNodeComponent("timer"),
     modal: makeNodeComponent("modal"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicPost2
     internalVariantProps: PlasmicPost2__VariantProps,
