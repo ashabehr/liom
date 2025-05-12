@@ -1790,10 +1790,6 @@
   max-width: 100%;
   object-fit: cover;
 }
-.modal:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
 .freeBox__jgZby {
   display: flex;
   flex-direction: column;
@@ -2084,16 +2080,5 @@
   font-weight: 700;
   text-decoration-line: none;
   font-size: 16px;
-  min-width: 0;
-}
-.button:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.text__gl2AF {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
   min-width: 0;
 }
