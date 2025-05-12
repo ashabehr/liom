@@ -3401,6 +3401,26 @@
           "id": "Z1yDsg70sSq3",
           "name": "Icon230Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon230.tsx"
+        },
+        {
+          "id": "-XPXy44VZe9n",
+          "name": "IconSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__IconSvg.tsx"
+        },
+        {
+          "id": "xd3icqtlIdjI",
+          "name": "LogoPwaSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__LogoPwaSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "W_GsLw69YDUh",
+          "name": "CafeBazaarLogoSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__CafeBazaarLogoSvg.tsx"
+        },
+        {
+          "id": "blnLvMghko66",
+          "name": "BrokenLink2SvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__BrokenLink2SvgrepoComSvg.tsx"
         }
       ],
       "images": [
@@ -5853,6 +5873,28 @@
       "codeComponents": [],
       "customFunctions": [],
       "jsBundleThemes": []
+    },
+    {
+      "projectId": "szjgMQpPpxhmkjnaBvZQJG",
+      "projectApiToken": "xBIsrWHdWZ9kVgFEGUt29LOZPWfm0XidYqRHqPhQXsEjDHevjIbp44nEYMIZ46YOoxrN8anfXjreTkDtFjTA",
+      "projectName": "react-parallax-tilt",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/react_parallax_tilt/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "PfY466VIuq",
+          "name": "Tilt",
+          "displayName": "hostless-parallax-tilt",
+          "componentImportPath": "@plasmicpkgs/react-parallax-tilt"
+        }
+      ],
+      "customFunctions": []
     }
   ],
   "globalVariants": {

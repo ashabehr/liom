@@ -119,6 +119,7 @@ export type PlasmicComment__ArgsType = {
   likeComment?: boolean;
   dataUserCurrent?: string;
   onClick?: (event: any) => void;
+  commenttime?: any;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
@@ -138,7 +139,8 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "replyCount",
   "likeComment",
   "dataUserCurrent",
-  "onClick"
+  "onClick",
+  "commenttime"
 );
 
 export type PlasmicComment__OverridesType = {
@@ -172,6 +174,7 @@ export interface DefaultCommentProps {
   likeComment?: boolean;
   dataUserCurrent?: string;
   onClick?: (event: any) => void;
+  commenttime?: any;
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
   whenHaveReply?: SingleBooleanChoiceArg<"whenHaveReply">;
   showReply?: SingleBooleanChoiceArg<"showReply">;
@@ -583,6 +586,71 @@ function PlasmicComment__RenderFunc(props: {
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__fSs)}
         >
+          <div className={classNames(projectcss.all, sty.freeBox__wzkeY)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__iXgHb
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return (() => {
+                      function pad(n) {
+                        return n.toString().padStart(2, "0");
+                      }
+                      const today = new Date();
+                      const updatedAt = $props.commenttime;
+                      const postTime =
+                        `${updatedAt.year}-${pad(updatedAt.month)}-${pad(
+                          updatedAt.day
+                        )}T` +
+                        `${pad(updatedAt.hour)}:${pad(updatedAt.minute)}:${pad(
+                          updatedAt.second
+                        )}`;
+                      const inputDate = new Date(postTime);
+                      const diffInMillis =
+                        today.getTime() - inputDate.getTime();
+                      const diffInMinutes = Math.floor(
+                        diffInMillis / (1000 * 60)
+                      );
+                      const diffInHours = Math.floor(
+                        diffInMillis / (1000 * 3600)
+                      );
+                      const diffInDays = Math.floor(
+                        diffInMillis / (1000 * 3600 * 24)
+                      );
+                      const diffInWeeks = Math.floor(diffInDays / 7);
+                      const diffInMonths = Math.floor(diffInDays / 30);
+                      let result = "";
+                      if (diffInMinutes < 60) {
+                        result = `${diffInMinutes} دیقیه پیش`;
+                      } else if (diffInHours < 24) {
+                        result = `${diffInHours} ساعت پیش`;
+                      } else if (diffInDays < 7) {
+                        result = `${diffInDays}  روز پیش`;
+                      } else if (diffInDays < 30) {
+                        result = `${diffInWeeks}  هفته پیش`;
+                      } else {
+                        result = `${diffInMonths} ماه پیش`;
+                      }
+                      return result;
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+          </div>
           <div className={classNames(projectcss.all, sty.freeBox__ewqKl)}>
             <Icon170Icon
               className={classNames(projectcss.all, sty.svg__btbrw)}

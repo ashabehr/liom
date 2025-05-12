@@ -17096,54 +17096,35 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         const actionArgs = {
                                                           destination: (() => {
                                                             try {
-                                                              return (() => {
-                                                                var token =
-                                                                  $ctx.query
-                                                                    .token;
-                                                                if (
-                                                                  !token.startsWith(
-                                                                    "ey"
-                                                                  )
-                                                                ) {
-                                                                  token =
-                                                                    token.slice(
-                                                                      6,
-                                                                      token.length -
-                                                                        3
-                                                                    );
-                                                                }
-                                                                return (
-                                                                  "https://tools.liom.app/self-medication-step/?secId=" +
-                                                                  currentItem.id +
-                                                                  "&stepId=" +
-                                                                  currentItem.stepId +
-                                                                  "&style=" +
-                                                                  currentItem.styleType +
-                                                                  "&type=danger" +
-                                                                  "&token=" +
-                                                                  token +
-                                                                  "&inApp=" +
-                                                                  $ctx.query
-                                                                    .inApp +
-                                                                  "&userId=" +
-                                                                  $ctx.query
-                                                                    .userId +
-                                                                  "&selectStep=" +
-                                                                  $state.selectedWeek +
-                                                                  "&version=" +
-                                                                  $ctx.query
-                                                                    .version +
-                                                                  "&title=" +
-                                                                  currentItem.title +
-                                                                  "|" +
-                                                                  "هفته " +
-                                                                  $state.selectedWeek +
-                                                                  " اُم" +
-                                                                  "&theme=" +
-                                                                  $ctx.query
-                                                                    .theme
-                                                                );
-                                                              })();
+                                                              return (
+                                                                "https://tools.liom.app/self-medication-step/?secId=" +
+                                                                currentItem.id +
+                                                                "&stepId=" +
+                                                                currentItem.stepId +
+                                                                "&style=" +
+                                                                currentItem.styleType +
+                                                                "&type=danger" +
+                                                                "&token=" +
+                                                                $state.token +
+                                                                "&inApp=" +
+                                                                $ctx.query
+                                                                  .inApp +
+                                                                "&userId=" +
+                                                                $state.userId +
+                                                                "&selectStep=" +
+                                                                $state.selectedWeek +
+                                                                "&version=" +
+                                                                $ctx.query
+                                                                  .version +
+                                                                "&title=" +
+                                                                currentItem.title +
+                                                                "|" +
+                                                                "هفته " +
+                                                                $state.selectedWeek +
+                                                                " اُم" +
+                                                                "&theme=" +
+                                                                $ctx.query.theme
+                                                              );
                                                             } catch (e) {
                                                               if (
                                                                 e instanceof
@@ -17228,21 +17209,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           customFunction:
                                                             async () => {
                                                               return (() => {
-                                                                var token =
-                                                                  $ctx.query
-                                                                    .token;
-                                                                if (
-                                                                  !token.startsWith(
-                                                                    "ey"
-                                                                  )
-                                                                ) {
-                                                                  token =
-                                                                    token.slice(
-                                                                      6,
-                                                                      token.length -
-                                                                        3
-                                                                    );
-                                                                }
                                                                 var link =
                                                                   "https://tools.liom.app/self-medication-step/?secId=" +
                                                                   currentItem.id +
@@ -17252,13 +17218,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                                   currentItem.styleType +
                                                                   "&type=danger" +
                                                                   "&token=" +
-                                                                  token +
+                                                                  $state.token +
                                                                   "&inApp=" +
                                                                   $ctx.query
                                                                     .inApp +
                                                                   "&userId=" +
-                                                                  $ctx.query
-                                                                    .userId +
+                                                                  $state.userId +
                                                                   "&selectStep=" +
                                                                   $state.selectedWeek +
                                                                   "&version=" +
@@ -17475,14 +17440,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                                 try {
                                                                   return {
                                                                     userId:
-                                                                      $ctx.query.userId.slice(
-                                                                        4,
-                                                                        $ctx
-                                                                          .query
-                                                                          .userId
-                                                                          .length -
-                                                                          4
-                                                                      ),
+                                                                      $state.userId,
                                                                     pageName:
                                                                       "mainPage_pregnancy",
                                                                     action:

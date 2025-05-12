@@ -137,6 +137,25 @@
   > img {
   margin-left: 5px;
 }
+.freeBox__wzkeY {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text__iXgHb {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
 .freeBox__ewqKl {
   display: flex;
   flex-direction: row;
