@@ -159,6 +159,17 @@ export const Fragment = ({
               sendMessage("روتین پوستی", link,inWebViow);
               break;
             }
+            case "#hair_care": {
+              const link = `https://tools.liom.app/self-medication/?type=hair_care&inApp=${inApp}&token=${token}&selectStep=0&userId=${userId}&them=${theme}`;
+              sendMessage("روتین مراقبت از مو", link,inWebViow);
+              break;
+            }
+            case "#adhd_treatment_sub": {
+              const link = `https://tools.liom.app/self-medication/?type=adhd_treatment_sub&inApp=${inApp}&token=${token}&selectStep=0&userId=${userId}&them=${theme}`;
+              sendMessage("درمان اختلال ADHD", link,inWebViow);
+              break;
+            }
+
             case "#stretch_marks": {
 
               const link = `https://tools.liom.app/self-medication/?type=stretch_marks&inApp=${inApp}&token=${token}&selectStep=0&userId=${userId}&them=${theme}`;
