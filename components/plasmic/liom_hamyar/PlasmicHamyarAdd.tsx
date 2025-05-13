@@ -291,7 +291,12 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "type",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "hamyar"
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          `hamyar${
+            $state.userinfo.healthStatus == "pregnancy"
+              ? "hamyarPregnancy"
+              : "hamyar"
+          }`
       },
       {
         path: "masseg",
@@ -441,6 +446,46 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "userinfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "info",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+          success: true,
+          result: {
+            text: "\u0628\u0627 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0631\u062f\u0646 \u0647\u0645\u06cc\u0627\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647 \u06a9\u0633\u06cc \u06a9\u0647 \u0634\u0645\u0627\u0631\u0647\u200c\u0634\u0648 \u0648\u0627\u0631\u062f \u0645\u06cc\u200c\u06a9\u0646\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0628\u062f\u06cc \u062a\u0627 \u0645\u0631\u0627\u062d\u0644 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0631\u0648 \u0628\u0628\u06cc\u0646\u0647 \u0648 \u062a\u0648 \u0644\u062d\u0638\u0627\u062a \u062d\u0633\u0627\u0633 \u06a9\u0646\u0627\u0631\u062a \u0628\u0627\u0634\u0647 \u0648 \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9\u062a \u06a9\u0646\u0647 \u062a\u0627 \u062d\u0633 \u0647\u0645\u0631\u0627\u0647\u06cc \u0631\u0648 \u062a\u0648\u06cc \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u062a\u062c\u0631\u0628\u0647 \u06a9\u0646\u06cc. \u2764\ufe0f \u0627\u06af\u0647 \u06af\u0632\u06cc\u0646\u0647 \u0627\u0637\u0644\u0627\u0639\u200c\u0631\u0633\u0627\u0646\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646\u06cc\u060c \u0645\u0627 \u0628\u0647 \u0637\u0648\u0631 \u0645\u0646\u0638\u0645 \u0647\u0631 \u0647\u0641\u062a\u0647 \u067e\u06cc\u0627\u0645\u06cc \u0628\u0647 \u0627\u0648\u0646 \u0634\u062e\u0635 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u06a9\u0646\u06cc\u0645 \u06a9\u0647 \u0634\u0627\u0645\u0644 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u06cc \u0627\u0632 \u0648\u0636\u0639\u06cc\u062a \u0631\u0634\u062f \u06a9\u0648\u062f\u06a9 \u0648 \u0646\u06cc\u0627\u0632\u0647\u0627\u06cc \u062a\u0648 \u062f\u0631 \u0627\u06cc\u0646 \u0647\u0641\u062a\u0647 \u0627\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u0647. \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u200c\u0647\u0627 \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0646 \u062a\u0627 \u0628\u0627 \u0634\u0631\u0627\u06cc\u0637\u062a \u0622\u0634\u0646\u0627 \u0628\u0634\u0647 \u0648 \u062f\u0631 \u0645\u0648\u0627\u0642\u0639\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u060c \u0647\u0645\u0631\u0627\u0647 \u0648 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u062a \u0628\u0627\u0634\u0647  \u062a\u0627 \u0628\u0627 \u0622\u0631\u0627\u0645\u0634 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0631\u0648 \u0628\u06af\u0630\u0631\u0648\u0646\u06cc. \u0628\u0627 \u0647\u0645\u06cc\u0627\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u060c \u06cc\u06a9 \u0645\u0633\u06cc\u0631 \u0622\u0631\u0627\u0645\u200c\u062a\u0631 \u0648 \u062d\u0633 \u062d\u0645\u0627\u06cc\u062a \u0648\u0627\u0642\u0639\u06cc \u0631\u0648 \u062a\u062c\u0631\u0628\u0647 \u06a9\u0646! ",
+            isActive: false,
+            banners: [
+              {
+                banner:
+                  "https://liom.storage.c2.liara.space/config/hamyar/ham1.png",
+                action: "#calendar"
+              },
+              {
+                banner:
+                  "https://liom.storage.c2.liara.space/config/hamyar/ham2.png",
+                action: "#calendar"
+              },
+              {
+                banner:
+                  "https://liom.storage.c2.liara.space/config/hamyar/ham3.png",
+                action: "#calendar"
+              }
+            ],
+            partnerOverView: "",
+            partnerOverViewImage: "",
+            limitHamyar: 1,
+            background:
+              "https://liom.storage.c2.liara.space/config/hamyar/hamyar_pregnancy.png"
+          }
+        })
       }
     ],
     [$props, $ctx, $refs]
@@ -617,42 +662,73 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                 $steps["getCookie"] = await $steps["getCookie"];
               }
 
-              $steps["invokeGlobalAction"] = true
+              $steps["profile"] =
+                $state.token != ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/users/profile",
+                          undefined,
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                headers: { Authorization: $state.token }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["profile"] != null &&
+                typeof $steps["profile"] === "object" &&
+                typeof $steps["profile"].then === "function"
+              ) {
+                $steps["profile"] = await $steps["profile"];
+              }
+
+              $steps["updateUserinfo"] = $steps.profile?.data
                 ? (() => {
                     const actionArgs = {
-                      args: [
-                        "POST",
-                        "https://n8n.staas.ir/webhook/users/profile",
-                        undefined,
-                        undefined,
-                        (() => {
-                          try {
-                            return { headers: { Authorization: $state.token } };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      ]
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["userinfo"]
+                      },
+                      operation: 0,
+                      value: $steps.profile.data
                     };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
               if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
+                $steps["updateUserinfo"] != null &&
+                typeof $steps["updateUserinfo"] === "object" &&
+                typeof $steps["updateUserinfo"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["updateUserinfo"] = await $steps["updateUserinfo"];
               }
 
               $steps["userGuset"] =
@@ -825,6 +901,75 @@ function PlasmicHamyarAdd__RenderFunc(props: {
               ) {
                 $steps["runCode"] = await $steps["runCode"];
               }
+
+              $steps["info"] = $state.userinfo?.healthStatus
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/rest/user/hamyar/info",
+                        (() => {
+                          try {
+                            return {
+                              authorization: $state.token,
+                              type:
+                                $state.userinfo.healthStatus == "pregnancy"
+                                  ? "pregnancy"
+                                  : "hamyar"
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["info"] != null &&
+                typeof $steps["info"] === "object" &&
+                typeof $steps["info"].then === "function"
+              ) {
+                $steps["info"] = await $steps["info"];
+              }
+
+              $steps["updateInfo"] = $steps.info?.data
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["info"]
+                      },
+                      operation: 0,
+                      value: $steps.info.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateInfo"] != null &&
+                typeof $steps["updateInfo"] === "object" &&
+                typeof $steps["updateInfo"].then === "function"
+              ) {
+                $steps["updateInfo"] = await $steps["updateInfo"];
+              }
             }}
           />
 
@@ -880,9 +1025,23 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                     sty.text__azbDv
                   )}
                 >
-                  {
-                    "\u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc"
-                  }
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.userinfo.healthStatus == "pregnancy"
+                          ? "همیار بارداری"
+                          : "همیار قاعدگی";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
                 </div>
               </Stack__>
             </HeaderLiom>
@@ -3003,15 +3162,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                     dangerouslySetInnerHTML={{
                       __html: (() => {
                         try {
-                          return `<p>
-    با اضافه کردن <b>همیار قاعدگی</b> می‌تونی به هر کسی که شماره‌شو وارد می‌کنی دسترسی بدی تا 
-    <b>دوره‌های قاعدگیت</b> رو ببینه و تو لحظات سخت کنارت باشه و <b>بهتر درکت کنه ❤️</b>.
-    اگه قابلیت <b>اطلاع‌رسانی با پیامک</b> رو فعال کنی، ما به طور خودکار وقتی تو دوران 
-    <b>PMS، تخمک‌گذاری یا پریود</b> باشی، برای شخصی که انتخاب کردی <b>پیامک</b> می‌فرستیم.
-    <br>
-    تو این پیام‌ها نکاتی بهش می‌گیم که بتونه <b>بهتر درکت کنه و همراهت باشه</b>.
-</p>
-`;
+                          return $state.info.result.text;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -4247,12 +4398,24 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       : "50%"
                   }
                   loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image80.png",
-                    fullWidth: 852,
-                    fullHeight: 879,
-                    aspectRatio: undefined
-                  }}
+                  src={(() => {
+                    try {
+                      return $state.info.result.background;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return {
+                          src: "/plasmic/liom_hamyar/images/image80.png",
+                          fullWidth: 852,
+                          fullHeight: 879,
+                          aspectRatio: undefined
+                        };
+                      }
+                      throw e;
+                    }
+                  })()}
                 />
               ) : null}
               {(() => {
