@@ -109,7 +109,7 @@
   height: 100vh;
   max-width: 100%;
   object-fit: cover;
-  background: none;
+  background: #f8f8f8;
   grid-column-start: 1 !important;
   grid-column-end: -1 !important;
 }

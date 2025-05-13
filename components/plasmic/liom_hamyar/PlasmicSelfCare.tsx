@@ -939,7 +939,10 @@ function PlasmicSelfCare__RenderFunc(props: {
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
-                                  return (window.subItems = currentItem);
+                                  return window.sessionStorage.setItem(
+                                    "subItems",
+                                    JSON.stringify(currentItem)
+                                  );
                                 }
                               };
                               return (({ customFunction }) => {
@@ -1243,7 +1246,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                                     }
                                   })(),
                                   "lll",
-                                  undefined,
+                                  "false",
                                   undefined,
                                   true
                                 ]

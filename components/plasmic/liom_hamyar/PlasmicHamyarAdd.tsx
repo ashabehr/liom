@@ -486,6 +486,12 @@ function PlasmicHamyarAdd__RenderFunc(props: {
               "https://liom.storage.c2.liara.space/config/hamyar/hamyar_pregnancy.png"
           }
         })
+      },
+      {
+        path: "loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -969,6 +975,35 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                 typeof $steps["updateInfo"].then === "function"
               ) {
                 $steps["updateInfo"] = await $steps["updateInfo"];
+              }
+
+              $steps["updateLoading"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loading"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoading"] != null &&
+                typeof $steps["updateLoading"] === "object" &&
+                typeof $steps["updateLoading"].then === "function"
+              ) {
+                $steps["updateLoading"] = await $steps["updateLoading"];
               }
             }}
           />
@@ -3126,10 +3161,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
 
           {(() => {
             try {
-              return $state.hamyarList.loading == false &&
-                $state.hamyarList?.data?.result
-                ? true
-                : false;
+              return !$state.loading;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -4833,7 +4865,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
-              return $state.hamyarList.loading == true;
+              return $state.loading;
             } catch (e) {
               if (
                 e instanceof TypeError ||

@@ -223,7 +223,7 @@ function PlasmicSubItems__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return window.subItems;
+              return JSON.parse(window.sessionStorage.getItem("subItems"));
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -409,7 +409,9 @@ function PlasmicSubItems__RenderFunc(props: {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                return window.history.back();
+                                return window.location.replace(
+                                  window.document.referrer
+                                );
                               })();
                             }
                           };
@@ -810,7 +812,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                       }
                                     })(),
                                     undefined,
-                                    undefined,
+                                    "false",
                                     undefined,
                                     true
                                   ]
@@ -1178,7 +1180,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                       }
                                     })(),
                                     undefined,
-                                    undefined,
+                                    "false",
                                     undefined,
                                     true
                                   ]
@@ -1549,7 +1551,7 @@ function PlasmicSubItems__RenderFunc(props: {
                                       }
                                     })(),
                                     undefined,
-                                    undefined,
+                                    "false",
                                     undefined,
                                     true
                                   ]
