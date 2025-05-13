@@ -78,6 +78,9 @@ import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import Tilt from "@plasmicpkgs/react-parallax-tilt";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -141,6 +144,8 @@ export type PlasmicPost2__OverridesType = {
   lineClomp?: Flex__<typeof LineClomp>;
   lineClomp2?: Flex__<typeof LineClomp>;
   timer?: Flex__<typeof Timer>;
+  modal?: Flex__<typeof AntdModal>;
+  button?: Flex__<typeof AntdButton>;
 };
 
 export interface DefaultPost2Props {}
@@ -226,8 +231,7 @@ function PlasmicPost2__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRmNzhiOTU0LWM2YTMtNGRiOS04YmYyLTI3MmE5MGU2ZGRiZCIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzQ0NzAwNjA0fQ.zC2EWB7gRSxxuiwN8qB-XeEsQ2iEYcLAnT5dVX3Icw0"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "popover2.open",
@@ -395,6 +399,12 @@ function PlasmicPost2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -649,7 +659,7 @@ function PlasmicPost2__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  postId: "330a09ef-3cf5-4eed-b05e-1c186bd9fc67",
+                  postId: $state.postId,
                   commentId: "string",
                   orderBy: $state.orderby.value,
                   authorization: $state.token
@@ -943,6 +953,45 @@ function PlasmicPost2__RenderFunc(props: {
                 <div className={classNames(projectcss.all, sty.freeBox__utoeo)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__oUuo3)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateModalOpen"] = $state.shere
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["modal", "open"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateModalOpen"] != null &&
+                        typeof $steps["updateModalOpen"] === "object" &&
+                        typeof $steps["updateModalOpen"].then === "function"
+                      ) {
+                        $steps["updateModalOpen"] = await $steps[
+                          "updateModalOpen"
+                        ];
+                      }
+                    }}
                   >
                     <PlasmicImg__
                       alt={""}
@@ -1203,222 +1252,272 @@ function PlasmicPost2__RenderFunc(props: {
                           })()}
                         />
 
-                        <AntdPopover
-                          data-plasmic-name={"popover2"}
-                          data-plasmic-override={overrides.popover2}
-                          arrow={true}
-                          className={classNames("__wab_instance", sty.popover2)}
-                          color={true ? "#FFFFFF" : undefined}
-                          content={
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__yPEo
-                              )}
-                            >
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__cwZ6
-                                )}
-                              >
-                                <Icon180Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__zjOdC
-                                  )}
-                                  role={"img"}
-                                />
-
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__hOmR
-                                  )}
-                                >
-                                  {
-                                    "\u067e\u06cc\u0646 \u0628\u0631\u0627\u06cc \u0647\u0645\u0647"
-                                  }
-                                </div>
-                              </Stack__>
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__hDk3O
-                                )}
-                              >
-                                <Icon179Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg___0PVa8
-                                  )}
-                                  role={"img"}
-                                />
-
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text___1WtFf
-                                  )}
-                                >
-                                  {
-                                    "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0632\u0627\u0631\u06cc"
-                                  }
-                                </div>
-                              </Stack__>
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__s93L3
-                                )}
-                              >
-                                <Icon170Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__y63MI
-                                  )}
-                                  role={"img"}
-                                />
-
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__fyy9R
-                                  )}
-                                >
-                                  {"\u06af\u0632\u0627\u0631\u0634"}
-                                </div>
-                              </Stack__>
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__rtTu9
-                                )}
-                              >
-                                <Icon181Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__glwb
-                                  )}
-                                  role={"img"}
-                                />
-
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text___309O9
-                                  )}
-                                >
-                                  {
-                                    "\u062d\u0645\u0627\u06cc\u062a \u0627\u0632 \u067e\u0633\u062a"
-                                  }
-                                </div>
-                              </Stack__>
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__nqtIu
-                                )}
-                              >
-                                <Icon182Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg___1YUks
-                                  )}
-                                  role={"img"}
-                                />
-
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__zc10M
-                                  )}
-                                >
-                                  {
-                                    "\u0645\u062f\u06cc\u0631\u06cc\u062a \u06a9\u0644\u0645\u0627\u062a \u0645\u062d\u062f\u0648\u062f \u0634\u062f\u0647"
-                                  }
-                                </div>
-                              </Stack__>
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__n58C2
-                                )}
-                              >
-                                <Icon183Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg___3KB7O
-                                  )}
-                                  role={"img"}
-                                />
-
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text___7KYcf
-                                  )}
-                                >
-                                  {"\u062f\u0627\u0646\u0644\u0648\u062f"}
-                                </div>
-                              </Stack__>
-                            </Stack__>
-                          }
-                          contentText={"Popover ttt"}
-                          defaultOpen={false}
-                          defaultStylesClassName={classNames(
-                            projectcss.root_reset,
-                            projectcss.plasmic_default_styles,
-                            projectcss.plasmic_mixins,
-                            projectcss.plasmic_tokens,
-                            plasmic_antd_5_hostless_css.plasmic_tokens,
-                            plasmic_plasmic_rich_components_css.plasmic_tokens
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__uRu7X
                           )}
-                          mouseEnterDelay={0}
-                          mouseLeaveDelay={0}
-                          onOpenChange={async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateModalOpen"] = $state.shere
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["modal", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateModalOpen"] != null &&
+                              typeof $steps["updateModalOpen"] === "object" &&
+                              typeof $steps["updateModalOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateModalOpen"] = await $steps[
+                                "updateModalOpen"
+                              ];
+                            }
+                          }}
+                        >
+                          <AntdPopover
+                            data-plasmic-name={"popover2"}
+                            data-plasmic-override={overrides.popover2}
+                            arrow={true}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.popover2
+                            )}
+                            color={true ? "#FFFFFF" : undefined}
+                            content={
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__yPEo
+                                )}
+                              >
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__cwZ6
+                                  )}
+                                >
+                                  <Icon180Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__zjOdC
+                                    )}
+                                    role={"img"}
+                                  />
+
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__hOmR
+                                    )}
+                                  >
+                                    {
+                                      "\u067e\u06cc\u0646 \u0628\u0631\u0627\u06cc \u0647\u0645\u0647"
+                                    }
+                                  </div>
+                                </Stack__>
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__hDk3O
+                                  )}
+                                >
+                                  <Icon179Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg___0PVa8
+                                    )}
+                                    role={"img"}
+                                  />
+
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text___1WtFf
+                                    )}
+                                  >
+                                    {
+                                      "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0632\u0627\u0631\u06cc"
+                                    }
+                                  </div>
+                                </Stack__>
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__s93L3
+                                  )}
+                                >
+                                  <Icon170Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__y63MI
+                                    )}
+                                    role={"img"}
+                                  />
+
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__fyy9R
+                                    )}
+                                  >
+                                    {"\u06af\u0632\u0627\u0631\u0634"}
+                                  </div>
+                                </Stack__>
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__rtTu9
+                                  )}
+                                >
+                                  <Icon181Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__glwb
+                                    )}
+                                    role={"img"}
+                                  />
+
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text___309O9
+                                    )}
+                                  >
+                                    {
+                                      "\u062d\u0645\u0627\u06cc\u062a \u0627\u0632 \u067e\u0633\u062a"
+                                    }
+                                  </div>
+                                </Stack__>
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__nqtIu
+                                  )}
+                                >
+                                  <Icon182Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg___1YUks
+                                    )}
+                                    role={"img"}
+                                  />
+
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__zc10M
+                                    )}
+                                  >
+                                    {
+                                      "\u0645\u062f\u06cc\u0631\u06cc\u062a \u06a9\u0644\u0645\u0627\u062a \u0645\u062d\u062f\u0648\u062f \u0634\u062f\u0647"
+                                    }
+                                  </div>
+                                </Stack__>
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__n58C2
+                                  )}
+                                >
+                                  <Icon183Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg___3KB7O
+                                    )}
+                                    role={"img"}
+                                  />
+
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text___7KYcf
+                                    )}
+                                  >
+                                    {"\u062f\u0627\u0646\u0644\u0648\u062f"}
+                                  </div>
+                                </Stack__>
+                              </Stack__>
+                            }
+                            contentText={"Popover ttt"}
+                            defaultOpen={false}
+                            defaultStylesClassName={classNames(
+                              projectcss.root_reset,
+                              projectcss.plasmic_default_styles,
+                              projectcss.plasmic_mixins,
+                              projectcss.plasmic_tokens,
+                              plasmic_antd_5_hostless_css.plasmic_tokens,
+                              plasmic_plasmic_rich_components_css.plasmic_tokens
+                            )}
+                            mouseEnterDelay={0}
+                            mouseLeaveDelay={0}
+                            onOpenChange={async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "popover2",
+                                "open"
+                              ]).apply(null, eventArgs);
+                            }}
+                            open={generateStateValueProp($state, [
                               "popover2",
                               "open"
-                            ]).apply(null, eventArgs);
-                          }}
-                          open={generateStateValueProp($state, [
-                            "popover2",
-                            "open"
-                          ])}
-                          placement={"bottomLeft"}
-                          popoverScopeClassName={sty["popover2__popover"]}
-                          title={null}
-                          trigger={"click"}
-                        >
-                          <Icon146Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__jVevt
-                            )}
-                            role={"img"}
-                          />
-                        </AntdPopover>
+                            ])}
+                            placement={"bottomLeft"}
+                            popoverScopeClassName={sty["popover2__popover"]}
+                            title={null}
+                            trigger={"click"}
+                          >
+                            <Icon146Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__jVevt
+                              )}
+                              role={"img"}
+                            />
+                          </AntdPopover>
+                        </div>
                       </Stack__>
                     </div>
                     <div
@@ -1967,6 +2066,42 @@ function PlasmicPost2__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
+                    $steps["updateModalOpen"] = $state.shere
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["modal", "open"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateModalOpen"] != null &&
+                      typeof $steps["updateModalOpen"] === "object" &&
+                      typeof $steps["updateModalOpen"].then === "function"
+                    ) {
+                      $steps["updateModalOpen"] = await $steps[
+                        "updateModalOpen"
+                      ];
+                    }
+
                     $steps["updateOpenPop"] = true
                       ? (() => {
                           const actionArgs = {
@@ -2448,6 +2583,43 @@ function PlasmicPost2__RenderFunc(props: {
                           onClick: async event => {
                             const $steps = {};
 
+                            $steps["updateModalOpen"] = $state.shere
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["modal", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateModalOpen"] != null &&
+                              typeof $steps["updateModalOpen"] === "object" &&
+                              typeof $steps["updateModalOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateModalOpen"] = await $steps[
+                                "updateModalOpen"
+                              ];
+                            }
+
                             $steps["runCode"] = true
                               ? (() => {
                                   const actionArgs = {
@@ -2683,315 +2855,336 @@ function PlasmicPost2__RenderFunc(props: {
                         </div>
                       </div>
                     ) : null}
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__dnSli)}
-                    >
-                      {(() => {
-                        try {
-                          return $state.textArea.value?.length > 0;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
+                    {(() => {
+                      try {
+                        return !$state.shere;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
                         }
-                      })() ? (
-                        <Reveal
-                          data-plasmic-name={"reveal"}
-                          data-plasmic-override={overrides.reveal}
-                          cascade={true}
-                          className={classNames("__wab_instance", sty.reveal)}
-                          damping={0}
-                          duration={500}
-                          effect={"rotate"}
-                          reverse={(() => {
-                            try {
-                              return $state.textArea.value?.length == 0;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
-                          triggerOnce={true}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__pZ5Hb
-                            )}
-                          >
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img__siBb6)}
-                              displayHeight={"24px"}
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={"none"}
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={"24px"}
-                              src={{
-                                src: "/plasmic/liom_hamyar/images/image97.svg",
-                                fullWidth: 24,
-                                fullHeight: 24,
-                                aspectRatio: 1
-                              }}
-                            />
-                          </div>
-                        </Reveal>
-                      ) : null}
-                      <div
+                        throw e;
+                      }
+                    })() ? (
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox___8LXcp
+                          sty.freeBox__dnSli
                         )}
-                        id={"focus_comment"}
                       >
                         {(() => {
-                          const child$Props = {
-                            autoSize: true,
-                            className: classNames(
-                              "__wab_instance",
-                              sty.textArea
-                            ),
-                            onChange: async (...eventArgs: any) => {
-                              generateStateOnChangePropForCodeComponents(
-                                $state,
-                                "value",
-                                ["textArea", "value"],
-                                AntdTextArea_Helpers
-                              ).apply(null, eventArgs);
-                            },
-                            placeholder:
-                              "\u06a9\u0627\u0645\u0646\u062a \u0631\u0648 \u0628\u0646\u0648\u06cc\u0633",
-                            value: generateStateValueProp($state, [
-                              "textArea",
-                              "value"
-                            ])
-                          };
-                          initializeCodeComponentStates(
-                            $state,
-                            [
-                              {
-                                name: "value",
-                                plasmicStateName: "textArea.value"
-                              }
-                            ],
-                            [],
-                            AntdTextArea_Helpers ?? {},
-                            child$Props
-                          );
-
-                          return (
-                            <AntdTextArea
-                              data-plasmic-name={"textArea"}
-                              data-plasmic-override={overrides.textArea}
-                              {...child$Props}
-                            />
-                          );
-                        })()}
-                        <Icon176Icon
-                          className={classNames(projectcss.all, sty.svg__o8F2W)}
-                          role={"img"}
-                        />
-                      </div>
-                      {(() => {
-                        try {
-                          return (
-                            $state.currentUserDataAfterClick.user?.id !==
-                            undefined
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return false;
+                          try {
+                            return $state.textArea.value?.length > 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })() ? (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        })() ? (
+                          <Reveal
+                            data-plasmic-name={"reveal"}
+                            data-plasmic-override={overrides.reveal}
+                            cascade={true}
+                            className={classNames("__wab_instance", sty.reveal)}
+                            damping={0}
+                            duration={500}
+                            effect={"rotate"}
+                            reverse={(() => {
+                              try {
+                                return $state.textArea.value?.length == 0;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                            triggerOnce={true}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__pZ5Hb
+                              )}
+                            >
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__siBb6)}
+                                displayHeight={"24px"}
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"none"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={"24px"}
+                                src={{
+                                  src: "/plasmic/liom_hamyar/images/image97.svg",
+                                  fullWidth: 24,
+                                  fullHeight: 24,
+                                  aspectRatio: 1
+                                }}
+                              />
+                            </div>
+                          </Reveal>
+                        ) : null}
+                        <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__wpwh6
+                            sty.freeBox___8LXcp
                           )}
+                          id={"focus_comment"}
                         >
-                          <Icon227Icon
+                          {(() => {
+                            const child$Props = {
+                              autoSize: true,
+                              className: classNames(
+                                "__wab_instance",
+                                sty.textArea
+                              ),
+                              onChange: async (...eventArgs: any) => {
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "value",
+                                  ["textArea", "value"],
+                                  AntdTextArea_Helpers
+                                ).apply(null, eventArgs);
+                              },
+                              placeholder:
+                                "\u06a9\u0627\u0645\u0646\u062a \u0631\u0648 \u0628\u0646\u0648\u06cc\u0633",
+                              value: generateStateValueProp($state, [
+                                "textArea",
+                                "value"
+                              ])
+                            };
+                            initializeCodeComponentStates(
+                              $state,
+                              [
+                                {
+                                  name: "value",
+                                  plasmicStateName: "textArea.value"
+                                }
+                              ],
+                              [],
+                              AntdTextArea_Helpers ?? {},
+                              child$Props
+                            );
+
+                            return (
+                              <AntdTextArea
+                                data-plasmic-name={"textArea"}
+                                data-plasmic-override={overrides.textArea}
+                                {...child$Props}
+                              />
+                            );
+                          })()}
+                          <Icon176Icon
                             className={classNames(
                               projectcss.all,
-                              sty.svg__iRmL
+                              sty.svg__o8F2W
                             )}
                             role={"img"}
                           />
-
-                          <LineClomp
-                            data-plasmic-name={"lineClomp"}
-                            data-plasmic-override={overrides.lineClomp}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.lineClomp
-                            )}
-                            onLineChange={async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "lineClomp",
-                                "line"
-                              ]).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            }}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__jn8Hz
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return (
-                                      $state.currentUserDataAfterClick.user
-                                        .name + " :     "
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                          </LineClomp>
-                          <LineClomp
-                            data-plasmic-name={"lineClomp2"}
-                            data-plasmic-override={overrides.lineClomp2}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.lineClomp2
-                            )}
-                            numberOfLine={1}
-                            onLineChange={async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "lineClomp2",
-                                "line"
-                              ]).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            }}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__ypNoJ
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return $state.currentUserDataAfterClick
-                                      .comment.text;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                          </LineClomp>
-                          <XIcon2
+                        </div>
+                        {(() => {
+                          try {
+                            return (
+                              $state.currentUserDataAfterClick.user?.id !==
+                              undefined
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
                             className={classNames(
                               projectcss.all,
-                              sty.svg___0AiE2
+                              sty.freeBox__wpwh6
                             )}
-                            onClick={async event => {
-                              const $steps = {};
+                          >
+                            <Icon227Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__iRmL
+                              )}
+                              role={"img"}
+                            />
 
-                              $steps["updateCurrentUserDataAfterClick"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: [
-                                          "currentUserDataAfterClick"
-                                        ]
-                                      },
-                                      operation: 0,
-                                      value: {}
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
+                            <LineClomp
+                              data-plasmic-name={"lineClomp"}
+                              data-plasmic-override={overrides.lineClomp}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.lineClomp
+                              )}
+                              onLineChange={async (...eventArgs: any) => {
+                                generateStateOnChangeProp($state, [
+                                  "lineClomp",
+                                  "line"
+                                ]).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__jn8Hz
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        $state.currentUserDataAfterClick.user
+                                          .name + " :     "
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
                                       }
-                                      const { objRoot, variablePath } =
-                                        variable;
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </LineClomp>
+                            <LineClomp
+                              data-plasmic-name={"lineClomp2"}
+                              data-plasmic-override={overrides.lineClomp2}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.lineClomp2
+                              )}
+                              numberOfLine={1}
+                              onLineChange={async (...eventArgs: any) => {
+                                generateStateOnChangeProp($state, [
+                                  "lineClomp2",
+                                  "line"
+                                ]).apply(null, eventArgs);
 
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateCurrentUserDataAfterClick"] !=
-                                  null &&
-                                typeof $steps[
-                                  "updateCurrentUserDataAfterClick"
-                                ] === "object" &&
-                                typeof $steps["updateCurrentUserDataAfterClick"]
-                                  .then === "function"
-                              ) {
-                                $steps["updateCurrentUserDataAfterClick"] =
-                                  await $steps[
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__ypNoJ
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return $state.currentUserDataAfterClick
+                                        .comment.text;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </LineClomp>
+                            <XIcon2
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg___0AiE2
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["updateCurrentUserDataAfterClick"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: [
+                                            "currentUserDataAfterClick"
+                                          ]
+                                        },
+                                        operation: 0,
+                                        value: {}
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateCurrentUserDataAfterClick"] !=
+                                    null &&
+                                  typeof $steps[
                                     "updateCurrentUserDataAfterClick"
-                                  ];
-                              }
-                            }}
-                            role={"img"}
-                          />
-                        </Stack__>
-                      ) : null}
-                    </Stack__>
+                                  ] === "object" &&
+                                  typeof $steps[
+                                    "updateCurrentUserDataAfterClick"
+                                  ].then === "function"
+                                ) {
+                                  $steps["updateCurrentUserDataAfterClick"] =
+                                    await $steps[
+                                      "updateCurrentUserDataAfterClick"
+                                    ];
+                                }
+                              }}
+                              role={"img"}
+                            />
+                          </Stack__>
+                        ) : null}
+                      </Stack__>
+                    ) : null}
                   </section>
                 ) : null}
               </Stack__>
@@ -3142,290 +3335,418 @@ function PlasmicPost2__RenderFunc(props: {
             runWhileEditing={false}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__jgZby)}>
+          <AntdModal
+            data-plasmic-name={"modal"}
+            data-plasmic-override={overrides.modal}
+            className={classNames("__wab_instance", sty.modal)}
+            closeIcon={
+              <XIcon
+                className={classNames(projectcss.all, sty.svg__v9Pzm)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateModalOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["modal", "open"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateModalOpen"] != null &&
+                    typeof $steps["updateModalOpen"] === "object" &&
+                    typeof $steps["updateModalOpen"].then === "function"
+                  ) {
+                    $steps["updateModalOpen"] = await $steps["updateModalOpen"];
+                  }
+                }}
+                role={"img"}
+              />
+            }
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            hideFooter={true}
+            modalScopeClassName={sty["modal__modal"]}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["modal", "open"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            open={generateStateValueProp($state, ["modal", "open"])}
+            title={
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__mbv2C)}
+              >
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__qiFrn)}
+                  displayHeight={"70px"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"70px"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/liom_hamyar/images/image10.ico",
+                    fullWidth: 256,
+                    fullHeight: 256,
+                    aspectRatio: undefined
+                  }}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__cqKgv
+                  )}
+                >
+                  {
+                    "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u062e\u0648\u0627\u06cc \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc \u0628\u0627\u06cc\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0631\u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc.\r\n\u0647\u0631\u06a9\u062f\u0648\u0645 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0647\u0627\u06cc \u0632\u06cc\u0631 \u06a9\u0647 \u0628\u0627\u0647\u0627\u0634 \u0631\u0627\u062d\u062a \u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u06a9\u0646 \u0648 \u0628\u0639\u062f \u0628\u0647 \u062c\u0645\u0639 \u062f\u062e\u062a\u0631\u0648\u0646\u0647 \u06cc \u0645\u0627\u0627\u0636\u0627\u0641\u0647 \u0634\u0648\ud83d\ude0d"
+                  }
+                </div>
+              </Stack__>
+            }
+            trigger={
+              <AntdButton
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__fj7N4
+                  )}
+                >
+                  {"Show modal"}
+                </div>
+              </AntdButton>
+            }
+          >
             <Stack__
               as={"div"}
               hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__sW6A9)}
+              className={classNames(projectcss.all, sty.freeBox__jgZby)}
             >
-              <Tilt className={classNames("__wab_instance", sty.tilt___9A36)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__eBzU7)}
-                  onClick={async event => {
-                    const $steps = {};
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__sW6A9)}
+              >
+                <Tilt className={classNames("__wab_instance", sty.tilt___9A36)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__eBzU7)}
+                    onClick={async event => {
+                      const $steps = {};
 
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return window.open(
-                                  "https://myket.ir/app/com.diacotdj.liom"
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return window.open(
+                                    "https://myket.ir/app/com.diacotdj.liom"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
                                 }
-                                throw e;
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
                               }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
-                >
-                  <IconSvgIcon
-                    className={classNames(projectcss.all, sty.svg___14Bd9)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__hwaFn
-                    )}
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
                   >
-                    {
-                      "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u06cc\u06a9\u062a "
-                    }
-                  </div>
-                </Stack__>
-              </Tilt>
-              <Tilt className={classNames("__wab_instance", sty.tilt__ggu5V)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__nYEgS)}
-                  onClick={async event => {
-                    const $steps = {};
+                    <IconSvgIcon
+                      className={classNames(projectcss.all, sty.svg___14Bd9)}
+                      role={"img"}
+                    />
 
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return window.open("https://web.liom.app/");
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__hwaFn
+                      )}
+                    >
+                      {
+                        "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u06cc\u06a9\u062a "
+                      }
+                    </div>
+                  </Stack__>
+                </Tilt>
+                <Tilt className={classNames("__wab_instance", sty.tilt__ggu5V)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__nYEgS)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return window.open("https://web.liom.app/");
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
                                 }
-                                throw e;
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
                               }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
-                >
-                  <LogoPwaSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__hpqA)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__drcPz
-                    )}
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
                   >
-                    {
-                      "\u0648\u0631\u0648\u062f \u0628\u0647 \u0646\u0633\u062e\u0647 \u0648\u0628"
-                    }
-                  </div>
-                </Stack__>
-              </Tilt>
+                    <LogoPwaSvgrepoComSvgIcon
+                      className={classNames(projectcss.all, sty.svg__hpqA)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__drcPz
+                      )}
+                    >
+                      {
+                        "\u0648\u0631\u0648\u062f \u0628\u0647 \u0646\u0633\u062e\u0647 \u0648\u0628"
+                      }
+                    </div>
+                  </Stack__>
+                </Tilt>
+              </Stack__>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__gtFi5)}
+              >
+                <Tilt className={classNames("__wab_instance", sty.tilt__nzrtn)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___1VkT5)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return window.open(
+                                    "https://old.liom.app/view/link/liom_google_6.6.9.apk"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <BrokenLink2SvgrepoComSvgIcon
+                      className={classNames(projectcss.all, sty.svg__deguc)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__eY1K
+                      )}
+                    >
+                      {
+                        "\u062f\u0627\u0646\u0644\u0648\u062f \u0628\u0627 \u0644\u06cc\u0646\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645 "
+                      }
+                    </div>
+                  </Stack__>
+                </Tilt>
+                <Tilt className={classNames("__wab_instance", sty.tilt__ekQUi)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__c7CHa)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return window.open(
+                                    "https://cafebazaar.ir/app/com.diacotdj.liom"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <CafeBazaarLogoSvgIcon
+                      className={classNames(projectcss.all, sty.svg__pnNm3)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__jWd98
+                      )}
+                    >
+                      {
+                        "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u06a9\u0627\u0641\u0647 \u0628\u0627\u0632\u0627\u0631"
+                      }
+                    </div>
+                  </Stack__>
+                </Tilt>
+              </Stack__>
             </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__gtFi5)}
-            >
-              <Tilt className={classNames("__wab_instance", sty.tilt__nzrtn)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox___1VkT5)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return window.open(
-                                  "https://old.liom.app/view/link/liom_google_6.6.9.apk"
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
-                >
-                  <BrokenLink2SvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__deguc)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__eY1K
-                    )}
-                  >
-                    {
-                      "\u062f\u0627\u0646\u0644\u0648\u062f \u0628\u0627 \u0644\u06cc\u0646\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645 "
-                    }
-                  </div>
-                </Stack__>
-              </Tilt>
-              <Tilt className={classNames("__wab_instance", sty.tilt__ekQUi)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__c7CHa)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return window.open(
-                                  "https://cafebazaar.ir/app/com.diacotdj.liom"
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
-                >
-                  <CafeBazaarLogoSvgIcon
-                    className={classNames(projectcss.all, sty.svg__pnNm3)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__jWd98
-                    )}
-                  >
-                    {
-                      "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u06a9\u0627\u0641\u0647 \u0628\u0627\u0632\u0627\u0631"
-                    }
-                  </div>
-                </Stack__>
-              </Tilt>
-            </Stack__>
-          </div>
+          </AntdModal>
         </div>
       </div>
     </React.Fragment>
@@ -3452,7 +3773,9 @@ const PlasmicDescendants = {
     "textArea",
     "lineClomp",
     "lineClomp2",
-    "timer"
+    "timer",
+    "modal",
+    "button"
   ],
   sideEffect: ["sideEffect"],
   headerLiom: ["headerLiom"],
@@ -3487,7 +3810,9 @@ const PlasmicDescendants = {
   textArea: ["textArea"],
   lineClomp: ["lineClomp"],
   lineClomp2: ["lineClomp2"],
-  timer: ["timer"]
+  timer: ["timer"],
+  modal: ["modal", "button"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3512,6 +3837,8 @@ type NodeDefaultElementType = {
   lineClomp: typeof LineClomp;
   lineClomp2: typeof LineClomp;
   timer: typeof Timer;
+  modal: typeof AntdModal;
+  button: typeof AntdButton;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3617,6 +3944,8 @@ export const PlasmicPost2 = Object.assign(
     lineClomp: makeNodeComponent("lineClomp"),
     lineClomp2: makeNodeComponent("lineClomp2"),
     timer: makeNodeComponent("timer"),
+    modal: makeNodeComponent("modal"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicPost2
     internalVariantProps: PlasmicPost2__VariantProps,

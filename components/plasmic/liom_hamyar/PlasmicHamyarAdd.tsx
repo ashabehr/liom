@@ -617,6 +617,44 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                 $steps["getCookie"] = await $steps["getCookie"];
               }
 
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/users/profile",
+                        undefined,
+                        undefined,
+                        (() => {
+                          try {
+                            return { headers: { Authorization: $state.token } };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
               $steps["userGuset"] =
                 $state.token == ""
                   ? (() => {
