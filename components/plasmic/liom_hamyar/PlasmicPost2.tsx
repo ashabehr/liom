@@ -78,7 +78,6 @@ import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
-import Tilt from "@plasmicpkgs/react-parallax-tilt";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
