@@ -242,13 +242,13 @@ export const Fragment = ({
               const link = action.split("**@@**");
               let url = new URL(link[2]);
                 let params = new URLSearchParams(url.search);
-                
+                let urlLink="";
                 if (params.has("inApp")) {
                     params.set("inApp",inApp );
                     url.search = params.toString();
-                    url = url.toString();
+                    urlLink = url.toString();
                 }
-                sendMessage(link[1], url,inWebViow);
+                sendMessage(link[1], urlLink ,inWebViow);
             }
           }
       }
