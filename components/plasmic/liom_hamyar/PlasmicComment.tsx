@@ -120,6 +120,7 @@ export type PlasmicComment__ArgsType = {
   dataUserCurrent?: string;
   onClick?: (event: any) => void;
   commenttime?: any;
+  modalvalueforcomment?: boolean;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
@@ -140,7 +141,8 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "likeComment",
   "dataUserCurrent",
   "onClick",
-  "commenttime"
+  "commenttime",
+  "modalvalueforcomment"
 );
 
 export type PlasmicComment__OverridesType = {
@@ -175,6 +177,7 @@ export interface DefaultCommentProps {
   dataUserCurrent?: string;
   onClick?: (event: any) => void;
   commenttime?: any;
+  modalvalueforcomment?: boolean;
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
   whenHaveReply?: SingleBooleanChoiceArg<"whenHaveReply">;
   showReply?: SingleBooleanChoiceArg<"showReply">;
@@ -209,7 +212,8 @@ function PlasmicComment__RenderFunc(props: {
           tokennnn:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVjYjg4M2NkLWI3ODYtNGMzZS1iYjhiLTA5ZTgyNzVkYTk4YyIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzM5NjA2MjI2fQ.F7OWRYuvRw2zxjIXAiFCtUVG9fLGRPgvYtPpLWUsz4k",
           commentId: "3",
-          likeComment: false
+          likeComment: false,
+          modalvalueforcomment: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -1167,7 +1171,62 @@ function PlasmicComment__RenderFunc(props: {
                         sty.text__yJg1C
                       )}
                     >
-                      {"Enter some text"}
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (() => {
+                              function pad(n) {
+                                return n.toString().padStart(2, "0");
+                              }
+                              const today = new Date();
+                              const updatedAt = currentItem.reply.updatedAt;
+                              const postTime =
+                                `${updatedAt.year}-${pad(
+                                  updatedAt.month
+                                )}-${pad(updatedAt.day)}T` +
+                                `${pad(updatedAt.hour)}:${pad(
+                                  updatedAt.minute
+                                )}:${pad(updatedAt.second)}`;
+                              const inputDate = new Date(postTime);
+                              const diffInMillis =
+                                today.getTime() - inputDate.getTime();
+                              const diffInMinutes = Math.floor(
+                                diffInMillis / (1000 * 60)
+                              );
+                              const diffInHours = Math.floor(
+                                diffInMillis / (1000 * 3600)
+                              );
+                              const diffInDays = Math.floor(
+                                diffInMillis / (1000 * 3600 * 24)
+                              );
+                              const diffInWeeks = Math.floor(diffInDays / 7);
+                              const diffInMonths = Math.floor(diffInDays / 30);
+                              let result = "";
+                              if (diffInMinutes < 60) {
+                                result = `${diffInMinutes} دیقیه پیش`;
+                              } else if (diffInHours < 24) {
+                                result = `${diffInHours} ساعت پیش`;
+                              } else if (diffInDays < 7) {
+                                result = `${diffInDays}  روز پیش`;
+                              } else if (diffInDays < 30) {
+                                result = `${diffInWeeks}  هفته پیش`;
+                              } else {
+                                result = `${diffInMonths} ماه پیش`;
+                              }
+                              return result;
+                              return currentItem.reply.updatedAt;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
                     </div>
                   </div>
                   <div
@@ -1507,6 +1566,34 @@ function PlasmicComment__RenderFunc(props: {
             typeof $steps["updateCommentData2"].then === "function"
           ) {
             $steps["updateCommentData2"] = await $steps["updateCommentData2"];
+          }
+
+          $steps["updateCommentData3"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["commentData"]
+                  },
+                  operation: 0
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateCommentData3"] != null &&
+            typeof $steps["updateCommentData3"] === "object" &&
+            typeof $steps["updateCommentData3"].then === "function"
+          ) {
+            $steps["updateCommentData3"] = await $steps["updateCommentData3"];
           }
         }}
       >

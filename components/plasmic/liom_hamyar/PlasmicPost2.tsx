@@ -230,7 +230,8 @@ function PlasmicPost2__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzMDUwOCIsImFwcCI6InNoYXJlIiwibmFtZSI6InNoYXJlIn0.RROB1VkkE_RQnSsUEPG_CpfgVh2yRtVSVLpiHsY62uM"
       },
       {
         path: "popover2.open",
@@ -2578,6 +2579,19 @@ function PlasmicPost2__RenderFunc(props: {
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
                                 return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          modalvalueforcomment: (() => {
+                            try {
+                              return $state.modal.open;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
                               }
                               throw e;
                             }

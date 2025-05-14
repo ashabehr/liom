@@ -59,8 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -88,13 +86,15 @@ export type PlasmicCommentlikebutton__ArgsType = {
   likeCommentCount?: string;
   coomentLikeBool?: boolean;
   carrentData?: string;
+  modalvalueforcommentlike?: boolean;
 };
 type ArgPropType = keyof PlasmicCommentlikebutton__ArgsType;
 export const PlasmicCommentlikebutton__ArgProps = new Array<ArgPropType>(
   "onVariableForLikeCountCommentChange",
   "likeCommentCount",
   "coomentLikeBool",
-  "carrentData"
+  "carrentData",
+  "modalvalueforcommentlike"
 );
 
 export type PlasmicCommentlikebutton__OverridesType = {
@@ -108,6 +108,7 @@ export interface DefaultCommentlikebuttonProps {
   likeCommentCount?: string;
   coomentLikeBool?: boolean;
   carrentData?: string;
+  modalvalueforcommentlike?: boolean;
   islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
   className?: string;
 }
@@ -133,7 +134,8 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          coomentLikeBool: false
+          coomentLikeBool: false,
+          modalvalueforcommentlike: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -328,6 +330,37 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
         ) {
           $steps["updateVariableForLikeCountComment2"] = await $steps[
             "updateVariableForLikeCountComment2"
+          ];
+        }
+
+        $steps["updateVariableForLikeCountComment3"] = true
+          ? (() => {
+              const actionArgs = {
+                variable: {
+                  objRoot: $state,
+                  variablePath: ["variableForLikeCountComment"]
+                },
+                operation: 0
+              };
+              return (({ variable, value, startIndex, deleteCount }) => {
+                if (!variable) {
+                  return;
+                }
+                const { objRoot, variablePath } = variable;
+
+                $stateSet(objRoot, variablePath, value);
+                return value;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateVariableForLikeCountComment3"] != null &&
+          typeof $steps["updateVariableForLikeCountComment3"] === "object" &&
+          typeof $steps["updateVariableForLikeCountComment3"].then ===
+            "function"
+        ) {
+          $steps["updateVariableForLikeCountComment3"] = await $steps[
+            "updateVariableForLikeCountComment3"
           ];
         }
       }}
