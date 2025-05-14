@@ -673,7 +673,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         args: [
-                          "POST",
+                          "GET",
                           "https://n8n.staas.ir/webhook/users/profile",
                           undefined,
                           undefined,

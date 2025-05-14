@@ -409,9 +409,7 @@ function PlasmicSubItems__RenderFunc(props: {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                return window.location.replace(
-                                  window.document.referrer
-                                );
+                                return window.history.back();
                               })();
                             }
                           };

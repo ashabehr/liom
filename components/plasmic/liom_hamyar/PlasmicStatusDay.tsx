@@ -2997,9 +2997,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                return window.location.replace(
-                                  document.referrer
-                                );
+                                return window.history.back();
                               })();
                             }
                           };

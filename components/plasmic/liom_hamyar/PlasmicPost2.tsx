@@ -403,7 +403,7 @@ function PlasmicPost2__RenderFunc(props: {
         path: "modal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1154,12 +1154,12 @@ function PlasmicPost2__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["updatePopover2Open"] = true
+                          $steps["updateModalOpen"] = $state.shere
                             ? (() => {
                                 const actionArgs = {
                                   variable: {
                                     objRoot: $state,
-                                    variablePath: ["popover2", "open"]
+                                    variablePath: ["modal", "open"]
                                   },
                                   operation: 0,
                                   value: true
@@ -1181,49 +1181,12 @@ function PlasmicPost2__RenderFunc(props: {
                               })()
                             : undefined;
                           if (
-                            $steps["updatePopover2Open"] != null &&
-                            typeof $steps["updatePopover2Open"] === "object" &&
-                            typeof $steps["updatePopover2Open"].then ===
-                              "function"
+                            $steps["updateModalOpen"] != null &&
+                            typeof $steps["updateModalOpen"] === "object" &&
+                            typeof $steps["updateModalOpen"].then === "function"
                           ) {
-                            $steps["updatePopover2Open"] = await $steps[
-                              "updatePopover2Open"
-                            ];
-                          }
-
-                          $steps["updateTextAreaValue"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["textArea", "value"]
-                                  },
-                                  operation: 0
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateTextAreaValue"] != null &&
-                            typeof $steps["updateTextAreaValue"] === "object" &&
-                            typeof $steps["updateTextAreaValue"].then ===
-                              "function"
-                          ) {
-                            $steps["updateTextAreaValue"] = await $steps[
-                              "updateTextAreaValue"
+                            $steps["updateModalOpen"] = await $steps[
+                              "updateModalOpen"
                             ];
                           }
                         }}
@@ -1259,12 +1222,12 @@ function PlasmicPost2__RenderFunc(props: {
                           onClick={async event => {
                             const $steps = {};
 
-                            $steps["updateModalOpen"] = $state.shere
+                            $steps["updatePopover2Open"] = true
                               ? (() => {
                                   const actionArgs = {
                                     variable: {
                                       objRoot: $state,
-                                      variablePath: ["modal", "open"]
+                                      variablePath: ["popover2", "open"]
                                     },
                                     operation: 0,
                                     value: true
@@ -1286,13 +1249,14 @@ function PlasmicPost2__RenderFunc(props: {
                                 })()
                               : undefined;
                             if (
-                              $steps["updateModalOpen"] != null &&
-                              typeof $steps["updateModalOpen"] === "object" &&
-                              typeof $steps["updateModalOpen"].then ===
+                              $steps["updatePopover2Open"] != null &&
+                              typeof $steps["updatePopover2Open"] ===
+                                "object" &&
+                              typeof $steps["updatePopover2Open"].then ===
                                 "function"
                             ) {
-                              $steps["updateModalOpen"] = await $steps[
-                                "updateModalOpen"
+                              $steps["updatePopover2Open"] = await $steps[
+                                "updatePopover2Open"
                               ];
                             }
                           }}
@@ -1688,6 +1652,45 @@ function PlasmicPost2__RenderFunc(props: {
 
                 <div
                   className={classNames(projectcss.all, sty.freeBox___03Hh9)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateModalOpen"] = $state.shere
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["modal", "open"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateModalOpen"] != null &&
+                      typeof $steps["updateModalOpen"] === "object" &&
+                      typeof $steps["updateModalOpen"].then === "function"
+                    ) {
+                      $steps["updateModalOpen"] = await $steps[
+                        "updateModalOpen"
+                      ];
+                    }
+                  }}
                   style={(() => {
                     try {
                       return {
