@@ -244,7 +244,7 @@ export const Fragment = ({
                 let params = new URLSearchParams(url.search);
                 
                 if (params.has("inApp")) {
-                    params.set("inApp",inApp} );
+                    params.set("inApp",inApp );
                     url.search = params.toString();
                     url = url.toString();
                 }
