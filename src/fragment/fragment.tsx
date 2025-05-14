@@ -207,7 +207,7 @@ export const Fragment = ({
             }
             case "#chatBot": {
                 const queryString = buildQueryString(params);
-                const link = `https://tools.liom.app/chat-bot/?token=${token}&userId=${userId}&${queryString}`;
+                const link = `https://tools.liom.app/chat-bot/?token=${token}&userId=${userId}&${queryString}&inApp=${inApp}`;
                 sendMessage("پزشک هوشمند", link,inWebViow);
                 break;
             }
@@ -217,30 +217,38 @@ export const Fragment = ({
                 break;
             }
             case "#irregularQuestion": {
-                const link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${token}&userId=${userId}&home-page=https://apps.liom.app/Self-care/`;
+                const link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${token}&userId=${userId}&inApp=${inApp}&home-page=https://apps.liom.app/Self-care/`;
                 sendMessage("تست نامنظمی", link,inWebViow);
                 break;
             }
             case "#irregularPage": {
-                const link = `https://tools.liom.app/self-medication/?type=irregular&token=${token}&userId=${userId}`;
+                const link = `https://tools.liom.app/self-medication/?type=irregular&token=${token}&userId=${userId}&inApp=${inApp}`;
                 sendMessage("درمان نامنظمی", link,inWebViow);
                 break;
             }
             case "#pcos": {
-                const link = `https://tools.liom.app/self-medication/?type=pcos&token=${token}&userId=${userId}`;
+                const link = `https://tools.liom.app/self-medication/?type=pcos&token=${token}&userId=${userId}&inApp=${inApp}`;
                 sendMessage("درمان تنبلی تخمدان", link,inWebViow);
                 break;
             }
             case "#rediucePain": {
-                const link = `https://tools.liom.app/self-medication/?type=irregular&token=${token}&userId=${userId}`;
+                const link = `https://tools.liom.app/self-medication/?type=irregular&token=${token}&userId=${userId}&inApp=${inApp}`;
                 sendMessage("کاهش درد", link,inWebViow);
                 break;
             }
 
             default:
             if (action.startsWith("#inAppWebView")) {
-                const link = action.split("**@@**");
-                sendMessage(link[1], link[2],inWebViow);
+              const link = action.split("**@@**");
+              let url = new URL(link[2]);
+                let params = new URLSearchParams(url.search);
+                
+                if (params.has("inApp")) {
+                    params.set("inApp",inApp} );
+                    url.search = params.toString();
+                    url = url.toString();
+                }
+                sendMessage(link[1], url,inWebViow);
             }
           }
       }
