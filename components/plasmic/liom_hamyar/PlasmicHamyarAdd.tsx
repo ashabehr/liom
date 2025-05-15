@@ -292,11 +292,21 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          `hamyar${
-            $state.userinfo.healthStatus == "pregnancy"
-              ? "hamyarPregnancy"
-              : "hamyar"
-          }`
+          (() => {
+            try {
+              return $state.userinfo.healthStatus == "pregnancy"
+                ? "hamyarPregnancy"
+                : "hamyar";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "masseg",

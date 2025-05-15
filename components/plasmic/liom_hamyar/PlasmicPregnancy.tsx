@@ -7035,10 +7035,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
-                                      return window.localStorage.setItem(
-                                        "showSuggestActiveSms",
-                                        "false"
-                                      );
+                                      return (() => {
+                                        window.localStorage.setItem(
+                                          "showSuggestActiveSms",
+                                          "false"
+                                        );
+                                        return ($state.suggestActiveSms =
+                                          "false");
+                                      })();
                                     }
                                   };
                                   return (({ customFunction }) => {

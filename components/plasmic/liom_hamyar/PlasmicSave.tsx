@@ -59,6 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -66,6 +68,11 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSave.module.css"; // plasmic-import: _x22uBJ4ZqC9/css
 
+import LogoPwaSvgrepoComSvgIcon from "./icons/PlasmicIcon__LogoPwaSvgrepoComSvg"; // plasmic-import: xd3icqtlIdjI/icon
+import IconSvgIcon from "./icons/PlasmicIcon__IconSvg"; // plasmic-import: -XPXy44VZe9n/icon
+import CafeBazaarLogoSvgIcon from "./icons/PlasmicIcon__CafeBazaarLogoSvg"; // plasmic-import: W_GsLw69YDUh/icon
+import BrokenLink2SvgrepoComSvgIcon from "./icons/PlasmicIcon__BrokenLink2SvgrepoComSvg"; // plasmic-import: blnLvMghko66/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon148Icon from "./icons/PlasmicIcon__Icon148"; // plasmic-import: YYRtcISwKaqe/icon
 import Icon178Icon from "./icons/PlasmicIcon__Icon178"; // plasmic-import: IlRtbQwC4Aqw/icon
 
@@ -85,19 +92,21 @@ export type PlasmicSave__ArgsType = {
   tokenbookmark?: string;
   postIdBookmark?: string;
   isBooookMarked?: boolean;
+  bookMarkPropsShere?: boolean;
 };
 type ArgPropType = keyof PlasmicSave__ArgsType;
 export const PlasmicSave__ArgProps = new Array<ArgPropType>(
   "bokmarkcount",
   "tokenbookmark",
   "postIdBookmark",
-  "isBooookMarked"
+  "isBooookMarked",
+  "bookMarkPropsShere"
 );
 
 export type PlasmicSave__OverridesType = {
   root?: Flex__<"div">;
-  svg?: Flex__<"svg">;
-  text?: Flex__<"div">;
+  modal?: Flex__<typeof AntdModal>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultSaveProps {
@@ -105,6 +114,7 @@ export interface DefaultSaveProps {
   tokenbookmark?: string;
   postIdBookmark?: string;
   isBooookMarked?: boolean;
+  bookMarkPropsShere?: boolean;
   click?: SingleBooleanChoiceArg<"click">;
   className?: string;
 }
@@ -130,7 +140,8 @@ function PlasmicSave__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          isBooookMarked: false
+          isBooookMarked: false,
+          bookMarkPropsShere: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -212,6 +223,12 @@ function PlasmicSave__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -240,231 +257,448 @@ function PlasmicSave__RenderFunc(props: {
         sty.root,
         { [sty.rootclick]: hasVariant($state, "click", "click") }
       )}
-      onClick={async event => {
-        const $steps = {};
-
-        $steps["runCode"] = true
-          ? (() => {
-              const actionArgs = {
-                customFunction: async () => {
-                  return ($state.bookmarkcount =
-                    parseInt($state.bookmarkcount) +
-                    ($state.isbookMarked ? -1 : 1));
-                }
-              };
-              return (({ customFunction }) => {
-                return customFunction();
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["runCode"] != null &&
-          typeof $steps["runCode"] === "object" &&
-          typeof $steps["runCode"].then === "function"
-        ) {
-          $steps["runCode"] = await $steps["runCode"];
-        }
-
-        $steps["updateIsbookMarked"] = true
-          ? (() => {
-              const actionArgs = {
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["isbookMarked"]
-                },
-                operation: 0,
-                value: !$state.isbookMarked
-              };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
-
-                $stateSet(objRoot, variablePath, value);
-                return value;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateIsbookMarked"] != null &&
-          typeof $steps["updateIsbookMarked"] === "object" &&
-          typeof $steps["updateIsbookMarked"].then === "function"
-        ) {
-          $steps["updateIsbookMarked"] = await $steps["updateIsbookMarked"];
-        }
-
-        $steps["updateBookmarkcount4"] = true
-          ? (() => {
-              const actionArgs = { vgroup: "click", operation: 2 };
-              return (({ vgroup, value }) => {
-                if (typeof value === "string") {
-                  value = [value];
-                }
-
-                const oldValue = $stateGet($state, vgroup);
-                $stateSet($state, vgroup, !oldValue);
-                return !oldValue;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateBookmarkcount4"] != null &&
-          typeof $steps["updateBookmarkcount4"] === "object" &&
-          typeof $steps["updateBookmarkcount4"].then === "function"
-        ) {
-          $steps["updateBookmarkcount4"] = await $steps["updateBookmarkcount4"];
-        }
-
-        $steps["updateBookmarkcount2"] = !$state.isbookMarked
-          ? (() => {
-              const actionArgs = {
-                args: [
-                  undefined,
-                  "https://n8n.staas.ir/webhook/social/post/bookmark",
-                  (() => {
-                    try {
-                      return {
-                        postId: $props.postIdBookmark,
-                        type: "plsmic",
-                        subType: "plasmic",
-                        authorization: $props.tokenbookmark
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                ]
-              };
-              return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                ...actionArgs.args
-              ]);
-            })()
-          : undefined;
-        if (
-          $steps["updateBookmarkcount2"] != null &&
-          typeof $steps["updateBookmarkcount2"] === "object" &&
-          typeof $steps["updateBookmarkcount2"].then === "function"
-        ) {
-          $steps["updateBookmarkcount2"] = await $steps["updateBookmarkcount2"];
-        }
-
-        $steps["updateBookmarkcount3"] = $state.isbookMarked
-          ? (() => {
-              const actionArgs = {
-                args: [
-                  "POST",
-                  "https://n8n.staas.ir/webhook/social/post/bookmark",
-                  undefined,
-                  (() => {
-                    try {
-                      return {
-                        postId: $props.postIdBookmark,
-                        type: "plsmic",
-                        subType: "plasmic",
-                        authorization: $props.tokenbookmark
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                ]
-              };
-              return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                ...actionArgs.args
-              ]);
-            })()
-          : undefined;
-        if (
-          $steps["updateBookmarkcount3"] != null &&
-          typeof $steps["updateBookmarkcount3"] === "object" &&
-          typeof $steps["updateBookmarkcount3"].then === "function"
-        ) {
-          $steps["updateBookmarkcount3"] = await $steps["updateBookmarkcount3"];
-        }
-      }}
     >
-      <PlasmicIcon__
-        data-plasmic-name={"svg"}
-        data-plasmic-override={overrides.svg}
-        PlasmicIconType={
-          hasVariant($state, "click", "click") ? Icon178Icon : Icon148Icon
+      <AntdModal
+        data-plasmic-name={"modal"}
+        data-plasmic-override={overrides.modal}
+        className={classNames("__wab_instance", sty.modal)}
+        closeIcon={
+          <XIcon
+            className={classNames(projectcss.all, sty.svg__jl1Vf)}
+            role={"img"}
+          />
         }
-        className={classNames(projectcss.all, sty.svg, {
-          [sty.svgclick]: hasVariant($state, "click", "click")
-        })}
-        role={"img"}
-      />
-
-      <div
-        data-plasmic-name={"text"}
-        data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
-          [sty.textclick]: hasVariant($state, "click", "click")
-        })}
-      >
-        {hasVariant($state, "click", "click") ? (
-          <React.Fragment>
-            {(() => {
-              try {
-                return $state.bookmarkcount;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "43";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            {(() => {
-              try {
-                return $state.bookmarkcount;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "43";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
+        defaultStylesClassName={classNames(
+          projectcss.root_reset,
+          projectcss.plasmic_default_styles,
+          projectcss.plasmic_mixins,
+          projectcss.plasmic_tokens,
+          plasmic_antd_5_hostless_css.plasmic_tokens,
+          plasmic_plasmic_rich_components_css.plasmic_tokens
         )}
+        hideFooter={true}
+        modalScopeClassName={sty["modal__modal"]}
+        onOpenChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["modal", "open"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        open={generateStateValueProp($state, ["modal", "open"])}
+        title={
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__vUbda)}
+          >
+            <PlasmicImg__
+              data-plasmic-name={"img"}
+              data-plasmic-override={overrides.img}
+              alt={""}
+              className={classNames(sty.img)}
+              displayHeight={"70px"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"70px"}
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image10.ico",
+                fullWidth: 256,
+                fullHeight: 256,
+                aspectRatio: undefined
+              }}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__ji6R8
+              )}
+            >
+              {
+                "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u062e\u0648\u0627\u06cc \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc \u0628\u0627\u06cc\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0631\u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc.\r\n\u0647\u0631\u06a9\u062f\u0648\u0645 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0647\u0627\u06cc \u0632\u06cc\u0631 \u06a9\u0647 \u0628\u0627\u0647\u0627\u0634 \u0631\u0627\u062d\u062a \u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u06a9\u0646 \u0648 \u0628\u0639\u062f \u0628\u0647 \u062c\u0645\u0639 \u062f\u062e\u062a\u0631\u0648\u0646\u0647 \u06cc \u0645\u0627\u0627\u0636\u0627\u0641\u0647 \u0634\u0648\ud83d\ude0d"
+              }
+            </div>
+          </Stack__>
+        }
+        trigger={null}
+      >
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__fidol)}
+        >
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox___9K59D)}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__t6Jtn)}
+            >
+              <LogoPwaSvgrepoComSvgIcon
+                className={classNames(projectcss.all, sty.svg__lfyPt)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__yjV3C
+                )}
+              >
+                {
+                  "\u0648\u0631\u0648\u062f \u0628\u0647 \u0646\u0633\u062e\u0647 \u0648\u0628"
+                }
+              </div>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__pnAv4)}
+            >
+              <IconSvgIcon
+                className={classNames(projectcss.all, sty.svg__iN8Tb)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__oj9Dg
+                )}
+              >
+                {
+                  "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u06cc\u06a9\u062a "
+                }
+              </div>
+            </Stack__>
+          </Stack__>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__xdZxn)}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__lW395)}
+            >
+              <CafeBazaarLogoSvgIcon
+                className={classNames(projectcss.all, sty.svg__vMJb8)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__wJsqq
+                )}
+              >
+                {
+                  "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u06a9\u0627\u0641\u0647 \u0628\u0627\u0632\u0627\u0631"
+                }
+              </div>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__jdm7R)}
+            >
+              <BrokenLink2SvgrepoComSvgIcon
+                className={classNames(projectcss.all, sty.svg__cHsN9)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__xejc0
+                )}
+              >
+                {
+                  "\u062f\u0627\u0646\u0644\u0648\u062f \u0628\u0627 \u0644\u06cc\u0646\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645 "
+                }
+              </div>
+            </Stack__>
+          </Stack__>
+        </Stack__>
+      </AntdModal>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__uoAe3, {
+          [sty.freeBoxclick__uoAe3JqTmi]: hasVariant($state, "click", "click")
+        })}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return ($state.bookmarkcount =
+                      parseInt($state.bookmarkcount) +
+                      ($state.isbookMarked ? -1 : 1));
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
+          }
+
+          $steps["updateIsbookMarked"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["isbookMarked"]
+                  },
+                  operation: 0,
+                  value: !$state.isbookMarked
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateIsbookMarked"] != null &&
+            typeof $steps["updateIsbookMarked"] === "object" &&
+            typeof $steps["updateIsbookMarked"].then === "function"
+          ) {
+            $steps["updateIsbookMarked"] = await $steps["updateIsbookMarked"];
+          }
+
+          $steps["updateBookmarkcount4"] = true
+            ? (() => {
+                const actionArgs = { vgroup: "click", operation: 2 };
+                return (({ vgroup, value }) => {
+                  if (typeof value === "string") {
+                    value = [value];
+                  }
+
+                  const oldValue = $stateGet($state, vgroup);
+                  $stateSet($state, vgroup, !oldValue);
+                  return !oldValue;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateBookmarkcount4"] != null &&
+            typeof $steps["updateBookmarkcount4"] === "object" &&
+            typeof $steps["updateBookmarkcount4"].then === "function"
+          ) {
+            $steps["updateBookmarkcount4"] = await $steps[
+              "updateBookmarkcount4"
+            ];
+          }
+
+          $steps["updateBookmarkcount2"] = !$state.isbookMarked
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    undefined,
+                    "https://n8n.staas.ir/webhook/social/post/bookmark",
+                    (() => {
+                      try {
+                        return {
+                          postId: $props.postIdBookmark,
+                          type: "plsmic",
+                          subType: "plasmic",
+                          authorization: $props.tokenbookmark
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  ]
+                };
+                return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["updateBookmarkcount2"] != null &&
+            typeof $steps["updateBookmarkcount2"] === "object" &&
+            typeof $steps["updateBookmarkcount2"].then === "function"
+          ) {
+            $steps["updateBookmarkcount2"] = await $steps[
+              "updateBookmarkcount2"
+            ];
+          }
+
+          $steps["updateBookmarkcount3"] = $state.isbookMarked
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    "POST",
+                    "https://n8n.staas.ir/webhook/social/post/bookmark",
+                    undefined,
+                    (() => {
+                      try {
+                        return {
+                          postId: $props.postIdBookmark,
+                          type: "plsmic",
+                          subType: "plasmic",
+                          authorization: $props.tokenbookmark
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  ]
+                };
+                return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["updateBookmarkcount3"] != null &&
+            typeof $steps["updateBookmarkcount3"] === "object" &&
+            typeof $steps["updateBookmarkcount3"].then === "function"
+          ) {
+            $steps["updateBookmarkcount3"] = await $steps[
+              "updateBookmarkcount3"
+            ];
+          }
+
+          $steps["updateModalOpen"] = $props.bookMarkPropsShere
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["modal", "open"]
+                  },
+                  operation: 0,
+                  value: true
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateModalOpen"] != null &&
+            typeof $steps["updateModalOpen"] === "object" &&
+            typeof $steps["updateModalOpen"].then === "function"
+          ) {
+            $steps["updateModalOpen"] = await $steps["updateModalOpen"];
+          }
+        }}
+      >
+        <PlasmicIcon__
+          PlasmicIconType={
+            hasVariant($state, "click", "click") ? Icon178Icon : Icon148Icon
+          }
+          className={classNames(projectcss.all, sty.svg__oSoos, {
+            [sty.svgclick__oSoosjqTmi]: hasVariant($state, "click", "click")
+          })}
+          role={"img"}
+        />
+
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__alnR6,
+            {
+              [sty.textclick__alnR6JqTmi]: hasVariant($state, "click", "click")
+            }
+          )}
+        >
+          {hasVariant($state, "click", "click") ? (
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $state.bookmarkcount;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "43";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $state.bookmarkcount;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "43";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          )}
+        </div>
       </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "text"],
-  svg: ["svg"],
-  text: ["text"]
+  root: ["root", "modal", "img"],
+  modal: ["modal", "img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  svg: "svg";
-  text: "div";
+  modal: typeof AntdModal;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -527,8 +761,8 @@ export const PlasmicSave = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    svg: makeNodeComponent("svg"),
-    text: makeNodeComponent("text"),
+    modal: makeNodeComponent("modal"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicSave
     internalVariantProps: PlasmicSave__VariantProps,

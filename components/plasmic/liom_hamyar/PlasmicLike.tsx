@@ -59,6 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -66,6 +68,11 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicLike.module.css"; // plasmic-import: ARJf0DiYhPbe/css
 
+import LogoPwaSvgrepoComSvgIcon from "./icons/PlasmicIcon__LogoPwaSvgrepoComSvg"; // plasmic-import: xd3icqtlIdjI/icon
+import IconSvgIcon from "./icons/PlasmicIcon__IconSvg"; // plasmic-import: -XPXy44VZe9n/icon
+import CafeBazaarLogoSvgIcon from "./icons/PlasmicIcon__CafeBazaarLogoSvg"; // plasmic-import: W_GsLw69YDUh/icon
+import BrokenLink2SvgrepoComSvgIcon from "./icons/PlasmicIcon__BrokenLink2SvgrepoComSvg"; // plasmic-import: blnLvMghko66/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon41Icon from "./icons/PlasmicIcon__Icon41"; // plasmic-import: r6SoVxvsvftJ/icon
 import Icon43Icon from "./icons/PlasmicIcon__Icon43"; // plasmic-import: zSmDwH85ZJh8/icon
 
@@ -86,6 +93,7 @@ export type PlasmicLike__ArgsType = {
   islikePost?: boolean;
   postIdForLike?: string;
   tokenForPostLike?: string;
+  shere?: boolean;
 };
 type ArgPropType = keyof PlasmicLike__ArgsType;
 export const PlasmicLike__ArgProps = new Array<ArgPropType>(
@@ -93,13 +101,14 @@ export const PlasmicLike__ArgProps = new Array<ArgPropType>(
   "likeCountForBar",
   "islikePost",
   "postIdForLike",
-  "tokenForPostLike"
+  "tokenForPostLike",
+  "shere"
 );
 
 export type PlasmicLike__OverridesType = {
   root?: Flex__<"div">;
-  svg?: Flex__<"svg">;
-  text?: Flex__<"div">;
+  modal?: Flex__<typeof AntdModal>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultLikeProps {
@@ -108,6 +117,7 @@ export interface DefaultLikeProps {
   islikePost?: boolean;
   postIdForLike?: string;
   tokenForPostLike?: string;
+  shere?: boolean;
   islike?: SingleBooleanChoiceArg<"islike">;
   className?: string;
 }
@@ -134,7 +144,8 @@ function PlasmicLike__RenderFunc(props: {
       Object.assign(
         {
           likeCountForBar: "100",
-          islikePost: false
+          islikePost: false,
+          shere: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -205,6 +216,12 @@ function PlasmicLike__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -233,214 +250,641 @@ function PlasmicLike__RenderFunc(props: {
         sty.root,
         { [sty.rootislike]: hasVariant($state, "islike", "islike") }
       )}
-      onClick={async event => {
-        const $steps = {};
-
-        $steps["updateIslike"] = true
-          ? (() => {
-              const actionArgs = {
-                vgroup: "islike",
-                operation: 2,
-                value: "islike"
-              };
-              return (({ vgroup, value }) => {
-                if (typeof value === "string") {
-                  value = [value];
-                }
-
-                const oldValue = $stateGet($state, vgroup);
-                $stateSet($state, vgroup, !oldValue);
-                return !oldValue;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateIslike"] != null &&
-          typeof $steps["updateIslike"] === "object" &&
-          typeof $steps["updateIslike"].then === "function"
-        ) {
-          $steps["updateIslike"] = await $steps["updateIslike"];
-        }
-
-        $steps["updateIslike2"] = true
-          ? (() => {
-              const actionArgs = {
-                customFunction: async () => {
-                  return ($state.likeCountForLikeBar =
-                    parseInt($state.likeCountForLikeBar) +
-                    ($state.isLikeForBar ? -1 : 1));
-                }
-              };
-              return (({ customFunction }) => {
-                return customFunction();
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateIslike2"] != null &&
-          typeof $steps["updateIslike2"] === "object" &&
-          typeof $steps["updateIslike2"].then === "function"
-        ) {
-          $steps["updateIslike2"] = await $steps["updateIslike2"];
-        }
-
-        $steps["updateIsLikeForBar"] = true
-          ? (() => {
-              const actionArgs = {
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["isLikeForBar"]
-                },
-                operation: 0,
-                value: !$state.isLikeForBar
-              };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
-
-                $stateSet(objRoot, variablePath, value);
-                return value;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateIsLikeForBar"] != null &&
-          typeof $steps["updateIsLikeForBar"] === "object" &&
-          typeof $steps["updateIsLikeForBar"].then === "function"
-        ) {
-          $steps["updateIsLikeForBar"] = await $steps["updateIsLikeForBar"];
-        }
-
-        $steps["invokeGlobalAction"] = !$state.isLikeForBar
-          ? (() => {
-              const actionArgs = {
-                args: [
-                  undefined,
-                  "https://n8n.staas.ir/webhook/social/post/like",
-                  (() => {
-                    try {
-                      return {
-                        postId: $props.postIdForLike,
-                        type: "userLiked",
-                        authorization: $props.tokenForPostLike
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                ]
-              };
-              return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                ...actionArgs.args
-              ]);
-            })()
-          : undefined;
-        if (
-          $steps["invokeGlobalAction"] != null &&
-          typeof $steps["invokeGlobalAction"] === "object" &&
-          typeof $steps["invokeGlobalAction"].then === "function"
-        ) {
-          $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
-        }
-
-        $steps["invokeGlobalAction2"] = $state.isLikeForBar
-          ? (() => {
-              const actionArgs = {
-                args: [
-                  "POST",
-                  "https://n8n.staas.ir/webhook/social/post/like",
-                  undefined,
-                  (() => {
-                    try {
-                      return {
-                        postId: $props.postIdForLike,
-                        authorization: $props.tokenForPostLike
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                ]
-              };
-              return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                ...actionArgs.args
-              ]);
-            })()
-          : undefined;
-        if (
-          $steps["invokeGlobalAction2"] != null &&
-          typeof $steps["invokeGlobalAction2"] === "object" &&
-          typeof $steps["invokeGlobalAction2"].then === "function"
-        ) {
-          $steps["invokeGlobalAction2"] = await $steps["invokeGlobalAction2"];
-        }
-      }}
     >
-      <PlasmicIcon__
-        data-plasmic-name={"svg"}
-        data-plasmic-override={overrides.svg}
-        PlasmicIconType={
-          hasVariant($state, "islike", "islike") ? Icon43Icon : Icon41Icon
-        }
-        className={classNames(projectcss.all, sty.svg, {
-          [sty.svgislike]: hasVariant($state, "islike", "islike")
-        })}
-        role={"img"}
-      />
+      <AntdModal
+        data-plasmic-name={"modal"}
+        data-plasmic-override={overrides.modal}
+        className={classNames("__wab_instance", sty.modal)}
+        closeIcon={
+          <XIcon
+            className={classNames(projectcss.all, sty.svg__mSxo1)}
+            onClick={async event => {
+              const $steps = {};
 
-      <div
-        data-plasmic-name={"text"}
-        data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
-          [sty.textislike]: hasVariant($state, "islike", "islike")
-        })}
-      >
-        <React.Fragment>
-          {(() => {
-            try {
-              return $state.likeCountForLikeBar;
-            } catch (e) {
+              $steps["updateModalOpen"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["modal", "open"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
               if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
+                $steps["updateModalOpen"] != null &&
+                typeof $steps["updateModalOpen"] === "object" &&
+                typeof $steps["updateModalOpen"].then === "function"
               ) {
-                return "";
+                $steps["updateModalOpen"] = await $steps["updateModalOpen"];
               }
-              throw e;
+            }}
+            role={"img"}
+          />
+        }
+        defaultStylesClassName={classNames(
+          projectcss.root_reset,
+          projectcss.plasmic_default_styles,
+          projectcss.plasmic_mixins,
+          projectcss.plasmic_tokens,
+          plasmic_antd_5_hostless_css.plasmic_tokens,
+          plasmic_plasmic_rich_components_css.plasmic_tokens
+        )}
+        hideFooter={true}
+        modalScopeClassName={sty["modal__modal"]}
+        onOpenChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["modal", "open"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        open={generateStateValueProp($state, ["modal", "open"])}
+        title={
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__hTf1M)}
+          >
+            <PlasmicImg__
+              data-plasmic-name={"img"}
+              data-plasmic-override={overrides.img}
+              alt={""}
+              className={classNames(sty.img)}
+              displayHeight={"70px"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"70px"}
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image10.ico",
+                fullWidth: 256,
+                fullHeight: 256,
+                aspectRatio: undefined
+              }}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__rmXa
+              )}
+            >
+              {
+                "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u062e\u0648\u0627\u06cc \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc \u0628\u0627\u06cc\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0631\u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc.\r\n\u0647\u0631\u06a9\u062f\u0648\u0645 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0647\u0627\u06cc \u0632\u06cc\u0631 \u06a9\u0647 \u0628\u0627\u0647\u0627\u0634 \u0631\u0627\u062d\u062a \u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u06a9\u0646 \u0648 \u0628\u0639\u062f \u0628\u0647 \u062c\u0645\u0639 \u062f\u062e\u062a\u0631\u0648\u0646\u0647 \u06cc \u0645\u0627\u0627\u0636\u0627\u0641\u0647 \u0634\u0648\ud83d\ude0d"
+              }
+            </div>
+          </Stack__>
+        }
+        trigger={null}
+      >
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox___7TaIm)}
+        >
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__wsyyi)}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__quPu8)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["goToPage"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return window.open("https://web.liom.app/");
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+              }}
+            >
+              <LogoPwaSvgrepoComSvgIcon
+                className={classNames(projectcss.all, sty.svg__soiId)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__uZvrB
+                )}
+              >
+                {
+                  "\u0648\u0631\u0648\u062f \u0628\u0647 \u0646\u0633\u062e\u0647 \u0648\u0628"
+                }
+              </div>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox___3Lzms)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["goToPage"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return window.open(
+                              "https://myket.ir/app/com.diacotdj.liom"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+              }}
+            >
+              <IconSvgIcon
+                className={classNames(projectcss.all, sty.svg__fP5W)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__yjBrz
+                )}
+              >
+                {
+                  "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u06cc\u06a9\u062a "
+                }
+              </div>
+            </Stack__>
+          </Stack__>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__oKkBn)}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox___4Mph)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["goToPage"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return window.open(
+                              "https://cafebazaar.ir/app/com.diacotdj.liom"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+              }}
+            >
+              <CafeBazaarLogoSvgIcon
+                className={classNames(projectcss.all, sty.svg___9JeEy)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__v47Hn
+                )}
+              >
+                {
+                  "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u06a9\u0627\u0641\u0647 \u0628\u0627\u0632\u0627\u0631"
+                }
+              </div>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__ntd6W)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["goToPage"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return window.open(
+                              "https://old.liom.app/view/link/liom_google_6.6.9.apk"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+              }}
+            >
+              <BrokenLink2SvgrepoComSvgIcon
+                className={classNames(projectcss.all, sty.svg__hmZde)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__i6GE
+                )}
+              >
+                {
+                  "\u062f\u0627\u0646\u0644\u0648\u062f \u0628\u0627 \u0644\u06cc\u0646\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645 "
+                }
+              </div>
+            </Stack__>
+          </Stack__>
+        </Stack__>
+      </AntdModal>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__waP5W, {
+          [sty.freeBoxislike__waP5WM2Mbn]: hasVariant(
+            $state,
+            "islike",
+            "islike"
+          )
+        })}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["updateLikeCountForLikeBar3"] = $props.shere
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["modal", "open"]
+                  },
+                  operation: 0,
+                  value: true
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateLikeCountForLikeBar3"] != null &&
+            typeof $steps["updateLikeCountForLikeBar3"] === "object" &&
+            typeof $steps["updateLikeCountForLikeBar3"].then === "function"
+          ) {
+            $steps["updateLikeCountForLikeBar3"] = await $steps[
+              "updateLikeCountForLikeBar3"
+            ];
+          }
+
+          $steps["updateIslike"] = true
+            ? (() => {
+                const actionArgs = {
+                  vgroup: "islike",
+                  operation: 2,
+                  value: "islike"
+                };
+                return (({ vgroup, value }) => {
+                  if (typeof value === "string") {
+                    value = [value];
+                  }
+
+                  const oldValue = $stateGet($state, vgroup);
+                  $stateSet($state, vgroup, !oldValue);
+                  return !oldValue;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateIslike"] != null &&
+            typeof $steps["updateIslike"] === "object" &&
+            typeof $steps["updateIslike"].then === "function"
+          ) {
+            $steps["updateIslike"] = await $steps["updateIslike"];
+          }
+
+          $steps["updateIslike2"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return ($state.likeCountForLikeBar =
+                      parseInt($state.likeCountForLikeBar) +
+                      ($state.isLikeForBar ? -1 : 1));
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateIslike2"] != null &&
+            typeof $steps["updateIslike2"] === "object" &&
+            typeof $steps["updateIslike2"].then === "function"
+          ) {
+            $steps["updateIslike2"] = await $steps["updateIslike2"];
+          }
+
+          $steps["updateIsLikeForBar"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["isLikeForBar"]
+                  },
+                  operation: 0,
+                  value: !$state.isLikeForBar
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateIsLikeForBar"] != null &&
+            typeof $steps["updateIsLikeForBar"] === "object" &&
+            typeof $steps["updateIsLikeForBar"].then === "function"
+          ) {
+            $steps["updateIsLikeForBar"] = await $steps["updateIsLikeForBar"];
+          }
+
+          $steps["invokeGlobalAction"] = !$state.isLikeForBar
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    undefined,
+                    "https://n8n.staas.ir/webhook/social/post/like",
+                    (() => {
+                      try {
+                        return {
+                          postId: $props.postIdForLike,
+                          type: "userLiked",
+                          authorization: $props.tokenForPostLike
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  ]
+                };
+                return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["invokeGlobalAction"] != null &&
+            typeof $steps["invokeGlobalAction"] === "object" &&
+            typeof $steps["invokeGlobalAction"].then === "function"
+          ) {
+            $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+          }
+
+          $steps["invokeGlobalAction2"] = $state.isLikeForBar
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    "POST",
+                    "https://n8n.staas.ir/webhook/social/post/like",
+                    undefined,
+                    (() => {
+                      try {
+                        return {
+                          postId: $props.postIdForLike,
+                          authorization: $props.tokenForPostLike
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  ]
+                };
+                return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["invokeGlobalAction2"] != null &&
+            typeof $steps["invokeGlobalAction2"] === "object" &&
+            typeof $steps["invokeGlobalAction2"].then === "function"
+          ) {
+            $steps["invokeGlobalAction2"] = await $steps["invokeGlobalAction2"];
+          }
+        }}
+      >
+        <PlasmicIcon__
+          PlasmicIconType={
+            hasVariant($state, "islike", "islike") ? Icon43Icon : Icon41Icon
+          }
+          className={classNames(projectcss.all, sty.svg__vsNmA, {
+            [sty.svgislike__vsNmAm2Mbn]: hasVariant($state, "islike", "islike")
+          })}
+          role={"img"}
+        />
+
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__moiNk,
+            {
+              [sty.textislike__moiNkM2Mbn]: hasVariant(
+                $state,
+                "islike",
+                "islike"
+              )
             }
-          })()}
-        </React.Fragment>
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $state.likeCountForLikeBar;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </div>
       </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "text"],
-  svg: ["svg"],
-  text: ["text"]
+  root: ["root", "modal", "img"],
+  modal: ["modal", "img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  svg: "svg";
-  text: "div";
+  modal: typeof AntdModal;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -503,8 +947,8 @@ export const PlasmicLike = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    svg: makeNodeComponent("svg"),
-    text: makeNodeComponent("text"),
+    modal: makeNodeComponent("modal"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicLike
     internalVariantProps: PlasmicLike__VariantProps,
