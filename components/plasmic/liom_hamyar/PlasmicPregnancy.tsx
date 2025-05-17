@@ -18669,7 +18669,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           const actionArgs = {
                                             customFunction: async () => {
                                               return window.FlutterChannel.postMessage(
-                                                "#directDialog-pregnancySub"
+                                                "#healthSubscription"
                                               );
                                             }
                                           };
@@ -19776,7 +19776,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 const actionArgs = {
                                                   customFunction: async () => {
                                                     return window.FlutterChannel.postMessage(
-                                                      "#directDialog-pregnancySub"
+                                                      "#healthSubscription"
                                                     );
                                                   }
                                                 };
@@ -20305,7 +20305,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           const actionArgs = {
                                             customFunction: async () => {
                                               return window.FlutterChannel.postMessage(
-                                                "#directDialog-pregnancySub"
+                                                "#healthSubscription"
                                               );
                                             }
                                           };
@@ -21384,7 +21384,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 const actionArgs = {
                                                   customFunction: async () => {
                                                     return window.FlutterChannel.postMessage(
-                                                      "#directDialog-pregnancySub"
+                                                      "#healthSubscription"
                                                     );
                                                   }
                                                 };
