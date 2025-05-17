@@ -110,26 +110,6 @@
     padding: 2px;
   }
 }
-.text__vplSx {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: center;
-  font-weight: 600;
-  font-size: var(--token-2xQ-Ews6Hwx4);
-  color: #00c371;
-  align-self: center;
-  white-space: pre;
-  min-width: 0;
-}
-@media (max-width: 640px) {
-  .text__vplSx {
-    font-size: 14px;
-    white-space: pre;
-    font-weight: 700;
-  }
-}
 .text__nxVc7 {
   position: relative;
   width: 100%;
@@ -153,28 +133,5 @@
     text-align: right;
     font-weight: 500;
     white-space: pre;
-  }
-}
-.text__wDegs {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: right;
-  font-weight: 300;
-  font-size: 12px;
-  top: auto;
-  left: auto;
-  min-width: 0;
-}
-@media (max-width: 640px) {
-  .text__wDegs {
-    font-size: 12px;
-    left: auto;
-    top: auto;
-    z-index: 1;
-    position: relative;
-    text-align: right;
-    font-weight: 300;
   }
 }

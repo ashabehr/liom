@@ -8140,8 +8140,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                                             blurredVision:
                                               $state.blurredVision.list[0],
                                             fever: $state.fever.list[0],
-                                            heartbeate:
-                                              $state.heartbeat.list[0],
+                                            heartbeat: $state.heartbeat.list[0],
                                             urination: $state.urination.list[0],
                                             skinItch: $state.skinItch.list[0],
                                             nauseaOrVomiting:
