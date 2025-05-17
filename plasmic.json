@@ -1957,17 +1957,31 @@
         },
         {
           "id": "7fkym_8d4GAx",
-          "name": "SubscriptionPage",
+          "name": "ToolsPage",
           "type": "managed",
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSubscriptionPage.tsx",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicToolsPage.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/subscription-page.tsx"
+            "modulePath": "../src/pages/tools-page.tsx"
           },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSubscriptionPage.module.css",
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicToolsPage.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/subscription-page"
+          "path": "/tools-page"
+        },
+        {
+          "id": "SFydXtruRu5z",
+          "name": "ToolsPage2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicToolsPage2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/tools-page-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicToolsPage2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/tools-page-2"
         }
       ],
       "icons": [

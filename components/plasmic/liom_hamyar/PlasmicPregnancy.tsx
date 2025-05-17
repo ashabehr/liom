@@ -17296,7 +17296,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           customFunction:
                                                             async () => {
                                                               return window.FlutterChannel.postMessage(
-                                                                "#directDialog-pregnancySub"
+                                                                "#healthSubscription"
                                                               );
                                                             }
                                                         };
