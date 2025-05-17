@@ -1954,6 +1954,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicPost2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "7fkym_8d4GAx",
+          "name": "SubscriptionPage",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSubscriptionPage.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/subscription-page.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSubscriptionPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/subscription-page"
         }
       ],
       "icons": [
@@ -4063,6 +4077,11 @@
           "id": "pOYCWV5VoA2n",
           "name": "image 97",
           "filePath": "../public/plasmic/liom_hamyar/images/image97.svg"
+        },
+        {
+          "id": "WhkTo-hOZNGf",
+          "name": "New Project.png 3",
+          "filePath": "../public/plasmic/liom_hamyar/images/newProjectPng3.png"
         }
       ],
       "indirect": false,

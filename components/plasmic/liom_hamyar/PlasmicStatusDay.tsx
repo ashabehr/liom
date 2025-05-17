@@ -1028,7 +1028,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return [$state.inDay.secretions] || [];
+              return $state.inDay.secretions || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1997,7 +1997,7 @@ function PlasmicStatusDay__RenderFunc(props: {
               return (() => {
                 return $state.getEvent.data
                   ? $state.getEvent.data.result
-                  : [] || [];
+                  : {} || {};
               })();
             } catch (e) {
               if (
