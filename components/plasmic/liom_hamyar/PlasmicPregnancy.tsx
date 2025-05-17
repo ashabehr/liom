@@ -7249,7 +7249,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     break;
                                                   case "statusToday":
                                                     {
-                                                      var link = `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}`;
+                                                      var link = `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=true`;
                                                       window.FlutterChannel.postMessage(
                                                         "#inAppWebView**@@**" +
                                                           "وضعیت امروز" +
@@ -7388,6 +7388,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         true;
                                                     }
                                                     break;
+                                                  case "statusToday":
+                                                    window.open(
+                                                      `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=false`,
+                                                      "_self"
+                                                    );
+                                                    break;
                                                   case "stretch_marks":
                                                     if (active)
                                                       window.open(
@@ -7430,9 +7436,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     )}&inApp=${
                                                       $ctx.query.inApp
                                                     }&userId=${$state.userId}`;
-                                                    break;
-                                                  case "statusToday":
-                                                    `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}`;
                                                     break;
                                                 }
                                               })();
