@@ -136,29 +136,29 @@ export type PlasmicStatusDay__OverridesType = {
   selectionBox?: Flex__<"div">;
   color?: Flex__<typeof Choices>;
   selectionBox10?: Flex__<"div">;
-  color2?: Flex__<typeof Choices>;
+  bleeding?: Flex__<typeof Choices>;
   selectionBox11?: Flex__<"div">;
-  color3?: Flex__<typeof Choices>;
+  backPain?: Flex__<typeof Choices>;
   selectionBox12?: Flex__<"div">;
-  color4?: Flex__<typeof Choices>;
+  swelling?: Flex__<typeof Choices>;
   selectionBox13?: Flex__<"div">;
-  color5?: Flex__<typeof Choices>;
+  blurredVision?: Flex__<typeof Choices>;
   selectionBox14?: Flex__<"div">;
-  color6?: Flex__<typeof Choices>;
+  headache?: Flex__<typeof Choices>;
   selectionBox15?: Flex__<"div">;
-  color7?: Flex__<typeof Choices>;
+  fever?: Flex__<typeof Choices>;
   selectionBox16?: Flex__<"div">;
-  color8?: Flex__<typeof Choices>;
+  heartbeat?: Flex__<typeof Choices>;
   selectionBox17?: Flex__<"div">;
-  color9?: Flex__<typeof Choices>;
+  urination?: Flex__<typeof Choices>;
   selectionBox18?: Flex__<"div">;
-  color10?: Flex__<typeof Choices>;
+  skinItch?: Flex__<typeof Choices>;
   selectionBox19?: Flex__<"div">;
-  color11?: Flex__<typeof Choices>;
+  nauseaOrVomiting?: Flex__<typeof Choices>;
   selectionBox20?: Flex__<"div">;
-  color12?: Flex__<typeof Choices>;
+  shortnessOfBreath?: Flex__<typeof Choices>;
   selectionBox21?: Flex__<"div">;
-  color13?: Flex__<typeof Choices>;
+  dizziness?: Flex__<typeof Choices>;
   selectionBox2?: Flex__<"div">;
   intensity?: Flex__<typeof Choices>;
   selectionBox3?: Flex__<"div">;
@@ -2175,7 +2175,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "color2.list",
+        path: "bleeding.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2194,7 +2194,7 @@ function PlasmicStatusDay__RenderFunc(props: {
           })()
       },
       {
-        path: "color2.selectOne",
+        path: "bleeding.selectOne",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
@@ -2203,10 +2203,10 @@ function PlasmicStatusDay__RenderFunc(props: {
         path: "healthStatus",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "period"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "pregnancy"
       },
       {
-        path: "color3.list",
+        path: "backPain.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2225,13 +2225,13 @@ function PlasmicStatusDay__RenderFunc(props: {
           })()
       },
       {
-        path: "color3.selectOne",
+        path: "backPain.selectOne",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
-        path: "color4.list",
+        path: "swelling.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2250,13 +2250,13 @@ function PlasmicStatusDay__RenderFunc(props: {
           })()
       },
       {
-        path: "color4.selectOne",
+        path: "swelling.selectOne",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
-        path: "color5.list",
+        path: "blurredVision.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2275,13 +2275,13 @@ function PlasmicStatusDay__RenderFunc(props: {
           })()
       },
       {
-        path: "color5.selectOne",
+        path: "blurredVision.selectOne",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
-        path: "color6.list",
+        path: "headache.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2300,13 +2300,13 @@ function PlasmicStatusDay__RenderFunc(props: {
           })()
       },
       {
-        path: "color6.selectOne",
+        path: "headache.selectOne",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
-        path: "color7.list",
+        path: "fever.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2325,13 +2325,13 @@ function PlasmicStatusDay__RenderFunc(props: {
           })()
       },
       {
-        path: "color7.selectOne",
+        path: "fever.selectOne",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
-        path: "color8.list",
+        path: "heartbeat.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2350,13 +2350,13 @@ function PlasmicStatusDay__RenderFunc(props: {
           })()
       },
       {
-        path: "color8.selectOne",
+        path: "heartbeat.selectOne",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
-        path: "color9.list",
+        path: "urination.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2375,13 +2375,13 @@ function PlasmicStatusDay__RenderFunc(props: {
           })()
       },
       {
-        path: "color9.selectOne",
+        path: "urination.selectOne",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
-        path: "color10.list",
+        path: "skinItch.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2400,13 +2400,13 @@ function PlasmicStatusDay__RenderFunc(props: {
           })()
       },
       {
-        path: "color10.selectOne",
+        path: "skinItch.selectOne",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
-        path: "color11.list",
+        path: "nauseaOrVomiting.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2425,13 +2425,13 @@ function PlasmicStatusDay__RenderFunc(props: {
           })()
       },
       {
-        path: "color11.selectOne",
+        path: "nauseaOrVomiting.selectOne",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
-        path: "color12.list",
+        path: "shortnessOfBreath.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2450,13 +2450,13 @@ function PlasmicStatusDay__RenderFunc(props: {
           })()
       },
       {
-        path: "color12.selectOne",
+        path: "shortnessOfBreath.selectOne",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
-        path: "color13.list",
+        path: "dizziness.list",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -2475,82 +2475,10 @@ function PlasmicStatusDay__RenderFunc(props: {
           })()
       },
       {
-        path: "color13.selectOne",
+        path: "dizziness.selectOne",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
-      },
-      {
-        path: "bleeding",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "backPain",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "swelling",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "blurredVision",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "fever",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "heartbeat",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "urination",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "skinItch",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "nauseaOrVomiting",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "shortnessOfBreath",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "dizziness",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "headache",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
         path: "paramsObject",
@@ -4908,8 +4836,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       />
 
                       <Choices
-                        data-plasmic-name={"color2"}
-                        data-plasmic-override={overrides.color2}
+                        data-plasmic-name={"bleeding"}
+                        data-plasmic-override={overrides.bleeding}
                         beforList={(() => {
                           try {
                             return $state.signs.bleeding;
@@ -4945,7 +4873,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         circl={true}
-                        className={classNames("__wab_instance", sty.color2)}
+                        className={classNames("__wab_instance", sty.bleeding)}
                         html={(() => {
                           try {
                             return undefined;
@@ -4960,12 +4888,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         list={generateStateValueProp($state, [
-                          "color2",
+                          "bleeding",
                           "list"
                         ])}
                         onListChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color2",
+                            "bleeding",
                             "list"
                           ]).apply(null, eventArgs);
 
@@ -4979,7 +4907,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }}
                         onSelectOneChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color2",
+                            "bleeding",
                             "selectOne"
                           ]).apply(null, eventArgs);
 
@@ -4992,7 +4920,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         }}
                         selectOne={generateStateValueProp($state, [
-                          "color2",
+                          "bleeding",
                           "selectOne"
                         ])}
                         shape={(() => {
@@ -5058,8 +4986,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       />
 
                       <Choices
-                        data-plasmic-name={"color3"}
-                        data-plasmic-override={overrides.color3}
+                        data-plasmic-name={"backPain"}
+                        data-plasmic-override={overrides.backPain}
                         beforList={(() => {
                           try {
                             return $state.signs.backPain;
@@ -5095,7 +5023,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         circl={true}
-                        className={classNames("__wab_instance", sty.color3)}
+                        className={classNames("__wab_instance", sty.backPain)}
                         html={(() => {
                           try {
                             return undefined;
@@ -5110,12 +5038,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         list={generateStateValueProp($state, [
-                          "color3",
+                          "backPain",
                           "list"
                         ])}
                         onListChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color3",
+                            "backPain",
                             "list"
                           ]).apply(null, eventArgs);
 
@@ -5129,7 +5057,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }}
                         onSelectOneChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color3",
+                            "backPain",
                             "selectOne"
                           ]).apply(null, eventArgs);
 
@@ -5142,7 +5070,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         }}
                         selectOne={generateStateValueProp($state, [
-                          "color3",
+                          "backPain",
                           "selectOne"
                         ])}
                         shape={(() => {
@@ -5206,8 +5134,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       />
 
                       <Choices
-                        data-plasmic-name={"color4"}
-                        data-plasmic-override={overrides.color4}
+                        data-plasmic-name={"swelling"}
+                        data-plasmic-override={overrides.swelling}
                         beforList={(() => {
                           try {
                             return $state.signs.swelling;
@@ -5243,7 +5171,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         circl={true}
-                        className={classNames("__wab_instance", sty.color4)}
+                        className={classNames("__wab_instance", sty.swelling)}
                         html={(() => {
                           try {
                             return undefined;
@@ -5258,12 +5186,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         list={generateStateValueProp($state, [
-                          "color4",
+                          "swelling",
                           "list"
                         ])}
                         onListChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color4",
+                            "swelling",
                             "list"
                           ]).apply(null, eventArgs);
 
@@ -5277,7 +5205,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }}
                         onSelectOneChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color4",
+                            "swelling",
                             "selectOne"
                           ]).apply(null, eventArgs);
 
@@ -5290,7 +5218,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         }}
                         selectOne={generateStateValueProp($state, [
-                          "color4",
+                          "swelling",
                           "selectOne"
                         ])}
                         shape={(() => {
@@ -5354,8 +5282,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       />
 
                       <Choices
-                        data-plasmic-name={"color5"}
-                        data-plasmic-override={overrides.color5}
+                        data-plasmic-name={"blurredVision"}
+                        data-plasmic-override={overrides.blurredVision}
                         beforList={(() => {
                           try {
                             return $state.signs.blurredVision;
@@ -5391,7 +5319,10 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         circl={true}
-                        className={classNames("__wab_instance", sty.color5)}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.blurredVision
+                        )}
                         html={(() => {
                           try {
                             return undefined;
@@ -5406,12 +5337,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         list={generateStateValueProp($state, [
-                          "color5",
+                          "blurredVision",
                           "list"
                         ])}
                         onListChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color5",
+                            "blurredVision",
                             "list"
                           ]).apply(null, eventArgs);
 
@@ -5425,7 +5356,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }}
                         onSelectOneChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color5",
+                            "blurredVision",
                             "selectOne"
                           ]).apply(null, eventArgs);
 
@@ -5438,7 +5369,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         }}
                         selectOne={generateStateValueProp($state, [
-                          "color5",
+                          "blurredVision",
                           "selectOne"
                         ])}
                         shape={(() => {
@@ -5502,8 +5433,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       />
 
                       <Choices
-                        data-plasmic-name={"color6"}
-                        data-plasmic-override={overrides.color6}
+                        data-plasmic-name={"headache"}
+                        data-plasmic-override={overrides.headache}
                         beforList={(() => {
                           try {
                             return $state.signs.headache;
@@ -5539,7 +5470,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         circl={true}
-                        className={classNames("__wab_instance", sty.color6)}
+                        className={classNames("__wab_instance", sty.headache)}
                         html={(() => {
                           try {
                             return undefined;
@@ -5554,12 +5485,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         list={generateStateValueProp($state, [
-                          "color6",
+                          "headache",
                           "list"
                         ])}
                         onListChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color6",
+                            "headache",
                             "list"
                           ]).apply(null, eventArgs);
 
@@ -5573,7 +5504,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }}
                         onSelectOneChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color6",
+                            "headache",
                             "selectOne"
                           ]).apply(null, eventArgs);
 
@@ -5586,7 +5517,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         }}
                         selectOne={generateStateValueProp($state, [
-                          "color6",
+                          "headache",
                           "selectOne"
                         ])}
                         shape={(() => {
@@ -5650,8 +5581,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       />
 
                       <Choices
-                        data-plasmic-name={"color7"}
-                        data-plasmic-override={overrides.color7}
+                        data-plasmic-name={"fever"}
+                        data-plasmic-override={overrides.fever}
                         beforList={(() => {
                           try {
                             return $state.signs.fever;
@@ -5687,7 +5618,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         circl={true}
-                        className={classNames("__wab_instance", sty.color7)}
+                        className={classNames("__wab_instance", sty.fever)}
                         html={(() => {
                           try {
                             return undefined;
@@ -5701,13 +5632,10 @@ function PlasmicStatusDay__RenderFunc(props: {
                             throw e;
                           }
                         })()}
-                        list={generateStateValueProp($state, [
-                          "color7",
-                          "list"
-                        ])}
+                        list={generateStateValueProp($state, ["fever", "list"])}
                         onListChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color7",
+                            "fever",
                             "list"
                           ]).apply(null, eventArgs);
 
@@ -5721,7 +5649,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }}
                         onSelectOneChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color7",
+                            "fever",
                             "selectOne"
                           ]).apply(null, eventArgs);
 
@@ -5734,7 +5662,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         }}
                         selectOne={generateStateValueProp($state, [
-                          "color7",
+                          "fever",
                           "selectOne"
                         ])}
                         shape={(() => {
@@ -5800,8 +5728,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       />
 
                       <Choices
-                        data-plasmic-name={"color8"}
-                        data-plasmic-override={overrides.color8}
+                        data-plasmic-name={"heartbeat"}
+                        data-plasmic-override={overrides.heartbeat}
                         beforList={(() => {
                           try {
                             return $state.signs.heartbeat;
@@ -5837,7 +5765,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         circl={true}
-                        className={classNames("__wab_instance", sty.color8)}
+                        className={classNames("__wab_instance", sty.heartbeat)}
                         html={(() => {
                           try {
                             return undefined;
@@ -5852,12 +5780,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         list={generateStateValueProp($state, [
-                          "color8",
+                          "heartbeat",
                           "list"
                         ])}
                         onListChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color8",
+                            "heartbeat",
                             "list"
                           ]).apply(null, eventArgs);
 
@@ -5871,7 +5799,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }}
                         onSelectOneChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color8",
+                            "heartbeat",
                             "selectOne"
                           ]).apply(null, eventArgs);
 
@@ -5884,7 +5812,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         }}
                         selectOne={generateStateValueProp($state, [
-                          "color8",
+                          "heartbeat",
                           "selectOne"
                         ])}
                         shape={(() => {
@@ -5948,8 +5876,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       />
 
                       <Choices
-                        data-plasmic-name={"color9"}
-                        data-plasmic-override={overrides.color9}
+                        data-plasmic-name={"urination"}
+                        data-plasmic-override={overrides.urination}
                         beforList={(() => {
                           try {
                             return $state.signs.urination;
@@ -5985,7 +5913,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         circl={true}
-                        className={classNames("__wab_instance", sty.color9)}
+                        className={classNames("__wab_instance", sty.urination)}
                         html={(() => {
                           try {
                             return undefined;
@@ -6000,12 +5928,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         list={generateStateValueProp($state, [
-                          "color9",
+                          "urination",
                           "list"
                         ])}
                         onListChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color9",
+                            "urination",
                             "list"
                           ]).apply(null, eventArgs);
 
@@ -6019,7 +5947,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }}
                         onSelectOneChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color9",
+                            "urination",
                             "selectOne"
                           ]).apply(null, eventArgs);
 
@@ -6032,7 +5960,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         }}
                         selectOne={generateStateValueProp($state, [
-                          "color9",
+                          "urination",
                           "selectOne"
                         ])}
                         shape={(() => {
@@ -6096,8 +6024,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       />
 
                       <Choices
-                        data-plasmic-name={"color10"}
-                        data-plasmic-override={overrides.color10}
+                        data-plasmic-name={"skinItch"}
+                        data-plasmic-override={overrides.skinItch}
                         beforList={(() => {
                           try {
                             return $state.signs.skinItch;
@@ -6133,7 +6061,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         circl={true}
-                        className={classNames("__wab_instance", sty.color10)}
+                        className={classNames("__wab_instance", sty.skinItch)}
                         html={(() => {
                           try {
                             return undefined;
@@ -6148,12 +6076,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         list={generateStateValueProp($state, [
-                          "color10",
+                          "skinItch",
                           "list"
                         ])}
                         onListChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color10",
+                            "skinItch",
                             "list"
                           ]).apply(null, eventArgs);
 
@@ -6167,7 +6095,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }}
                         onSelectOneChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color10",
+                            "skinItch",
                             "selectOne"
                           ]).apply(null, eventArgs);
 
@@ -6180,7 +6108,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         }}
                         selectOne={generateStateValueProp($state, [
-                          "color10",
+                          "skinItch",
                           "selectOne"
                         ])}
                         shape={(() => {
@@ -6246,8 +6174,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       />
 
                       <Choices
-                        data-plasmic-name={"color11"}
-                        data-plasmic-override={overrides.color11}
+                        data-plasmic-name={"nauseaOrVomiting"}
+                        data-plasmic-override={overrides.nauseaOrVomiting}
                         beforList={(() => {
                           try {
                             return $state.signs.nauseaOrVomiting;
@@ -6283,7 +6211,10 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         circl={true}
-                        className={classNames("__wab_instance", sty.color11)}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.nauseaOrVomiting
+                        )}
                         html={(() => {
                           try {
                             return undefined;
@@ -6298,12 +6229,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         list={generateStateValueProp($state, [
-                          "color11",
+                          "nauseaOrVomiting",
                           "list"
                         ])}
                         onListChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color11",
+                            "nauseaOrVomiting",
                             "list"
                           ]).apply(null, eventArgs);
 
@@ -6317,7 +6248,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }}
                         onSelectOneChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color11",
+                            "nauseaOrVomiting",
                             "selectOne"
                           ]).apply(null, eventArgs);
 
@@ -6330,7 +6261,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         }}
                         selectOne={generateStateValueProp($state, [
-                          "color11",
+                          "nauseaOrVomiting",
                           "selectOne"
                         ])}
                         shape={(() => {
@@ -6394,8 +6325,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       />
 
                       <Choices
-                        data-plasmic-name={"color12"}
-                        data-plasmic-override={overrides.color12}
+                        data-plasmic-name={"shortnessOfBreath"}
+                        data-plasmic-override={overrides.shortnessOfBreath}
                         beforList={(() => {
                           try {
                             return $state.signs.shortnessOfBreath;
@@ -6431,7 +6362,10 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         circl={true}
-                        className={classNames("__wab_instance", sty.color12)}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.shortnessOfBreath
+                        )}
                         html={(() => {
                           try {
                             return undefined;
@@ -6446,12 +6380,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         list={generateStateValueProp($state, [
-                          "color12",
+                          "shortnessOfBreath",
                           "list"
                         ])}
                         onListChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color12",
+                            "shortnessOfBreath",
                             "list"
                           ]).apply(null, eventArgs);
 
@@ -6465,7 +6399,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }}
                         onSelectOneChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color12",
+                            "shortnessOfBreath",
                             "selectOne"
                           ]).apply(null, eventArgs);
 
@@ -6478,7 +6412,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         }}
                         selectOne={generateStateValueProp($state, [
-                          "color12",
+                          "shortnessOfBreath",
                           "selectOne"
                         ])}
                         shape={(() => {
@@ -6542,8 +6476,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       />
 
                       <Choices
-                        data-plasmic-name={"color13"}
-                        data-plasmic-override={overrides.color13}
+                        data-plasmic-name={"dizziness"}
+                        data-plasmic-override={overrides.dizziness}
                         beforList={(() => {
                           try {
                             return $state.signs.dizziness;
@@ -6579,7 +6513,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         circl={true}
-                        className={classNames("__wab_instance", sty.color13)}
+                        className={classNames("__wab_instance", sty.dizziness)}
                         html={(() => {
                           try {
                             return undefined;
@@ -6594,12 +6528,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         })()}
                         list={generateStateValueProp($state, [
-                          "color13",
+                          "dizziness",
                           "list"
                         ])}
                         onListChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color13",
+                            "dizziness",
                             "list"
                           ]).apply(null, eventArgs);
 
@@ -6613,7 +6547,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }}
                         onSelectOneChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
-                            "color13",
+                            "dizziness",
                             "selectOne"
                           ]).apply(null, eventArgs);
 
@@ -6626,7 +6560,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }
                         }}
                         selectOne={generateStateValueProp($state, [
-                          "color13",
+                          "dizziness",
                           "selectOne"
                         ])}
                         shape={(() => {
@@ -8200,20 +8134,22 @@ function PlasmicStatusDay__RenderFunc(props: {
                                             medicine: $state.selectedMedicine,
                                             sex: $state.sex.list[0],
                                             memory: $state.memory.value,
-                                            bleeding: $state.bleeding,
-                                            backPain: $state.backPain,
-                                            swelling: $state.swelling,
-                                            blurredVision: $state.blurredVision,
-                                            fever: $state.fever,
-                                            heartbeate: $state.heartbeate,
-                                            urination: $state.urination,
-                                            skinItch: $state.skinItch,
+                                            bleeding: $state.bleeding.list[0],
+                                            backPain: $state.backPain.list[0],
+                                            swelling: $state.swelling.list[0],
+                                            blurredVision:
+                                              $state.blurredVision.list[0],
+                                            fever: $state.fever.list[0],
+                                            heartbeate:
+                                              $state.heartbeat.list[0],
+                                            urination: $state.urination.list[0],
+                                            skinItch: $state.skinItch.list[0],
                                             nauseaOrVomiting:
-                                              $state.nauseaOrVomiting,
+                                              $state.nauseaOrVomiting.list[0],
                                             shortnessOfBreath:
-                                              $state.shortnessOfBreath,
-                                            dizziness: $state.dizziness,
-                                            headache: $state.headache
+                                              $state.shortnessOfBreath.list[0],
+                                            dizziness: $state.dizziness.list[0],
+                                            headache: $state.headache.list[0]
                                           };
                                           const cleaned = {};
                                           for (const [
@@ -11966,29 +11902,29 @@ const PlasmicDescendants = {
     "selectionBox",
     "color",
     "selectionBox10",
-    "color2",
+    "bleeding",
     "selectionBox11",
-    "color3",
+    "backPain",
     "selectionBox12",
-    "color4",
+    "swelling",
     "selectionBox13",
-    "color5",
+    "blurredVision",
     "selectionBox14",
-    "color6",
+    "headache",
     "selectionBox15",
-    "color7",
+    "fever",
     "selectionBox16",
-    "color8",
+    "heartbeat",
     "selectionBox17",
-    "color9",
+    "urination",
     "selectionBox18",
-    "color10",
+    "skinItch",
     "selectionBox19",
-    "color11",
+    "nauseaOrVomiting",
     "selectionBox20",
-    "color12",
+    "shortnessOfBreath",
     "selectionBox21",
-    "color13",
+    "dizziness",
     "selectionBox2",
     "intensity",
     "selectionBox3",
@@ -12055,29 +11991,29 @@ const PlasmicDescendants = {
     "selectionBox",
     "color",
     "selectionBox10",
-    "color2",
+    "bleeding",
     "selectionBox11",
-    "color3",
+    "backPain",
     "selectionBox12",
-    "color4",
+    "swelling",
     "selectionBox13",
-    "color5",
+    "blurredVision",
     "selectionBox14",
-    "color6",
+    "headache",
     "selectionBox15",
-    "color7",
+    "fever",
     "selectionBox16",
-    "color8",
+    "heartbeat",
     "selectionBox17",
-    "color9",
+    "urination",
     "selectionBox18",
-    "color10",
+    "skinItch",
     "selectionBox19",
-    "color11",
+    "nauseaOrVomiting",
     "selectionBox20",
-    "color12",
+    "shortnessOfBreath",
     "selectionBox21",
-    "color13",
+    "dizziness",
     "selectionBox2",
     "intensity",
     "selectionBox3",
@@ -12101,30 +12037,30 @@ const PlasmicDescendants = {
   button12: ["button12"],
   selectionBox: ["selectionBox", "color"],
   color: ["color"],
-  selectionBox10: ["selectionBox10", "color2"],
-  color2: ["color2"],
-  selectionBox11: ["selectionBox11", "color3"],
-  color3: ["color3"],
-  selectionBox12: ["selectionBox12", "color4"],
-  color4: ["color4"],
-  selectionBox13: ["selectionBox13", "color5"],
-  color5: ["color5"],
-  selectionBox14: ["selectionBox14", "color6"],
-  color6: ["color6"],
-  selectionBox15: ["selectionBox15", "color7"],
-  color7: ["color7"],
-  selectionBox16: ["selectionBox16", "color8"],
-  color8: ["color8"],
-  selectionBox17: ["selectionBox17", "color9"],
-  color9: ["color9"],
-  selectionBox18: ["selectionBox18", "color10"],
-  color10: ["color10"],
-  selectionBox19: ["selectionBox19", "color11"],
-  color11: ["color11"],
-  selectionBox20: ["selectionBox20", "color12"],
-  color12: ["color12"],
-  selectionBox21: ["selectionBox21", "color13"],
-  color13: ["color13"],
+  selectionBox10: ["selectionBox10", "bleeding"],
+  bleeding: ["bleeding"],
+  selectionBox11: ["selectionBox11", "backPain"],
+  backPain: ["backPain"],
+  selectionBox12: ["selectionBox12", "swelling"],
+  swelling: ["swelling"],
+  selectionBox13: ["selectionBox13", "blurredVision"],
+  blurredVision: ["blurredVision"],
+  selectionBox14: ["selectionBox14", "headache"],
+  headache: ["headache"],
+  selectionBox15: ["selectionBox15", "fever"],
+  fever: ["fever"],
+  selectionBox16: ["selectionBox16", "heartbeat"],
+  heartbeat: ["heartbeat"],
+  selectionBox17: ["selectionBox17", "urination"],
+  urination: ["urination"],
+  selectionBox18: ["selectionBox18", "skinItch"],
+  skinItch: ["skinItch"],
+  selectionBox19: ["selectionBox19", "nauseaOrVomiting"],
+  nauseaOrVomiting: ["nauseaOrVomiting"],
+  selectionBox20: ["selectionBox20", "shortnessOfBreath"],
+  shortnessOfBreath: ["shortnessOfBreath"],
+  selectionBox21: ["selectionBox21", "dizziness"],
+  dizziness: ["dizziness"],
   selectionBox2: ["selectionBox2", "intensity"],
   intensity: ["intensity"],
   selectionBox3: ["selectionBox3", "water"],
@@ -12208,29 +12144,29 @@ type NodeDefaultElementType = {
   selectionBox: "div";
   color: typeof Choices;
   selectionBox10: "div";
-  color2: typeof Choices;
+  bleeding: typeof Choices;
   selectionBox11: "div";
-  color3: typeof Choices;
+  backPain: typeof Choices;
   selectionBox12: "div";
-  color4: typeof Choices;
+  swelling: typeof Choices;
   selectionBox13: "div";
-  color5: typeof Choices;
+  blurredVision: typeof Choices;
   selectionBox14: "div";
-  color6: typeof Choices;
+  headache: typeof Choices;
   selectionBox15: "div";
-  color7: typeof Choices;
+  fever: typeof Choices;
   selectionBox16: "div";
-  color8: typeof Choices;
+  heartbeat: typeof Choices;
   selectionBox17: "div";
-  color9: typeof Choices;
+  urination: typeof Choices;
   selectionBox18: "div";
-  color10: typeof Choices;
+  skinItch: typeof Choices;
   selectionBox19: "div";
-  color11: typeof Choices;
+  nauseaOrVomiting: typeof Choices;
   selectionBox20: "div";
-  color12: typeof Choices;
+  shortnessOfBreath: typeof Choices;
   selectionBox21: "div";
-  color13: typeof Choices;
+  dizziness: typeof Choices;
   selectionBox2: "div";
   intensity: typeof Choices;
   selectionBox3: "div";
@@ -12382,29 +12318,29 @@ export const PlasmicStatusDay = Object.assign(
     selectionBox: makeNodeComponent("selectionBox"),
     color: makeNodeComponent("color"),
     selectionBox10: makeNodeComponent("selectionBox10"),
-    color2: makeNodeComponent("color2"),
+    bleeding: makeNodeComponent("bleeding"),
     selectionBox11: makeNodeComponent("selectionBox11"),
-    color3: makeNodeComponent("color3"),
+    backPain: makeNodeComponent("backPain"),
     selectionBox12: makeNodeComponent("selectionBox12"),
-    color4: makeNodeComponent("color4"),
+    swelling: makeNodeComponent("swelling"),
     selectionBox13: makeNodeComponent("selectionBox13"),
-    color5: makeNodeComponent("color5"),
+    blurredVision: makeNodeComponent("blurredVision"),
     selectionBox14: makeNodeComponent("selectionBox14"),
-    color6: makeNodeComponent("color6"),
+    headache: makeNodeComponent("headache"),
     selectionBox15: makeNodeComponent("selectionBox15"),
-    color7: makeNodeComponent("color7"),
+    fever: makeNodeComponent("fever"),
     selectionBox16: makeNodeComponent("selectionBox16"),
-    color8: makeNodeComponent("color8"),
+    heartbeat: makeNodeComponent("heartbeat"),
     selectionBox17: makeNodeComponent("selectionBox17"),
-    color9: makeNodeComponent("color9"),
+    urination: makeNodeComponent("urination"),
     selectionBox18: makeNodeComponent("selectionBox18"),
-    color10: makeNodeComponent("color10"),
+    skinItch: makeNodeComponent("skinItch"),
     selectionBox19: makeNodeComponent("selectionBox19"),
-    color11: makeNodeComponent("color11"),
+    nauseaOrVomiting: makeNodeComponent("nauseaOrVomiting"),
     selectionBox20: makeNodeComponent("selectionBox20"),
-    color12: makeNodeComponent("color12"),
+    shortnessOfBreath: makeNodeComponent("shortnessOfBreath"),
     selectionBox21: makeNodeComponent("selectionBox21"),
-    color13: makeNodeComponent("color13"),
+    dizziness: makeNodeComponent("dizziness"),
     selectionBox2: makeNodeComponent("selectionBox2"),
     intensity: makeNodeComponent("intensity"),
     selectionBox3: makeNodeComponent("selectionBox3"),
