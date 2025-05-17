@@ -428,10 +428,7 @@ function PlasmicPost__RenderFunc(props: {
             controls={true}
             src={(() => {
               try {
-                return (
-                  //$props.video
-                  "https://storage.c2.liara.space/liom/2025-04/post/2025-04-23-abb60d9b-ee70-40d5-923f-74d715bc75fb.mp4"
-                );
+                return $props.video;
               } catch (e) {
                 if (
                   e instanceof TypeError ||

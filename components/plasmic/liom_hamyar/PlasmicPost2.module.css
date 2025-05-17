@@ -44,7 +44,8 @@
   z-index: 1;
   right: 0;
   background: none;
-  min-width: 0;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
@@ -106,20 +107,6 @@
   align-self: center;
   flex-shrink: 0;
 }
-.freeBox___7Tq9J {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 200px;
-  max-width: 100%;
-  width: 100%;
-  min-width: 0;
-  border-radius: 8px;
-  padding: 0px;
-  border-width: 2px;
-  border-style: solid;
-}
 .freeBox__v5VDg {
   display: flex;
   flex-direction: column;
@@ -132,7 +119,7 @@
   background: var(--token-rGxK1TpZE_rW);
   min-width: 0;
   min-height: 0;
-  padding: 8px 0px 100px;
+  padding: 16px 0px 70px;
 }
 @media (max-width: 640px) {
   .freeBox__v5VDg {

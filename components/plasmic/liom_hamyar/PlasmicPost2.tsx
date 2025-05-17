@@ -228,8 +228,7 @@ function PlasmicPost2__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzMDUwOCIsImFwcCI6InNoYXJlIiwibmFtZSI6InNoYXJlIn0.RROB1VkkE_RQnSsUEPG_CpfgVh2yRtVSVLpiHsY62uM"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "popover2.open",
@@ -651,14 +650,6 @@ function PlasmicPost2__RenderFunc(props: {
               </Stack__>
             </HeaderLiom>
           </section>
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox___7Tq9J,
-              "shimmer"
-            )}
-          />
-
           <div className={classNames(projectcss.all, sty.freeBox__v5VDg)}>
             <div className={classNames(projectcss.all, sty.freeBox__f0Ap)}>
               <div className={classNames(projectcss.all, sty.freeBox__utoeo)}>
@@ -1267,7 +1258,31 @@ function PlasmicPost2__RenderFunc(props: {
                 postType={
                   hasVariant(globalVariants, "screen", "mobile")
                     ? "image"
-                    : undefined
+                    : (() => {
+                        try {
+                          return $state.getInfo.data.result.details.post
+                            .actionText == "باز کردن تصویر"
+                            ? "image"
+                            : $state.getInfo.data.result.details.post
+                                .actionText == "باز کردن صدا"
+                            ? "voise"
+                            : $state.getInfo.data.result.details.post
+                                .actionText == "نمایش ویدیو"
+                            ? "video"
+                            : $state.getInfo.data.result.details.post
+                                .actionText == "دانلود لوگو"
+                            ? "file"
+                            : "jastText";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
                 }
                 text={(() => {
                   try {

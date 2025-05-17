@@ -2779,72 +2779,33 @@ function PlasmicPregnancy__RenderFunc(props: {
                             onClick={async event => {
                               const $steps = {};
 
-                              $steps["invokeGlobalAction"] = true
+                              $steps["goToPage"] = true
                                 ? (() => {
                                     const actionArgs = {
-                                      args: [
-                                        "adhd",
-                                        (() => {
-                                          try {
-                                            return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U";
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })(),
-                                        (() => {
-                                          try {
-                                            return $state.getUserInfo.data[0]
-                                              .result.user.id;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })(),
-                                        (() => {
-                                          try {
-                                            return $ctx.query.inApp;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })(),
-                                        "darkkkk"
-                                      ]
+                                      destination: `status-day?token=${$state.token}&userId=${$state.userId}`
                                     };
-                                    return $globalActions[
-                                      "Fragment.deepLink"
-                                    ]?.apply(null, [...actionArgs.args]);
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
+                                      }
+                                    })?.apply(null, [actionArgs]);
                                   })()
                                 : undefined;
                               if (
-                                $steps["invokeGlobalAction"] != null &&
-                                typeof $steps["invokeGlobalAction"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction"].then ===
-                                  "function"
+                                $steps["goToPage"] != null &&
+                                typeof $steps["goToPage"] === "object" &&
+                                typeof $steps["goToPage"].then === "function"
                               ) {
-                                $steps["invokeGlobalAction"] = await $steps[
-                                  "invokeGlobalAction"
-                                ];
+                                $steps["goToPage"] = await $steps["goToPage"];
                               }
                             }}
                           >
