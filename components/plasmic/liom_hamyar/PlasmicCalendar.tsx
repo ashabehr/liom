@@ -56358,21 +56358,6 @@ function PlasmicCalendar__RenderFunc(props: {
                                       })()}
                                     </React.Fragment>
                                   </div>
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__vGlHo
-                                    )}
-                                  >
-                                    {hasVariant(
-                                      globalVariants,
-                                      "screen",
-                                      "mobile"
-                                    )
-                                      ? "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
-                                      : "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."}
-                                  </div>
                                   <Stack__
                                     as={"div"}
                                     hasGap={true}
@@ -56874,86 +56859,6 @@ function PlasmicCalendar__RenderFunc(props: {
                                       })()}
                                     </React.Fragment>
                                   </div>
-                                  {(
-                                    hasVariant(
-                                      globalVariants,
-                                      "screen",
-                                      "mobile"
-                                    )
-                                      ? (() => {
-                                          try {
-                                            return (
-                                              $state.userInfo?.result
-                                                ?.todoNotTodoLists?.notToDo
-                                                ?.length != 0
-                                            );
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return true;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      : true
-                                  ) ? (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__sWt5H
-                                      )}
-                                    >
-                                      {
-                                        "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
-                                      }
-                                    </div>
-                                  ) : null}
-                                  {(
-                                    hasVariant(
-                                      globalVariants,
-                                      "screen",
-                                      "mobile"
-                                    )
-                                      ? (() => {
-                                          try {
-                                            return (
-                                              $state.userInfo?.result
-                                                ?.todoNotTodoLists?.notToDo
-                                                ?.length == 0
-                                            );
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return true;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      : true
-                                  ) ? (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__oVqWj
-                                      )}
-                                    >
-                                      {hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "mobile"
-                                      )
-                                        ? "\u0647\u0645\u0647 \u0686\u06cc \u0631\u0648 \u0628\u0647 \u0631\u0627\u0647\u0647! \u0631\u0627\u062d\u062a \u0628\u0627\u0634 \u0648 \u0647\u0631 \u06a9\u0627\u0631\u06cc \u06a9\u0647 \u0644\u0627\u0632\u0645\u0647 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647. \ud83d\ude0a"
-                                        : "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."}
-                                    </div>
-                                  ) : null}
                                   {(
                                     hasVariant(
                                       globalVariants,
@@ -57534,27 +57439,54 @@ function PlasmicCalendar__RenderFunc(props: {
                   open={generateStateValueProp($state, ["modal2", "open"])}
                   title={
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__xl7Ju
-                      )}
+                      className={classNames(projectcss.all, sty.freeBox__kq0H1)}
                     >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.itemtodo.title;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "\u062e\u0627\u0644\u062f \u062d\u0633\u06cc\u0646\u06cc \u062a\u0648 \u0631\u0645\u0627\u0646 \u0628\u0627\u062f \u0628\u0627\u062f\u06a9 \u0628\u0627\u0632 \u0645\u06cc\u0646\u0648\u06cc\u0633\u0647 : \ufee3\ufeae\ufea9 \ufe81\ufeeb\ufeb4\ufe98\ufeea \ufea9\ufead \ufb94\ufeee\ufeb5 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufe97\ufe8e\ufeaf\ufee9 \ufe91\ufeea \ufe91\ufee0\ufeee\ufecd \ufead\ufeb3\ufbff\ufeaa\ufee9 \ufe8d\ufeb5 \ufe91\ufeae\ufe8d\ufbfc \ufb58\ufee8\ufeaa \ufb7c\ufee8\ufbff\ufee6 \ufee7\ufea0\ufeee\ufe8d \ufb90\ufeae\ufea9 : \u201d \ufb58\ufeb4\ufeae\ufee1 \ufea9\ufead \ufeaf\ufee7\ufeaa\ufb94\ufbfd \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeaf\ufea9\ufbfc \ufee7\ufb91\ufee6 \u201d \ufb58\ufeb4\ufeae \ufee3\ufe98\ufecc\ufea0\ufe90 \ufeed \ufee3\ufe92\ufeec\ufeee\ufe95 \ufe91\ufeea \ufb58\ufeaa\ufead \ufee7\ufb95\ufe8e\ufee9 \ufb90\ufeae\ufea9 \ufe91\ufeaa\ufbfe\ufee6 \ufee3\ufecc\ufee8\ufe8e \ufb90\ufeea \ufe8d\ufeed \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeb3\ufe96 \ufb90\ufe9e \ufee7\ufeaa\ufe8d\ufeb7\ufe98\ufeea \ufb58\ufeaa\ufead \ufe91\ufeea \ufee7\ufb95\ufe8e\ufee9 \ufee3\ufe98\ufecc\ufea0\ufe90 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufedf\ufe92\ufea8\ufee8\ufeaa\ufbfc \ufeaf\ufea9 \ufeed \ufe8d\ufea9\ufe8d\ufee3\ufeea \ufea9\ufe8d\ufea9.";
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__xl7Ju
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.itemtodo.icon;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u062e\u0627\u0644\u062f \u062d\u0633\u06cc\u0646\u06cc \u062a\u0648 \u0631\u0645\u0627\u0646 \u0628\u0627\u062f \u0628\u0627\u062f\u06a9 \u0628\u0627\u0632 \u0645\u06cc\u0646\u0648\u06cc\u0633\u0647 : \ufee3\ufeae\ufea9 \ufe81\ufeeb\ufeb4\ufe98\ufeea \ufea9\ufead \ufb94\ufeee\ufeb5 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufe97\ufe8e\ufeaf\ufee9 \ufe91\ufeea \ufe91\ufee0\ufeee\ufecd \ufead\ufeb3\ufbff\ufeaa\ufee9 \ufe8d\ufeb5 \ufe91\ufeae\ufe8d\ufbfc \ufb58\ufee8\ufeaa \ufb7c\ufee8\ufbff\ufee6 \ufee7\ufea0\ufeee\ufe8d \ufb90\ufeae\ufea9 : \u201d \ufb58\ufeb4\ufeae\ufee1 \ufea9\ufead \ufeaf\ufee7\ufeaa\ufb94\ufbfd \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeaf\ufea9\ufbfc \ufee7\ufb91\ufee6 \u201d \ufb58\ufeb4\ufeae \ufee3\ufe98\ufecc\ufea0\ufe90 \ufeed \ufee3\ufe92\ufeec\ufeee\ufe95 \ufe91\ufeea \ufb58\ufeaa\ufead \ufee7\ufb95\ufe8e\ufee9 \ufb90\ufeae\ufea9 \ufe91\ufeaa\ufbfe\ufee6 \ufee3\ufecc\ufee8\ufe8e \ufb90\ufeea \ufe8d\ufeed \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeb3\ufe96 \ufb90\ufe9e \ufee7\ufeaa\ufe8d\ufeb7\ufe98\ufeea \ufb58\ufeaa\ufead \ufe91\ufeea \ufee7\ufb95\ufe8e\ufee9 \ufee3\ufe98\ufecc\ufea0\ufe90 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufedf\ufe92\ufea8\ufee8\ufeaa\ufbfc \ufeaf\ufea9 \ufeed \ufe8d\ufea9\ufe8d\ufee3\ufeea \ufea9\ufe8d\ufea9.";
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__tAm8B
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.itemtodo.title;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u062e\u0627\u0644\u062f \u062d\u0633\u06cc\u0646\u06cc \u062a\u0648 \u0631\u0645\u0627\u0646 \u0628\u0627\u062f \u0628\u0627\u062f\u06a9 \u0628\u0627\u0632 \u0645\u06cc\u0646\u0648\u06cc\u0633\u0647 : \ufee3\ufeae\ufea9 \ufe81\ufeeb\ufeb4\ufe98\ufeea \ufea9\ufead \ufb94\ufeee\ufeb5 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufe97\ufe8e\ufeaf\ufee9 \ufe91\ufeea \ufe91\ufee0\ufeee\ufecd \ufead\ufeb3\ufbff\ufeaa\ufee9 \ufe8d\ufeb5 \ufe91\ufeae\ufe8d\ufbfc \ufb58\ufee8\ufeaa \ufb7c\ufee8\ufbff\ufee6 \ufee7\ufea0\ufeee\ufe8d \ufb90\ufeae\ufea9 : \u201d \ufb58\ufeb4\ufeae\ufee1 \ufea9\ufead \ufeaf\ufee7\ufeaa\ufb94\ufbfd \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeaf\ufea9\ufbfc \ufee7\ufb91\ufee6 \u201d \ufb58\ufeb4\ufeae \ufee3\ufe98\ufecc\ufea0\ufe90 \ufeed \ufee3\ufe92\ufeec\ufeee\ufe95 \ufe91\ufeea \ufb58\ufeaa\ufead \ufee7\ufb95\ufe8e\ufee9 \ufb90\ufeae\ufea9 \ufe91\ufeaa\ufbfe\ufee6 \ufee3\ufecc\ufee8\ufe8e \ufb90\ufeea \ufe8d\ufeed \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeb3\ufe96 \ufb90\ufe9e \ufee7\ufeaa\ufe8d\ufeb7\ufe98\ufeea \ufb58\ufeaa\ufead \ufe91\ufeea \ufee7\ufb95\ufe8e\ufee9 \ufee3\ufe98\ufecc\ufea0\ufe90 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufedf\ufe92\ufea8\ufee8\ufeaa\ufbfc \ufeaf\ufea9 \ufeed \ufe8d\ufea9\ufe8d\ufee3\ufeea \ufea9\ufe8d\ufea9.";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
                     </div>
                   }
                   trigger={null}

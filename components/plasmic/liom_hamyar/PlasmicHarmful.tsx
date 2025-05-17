@@ -256,29 +256,6 @@ function PlasmicHarmful__RenderFunc(props: {
             })()}
           </React.Fragment>
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__wESlb
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $state.title;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "\u062e\u0648\u0631\u062f\u0646 \u0634\u06a9\u0644\u0627\u062a";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
       </Stack__>
       <div
         className={classNames(
@@ -290,29 +267,6 @@ function PlasmicHarmful__RenderFunc(props: {
         {
           "\u0645\u0634\u0627\u0647\u062f\u0647 \u062c\u0632\u06cc\u06cc\u0627\u062a >"
         }
-      </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__iw08N
-        )}
-      >
-        <React.Fragment>
-          {(() => {
-            try {
-              return $state.cycle;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "\u0645\u0634\u0627\u0647\u062f\u0647 \u062c\u0632\u06cc\u06cc\u0627\u062a >";
-              }
-              throw e;
-            }
-          })()}
-        </React.Fragment>
       </div>
     </Stack__>
   ) as React.ReactElement | null;

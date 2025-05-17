@@ -8125,8 +8125,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                                             date: dateObject,
                                             bloodColor: $state.color.list[0],
                                             bloodType: $state.intensity.list[0],
-                                            secretions:
-                                              $state.discharge.list[0],
+                                            secretions: $state.discharge.list,
                                             value: $state.water,
                                             goal: $state.waters,
                                             mode: $state.status.list[0],
