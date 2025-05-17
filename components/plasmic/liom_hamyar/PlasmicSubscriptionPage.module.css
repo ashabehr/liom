@@ -21,6 +21,11 @@
 .root > * {
   grid-column: 4;
 }
+@media (max-width: 640px) {
+  .root > * {
+    grid-column: 4;
+  }
+}
 .freeBox___9Tbb {
   display: grid;
   flex-direction: column;
@@ -99,6 +104,8 @@
   font-weight: 700;
   min-width: 0;
   margin: 25px 0px 0px;
+  border-width: 1px;
+  border-style: solid;
 }
 @media (max-width: 640px) {
   .text__ni7Uh {
@@ -127,6 +134,7 @@
   object-fit: cover;
   max-width: 100%;
   width: 50px;
+  height: 50px;
   flex-shrink: 0;
 }
 .img__u33Ga > picture > img {
@@ -149,9 +157,14 @@
   height: auto;
   max-width: 100%;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   text-align: right;
   min-width: 0;
+}
+@media (max-width: 640px) {
+  .text__dvNw1 {
+    display: none;
+  }
 }
 .text__i2PSu {
   width: 100%;

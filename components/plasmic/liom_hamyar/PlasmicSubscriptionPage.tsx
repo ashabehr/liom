@@ -62,6 +62,8 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -137,7 +139,996 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return [
+                {
+                  text: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
+                  hint: "<b>تایم های طلایی</b> انجام این خودآزمایی رو بهت با پیامک یادآوری میکنیم تا حواست به خودت باشه",
+                  id: "92bc0061-5edd-414f-8f3a-618ed010e6fd",
+                  active: false,
+                  time: null,
+                  always: false,
+                  type: "breast_cancer_sms",
+                  items: [
+                    {
+                      topBadgeBgColor: "#000000",
+                      portion: 1,
+                      section: "customPage",
+                      type: "breast_cancer_sms",
+                      title: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
+                      timer: "",
+                      createdAt: {
+                        year: 2024,
+                        month: 12,
+                        day: 12,
+                        hour: 13,
+                        minute: 49,
+                        second: 54,
+                        nanosecond: 115000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      upsellingTypes: [
+                        "self_hamyar_sms",
+                        "pcos_sub",
+                        "husband_sms",
+                        "irregular"
+                      ],
+
+                      smsSub: true,
+                      price: 16000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 38,
+                      text: "اشتراک ۲ ماهه",
+                      id: "8862e720-3977-4a82-a07b-2fbfd0b7ce03",
+                      percentItem: 50,
+                      value: 2,
+                      order: 3,
+                      image:
+                        "https://liom.storage.c2.liara.space/config/self_care/icon_brest_cancer.png",
+                      buyCount: 31,
+                      pregnancy: false,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      hint: "<b>تایم های طلایی</b> انجام این خودآزمایی رو بهت با پیامک یادآوری میکنیم تا حواست به خودت باشه",
+                      name: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  8,000 تومان"
+                    },
+                    {
+                      topBadgeBgColor: "#000000",
+                      topBadge: "پرفروش ترین",
+                      portion: 1,
+                      section: "customPage",
+                      fullPrice: 24000,
+                      type: "breast_cancer_sms",
+                      title: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
+                      timer: "",
+                      createdAt: {
+                        year: 2024,
+                        month: 12,
+                        day: 12,
+                        hour: 13,
+                        minute: 49,
+                        second: 57,
+                        nanosecond: 430000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      upsellingTypes: [
+                        "self_hamyar_sms",
+                        "pcos_sub",
+                        "husband_sms",
+                        "irregular"
+                      ],
+
+                      smsSub: true,
+                      price: 19000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 37,
+                      text: "اشتراک ۳ ماهه",
+                      id: "b34ea769-ee91-4913-ba30-0fb78cf5e4a9",
+                      percentItem: 50,
+                      value: 3,
+                      order: 3,
+                      image:
+                        "https://liom.storage.c2.liara.space/config/self_care/icon_brest_cancer.png",
+                      buyCount: 11,
+                      pregnancy: false,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      badge: "20%",
+                      hint: "<b>تایم های طلایی</b> انجام این خودآزمایی رو بهت با پیامک یادآوری میکنیم تا حواست به خودت باشه",
+                      name: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  6,300 تومان"
+                    },
+                    {
+                      topBadgeBgColor: "#000000",
+                      topBadge: "🌷 به صرفه ترین🌷",
+                      portion: 1,
+                      section: "customPage",
+                      fullPrice: 48000,
+                      type: "breast_cancer_sms",
+                      title: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
+                      timer: "",
+                      createdAt: {
+                        year: 2024,
+                        month: 12,
+                        day: 12,
+                        hour: 13,
+                        minute: 50,
+                        second: 3,
+                        nanosecond: 301000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      upsellingTypes: [
+                        "self_hamyar_sms",
+                        "pcos_sub",
+                        "husband_sms",
+                        "irregular"
+                      ],
+
+                      smsSub: true,
+                      price: 29000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 36,
+                      text: "اشتراک ۶ ماهه",
+                      id: "92bc0061-5edd-414f-8f3a-618ed010e6fd",
+                      percentItem: 50,
+                      value: 6,
+                      selected: 1,
+                      order: 3,
+                      image:
+                        "https://liom.storage.c2.liara.space/config/self_care/icon_brest_cancer.png",
+                      buyCount: 178,
+                      pregnancy: false,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      badge: "40%",
+                      hint: "<b>تایم های طلایی</b> انجام این خودآزمایی رو بهت با پیامک یادآوری میکنیم تا حواست به خودت باشه",
+                      name: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  4,800 تومان"
+                    }
+                  ]
+                },
+                {
+                  text: " پیامک به همسرت برای درک بیشتر نیازهات",
+                  hint: "با این پیام‌ها، همسرت بهتر نیازهای جسمی و عاطفی‌ات را درک می‌کنه و بیشتر از همیشه از تو حمایت خواهد کرد.",
+                  id: "d5229f56-3bcf-4293-a74d-17045fb456f4",
+                  active: false,
+                  time: null,
+                  always: false,
+                  type: "pregnancy_sub_better_relation",
+                  items: [
+                    {
+                      topBadgeBgColor: "#000000",
+                      portion: 1,
+                      section: "customPage",
+                      type: "pregnancy_sub_better_relation",
+                      title: " پیامک به همسرت برای درک بیشتر نیازهات",
+                      createdAt: {
+                        year: 2025,
+                        month: 1,
+                        day: 9,
+                        hour: 8,
+                        minute: 35,
+                        second: 1,
+                        nanosecond: 569000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      timer: "",
+                      smsSub: true,
+                      price: 30000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 47,
+                      text: "اشتراک ۳ ماهه",
+                      id: "b679a490-45b0-4bbf-87b5-cd53397319d7",
+                      percentItem: 50,
+                      value: 3,
+                      order: 1,
+                      image:
+                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
+                      buyCount: 7,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      hint: "با این پیام‌ها، همسرت بهتر نیازهای جسمی و عاطفی‌ات را درک می‌کنه و بیشتر از همیشه از تو حمایت خواهد کرد.",
+                      name: " پیامک به همسرت برای درک بیشتر نیازهات",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  10,000 تومان"
+                    },
+                    {
+                      topBadgeBgColor: "#000000",
+                      topBadge: "💝 محبوب ترین 💝",
+                      portion: 1,
+                      section: "customPage",
+                      type: "pregnancy_sub_better_relation",
+                      title: " پیامک به همسرت برای درک بیشتر نیازهات",
+                      fullPrice: 60000,
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 1,
+                        day: 9,
+                        hour: 8,
+                        minute: 36,
+                        second: 4,
+                        nanosecond: 258000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      smsSub: true,
+                      price: 49000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 48,
+                      text: "اشتراک ۶ ماهه",
+                      id: "d5229f56-3bcf-4293-a74d-17045fb456f4",
+                      percentItem: 50,
+                      value: 6,
+                      selected: 1,
+                      order: 2,
+                      image:
+                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
+                      buyCount: 3,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      badge: "20%",
+                      hint: "با این پیام‌ها، همسرت بهتر نیازهای جسمی و عاطفی‌ات را درک می‌کنه و بیشتر از همیشه از تو حمایت خواهد کرد.",
+                      name: " پیامک به همسرت برای درک بیشتر نیازهات",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  8,200 تومان"
+                    },
+                    {
+                      topBadgeBgColor: "#000000",
+                      portion: 1,
+                      section: "customPage",
+                      type: "pregnancy_sub_better_relation",
+                      title: " پیامک به همسرت برای درک بیشتر نیازهات",
+                      fullPrice: 90000,
+                      createdAt: {
+                        year: 2025,
+                        month: 1,
+                        day: 9,
+                        hour: 8,
+                        minute: 36,
+                        second: 31,
+                        nanosecond: 100000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      timer: "",
+                      smsSub: true,
+                      price: 69000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 49,
+                      text: "اشتراک ۹ ماهه",
+                      id: "c8800390-efa4-4ad5-b85e-2d7c25f83680",
+                      percentItem: 50,
+                      value: 9,
+                      order: 3,
+                      image:
+                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
+                      buyCount: 2,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      badge: "24%",
+                      hint: "با این پیام‌ها، همسرت بهتر نیازهای جسمی و عاطفی‌ات را درک می‌کنه و بیشتر از همیشه از تو حمایت خواهد کرد.",
+                      name: " پیامک به همسرت برای درک بیشتر نیازهات",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  7,700 تومان"
+                    }
+                  ]
+                },
+                {
+                  text: "پیامک به همسرت راجع به رشد جنین",
+                  hint: "با ارسال پیام‌های جالب درباره وضعیت جنین، همسرت را در جریان رشد جنین و لحظات خاص بارداری قرار بده",
+                  id: "254684e7-7a07-49d1-8434-7cbe649260b8",
+                  active: false,
+                  time: null,
+                  always: false,
+                  type: "pregnancy_sub_baby_growth",
+                  items: [
+                    {
+                      topBadgeBgColor: "#000000",
+                      portion: 1,
+                      section: "customPage",
+                      type: "pregnancy_sub_baby_growth",
+                      title: "پیامک به همسرت راجع به رشد جنین",
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 1,
+                        day: 12,
+                        hour: 8,
+                        minute: 10,
+                        second: 17,
+                        nanosecond: 258000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      smsSub: true,
+                      price: 30000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 50,
+                      text: "اشتراک ۳ ماهه",
+                      id: "18ceabb1-b44d-4fcc-a096-202c89fe7754",
+                      percentItem: 50,
+                      value: 3,
+                      order: 1,
+                      image:
+                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
+                      buyCount: 6,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      hint: "با ارسال پیام‌های جالب درباره وضعیت جنین، همسرت را در جریان رشد جنین و لحظات خاص بارداری قرار بده",
+                      name: "پیامک به همسرت راجع به رشد جنین",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  10,000 تومان"
+                    },
+                    {
+                      topBadgeBgColor: "#000000",
+                      topBadge: "💝 محبوب ترین 💝",
+                      portion: 1,
+                      section: "customPage",
+                      type: "pregnancy_sub_baby_growth",
+                      title: "پیامک به همسرت راجع به رشد جنین",
+                      fullPrice: 60000,
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 1,
+                        day: 12,
+                        hour: 8,
+                        minute: 10,
+                        second: 1,
+                        nanosecond: 594000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      smsSub: true,
+                      price: 49000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 51,
+                      text: "اشتراک ۶ ماهه",
+                      id: "254684e7-7a07-49d1-8434-7cbe649260b8",
+                      percentItem: 50,
+                      value: 6,
+                      selected: 1,
+                      order: 2,
+                      image:
+                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
+                      buyCount: 5,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      badge: "20%",
+                      hint: "با ارسال پیام‌های جالب درباره وضعیت جنین، همسرت را در جریان رشد جنین و لحظات خاص بارداری قرار بده",
+                      name: "پیامک به همسرت راجع به رشد جنین",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  8,200 تومان"
+                    },
+                    {
+                      topBadgeBgColor: "#000000",
+                      portion: 1,
+                      section: "customPage",
+                      type: "pregnancy_sub_baby_growth",
+                      title: "پیامک به همسرت راجع به رشد جنین",
+                      fullPrice: 90000,
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 1,
+                        day: 12,
+                        hour: 8,
+                        minute: 9,
+                        second: 41,
+                        nanosecond: 754000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      smsSub: true,
+                      price: 69000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 52,
+                      text: "اشتراک ۹ ماهه",
+                      id: "353385d5-001c-4622-92d3-1f7f788370a7",
+                      percentItem: 50,
+                      value: 9,
+                      order: 3,
+                      image:
+                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
+                      buyCount: 2,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      badge: "24%",
+                      hint: "با ارسال پیام‌های جالب درباره وضعیت جنین، همسرت را در جریان رشد جنین و لحظات خاص بارداری قرار بده",
+                      name: "پیامک به همسرت راجع به رشد جنین",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  7,700 تومان"
+                    }
+                  ]
+                },
+                {
+                  text: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
+                  hint: "همسرت هم درگیر احساسات متفاوتی هست و نمیدونه چیکار کنه، با دریافت این پیامک ها بهش کمک میشه تا بتونه بیشتر پدر بودن رو درک کنه و در نتیجه مراقب نیاز های تو و فرزندتون باشه.",
+                  id: "1230df8c-e5aa-4673-a929-8484e1014f27",
+                  active: false,
+                  time: null,
+                  always: false,
+                  type: "pregnancy_sub_become_father",
+                  items: [
+                    {
+                      topBadgeBgColor: "#000000",
+                      portion: 1,
+                      section: "customPage",
+                      type: "pregnancy_sub_become_father",
+                      title: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 1,
+                        day: 12,
+                        hour: 8,
+                        minute: 13,
+                        second: 33,
+                        nanosecond: 174000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      smsSub: true,
+                      price: 30000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 44,
+                      text: "اشتراک ۳ ماهه",
+                      id: "7c726b5b-e305-4758-9367-5a65ed456e90",
+                      percentItem: 50,
+                      value: 3,
+                      order: 1,
+                      image:
+                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
+                      buyCount: 6,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      hint: "همسرت هم درگیر احساسات متفاوتی هست و نمیدونه چیکار کنه، با دریافت این پیامک ها بهش کمک میشه تا بتونه بیشتر پدر بودن رو درک کنه و در نتیجه مراقب نیاز های تو و فرزندتون باشه.",
+                      name: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  10,000 تومان"
+                    },
+                    {
+                      topBadgeBgColor: "#000000",
+                      topBadge: "💝 محبوب ترین 💝",
+                      portion: 1,
+                      section: "customPage",
+                      type: "pregnancy_sub_become_father",
+                      title: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
+                      fullPrice: 60000,
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 1,
+                        day: 12,
+                        hour: 8,
+                        minute: 13,
+                        second: 47,
+                        nanosecond: 213000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      smsSub: true,
+                      price: 49000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 45,
+                      text: "اشتراک ۶ ماهه",
+                      id: "1230df8c-e5aa-4673-a929-8484e1014f27",
+                      percentItem: 50,
+                      value: 6,
+                      selected: 1,
+                      order: 2,
+                      image:
+                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
+                      buyCount: 4,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      badge: "20%",
+                      hint: "همسرت هم درگیر احساسات متفاوتی هست و نمیدونه چیکار کنه، با دریافت این پیامک ها بهش کمک میشه تا بتونه بیشتر پدر بودن رو درک کنه و در نتیجه مراقب نیاز های تو و فرزندتون باشه.",
+                      name: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  8,200 تومان"
+                    },
+                    {
+                      topBadgeBgColor: "#000000",
+                      portion: 1,
+                      section: "customPage",
+                      type: "pregnancy_sub_become_father",
+                      title: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
+                      fullPrice: 90000,
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 1,
+                        day: 12,
+                        hour: 8,
+                        minute: 14,
+                        second: 29,
+                        nanosecond: 18000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      smsSub: true,
+                      price: 69000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 46,
+                      text: "اشتراک ۹ ماهه",
+                      id: "18bb7829-505b-4b35-a1fa-2fb408373fd7",
+                      percentItem: 50,
+                      value: 9,
+                      order: 3,
+                      image:
+                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
+                      buyCount: 2,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      badge: "24%",
+                      hint: "همسرت هم درگیر احساسات متفاوتی هست و نمیدونه چیکار کنه، با دریافت این پیامک ها بهش کمک میشه تا بتونه بیشتر پدر بودن رو درک کنه و در نتیجه مراقب نیاز های تو و فرزندتون باشه.",
+                      name: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  7,700 تومان"
+                    }
+                  ]
+                },
+                {
+                  text: "<b>مشاوره با کارشناس لیوم</b>",
+                  hint: "می‌توانید از بین کارشناسان در حوزه های مختلف با یک شخص به صورت کاملا محرمانه ارتباط برقرار کنید",
+                  id: "563e47c6-83ea-4c71-81fc-9b987b05b7d0",
+                  active: false,
+                  time: null,
+                  always: false,
+                  type: "therapy",
+                  items: [
+                    {
+                      topBadgeBgColor: "#000000",
+                      portion: 0,
+                      section: "customPage",
+                      type: "therapy",
+                      title: "<b>مشاوره با کارشناس لیوم</b>",
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 3,
+                        day: 14,
+                        hour: 20,
+                        minute: 49,
+                        second: 35,
+                        nanosecond: 802000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      upsellingTypes: [
+                        "adhd_sub",
+                        "special_advice",
+                        "husband_sms"
+                      ],
+
+                      smsSub: true,
+                      price: 99000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 60,
+                      text: "مشاوره با کارشناس لیوم",
+                      id: "563e47c6-83ea-4c71-81fc-9b987b05b7d0",
+                      percentItem: 50,
+                      value: 1,
+                      order: 3,
+                      image:
+                        "https://liom.storage.c2.liara.space/icon_clinik.png",
+                      buyCount: 48,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      hint: "می‌توانید از بین کارشناسان در حوزه های مختلف با یک شخص به صورت کاملا محرمانه ارتباط برقرار کنید",
+                      name: "<b>مشاوره با کارشناس لیوم</b>"
+                    }
+                  ]
+                },
+                {
+                  text: "مراقبت‌های هفتگی در بارداری",
+                  hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
+                  id: "a78efb43-5add-4cc0-8afb-8c4991196bb0",
+                  active: false,
+                  time: null,
+                  always: false,
+                  type: "pregnancy_danger_sub",
+                  items: [
+                    {
+                      topBadgeBgColor: "#000000",
+                      descc: "برای خرید روی دکمه فعالسازی کلیک کنید",
+                      portion: 2,
+                      section: "customPage",
+                      type: "pregnancy_danger_sub",
+                      title: "مراقبت‌های هفتگی در بارداری",
+                      fullPrice: 30000,
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 2,
+                        day: 8,
+                        hour: 13,
+                        minute: 12,
+                        second: 55,
+                        nanosecond: 280000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      price: 10000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 55,
+                      text: "اشتراک ۱ ماهه",
+                      id: "7c399f31-f849-41b1-ade6-51351e3a3ccb",
+                      value: 2,
+                      percentItem: 50,
+                      selected: 0,
+                      order: 6,
+                      image:
+                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
+                      buyCount: 20,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      topBadgeTextColor: "#ffffff",
+                      hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
+                      name: "مراقبت‌های هفتگی در بارداری",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  5,000 تومان"
+                    },
+                    {
+                      topBadgeBgColor: "#000000",
+                      descc: "برای خرید روی دکمه فعالسازی کلیک کنید",
+                      portion: 2,
+                      section: "customPage",
+                      type: "pregnancy_danger_sub",
+                      title: "مراقبت‌های هفتگی در بارداری",
+                      fullPrice: 60000,
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 2,
+                        day: 8,
+                        hour: 13,
+                        minute: 12,
+                        second: 55,
+                        nanosecond: 280000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      price: 36000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 55,
+                      text: "اشتراک ۶ ماهه",
+                      id: "ecacd093-9327-48dd-b48f-3b63fbdf59a8",
+                      value: 6,
+                      percentItem: 50,
+                      selected: 0,
+                      order: 6,
+                      image:
+                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
+                      buyCount: 4,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      badge: "40%",
+                      topBadgeTextColor: "#ffffff",
+                      hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
+                      name: "مراقبت‌های هفتگی در بارداری",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  6,000 تومان"
+                    },
+                    {
+                      topBadgeBgColor: "#000000",
+                      descc: "برای خرید روی دکمه فعالسازی کلیک کنید",
+                      topBadge: "محبوب ترین",
+                      portion: 2,
+                      section: "customPage",
+                      type: "pregnancy_danger_sub",
+                      title: "مراقبت‌های هفتگی در بارداری",
+                      fullPrice: 30000,
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 2,
+                        day: 8,
+                        hour: 13,
+                        minute: 12,
+                        second: 55,
+                        nanosecond: 280000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      price: 24000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 55,
+                      text: "اشتراک ۳ ماهه",
+                      id: "a78efb43-5add-4cc0-8afb-8c4991196bb0",
+                      value: 2,
+                      percentItem: 50,
+                      selected: 1,
+                      order: 6,
+                      image:
+                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
+                      buyCount: 36,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      badge: "20%",
+                      topBadgeTextColor: "#ffffff",
+                      hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
+                      name: "مراقبت‌های هفتگی در بارداری",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  12,000 تومان"
+                    },
+                    {
+                      topBadgeBgColor: "#000000",
+                      descc: "برای خرید روی دکمه فعالسازی کلیک کنید",
+                      topBadge: "به صرفه ترین",
+                      portion: 2,
+                      section: "customPage",
+                      type: "pregnancy_danger_sub",
+                      title: "مراقبت‌های هفتگی در بارداری",
+                      fullPrice: 90000,
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 2,
+                        day: 8,
+                        hour: 13,
+                        minute: 12,
+                        second: 55,
+                        nanosecond: 280000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      price: 45000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      int_id: 55,
+                      text: "اشتراک ۹ ماهه",
+                      id: "12c136a9-a70d-4ffb-9c6a-9fae045b61b3",
+                      value: 9,
+                      percentItem: 50,
+                      selected: 0,
+                      order: 6,
+                      image:
+                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
+                      buyCount: 10,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      badge: "50%",
+                      topBadgeTextColor: "#ffffff",
+                      hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
+                      name: "مراقبت‌های هفتگی در بارداری",
+                      otherItem: true,
+                      per_month_text: "ماهیانه  5,000 تومان"
+                    }
+                  ]
+                },
+                {
+                  text: "درمان ADHD",
+                  hint: "با انجام این برنامه و مراحل گفته‌شده می‌تونی ADHD رو درمان کنی",
+                  id: "1d50af4e-265e-42c9-b7a4-babb7bf71472",
+                  active: false,
+                  time: null,
+                  always: false,
+                  type: "adhd_treatment_sub",
+                  items: [
+                    {
+                      topBadgeBgColor: "#000000",
+                      descc: " برای خرید روی دکمه فعالسازی کلیک کنید",
+                      topBadge: "⭐️ تخفیف استثنایی ⭐️",
+                      portion: 2,
+                      section: "customPage",
+                      title: "درمان ADHD",
+                      type: "adhd_treatment_sub",
+                      fullPrice: 100000,
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 5,
+                        day: 5,
+                        hour: 6,
+                        minute: 29,
+                        second: 4,
+                        nanosecond: 595000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      price: 69000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      lable: "یکبار خرید",
+                      int_id: 65,
+                      id: "1d50af4e-265e-42c9-b7a4-babb7bf71472",
+                      text: "با انجام این برنامه و مراحل گفته‌شده می‌تونی ADHD رو درمان کنی",
+                      sku: "adhd-treatment-sub-1",
+                      value: 1,
+                      percentItem: 40,
+                      order: 6,
+                      image: "https://files.devliom.ir/config/premium/gem4.png",
+                      buyCount: 16,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      badge: "30%",
+                      topBadgeTextColor: "#ffffff",
+                      hint: "با انجام این برنامه و مراحل گفته‌شده می‌تونی ADHD رو درمان کنی",
+                      name: "درمان ADHD"
+                    }
+                  ]
+                },
+                {
+                  text: "تست مسمومیت بارداری",
+                  hint: "با انجام تست مسمومیت بارداری، می‌توانید به طور زودهنگام از احتمال مسمومیت خود مطلع شوید و از بروز مشکلات احتمالی جلوگیری کنید.",
+                  id: "a60cb42d-f4a6-46de-8b5b-b1f9650b7139",
+                  active: false,
+                  time: null,
+                  always: false,
+                  type: "preeclampsia_sub",
+                  items: [
+                    {
+                      topBadgeBgColor: "#000000",
+                      descc: " برای خرید روی دکمه فعالسازی کلیک کنید",
+                      topBadge: "⭐️ تخفیف استثنایی ⭐️",
+                      portion: 2,
+                      section: "customPage",
+                      title: "تست مسمومیت بارداری",
+                      type: "preeclampsia_sub",
+                      fullPrice: 69000,
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 5,
+                        day: 14,
+                        hour: 9,
+                        minute: 35,
+                        second: 21,
+                        nanosecond: 961000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      price: 49000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      lable: "یکبار خرید",
+                      int_id: 69,
+                      text: "با انجام تست مسمومیت بارداری، می‌توانید به طور زودهنگام از احتمال مسمومیت خود مطلع شوید و از بروز مشکلات احتمالی جلوگیری کنید.",
+                      id: "a60cb42d-f4a6-46de-8b5b-b1f9650b7139",
+                      sku: "preeclampsia-sub-1",
+                      value: 1,
+                      percentItem: 40,
+                      order: 6,
+                      image: "https://files.devliom.ir/config/premium/gem4.png",
+                      buyCount: 1,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      badge: "29%",
+                      topBadgeTextColor: "#ffffff",
+                      hint: "با انجام تست مسمومیت بارداری، می‌توانید به طور زودهنگام از احتمال مسمومیت خود مطلع شوید و از بروز مشکلات احتمالی جلوگیری کنید.",
+                      name: "تست مسمومیت بارداری"
+                    }
+                  ]
+                },
+                {
+                  text: "تست دیابت بارداری",
+                  hint: "شما می‌توانید با انجام تست دیابت بارداری، از وضعیت قند خون خود مطمئن شوید و از سلامت خود و جنین مراقبت کنید.",
+                  id: "fa28cf85-ee89-4932-9d9a-206b11e6fb81",
+                  active: false,
+                  time: null,
+                  always: false,
+                  type: "pregnancy_diabetes_sub",
+                  items: [
+                    {
+                      topBadgeBgColor: "#000000",
+                      descc: " برای خرید روی دکمه فعالسازی کلیک کنید",
+                      topBadge: "⭐️ تخفیف استثنایی ⭐️",
+                      portion: 2,
+                      section: "customPage",
+                      type: "pregnancy_diabetes_sub",
+                      title: "تست دیابت بارداری",
+                      fullPrice: 79000,
+                      timer: "",
+                      createdAt: {
+                        year: 2025,
+                        month: 5,
+                        day: 14,
+                        hour: 9,
+                        minute: 35,
+                        second: 17,
+                        nanosecond: 155000000,
+                        timeZoneOffsetSeconds: 0
+                      },
+                      price: 59000,
+                      fullscreenBanner:
+                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
+                      lable: "یکبار خرید",
+                      int_id: 70,
+                      id: "fa28cf85-ee89-4932-9d9a-206b11e6fb81",
+                      text: "شما می‌توانید با انجام تست دیابت بارداری، از وضعیت قند خون خود مطمئن شوید و از سلامت خود و جنین مراقبت کنید.",
+                      sku: "pregnancy_diabetes-sub-1",
+                      value: 1,
+                      percentItem: 40,
+                      order: 6,
+                      image: "https://files.devliom.ir/config/premium/gem4.png",
+                      buyCount: 0,
+                      pregnancy: true,
+                      isVisible: true,
+                      timeBgColor: "#000000",
+                      timerTextColor: "#ffffff",
+                      quality: "customPage",
+                      badge: "26%",
+                      topBadgeTextColor: "#ffffff",
+                      hint: "شما می‌توانید با انجام تست دیابت بارداری، از وضعیت قند خون خود مطمئن شوید و از سلامت خود و جنین مراقبت کنید.",
+                      name: "تست دیابت بارداری"
+                    }
+                  ]
+                }
+              ];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -157,6 +1148,10 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
   });
 
   return (
@@ -217,9 +1212,21 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                   "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0644\u06cc\u0648\u0645"
                 }
               </div>
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
-                2, 3, 4
-              ]).map((__plasmic_item_0, __plasmic_idx_0) => {
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $state.subList.length > 0 ? $state.subList : [];
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
                 return (
@@ -230,19 +1237,31 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                     <PlasmicImg__
                       alt={""}
                       className={classNames(sty.img__u33Ga)}
-                      displayHeight={"auto"}
+                      displayHeight={"50px"}
                       displayMaxHeight={"none"}
                       displayMaxWidth={"100%"}
                       displayMinHeight={"0"}
                       displayMinWidth={"0"}
                       displayWidth={"50px"}
                       loading={"lazy"}
-                      src={{
-                        src: "/plasmic/liom_hamyar/images/image2.png",
-                        fullWidth: 512,
-                        fullHeight: 512,
-                        aspectRatio: undefined
-                      }}
+                      src={(() => {
+                        try {
+                          return $state.subList[currentIndex].items[0].image;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return {
+                              src: "/plasmic/liom_hamyar/images/image2.png",
+                              fullWidth: 512,
+                              fullHeight: 512,
+                              aspectRatio: undefined
+                            };
+                          }
+                          throw e;
+                        }
+                      })()}
                     />
 
                     <div
@@ -258,9 +1277,12 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                           sty.text__dvNw1
                         )}
                       >
-                        {
-                          "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u0647\u0645\u0633\u0631"
-                        }
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: $state.subList[currentIndex].text
+                          }}
+                        />
                       </div>
                       <div
                         className={classNames(
@@ -269,9 +1291,12 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                           sty.text__i2PSu
                         )}
                       >
-                        {
-                          "\u062a\u0648\u0636\u06cc\u062d\u062d\u062d\u062d\u062d\u062d\u062d"
-                        }
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: $state.subList[currentIndex].hint
+                          }}
+                        />
                       </div>
                     </div>
                   </div>

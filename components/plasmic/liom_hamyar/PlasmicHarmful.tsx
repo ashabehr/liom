@@ -264,9 +264,21 @@ function PlasmicHarmful__RenderFunc(props: {
           sty.text___9KdTf
         )}
       >
-        {
-          "\u0645\u0634\u0627\u0647\u062f\u0647 \u062c\u0632\u06cc\u06cc\u0627\u062a >"
-        }
+        <React.Fragment>
+          {(() => {
+            try {
+              return `${$state.title} > `;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "\u0645\u0634\u0627\u0647\u062f\u0647 \u062c\u0632\u06cc\u06cc\u0627\u062a >";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
       </div>
     </Stack__>
   ) as React.ReactElement | null;
