@@ -6678,7 +6678,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                               baby_growth &&
                                               better_relation
                                                 ? "#hamyarInfo"
-                                                : "#healthSubscription";
+                                                : "#directDialog-pregnancySub";
                                             console.log(a);
                                             return a;
                                           })();
@@ -7213,17 +7213,17 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     break;
                                                   case "danger":
                                                     {
-                                                      document
-                                                        .getElementById(
-                                                          "collapseDanger"
-                                                        )
-                                                        .scrollIntoView({
-                                                          behavior: "smooth",
-                                                          block: "start"
-                                                        });
-                                                      $state.collapseDanger.open =
-                                                        true;
                                                       if (!active) {
+                                                        document
+                                                          .getElementById(
+                                                            "collapseDanger"
+                                                          )
+                                                          .scrollIntoView({
+                                                            behavior: "smooth",
+                                                            block: "start"
+                                                          });
+                                                        $state.collapseDanger.open =
+                                                          true;
                                                         window.FlutterChannel.postMessage(
                                                           "#healthSubscription"
                                                         );
