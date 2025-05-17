@@ -7183,7 +7183,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         );
                                                       } else {
                                                         window.FlutterChannel.postMessage(
-                                                          "#directDialog-pregnancySub"
+                                                          "#healthSubscription"
                                                         );
                                                       }
                                                     }
@@ -7206,7 +7206,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         );
                                                       } else {
                                                         window.FlutterChannel.postMessage(
-                                                          "#directDialog-pregnancySub"
+                                                          "#healthSubscription"
                                                         );
                                                       }
                                                     }
@@ -7225,7 +7225,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         true;
                                                       if (!active) {
                                                         window.FlutterChannel.postMessage(
-                                                          "#directDialog-pregnancySub"
+                                                          "#healthSubscription"
                                                         );
                                                       }
                                                     }
@@ -8697,7 +8697,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     );
                                                   } else {
                                                     window.FlutterChannel.postMessage(
-                                                      "#directDialog-pregnancySub"
+                                                      "#healthSubscription"
                                                     );
                                                   }
                                                 }
@@ -8720,7 +8720,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     );
                                                   } else {
                                                     window.FlutterChannel.postMessage(
-                                                      "#directDialog-pregnancySub"
+                                                      "#healthSubscription"
                                                     );
                                                   }
                                                 }
@@ -8739,7 +8739,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     true;
                                                   if (!active) {
                                                     window.FlutterChannel.postMessage(
-                                                      "#directDialog-pregnancySub"
+                                                      "#healthSubscription"
                                                     );
                                                   }
                                                 }
