@@ -6678,7 +6678,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                               baby_growth &&
                                               better_relation
                                                 ? "#hamyarInfo"
-                                                : "#directDialog-pregnancySub";
+                                                : "#healthSubscription";
                                             console.log(a);
                                             return a;
                                           })();
