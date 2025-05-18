@@ -170,6 +170,18 @@ export const Fragment = ({
               break;
             }
 
+            case "#pregnancyDiabetes": {
+              const link = `https://tools.liom.app/self-test/?app=paziresh24&type=pregnancyDiabetes&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}`;
+              sendMessage("دیابت بارداری", link,inWebViow);
+              break;
+            }
+            case "#preeclampsia": {
+              const link = `https://tools.liom.app/self-test/?app=liom&type=preeclampsia&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}`;
+              sendMessage("مسمومیت بارداری", link,inWebViow);
+              break;
+            }
+            
+
             case "#stretch_marks": {
 
               const link = `https://tools.liom.app/self-medication/?type=stretch_marks&inApp=${inApp}&token=${token}&selectStep=0&userId=${userId}&theme=${theme}`;
@@ -205,6 +217,13 @@ export const Fragment = ({
               }
               break;
             }
+
+            case "#healthSubscription": {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                window.FlutterChannel.postMessage(action);}
+              break;
+            }
+              
             case "#chatBot": {
                 const queryString = buildQueryString(params);
                 const link = `https://tools.liom.app/chat-bot/?token=${token}&userId=${userId}&${queryString}&inApp=${inApp}`;
