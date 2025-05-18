@@ -3449,6 +3449,16 @@
           "id": "blnLvMghko66",
           "name": "BrokenLink2SvgrepoComSvgIcon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__BrokenLink2SvgrepoComSvg.tsx"
+        },
+        {
+          "id": "-86zvT-O0-Jm",
+          "name": "Untitled1SvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Untitled1Svg.tsx"
+        },
+        {
+          "id": "hKdHVi-I7onj",
+          "name": "Icon231Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon231.tsx"
         }
       ],
       "images": [

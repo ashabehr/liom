@@ -62,7 +62,13 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import Dialog3 from "../../Dialog3"; // plasmic-import: j5op3vcM_4hJ/component
+import Subscription3 from "../../Subscription3"; // plasmic-import: vcwQDI5OpjvX/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -72,6 +78,11 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSubscriptionPage.module.css"; // plasmic-import: SFydXtruRu5z/css
+
+import Icon231Icon from "./icons/PlasmicIcon__Icon231"; // plasmic-import: hKdHVi-I7onj/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 
 createPlasmicElementProxy;
 
@@ -87,7 +98,21 @@ export const PlasmicSubscriptionPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSubscriptionPage__OverridesType = {
   root?: Flex__<"div">;
-  embedHtml?: Flex__<typeof Embed>;
+  img?: Flex__<typeof PlasmicImg__>;
+  ul?: Flex__<"ul">;
+  collapse?: Flex__<typeof AntdSingleCollapse>;
+  section?: Flex__<"section">;
+  input4?: Flex__<typeof AntdInput>;
+  button12?: Flex__<typeof Button>;
+  button8?: Flex__<typeof Button>;
+  button11?: Flex__<typeof Button>;
+  p?: Flex__<"p">;
+  dialog2?: Flex__<typeof Dialog3>;
+  subscription3?: Flex__<typeof Subscription3>;
+  button14?: Flex__<typeof Button>;
+  button10?: Flex__<typeof Button>;
+  input5?: Flex__<typeof AntdInput>;
+  button13?: Flex__<typeof Button>;
 };
 
 export interface DefaultSubscriptionPageProps {}
@@ -144,992 +169,59 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
             try {
               return [
                 {
-                  text: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                  hint: "<b>تایم های طلایی</b> انجام این خودآزمایی رو بهت با پیامک یادآوری میکنیم تا حواست به خودت باشه",
-                  id: "92bc0061-5edd-414f-8f3a-618ed010e6fd",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "breast_cancer_sms",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "breast_cancer_sms",
-                      title: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                      timer: "",
-                      createdAt: {
-                        year: 2024,
-                        month: 12,
-                        day: 12,
-                        hour: 13,
-                        minute: 49,
-                        second: 54,
-                        nanosecond: 115000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      upsellingTypes: [
-                        "self_hamyar_sms",
-                        "pcos_sub",
-                        "husband_sms",
-                        "irregular"
-                      ],
-
-                      smsSub: true,
-                      price: 16000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 38,
-                      text: "اشتراک ۲ ماهه",
-                      id: "8862e720-3977-4a82-a07b-2fbfd0b7ce03",
-                      percentItem: 50,
-                      value: 2,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/config/self_care/icon_brest_cancer.png",
-                      buyCount: 31,
-                      pregnancy: false,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "<b>تایم های طلایی</b> انجام این خودآزمایی رو بهت با پیامک یادآوری میکنیم تا حواست به خودت باشه",
-                      name: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  8,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      topBadge: "پرفروش ترین",
-                      portion: 1,
-                      section: "customPage",
-                      fullPrice: 24000,
-                      type: "breast_cancer_sms",
-                      title: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                      timer: "",
-                      createdAt: {
-                        year: 2024,
-                        month: 12,
-                        day: 12,
-                        hour: 13,
-                        minute: 49,
-                        second: 57,
-                        nanosecond: 430000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      upsellingTypes: [
-                        "self_hamyar_sms",
-                        "pcos_sub",
-                        "husband_sms",
-                        "irregular"
-                      ],
-
-                      smsSub: true,
-                      price: 19000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 37,
-                      text: "اشتراک ۳ ماهه",
-                      id: "b34ea769-ee91-4913-ba30-0fb78cf5e4a9",
-                      percentItem: 50,
-                      value: 3,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/config/self_care/icon_brest_cancer.png",
-                      buyCount: 11,
-                      pregnancy: false,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "20%",
-                      hint: "<b>تایم های طلایی</b> انجام این خودآزمایی رو بهت با پیامک یادآوری میکنیم تا حواست به خودت باشه",
-                      name: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  6,300 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      topBadge: "🌷 به صرفه ترین🌷",
-                      portion: 1,
-                      section: "customPage",
-                      fullPrice: 48000,
-                      type: "breast_cancer_sms",
-                      title: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                      timer: "",
-                      createdAt: {
-                        year: 2024,
-                        month: 12,
-                        day: 12,
-                        hour: 13,
-                        minute: 50,
-                        second: 3,
-                        nanosecond: 301000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      upsellingTypes: [
-                        "self_hamyar_sms",
-                        "pcos_sub",
-                        "husband_sms",
-                        "irregular"
-                      ],
-
-                      smsSub: true,
-                      price: 29000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 36,
-                      text: "اشتراک ۶ ماهه",
-                      id: "92bc0061-5edd-414f-8f3a-618ed010e6fd",
-                      percentItem: 50,
-                      value: 6,
-                      selected: 1,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/config/self_care/icon_brest_cancer.png",
-                      buyCount: 178,
-                      pregnancy: false,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "40%",
-                      hint: "<b>تایم های طلایی</b> انجام این خودآزمایی رو بهت با پیامک یادآوری میکنیم تا حواست به خودت باشه",
-                      name: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  4,800 تومان"
-                    }
-                  ]
+                  text: "تست‌های سلامتی",
+                  description:
+                    "این بخش شامل تست‌های مهم دوران بارداری مانند تست دیابت بارداری، تست مسمومیت بارداری و ارزیابی‌های اولیه سلامت مادر و جنین است."
                 },
                 {
-                  text: " پیامک به همسرت برای درک بیشتر نیازهات",
-                  hint: "با این پیام‌ها، همسرت بهتر نیازهای جسمی و عاطفی‌ات را درک می‌کنه و بیشتر از همیشه از تو حمایت خواهد کرد.",
-                  id: "d5229f56-3bcf-4293-a74d-17045fb456f4",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "pregnancy_sub_better_relation",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_better_relation",
-                      title: " پیامک به همسرت برای درک بیشتر نیازهات",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 9,
-                        hour: 8,
-                        minute: 35,
-                        second: 1,
-                        nanosecond: 569000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      timer: "",
-                      smsSub: true,
-                      price: 30000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 47,
-                      text: "اشتراک ۳ ماهه",
-                      id: "b679a490-45b0-4bbf-87b5-cd53397319d7",
-                      percentItem: 50,
-                      value: 3,
-                      order: 1,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 7,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "با این پیام‌ها، همسرت بهتر نیازهای جسمی و عاطفی‌ات را درک می‌کنه و بیشتر از همیشه از تو حمایت خواهد کرد.",
-                      name: " پیامک به همسرت برای درک بیشتر نیازهات",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  10,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      topBadge: "💝 محبوب ترین 💝",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_better_relation",
-                      title: " پیامک به همسرت برای درک بیشتر نیازهات",
-                      fullPrice: 60000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 9,
-                        hour: 8,
-                        minute: 36,
-                        second: 4,
-                        nanosecond: 258000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 49000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 48,
-                      text: "اشتراک ۶ ماهه",
-                      id: "d5229f56-3bcf-4293-a74d-17045fb456f4",
-                      percentItem: 50,
-                      value: 6,
-                      selected: 1,
-                      order: 2,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 3,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "20%",
-                      hint: "با این پیام‌ها، همسرت بهتر نیازهای جسمی و عاطفی‌ات را درک می‌کنه و بیشتر از همیشه از تو حمایت خواهد کرد.",
-                      name: " پیامک به همسرت برای درک بیشتر نیازهات",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  8,200 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_better_relation",
-                      title: " پیامک به همسرت برای درک بیشتر نیازهات",
-                      fullPrice: 90000,
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 9,
-                        hour: 8,
-                        minute: 36,
-                        second: 31,
-                        nanosecond: 100000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      timer: "",
-                      smsSub: true,
-                      price: 69000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 49,
-                      text: "اشتراک ۹ ماهه",
-                      id: "c8800390-efa4-4ad5-b85e-2d7c25f83680",
-                      percentItem: 50,
-                      value: 9,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 2,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "24%",
-                      hint: "با این پیام‌ها، همسرت بهتر نیازهای جسمی و عاطفی‌ات را درک می‌کنه و بیشتر از همیشه از تو حمایت خواهد کرد.",
-                      name: " پیامک به همسرت برای درک بیشتر نیازهات",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  7,700 تومان"
-                    }
-                  ]
+                  text: "مراقبت‌های پوستی و مو",
+                  description:
+                    "راهنمای روتین مراقبت از مو و پوست، روش‌های پیشگیری از ترک‌های پوستی و حفظ سلامت پوست در دوران بارداری."
                 },
                 {
-                  text: "پیامک به همسرت راجع به رشد جنین",
-                  hint: "با ارسال پیام‌های جالب درباره وضعیت جنین، همسرت را در جریان رشد جنین و لحظات خاص بارداری قرار بده",
-                  id: "254684e7-7a07-49d1-8434-7cbe649260b8",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "pregnancy_sub_baby_growth",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_baby_growth",
-                      title: "پیامک به همسرت راجع به رشد جنین",
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 12,
-                        hour: 8,
-                        minute: 10,
-                        second: 17,
-                        nanosecond: 258000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 30000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 50,
-                      text: "اشتراک ۳ ماهه",
-                      id: "18ceabb1-b44d-4fcc-a096-202c89fe7754",
-                      percentItem: 50,
-                      value: 3,
-                      order: 1,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 6,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "با ارسال پیام‌های جالب درباره وضعیت جنین، همسرت را در جریان رشد جنین و لحظات خاص بارداری قرار بده",
-                      name: "پیامک به همسرت راجع به رشد جنین",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  10,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      topBadge: "💝 محبوب ترین 💝",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_baby_growth",
-                      title: "پیامک به همسرت راجع به رشد جنین",
-                      fullPrice: 60000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 12,
-                        hour: 8,
-                        minute: 10,
-                        second: 1,
-                        nanosecond: 594000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 49000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 51,
-                      text: "اشتراک ۶ ماهه",
-                      id: "254684e7-7a07-49d1-8434-7cbe649260b8",
-                      percentItem: 50,
-                      value: 6,
-                      selected: 1,
-                      order: 2,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 5,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "20%",
-                      hint: "با ارسال پیام‌های جالب درباره وضعیت جنین، همسرت را در جریان رشد جنین و لحظات خاص بارداری قرار بده",
-                      name: "پیامک به همسرت راجع به رشد جنین",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  8,200 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_baby_growth",
-                      title: "پیامک به همسرت راجع به رشد جنین",
-                      fullPrice: 90000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 12,
-                        hour: 8,
-                        minute: 9,
-                        second: 41,
-                        nanosecond: 754000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 69000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 52,
-                      text: "اشتراک ۹ ماهه",
-                      id: "353385d5-001c-4622-92d3-1f7f788370a7",
-                      percentItem: 50,
-                      value: 9,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 2,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "24%",
-                      hint: "با ارسال پیام‌های جالب درباره وضعیت جنین، همسرت را در جریان رشد جنین و لحظات خاص بارداری قرار بده",
-                      name: "پیامک به همسرت راجع به رشد جنین",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  7,700 تومان"
-                    }
-                  ]
+                  text: "ارزیابی و پشتیبانی روانی",
+                  description:
+                    "شامل تست نیاز به تراپی، تست افسردگی، تست اختلال نقص توجه و بیش‌فعالی (ADHD) و روش‌های درمان آن."
                 },
                 {
-                  text: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                  hint: "همسرت هم درگیر احساسات متفاوتی هست و نمیدونه چیکار کنه، با دریافت این پیامک ها بهش کمک میشه تا بتونه بیشتر پدر بودن رو درک کنه و در نتیجه مراقب نیاز های تو و فرزندتون باشه.",
-                  id: "1230df8c-e5aa-4673-a929-8484e1014f27",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "pregnancy_sub_become_father",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_become_father",
-                      title: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 12,
-                        hour: 8,
-                        minute: 13,
-                        second: 33,
-                        nanosecond: 174000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 30000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 44,
-                      text: "اشتراک ۳ ماهه",
-                      id: "7c726b5b-e305-4758-9367-5a65ed456e90",
-                      percentItem: 50,
-                      value: 3,
-                      order: 1,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 6,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "همسرت هم درگیر احساسات متفاوتی هست و نمیدونه چیکار کنه، با دریافت این پیامک ها بهش کمک میشه تا بتونه بیشتر پدر بودن رو درک کنه و در نتیجه مراقب نیاز های تو و فرزندتون باشه.",
-                      name: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  10,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      topBadge: "💝 محبوب ترین 💝",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_become_father",
-                      title: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                      fullPrice: 60000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 12,
-                        hour: 8,
-                        minute: 13,
-                        second: 47,
-                        nanosecond: 213000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 49000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 45,
-                      text: "اشتراک ۶ ماهه",
-                      id: "1230df8c-e5aa-4673-a929-8484e1014f27",
-                      percentItem: 50,
-                      value: 6,
-                      selected: 1,
-                      order: 2,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 4,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "20%",
-                      hint: "همسرت هم درگیر احساسات متفاوتی هست و نمیدونه چیکار کنه، با دریافت این پیامک ها بهش کمک میشه تا بتونه بیشتر پدر بودن رو درک کنه و در نتیجه مراقب نیاز های تو و فرزندتون باشه.",
-                      name: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  8,200 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_become_father",
-                      title: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                      fullPrice: 90000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 12,
-                        hour: 8,
-                        minute: 14,
-                        second: 29,
-                        nanosecond: 18000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 69000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 46,
-                      text: "اشتراک ۹ ماهه",
-                      id: "18bb7829-505b-4b35-a1fa-2fb408373fd7",
-                      percentItem: 50,
-                      value: 9,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 2,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "24%",
-                      hint: "همسرت هم درگیر احساسات متفاوتی هست و نمیدونه چیکار کنه، با دریافت این پیامک ها بهش کمک میشه تا بتونه بیشتر پدر بودن رو درک کنه و در نتیجه مراقب نیاز های تو و فرزندتون باشه.",
-                      name: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  7,700 تومان"
-                    }
-                  ]
+                  text: "پیامک‌های حمایتی برای مادر و پدر",
+                  description:
+                    "ارسال پیامک‌هایی درباره نیازهای مادر، رشد جنین، راهنمایی برای پدر و ابزار ارتباطی همیار برای هماهنگی بهتر بین مادر و پدر."
                 },
                 {
-                  text: "<b>مشاوره با کارشناس لیوم</b>",
-                  hint: "می‌توانید از بین کارشناسان در حوزه های مختلف با یک شخص به صورت کاملا محرمانه ارتباط برقرار کنید",
-                  id: "563e47c6-83ea-4c71-81fc-9b987b05b7d0",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "therapy",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 0,
-                      section: "customPage",
-                      type: "therapy",
-                      title: "<b>مشاوره با کارشناس لیوم</b>",
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 3,
-                        day: 14,
-                        hour: 20,
-                        minute: 49,
-                        second: 35,
-                        nanosecond: 802000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      upsellingTypes: [
-                        "adhd_sub",
-                        "special_advice",
-                        "husband_sms"
-                      ],
-
-                      smsSub: true,
-                      price: 99000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 60,
-                      text: "مشاوره با کارشناس لیوم",
-                      id: "563e47c6-83ea-4c71-81fc-9b987b05b7d0",
-                      percentItem: 50,
-                      value: 1,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/icon_clinik.png",
-                      buyCount: 48,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "می‌توانید از بین کارشناسان در حوزه های مختلف با یک شخص به صورت کاملا محرمانه ارتباط برقرار کنید",
-                      name: "<b>مشاوره با کارشناس لیوم</b>"
-                    }
-                  ]
+                  text: "تست پیش‌بینی جنسیت",
+                  description:
+                    "روش‌های سرگرم‌کننده و تست‌هایی برای حدس جنسیت جنین."
                 },
                 {
-                  text: "مراقبت‌های هفتگی در بارداری",
-                  hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
-                  id: "a78efb43-5add-4cc0-8afb-8c4991196bb0",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "pregnancy_danger_sub",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: "برای خرید روی دکمه فعالسازی کلیک کنید",
-                      portion: 2,
-                      section: "customPage",
-                      type: "pregnancy_danger_sub",
-                      title: "مراقبت‌های هفتگی در بارداری",
-                      fullPrice: 30000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 2,
-                        day: 8,
-                        hour: 13,
-                        minute: 12,
-                        second: 55,
-                        nanosecond: 280000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 10000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 55,
-                      text: "اشتراک ۱ ماهه",
-                      id: "7c399f31-f849-41b1-ade6-51351e3a3ccb",
-                      value: 2,
-                      percentItem: 50,
-                      selected: 0,
-                      order: 6,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 20,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
-                      name: "مراقبت‌های هفتگی در بارداری",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  5,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: "برای خرید روی دکمه فعالسازی کلیک کنید",
-                      portion: 2,
-                      section: "customPage",
-                      type: "pregnancy_danger_sub",
-                      title: "مراقبت‌های هفتگی در بارداری",
-                      fullPrice: 60000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 2,
-                        day: 8,
-                        hour: 13,
-                        minute: 12,
-                        second: 55,
-                        nanosecond: 280000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 36000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 55,
-                      text: "اشتراک ۶ ماهه",
-                      id: "ecacd093-9327-48dd-b48f-3b63fbdf59a8",
-                      value: 6,
-                      percentItem: 50,
-                      selected: 0,
-                      order: 6,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 4,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      badge: "40%",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
-                      name: "مراقبت‌های هفتگی در بارداری",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  6,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: "برای خرید روی دکمه فعالسازی کلیک کنید",
-                      topBadge: "محبوب ترین",
-                      portion: 2,
-                      section: "customPage",
-                      type: "pregnancy_danger_sub",
-                      title: "مراقبت‌های هفتگی در بارداری",
-                      fullPrice: 30000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 2,
-                        day: 8,
-                        hour: 13,
-                        minute: 12,
-                        second: 55,
-                        nanosecond: 280000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 24000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 55,
-                      text: "اشتراک ۳ ماهه",
-                      id: "a78efb43-5add-4cc0-8afb-8c4991196bb0",
-                      value: 2,
-                      percentItem: 50,
-                      selected: 1,
-                      order: 6,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 36,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      badge: "20%",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
-                      name: "مراقبت‌های هفتگی در بارداری",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  12,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: "برای خرید روی دکمه فعالسازی کلیک کنید",
-                      topBadge: "به صرفه ترین",
-                      portion: 2,
-                      section: "customPage",
-                      type: "pregnancy_danger_sub",
-                      title: "مراقبت‌های هفتگی در بارداری",
-                      fullPrice: 90000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 2,
-                        day: 8,
-                        hour: 13,
-                        minute: 12,
-                        second: 55,
-                        nanosecond: 280000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 45000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 55,
-                      text: "اشتراک ۹ ماهه",
-                      id: "12c136a9-a70d-4ffb-9c6a-9fae045b61b3",
-                      value: 9,
-                      percentItem: 50,
-                      selected: 0,
-                      order: 6,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 10,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      badge: "50%",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
-                      name: "مراقبت‌های هفتگی در بارداری",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  5,000 تومان"
-                    }
-                  ]
+                  text: "خودآزمایی سرطان سینه",
+                  description:
+                    "یادآوری ماهانه برای انجام معاینات خودآزمایی سرطان سینه جهت پیشگیری و تشخیص زودهنگام."
                 },
                 {
-                  text: "درمان ADHD",
-                  hint: "با انجام این برنامه و مراحل گفته‌شده می‌تونی ADHD رو درمان کنی",
-                  id: "1d50af4e-265e-42c9-b7a4-babb7bf71472",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "adhd_treatment_sub",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: " برای خرید روی دکمه فعالسازی کلیک کنید",
-                      topBadge: "⭐️ تخفیف استثنایی ⭐️",
-                      portion: 2,
-                      section: "customPage",
-                      title: "درمان ADHD",
-                      type: "adhd_treatment_sub",
-                      fullPrice: 100000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 5,
-                        day: 5,
-                        hour: 6,
-                        minute: 29,
-                        second: 4,
-                        nanosecond: 595000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 69000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      lable: "یکبار خرید",
-                      int_id: 65,
-                      id: "1d50af4e-265e-42c9-b7a4-babb7bf71472",
-                      text: "با انجام این برنامه و مراحل گفته‌شده می‌تونی ADHD رو درمان کنی",
-                      sku: "adhd-treatment-sub-1",
-                      value: 1,
-                      percentItem: 40,
-                      order: 6,
-                      image: "https://files.devliom.ir/config/premium/gem4.png",
-                      buyCount: 16,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      badge: "30%",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "با انجام این برنامه و مراحل گفته‌شده می‌تونی ADHD رو درمان کنی",
-                      name: "درمان ADHD"
-                    }
-                  ]
+                  text: "مراقبت‌های هفتگی",
+                  description:
+                    "پیگیری وزن مادر، یادآوری آزمایش‌ها و غربالگری‌های مهم و راهنمای استفاده از مکمل‌ها و ویتامین‌های ضروری برای حفظ سلامت مادر و رشد جنین، به همراه فهرستی از نکات ایمنی و علائم هشداردهنده بر اساس هفته بارداری."
                 },
                 {
-                  text: "تست مسمومیت بارداری",
-                  hint: "با انجام تست مسمومیت بارداری، می‌توانید به طور زودهنگام از احتمال مسمومیت خود مطلع شوید و از بروز مشکلات احتمالی جلوگیری کنید.",
-                  id: "a60cb42d-f4a6-46de-8b5b-b1f9650b7139",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "preeclampsia_sub",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: " برای خرید روی دکمه فعالسازی کلیک کنید",
-                      topBadge: "⭐️ تخفیف استثنایی ⭐️",
-                      portion: 2,
-                      section: "customPage",
-                      title: "تست مسمومیت بارداری",
-                      type: "preeclampsia_sub",
-                      fullPrice: 69000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 5,
-                        day: 14,
-                        hour: 9,
-                        minute: 35,
-                        second: 21,
-                        nanosecond: 961000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 49000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      lable: "یکبار خرید",
-                      int_id: 69,
-                      text: "با انجام تست مسمومیت بارداری، می‌توانید به طور زودهنگام از احتمال مسمومیت خود مطلع شوید و از بروز مشکلات احتمالی جلوگیری کنید.",
-                      id: "a60cb42d-f4a6-46de-8b5b-b1f9650b7139",
-                      sku: "preeclampsia-sub-1",
-                      value: 1,
-                      percentItem: 40,
-                      order: 6,
-                      image: "https://files.devliom.ir/config/premium/gem4.png",
-                      buyCount: 1,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      badge: "29%",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "با انجام تست مسمومیت بارداری، می‌توانید به طور زودهنگام از احتمال مسمومیت خود مطلع شوید و از بروز مشکلات احتمالی جلوگیری کنید.",
-                      name: "تست مسمومیت بارداری"
-                    }
-                  ]
+                  text: "امکان مشاوره تخصصی (مامایی، روان‌شناسی، تغذیه)",
+                  description:
+                    "امکان انتخاب و دسترسی به مشاوره‌های تخصصی مامایی، روان‌شناسی و تغذیه در دوران بارداری."
                 },
                 {
-                  text: "تست دیابت بارداری",
-                  hint: "شما می‌توانید با انجام تست دیابت بارداری، از وضعیت قند خون خود مطمئن شوید و از سلامت خود و جنین مراقبت کنید.",
-                  id: "fa28cf85-ee89-4932-9d9a-206b11e6fb81",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "pregnancy_diabetes_sub",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: " برای خرید روی دکمه فعالسازی کلیک کنید",
-                      topBadge: "⭐️ تخفیف استثنایی ⭐️",
-                      portion: 2,
-                      section: "customPage",
-                      type: "pregnancy_diabetes_sub",
-                      title: "تست دیابت بارداری",
-                      fullPrice: 79000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 5,
-                        day: 14,
-                        hour: 9,
-                        minute: 35,
-                        second: 17,
-                        nanosecond: 155000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 59000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      lable: "یکبار خرید",
-                      int_id: 70,
-                      id: "fa28cf85-ee89-4932-9d9a-206b11e6fb81",
-                      text: "شما می‌توانید با انجام تست دیابت بارداری، از وضعیت قند خون خود مطمئن شوید و از سلامت خود و جنین مراقبت کنید.",
-                      sku: "pregnancy_diabetes-sub-1",
-                      value: 1,
-                      percentItem: 40,
-                      order: 6,
-                      image: "https://files.devliom.ir/config/premium/gem4.png",
-                      buyCount: 0,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      badge: "26%",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "شما می‌توانید با انجام تست دیابت بارداری، از وضعیت قند خون خود مطمئن شوید و از سلامت خود و جنین مراقبت کنید.",
-                      name: "تست دیابت بارداری"
-                    }
-                  ]
+                  text: "سیسمونی و کیف بیمارستان",
+                  description:
+                    "راهنمای کامل و کاربردی برای انتخاب و تهیه وسایل ضروری نوزاد و لیست جامع وسایل مورد نیاز هنگام رفتن به بیمارستان برای زایمان."
+                },
+                {
+                  text: "بیوریتم",
+                  description:
+                    "پیگیری و تحلیل چرخه‌های طبیعی بدن و بیوریتم‌ها در دوران بارداری برای کمک به تنظیم برنامه روزانه و بهبود سلامت جسمی و روحی."
+                },
+                {
+                  text: "ویدیو آموزشی",
+                  description:
+                    "مجموعه‌ای از ویدیوهای تخصصی و کاربردی درباره بارداری، تغذیه، ورزش و مراقبت‌های قبل و بعد از زایمان برای مادران."
                 }
               ];
             } catch (e) {
@@ -1456,6 +548,163 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "values",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [
+                {
+                  icon: "🌱",
+                  title: "امنیت در سلامت",
+                  description:
+                    "نگران فراموش کردن چکاپ‌ها و آزمایش‌ها نباش. ما در مهم‌ترین لحظه‌ها کنارت هستیم."
+                },
+                {
+                  icon: "💊",
+                  title: "یادآور مکمل‌های مهم",
+                  description:
+                    "نگران فراموش کردن مصرف مکمل‌ها نباش، لیوم هر هفته بهت یادآوری می‌کنه."
+                },
+                {
+                  icon: "🕊",
+                  title: "آرامش ذهن و دل",
+                  description:
+                    "هفته‌به‌هفته می‌دونی باید منتظر چه چیزهایی باشی، چی طبیعی‌ه و چی هشداردهنده."
+                },
+                {
+                  icon: "💑",
+                  title: "رابطه‌ای نزدیک‌تر با همسرت",
+                  description:
+                    "با پیامک‌هایی که برای شریک زندگیت طراحی شدن، کمکش می‌کنی تو رو بهتر درک کنه."
+                },
+                {
+                  icon: "🧠",
+                  title: "دسترسی به راهنمایی‌های تخصصی، بدون استرس",
+                  description:
+                    "از مشاوره‌های علمی و دقیق تا گفت‌وگو با روان‌شناس، بدون اینکه دنبال جواب بگردی، پاسخ‌هات رو همدلانه می‌گیری."
+                },
+                {
+                  icon: "📈",
+                  title: "پیگیری رشد نوزاد",
+                  description: "اطلاعات هفتگی درباره رشد و تکامل کوچولوت."
+                },
+                {
+                  icon: "🤰",
+                  title: "حمایت از سلامت مادر",
+                  description:
+                    "نکات ساده و کاربردی برای حفظ سلامت تو در هر روز."
+                },
+                {
+                  icon: "💬",
+                  title: "ارتباط آسان با پزشک",
+                  description:
+                    "ثبت سوالات و دریافت پاسخ‌های سریع و قابل اعتماد."
+                }
+              ];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "collapse[].open",
+        type: "private",
+        variableType: "boolean",
+
+        onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
+      },
+      {
+        path: "input4.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "button12.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button8.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button11.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+      },
+      {
+        path: "dialog2.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "subscription3[].clickitem",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "subscription3[].title",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "subscription3[].price",
+        type: "private",
+        variableType: "number"
+      },
+      {
+        path: "subscription3[].discount",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "subscription3[].fullprice",
+        type: "private",
+        variableType: "number"
+      },
+      {
+        path: "button14.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button10.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+      },
+      {
+        path: "input5.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "button13.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1500,244 +749,1528 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
         >
           <div className={classNames(projectcss.all, sty.freeBox__jyJyb)}>
             <div className={classNames(projectcss.all, sty.freeBox__gk0K2)}>
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img___7JHJq)}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"auto"}
-                loading={"lazy"}
-                src={{
-                  src: "/plasmic/liom_hamyar/images/newProjectPng3.png",
-                  fullWidth: 1640,
-                  fullHeight: 664,
-                  aspectRatio: undefined
-                }}
-              />
+              <div className={classNames(projectcss.all, sty.freeBox__sx71)}>
+                <PlasmicImg__
+                  data-plasmic-name={"img"}
+                  data-plasmic-override={overrides.img}
+                  alt={""}
+                  className={classNames(sty.img)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/liom_hamyar/images/newProjectPng3.png",
+                    fullWidth: 1640,
+                    fullHeight: 664,
+                    aspectRatio: undefined
+                  }}
+                />
 
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $state.subList.length > 0 ? $state.subList : [];
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__lsVs3)}
+                >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__tiz5I)}
-                    key={currentIndex}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___7EzXk
+                    )}
                   >
-                    <PlasmicImg__
-                      alt={""}
-                      className={classNames(sty.img___7ESsT)}
-                      displayHeight={"50px"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"50px"}
-                      loading={"lazy"}
-                      src={(() => {
+                    <React.Fragment>
+                      {(() => {
                         try {
-                          return $state.subList[currentIndex].items[0].image;
+                          return `ما توی لیوم نمی‌خوایم فقط یه اپلیکیشن باشیم؛ می‌خوایم  رفیق  و  همراه  این روزای خاص تو باشیم.   `;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return {
-                              src: "/plasmic/liom_hamyar/images/image2.png",
-                              fullWidth: 512,
-                              fullHeight: 512,
-                              aspectRatio: undefined
-                            };
+                            return "";
                           }
                           throw e;
                         }
                       })()}
-                    />
-
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__m9MT)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__waJJw
-                        )}
-                      >
-                        <div
-                          className={projectcss.__wab_expr_html_text}
-                          dangerouslySetInnerHTML={{
-                            __html: $state.subList[currentIndex].text
-                          }}
-                        />
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__gQzfv
-                        )}
-                      >
-                        <div
-                          className={projectcss.__wab_expr_html_text}
-                          dangerouslySetInnerHTML={{
-                            __html: $state.subList[currentIndex].hint
-                          }}
-                        />
-                      </div>
-                    </div>
+                    </React.Fragment>
                   </div>
-                );
-              })}
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $state.sub.subscription_features.services;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__k9K5Q)}
-                    key={currentIndex}
+                  <Stack__
+                    as={"ul"}
+                    data-plasmic-name={"ul"}
+                    data-plasmic-override={overrides.ul}
+                    hasGap={true}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.ul,
+                      sty.ul
+                    )}
                   >
-                    <div
+                    <li
                       className={classNames(
                         projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__xTsDf
+                        projectcss.li,
+                        sty.li__j3Qcj
                       )}
-                    >
-                      <React.Fragment>
-                        {currentItem.category + ":"}
-                      </React.Fragment>
-                    </div>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__dThWl)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__g3B4H
+                          sty.freeBox__tIgFz
                         )}
                       >
-                        {(_par =>
-                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                          (() => {
-                            try {
-                              return currentItem.items.length > 0
-                                ? currentItem.items
-                                : [];
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                          const currentItem = __plasmic_item_1;
-                          const currentIndex = __plasmic_idx_1;
-                          return (
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__jc0Ed
-                              )}
-                              key={currentIndex}
-                              style={(() => {
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__uEqwr
+                          )}
+                        >
+                          {
+                            "\u062d\u0633 \u0648 \u062d\u0627\u0644\u062a \u0631\u0648 \u0628\u0647\u062a\u0631 \u0628\u0634\u0646\u0627\u0633\u06cc"
+                          }
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.li,
+                        sty.li__mTk94
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__jasK4
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___28PYu
+                          )}
+                        >
+                          {
+                            "\u0647\u0641\u062a\u0647\u200c\u0628\u0647\u200c\u0647\u0641\u062a\u0647 \u0631\u0634\u062f \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0631\u0648 \u0628\u0628\u06cc\u0646\u06cc"
+                          }
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.li,
+                        sty.li___0Q4LN
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___923JN
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__feFy6
+                          )}
+                        >
+                          {
+                            "\u0647\u0645\u0633\u0631\u062a\u00a0 \u0647\u0645 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631 \u062c\u0631\u06cc\u0627\u0646 \u062d\u0627\u0644 \u0648 \u0647\u0648\u0627\u06cc \u062a\u0648 \u0645\u06cc\u0632\u0627\u0631\u06cc\u0645"
+                          }
+                        </div>
+                      </div>
+                    </li>
+                  </Stack__>
+                </Stack__>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ca5Au
+                )}
+              >
+                {
+                  "\u0644\u06cc\u0648\u0645\u00a0\u00a0\u060c \u06cc\u0647 \u0647\u0645\u0631\u0627\u0647 \u0635\u0645\u06cc\u0645\u06cc\u060c  \u0628\u0631\u0627\u06cc \u0647\u0631 \u0644\u062d\u0638\u0647 \u0627\u0632   \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a\u0647\u00a0."
+                }
+              </div>
+              <Icon231Icon
+                className={classNames(projectcss.all, sty.svg__cyfQ)}
+                role={"img"}
+              />
+
+              <div className={classNames(projectcss.all, sty.freeBox__nh1Zo)}>
+                <div className={classNames(projectcss.all, sty.freeBox__r7Tuf)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__fJaz6
+                    )}
+                  >
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 500 }}
+                      >
+                        {
+                          "\ud83c\udf31 \u0627\u0645\u0646\u06cc\u062a \u062f\u0631 \u0633\u0644\u0627\u0645\u062a"
+                        }
+                      </span>
+                      <React.Fragment>
+                        {
+                          "\n\u0646\u06af\u0631\u0627\u0646 \u0641\u0631\u0627\u0645\u0648\u0634 \u06a9\u0631\u062f\u0646 \u0686\u06a9\u0627\u067e\u200c\u0647\u0627 \u0648 \u0622\u0632\u0645\u0627\u06cc\u0634\u200c\u0647\u0627 \u0646\u0628\u0627\u0634. \u0645\u0627 \u062f\u0631 \u0645\u0647\u0645\u200c\u062a\u0631\u06cc\u0646 \u0644\u062d\u0638\u0647\u200c\u0647\u0627 \u06a9\u0646\u0627\u0631\u062a \u0647\u0633\u062a\u06cc\u0645\u061b \u0627\u0632 \u063a\u0631\u0628\u0627\u0644\u06af\u0631\u06cc \u06af\u0631\u0641\u062a\u0647 \u062a\u0627 \u0645\u06a9\u0645\u0644\u200c\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u062a\u0648\u06cc \u0647\u0631 \u0647\u0641\u062a\u0647 \u0628\u0631\u0627\u062a \u0645\u0646\u0627\u0633\u0628\u0646. \u0627\u06cc\u0646 \u06cc\u0639\u0646\u06cc \u06cc\u06a9 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0622\u06af\u0627\u0647\u0627\u0646\u0647\u060c \u0628\u062f\u0648\u0646 \u062c\u0627 \u0627\u0646\u062f\u0627\u062e\u062a\u0646 \u0647\u06cc\u0686 \u0646\u06a9\u062a\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0628\u0647 \u0633\u0644\u0627\u0645\u062a \u062a\u0648 \u0648 \u0628\u0686\u0647\u200c\u0627\u062a \u0645\u0631\u0628\u0648\u0637 \u0628\u0627\u0634\u0647.\n\n"
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 500 }}
+                      >
+                        {
+                          "\ud83d\udd4a \u0622\u0631\u0627\u0645\u0634 \u0630\u0647\u0646 \u0648 \u062f\u0644"
+                        }
+                      </span>
+                      <React.Fragment>
+                        {
+                          "\n\u0647\u0641\u062a\u0647\u200c\u0628\u0647\u200c\u0647\u0641\u062a\u0647 \u0645\u06cc\u200c\u062f\u0648\u0646\u06cc \u0628\u0627\u06cc\u062f \u0645\u0646\u062a\u0638\u0631 \u0686\u0647 \u0686\u06cc\u0632\u0647\u0627\u06cc\u06cc \u0628\u0627\u0634\u06cc\u060c \u0686\u06cc \u0637\u0628\u06cc\u0639\u06cc\u200c\u0647 \u0648 \u0686\u06cc \u0647\u0634\u062f\u0627\u0631\u062f\u0647\u0646\u062f\u0647. \u0627\u06cc\u0646 \u06cc\u0639\u0646\u06cc \u0622\u0633\u0627\u06cc\u0634 \u0631\u0648\u0627\u0646\u06cc \u0648 \u062f\u0648\u0631\u06cc \u0627\u0632 \u0627\u0633\u062a\u0631\u0633\u200c\u0647\u0627\u06cc \u0627\u0636\u0627\u0641\u06cc.\n\n"
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 500 }}
+                      >
+                        {
+                          "\ud83d\udc91 \u0631\u0627\u0628\u0637\u0647\u200c\u0627\u06cc \u0646\u0632\u062f\u06cc\u06a9\u200c\u062a\u0631 \u0628\u0627 \u0647\u0645\u0633\u0631\u062a"
+                        }
+                      </span>
+                      <React.Fragment>
+                        {
+                          "\n\u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0628\u0631\u0627\u06cc \u0634\u0631\u06cc\u06a9 \u0632\u0646\u062f\u06af\u06cc\u062a \u0637\u0631\u0627\u062d\u06cc \u0634\u062f\u0646\u060c \u06a9\u0645\u06a9\u0634 \u0645\u06cc\u200c\u06a9\u0646\u06cc \u062a\u0648 \u0631\u0648 \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u0647 \u0648 \u0647\u0645\u0631\u0627\u0647\u06cc \u0639\u0645\u06cc\u0642\u200c\u062a\u0631\u06cc \u0628\u06cc\u0646\u200c\u062a\u0648\u0646 \u0634\u06a9\u0644 \u0628\u06af\u06cc\u0631\u0647. \u0627\u06cc\u0646 \u06cc\u0647 \u0633\u0631\u0645\u0627\u06cc\u0647\u200c\u06af\u0630\u0627\u0631\u06cc \u0639\u0627\u0637\u0641\u06cc \u0628\u0631\u0627\u06cc \u0647\u0631 \u062f\u0648\u062a\u0648\u0646 \u0647\u0633\u062a.\n\n"
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 500 }}
+                      >
+                        {
+                          "\ud83e\udde0 \u062f\u0633\u062a\u0631\u0633\u06cc \u0628\u0647 \u0631\u0627\u0647\u0646\u0645\u0627\u06cc\u06cc\u200c\u0647\u0627\u06cc \u062a\u062e\u0635\u0635\u06cc\u060c \u0628\u062f\u0648\u0646 \u0627\u0633\u062a\u0631\u0633"
+                        }
+                      </span>
+                      <React.Fragment>
+                        {
+                          "\n\u0627\u0632 \u0645\u0634\u0627\u0648\u0631\u0647\u200c\u0647\u0627\u06cc \u0639\u0644\u0645\u06cc \u0648 \u062f\u0642\u06cc\u0642 \u062a\u0627 \u06af\u0641\u062a\u200c\u0648\u06af\u0648 \u0628\u0627 \u0631\u0648\u0627\u0646\u200c\u0634\u0646\u0627\u0633\u060c \u0628\u062f\u0648\u0646 \u0627\u06cc\u0646\u06a9\u0647 \u062f\u0646\u0628\u0627\u0644 \u062c\u0648\u0627\u0628 \u0628\u06af\u0631\u062f\u06cc\u060c \u067e\u0627\u0633\u062e\u200c\u0647\u0627\u062a \u0631\u0648 \u0647\u0645\u062f\u0644\u0627\u0646\u0647 \u0645\u06cc\u200c\u06af\u06cc\u0631\u06cc.\n\n"
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 500 }}
+                      >
+                        {
+                          "\ud83d\udd12 \u0627\u062d\u0633\u0627\u0633 \u0627\u0645\u0646\u06cc\u062a\u060c \u062d\u062a\u06cc \u062f\u0631 \u062d\u0631\u06cc\u0645 \u062e\u0635\u0648\u0635\u06cc"
+                        }
+                      </span>
+                      <React.Fragment>
+                        {
+                          "\n\u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627\u0645\u0648\u0646 \u0628\u062f\u0648\u0646 \u0646\u0627\u0645 \u0628\u0631\u0646\u0627\u0645\u0647\u200c\u0646 \u0648 \u0647\u0645\u0647 \u0686\u06cc\u0632 \u0631\u0645\u0632\u06af\u0630\u0627\u0631\u06cc\u200c\u0634\u062f\u0647\u200c\u0633\u062a. \u06cc\u0639\u0646\u06cc \u062d\u062a\u06cc \u0648\u0642\u062a\u06cc \u0646\u0645\u06cc\u200c\u062e\u0648\u0627\u06cc \u06a9\u0633\u06cc \u0628\u062f\u0648\u0646\u0647\u060c \u0647\u0646\u0648\u0632 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u062d\u0645\u0627\u06cc\u062a \u0628\u06af\u06cc\u0631\u06cc.\n\n"
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 500 }}
+                      >
+                        {
+                          "\ud83d\udcb8 \u0635\u0631\u0641\u0647\u200c\u062c\u0648\u06cc\u06cc \u0647\u0648\u0634\u0645\u0646\u062f\u0627\u0646\u0647"
+                        }
+                      </span>
+                      <React.Fragment>
+                        {
+                          "\n\u0628\u0627 \u062e\u0631\u06cc\u062f \u0628\u0633\u062a\u0647\u200c\u0647\u0627\u06cc \u0686\u0646\u062f\u0645\u0627\u0647\u0647\u060c \u0647\u0645 \u0628\u0647\u200c\u0635\u0631\u0641\u0647\u200c\u0633\u062a\u060c \u0647\u0645 \u062f\u06cc\u06af\u0647 \u0644\u0627\u0632\u0645 \u0646\u06cc\u0633\u062a \u0647\u0631 \u0628\u0627\u0631 \u062c\u062f\u0627\u06af\u0627\u0646\u0647 \u0647\u0632\u06cc\u0646\u0647 \u06a9\u0646\u06cc. \u062e\u06cc\u0627\u0644 \u0631\u0627\u062d\u062a\u060c \u062c\u06cc\u0628 \u0631\u0627\u062d\u062a\u200c\u062a\u0631!"
+                        }
+                      </React.Fragment>
+                    </React.Fragment>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___6LBh
+                    )}
+                  >
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          color: "var(--token-55cSeNPovQFh)",
+                          fontWeight: 700
+                        }}
+                      >
+                        {"\u0644\u06cc\u0648\u0645"}
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "#535353", fontWeight: 700 }}
+                      >
+                        {
+                          " \u062f\u0631\u0633\u062a \u0647\u0645\u0648\u0646\u200c\u062c\u0627\u06cc\u06cc\u0647 \u06a9\u0647 \u0628\u0627\u06cc\u062f \u0628\u0627\u0634\u0647\u061b \u06a9\u0646\u0627\u0631 \u062a\u0648\u060c \u062a\u0648\u06cc \u0644\u062d\u0638\u0647\u200c\u0644\u062d\u0638\u0647\u200c\u06cc \u0627\u06cc\u0646 \u0645\u0633\u06cc\u0631 \u062e\u0627\u0635 \u0648 \u067e\u0631 \u0627\u0632 \u0627\u062d\u0633\u0627\u0633.  \u0648\u0642\u062a\u06cc \u0628\u0627 \u06cc\u0647 \u0630\u0648\u0642 \u062e\u0627\u0635 \u0627\u0648\u0644\u06cc\u0646"
+                        }
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          color: "var(--token-55cSeNPovQFh)",
+                          fontWeight: 700
+                        }}
+                      >
+                        {
+                          " \u0631\u0648\u0632\u0627\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a"
+                        }
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "#535353", fontWeight: 700 }}
+                      >
+                        {
+                          " \u0631\u0648 \u0645\u06cc\u200c\u06af\u0630\u0631\u0648\u0646\u06cc\u060c \u06cc\u0627 \u062d\u062a\u06cc \u0648\u0642\u062a\u06cc \u06cc\u0647\u200c\u06a9\u0645 "
+                        }
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          color: "var(--token-55cSeNPovQFh)",
+                          fontWeight: 700
+                        }}
+                      >
+                        {"\u0646\u06af\u0631\u0627\u0646\u06cc"}
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "#535353", fontWeight: 700 }}
+                      >
+                        {
+                          " \u0648 \u0646\u0645\u06cc\u200c\u062f\u0648\u0646\u06cc \u0627\u0644\u0627\u0646 \u0628\u0627\u06cc\u062f "
+                        }
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          color: "var(--token-55cSeNPovQFh)",
+                          fontWeight: 700
+                        }}
+                      >
+                        {"\u0686\u06cc \u06a9\u0627\u0631 \u06a9\u0646\u06cc"}
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "#535353", fontWeight: 700 }}
+                      >
+                        {"\u060c"}
+                      </span>
+                      <React.Fragment>{"\n"}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "#535353", fontWeight: 700 }}
+                      >
+                        {" "}
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          color: "var(--token-55cSeNPovQFh)",
+                          fontWeight: 700
+                        }}
+                      >
+                        {"\u0644\u06cc\u0648\u0645"}
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "#535353", fontWeight: 700 }}
+                      >
+                        {" \u06a9\u0646\u0627\u0631\u062a\u0647."}
+                      </span>
+                    </React.Fragment>
+                  </div>
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__wgK92)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__dAy7R
+                  )}
+                >
+                  {
+                    "\u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646 \u0686\u0648\u0646 \u0644\u06cc\u0648\u0645 \u0641\u0642\u0637 \u06cc\u0647 \u0627\u067e \u0646\u06cc\u0633\u062a\u060c \u06cc\u0647 \u0647\u0645\u0631\u0627\u0647\u0650 \u0648\u0627\u0642\u0639\u06cc\u200c\u0640\u0647 : "
+                  }
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__rGQuL)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__aoYM)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.values.length > 0 ? $state.values : [];
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__hanz5
+                          )}
+                          key={currentIndex}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__iUpBd
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
                                 try {
-                                  return {
-                                    "background-color": "#ffffff" //currentItem.color
-                                  };
+                                  return currentItem.icon;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return undefined;
+                                    return "";
                                   }
                                   throw e;
                                 }
                               })()}
+                            </React.Fragment>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__hUry0
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.title;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__pSWek
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.description;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </Stack__>
+                      );
+                    })}
+                  </Stack__>
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__vhMS)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__i5P7L
+                  )}
+                >
+                  <React.Fragment>
+                    <span
+                      className={"plasmic_default__all plasmic_default__span"}
+                      style={{ fontWeight: 700 }}
+                    >
+                      {
+                        "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a\u06cc \u06a9\u0647 \u0644\u06cc\u0648\u0645 \u062f\u0631 \u0627\u062e\u062a\u06cc\u0627\u0631\u062a \u0645\u06cc\u0632\u0627\u0631\u0647 \u062a\u0627  \u062f\u0648\u0631\u0627\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u200c\u062a \u0631\u0648 \u0631\u0627\u062d\u062a \u0648 \u0628\u0627 \u0622\u0631\u0627\u0645\u0634 \u0628\u06af\u0630\u0631\u0648\u0646\u06cc:"
+                      }
+                    </span>
+                  </React.Fragment>
+                </div>
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.subList;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (() => {
+                    const child$Props = {
+                      bordered: false,
+                      className: classNames("__wab_instance", sty.collapse),
+                      expandIconPosition: "end",
+                      ghost: true,
+                      key: currentIndex,
+                      label2: (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___306J0
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.text;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Header";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      ),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "open",
+                          ["collapse", __plasmic_idx_0, "open"],
+                          AntdSingleCollapse_Helpers
+                        ).apply(null, eventArgs);
+                      },
+                      open: generateStateValueProp($state, [
+                        "collapse",
+                        __plasmic_idx_0,
+                        "open"
+                      ]),
+                      showArrow: true,
+                      size: "small"
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "open",
+                          plasmicStateName: "collapse[].open"
+                        }
+                      ],
+                      [__plasmic_idx_0],
+                      AntdSingleCollapse_Helpers ?? {},
+                      child$Props
+                    );
+                    initializePlasmicStates(
+                      $state,
+                      [
+                        {
+                          name: "collapse[].open",
+                          initFunc: ({ $props, $state, $queries }) => undefined
+                        }
+                      ],
+                      [__plasmic_idx_0]
+                    );
+                    return (
+                      <AntdSingleCollapse
+                        data-plasmic-name={"collapse"}
+                        data-plasmic-override={overrides.collapse}
+                        {...child$Props}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__amSJ
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.description;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Collapsible text...";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </AntdSingleCollapse>
+                    );
+                  })();
+                })}
+              </div>
+            </div>
+            <section
+              data-plasmic-name={"section"}
+              data-plasmic-override={overrides.section}
+              className={classNames(projectcss.all, sty.section)}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__dCnsH)}>
+                <div className={classNames(projectcss.all, sty.freeBox__r6Q7A)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__n8Atl)}
+                    dir={"rtl"}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__aazGu)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__sGe0N
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__pDOlg
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__iG9WQ
+                            )}
+                          >
+                            {""}
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__bnfp8
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__egZtJ
+                            )}
+                          >
+                            {""}
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__r6Z93
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___5Pd3I
+                              )}
                             >
-                              <Embed
-                                data-plasmic-name={"embedHtml"}
-                                data-plasmic-override={overrides.embedHtml}
-                                className={classNames(
+                              {""}
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__taV4I
+                              )}
+                            >
+                              {""}
+                            </div>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__klgWh
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__n6Vrn
+                              )}
+                            >
+                              {""}
+                            </div>
+                          </div>
+                        </div>
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__zefUp
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__s0EmE
+                            )}
+                          >
+                            {(() => {
+                              const child$Props = {
+                                allowClear: hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                )
+                                  ? false
+                                  : false,
+                                autoFocus: hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                )
+                                  ? false
+                                  : false,
+                                bordered: hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                )
+                                  ? false
+                                  : false,
+                                className: classNames(
                                   "__wab_instance",
-                                  sty.embedHtml
-                                )}
-                                code={currentItem.icon_svg}
-                              />
+                                  sty.input4
+                                ),
+                                disabled: hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                )
+                                  ? false
+                                  : false,
+                                onChange: async (...eventArgs: any) => {
+                                  generateStateOnChangePropForCodeComponents(
+                                    $state,
+                                    "value",
+                                    ["input4", "value"],
+                                    AntdInput_Helpers
+                                  ).apply(null, eventArgs);
+                                },
+                                placeholder:
+                                  "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.",
+                                prefix: null,
+                                readOnly: hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                )
+                                  ? false
+                                  : false,
+                                size: hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                )
+                                  ? "small"
+                                  : "small",
+                                suffix: null,
+                                value: generateStateValueProp($state, [
+                                  "input4",
+                                  "value"
+                                ])
+                              };
+                              initializeCodeComponentStates(
+                                $state,
+                                [
+                                  {
+                                    name: "value",
+                                    plasmicStateName: "input4.value"
+                                  }
+                                ],
+                                [],
+                                AntdInput_Helpers ?? {},
+                                child$Props
+                              );
 
-                              <div
+                              return (
+                                <AntdInput
+                                  data-plasmic-name={"input4"}
+                                  data-plasmic-override={overrides.input4}
+                                  {...child$Props}
+                                />
+                              );
+                            })()}
+                          </div>
+                          <Button
+                            data-plasmic-name={"button12"}
+                            data-plasmic-override={overrides.button12}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button12
+                            )}
+                            color={generateStateValueProp($state, [
+                              "button12",
+                              "color"
+                            ])}
+                            disabled={false}
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button12",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__dInP
+                              )}
+                            >
+                              {"\u062a\u0627\u06cc\u06cc\u062f"}
+                            </div>
+                          </Button>
+                        </Stack__>
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__yGpT8
+                          )}
+                        >
+                          <Button
+                            data-plasmic-name={"button8"}
+                            data-plasmic-override={overrides.button8}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button8
+                            )}
+                            color={generateStateValueProp($state, [
+                              "button8",
+                              "color"
+                            ])}
+                            endIcon={
+                              <Icon12Icon
                                 className={classNames(
                                   projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text___79MK
+                                  sty.svg___0PlI
                                 )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
+                                role={"img"}
+                              />
+                            }
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button8",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__aSrdW
+                              )}
+                            >
+                              {
+                                "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                              }
+                            </div>
+                          </Button>
+                          <Button
+                            data-plasmic-name={"button11"}
+                            data-plasmic-override={overrides.button11}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button11
+                            )}
+                            color={generateStateValueProp($state, [
+                              "button11",
+                              "color"
+                            ])}
+                            endIcon={
+                              <Icon12Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__zxSun
+                                )}
+                                role={"img"}
+                              />
+                            }
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button11",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__f0Xp
+                              )}
+                            >
+                              {
+                                "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u0645"
+                              }
+                            </div>
+                          </Button>
+                        </Stack__>
+                        <p
+                          data-plasmic-name={"p"}
+                          data-plasmic-override={overrides.p}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.p,
+                            projectcss.__wab_text,
+                            sty.p
+                          )}
+                        >
+                          {
+                            "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                          }
+                        </p>
+                      </Stack__>
+                    </div>
+                  </Stack__>
+                </div>
+                <Dialog3
+                  data-plasmic-name={"dialog2"}
+                  data-plasmic-override={overrides.dialog2}
+                  className={classNames("__wab_instance", sty.dialog2)}
+                  onOpendialogChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "dialog2",
+                      "opendialog"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  opendialog={generateStateValueProp($state, [
+                    "dialog2",
+                    "opendialog"
+                  ])}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__qVTsM)}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__aa13D)}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        []
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (() => {
+                          const child$Props = {
+                            className: classNames(
+                              "__wab_instance",
+                              sty.subscription3
+                            ),
+                            clickitem: generateStateValueProp($state, [
+                              "subscription3",
+                              __plasmic_idx_0,
+                              "clickitem"
+                            ]),
+                            discount: generateStateValueProp($state, [
+                              "subscription3",
+                              __plasmic_idx_0,
+                              "discount"
+                            ]),
+                            fullprice: generateStateValueProp($state, [
+                              "subscription3",
+                              __plasmic_idx_0,
+                              "fullprice"
+                            ]),
+                            key: currentIndex,
+                            onClickitemChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "subscription3",
+                                __plasmic_idx_0,
+                                "clickitem"
+                              ]).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            },
+                            onDiscountChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "subscription3",
+                                __plasmic_idx_0,
+                                "discount"
+                              ]).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            },
+                            onFullpriceChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "subscription3",
+                                __plasmic_idx_0,
+                                "fullprice"
+                              ]).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            },
+                            onPriceChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "subscription3",
+                                __plasmic_idx_0,
+                                "price"
+                              ]).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            },
+                            onTitleChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "subscription3",
+                                __plasmic_idx_0,
+                                "title"
+                              ]).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            },
+                            price: generateStateValueProp($state, [
+                              "subscription3",
+                              __plasmic_idx_0,
+                              "price"
+                            ]),
+                            title: generateStateValueProp($state, [
+                              "subscription3",
+                              __plasmic_idx_0,
+                              "title"
+                            ])
+                          };
+
+                          initializePlasmicStates(
+                            $state,
+                            [
+                              {
+                                name: "subscription3[].clickitem",
+                                initFunc: ({ $props, $state, $queries }) => true
+                              },
+                              {
+                                name: "subscription3[].title",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
                                     try {
-                                      return currentItem.text;
+                                      return currentItem.name;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
                                         e?.plasmicType ===
                                           "PlasmicUndefinedDataError"
                                       ) {
-                                        return "";
+                                        return undefined;
                                       }
                                       throw e;
                                     }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                            </Stack__>
+                                  })()
+                              },
+                              {
+                                name: "subscription3[].price",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.price.toLocaleString();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return 120000;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              },
+                              {
+                                name: "subscription3[].discount",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.badge;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              },
+                              {
+                                name: "subscription3[].fullprice",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.fullPrice.toLocaleString();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return 0;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              }
+                            ],
+                            [__plasmic_idx_0]
                           );
-                        })}
-                      </div>
+                          return (
+                            <Subscription3
+                              data-plasmic-name={"subscription3"}
+                              data-plasmic-override={overrides.subscription3}
+                              {...child$Props}
+                            >
+                              {(
+                                hasVariant(globalVariants, "screen", "mobile")
+                                  ? (() => {
+                                      try {
+                                        return currentItem.topBadge
+                                          ? true
+                                          : false;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  : (() => {
+                                      try {
+                                        return currentItem.topBadge
+                                          ? true
+                                          : false;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                              ) ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__ay4S1
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__kDtLk
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return currentItem.topBadge;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "\ud83c\udf39 \u0628\u0647 \u0635\u0631\u0641\u0647 \u062a\u0631\u06cc\u0646 \ud83c\udf39";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                </div>
+                              ) : null}
+                            </Subscription3>
+                          );
+                        })();
+                      })}
                     </Stack__>
-                  </div>
-                );
-              })}
-            </div>
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__bwtIn)}
+                    >
+                      <Button
+                        data-plasmic-name={"button14"}
+                        data-plasmic-override={overrides.button14}
+                        className={classNames("__wab_instance", sty.button14)}
+                        color={generateStateValueProp($state, [
+                          "button14",
+                          "color"
+                        ])}
+                        endIcon={
+                          <Icon12Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__kiw0L
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button14",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__fzIFj
+                          )}
+                        >
+                          {""}
+                        </div>
+                      </Button>
+                      <Button
+                        data-plasmic-name={"button10"}
+                        data-plasmic-override={overrides.button10}
+                        className={classNames("__wab_instance", sty.button10)}
+                        color={generateStateValueProp($state, [
+                          "button10",
+                          "color"
+                        ])}
+                        endIcon={
+                          <Icon12Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__rR9S7
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button10",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__q84Xz
+                          )}
+                        >
+                          {
+                            "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u0645"
+                          }
+                        </div>
+                      </Button>
+                    </Stack__>
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__wmnFb)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___8ShT
+                        )}
+                      >
+                        {(() => {
+                          const child$Props = {
+                            allowClear: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobile"
+                            )
+                              ? false
+                              : false,
+                            autoFocus: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobile"
+                            )
+                              ? false
+                              : false,
+                            bordered: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobile"
+                            )
+                              ? false
+                              : false,
+                            className: classNames("__wab_instance", sty.input5),
+                            disabled: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobile"
+                            )
+                              ? false
+                              : false,
+                            onChange: async (...eventArgs: any) => {
+                              generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "value",
+                                ["input5", "value"],
+                                AntdInput_Helpers
+                              ).apply(null, eventArgs);
+                            },
+                            placeholder:
+                              "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.",
+                            prefix: null,
+                            readOnly: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobile"
+                            )
+                              ? false
+                              : false,
+                            size: hasVariant(globalVariants, "screen", "mobile")
+                              ? "small"
+                              : "small",
+                            suffix: null,
+                            value: generateStateValueProp($state, [
+                              "input5",
+                              "value"
+                            ])
+                          };
+                          initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "value",
+                                plasmicStateName: "input5.value"
+                              }
+                            ],
+                            [],
+                            AntdInput_Helpers ?? {},
+                            child$Props
+                          );
+
+                          return (
+                            <AntdInput
+                              data-plasmic-name={"input5"}
+                              data-plasmic-override={overrides.input5}
+                              {...child$Props}
+                            />
+                          );
+                        })()}
+                      </div>
+                      <Button
+                        data-plasmic-name={"button13"}
+                        data-plasmic-override={overrides.button13}
+                        className={classNames("__wab_instance", sty.button13)}
+                        color={generateStateValueProp($state, [
+                          "button13",
+                          "color"
+                        ])}
+                        disabled={false}
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button13",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__fPsJb
+                          )}
+                        >
+                          {"\u062a\u0627\u06cc\u06cc\u062f"}
+                        </div>
+                      </Button>
+                    </Stack__>
+                  </Stack__>
+                </Dialog3>
+              </div>
+            </section>
           </div>
         </div>
       </div>
@@ -1746,15 +2279,80 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "embedHtml"],
-  embedHtml: ["embedHtml"]
+  root: [
+    "root",
+    "img",
+    "ul",
+    "collapse",
+    "section",
+    "input4",
+    "button12",
+    "button8",
+    "button11",
+    "p",
+    "dialog2",
+    "subscription3",
+    "button14",
+    "button10",
+    "input5",
+    "button13"
+  ],
+  img: ["img"],
+  ul: ["ul"],
+  collapse: ["collapse"],
+  section: [
+    "section",
+    "input4",
+    "button12",
+    "button8",
+    "button11",
+    "p",
+    "dialog2",
+    "subscription3",
+    "button14",
+    "button10",
+    "input5",
+    "button13"
+  ],
+  input4: ["input4"],
+  button12: ["button12"],
+  button8: ["button8"],
+  button11: ["button11"],
+  p: ["p"],
+  dialog2: [
+    "dialog2",
+    "subscription3",
+    "button14",
+    "button10",
+    "input5",
+    "button13"
+  ],
+  subscription3: ["subscription3"],
+  button14: ["button14"],
+  button10: ["button10"],
+  input5: ["input5"],
+  button13: ["button13"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  embedHtml: typeof Embed;
+  img: typeof PlasmicImg__;
+  ul: "ul";
+  collapse: typeof AntdSingleCollapse;
+  section: "section";
+  input4: typeof AntdInput;
+  button12: typeof Button;
+  button8: typeof Button;
+  button11: typeof Button;
+  p: "p";
+  dialog2: typeof Dialog3;
+  subscription3: typeof Subscription3;
+  button14: typeof Button;
+  button10: typeof Button;
+  input5: typeof AntdInput;
+  button13: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1842,7 +2440,21 @@ export const PlasmicSubscriptionPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    embedHtml: makeNodeComponent("embedHtml"),
+    img: makeNodeComponent("img"),
+    ul: makeNodeComponent("ul"),
+    collapse: makeNodeComponent("collapse"),
+    section: makeNodeComponent("section"),
+    input4: makeNodeComponent("input4"),
+    button12: makeNodeComponent("button12"),
+    button8: makeNodeComponent("button8"),
+    button11: makeNodeComponent("button11"),
+    p: makeNodeComponent("p"),
+    dialog2: makeNodeComponent("dialog2"),
+    subscription3: makeNodeComponent("subscription3"),
+    button14: makeNodeComponent("button14"),
+    button10: makeNodeComponent("button10"),
+    input5: makeNodeComponent("input5"),
+    button13: makeNodeComponent("button13"),
 
     // Metadata about props expected for PlasmicSubscriptionPage
     internalVariantProps: PlasmicSubscriptionPage__VariantProps,

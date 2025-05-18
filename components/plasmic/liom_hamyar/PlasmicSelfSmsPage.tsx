@@ -737,293 +737,595 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                     </div>
                   </Stack__>
                 ) : null}
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__qbI5J
-                  )}
-                  onClick={async event => {
-                    const $steps = {};
-                  }}
-                >
-                  <React.Fragment>
-                    <React.Fragment>
-                      {
-                        "\u0628\u062f\u0646\u062a \u0628\u0627\u0647\u0627\u062a \u062d\u0631\u0641 \u0645\u06cc\u0632\u0646\u0647\u061b \u0628\u0627 \u06af\u0648\u0634 \u062f\u0627\u062f\u0646 \u0628\u0647\u0634\u060c  "
-                      }
-                    </React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ fontWeight: 700 }}
-                    >
-                      {"\u0633\u0627\u0644\u0645\u200c\u062a\u0631 "}
-                    </span>
-                    <React.Fragment>{" \u0648  "}</React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ fontWeight: 700 }}
-                    >
-                      {"\u0634\u0627\u062f\u062a\u0631"}
-                    </span>
-                    <React.Fragment>
-                      {
-                        "  \u0628\u0627\u0634.\n\u0628\u0647 \u0637\u0648\u0631 \u06a9\u0644\u06cc \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647 "
-                      }
-                    </React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ fontWeight: 500 }}
-                    >
-                      {"\u0686\u0647\u0627\u0631"}
-                    </span>
-                    <React.Fragment>
-                      {
-                        " \u0645\u0631\u062d\u0644\u0647 \u062a\u0642\u0633\u06cc\u0645 \u0645\u06cc\u200c\u0634\u0648\u062f:"
-                      }
-                    </React.Fragment>
-                  </React.Fragment>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__vw2Q)}>
-                  <ul
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.ul,
-                      sty.ul__p75F1
-                    )}
+                {(() => {
+                  try {
+                    return (
+                      ($ctx.query?.status ?? "") == "" ||
+                      ($ctx.query?.status ?? "") == "period"
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__jFfaO)}
                   >
-                    <li
+                    <div
                       className={classNames(
                         projectcss.all,
-                        projectcss.li,
-                        sty.li__cvkGu
+                        projectcss.__wab_text,
+                        sty.text__qbI5J
                       )}
+                      onClick={async event => {
+                        const $steps = {};
+                      }}
                     >
-                      <div
+                      <React.Fragment>
+                        <React.Fragment>
+                          {
+                            "\u0628\u062f\u0646\u062a \u0628\u0627\u0647\u0627\u062a \u062d\u0631\u0641 \u0645\u06cc\u0632\u0646\u0647\u061b \u0628\u0627 \u06af\u0648\u0634 \u062f\u0627\u062f\u0646 \u0628\u0647\u0634\u060c  "
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u0633\u0627\u0644\u0645\u200c\u062a\u0631 "}
+                        </span>
+                        <React.Fragment>{" \u0648  "}</React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u0634\u0627\u062f\u062a\u0631"}
+                        </span>
+                        <React.Fragment>
+                          {
+                            "  \u0628\u0627\u0634.\n\u0628\u0647 \u0637\u0648\u0631 \u06a9\u0644\u06cc \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647 "
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 500 }}
+                        >
+                          {"\u0686\u0647\u0627\u0631"}
+                        </span>
+                        <React.Fragment>
+                          {
+                            " \u0645\u0631\u062d\u0644\u0647 \u062a\u0642\u0633\u06cc\u0645 \u0645\u06cc\u200c\u0634\u0648\u062f:"
+                          }
+                        </React.Fragment>
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__vw2Q)}
+                    >
+                      <ul
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__uYnqz
+                          projectcss.ul,
+                          sty.ul__p75F1
                         )}
                       >
-                        <div
+                        <li
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__dBsYg
+                            projectcss.li,
+                            sty.li__cvkGu
                           )}
                         >
-                          <React.Fragment>
-                            <React.Fragment>{""}</React.Fragment>
-                            {
-                              <ul
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.ul,
-                                  sty.ul__eceL4
-                                )}
-                              >
-                                <li
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.li,
-                                    projectcss.__wab_text,
-                                    sty.li__iqCDt
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    <span
-                                      className={
-                                        "plasmic_default__all plasmic_default__span"
-                                      }
-                                      style={{ fontWeight: 500 }}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__uYnqz
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__dBsYg
+                              )}
+                            >
+                              <React.Fragment>
+                                <React.Fragment>{""}</React.Fragment>
+                                {
+                                  <ul
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.ul,
+                                      sty.ul__eceL4
+                                    )}
+                                  >
+                                    <li
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.li,
+                                        projectcss.__wab_text,
+                                        sty.li__iqCDt
+                                      )}
                                     >
-                                      {"\u0642\u0627\u0639\u062f\u06af\u06cc"}
-                                    </span>
-                                    <React.Fragment>
-                                      {
-                                        ": \u0632\u0645\u0627\u0646 \u0627\u0633\u062a\u0631\u0627\u062d\u062a \u0648 \u062a\u063a\u0630\u06cc\u0647 \u0645\u0646\u0627\u0633\u0628"
-                                      }
-                                    </React.Fragment>
-                                  </React.Fragment>
-                                </li>
-                              </ul>
-                            }
-                            <React.Fragment>{""}</React.Fragment>
-                          </React.Fragment>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.ul,
-                      sty.ul__hskj
-                    )}
-                  >
-                    <li
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.li,
-                        sty.li__wjBi6
-                      )}
-                    >
-                      <div
+                                      <React.Fragment>
+                                        <span
+                                          className={
+                                            "plasmic_default__all plasmic_default__span"
+                                          }
+                                          style={{ fontWeight: 500 }}
+                                        >
+                                          {
+                                            "\u0642\u0627\u0639\u062f\u06af\u06cc"
+                                          }
+                                        </span>
+                                        <React.Fragment>
+                                          {
+                                            ": \u0632\u0645\u0627\u0646 \u0627\u0633\u062a\u0631\u0627\u062d\u062a \u0648 \u062a\u063a\u0630\u06cc\u0647 \u0645\u0646\u0627\u0633\u0628"
+                                          }
+                                        </React.Fragment>
+                                      </React.Fragment>
+                                    </li>
+                                  </ul>
+                                }
+                                <React.Fragment>{""}</React.Fragment>
+                              </React.Fragment>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__i1Opm
+                          projectcss.ul,
+                          sty.ul__hskj
                         )}
                       >
-                        <div
+                        <li
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__fq8G9
+                            projectcss.li,
+                            sty.li__wjBi6
                           )}
                         >
-                          <React.Fragment>
-                            <span
-                              className={
-                                "plasmic_default__all plasmic_default__span"
-                              }
-                              style={{ fontWeight: 500 }}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__i1Opm
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__fq8G9
+                              )}
                             >
-                              {
-                                "\u0641\u0648\u0644\u06cc\u06a9\u0648\u0644\u0627\u0631"
-                              }
-                            </span>
-                            <React.Fragment>
-                              {
-                                ": \u062f\u0648\u0631\u0647\u200c\u0627\u06cc \u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u0641\u0639\u0627\u0644\u06cc\u062a\u200c\u0647\u0627\u06cc  \u0648 \u067e\u0631\u0627\u0646\u0631\u0698\u06cc"
-                              }
-                            </React.Fragment>
-                          </React.Fragment>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.ul,
-                      sty.ul__rrg2B
-                    )}
-                  >
-                    <li
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.li,
-                        sty.li__k60EL
-                      )}
-                    >
-                      <div
+                              <React.Fragment>
+                                <span
+                                  className={
+                                    "plasmic_default__all plasmic_default__span"
+                                  }
+                                  style={{ fontWeight: 500 }}
+                                >
+                                  {
+                                    "\u0641\u0648\u0644\u06cc\u06a9\u0648\u0644\u0627\u0631"
+                                  }
+                                </span>
+                                <React.Fragment>
+                                  {
+                                    ": \u062f\u0648\u0631\u0647\u200c\u0627\u06cc \u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u0641\u0639\u0627\u0644\u06cc\u062a\u200c\u0647\u0627\u06cc  \u0648 \u067e\u0631\u0627\u0646\u0631\u0698\u06cc"
+                                  }
+                                </React.Fragment>
+                              </React.Fragment>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox___5In2E
+                          projectcss.ul,
+                          sty.ul__rrg2B
                         )}
                       >
-                        <div
+                        <li
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__or0X1
+                            projectcss.li,
+                            sty.li__k60EL
                           )}
                         >
-                          <React.Fragment>
-                            <span
-                              className={
-                                "plasmic_default__all plasmic_default__span"
-                              }
-                              style={{ fontWeight: 500 }}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___5In2E
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__or0X1
+                              )}
                             >
-                              {
-                                "\u062a\u062e\u0645\u06a9\u200c\u06af\u0630\u0627\u0631\u06cc"
-                              }
-                            </span>
-                            <React.Fragment>
-                              {
-                                ": \u0627\u0648\u062c \u0627\u0646\u0631\u0698\u06cc\u061b \u0645\u0646\u0627\u0633\u0628 \u0628\u0631\u0627\u06cc \u0641\u0639\u0627\u0644\u06cc\u062a\u200c\u0647\u0627\u06cc \u0627\u062c\u062a\u0645\u0627\u0639\u06cc \u0648 \u062a\u0645\u0631\u06cc\u0646 \u0634\u062f\u06cc\u062f"
-                              }
-                            </React.Fragment>
-                          </React.Fragment>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.ul,
-                      sty.ul__bNpGs
-                    )}
-                  >
-                    <li
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.li,
-                        sty.li__ecUcs
-                      )}
-                    >
-                      <div
+                              <React.Fragment>
+                                <span
+                                  className={
+                                    "plasmic_default__all plasmic_default__span"
+                                  }
+                                  style={{ fontWeight: 500 }}
+                                >
+                                  {
+                                    "\u062a\u062e\u0645\u06a9\u200c\u06af\u0630\u0627\u0631\u06cc"
+                                  }
+                                </span>
+                                <React.Fragment>
+                                  {
+                                    ": \u0627\u0648\u062c \u0627\u0646\u0631\u0698\u06cc\u061b \u0645\u0646\u0627\u0633\u0628 \u0628\u0631\u0627\u06cc \u0641\u0639\u0627\u0644\u06cc\u062a\u200c\u0647\u0627\u06cc \u0627\u062c\u062a\u0645\u0627\u0639\u06cc \u0648 \u062a\u0645\u0631\u06cc\u0646 \u0634\u062f\u06cc\u062f"
+                                  }
+                                </React.Fragment>
+                              </React.Fragment>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox___4WxZ1
+                          projectcss.ul,
+                          sty.ul__bNpGs
                         )}
                       >
-                        <div
+                        <li
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__kz9ZQ
+                            projectcss.li,
+                            sty.li__ecUcs
                           )}
                         >
-                          <React.Fragment>
-                            <span
-                              className={
-                                "plasmic_default__all plasmic_default__span"
-                              }
-                              style={{ fontWeight: 500 }}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___4WxZ1
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__kz9ZQ
+                              )}
                             >
-                              {"\u0644\u0648\u062a\u0626\u0627\u0644"}
-                            </span>
-                            <React.Fragment>
-                              {
-                                ": \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0627\u0633\u062a\u0631\u0627\u062d\u062a\u061b \u0648\u0631\u0632\u0634 \u0633\u0628\u06a9 \u0648 \u062a\u063a\u0630\u06cc\u0647 \u0645\u0642\u0648\u06cc"
-                              }
-                            </React.Fragment>
-                          </React.Fragment>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__jaOdM
-                  )}
-                  onClick={async event => {
-                    const $steps = {};
-                  }}
-                >
-                  <React.Fragment>
-                    <React.Fragment>{"\u0628\u0627   "}</React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ color: "#7444BC", fontWeight: 700 }}
+                              <React.Fragment>
+                                <span
+                                  className={
+                                    "plasmic_default__all plasmic_default__span"
+                                  }
+                                  style={{ fontWeight: 500 }}
+                                >
+                                  {"\u0644\u0648\u062a\u0626\u0627\u0644"}
+                                </span>
+                                <React.Fragment>
+                                  {
+                                    ": \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0627\u0633\u062a\u0631\u0627\u062d\u062a\u061b \u0648\u0631\u0632\u0634 \u0633\u0628\u06a9 \u0648 \u062a\u063a\u0630\u06cc\u0647 \u0645\u0642\u0648\u06cc"
+                                  }
+                                </React.Fragment>
+                              </React.Fragment>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__jaOdM
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+                      }}
                     >
-                      {
-                        "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f "
-                      }
-                    </span>
-                    <React.Fragment>
-                      {
-                        "\u0645\u06cc\u062a\u0648\u0646\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627\u06cc \u062f\u0648\u0631\u062a \u0631\u0648 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc \u0648 \u0632\u0645\u0627\u0646 \u062f\u0631\u0633\u062a \u0627\u0646\u062c\u0627\u0645 \u0647\u0631 \u06a9\u0627\u0631\u06cc \u0631\u0648 \u0628\u062f\u0648\u0646\u06cc. \u0627\u0632 \u0631\u0698\u06cc\u0645 \u06af\u0631\u0641\u062a\u0647 \u062a\u0627 \u062a\u0635\u0645\u06cc\u0645 \u0647\u0627\u06cc \u0645\u0647\u0645 \u0632\u0646\u062f\u06af\u06cc!\n \u0648 \u06cc\u0627 \u0634\u0631\u0648\u0639 \u0648\u0631\u0632\u0634 \u06a9\u0631\u062f\u0646\u060c \u0645\u0647\u0645\u0648\u0646\u06cc \u06af\u0631\u0641\u062a\u0646 \u0648 \u06cc\u0627 \u0645\u0647\u0645\u0648\u0646\u06cc \u0631\u0641\u062a\u0646 \u0648 ..."
-                      }
-                    </React.Fragment>
-                  </React.Fragment>
-                </div>
+                      <React.Fragment>
+                        <React.Fragment>{"\u0628\u0627   "}</React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ color: "#7444BC", fontWeight: 700 }}
+                        >
+                          {
+                            "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f "
+                          }
+                        </span>
+                        <React.Fragment>
+                          {
+                            "\u0645\u06cc\u062a\u0648\u0646\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627\u06cc \u062f\u0648\u0631\u062a \u0631\u0648 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc \u0648 \u0632\u0645\u0627\u0646 \u062f\u0631\u0633\u062a \u0627\u0646\u062c\u0627\u0645 \u0647\u0631 \u06a9\u0627\u0631\u06cc \u0631\u0648 \u0628\u062f\u0648\u0646\u06cc. \u0627\u0632 \u0631\u0698\u06cc\u0645 \u06af\u0631\u0641\u062a\u0647 \u062a\u0627 \u062a\u0635\u0645\u06cc\u0645 \u0647\u0627\u06cc \u0645\u0647\u0645 \u0632\u0646\u062f\u06af\u06cc!\n \u0648 \u06cc\u0627 \u0634\u0631\u0648\u0639 \u0648\u0631\u0632\u0634 \u06a9\u0631\u062f\u0646\u060c \u0645\u0647\u0645\u0648\u0646\u06cc \u06af\u0631\u0641\u062a\u0646 \u0648 \u06cc\u0627 \u0645\u0647\u0645\u0648\u0646\u06cc \u0631\u0641\u062a\u0646 \u0648 ..."
+                          }
+                        </React.Fragment>
+                      </React.Fragment>
+                    </div>
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return ($ctx.query?.status ?? "") == "pregnancy";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___26DdR)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__iZlr6
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+                      }}
+                    >
+                      <React.Fragment>
+                        <React.Fragment>
+                          {
+                            "\u0628\u062f\u0646\u062a \u062f\u0627\u0631\u0647 \u06cc\u0647 \u0633\u0641\u0631 \u0641\u0648\u0642\u200c\u0627\u0644\u0639\u0627\u062f\u0647 \u0648 \u0628\u06cc\u200c\u0646\u0638\u06cc\u0631 \u0631\u0648 \u0637\u06cc \u0645\u06cc\u200c\u06a9\u0646\u0647 \u0648 \u0645\u0627 \u0627\u06cc\u0646\u062c\u0627 \u0647\u0633\u062a\u06cc\u0645 \u062a\u0627 \u0647\u0631 \u0647\u0641\u062a\u0647 "
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u06a9\u0646\u0627\u0631\u062a"}
+                        </span>
+                        <React.Fragment>
+                          {
+                            " \u0628\u0627\u0634\u06cc\u0645.\n\u0628\u0627 \u062f\u0631\u06cc\u0627\u0641\u062a \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627\u06cc "
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u0647\u0641\u062a\u06af\u06cc"}
+                        </span>
+                        <React.Fragment>
+                          {" \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u060c "}
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u0631\u0634\u062f"}
+                        </span>
+                        <React.Fragment>
+                          {" \u06a9\u0648\u0686\u0648\u0644\u0648\u062a\u060c "}
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {
+                            "\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0628\u062f\u0646\u062a"
+                          }
+                        </span>
+                        <React.Fragment>
+                          {
+                            " \u0648 \u0646\u06a9\u0627\u062a \u0645\u0647\u0645 "
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u0633\u0644\u0627\u0645\u062a\u06cc"}
+                        </span>
+                        <React.Fragment>
+                          {
+                            " \u0631\u0648 \u062f\u0642\u06cc\u0642 \u0648 \u0633\u0627\u062f\u0647 "
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"}
+                        </span>
+                        <React.Fragment>
+                          {" \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645."}
+                        </React.Fragment>
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__t9B0O
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+                      }}
+                    >
+                      <React.Fragment>
+                        <React.Fragment>
+                          {
+                            "\u0647\u0631 \u0647\u0641\u062a\u0647 \u06cc\u06a9 \u062f\u0627\u0633\u062a\u0627\u0646 \u062c\u062f\u06cc\u062f \u0627\u0632 \u062f\u0646\u06cc\u0627\u06cc \u062f\u0631\u0648\u0646\u062a\u060c \u0627\u0632 \u0642\u0644\u0628 \u06a9\u0648\u0686\u0648\u0644\u0648 \u062a\u0627 \u0627\u0648\u0644\u06cc\u0646 \u0644\u06af\u062f\u0647\u0627\u060c \u0627\u0632 "
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {
+                            "\u0633\u0648\u0646\u0648\u06af\u0631\u0627\u0641\u06cc\u200c\u0647\u0627"
+                          }
+                        </span>
+                        <React.Fragment>{" \u0648 "}</React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {
+                            "\u0622\u0632\u0645\u0627\u06cc\u0634\u200c\u0647\u0627\u06cc"
+                          }
+                        </span>
+                        <React.Fragment> </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u0645\u0647\u0645"}
+                        </span>
+                        <React.Fragment>
+                          {
+                            " \u062a\u0627 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc "
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u062a\u063a\u0630\u06cc\u0647"}
+                        </span>
+                        <React.Fragment>{" \u0648 "}</React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u0622\u0631\u0627\u0645\u0634"}
+                        </span>
+                        <React.Fragment>
+                          {
+                            " \u0628\u0631\u0627\u06cc \u0645\u0627\u0645\u0627\u0646 \u0645\u0647\u0631\u0628\u0648\u0646.\n\u0647\u0645\u0631\u0627\u0647 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9\u200c \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u0627\u0646\u062c\u0627\u0645 "
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {
+                            "\u0622\u0632\u0645\u0627\u06cc\u0634\u200c\u0647\u0627"
+                          }
+                        </span>
+                        <React.Fragment>{" \u0648 "}</React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u0686\u06a9\u0627\u067e\u200c\u0647\u0627\u06cc"}
+                        </span>
+                        <React.Fragment>
+                          {
+                            " \u0636\u0631\u0648\u0631\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u062f\u0627\u0631\u06cc \u062a\u0627 \u0628\u0627 \u062e\u06cc\u0627\u0644 "
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u0631\u0627\u062d\u062a"}
+                        </span>
+                        <React.Fragment>{" \u0648 "}</React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u0633\u0644\u0627\u0645\u062a"}
+                        </span>
+                        <React.Fragment>
+                          {
+                            " \u06a9\u0627\u0645\u0644 \u067e\u06cc\u0634 \u0628\u0631\u06cc.\n\n\u0628\u0627"
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{
+                            fontWeight: 700,
+                            color: "var(--token-55cSeNPovQFh)"
+                          }}
+                        >
+                          {
+                            " \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f"
+                          }
+                        </span>
+                        <React.Fragment>
+                          {
+                            " \u060c \u062d\u0633 \u0645\u06cc\u200c\u06a9\u0646\u06cc \u0647\u0645\u06cc\u0634\u0647 \u06cc\u0647 \u062f\u0648\u0633\u062a \u0645\u0647\u0631\u0628\u0648\u0646 \u062f\u0627\u0631\u06cc \u06a9\u0647 \u0628\u0647\u062a \u0627\u0646\u0631\u0698\u06cc \u0648 \u0627\u0645\u06cc\u062f \u0645\u06cc\u200c\u062f\u0647 \u0648 \u0645\u0633\u06cc\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0631\u0648 \u067e\u0631 \u0627\u0632 "
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u0622\u0631\u0627\u0645\u0634"}
+                        </span>
+                        <React.Fragment>{" \u0648 "}</React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u0634\u0627\u062f\u06cc"}
+                        </span>
+                        <React.Fragment>
+                          {" \u0645\u06cc\u200c\u06a9\u0646\u0647."}
+                        </React.Fragment>
+                      </React.Fragment>
+                    </div>
+                  </div>
+                ) : null}
                 {(() => {
                   try {
                     return (() => {

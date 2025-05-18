@@ -2211,6 +2211,26 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   .then(user => {
                                     console.log("user get liom");
                                     // console.log(user)
+                                    const now = new Date();
+
+                                    const year = now.getFullYear();
+                                    const month = String(
+                                      now.getMonth() + 1
+                                    ).padStart(2, "0"); // ماه از 0 شروع میشه
+                                    const day = String(now.getDate()).padStart(
+                                      2,
+                                      "0"
+                                    );
+
+                                    const hours = String(
+                                      now.getHours()
+                                    ).padStart(2, "0");
+                                    const minutes = String(
+                                      now.getMinutes()
+                                    ).padStart(2, "0");
+                                    const seconds = String(
+                                      now.getSeconds()
+                                    ).padStart(2, "0");
 
                                     fetch(
                                       "https://n8n.staas.ir/webhook/status",
@@ -2241,7 +2261,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                             user?.[0].result?.pregnancy?.sex,
                                           multiples:
                                             user?.[0].result?.pregnancy
-                                              ?.multiples
+                                              ?.multiples,
+                                          lastActivity: `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
                                         })
                                       }
                                     )
