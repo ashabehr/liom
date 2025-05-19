@@ -1903,7 +1903,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           customFunction: async () => {
                             return (() => {
                               $state.loadingAdvice = true;
-                              fetch(
+                              return fetch(
                                 "https://n8n.staas.ir/webhook/getAdvice-v2/?weekNumber=" +
                                   $state.selectedWeek,
                                 { method: "GET" }
@@ -1913,19 +1913,19 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   console.log("adviceee");
                                   $state.getAdvice = data;
                                   $state.loadingAdvice = false;
-                                })
-                                .catch(error =>
-                                  console.error("Error2:", error)
-                                );
-                              return fetch(
-                                "https://n8n.staas.ir/webhook/getAdvice-v3/?weekNumber=" +
-                                  $state.selectedWeek,
-                                { method: "GET" }
-                              )
-                                .then(response => response.json())
-                                .then(data => {
-                                  console.log("adviceee new");
-                                  $state.getAdvice2 = data;
+                                  fetch(
+                                    "https://n8n.staas.ir/webhook/getAdvice-v3/?weekNumber=" +
+                                      $state.selectedWeek,
+                                    { method: "GET" }
+                                  )
+                                    .then(response => response.json())
+                                    .then(data => {
+                                      console.log("adviceee new");
+                                      $state.getAdvice2 = data;
+                                    })
+                                    .catch(error =>
+                                      console.error("Error2:", error)
+                                    );
                                 })
                                 .catch(error =>
                                   console.error("Error2:", error)
