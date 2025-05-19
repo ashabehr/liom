@@ -2476,6 +2476,20 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       const $steps = {};
 
                       $steps["invokeGlobalAction2"] = (() => {
+                        var date =
+                          $state.duDate.year +
+                          "-" +
+                          ($state.duDate.month <= 9 ? "0" : "") +
+                          $state.duDate.month +
+                          "-" +
+                          ($state.duDate.day <= 9 ? "0" : "") +
+                          $state.duDate.day +
+                          " 10:10:10";
+                        if (
+                          date.toString().includes("NaN") ||
+                          date.toString().includes("undefined")
+                        )
+                          return false;
                         var jy = $state.dateOfBirth.year;
                         var jm = $state.dateOfBirth.month;
                         var jd = $state.dateOfBirth.day;
@@ -2529,6 +2543,20 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       }
 
                       $steps["invokeGlobalAction"] = (() => {
+                        var date =
+                          $state.duDate.year +
+                          "-" +
+                          ($state.duDate.month <= 9 ? "0" : "") +
+                          $state.duDate.month +
+                          "-" +
+                          ($state.duDate.day <= 9 ? "0" : "") +
+                          $state.duDate.day +
+                          " 10:10:10";
+                        if (
+                          date.toString().includes("NaN") ||
+                          date.toString().includes("undefined")
+                        )
+                          return false;
                         var jy = $state.dateOfBirth.year;
                         var jm = $state.dateOfBirth.month;
                         var jd = $state.dateOfBirth.day;
@@ -2618,6 +2646,20 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       }
 
                       $steps["invokeGlobalAction3"] = (() => {
+                        var date =
+                          $state.duDate.year +
+                          "-" +
+                          ($state.duDate.month <= 9 ? "0" : "") +
+                          $state.duDate.month +
+                          "-" +
+                          ($state.duDate.day <= 9 ? "0" : "") +
+                          $state.duDate.day +
+                          " 10:10:10";
+                        if (
+                          date.toString().includes("NaN") ||
+                          date.toString().includes("undefined")
+                        )
+                          return true;
                         var jy = $state.dateOfBirth.year;
                         var jm = $state.dateOfBirth.month;
                         var jd = $state.dateOfBirth.day;
@@ -2678,6 +2720,20 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         ) {
                           return false;
                         }
+                        var date =
+                          $state.duDate.year +
+                          "-" +
+                          ($state.duDate.month <= 9 ? "0" : "") +
+                          $state.duDate.month +
+                          "-" +
+                          ($state.duDate.day <= 9 ? "0" : "") +
+                          $state.duDate.day +
+                          " 10:10:10";
+                        if (
+                          date.toString().includes("NaN") ||
+                          date.toString().includes("undefined")
+                        )
+                          return false;
                         var jy = $state.dateOfBirth.year;
                         var jm = $state.dateOfBirth.month;
                         var jd = $state.dateOfBirth.day;
@@ -2759,6 +2815,20 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       }
 
                       $steps["invokeGlobalAction4"] = (() => {
+                        var date =
+                          $state.duDate.year +
+                          "-" +
+                          ($state.duDate.month <= 9 ? "0" : "") +
+                          $state.duDate.month +
+                          "-" +
+                          ($state.duDate.day <= 9 ? "0" : "") +
+                          $state.duDate.day +
+                          " 10:10:10";
+                        if (
+                          date.toString().includes("NaN") ||
+                          date.toString().includes("undefined")
+                        )
+                          return true;
                         var jy = $state.dateOfBirth.year;
                         var jm = $state.dateOfBirth.month;
                         var jd = $state.dateOfBirth.day;
