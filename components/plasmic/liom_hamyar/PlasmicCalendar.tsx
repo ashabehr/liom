@@ -2957,30 +2957,25 @@ function PlasmicCalendar__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToSelfCare"] =
+                    $steps["runCode"] =
                       window.localStorage.getItem("userinfo") != null
                         ? (() => {
-                            const actionArgs = { destination: `/Self-care` };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return window.open("/Self-care", "_self");
                               }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                     if (
-                      $steps["goToSelfCare"] != null &&
-                      typeof $steps["goToSelfCare"] === "object" &&
-                      typeof $steps["goToSelfCare"].then === "function"
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
                     ) {
-                      $steps["goToSelfCare"] = await $steps["goToSelfCare"];
+                      $steps["runCode"] = await $steps["runCode"];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -58207,7 +58202,8 @@ function PlasmicCalendar__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
-                              return window.sessionStorage.removeItem("cash");
+                              window.sessionStorage.removeItem("cash");
+                              return window.location.reload();
                             })();
                           }
                         };

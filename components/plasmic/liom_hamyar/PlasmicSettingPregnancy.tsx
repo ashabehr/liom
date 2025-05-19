@@ -1056,103 +1056,30 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                         var jy = $state.datePickers.value.year;
                                         var jm = $state.datePickers.value.month;
                                         var jd = $state.datePickers.value.day;
-                                        var gy = jy <= 979 ? 621 : 1600;
-                                        jy -= jy <= 979 ? 0 : 979;
-                                        var days =
-                                          365 * jy +
-                                          parseInt(jy / 33) * 8 +
-                                          parseInt(((jy % 33) + 3) / 4) +
-                                          78 +
-                                          jd +
-                                          (jm < 7
-                                            ? (jm - 1) * 31
-                                            : (jm - 7) * 30 + 186);
-                                        gy += 400 * parseInt(days / 146097);
-                                        days %= 146097;
-                                        if (days > 36524) {
-                                          gy += 100 * parseInt(--days / 36524);
-                                          days %= 36524;
-                                          if (days >= 365) days++;
-                                        }
-                                        gy += 4 * parseInt(days / 1461);
-                                        days %= 1461;
-                                        gy += parseInt((days - 1) / 365);
-                                        if (days > 365) days = (days - 1) % 365;
-                                        var gd = days + 1;
-                                        var sal_a = [
-                                          0,
-                                          31,
-                                          (gy % 4 == 0 && gy % 100 != 0) ||
-                                          gy % 400 == 0
-                                            ? 29
-                                            : 28,
-                                          31,
-                                          30,
-                                          31,
-                                          30,
-                                          31,
-                                          31,
-                                          30,
-                                          31,
-                                          30,
-                                          31
-                                        ];
-
-                                        var gm;
-                                        for (gm = 0; gm < 13; gm++) {
-                                          var v = sal_a[gm];
-                                          if (gd <= v) break;
-                                          gd -= v;
-                                        }
-                                        const [year, month, day] = [gy, gm, gd];
-
+                                        var a = window.jalaali.toGregorian(
+                                          jy,
+                                          jm,
+                                          jd
+                                        );
                                         var date = new Date(
-                                          year,
-                                          month - 1,
-                                          day
+                                          a.gy,
+                                          a.gm - 1,
+                                          a.gd
                                         );
                                         date.setDate(date.getDate() - 280);
                                         var gyNew = date.getFullYear();
                                         var gmNew = date.getMonth() + 1;
                                         var gdNew = date.getDate();
-                                        var g_d_m = [
-                                          0, 31, 59, 90, 120, 151, 181, 212,
-                                          243, 273, 304, 334
-                                        ];
-
-                                        var jyNew = gyNew <= 1600 ? 0 : 979;
-                                        gyNew =
-                                          gyNew - (gyNew <= 1600 ? 621 : 1600);
-                                        var gy2 = gmNew > 2 ? gyNew + 1 : gyNew;
-                                        var daysNew =
-                                          365 * gyNew +
-                                          parseInt((gy2 + 3) / 4) -
-                                          parseInt((gy2 + 99) / 100) +
-                                          parseInt((gy2 + 399) / 400) -
-                                          80 +
-                                          gdNew +
-                                          g_d_m[gmNew - 1];
-                                        jyNew += 33 * parseInt(daysNew / 12053);
-                                        daysNew %= 12053;
-                                        jyNew += 4 * parseInt(daysNew / 1461);
-                                        daysNew %= 1461;
-                                        jyNew += parseInt((daysNew - 1) / 365);
-                                        if (daysNew > 365)
-                                          daysNew = (daysNew - 1) % 365;
-                                        var jmNew =
-                                          daysNew < 186
-                                            ? 1 + parseInt(daysNew / 31)
-                                            : 7 +
-                                              parseInt((daysNew - 186) / 30);
-                                        var jdNew =
-                                          1 +
-                                          (daysNew < 186
-                                            ? daysNew % 31
-                                            : (daysNew - 186) % 30);
+                                        var dateShamsi =
+                                          window.jalaali.toJalaali(
+                                            gyNew,
+                                            gmNew,
+                                            gdNew
+                                          );
                                         return {
-                                          day: jdNew,
-                                          month: jmNew,
-                                          year: jyNew
+                                          day: dateShamsi.jd,
+                                          month: dateShamsi.jm,
+                                          year: dateShamsi.jy
                                         };
                                       })()
                                     };
@@ -1197,103 +1124,30 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                         var jy = $state.datePickers.value.year;
                                         var jm = $state.datePickers.value.month;
                                         var jd = $state.datePickers.value.day;
-                                        var gy = jy <= 979 ? 621 : 1600;
-                                        jy -= jy <= 979 ? 0 : 979;
-                                        var days =
-                                          365 * jy +
-                                          parseInt(jy / 33) * 8 +
-                                          parseInt(((jy % 33) + 3) / 4) +
-                                          78 +
-                                          jd +
-                                          (jm < 7
-                                            ? (jm - 1) * 31
-                                            : (jm - 7) * 30 + 186);
-                                        gy += 400 * parseInt(days / 146097);
-                                        days %= 146097;
-                                        if (days > 36524) {
-                                          gy += 100 * parseInt(--days / 36524);
-                                          days %= 36524;
-                                          if (days >= 365) days++;
-                                        }
-                                        gy += 4 * parseInt(days / 1461);
-                                        days %= 1461;
-                                        gy += parseInt((days - 1) / 365);
-                                        if (days > 365) days = (days - 1) % 365;
-                                        var gd = days + 1;
-                                        var sal_a = [
-                                          0,
-                                          31,
-                                          (gy % 4 == 0 && gy % 100 != 0) ||
-                                          gy % 400 == 0
-                                            ? 29
-                                            : 28,
-                                          31,
-                                          30,
-                                          31,
-                                          30,
-                                          31,
-                                          31,
-                                          30,
-                                          31,
-                                          30,
-                                          31
-                                        ];
-
-                                        var gm;
-                                        for (gm = 0; gm < 13; gm++) {
-                                          var v = sal_a[gm];
-                                          if (gd <= v) break;
-                                          gd -= v;
-                                        }
-                                        const [year, month, day] = [gy, gm, gd];
-
+                                        var a = window.jalaali.toGregorian(
+                                          jy,
+                                          jm,
+                                          jd
+                                        );
                                         var date = new Date(
-                                          year,
-                                          month - 1,
-                                          day
+                                          a.gy,
+                                          a.gm - 1,
+                                          a.gd
                                         );
                                         date.setDate(date.getDate() + 280);
                                         var gyNew = date.getFullYear();
                                         var gmNew = date.getMonth() + 1;
                                         var gdNew = date.getDate();
-                                        var g_d_m = [
-                                          0, 31, 59, 90, 120, 151, 181, 212,
-                                          243, 273, 304, 334
-                                        ];
-
-                                        var jyNew = gyNew <= 1600 ? 0 : 979;
-                                        gyNew =
-                                          gyNew - (gyNew <= 1600 ? 621 : 1600);
-                                        var gy2 = gmNew > 2 ? gyNew + 1 : gyNew;
-                                        var daysNew =
-                                          365 * gyNew +
-                                          parseInt((gy2 + 3) / 4) -
-                                          parseInt((gy2 + 99) / 100) +
-                                          parseInt((gy2 + 399) / 400) -
-                                          80 +
-                                          gdNew +
-                                          g_d_m[gmNew - 1];
-                                        jyNew += 33 * parseInt(daysNew / 12053);
-                                        daysNew %= 12053;
-                                        jyNew += 4 * parseInt(daysNew / 1461);
-                                        daysNew %= 1461;
-                                        jyNew += parseInt((daysNew - 1) / 365);
-                                        if (daysNew > 365)
-                                          daysNew = (daysNew - 1) % 365;
-                                        var jmNew =
-                                          daysNew < 186
-                                            ? 1 + parseInt(daysNew / 31)
-                                            : 7 +
-                                              parseInt((daysNew - 186) / 30);
-                                        var jdNew =
-                                          1 +
-                                          (daysNew < 186
-                                            ? daysNew % 31
-                                            : (daysNew - 186) % 30);
+                                        var dateShamsi =
+                                          window.jalaali.toJalaali(
+                                            gyNew,
+                                            gmNew,
+                                            gdNew
+                                          );
                                         return {
-                                          day: jdNew,
-                                          month: jmNew,
-                                          year: jyNew
+                                          day: dateShamsi.jd,
+                                          month: dateShamsi.jm,
+                                          year: dateShamsi.jy
                                         };
                                       })()
                                     };
@@ -1705,55 +1559,17 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                       var jy = $state.dateOfBirth.year;
                                       var jm = $state.dateOfBirth.month;
                                       var jd = $state.dateOfBirth.day;
-                                      var gy = jy <= 979 ? 621 : 1600;
-                                      jy -= jy <= 979 ? 0 : 979;
-                                      var days =
-                                        365 * jy +
-                                        parseInt(jy / 33) * 8 +
-                                        parseInt(((jy % 33) + 3) / 4) +
-                                        78 +
-                                        jd +
-                                        (jm < 7
-                                          ? (jm - 1) * 31
-                                          : (jm - 7) * 30 + 186);
-                                      gy += 400 * parseInt(days / 146097);
-                                      days %= 146097;
-                                      if (days > 36524) {
-                                        gy += 100 * parseInt(--days / 36524);
-                                        days %= 36524;
-                                        if (days >= 365) days++;
-                                      }
-                                      gy += 4 * parseInt(days / 1461);
-                                      days %= 1461;
-                                      gy += parseInt((days - 1) / 365);
-                                      if (days > 365) days = (days - 1) % 365;
-                                      var gd = days + 1;
-                                      var sal_a = [
-                                        0,
-                                        31,
-                                        (gy % 4 == 0 && gy % 100 != 0) ||
-                                        gy % 400 == 0
-                                          ? 29
-                                          : 28,
-                                        31,
-                                        30,
-                                        31,
-                                        30,
-                                        31,
-                                        31,
-                                        30,
-                                        31,
-                                        30,
-                                        31
-                                      ];
-
-                                      var gm;
-                                      for (gm = 0; gm < 13; gm++) {
-                                        var v = sal_a[gm];
-                                        if (gd <= v) break;
-                                        gd -= v;
-                                      }
-                                      return [gy, gm, gd];
+                                      var a = window.jalaali.toGregorian(
+                                        jy,
+                                        jm,
+                                        jd
+                                      );
+                                      var date = new Date(a.gy, a.gm - 1, a.gd);
+                                      return {
+                                        day: date.getDate(),
+                                        month: date.getMonth() + 1,
+                                        year: date.getFullYear()
+                                      };
                                     })()
                                   };
                                   return (({
@@ -2768,75 +2584,15 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return $state.userId;
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
-
                         $steps["invokeGlobalAction2"] = (() => {
                           var jy = $state.dateOfBirth.year;
                           var jm = $state.dateOfBirth.month;
                           var jd = $state.dateOfBirth.day;
-                          var gy = jy <= 979 ? 621 : 1600;
-                          jy -= jy <= 979 ? 0 : 979;
-                          var days =
-                            365 * jy +
-                            parseInt(jy / 33) * 8 +
-                            parseInt(((jy % 33) + 3) / 4) +
-                            78 +
-                            jd +
-                            (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                          gy += 400 * parseInt(days / 146097);
-                          days %= 146097;
-                          if (days > 36524) {
-                            gy += 100 * parseInt(--days / 36524);
-                            days %= 36524;
-                            if (days >= 365) days++;
-                          }
-                          gy += 4 * parseInt(days / 1461);
-                          days %= 1461;
-                          gy += parseInt((days - 1) / 365);
-                          if (days > 365) days = (days - 1) % 365;
-                          var gd = days + 1;
-                          var sal_a = [
-                            0,
-                            31,
-                            (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                              ? 29
-                              : 28,
-                            31,
-                            30,
-                            31,
-                            30,
-                            31,
-                            31,
-                            30,
-                            31,
-                            30,
-                            31
-                          ];
-
-                          var gm;
-                          for (gm = 0; gm < 13; gm++) {
-                            var v = sal_a[gm];
-                            if (gd <= v) break;
-                            gd -= v;
-                          }
+                          var a = window.jalaali.toGregorian(jy, jm, jd);
+                          var date = new Date(a.gy, a.gm - 1, a.gd);
+                          var gy = date.getFullYear();
+                          var gm = date.getMonth() + 1;
+                          var gd = date.getDate();
                           const d =
                             gy +
                             "-" +
@@ -2885,51 +2641,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           var jy = $state.dateOfBirth.year;
                           var jm = $state.dateOfBirth.month;
                           var jd = $state.dateOfBirth.day;
-                          var gy = jy <= 979 ? 621 : 1600;
-                          jy -= jy <= 979 ? 0 : 979;
-                          var days =
-                            365 * jy +
-                            parseInt(jy / 33) * 8 +
-                            parseInt(((jy % 33) + 3) / 4) +
-                            78 +
-                            jd +
-                            (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                          gy += 400 * parseInt(days / 146097);
-                          days %= 146097;
-                          if (days > 36524) {
-                            gy += 100 * parseInt(--days / 36524);
-                            days %= 36524;
-                            if (days >= 365) days++;
-                          }
-                          gy += 4 * parseInt(days / 1461);
-                          days %= 1461;
-                          gy += parseInt((days - 1) / 365);
-                          if (days > 365) days = (days - 1) % 365;
-                          var gd = days + 1;
-                          var sal_a = [
-                            0,
-                            31,
-                            (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                              ? 29
-                              : 28,
-                            31,
-                            30,
-                            31,
-                            30,
-                            31,
-                            31,
-                            30,
-                            31,
-                            30,
-                            31
-                          ];
-
-                          var gm;
-                          for (gm = 0; gm < 13; gm++) {
-                            var v = sal_a[gm];
-                            if (gd <= v) break;
-                            gd -= v;
-                          }
+                          var a = window.jalaali.toGregorian(jy, jm, jd);
+                          var date = new Date(a.gy, a.gm - 1, a.gd);
+                          var gy = date.getFullYear();
+                          var gm = date.getMonth() + 1;
+                          var gd = date.getDate();
                           const d =
                             gy +
                             "-" +
@@ -2961,11 +2677,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                       return {
                                         area: "pregnancy",
                                         duDate:
-                                          $state.duDate[0] +
+                                          $state.duDate.year +
                                           "-" +
-                                          $state.duDate[1] +
+                                          $state.duDate.month +
                                           "-" +
-                                          $state.duDate[2] +
+                                          $state.duDate.day +
                                           " 10:10:10",
                                         userId: $state.userId
                                       };
@@ -3009,51 +2725,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           var jy = $state.dateOfBirth.year;
                           var jm = $state.dateOfBirth.month;
                           var jd = $state.dateOfBirth.day;
-                          var gy = jy <= 979 ? 621 : 1600;
-                          jy -= jy <= 979 ? 0 : 979;
-                          var days =
-                            365 * jy +
-                            parseInt(jy / 33) * 8 +
-                            parseInt(((jy % 33) + 3) / 4) +
-                            78 +
-                            jd +
-                            (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                          gy += 400 * parseInt(days / 146097);
-                          days %= 146097;
-                          if (days > 36524) {
-                            gy += 100 * parseInt(--days / 36524);
-                            days %= 36524;
-                            if (days >= 365) days++;
-                          }
-                          gy += 4 * parseInt(days / 1461);
-                          days %= 1461;
-                          gy += parseInt((days - 1) / 365);
-                          if (days > 365) days = (days - 1) % 365;
-                          var gd = days + 1;
-                          var sal_a = [
-                            0,
-                            31,
-                            (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                              ? 29
-                              : 28,
-                            31,
-                            30,
-                            31,
-                            30,
-                            31,
-                            31,
-                            30,
-                            31,
-                            30,
-                            31
-                          ];
-
-                          var gm;
-                          for (gm = 0; gm < 13; gm++) {
-                            var v = sal_a[gm];
-                            if (gd <= v) break;
-                            gd -= v;
-                          }
+                          var a = window.jalaali.toGregorian(jy, jm, jd);
+                          var date = new Date(a.gy, a.gm - 1, a.gd);
+                          var gy = date.getFullYear();
+                          var gm = date.getMonth() + 1;
+                          var gd = date.getDate();
                           const d =
                             gy +
                             "-" +
@@ -3109,51 +2785,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           var jy = $state.dateOfBirth.year;
                           var jm = $state.dateOfBirth.month;
                           var jd = $state.dateOfBirth.day;
-                          var gy = jy <= 979 ? 621 : 1600;
-                          jy -= jy <= 979 ? 0 : 979;
-                          var days =
-                            365 * jy +
-                            parseInt(jy / 33) * 8 +
-                            parseInt(((jy % 33) + 3) / 4) +
-                            78 +
-                            jd +
-                            (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                          gy += 400 * parseInt(days / 146097);
-                          days %= 146097;
-                          if (days > 36524) {
-                            gy += 100 * parseInt(--days / 36524);
-                            days %= 36524;
-                            if (days >= 365) days++;
-                          }
-                          gy += 4 * parseInt(days / 1461);
-                          days %= 1461;
-                          gy += parseInt((days - 1) / 365);
-                          if (days > 365) days = (days - 1) % 365;
-                          var gd = days + 1;
-                          var sal_a = [
-                            0,
-                            31,
-                            (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                              ? 29
-                              : 28,
-                            31,
-                            30,
-                            31,
-                            30,
-                            31,
-                            31,
-                            30,
-                            31,
-                            30,
-                            31
-                          ];
-
-                          var gm;
-                          for (gm = 0; gm < 13; gm++) {
-                            var v = sal_a[gm];
-                            if (gd <= v) break;
-                            gd -= v;
-                          }
+                          var a = window.jalaali.toGregorian(jy, jm, jd);
+                          var date = new Date(a.gy, a.gm - 1, a.gd);
+                          var gy = date.getFullYear();
+                          var gm = date.getMonth() + 1;
+                          var gd = date.getDate();
                           const d =
                             gy +
                             "-" +
@@ -3230,51 +2866,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           var jy = $state.dateOfBirth.year;
                           var jm = $state.dateOfBirth.month;
                           var jd = $state.dateOfBirth.day;
-                          var gy = jy <= 979 ? 621 : 1600;
-                          jy -= jy <= 979 ? 0 : 979;
-                          var days =
-                            365 * jy +
-                            parseInt(jy / 33) * 8 +
-                            parseInt(((jy % 33) + 3) / 4) +
-                            78 +
-                            jd +
-                            (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                          gy += 400 * parseInt(days / 146097);
-                          days %= 146097;
-                          if (days > 36524) {
-                            gy += 100 * parseInt(--days / 36524);
-                            days %= 36524;
-                            if (days >= 365) days++;
-                          }
-                          gy += 4 * parseInt(days / 1461);
-                          days %= 1461;
-                          gy += parseInt((days - 1) / 365);
-                          if (days > 365) days = (days - 1) % 365;
-                          var gd = days + 1;
-                          var sal_a = [
-                            0,
-                            31,
-                            (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                              ? 29
-                              : 28,
-                            31,
-                            30,
-                            31,
-                            30,
-                            31,
-                            31,
-                            30,
-                            31,
-                            30,
-                            31
-                          ];
-
-                          var gm;
-                          for (gm = 0; gm < 13; gm++) {
-                            var v = sal_a[gm];
-                            if (gd <= v) break;
-                            gd -= v;
-                          }
+                          var a = window.jalaali.toGregorian(jy, jm, jd);
+                          var date = new Date(a.gy, a.gm - 1, a.gd);
+                          var gy = date.getFullYear();
+                          var gm = date.getMonth() + 1;
+                          var gd = date.getDate();
                           const d =
                             gy +
                             "-" +
