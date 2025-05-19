@@ -2210,7 +2210,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   .then(response => response.json())
                                   .then(user => {
                                     console.log("user get liom");
-                                    // console.log(user)
                                     const now = new Date();
 
                                     const year = now.getFullYear();
@@ -2232,49 +2231,56 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       now.getSeconds()
                                     ).padStart(2, "0");
 
-                                    fetch(
-                                      "https://n8n.staas.ir/webhook/status",
-                                      {
-                                        method: "POST",
-                                        headers: {
-                                          "Content-Type": "application/json",
-                                          Authorization:
-                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                        },
-                                        body: JSON.stringify({
-                                          area: "pregnancy",
-                                          duDate:
-                                            gy +
-                                            "-" +
-                                            gm +
-                                            "-" +
-                                            gd +
-                                            " 10:10:10",
-                                          userId: $state.userId,
-                                          name: name,
-                                          mobile: mobile,
-                                          email: email,
-                                          hamyarData: { hamyarsData },
-                                          allowance: { allowance },
-                                          currentWeek: $state.weeksPregnant,
-                                          baby_gender:
-                                            user?.[0].result?.pregnancy?.sex,
-                                          multiples:
-                                            user?.[0].result?.pregnancy
-                                              ?.multiples,
-                                          lastActivity: `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+                                    if (
+                                      !isNaN(gy) &&
+                                      !isNaN(gm) &&
+                                      !isNaN(gd)
+                                    ) {
+                                      fetch(
+                                        "https://n8n.staas.ir/webhook/status",
+                                        {
+                                          method: "POST",
+                                          headers: {
+                                            "Content-Type": "application/json",
+                                            Authorization:
+                                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                          },
+                                          body: JSON.stringify({
+                                            area: "pregnancy",
+                                            duDate:
+                                              gy +
+                                              "-" +
+                                              gm +
+                                              "-" +
+                                              gd +
+                                              " 10:10:10",
+                                            userId: $state.userId,
+                                            page: "main",
+                                            name: name,
+                                            mobile: mobile,
+                                            email: email,
+                                            hamyarData: { hamyarsData },
+                                            allowance: { allowance },
+                                            currentWeek: $state.weeksPregnant,
+                                            baby_gender:
+                                              user?.[0].result?.pregnancy?.sex,
+                                            multiples:
+                                              user?.[0].result?.pregnancy
+                                                ?.multiples,
+                                            lastActivity: `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+                                          })
+                                        }
+                                      )
+                                        .then(response => {
+                                          return response.json();
                                         })
-                                      }
-                                    )
-                                      .then(response => {
-                                        return response.json();
-                                      })
-                                      .then(data => {
-                                        console.log("user send");
-                                      })
-                                      .catch(error => {
-                                        console.error("Error3333:", error);
-                                      });
+                                        .then(data => {
+                                          console.log("user send");
+                                        })
+                                        .catch(error => {
+                                          console.error("Error3333:", error);
+                                        });
+                                    }
                                   })
                                   .catch(error =>
                                     console.error("Error:user get liom", error)

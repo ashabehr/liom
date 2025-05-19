@@ -2606,7 +2606,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                       return {
                                         area: "pregnancy",
                                         duDate: date,
-                                        userId: $state.userId
+                                        userId: $state.userId,
+                                        page: "setting"
                                       };
                                     })();
                                   } catch (e) {
