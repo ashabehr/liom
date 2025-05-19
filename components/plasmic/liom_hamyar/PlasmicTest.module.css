@@ -47,6 +47,12 @@
   bottom: auto;
   display: none;
 }
+.input:global(.__wab_instance) {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+}
 .modal:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;

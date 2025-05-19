@@ -457,43 +457,27 @@ function PlasmicMainHeader__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToPage"] = true
+                    $steps["runCode"] = true
                       ? (() => {
                           const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return `/edit-profile?token=${$props.token}`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return `/edit-profile`;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
+                            customFunction: async () => {
+                              return window.open(
+                                `/edit-profile?token=${$props.token}`,
+                                "_self"
+                              );
                             }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
                     ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
+                      $steps["runCode"] = await $steps["runCode"];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -934,43 +918,27 @@ function PlasmicMainHeader__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToPage"] = true
+                $steps["runCode"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return `/status-day?userId=${$props.userinfo.id}`;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return `/status-day`;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
+                        customFunction: async () => {
+                          return window.open(
+                            `/status-day?userId=${$props.userinfo.id}`,
+                            "_self"
+                          );
                         }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
 
                 $steps["updateDopen"] = true
@@ -1036,43 +1004,27 @@ function PlasmicMainHeader__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToPage"] = true
+                $steps["runCode"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return `/Signs-page?token=${$props.token}`;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return `/Signs-page`;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
+                        customFunction: async () => {
+                          return window.open(
+                            `/Signs-page?token=${$props.token}`,
+                            "_self"
+                          );
                         }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
 
                 $steps["updateDopen"] = true
@@ -1143,29 +1095,24 @@ function PlasmicMainHeader__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToAboutUs"] = true
+                $steps["runCode"] = true
                   ? (() => {
-                      const actionArgs = { destination: `/about-us` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return window.open("/about-us", "_self");
                         }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["goToAboutUs"] != null &&
-                  typeof $steps["goToAboutUs"] === "object" &&
-                  typeof $steps["goToAboutUs"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["goToAboutUs"] = await $steps["goToAboutUs"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
 
                 $steps["updateDopen"] = true
@@ -1229,29 +1176,24 @@ function PlasmicMainHeader__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToContactUs"] = true
+                $steps["runCode"] = true
                   ? (() => {
-                      const actionArgs = { destination: `/contact-us` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return window.open("/contact-us", "_self");
                         }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["goToContactUs"] != null &&
-                  typeof $steps["goToContactUs"] === "object" &&
-                  typeof $steps["goToContactUs"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["goToContactUs"] = await $steps["goToContactUs"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
 
                 $steps["updateDopen"] = true

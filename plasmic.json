@@ -1982,6 +1982,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/subscription-page"
+        },
+        {
+          "id": "yqGCHhg-0hjW",
+          "name": "Shop2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShop2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/shop-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShop2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/shop-2"
         }
       ],
       "icons": [
@@ -3459,6 +3473,11 @@
           "id": "hKdHVi-I7onj",
           "name": "Icon231Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon231.tsx"
+        },
+        {
+          "id": "9HSTZmkns_1_",
+          "name": "Icon232Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon232.tsx"
         }
       ],
       "images": [

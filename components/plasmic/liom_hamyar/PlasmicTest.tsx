@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 
@@ -95,6 +96,7 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
   button?: Flex__<typeof Button>;
+  input?: Flex__<typeof Input>;
   modal?: Flex__<typeof AntdModal>;
   apiRequest2?: Flex__<typeof ApiRequest>;
   button3?: Flex__<typeof Button>;
@@ -235,6 +237,12 @@ function PlasmicTest__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -331,6 +339,58 @@ function PlasmicTest__RenderFunc(props: {
               {" "}
             </div>
           </Button>
+          <Input
+            data-plasmic-name={"input"}
+            data-plasmic-override={overrides.input}
+            className={classNames("__wab_instance", sty.input)}
+            onChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["input", "value"]).apply(
+                null,
+                eventArgs
+              );
+
+              (async value => {
+                const $steps = {};
+
+                $steps["updateInputValue"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["input", "value"]
+                        },
+                        operation: 0,
+                        value: parseInt($state.input.value)
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateInputValue"] != null &&
+                  typeof $steps["updateInputValue"] === "object" &&
+                  typeof $steps["updateInputValue"].then === "function"
+                ) {
+                  $steps["updateInputValue"] = await $steps["updateInputValue"];
+                }
+              }).apply(null, eventArgs);
+            }}
+            type={"text"}
+            value={generateStateValueProp($state, ["input", "value"])}
+          />
+
           <AntdModal
             data-plasmic-name={"modal"}
             data-plasmic-override={overrides.modal}
@@ -690,6 +750,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "button",
+    "input",
     "modal",
     "apiRequest2",
     "button3",
@@ -699,6 +760,7 @@ const PlasmicDescendants = {
     "buttonLiom"
   ],
   button: ["button"],
+  input: ["input"],
   modal: ["modal", "apiRequest2", "button3", "shop2", "buttonLiom8"],
   apiRequest2: ["apiRequest2", "button3", "shop2", "buttonLiom8"],
   button3: ["button3"],
@@ -713,6 +775,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   button: typeof Button;
+  input: typeof Input;
   modal: typeof AntdModal;
   apiRequest2: typeof ApiRequest;
   button3: typeof Button;
@@ -808,6 +871,7 @@ export const PlasmicTest = Object.assign(
   {
     // Helper components rendering sub-elements
     button: makeNodeComponent("button"),
+    input: makeNodeComponent("input"),
     modal: makeNodeComponent("modal"),
     apiRequest2: makeNodeComponent("apiRequest2"),
     button3: makeNodeComponent("button3"),

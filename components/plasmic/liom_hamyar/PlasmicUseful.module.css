@@ -13,21 +13,21 @@
   -webkit-transition-property: all;
   -webkit-transition-duration: 1s;
   border-radius: 8px;
-  padding: 16px;
+  padding: 14px;
   border: 1px solid #00c371;
 }
 .root > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin-top: calc(0px - 8px);
-  height: calc(100% + 8px);
+  margin-top: calc(0px - 4px);
+  height: calc(100% + 4px);
 }
 .root > :global(.__wab_flex-container) > *,
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
 .root > :global(.__wab_flex-container) > picture > img,
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-top: 8px;
+  margin-top: 4px;
 }
 @media (max-width: 640px) {
   .root {
@@ -132,7 +132,7 @@
     z-index: 1;
     position: relative;
     text-align: right;
-    font-weight: 500;
+    font-weight: 700;
     white-space: pre;
   }
 }

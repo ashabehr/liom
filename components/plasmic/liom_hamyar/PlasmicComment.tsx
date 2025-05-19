@@ -121,6 +121,8 @@ export type PlasmicComment__ArgsType = {
   onClick?: (event: any) => void;
   commenttime?: any;
   modalvalueforcomment?: boolean;
+  valuForShereForLikeComment?: boolean;
+  onClick1?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
@@ -142,7 +144,9 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "dataUserCurrent",
   "onClick",
   "commenttime",
-  "modalvalueforcomment"
+  "modalvalueforcomment",
+  "valuForShereForLikeComment",
+  "onClick1"
 );
 
 export type PlasmicComment__OverridesType = {
@@ -178,6 +182,8 @@ export interface DefaultCommentProps {
   onClick?: (event: any) => void;
   commenttime?: any;
   modalvalueforcomment?: boolean;
+  valuForShereForLikeComment?: boolean;
+  onClick1?: (event: any) => void;
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
   whenHaveReply?: SingleBooleanChoiceArg<"whenHaveReply">;
   showReply?: SingleBooleanChoiceArg<"showReply">;
@@ -213,7 +219,8 @@ function PlasmicComment__RenderFunc(props: {
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVjYjg4M2NkLWI3ODYtNGMzZS1iYjhiLTA5ZTgyNzVkYTk4YyIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzM5NjA2MjI2fQ.F7OWRYuvRw2zxjIXAiFCtUVG9fLGRPgvYtPpLWUsz4k",
           commentId: "3",
           likeComment: false,
-          modalvalueforcomment: false
+          modalvalueforcomment: false,
+          valuForShereForLikeComment: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -463,6 +470,7 @@ function PlasmicComment__RenderFunc(props: {
             "whenHaveReply"
           )
         })}
+        onClick={args.onClick1}
       >
         <div
           className={classNames(projectcss.all, sty.freeBox__qFvXh, {
@@ -835,6 +843,19 @@ function PlasmicComment__RenderFunc(props: {
             return;
           }
         }}
+        shareForLikeComment={(() => {
+          try {
+            return $props.valuForShereForLikeComment;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return false;
+            }
+            throw e;
+          }
+        })()}
       />
 
       <Stack__

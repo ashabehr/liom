@@ -36,7 +36,7 @@
     box-shadow: none;
     display: inline-flex;
     border-radius: 8px;
-    padding: 16px;
+    padding: 14px;
     border: 1px solid var(--token-4RAe7M2gInqR);
   }
 }
@@ -47,8 +47,8 @@
     align-items: flex-start;
     margin-left: calc(0px - 0px);
     width: calc(100% + 0px);
-    margin-top: calc(0px - 8px);
-    height: calc(100% + 8px);
+    margin-top: calc(0px - 4px);
+    height: calc(100% + 4px);
   }
 }
 @media (max-width: 640px) {
@@ -61,7 +61,7 @@
     > picture
     > img {
     margin-left: 0px;
-    margin-top: 8px;
+    margin-top: 4px;
   }
 }
 .freeBox {
@@ -162,7 +162,7 @@
     width: auto;
     height: auto;
     max-width: 100%;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     text-align: right;
     position: relative;

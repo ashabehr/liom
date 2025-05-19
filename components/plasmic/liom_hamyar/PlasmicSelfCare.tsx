@@ -67,6 +67,7 @@ import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import Load from "../../Load"; // plasmic-import: MJo5g_R-znVP/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -106,6 +107,7 @@ export type PlasmicSelfCare__OverridesType = {
   embedHtml?: Flex__<typeof Embed>;
   img?: Flex__<typeof PlasmicImg__>;
   lineClomp2?: Flex__<typeof LineClomp>;
+  load?: Flex__<typeof Load>;
 };
 
 export interface DefaultSelfCareProps {}
@@ -314,6 +316,12 @@ function PlasmicSelfCare__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "load.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -935,6 +943,42 @@ function PlasmicSelfCare__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
+                        $steps["updateLoadLoading"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["load", "loading"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoadLoading"] != null &&
+                          typeof $steps["updateLoadLoading"] === "object" &&
+                          typeof $steps["updateLoadLoading"].then === "function"
+                        ) {
+                          $steps["updateLoadLoading"] = await $steps[
+                            "updateLoadLoading"
+                          ];
+                        }
+
                         $steps["runCode"] = true
                           ? (() => {
                               const actionArgs = {
@@ -981,6 +1025,43 @@ function PlasmicSelfCare__RenderFunc(props: {
                           typeof $steps["goToSubItems"].then === "function"
                         ) {
                           $steps["goToSubItems"] = await $steps["goToSubItems"];
+                        }
+
+                        $steps["updateLoadLoading2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["load", "loading"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoadLoading2"] != null &&
+                          typeof $steps["updateLoadLoading2"] === "object" &&
+                          typeof $steps["updateLoadLoading2"].then ===
+                            "function"
+                        ) {
+                          $steps["updateLoadLoading2"] = await $steps[
+                            "updateLoadLoading2"
+                          ];
                         }
                       }}
                       style={(() => {
@@ -1213,6 +1294,42 @@ function PlasmicSelfCare__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
+                        $steps["updateLoadLoading"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["load", "loading"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoadLoading"] != null &&
+                          typeof $steps["updateLoadLoading"] === "object" &&
+                          typeof $steps["updateLoadLoading"].then === "function"
+                        ) {
+                          $steps["updateLoadLoading"] = await $steps[
+                            "updateLoadLoading"
+                          ];
+                        }
+
                         $steps["invokeGlobalAction"] = true
                           ? (() => {
                               const actionArgs = {
@@ -1265,6 +1382,43 @@ function PlasmicSelfCare__RenderFunc(props: {
                         ) {
                           $steps["invokeGlobalAction"] = await $steps[
                             "invokeGlobalAction"
+                          ];
+                        }
+
+                        $steps["updateLoadLoading2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["load", "loading"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoadLoading2"] != null &&
+                          typeof $steps["updateLoadLoading2"] === "object" &&
+                          typeof $steps["updateLoadLoading2"].then ===
+                            "function"
+                        ) {
+                          $steps["updateLoadLoading2"] = await $steps[
+                            "updateLoadLoading2"
                           ];
                         }
                       }}
@@ -1737,6 +1891,26 @@ function PlasmicSelfCare__RenderFunc(props: {
               </Stack__>
             </div>
           </section>
+          <Load
+            data-plasmic-name={"load"}
+            data-plasmic-override={overrides.load}
+            className={classNames("__wab_instance", sty.load)}
+            loading={generateStateValueProp($state, ["load", "loading"])}
+            onLoadingChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["load", "loading"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -1752,7 +1926,8 @@ const PlasmicDescendants = {
     "button",
     "embedHtml",
     "img",
-    "lineClomp2"
+    "lineClomp2",
+    "load"
   ],
   mainHeader: ["mainHeader"],
   sideEffect: ["sideEffect"],
@@ -1760,7 +1935,8 @@ const PlasmicDescendants = {
   button: ["button"],
   embedHtml: ["embedHtml"],
   img: ["img"],
-  lineClomp2: ["lineClomp2"]
+  lineClomp2: ["lineClomp2"],
+  load: ["load"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1774,6 +1950,7 @@ type NodeDefaultElementType = {
   embedHtml: typeof Embed;
   img: typeof PlasmicImg__;
   lineClomp2: typeof LineClomp;
+  load: typeof Load;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1868,6 +2045,7 @@ export const PlasmicSelfCare = Object.assign(
     embedHtml: makeNodeComponent("embedHtml"),
     img: makeNodeComponent("img"),
     lineClomp2: makeNodeComponent("lineClomp2"),
+    load: makeNodeComponent("load"),
 
     // Metadata about props expected for PlasmicSelfCare
     internalVariantProps: PlasmicSelfCare__VariantProps,

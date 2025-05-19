@@ -2227,7 +2227,7 @@
   margin-top: calc(0px + 16px) !important;
   margin-bottom: 0px;
   min-width: 0;
-  padding: 0px 0px 0px 8px;
+  padding: 0px 0px 8px 8px;
 }
 .freeBox__uPqhe > :global(.__wab_flex-container) {
   flex-direction: row;
@@ -2286,8 +2286,9 @@
   width: auto;
   height: 100%;
   max-width: 100%;
-  background: none;
+  background: var(--token-R_Rsn0nP9oIv);
   min-width: 100px;
+  box-shadow: 0px 4px 10px 0px #1212120d;
   min-height: 0;
   border-radius: 8px;
   padding: 8px 16px;

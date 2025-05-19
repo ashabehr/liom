@@ -59,6 +59,9 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -68,6 +71,11 @@ import sty from "./PlasmicCommentlikebutton.module.css"; // plasmic-import: wOOF
 
 import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: qr8jQCU8QOqy/icon
 import BoldHeartIcon from "../fragment_icons/icons/PlasmicIcon__BoldHeart"; // plasmic-import: eZfYsLpdWQA_/icon
+import LogoPwaSvgrepoComSvgIcon from "./icons/PlasmicIcon__LogoPwaSvgrepoComSvg"; // plasmic-import: xd3icqtlIdjI/icon
+import IconSvgIcon from "./icons/PlasmicIcon__IconSvg"; // plasmic-import: -XPXy44VZe9n/icon
+import CafeBazaarLogoSvgIcon from "./icons/PlasmicIcon__CafeBazaarLogoSvg"; // plasmic-import: W_GsLw69YDUh/icon
+import BrokenLink2SvgrepoComSvgIcon from "./icons/PlasmicIcon__BrokenLink2SvgrepoComSvg"; // plasmic-import: blnLvMghko66/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
 
@@ -87,6 +95,7 @@ export type PlasmicCommentlikebutton__ArgsType = {
   coomentLikeBool?: boolean;
   carrentData?: string;
   modalvalueforcommentlike?: boolean;
+  shareForLikeComment?: boolean;
 };
 type ArgPropType = keyof PlasmicCommentlikebutton__ArgsType;
 export const PlasmicCommentlikebutton__ArgProps = new Array<ArgPropType>(
@@ -94,13 +103,14 @@ export const PlasmicCommentlikebutton__ArgProps = new Array<ArgPropType>(
   "likeCommentCount",
   "coomentLikeBool",
   "carrentData",
-  "modalvalueforcommentlike"
+  "modalvalueforcommentlike",
+  "shareForLikeComment"
 );
 
 export type PlasmicCommentlikebutton__OverridesType = {
   root?: Flex__<"div">;
-  text?: Flex__<"div">;
-  svg?: Flex__<"svg">;
+  modal?: Flex__<typeof AntdModal>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultCommentlikebuttonProps {
@@ -109,6 +119,7 @@ export interface DefaultCommentlikebuttonProps {
   coomentLikeBool?: boolean;
   carrentData?: string;
   modalvalueforcommentlike?: boolean;
+  shareForLikeComment?: boolean;
   islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
   className?: string;
 }
@@ -135,7 +146,8 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
       Object.assign(
         {
           coomentLikeBool: false,
-          modalvalueforcommentlike: false
+          modalvalueforcommentlike: false,
+          shareForLikeComment: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -154,8 +166,6 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -187,6 +197,12 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
           })(),
 
         onChangeProp: "onVariableForLikeCountCommentChange"
+      },
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -199,13 +215,11 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
   });
 
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -223,208 +237,356 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
           )
         }
       )}
-      onClick={async event => {
-        const $steps = {};
-
-        $steps["updateIslikecomment2"] = true
-          ? (() => {
-              const actionArgs = {
-                operation: 0,
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["islikecomment"]
-                },
-                value: !$state.islikecomment
-              };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
-
-                $stateSet(objRoot, variablePath, value);
-                return value;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateIslikecomment2"] != null &&
-          typeof $steps["updateIslikecomment2"] === "object" &&
-          typeof $steps["updateIslikecomment2"].then === "function"
-        ) {
-          $steps["updateIslikecomment2"] = await $steps["updateIslikecomment2"];
-        }
-
-        $steps["updateVariableForLikeCountComment"] = true
-          ? (() => {
-              const actionArgs = {
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["variableForLikeCountComment"]
-                },
-                operation: 0,
-                value: ($state.variableForLikeCountComment =
-                  parseInt($state.variableForLikeCountComment) +
-                  ($state.islikecomment ? +1 : -1))
-              };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
-
-                $stateSet(objRoot, variablePath, value);
-                return value;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateVariableForLikeCountComment"] != null &&
-          typeof $steps["updateVariableForLikeCountComment"] === "object" &&
-          typeof $steps["updateVariableForLikeCountComment"].then === "function"
-        ) {
-          $steps["updateVariableForLikeCountComment"] = await $steps[
-            "updateVariableForLikeCountComment"
-          ];
-        }
-
-        $steps["updateVariableForLikeCountComment2"] = true
-          ? (() => {
-              const actionArgs = {
-                args: [
-                  undefined,
-                  "https://n8n.staas.ir/webhook/social/post/like",
-                  (() => {
-                    try {
-                      return (
-                        [
-                          {
-                            postId: "1939127",
-                            type: $props.coomentLikeBool,
-                            authorization: ""
-                          }
-                        ] || ""
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                ]
-              };
-              return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                ...actionArgs.args
-              ]);
-            })()
-          : undefined;
-        if (
-          $steps["updateVariableForLikeCountComment2"] != null &&
-          typeof $steps["updateVariableForLikeCountComment2"] === "object" &&
-          typeof $steps["updateVariableForLikeCountComment2"].then ===
-            "function"
-        ) {
-          $steps["updateVariableForLikeCountComment2"] = await $steps[
-            "updateVariableForLikeCountComment2"
-          ];
-        }
-
-        $steps["updateVariableForLikeCountComment3"] = true
-          ? (() => {
-              const actionArgs = {
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["variableForLikeCountComment"]
-                },
-                operation: 0
-              };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
-
-                $stateSet(objRoot, variablePath, value);
-                return value;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateVariableForLikeCountComment3"] != null &&
-          typeof $steps["updateVariableForLikeCountComment3"] === "object" &&
-          typeof $steps["updateVariableForLikeCountComment3"].then ===
-            "function"
-        ) {
-          $steps["updateVariableForLikeCountComment3"] = await $steps[
-            "updateVariableForLikeCountComment3"
-          ];
-        }
-      }}
     >
-      <div
-        data-plasmic-name={"text"}
-        data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
-          [sty.textislikecomment]: hasVariant(
+      <Stack__
+        as={"div"}
+        hasGap={true}
+        className={classNames(projectcss.all, sty.freeBox__ycFfm, {
+          [sty.freeBoxislikecomment__ycFfMitXr9]: hasVariant(
             $state,
             "islikecomment",
             "islikecomment"
           )
         })}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["updateIslikecomment2"] = true
+            ? (() => {
+                const actionArgs = {
+                  operation: 0,
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["islikecomment"]
+                  },
+                  value: !$state.islikecomment
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateIslikecomment2"] != null &&
+            typeof $steps["updateIslikecomment2"] === "object" &&
+            typeof $steps["updateIslikecomment2"].then === "function"
+          ) {
+            $steps["updateIslikecomment2"] = await $steps[
+              "updateIslikecomment2"
+            ];
+          }
+
+          $steps["updateVariableForLikeCountComment"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["variableForLikeCountComment"]
+                  },
+                  operation: 0,
+                  value: ($state.variableForLikeCountComment =
+                    parseInt($state.variableForLikeCountComment) +
+                    ($state.islikecomment ? +1 : -1))
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateVariableForLikeCountComment"] != null &&
+            typeof $steps["updateVariableForLikeCountComment"] === "object" &&
+            typeof $steps["updateVariableForLikeCountComment"].then ===
+              "function"
+          ) {
+            $steps["updateVariableForLikeCountComment"] = await $steps[
+              "updateVariableForLikeCountComment"
+            ];
+          }
+
+          $steps["updateVariableForLikeCountComment2"] =
+            $props.shareForLikeComment
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["modal", "open"]
+                    },
+                    operation: 0,
+                    value: true
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+          if (
+            $steps["updateVariableForLikeCountComment2"] != null &&
+            typeof $steps["updateVariableForLikeCountComment2"] === "object" &&
+            typeof $steps["updateVariableForLikeCountComment2"].then ===
+              "function"
+          ) {
+            $steps["updateVariableForLikeCountComment2"] = await $steps[
+              "updateVariableForLikeCountComment2"
+            ];
+          }
+        }}
       >
-        <React.Fragment>
-          {(() => {
-            try {
-              return $state.variableForLikeCountComment;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "0";
-              }
-              throw e;
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__yiANk,
+            {
+              [sty.textislikecomment__yiANkitXr9]: hasVariant(
+                $state,
+                "islikecomment",
+                "islikecomment"
+              )
             }
-          })()}
-        </React.Fragment>
-      </div>
-      <PlasmicIcon__
-        data-plasmic-name={"svg"}
-        data-plasmic-override={overrides.svg}
-        PlasmicIconType={
-          hasVariant($state, "islikecomment", "islikecomment")
-            ? BoldHeartIcon
-            : Icon152Icon
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $state.variableForLikeCountComment;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "0";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </div>
+        <PlasmicIcon__
+          PlasmicIconType={
+            hasVariant($state, "islikecomment", "islikecomment")
+              ? BoldHeartIcon
+              : Icon152Icon
+          }
+          className={classNames(projectcss.all, sty.svg__cHbPa, {
+            [sty.svgislikecomment__cHbPAitXr9]: hasVariant(
+              $state,
+              "islikecomment",
+              "islikecomment"
+            )
+          })}
+          role={"img"}
+        />
+      </Stack__>
+      <AntdModal
+        data-plasmic-name={"modal"}
+        data-plasmic-override={overrides.modal}
+        className={classNames("__wab_instance", sty.modal)}
+        closeIcon={
+          <XIcon
+            className={classNames(projectcss.all, sty.svg__pIZ2)}
+            role={"img"}
+          />
         }
-        className={classNames(projectcss.all, sty.svg, {
-          [sty.svgislikecomment]: hasVariant(
-            $state,
-            "islikecomment",
-            "islikecomment"
-          )
-        })}
-        role={"img"}
-      />
-    </Stack__>
+        defaultStylesClassName={classNames(
+          projectcss.root_reset,
+          projectcss.plasmic_default_styles,
+          projectcss.plasmic_mixins,
+          projectcss.plasmic_tokens,
+          plasmic_antd_5_hostless_css.plasmic_tokens,
+          plasmic_plasmic_rich_components_css.plasmic_tokens
+        )}
+        hideFooter={true}
+        modalScopeClassName={sty["modal__modal"]}
+        onOpenChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["modal", "open"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        open={generateStateValueProp($state, ["modal", "open"])}
+        title={
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__wAnDi)}
+          >
+            <PlasmicImg__
+              data-plasmic-name={"img"}
+              data-plasmic-override={overrides.img}
+              alt={""}
+              className={classNames(sty.img)}
+              displayHeight={"70px"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"70px"}
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image10.ico",
+                fullWidth: 256,
+                fullHeight: 256,
+                aspectRatio: undefined
+              }}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__d4V6P
+              )}
+            >
+              {
+                "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u062e\u0648\u0627\u06cc \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc \u0628\u0627\u06cc\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0631\u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc.\r\n\u0647\u0631\u06a9\u062f\u0648\u0645 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0647\u0627\u06cc \u0632\u06cc\u0631 \u06a9\u0647 \u0628\u0627\u0647\u0627\u0634 \u0631\u0627\u062d\u062a \u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u06a9\u0646 \u0648 \u0628\u0639\u062f \u0628\u0647 \u062c\u0645\u0639 \u062f\u062e\u062a\u0631\u0648\u0646\u0647 \u06cc \u0645\u0627\u0627\u0636\u0627\u0641\u0647 \u0634\u0648\ud83d\ude0d"
+              }
+            </div>
+          </Stack__>
+        }
+        trigger={null}
+      >
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__an4B7)}
+        >
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__vdeoA)}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__xMeKt)}
+            >
+              <LogoPwaSvgrepoComSvgIcon
+                className={classNames(projectcss.all, sty.svg__ojRd)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__jQkZ0
+                )}
+              >
+                {
+                  "\u0648\u0631\u0648\u062f \u0628\u0647 \u0646\u0633\u062e\u0647 \u0648\u0628"
+                }
+              </div>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__cP8Wn)}
+            >
+              <IconSvgIcon
+                className={classNames(projectcss.all, sty.svg__u33Qa)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__nhkFu
+                )}
+              >
+                {
+                  "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u06cc\u06a9\u062a "
+                }
+              </div>
+            </Stack__>
+          </Stack__>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__zngAi)}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__rQPqt)}
+            >
+              <CafeBazaarLogoSvgIcon
+                className={classNames(projectcss.all, sty.svg__nPf7S)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__vFzzE
+                )}
+              >
+                {
+                  "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u06a9\u0627\u0641\u0647 \u0628\u0627\u0632\u0627\u0631"
+                }
+              </div>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__vxl4A)}
+            >
+              <BrokenLink2SvgrepoComSvgIcon
+                className={classNames(projectcss.all, sty.svg__nI6N)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__aGobc
+                )}
+              >
+                {
+                  "\u062f\u0627\u0646\u0644\u0648\u062f \u0628\u0627 \u0644\u06cc\u0646\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645 "
+                }
+              </div>
+            </Stack__>
+          </Stack__>
+        </Stack__>
+      </AntdModal>
+    </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text", "svg"],
-  text: ["text"],
-  svg: ["svg"]
+  root: ["root", "modal", "img"],
+  modal: ["modal", "img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  text: "div";
-  svg: "svg";
+  modal: typeof AntdModal;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -487,8 +649,8 @@ export const PlasmicCommentlikebutton = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    text: makeNodeComponent("text"),
-    svg: makeNodeComponent("svg"),
+    modal: makeNodeComponent("modal"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicCommentlikebutton
     internalVariantProps: PlasmicCommentlikebutton__VariantProps,
