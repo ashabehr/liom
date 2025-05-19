@@ -1070,9 +1070,33 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
-          { text: "dsdsd" },
-          { text: "dsdsd" },
-          { text: "dsdsd" }
+          {
+            id: 193,
+            text: "\u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0644\u0633\u06cc\u0645 \u0627\u0632 \u0634\u06cc\u0631 \u0648 \u0645\u0627\u0633\u062a \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u06a9\u0646.",
+            weekNumber: 21,
+            type: "daily",
+            vip: 0,
+            priority: 1,
+            exteraText: null
+          },
+          {
+            id: 780,
+            text: "\u0645\u0645\u06a9\u0646\u0647 \u06af\u0627\u0647\u06cc \u0627\u062d\u0633\u0627\u0633 \u0633\u0628\u06a9\u06cc \u0633\u0631 \u06cc\u0627 \u0633\u0631\u06af\u06cc\u062c\u0647 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u060c \u0627\u06cc\u0646 \u0628\u0647\u200c\u062e\u0627\u0637\u0631 \u062a\u063a\u06cc\u06cc\u0631 \u0641\u0634\u0627\u0631 \u062e\u0648\u0646\u062a\u0647\u061b \u0645\u0627\u06cc\u0639\u0627\u062a \u0632\u06cc\u0627\u062f \u0628\u062e\u0648\u0631 \u0648 \u0628\u0647\u200c\u0622\u0631\u0627\u0645\u06cc \u0627\u0632 \u062d\u0627\u0644\u062a \u0646\u0634\u0633\u062a\u0647 \u0628\u0644\u0646\u062f \u0634\u0648.",
+            weekNumber: 21,
+            type: "daily",
+            vip: 0,
+            priority: 1,
+            exteraText: null
+          },
+          {
+            id: 190,
+            text: "\u0627\u06af\u0647 \u0627\u062d\u0633\u0627\u0633 \u062e\u0634\u06a9\u06cc \u062f\u0631 \u067e\u0648\u0633\u062a\u062a \u062f\u0627\u0631\u06cc \u0627\u0632 \u0631\u0648\u063a\u0646\u200c\u0647\u0627\u06cc \u0645\u0631\u0637\u0648\u0628 \u06a9\u0646\u0646\u062f\u0647 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u06a9\u0646.",
+            weekNumber: 21,
+            type: "daily",
+            vip: 0,
+            priority: 1,
+            exteraText: null
+          }
         ]
       }
     ],
@@ -1919,9 +1943,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     { method: "GET" }
                                   )
                                     .then(response => response.json())
-                                    .then(data => {
+                                    .then(data2 => {
                                       console.log("adviceee new");
-                                      $state.getAdvice2 = data;
+                                      console.log(data2);
+                                      $state.getAdvice2 = data2;
                                     })
                                     .catch(error =>
                                       console.error("Error2:", error)
