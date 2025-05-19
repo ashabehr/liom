@@ -2674,17 +2674,24 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                   undefined,
                                   (() => {
                                     try {
-                                      return {
-                                        area: "pregnancy",
-                                        duDate:
+                                      return (() => {
+                                        var date =
                                           $state.duDate.year +
                                           "-" +
+                                          ($state.duDate.month <= 9
+                                            ? "0"
+                                            : "") +
                                           $state.duDate.month +
                                           "-" +
+                                          ($state.duDate.day <= 9 ? "0" : "") +
                                           $state.duDate.day +
-                                          " 10:10:10",
-                                        userId: $state.userId
-                                      };
+                                          " 10:10:10";
+                                        return {
+                                          area: "pregnancy",
+                                          duDate: date,
+                                          userId: $state.userId
+                                        };
+                                      })();
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
