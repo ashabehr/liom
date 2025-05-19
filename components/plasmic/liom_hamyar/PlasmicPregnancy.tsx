@@ -727,7 +727,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "collapseAdvice.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $ctx }) => true,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
@@ -1064,6 +1064,16 @@ function PlasmicPregnancy__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "getAdvice2",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          { text: "dsdsd" },
+          { text: "dsdsd" },
+          { text: "dsdsd" }
+        ]
       }
     ],
     [$props, $ctx, $refs]
@@ -1893,7 +1903,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           customFunction: async () => {
                             return (() => {
                               $state.loadingAdvice = true;
-                              return fetch(
+                              fetch(
                                 "https://n8n.staas.ir/webhook/getAdvice-v2/?weekNumber=" +
                                   $state.selectedWeek,
                                 { method: "GET" }
@@ -1903,6 +1913,19 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   console.log("adviceee");
                                   $state.getAdvice = data;
                                   $state.loadingAdvice = false;
+                                })
+                                .catch(error =>
+                                  console.error("Error2:", error)
+                                );
+                              return fetch(
+                                "https://n8n.staas.ir/webhook/getAdvice-v3/?weekNumber=" +
+                                  $state.selectedWeek,
+                                { method: "GET" }
+                              )
+                                .then(response => response.json())
+                                .then(data => {
+                                  console.log("adviceee new");
+                                  $state.getAdvice2 = data;
                                 })
                                 .catch(error =>
                                   console.error("Error2:", error)
@@ -15593,608 +15616,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                           sty.freeBox__mQHgs
                         )}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__aqSel
-                          )}
-                        >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__jGbTn
-                            )}
-                          >
-                            {(_par =>
-                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                              (() => {
-                                try {
-                                  return $state.toolsList.length > 0
-                                    ? $state.toolsList
-                                    : [];
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                              const currentItem = __plasmic_item_0;
-                              const currentIndex = __plasmic_idx_0;
-                              return (
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__i2CeO
-                                  )}
-                                  key={currentIndex}
-                                  onClick={async event => {
-                                    const $steps = {};
-
-                                    $steps["runCode"] =
-                                      $ctx.query.inApp == "true"
-                                        ? (() => {
-                                            const actionArgs = {
-                                              customFunction: async () => {
-                                                return (() => {
-                                                  const allowance =
-                                                    $state?.getUserInfo
-                                                      ?.data?.[0]?.result
-                                                      ?.allowance || [];
-                                                  const filteredItem =
-                                                    allowance.find(item =>
-                                                      item.type.includes(
-                                                        currentItem.action
-                                                      )
-                                                    );
-                                                  const active = filteredItem
-                                                    ? filteredItem.active
-                                                    : false;
-                                                  var token = $state.token;
-                                                  if (!token.startsWith("ey")) {
-                                                    token = token.slice(
-                                                      6,
-                                                      token.length - 3
-                                                    );
-                                                  }
-                                                  switch (currentItem.action) {
-                                                    case "clinic":
-                                                      {
-                                                        const chars =
-                                                          "abcdefghijklmnopqrstuvwxyz0123456789";
-                                                        let randomStr1 = "";
-                                                        let randomStr2 = "";
-                                                        for (
-                                                          let i = 0;
-                                                          i < 6;
-                                                          i++
-                                                        ) {
-                                                          const rnd =
-                                                            Math.floor(
-                                                              Math.random() *
-                                                                chars.length
-                                                            );
-                                                          randomStr1 +=
-                                                            chars[rnd];
-                                                        }
-                                                        for (
-                                                          let i = 0;
-                                                          i < 6;
-                                                          i++
-                                                        ) {
-                                                          const rnd =
-                                                            Math.floor(
-                                                              Math.random() *
-                                                                chars.length
-                                                            );
-                                                          randomStr2 +=
-                                                            chars[rnd];
-                                                        }
-                                                        var link =
-                                                          "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
-                                                          randomStr1 +
-                                                          token +
-                                                          randomStr2;
-                                                        window.FlutterChannel.postMessage(
-                                                          "#inAppWebView**@@**" +
-                                                            "کلینیک لیوم " +
-                                                            "**@@**" +
-                                                            link
-                                                        );
-                                                      }
-                                                      break;
-                                                    case "hamyar":
-                                                      window.FlutterChannel.postMessage(
-                                                        "#hamyarInfo"
-                                                      );
-                                                      break;
-                                                    case "skinCare":
-                                                      {
-                                                        if (active) {
-                                                          var link =
-                                                            "https://tools.liom.app/self-medication/?type=skinCare&inApp=true&token=" +
-                                                            token +
-                                                            "&selectStep=0&userId=" +
-                                                            $state.userId +
-                                                            "&theme=" +
-                                                            $ctx.query.theme;
-                                                          window.FlutterChannel.postMessage(
-                                                            "#inAppWebView**@@**" +
-                                                              "روتین پوستی" +
-                                                              "**@@**" +
-                                                              link
-                                                          );
-                                                        } else {
-                                                          window.FlutterChannel.postMessage(
-                                                            "#healthSubscription"
-                                                          );
-                                                        }
-                                                      }
-                                                      break;
-                                                    case "stretch_marks":
-                                                      {
-                                                        if (active) {
-                                                          var link =
-                                                            "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
-                                                            token +
-                                                            "&selectStep=0&userId=" +
-                                                            $state.userId +
-                                                            "&theme=" +
-                                                            $ctx.query.theme;
-                                                          window.FlutterChannel.postMessage(
-                                                            "#inAppWebView**@@**" +
-                                                              "ترک پوستی" +
-                                                              "**@@**" +
-                                                              link
-                                                          );
-                                                        } else {
-                                                          window.FlutterChannel.postMessage(
-                                                            "#healthSubscription"
-                                                          );
-                                                        }
-                                                      }
-                                                      break;
-                                                    case "danger":
-                                                      {
-                                                        if (!active) {
-                                                          document
-                                                            .getElementById(
-                                                              "collapseDanger"
-                                                            )
-                                                            .scrollIntoView({
-                                                              behavior:
-                                                                "smooth",
-                                                              block: "start"
-                                                            });
-                                                          $state.collapseDanger.open =
-                                                            true;
-                                                          window.FlutterChannel.postMessage(
-                                                            "#healthSubscription"
-                                                          );
-                                                        }
-                                                      }
-                                                      break;
-                                                    case "adhd":
-                                                      {
-                                                        var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                          window.location.href
-                                                        )}&inApp=${
-                                                          $ctx.query.inApp
-                                                        }&userId=${
-                                                          $state.userId
-                                                        }`;
-                                                        window.FlutterChannel.postMessage(
-                                                          "#inAppWebView**@@**" +
-                                                            "تست ADHD" +
-                                                            "**@@**" +
-                                                            link
-                                                        );
-                                                      }
-                                                      break;
-                                                    case "statusToday":
-                                                      {
-                                                        var link = `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=true`;
-                                                        window.FlutterChannel.postMessage(
-                                                          "#inAppWebView**@@**" +
-                                                            "وضعیت امروز" +
-                                                            "**@@**" +
-                                                            link
-                                                        );
-                                                      }
-                                                      break;
-                                                    case "chatBot":
-                                                      var link =
-                                                        "https://tools.liom.app/chat-bot/?origin_user_id=" +
-                                                        $state?.userId +
-                                                        "&topic=pregnancyWeek" +
-                                                        $state.weeksPregnant +
-                                                        "&token=" +
-                                                        token;
-                                                      window.FlutterChannel.postMessage(
-                                                        "#inAppWebView**@@**" +
-                                                          "پزشک هوشمند" +
-                                                          "**@@**" +
-                                                          link
-                                                      );
-                                                      break;
-                                                  }
-                                                })();
-                                              }
-                                            };
-                                            return (({ customFunction }) => {
-                                              return customFunction();
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                    if (
-                                      $steps["runCode"] != null &&
-                                      typeof $steps["runCode"] === "object" &&
-                                      typeof $steps["runCode"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["runCode"] = await $steps[
-                                        "runCode"
-                                      ];
-                                    }
-
-                                    $steps["runCode2"] =
-                                      $ctx.query.inApp != "true"
-                                        ? (() => {
-                                            const actionArgs = {
-                                              customFunction: async () => {
-                                                return (() => {
-                                                  const allowance =
-                                                    $state?.getUserInfo
-                                                      ?.data?.[0]?.result
-                                                      ?.allowance || [];
-                                                  const filteredItem =
-                                                    allowance.find(item =>
-                                                      item.type.includes(
-                                                        currentItem.action
-                                                      )
-                                                    );
-                                                  const active = filteredItem
-                                                    ? filteredItem.active
-                                                    : false;
-                                                  var token = $state.token;
-                                                  if (!token.startsWith("ey")) {
-                                                    token = token.slice(
-                                                      6,
-                                                      token.length - 3
-                                                    );
-                                                  }
-                                                  switch (currentItem.action) {
-                                                    case "clinic":
-                                                      {
-                                                        const chars =
-                                                          "abcdefghijklmnopqrstuvwxyz0123456789";
-                                                        let randomStr1 = "";
-                                                        let randomStr2 = "";
-                                                        for (
-                                                          let i = 0;
-                                                          i < 6;
-                                                          i++
-                                                        ) {
-                                                          const rnd =
-                                                            Math.floor(
-                                                              Math.random() *
-                                                                chars.length
-                                                            );
-                                                          randomStr1 +=
-                                                            chars[rnd];
-                                                        }
-                                                        for (
-                                                          let i = 0;
-                                                          i < 6;
-                                                          i++
-                                                        ) {
-                                                          const rnd =
-                                                            Math.floor(
-                                                              Math.random() *
-                                                                chars.length
-                                                            );
-                                                          randomStr2 +=
-                                                            chars[rnd];
-                                                        }
-                                                        window.open(
-                                                          "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
-                                                            randomStr1 +
-                                                            token +
-                                                            randomStr2,
-                                                          "_self"
-                                                        );
-                                                      }
-                                                      break;
-                                                    case "chatBot":
-                                                      {
-                                                        var link =
-                                                          "https://tools.liom.app/chat-bot/?origin_user_id=" +
-                                                          $state?.userId +
-                                                          "&topic=pregnancyWeek" +
-                                                          $state.weeksPregnant +
-                                                          "&token=" +
-                                                          token;
-                                                        window.open(
-                                                          link,
-                                                          "_self"
-                                                        );
-                                                      }
-                                                      break;
-                                                    case "skinCare":
-                                                      if (active)
-                                                        window.open(
-                                                          "https://tools.liom.app/self-medication/?type=skinCare&inApp=false&token=" +
-                                                            token +
-                                                            "&selectStep=0&userId=" +
-                                                            $state.userId +
-                                                            "&theme=" +
-                                                            $ctx.query.theme,
-                                                          "_self"
-                                                        );
-                                                      else {
-                                                        $state.typeBuy =
-                                                          "pregnancySub";
-                                                        $state.directDialog2.open =
-                                                          true;
-                                                      }
-                                                      break;
-                                                    case "statusToday":
-                                                      window.open(
-                                                        `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=false`,
-                                                        "_self"
-                                                      );
-                                                      break;
-                                                    case "stretch_marks":
-                                                      if (active)
-                                                        window.open(
-                                                          "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=false&token=" +
-                                                            token +
-                                                            "&selectStep=0&userId=" +
-                                                            $state.userId +
-                                                            "&theme=" +
-                                                            $ctx.query.theme,
-                                                          "_self"
-                                                        );
-                                                      else {
-                                                        $state.typeBuy =
-                                                          "pregnancySub";
-                                                        $state.directDialog2.open =
-                                                          true;
-                                                      }
-                                                      break;
-                                                    case "danger":
-                                                      document
-                                                        .getElementById(
-                                                          "collapseDanger"
-                                                        )
-                                                        .scrollIntoView({
-                                                          behavior: "smooth",
-                                                          block: "start"
-                                                        });
-                                                      $state.collapseDanger.open =
-                                                        true;
-                                                      if (!active) {
-                                                        $state.typeBuy =
-                                                          "pregnancySub";
-                                                        $state.directDialog2.open =
-                                                          true;
-                                                      }
-                                                      break;
-                                                    case "adhd":
-                                                      `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                        window.location.href
-                                                      )}&inApp=${
-                                                        $ctx.query.inApp
-                                                      }&userId=${
-                                                        $state.userId
-                                                      }`;
-                                                      break;
-                                                  }
-                                                })();
-                                              }
-                                            };
-                                            return (({ customFunction }) => {
-                                              return customFunction();
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                    if (
-                                      $steps["runCode2"] != null &&
-                                      typeof $steps["runCode2"] === "object" &&
-                                      typeof $steps["runCode2"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["runCode2"] = await $steps[
-                                        "runCode2"
-                                      ];
-                                    }
-
-                                    $steps["toast"] =
-                                      $ctx.query.inApp != "true" &&
-                                      currentItem.action == "hamyar"
-                                        ? (() => {
-                                            const actionArgs = {
-                                              args: [
-                                                "error",
-                                                "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f.",
-                                                "bottom-center"
-                                              ]
-                                            };
-                                            return $globalActions[
-                                              "Fragment.showToast"
-                                            ]?.apply(null, [
-                                              ...actionArgs.args
-                                            ]);
-                                          })()
-                                        : undefined;
-                                    if (
-                                      $steps["toast"] != null &&
-                                      typeof $steps["toast"] === "object" &&
-                                      typeof $steps["toast"].then === "function"
-                                    ) {
-                                      $steps["toast"] = await $steps["toast"];
-                                    }
-
-                                    $steps["log"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            args: [
-                                              "POST",
-                                              "https://api.liom.app/service/log",
-                                              undefined,
-                                              (() => {
-                                                try {
-                                                  return {
-                                                    userId:
-                                                      $ctx.query.userId.slice(
-                                                        4,
-                                                        $ctx.query.userId
-                                                          .length - 4
-                                                      ),
-                                                    pageName: "mainPage",
-                                                    action:
-                                                      "clickTools-" +
-                                                      currentItem.action,
-                                                    extraData: {}
-                                                  };
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })(),
-                                              (() => {
-                                                try {
-                                                  return {
-                                                    headers: {
-                                                      "Content-Type":
-                                                        "application/json",
-                                                      Authorization:
-                                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                                    }
-                                                  };
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()
-                                            ]
-                                          };
-                                          return $globalActions[
-                                            "Fragment.apiRequest"
-                                          ]?.apply(null, [...actionArgs.args]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["log"] != null &&
-                                      typeof $steps["log"] === "object" &&
-                                      typeof $steps["log"].then === "function"
-                                    ) {
-                                      $steps["log"] = await $steps["log"];
-                                    }
-                                  }}
-                                >
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__gKrun
-                                    )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__j0Isb
-                                      )}
-                                    >
-                                      {hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "mobile"
-                                      ) ? (
-                                        <div
-                                          className={
-                                            projectcss.__wab_expr_html_text
-                                          }
-                                          dangerouslySetInnerHTML={{
-                                            __html: (() => {
-                                              try {
-                                                return (
-                                                  currentItem.title +
-                                                  "<b>" +
-                                                  "  >" +
-                                                  "</b>"
-                                                );
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "";
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          }}
-                                        />
-                                      ) : (
-                                        <div
-                                          className={
-                                            projectcss.__wab_expr_html_text
-                                          }
-                                          dangerouslySetInnerHTML={{
-                                            __html: (() => {
-                                              try {
-                                                return (
-                                                  currentItem.title +
-                                                  "<b>" +
-                                                  "  >" +
-                                                  "</b>"
-                                                );
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "";
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          }}
-                                        />
-                                      )}
-                                    </div>
-                                  </Stack__>
-                                </Stack__>
-                              );
-                            })}
-                          </Stack__>
-                        </div>
                         {(() => {
                           try {
                             return (
@@ -16230,11 +15651,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                             {(() => {
                               const child$Props = {
                                 bordered: true,
-                                children: null,
                                 className: classNames(
                                   "__wab_instance",
                                   sty.collapseAdvice
                                 ),
+                                defaultOpen: true,
                                 expandIcon: (
                                   <React.Fragment>
                                     {(() => {
@@ -16398,7 +15819,707 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     overrides.collapseAdvice
                                   }
                                   {...child$Props}
-                                />
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__aqSel
+                                    )}
+                                  >
+                                    <Stack__
+                                      as={"div"}
+                                      hasGap={true}
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__jGbTn
+                                      )}
+                                    >
+                                      {(_par =>
+                                        !_par
+                                          ? []
+                                          : Array.isArray(_par)
+                                          ? _par
+                                          : [_par])(
+                                        (() => {
+                                          try {
+                                            return $state.getAdvice2.length > 0
+                                              ? $state.getAdvice2
+                                              : [];
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return [];
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ).map(
+                                        (__plasmic_item_0, __plasmic_idx_0) => {
+                                          const currentItem = __plasmic_item_0;
+                                          const currentIndex = __plasmic_idx_0;
+                                          return (
+                                            <Stack__
+                                              as={"div"}
+                                              hasGap={true}
+                                              className={classNames(
+                                                projectcss.all,
+                                                sty.freeBox__i2CeO
+                                              )}
+                                              key={currentIndex}
+                                              onClick={async event => {
+                                                const $steps = {};
+
+                                                $steps["runCode"] =
+                                                  $ctx.query.inApp == "true"
+                                                    ? (() => {
+                                                        const actionArgs = {
+                                                          customFunction:
+                                                            async () => {
+                                                              return (() => {
+                                                                const allowance =
+                                                                  $state
+                                                                    ?.getUserInfo
+                                                                    ?.data?.[0]
+                                                                    ?.result
+                                                                    ?.allowance ||
+                                                                  [];
+                                                                const filteredItem =
+                                                                  allowance.find(
+                                                                    item =>
+                                                                      item.type.includes(
+                                                                        currentItem.action
+                                                                      )
+                                                                  );
+                                                                const active =
+                                                                  filteredItem
+                                                                    ? filteredItem.active
+                                                                    : false;
+                                                                var token =
+                                                                  $state.token;
+                                                                if (
+                                                                  !token.startsWith(
+                                                                    "ey"
+                                                                  )
+                                                                ) {
+                                                                  token =
+                                                                    token.slice(
+                                                                      6,
+                                                                      token.length -
+                                                                        3
+                                                                    );
+                                                                }
+                                                                switch (
+                                                                  currentItem.action
+                                                                ) {
+                                                                  case "clinic":
+                                                                    {
+                                                                      const chars =
+                                                                        "abcdefghijklmnopqrstuvwxyz0123456789";
+                                                                      let randomStr1 =
+                                                                        "";
+                                                                      let randomStr2 =
+                                                                        "";
+                                                                      for (
+                                                                        let i = 0;
+                                                                        i < 6;
+                                                                        i++
+                                                                      ) {
+                                                                        const rnd =
+                                                                          Math.floor(
+                                                                            Math.random() *
+                                                                              chars.length
+                                                                          );
+                                                                        randomStr1 +=
+                                                                          chars[
+                                                                            rnd
+                                                                          ];
+                                                                      }
+                                                                      for (
+                                                                        let i = 0;
+                                                                        i < 6;
+                                                                        i++
+                                                                      ) {
+                                                                        const rnd =
+                                                                          Math.floor(
+                                                                            Math.random() *
+                                                                              chars.length
+                                                                          );
+                                                                        randomStr2 +=
+                                                                          chars[
+                                                                            rnd
+                                                                          ];
+                                                                      }
+                                                                      var link =
+                                                                        "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
+                                                                        randomStr1 +
+                                                                        token +
+                                                                        randomStr2;
+                                                                      window.FlutterChannel.postMessage(
+                                                                        "#inAppWebView**@@**" +
+                                                                          "کلینیک لیوم " +
+                                                                          "**@@**" +
+                                                                          link
+                                                                      );
+                                                                    }
+                                                                    break;
+                                                                  case "hamyar":
+                                                                    window.FlutterChannel.postMessage(
+                                                                      "#hamyarInfo"
+                                                                    );
+                                                                    break;
+                                                                  case "skinCare":
+                                                                    {
+                                                                      if (
+                                                                        active
+                                                                      ) {
+                                                                        var link =
+                                                                          "https://tools.liom.app/self-medication/?type=skinCare&inApp=true&token=" +
+                                                                          token +
+                                                                          "&selectStep=0&userId=" +
+                                                                          $state.userId +
+                                                                          "&theme=" +
+                                                                          $ctx
+                                                                            .query
+                                                                            .theme;
+                                                                        window.FlutterChannel.postMessage(
+                                                                          "#inAppWebView**@@**" +
+                                                                            "روتین پوستی" +
+                                                                            "**@@**" +
+                                                                            link
+                                                                        );
+                                                                      } else {
+                                                                        window.FlutterChannel.postMessage(
+                                                                          "#healthSubscription"
+                                                                        );
+                                                                      }
+                                                                    }
+                                                                    break;
+                                                                  case "stretch_marks":
+                                                                    {
+                                                                      if (
+                                                                        active
+                                                                      ) {
+                                                                        var link =
+                                                                          "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
+                                                                          token +
+                                                                          "&selectStep=0&userId=" +
+                                                                          $state.userId +
+                                                                          "&theme=" +
+                                                                          $ctx
+                                                                            .query
+                                                                            .theme;
+                                                                        window.FlutterChannel.postMessage(
+                                                                          "#inAppWebView**@@**" +
+                                                                            "ترک پوستی" +
+                                                                            "**@@**" +
+                                                                            link
+                                                                        );
+                                                                      } else {
+                                                                        window.FlutterChannel.postMessage(
+                                                                          "#healthSubscription"
+                                                                        );
+                                                                      }
+                                                                    }
+                                                                    break;
+                                                                  case "danger":
+                                                                    {
+                                                                      if (
+                                                                        !active
+                                                                      ) {
+                                                                        document
+                                                                          .getElementById(
+                                                                            "collapseDanger"
+                                                                          )
+                                                                          .scrollIntoView(
+                                                                            {
+                                                                              behavior:
+                                                                                "smooth",
+                                                                              block:
+                                                                                "start"
+                                                                            }
+                                                                          );
+                                                                        $state.collapseDanger.open =
+                                                                          true;
+                                                                        window.FlutterChannel.postMessage(
+                                                                          "#healthSubscription"
+                                                                        );
+                                                                      }
+                                                                    }
+                                                                    break;
+                                                                  case "adhd":
+                                                                    {
+                                                                      var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
+                                                                        window
+                                                                          .location
+                                                                          .href
+                                                                      )}&inApp=${
+                                                                        $ctx
+                                                                          .query
+                                                                          .inApp
+                                                                      }&userId=${
+                                                                        $state.userId
+                                                                      }`;
+                                                                      window.FlutterChannel.postMessage(
+                                                                        "#inAppWebView**@@**" +
+                                                                          "تست ADHD" +
+                                                                          "**@@**" +
+                                                                          link
+                                                                      );
+                                                                    }
+                                                                    break;
+                                                                  case "statusToday":
+                                                                    {
+                                                                      var link = `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=true`;
+                                                                      window.FlutterChannel.postMessage(
+                                                                        "#inAppWebView**@@**" +
+                                                                          "وضعیت امروز" +
+                                                                          "**@@**" +
+                                                                          link
+                                                                      );
+                                                                    }
+                                                                    break;
+                                                                  case "chatBot":
+                                                                    var link =
+                                                                      "https://tools.liom.app/chat-bot/?origin_user_id=" +
+                                                                      $state?.userId +
+                                                                      "&topic=pregnancyWeek" +
+                                                                      $state.weeksPregnant +
+                                                                      "&token=" +
+                                                                      token;
+                                                                    window.FlutterChannel.postMessage(
+                                                                      "#inAppWebView**@@**" +
+                                                                        "پزشک هوشمند" +
+                                                                        "**@@**" +
+                                                                        link
+                                                                    );
+                                                                    break;
+                                                                }
+                                                              })();
+                                                            }
+                                                        };
+                                                        return (({
+                                                          customFunction
+                                                        }) => {
+                                                          return customFunction();
+                                                        })?.apply(null, [
+                                                          actionArgs
+                                                        ]);
+                                                      })()
+                                                    : undefined;
+                                                if (
+                                                  $steps["runCode"] != null &&
+                                                  typeof $steps["runCode"] ===
+                                                    "object" &&
+                                                  typeof $steps["runCode"]
+                                                    .then === "function"
+                                                ) {
+                                                  $steps["runCode"] =
+                                                    await $steps["runCode"];
+                                                }
+
+                                                $steps["runCode2"] =
+                                                  $ctx.query.inApp != "true"
+                                                    ? (() => {
+                                                        const actionArgs = {
+                                                          customFunction:
+                                                            async () => {
+                                                              return (() => {
+                                                                const allowance =
+                                                                  $state
+                                                                    ?.getUserInfo
+                                                                    ?.data?.[0]
+                                                                    ?.result
+                                                                    ?.allowance ||
+                                                                  [];
+                                                                const filteredItem =
+                                                                  allowance.find(
+                                                                    item =>
+                                                                      item.type.includes(
+                                                                        currentItem.action
+                                                                      )
+                                                                  );
+                                                                const active =
+                                                                  filteredItem
+                                                                    ? filteredItem.active
+                                                                    : false;
+                                                                var token =
+                                                                  $state.token;
+                                                                if (
+                                                                  !token.startsWith(
+                                                                    "ey"
+                                                                  )
+                                                                ) {
+                                                                  token =
+                                                                    token.slice(
+                                                                      6,
+                                                                      token.length -
+                                                                        3
+                                                                    );
+                                                                }
+                                                                switch (
+                                                                  currentItem.action
+                                                                ) {
+                                                                  case "clinic":
+                                                                    {
+                                                                      const chars =
+                                                                        "abcdefghijklmnopqrstuvwxyz0123456789";
+                                                                      let randomStr1 =
+                                                                        "";
+                                                                      let randomStr2 =
+                                                                        "";
+                                                                      for (
+                                                                        let i = 0;
+                                                                        i < 6;
+                                                                        i++
+                                                                      ) {
+                                                                        const rnd =
+                                                                          Math.floor(
+                                                                            Math.random() *
+                                                                              chars.length
+                                                                          );
+                                                                        randomStr1 +=
+                                                                          chars[
+                                                                            rnd
+                                                                          ];
+                                                                      }
+                                                                      for (
+                                                                        let i = 0;
+                                                                        i < 6;
+                                                                        i++
+                                                                      ) {
+                                                                        const rnd =
+                                                                          Math.floor(
+                                                                            Math.random() *
+                                                                              chars.length
+                                                                          );
+                                                                        randomStr2 +=
+                                                                          chars[
+                                                                            rnd
+                                                                          ];
+                                                                      }
+                                                                      window.open(
+                                                                        "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
+                                                                          randomStr1 +
+                                                                          token +
+                                                                          randomStr2,
+                                                                        "_self"
+                                                                      );
+                                                                    }
+                                                                    break;
+                                                                  case "chatBot":
+                                                                    {
+                                                                      var link =
+                                                                        "https://tools.liom.app/chat-bot/?origin_user_id=" +
+                                                                        $state?.userId +
+                                                                        "&topic=pregnancyWeek" +
+                                                                        $state.weeksPregnant +
+                                                                        "&token=" +
+                                                                        token;
+                                                                      window.open(
+                                                                        link,
+                                                                        "_self"
+                                                                      );
+                                                                    }
+                                                                    break;
+                                                                  case "skinCare":
+                                                                    if (active)
+                                                                      window.open(
+                                                                        "https://tools.liom.app/self-medication/?type=skinCare&inApp=false&token=" +
+                                                                          token +
+                                                                          "&selectStep=0&userId=" +
+                                                                          $state.userId +
+                                                                          "&theme=" +
+                                                                          $ctx
+                                                                            .query
+                                                                            .theme,
+                                                                        "_self"
+                                                                      );
+                                                                    else {
+                                                                      $state.typeBuy =
+                                                                        "pregnancySub";
+                                                                      $state.directDialog2.open =
+                                                                        true;
+                                                                    }
+                                                                    break;
+                                                                  case "statusToday":
+                                                                    window.open(
+                                                                      `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=false`,
+                                                                      "_self"
+                                                                    );
+                                                                    break;
+                                                                  case "stretch_marks":
+                                                                    if (active)
+                                                                      window.open(
+                                                                        "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=false&token=" +
+                                                                          token +
+                                                                          "&selectStep=0&userId=" +
+                                                                          $state.userId +
+                                                                          "&theme=" +
+                                                                          $ctx
+                                                                            .query
+                                                                            .theme,
+                                                                        "_self"
+                                                                      );
+                                                                    else {
+                                                                      $state.typeBuy =
+                                                                        "pregnancySub";
+                                                                      $state.directDialog2.open =
+                                                                        true;
+                                                                    }
+                                                                    break;
+                                                                  case "danger":
+                                                                    document
+                                                                      .getElementById(
+                                                                        "collapseDanger"
+                                                                      )
+                                                                      .scrollIntoView(
+                                                                        {
+                                                                          behavior:
+                                                                            "smooth",
+                                                                          block:
+                                                                            "start"
+                                                                        }
+                                                                      );
+                                                                    $state.collapseDanger.open =
+                                                                      true;
+                                                                    if (
+                                                                      !active
+                                                                    ) {
+                                                                      $state.typeBuy =
+                                                                        "pregnancySub";
+                                                                      $state.directDialog2.open =
+                                                                        true;
+                                                                    }
+                                                                    break;
+                                                                  case "adhd":
+                                                                    `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
+                                                                      window
+                                                                        .location
+                                                                        .href
+                                                                    )}&inApp=${
+                                                                      $ctx.query
+                                                                        .inApp
+                                                                    }&userId=${
+                                                                      $state.userId
+                                                                    }`;
+                                                                    break;
+                                                                }
+                                                              })();
+                                                            }
+                                                        };
+                                                        return (({
+                                                          customFunction
+                                                        }) => {
+                                                          return customFunction();
+                                                        })?.apply(null, [
+                                                          actionArgs
+                                                        ]);
+                                                      })()
+                                                    : undefined;
+                                                if (
+                                                  $steps["runCode2"] != null &&
+                                                  typeof $steps["runCode2"] ===
+                                                    "object" &&
+                                                  typeof $steps["runCode2"]
+                                                    .then === "function"
+                                                ) {
+                                                  $steps["runCode2"] =
+                                                    await $steps["runCode2"];
+                                                }
+
+                                                $steps["toast"] =
+                                                  $ctx.query.inApp != "true" &&
+                                                  currentItem.action == "hamyar"
+                                                    ? (() => {
+                                                        const actionArgs = {
+                                                          args: [
+                                                            "error",
+                                                            "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f.",
+                                                            "bottom-center"
+                                                          ]
+                                                        };
+                                                        return $globalActions[
+                                                          "Fragment.showToast"
+                                                        ]?.apply(null, [
+                                                          ...actionArgs.args
+                                                        ]);
+                                                      })()
+                                                    : undefined;
+                                                if (
+                                                  $steps["toast"] != null &&
+                                                  typeof $steps["toast"] ===
+                                                    "object" &&
+                                                  typeof $steps["toast"]
+                                                    .then === "function"
+                                                ) {
+                                                  $steps["toast"] =
+                                                    await $steps["toast"];
+                                                }
+
+                                                $steps["log"] = true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        args: [
+                                                          "POST",
+                                                          "https://api.liom.app/service/log",
+                                                          undefined,
+                                                          (() => {
+                                                            try {
+                                                              return {
+                                                                userId:
+                                                                  $ctx.query.userId.slice(
+                                                                    4,
+                                                                    $ctx.query
+                                                                      .userId
+                                                                      .length -
+                                                                      4
+                                                                  ),
+                                                                pageName:
+                                                                  "mainPage",
+                                                                action:
+                                                                  "clickTools-" +
+                                                                  currentItem.action,
+                                                                extraData: {}
+                                                              };
+                                                            } catch (e) {
+                                                              if (
+                                                                e instanceof
+                                                                  TypeError ||
+                                                                e?.plasmicType ===
+                                                                  "PlasmicUndefinedDataError"
+                                                              ) {
+                                                                return undefined;
+                                                              }
+                                                              throw e;
+                                                            }
+                                                          })(),
+                                                          (() => {
+                                                            try {
+                                                              return {
+                                                                headers: {
+                                                                  "Content-Type":
+                                                                    "application/json",
+                                                                  Authorization:
+                                                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                                }
+                                                              };
+                                                            } catch (e) {
+                                                              if (
+                                                                e instanceof
+                                                                  TypeError ||
+                                                                e?.plasmicType ===
+                                                                  "PlasmicUndefinedDataError"
+                                                              ) {
+                                                                return undefined;
+                                                              }
+                                                              throw e;
+                                                            }
+                                                          })()
+                                                        ]
+                                                      };
+                                                      return $globalActions[
+                                                        "Fragment.apiRequest"
+                                                      ]?.apply(null, [
+                                                        ...actionArgs.args
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                                if (
+                                                  $steps["log"] != null &&
+                                                  typeof $steps["log"] ===
+                                                    "object" &&
+                                                  typeof $steps["log"].then ===
+                                                    "function"
+                                                ) {
+                                                  $steps["log"] = await $steps[
+                                                    "log"
+                                                  ];
+                                                }
+                                              }}
+                                            >
+                                              <Stack__
+                                                as={"div"}
+                                                hasGap={true}
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__gKrun
+                                                )}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text__j0Isb
+                                                  )}
+                                                >
+                                                  {hasVariant(
+                                                    globalVariants,
+                                                    "screen",
+                                                    "mobile"
+                                                  ) ? (
+                                                    <div
+                                                      className={
+                                                        projectcss.__wab_expr_html_text
+                                                      }
+                                                      dangerouslySetInnerHTML={{
+                                                        __html: (() => {
+                                                          try {
+                                                            return (
+                                                              currentItem.title +
+                                                              "<b>" +
+                                                              "  >" +
+                                                              "</b>"
+                                                            );
+                                                          } catch (e) {
+                                                            if (
+                                                              e instanceof
+                                                                TypeError ||
+                                                              e?.plasmicType ===
+                                                                "PlasmicUndefinedDataError"
+                                                            ) {
+                                                              return "";
+                                                            }
+                                                            throw e;
+                                                          }
+                                                        })()
+                                                      }}
+                                                    />
+                                                  ) : (
+                                                    <div
+                                                      className={
+                                                        projectcss.__wab_expr_html_text
+                                                      }
+                                                      dangerouslySetInnerHTML={{
+                                                        __html: (() => {
+                                                          try {
+                                                            return currentItem.text;
+                                                          } catch (e) {
+                                                            if (
+                                                              e instanceof
+                                                                TypeError ||
+                                                              e?.plasmicType ===
+                                                                "PlasmicUndefinedDataError"
+                                                            ) {
+                                                              return "";
+                                                            }
+                                                            throw e;
+                                                          }
+                                                        })()
+                                                      }}
+                                                    />
+                                                  )}
+                                                </div>
+                                              </Stack__>
+                                            </Stack__>
+                                          );
+                                        }
+                                      )}
+                                    </Stack__>
+                                  </div>
+                                </AntdSingleCollapse>
                               );
                             })()}
                           </div>
