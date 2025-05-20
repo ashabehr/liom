@@ -130,6 +130,7 @@ export type PlasmicPregnancy__OverridesType = {
   tabWeek?: Flex__<typeof TabWeek>;
   switchbest?: Flex__<typeof Switchbest>;
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
+  button3?: Flex__<typeof Button>;
   collapseDanger?: Flex__<typeof AntdSingleCollapse>;
   collapseMedicine2?: Flex__<typeof AntdSingleCollapse>;
   button2?: Flex__<typeof Button>;
@@ -1098,6 +1099,11 @@ function PlasmicPregnancy__RenderFunc(props: {
             exteraText: null
           }
         ]
+      },
+      {
+        path: "button3[].color",
+        type: "private",
+        variableType: "text"
       }
     ],
     [$props, $ctx, $refs]
@@ -1945,7 +1951,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     .then(response => response.json())
                                     .then(data2 => {
                                       console.log("adviceee new");
-                                      console.log(data2);
                                       $state.getAdvice2 = data2;
                                     })
                                     .catch(error =>
@@ -2259,16 +2264,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   .then(user => {
                                     console.log("user get liom");
                                     const now = new Date();
-
                                     const year = now.getFullYear();
                                     const month = String(
                                       now.getMonth() + 1
-                                    ).padStart(2, "0"); // ماه از 0 شروع میشه
+                                    ).padStart(2, "0");
                                     const day = String(now.getDate()).padStart(
                                       2,
                                       "0"
                                     );
-
                                     const hours = String(
                                       now.getHours()
                                     ).padStart(2, "0");
@@ -2278,7 +2281,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     const seconds = String(
                                       now.getSeconds()
                                     ).padStart(2, "0");
-
                                     if (
                                       !isNaN(gy) &&
                                       !isNaN(gm) &&
@@ -16467,7 +16469,25 @@ function PlasmicPregnancy__RenderFunc(props: {
                                             >
                                               {(() => {
                                                 try {
-                                                  return currentItem.vip == 1;
+                                                  return (() => {
+                                                    const allowance =
+                                                      $state?.getUserInfo
+                                                        ?.data?.[0]?.result
+                                                        ?.allowance || [];
+                                                    const filteredItem =
+                                                      allowance.find(item =>
+                                                        item.type.includes(
+                                                          "advice"
+                                                        )
+                                                      );
+                                                    const active = filteredItem
+                                                      ? filteredItem.active
+                                                      : false;
+                                                    return (
+                                                      !active &&
+                                                      currentItem.vip == 1
+                                                    );
+                                                  })();
                                                 } catch (e) {
                                                   if (
                                                     e instanceof TypeError ||
@@ -16486,6 +16506,107 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     projectcss.all,
                                                     sty.freeBox__gKrun
                                                   )}
+                                                  onClick={async event => {
+                                                    const $steps = {};
+
+                                                    $steps[
+                                                      "invokeGlobalAction"
+                                                    ] = true
+                                                      ? (() => {
+                                                          const actionArgs = {
+                                                            args: [
+                                                              "#healthSubscription",
+                                                              (() => {
+                                                                try {
+                                                                  return $state.token;
+                                                                } catch (e) {
+                                                                  if (
+                                                                    e instanceof
+                                                                      TypeError ||
+                                                                    e?.plasmicType ===
+                                                                      "PlasmicUndefinedDataError"
+                                                                  ) {
+                                                                    return undefined;
+                                                                  }
+                                                                  throw e;
+                                                                }
+                                                              })(),
+                                                              (() => {
+                                                                try {
+                                                                  return $state.userId;
+                                                                } catch (e) {
+                                                                  if (
+                                                                    e instanceof
+                                                                      TypeError ||
+                                                                    e?.plasmicType ===
+                                                                      "PlasmicUndefinedDataError"
+                                                                  ) {
+                                                                    return undefined;
+                                                                  }
+                                                                  throw e;
+                                                                }
+                                                              })(),
+                                                              (() => {
+                                                                try {
+                                                                  return $ctx
+                                                                    .query
+                                                                    .inApp;
+                                                                } catch (e) {
+                                                                  if (
+                                                                    e instanceof
+                                                                      TypeError ||
+                                                                    e?.plasmicType ===
+                                                                      "PlasmicUndefinedDataError"
+                                                                  ) {
+                                                                    return undefined;
+                                                                  }
+                                                                  throw e;
+                                                                }
+                                                              })(),
+                                                              (() => {
+                                                                try {
+                                                                  return $ctx
+                                                                    .query
+                                                                    .theme;
+                                                                } catch (e) {
+                                                                  if (
+                                                                    e instanceof
+                                                                      TypeError ||
+                                                                    e?.plasmicType ===
+                                                                      "PlasmicUndefinedDataError"
+                                                                  ) {
+                                                                    return undefined;
+                                                                  }
+                                                                  throw e;
+                                                                }
+                                                              })()
+                                                            ]
+                                                          };
+                                                          return $globalActions[
+                                                            "Fragment.deepLink"
+                                                          ]?.apply(null, [
+                                                            ...actionArgs.args
+                                                          ]);
+                                                        })()
+                                                      : undefined;
+                                                    if (
+                                                      $steps[
+                                                        "invokeGlobalAction"
+                                                      ] != null &&
+                                                      typeof $steps[
+                                                        "invokeGlobalAction"
+                                                      ] === "object" &&
+                                                      typeof $steps[
+                                                        "invokeGlobalAction"
+                                                      ].then === "function"
+                                                    ) {
+                                                      $steps[
+                                                        "invokeGlobalAction"
+                                                      ] = await $steps[
+                                                        "invokeGlobalAction"
+                                                      ];
+                                                    }
+                                                  }}
                                                 >
                                                   <div
                                                     className={classNames(
@@ -16547,11 +16668,116 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       }}
                                                     />
                                                   </div>
+                                                  {(() => {
+                                                    const child$Props = {
+                                                      className: classNames(
+                                                        "__wab_instance",
+                                                        sty.button3
+                                                      ),
+                                                      color:
+                                                        generateStateValueProp(
+                                                          $state,
+                                                          [
+                                                            "button3",
+                                                            __plasmic_idx_0,
+                                                            "color"
+                                                          ]
+                                                        ),
+                                                      onColorChange: async (
+                                                        ...eventArgs: any
+                                                      ) => {
+                                                        ((...eventArgs) => {
+                                                          generateStateOnChangeProp(
+                                                            $state,
+                                                            [
+                                                              "button3",
+                                                              __plasmic_idx_0,
+                                                              "color"
+                                                            ]
+                                                          )(eventArgs[0]);
+                                                        }).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+
+                                                        if (
+                                                          eventArgs.length >
+                                                            1 &&
+                                                          eventArgs[1] &&
+                                                          eventArgs[1]
+                                                            ._plasmic_state_init_
+                                                        ) {
+                                                          return;
+                                                        }
+                                                      },
+                                                      size: "minimal"
+                                                    };
+
+                                                    initializePlasmicStates(
+                                                      $state,
+                                                      [
+                                                        {
+                                                          name: "button3[].color",
+                                                          initFunc: ({
+                                                            $props,
+                                                            $state,
+                                                            $queries
+                                                          }) => undefined
+                                                        }
+                                                      ],
+                                                      [__plasmic_idx_0]
+                                                    );
+                                                    return (
+                                                      <Button
+                                                        data-plasmic-name={
+                                                          "button3"
+                                                        }
+                                                        data-plasmic-override={
+                                                          overrides.button3
+                                                        }
+                                                        {...child$Props}
+                                                      >
+                                                        <div
+                                                          className={classNames(
+                                                            projectcss.all,
+                                                            projectcss.__wab_text,
+                                                            sty.text__eDtK2
+                                                          )}
+                                                        >
+                                                          {
+                                                            "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9"
+                                                          }
+                                                        </div>
+                                                      </Button>
+                                                    );
+                                                  })()}
                                                 </Stack__>
                                               ) : null}
                                               {(() => {
                                                 try {
-                                                  return currentItem.vip == 0;
+                                                  return (() => {
+                                                    const allowance =
+                                                      $state?.getUserInfo
+                                                        ?.data?.[0]?.result
+                                                        ?.allowance || [];
+                                                    const filteredItem =
+                                                      allowance.find(item =>
+                                                        item.type.includes(
+                                                          "advice"
+                                                        )
+                                                      );
+                                                    const active = filteredItem
+                                                      ? filteredItem.active
+                                                      : false;
+                                                    if (currentItem.vip == 0)
+                                                      return true;
+                                                    else if (
+                                                      currentItem.vip == 1 &&
+                                                      active
+                                                    )
+                                                      return true;
+                                                    else return false;
+                                                  })();
                                                 } catch (e) {
                                                   if (
                                                     e instanceof TypeError ||
@@ -26916,6 +27142,7 @@ const PlasmicDescendants = {
     "tabWeek",
     "switchbest",
     "collapseAdvice",
+    "button3",
     "collapseDanger",
     "collapseMedicine2",
     "button2",
@@ -26940,6 +27167,7 @@ const PlasmicDescendants = {
     "tabWeek",
     "switchbest",
     "collapseAdvice",
+    "button3",
     "collapseDanger",
     "collapseMedicine2",
     "button2",
@@ -26960,7 +27188,8 @@ const PlasmicDescendants = {
   informationBox: ["informationBox"],
   tabWeek: ["tabWeek"],
   switchbest: ["switchbest"],
-  collapseAdvice: ["collapseAdvice"],
+  collapseAdvice: ["collapseAdvice", "button3"],
+  button3: ["button3"],
   collapseDanger: ["collapseDanger"],
   collapseMedicine2: ["collapseMedicine2", "button2"],
   button2: ["button2"],
@@ -26989,6 +27218,7 @@ type NodeDefaultElementType = {
   tabWeek: typeof TabWeek;
   switchbest: typeof Switchbest;
   collapseAdvice: typeof AntdSingleCollapse;
+  button3: typeof Button;
   collapseDanger: typeof AntdSingleCollapse;
   collapseMedicine2: typeof AntdSingleCollapse;
   button2: typeof Button;
@@ -27098,6 +27328,7 @@ export const PlasmicPregnancy = Object.assign(
     tabWeek: makeNodeComponent("tabWeek"),
     switchbest: makeNodeComponent("switchbest"),
     collapseAdvice: makeNodeComponent("collapseAdvice"),
+    button3: makeNodeComponent("button3"),
     collapseDanger: makeNodeComponent("collapseDanger"),
     collapseMedicine2: makeNodeComponent("collapseMedicine2"),
     button2: makeNodeComponent("button2"),
