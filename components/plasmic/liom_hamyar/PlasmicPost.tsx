@@ -234,7 +234,11 @@ function PlasmicPost__RenderFunc(props: {
         }
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__tjGb4)}>
+      <Stack__
+        as={"div"}
+        hasGap={true}
+        className={classNames(projectcss.all, sty.freeBox__tjGb4)}
+      >
         <LineClomp
           data-plasmic-name={"lineClompTitle"}
           data-plasmic-override={overrides.lineClompTitle}
@@ -475,10 +479,7 @@ function PlasmicPost__RenderFunc(props: {
             controls={true}
             src={(() => {
               try {
-                return (
-                  //$props.video
-                  "https://storage.c2.liara.space/liom/2025-03/post/2025-03-05-d2a79ca9-4a1f-4608-b92d-01e0bb34d8f3.mp4"
-                );
+                return $props.video;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -611,7 +612,7 @@ function PlasmicPost__RenderFunc(props: {
             </React.Fragment>
           </div>
         </div>
-      </div>
+      </Stack__>
     </div>
   ) as React.ReactElement | null;
 }

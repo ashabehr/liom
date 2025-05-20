@@ -402,7 +402,8 @@ function PlasmicPost2__RenderFunc(props: {
         path: "modal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? true : true
       }
     ],
     [$props, $ctx, $refs]
@@ -1256,35 +1257,31 @@ function PlasmicPost2__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                postType={
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? "image"
-                    : (() => {
-                        try {
-                          return $state.getInfo.data.result.details.post
-                            .actionText == "باز کردن تصویر"
-                            ? "image"
-                            : $state.getInfo.data.result.details.post
-                                .actionText == "باز کردن صدا"
-                            ? "voise"
-                            : $state.getInfo.data.result.details.post
-                                .actionText == "نمایش ویدیو"
-                            ? "video"
-                            : $state.getInfo.data.result.details.post
-                                .actionText == "دانلود لوگو"
-                            ? "file"
-                            : "jastText";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()
-                }
+                postType={(() => {
+                  try {
+                    return $state.getInfo.data.result.details.post.actionText ==
+                      "باز کردن تصویر"
+                      ? "image"
+                      : $state.getInfo.data.result.details.post.actionText ==
+                        "باز کردن صدا"
+                      ? "voise"
+                      : $state.getInfo.data.result.details.post.actionText ==
+                        "نمایش ویدیو"
+                      ? "video"
+                      : $state.getInfo.data.result.details.post.actionText ==
+                        "دانلود لوگو"
+                      ? "file"
+                      : "jastText";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
                 text={(() => {
                   try {
                     return $state.getInfo.data.result.details.post.text;
@@ -3553,6 +3550,9 @@ function PlasmicPost2__RenderFunc(props: {
               </Stack__>
             }
             trigger={null}
+            width={
+              hasVariant(globalVariants, "screen", "mobile") ? `` : undefined
+            }
           >
             <Stack__
               as={"div"}
@@ -3815,22 +3815,28 @@ function PlasmicPost2__RenderFunc(props: {
                     }
                   }}
                 >
-                  <BrokenLink2SvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__deguc)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__eY1K
-                    )}
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__kVpCl)}
                   >
-                    {
-                      "\u062f\u0627\u0646\u0644\u0648\u062f \u0628\u0627 \u0644\u06cc\u0646\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645 "
-                    }
-                  </div>
+                    <BrokenLink2SvgrepoComSvgIcon
+                      className={classNames(projectcss.all, sty.svg__deguc)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__eY1K
+                      )}
+                    >
+                      {
+                        "\u062f\u0627\u0646\u0644\u0648\u062f \u0628\u0627 \u0644\u06cc\u0646\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645 "
+                      }
+                    </div>
+                  </Stack__>
                 </Stack__>
               </Stack__>
             </Stack__>

@@ -2813,9 +2813,19 @@
   width: 300px;
   height: 100%;
   max-width: 100%;
+  background: linear-gradient(
+        40deg,
+        #f19a26 0%,
+        #df696e 24%,
+        #886aed 72%,
+        #ff56cc 100%
+      )
+      0% 0% / 100% 100% repeat,
+    #ad5555;
+  margin-left: 8px;
   min-height: 0;
   border-radius: 8px;
-  padding: 8px 16px;
+  padding: 0px;
 }
 .freeBox__gKrun > :global(.__wab_flex-container) {
   flex-direction: column;
@@ -2844,9 +2854,89 @@
   flex-shrink: 1;
   text-align: right;
   font-size: 16px;
+  background: none;
+  margin-left: 8px;
+  margin-right: 0px;
+  font-weight: 500;
+  color: var(--token-R_Rsn0nP9oIv);
+  padding: 8px 8px 0px;
 }
 @media (max-width: 640px) {
   .text__j0Isb {
+    width: auto;
+    white-space: pre;
+  }
+}
+.text__rUiku {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  white-space: pre-wrap;
+  flex-shrink: 1;
+  text-align: right;
+  font-size: 14px;
+  background: none;
+  margin-left: 0px;
+  margin-right: 0px;
+  font-weight: 400;
+  color: var(--token-R_Rsn0nP9oIv);
+  min-width: 0;
+  padding: 0px 8px;
+}
+@media (max-width: 640px) {
+  .text__rUiku {
+    width: auto;
+    white-space: pre;
+  }
+}
+.freeBox__u8TzQ {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 300px;
+  height: 100%;
+  max-width: 100%;
+  background: none;
+  margin-left: 8px;
+  min-height: 0;
+  border-radius: 8px;
+  padding: 0px;
+}
+.freeBox__u8TzQ > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  min-height: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.freeBox__u8TzQ > :global(.__wab_flex-container) > *,
+.freeBox__u8TzQ > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__u8TzQ > :global(.__wab_flex-container) > picture > img,
+.freeBox__u8TzQ
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.text__nuA63 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  white-space: pre-wrap;
+  flex-shrink: 1;
+  text-align: right;
+  font-size: 16px;
+  background: none;
+  margin-left: 8px;
+  margin-right: 0px;
+  padding: 8px;
+}
+@media (max-width: 640px) {
+  .text__nuA63 {
     width: auto;
     white-space: pre;
   }

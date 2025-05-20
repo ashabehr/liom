@@ -16465,26 +16465,35 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 }
                                               }}
                                             >
-                                              <Stack__
-                                                as={"div"}
-                                                hasGap={true}
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  sty.freeBox__gKrun
-                                                )}
-                                              >
-                                                <div
+                                              {(() => {
+                                                try {
+                                                  return currentItem.vip == 1;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return false;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })() ? (
+                                                <Stack__
+                                                  as={"div"}
+                                                  hasGap={true}
                                                   className={classNames(
                                                     projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text__j0Isb
+                                                    sty.freeBox__gKrun
                                                   )}
                                                 >
-                                                  {hasVariant(
-                                                    globalVariants,
-                                                    "screen",
-                                                    "mobile"
-                                                  ) ? (
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.__wab_text,
+                                                      sty.text__j0Isb
+                                                    )}
+                                                  >
                                                     <div
                                                       className={
                                                         projectcss.__wab_expr_html_text
@@ -16492,12 +16501,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       dangerouslySetInnerHTML={{
                                                         __html: (() => {
                                                           try {
-                                                            return (
-                                                              currentItem.title +
-                                                              "<b>" +
-                                                              "  >" +
-                                                              "</b>"
-                                                            );
+                                                            return "این یک توصیه ویژه، مرتبط ‌تر به وضعیت جسمی و روحیت هست.";
                                                           } catch (e) {
                                                             if (
                                                               e instanceof
@@ -16512,7 +16516,68 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         })()
                                                       }}
                                                     />
-                                                  ) : (
+                                                  </div>
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.__wab_text,
+                                                      sty.text__rUiku
+                                                    )}
+                                                  >
+                                                    <div
+                                                      className={
+                                                        projectcss.__wab_expr_html_text
+                                                      }
+                                                      dangerouslySetInnerHTML={{
+                                                        __html: (() => {
+                                                          try {
+                                                            return "برای دیدنش اشتراک ویژه رو فعال کن 👇 ";
+                                                          } catch (e) {
+                                                            if (
+                                                              e instanceof
+                                                                TypeError ||
+                                                              e?.plasmicType ===
+                                                                "PlasmicUndefinedDataError"
+                                                            ) {
+                                                              return "";
+                                                            }
+                                                            throw e;
+                                                          }
+                                                        })()
+                                                      }}
+                                                    />
+                                                  </div>
+                                                </Stack__>
+                                              ) : null}
+                                              {(() => {
+                                                try {
+                                                  return currentItem.vip == 0;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return false;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })() ? (
+                                                <Stack__
+                                                  as={"div"}
+                                                  hasGap={true}
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.freeBox__u8TzQ
+                                                  )}
+                                                >
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.__wab_text,
+                                                      sty.text__nuA63
+                                                    )}
+                                                  >
                                                     <div
                                                       className={
                                                         projectcss.__wab_expr_html_text
@@ -16535,9 +16600,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         })()
                                                       }}
                                                     />
-                                                  )}
-                                                </div>
-                                              </Stack__>
+                                                  </div>
+                                                </Stack__>
+                                              ) : null}
                                             </Stack__>
                                           );
                                         }

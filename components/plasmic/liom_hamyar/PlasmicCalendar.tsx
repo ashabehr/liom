@@ -2111,7 +2111,7 @@ function PlasmicCalendar__RenderFunc(props: {
                             "userinfo",
                             JSON.stringify($steps.userinfo?.data.result)
                           );
-                          window.localStorage.setItem(
+                          window.sessionStorage.setItem(
                             "birthDate",
                             JSON.stringify(
                               $steps.userinfo?.data.result.user.birthDate
@@ -58162,40 +58162,6 @@ function PlasmicCalendar__RenderFunc(props: {
                 }
                 onClick={async event => {
                   const $steps = {};
-
-                  $steps["updateVariable"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["variable"]
-                          },
-                          operation: 0,
-                          value: $state.variable + "6"
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateVariable"] != null &&
-                    typeof $steps["updateVariable"] === "object" &&
-                    typeof $steps["updateVariable"].then === "function"
-                  ) {
-                    $steps["updateVariable"] = await $steps["updateVariable"];
-                  }
 
                   $steps["runCode"] = true
                     ? (() => {

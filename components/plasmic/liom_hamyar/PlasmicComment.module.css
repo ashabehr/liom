@@ -156,6 +156,12 @@
   max-width: 100%;
   min-width: 0;
 }
+@media (max-width: 640px) {
+  .text__iXgHb {
+    font-size: 10px;
+    white-space: pre;
+  }
+}
 .freeBox__ewqKl {
   display: flex;
   flex-direction: row;
