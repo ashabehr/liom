@@ -6413,7 +6413,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return localStorage.setItem(
+                            return window.sessionStorage.setItem(
                               "birthDate",
                               JSON.stringify({
                                 year: parseInt($state.bday.split("-")[0]),

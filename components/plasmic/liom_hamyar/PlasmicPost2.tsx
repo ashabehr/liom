@@ -403,7 +403,7 @@ function PlasmicPost2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? true : true
+          hasVariant(globalVariants, "screen", "mobile") ? true : false
       }
     ],
     [$props, $ctx, $refs]
