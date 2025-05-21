@@ -34,7 +34,6 @@ function Post2() {
             params={useRouter()?.query}
             query={useRouter()?.query}
           >
-            <PlasmicPost2 />
           </PageParamsProvider__>
         </GlobalContextsProvider>
       </UnnamedGlobalGroupOfVariants4Context.Provider>
