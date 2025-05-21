@@ -296,9 +296,17 @@ function PlasmicTest__RenderFunc(props: {
               $steps["invokeGlobalAction"] = true
                 ? (() => {
                     const actionArgs = {
-                      args: ["custom", "dfdfdfd", undefined, 3000]
+                      args: [
+                        "#selfSms",
+                        "fsfsfsfsf",
+                        "656566",
+                        "sss",
+                        undefined,
+                        undefined,
+                        { a: "sjx" }
+                      ]
                     };
-                    return $globalActions["Fragment.showToast"]?.apply(null, [
+                    return $globalActions["Fragment.deepLink"]?.apply(null, [
                       ...actionArgs.args
                     ]);
                   })()

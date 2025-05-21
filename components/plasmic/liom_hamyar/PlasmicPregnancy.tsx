@@ -2311,7 +2311,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                             email: email,
                                             hamyarData: { hamyarsData },
                                             allowance: { allowance },
-                                            currentWeek: $state.weeksPregnant,
+                                            currentWeek:
+                                              $state.weeksPregnant + 1,
                                             baby_gender:
                                               user?.[0].result?.pregnancy?.sex,
                                             multiples:

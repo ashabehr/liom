@@ -1923,7 +1923,9 @@ function PlasmicHamyar__RenderFunc(props: {
 
               $steps["variant"] =
                 $state.userdata?.result?.user?.name &&
-                !$state.userdata?.result?.userStatus?.periodStatus
+                !$state.userdata?.result?.userStatus?.periodStatus &&
+                $steps.userdata?.data?.result?.user?.healthStatus?.toLowerCase() !=
+                  "pregnancy"
                   ? (() => {
                       const actionArgs = {
                         vgroup: "lackOfCourseInformation",

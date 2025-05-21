@@ -2009,6 +2009,32 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicPost2ForSocialMain.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "H6dfyqWexG5G",
+          "name": "ReactionBar2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicReactionBar2.tsx",
+          "importSpec": {
+            "modulePath": "ReactionBar2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicReactionBar2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "39fIW19kX-oH",
+          "name": "SwitchBarSocialMain",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSwitchBarSocialMain.tsx",
+          "importSpec": {
+            "modulePath": "SwitchBarSocialMain.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSwitchBarSocialMain.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

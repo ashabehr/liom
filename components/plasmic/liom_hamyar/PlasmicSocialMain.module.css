@@ -353,10 +353,127 @@
   min-height: 0;
   padding: 12px;
 }
-.repeatPost:global(.__wab_instance) {
+.freeBox__g1Xj8 {
+  display: flex;
+  flex-direction: column;
   position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
   top: auto;
   left: auto;
+  min-width: 0;
+}
+.repeatPost:global(.__wab_instance) {
+  width: 100%;
+  min-width: 0;
+}
+.reactionBar2:global(.__wab_instance) {
+  max-width: 100%;
+}
+.like__sh9Q0:global(.__wab_instance) {
+  position: relative;
+}
+.freeBox__gDTo8 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 0px;
+  padding: 8px;
+}
+.svg__ryWog {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.text__rNlJj {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  min-width: 0;
+}
+.freeBox___2T8EE {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px;
+}
+.svg___90YbQ {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.text__aMdFw {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: 12px;
+  text-align: center;
+  min-width: 0;
+}
+.save__greG:global(.__wab_instance) {
+  position: relative;
+}
+.freeBox___8BEfr {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px;
+}
+.svg__egfEq {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.text__bZXh0 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  min-width: 0;
+}
+.freeBox__qRQf {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-R_Rsn0nP9oIv);
+  min-width: 0;
+  padding: 8px;
+}
+.switchBarSocialMain:global(.__wab_instance) {
+  position: relative;
 }
 .getInfo:global(.__wab_instance) {
   max-width: 100%;
