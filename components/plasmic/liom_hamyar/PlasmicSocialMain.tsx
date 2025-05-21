@@ -65,6 +65,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
 import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
 import RadioGrop2 from "../../RadioGrop2"; // plasmic-import: S5lwX58ZN_a3/component
+import RepeatPost from "../../RepeatPost"; // plasmic-import: O_6FIPF6rDTy/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -99,6 +100,7 @@ export type PlasmicSocialMain__OverridesType = {
   story?: Flex__<"div">;
   groupBy?: Flex__<"div">;
   radioGrop2?: Flex__<typeof RadioGrop2>;
+  repeatPost?: Flex__<typeof RepeatPost>;
   getInfo?: Flex__<typeof ApiRequest>;
 };
 
@@ -497,7 +499,11 @@ function PlasmicSocialMain__RenderFunc(props: {
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__rjNb)}>
-            <div className={classNames(projectcss.all, sty.freeBox__ybpyR)} />
+            <RepeatPost
+              data-plasmic-name={"repeatPost"}
+              data-plasmic-override={overrides.repeatPost}
+              className={classNames("__wab_instance", sty.repeatPost)}
+            />
           </div>
           <ApiRequest
             data-plasmic-name={"getInfo"}
@@ -575,6 +581,7 @@ const PlasmicDescendants = {
     "story",
     "groupBy",
     "radioGrop2",
+    "repeatPost",
     "getInfo"
   ],
   section: ["section", "mainHeader"],
@@ -582,6 +589,7 @@ const PlasmicDescendants = {
   story: ["story"],
   groupBy: ["groupBy", "radioGrop2"],
   radioGrop2: ["radioGrop2"],
+  repeatPost: ["repeatPost"],
   getInfo: ["getInfo"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -594,6 +602,7 @@ type NodeDefaultElementType = {
   story: "div";
   groupBy: "div";
   radioGrop2: typeof RadioGrop2;
+  repeatPost: typeof RepeatPost;
   getInfo: typeof ApiRequest;
 };
 
@@ -687,6 +696,7 @@ export const PlasmicSocialMain = Object.assign(
     story: makeNodeComponent("story"),
     groupBy: makeNodeComponent("groupBy"),
     radioGrop2: makeNodeComponent("radioGrop2"),
+    repeatPost: makeNodeComponent("repeatPost"),
     getInfo: makeNodeComponent("getInfo"),
 
     // Metadata about props expected for PlasmicSocialMain

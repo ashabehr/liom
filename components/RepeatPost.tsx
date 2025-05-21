@@ -2,9 +2,9 @@
 // This file is owned by you, feel free to edit as you see fit.
 import * as React from "react";
 import {
-  PlasmicPost2,
-  DefaultPost2Props
-} from "./plasmic/liom_hamyar/PlasmicPost2";
+  PlasmicRepeatPost,
+  DefaultRepeatPostProps
+} from "./plasmic/liom_hamyar/PlasmicRepeatPost";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
 // Your component props start with props for variants and slots you defined
@@ -14,32 +14,32 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // If you don't want to expose certain variants or slots as a prop, you can use
 // Omit to hide them:
 //
-// interface Post2Props extends Omit<DefaultPost2Props, "hideProps1"|"hideProp2"> {
+// interface RepeatPostProps extends Omit<DefaultRepeatPostProps, "hideProps1"|"hideProp2"> {
 //   // etc.
 // }
 //
-// You can also stop extending from DefaultPost2Props altogether and have
+// You can also stop extending from DefaultRepeatPostProps altogether and have
 // total control over the props for your component.
-export interface Post2Props extends DefaultPost2Props {}
+export interface RepeatPostProps extends DefaultRepeatPostProps {}
 
-function Post2_(props: Post2Props, ref: HTMLElementRefOf<"div">) {
-  // Use PlasmicPost2 to render this component as it was
+function RepeatPost_(props: RepeatPostProps, ref: HTMLElementRefOf<"div">) {
+  // Use PlasmicRepeatPost to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicPost2 are:
+  // Props you can pass into PlasmicRepeatPost are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, we are just piping all Post2Props here, but feel free
+  // By default, we are just piping all RepeatPostProps here, but feel free
   // to do whatever works for you.
 
-  return <PlasmicPost2 root={{ ref }} {...props} />;
+  return <PlasmicRepeatPost root={{ ref }} {...props} />;
 }
 
-const Post2 = React.forwardRef(Post2_);
-export default Post2;
+const RepeatPost = React.forwardRef(RepeatPost_);
+export default RepeatPost;

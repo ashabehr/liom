@@ -1943,19 +1943,6 @@
           "componentType": "component"
         },
         {
-          "id": "1mzmY9DmVGqo",
-          "name": "Post2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPost2.tsx",
-          "importSpec": {
-            "modulePath": "Post2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicPost2.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "7fkym_8d4GAx",
           "name": "ToolsPage",
           "type": "managed",
@@ -1996,6 +1983,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/shop-2"
+        },
+        {
+          "id": "O_6FIPF6rDTy",
+          "name": "RepeatPost",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicRepeatPost.tsx",
+          "importSpec": {
+            "modulePath": "RepeatPost.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicRepeatPost.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
