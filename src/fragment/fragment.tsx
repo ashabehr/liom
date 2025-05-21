@@ -231,12 +231,14 @@ export const Fragment = ({
                 break;
             }
             case "#selfSms": {
-                const link = `https://apps.liom.app/self-sms-page/?inApp=${inApp}&token=${token}`;
+                const queryString = buildQueryString(params);
+                const link = `https://apps.liom.app/self-sms-page/?inApp=${inApp}&token=${token}&${queryString}`;
                 sendMessage("پیامک به خود", link,inWebViow);
                 break;
             }
             case "#irregularQuestion": {
-                const link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${token}&userId=${userId}&inApp=${inApp}&home-page=https://apps.liom.app/Self-care/`;
+                const queryString = buildQueryString(params);
+                const link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${token}&userId=${userId}&inApp=${inApp}&${queryString}&home-page=https://apps.liom.app/Self-care/&${queryString}`;
                 sendMessage("تست نامنظمی", link,inWebViow);
                 break;
             }
