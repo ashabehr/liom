@@ -3510,8 +3510,8 @@ function PlasmicShop2__RenderFunc(props: {
                       }
                     })()
                   ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
+                    const cart = __plasmic_item_0;
+                    const cartIndex = __plasmic_idx_0;
                     return (
                       <Stack__
                         as={"div"}
@@ -3521,7 +3521,7 @@ function PlasmicShop2__RenderFunc(props: {
                           sty.freeBox___14BbX,
                           "parent"
                         )}
-                        key={currentIndex}
+                        key={cartIndex}
                         overflow={``}
                         position={``}
                       >
@@ -3537,7 +3537,7 @@ function PlasmicShop2__RenderFunc(props: {
                             !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                             (() => {
                               try {
-                                return currentItem.data;
+                                return cart.data;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -3644,117 +3644,164 @@ function PlasmicShop2__RenderFunc(props: {
                                       sty.freeBox___0Jg9T
                                     )}
                                   >
-                                    {(() => {
-                                      const child$Props = {
-                                        className: classNames(
-                                          "__wab_instance",
-                                          sty.checkbox
-                                        ),
-                                        isChecked:
-                                          generateStateValueProp($state, [
-                                            "checkbox",
-                                            __plasmic_idx_0,
-                                            __plasmic_idx_1,
-                                            "isChecked"
-                                          ]) ?? false,
-                                        onChange: async (...eventArgs: any) => {
-                                          ((...eventArgs) => {
-                                            generateStateOnChangeProp($state, [
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__bWe9O
+                                      )}
+                                    >
+                                      {(() => {
+                                        const child$Props = {
+                                          className: classNames(
+                                            "__wab_instance",
+                                            sty.checkbox
+                                          ),
+                                          isChecked:
+                                            generateStateValueProp($state, [
                                               "checkbox",
                                               __plasmic_idx_0,
                                               __plasmic_idx_1,
                                               "isChecked"
-                                            ])(eventArgs[0]);
-                                          }).apply(null, eventArgs);
+                                            ]) ?? false,
+                                          onChange: async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                [
+                                                  "checkbox",
+                                                  __plasmic_idx_0,
+                                                  __plasmic_idx_1,
+                                                  "isChecked"
+                                                ]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
 
-                                          if (
-                                            eventArgs.length > 1 &&
-                                            eventArgs[1] &&
-                                            eventArgs[1]._plasmic_state_init_
-                                          ) {
-                                            return;
-                                          }
-                                        }
-                                      };
-
-                                      initializePlasmicStates(
-                                        $state,
-                                        [
-                                          {
-                                            name: "checkbox[][].isChecked",
-                                            initFunc: ({
-                                              $props,
-                                              $state,
-                                              $queries
-                                            }) => undefined
-                                          }
-                                        ],
-                                        [__plasmic_idx_0, __plasmic_idx_1]
-                                      );
-                                      return (
-                                        <Checkbox
-                                          data-plasmic-name={"checkbox"}
-                                          data-plasmic-override={
-                                            overrides.checkbox
-                                          }
-                                          {...child$Props}
-                                        >
-                                          <div
-                                            className={
-                                              projectcss.__wab_expr_html_text
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
                                             }
-                                            dangerouslySetInnerHTML={{
-                                              __html: (() => {
-                                                try {
-                                                  return currentItem.text;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return "";
-                                                  }
-                                                  throw e;
+                                          }
+                                        };
+
+                                        initializePlasmicStates(
+                                          $state,
+                                          [
+                                            {
+                                              name: "checkbox[][].isChecked",
+                                              initFunc: ({
+                                                $props,
+                                                $state,
+                                                $queries
+                                              }) => undefined
+                                            }
+                                          ],
+                                          [__plasmic_idx_0, __plasmic_idx_1]
+                                        );
+                                        return (
+                                          <Checkbox
+                                            data-plasmic-name={"checkbox"}
+                                            data-plasmic-override={
+                                              overrides.checkbox
+                                            }
+                                            {...child$Props}
+                                          >
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                projectcss.__wab_text,
+                                                sty.text__bwmlW
+                                              )}
+                                            >
+                                              <div
+                                                className={
+                                                  projectcss.__wab_expr_html_text
                                                 }
-                                              })()
-                                            }}
-                                          />
-                                        </Checkbox>
-                                      );
-                                    })()}
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__bIQmr
-                                      )}
-                                    >
-                                      <div
-                                        className={
-                                          projectcss.__wab_expr_html_text
-                                        }
-                                        dangerouslySetInnerHTML={{
-                                          __html: (() => {
-                                            try {
-                                              return currentItem.text;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "";
+                                                dangerouslySetInnerHTML={{
+                                                  __html: (() => {
+                                                    try {
+                                                      return currentItem.text;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return "";
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()
+                                                }}
+                                              />
+                                            </div>
+                                            {(() => {
+                                              try {
+                                                return currentItem.always;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return true;
+                                                }
+                                                throw e;
                                               }
-                                              throw e;
-                                            }
-                                          })()
-                                        }}
-                                      />
+                                            })() ? (
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  projectcss.__wab_text,
+                                                  sty.text__r87P1
+                                                )}
+                                              >
+                                                {
+                                                  "\u06cc\u06a9\u0628\u0627\u0631 \u062e\u0631\u06cc\u062f"
+                                                }
+                                              </div>
+                                            ) : null}
+                                          </Checkbox>
+                                        );
+                                      })()}
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__bIQmr
+                                        )}
+                                      >
+                                        <div
+                                          className={
+                                            projectcss.__wab_expr_html_text
+                                          }
+                                          dangerouslySetInnerHTML={{
+                                            __html: (() => {
+                                              try {
+                                                return currentItem.hint;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "";
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          }}
+                                        />
+                                      </div>
                                     </div>
                                     {(() => {
                                       try {
-                                        return $state.collapseMother[
+                                        return $state.collapseMother[cartIndex][
                                           currentIndex
                                         ].open;
                                       } catch (e) {
@@ -3779,8 +3826,8 @@ function PlasmicShop2__RenderFunc(props: {
                                     {(() => {
                                       try {
                                         return !$state.collapseMother[
-                                          currentIndex
-                                        ].open;
+                                          cartIndex
+                                        ][currentIndex].open;
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -3855,15 +3902,80 @@ function PlasmicShop2__RenderFunc(props: {
                                   }
                                   {...child$Props}
                                 >
-                                  <div
+                                  <Stack__
+                                    as={"div"}
+                                    hasGap={true}
                                     className={classNames(
                                       projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__s7Mk
+                                      sty.freeBox__iFkN3
                                     )}
                                   >
-                                    {"xgdggddgd"}
-                                  </div>
+                                    {(_par =>
+                                      !_par
+                                        ? []
+                                        : Array.isArray(_par)
+                                        ? _par
+                                        : [_par])(
+                                      (() => {
+                                        try {
+                                          return currentItem.items.length > 1
+                                            ? currentItem.items
+                                            : [];
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return [];
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ).map(
+                                      (__plasmic_item_2, __plasmic_idx_2) => {
+                                        const item = __plasmic_item_2;
+                                        const itemIndex = __plasmic_idx_2;
+                                        return (
+                                          <RadioGrop
+                                            className={classNames(
+                                              "__wab_instance",
+                                              sty.radioGrop__atbaS
+                                            )}
+                                            color={"light"}
+                                            key={itemIndex}
+                                            size={"mini"}
+                                            style2={"lineligt"}
+                                          >
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                projectcss.__wab_text,
+                                                sty.text__gtCl
+                                              )}
+                                            >
+                                              <React.Fragment>
+                                                {(() => {
+                                                  try {
+                                                    return item.text;
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return "";
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()}
+                                              </React.Fragment>
+                                            </div>
+                                          </RadioGrop>
+                                        );
+                                      }
+                                    )}
+                                  </Stack__>
                                 </AntdSingleCollapse>
                               );
                             })();

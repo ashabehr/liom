@@ -73,14 +73,16 @@ export type PlasmicRadioGrop__VariantMembers = {
   selectedLine: "selectedLine";
   disable: "disable";
   color: "light";
-  style2: "line" | "grayBackgerand";
+  style2: "line" | "grayBackgerand" | "lineligt";
+  size: "mini";
 };
 export type PlasmicRadioGrop__VariantsArgs = {
   selected?: SingleBooleanChoiceArg<"selected">;
   selectedLine?: SingleBooleanChoiceArg<"selectedLine">;
   disable?: SingleBooleanChoiceArg<"disable">;
   color?: SingleChoiceArg<"light">;
-  style2?: SingleChoiceArg<"line" | "grayBackgerand">;
+  style2?: SingleChoiceArg<"line" | "grayBackgerand" | "lineligt">;
+  size?: SingleChoiceArg<"mini">;
 };
 type VariantPropType = keyof PlasmicRadioGrop__VariantsArgs;
 export const PlasmicRadioGrop__VariantProps = new Array<VariantPropType>(
@@ -88,7 +90,8 @@ export const PlasmicRadioGrop__VariantProps = new Array<VariantPropType>(
   "selectedLine",
   "disable",
   "color",
-  "style2"
+  "style2",
+  "size"
 );
 
 export type PlasmicRadioGrop__ArgsType = {
@@ -113,7 +116,8 @@ export interface DefaultRadioGropProps {
   selectedLine?: SingleBooleanChoiceArg<"selectedLine">;
   disable?: SingleBooleanChoiceArg<"disable">;
   color?: SingleChoiceArg<"light">;
-  style2?: SingleChoiceArg<"line" | "grayBackgerand">;
+  style2?: SingleChoiceArg<"line" | "grayBackgerand" | "lineligt">;
+  size?: SingleChoiceArg<"mini">;
   className?: string;
 }
 
@@ -189,6 +193,12 @@ function PlasmicRadioGrop__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.style2
+      },
+      {
+        path: "size",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.size
       }
     ],
     [$props, $ctx, $refs]
@@ -227,12 +237,17 @@ function PlasmicRadioGrop__RenderFunc(props: {
             "selectedLine"
           ),
           [sty.rootselected]: hasVariant($state, "selected", "selected"),
+          [sty.rootsize_mini]: hasVariant($state, "size", "mini"),
           [sty.rootstyle2_grayBackgerand]: hasVariant(
             $state,
             "style2",
             "grayBackgerand"
           ),
-          [sty.rootstyle2_line]: hasVariant($state, "style2", "line")
+          [sty.rootstyle2_line]: hasVariant($state, "style2", "line"),
+          [sty.rootstyle2_lineligt]: hasVariant($state, "style2", "lineligt"),
+          [sty.rootstyle2_lineligt_selected]:
+            hasVariant($state, "style2", "lineligt") &&
+            hasVariant($state, "selected", "selected")
         }
       )}
       onClick={args.onClick}
@@ -241,7 +256,8 @@ function PlasmicRadioGrop__RenderFunc(props: {
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
         className={classNames(projectcss.all, sty.freeBox, {
-          [sty.freeBoxselected]: hasVariant($state, "selected", "selected")
+          [sty.freeBoxselected]: hasVariant($state, "selected", "selected"),
+          [sty.freeBoxstyle2_lineligt]: hasVariant($state, "style2", "lineligt")
         })}
       >
         {renderPlasmicSlot({
@@ -255,7 +271,15 @@ function PlasmicRadioGrop__RenderFunc(props: {
               $state,
               "selected",
               "selected"
-            )
+            ),
+            [sty.slotTargetChildrensize_mini]: hasVariant(
+              $state,
+              "size",
+              "mini"
+            ),
+            [sty.slotTargetChildrenstyle2_lineligt_selected]:
+              hasVariant($state, "style2", "lineligt") &&
+              hasVariant($state, "selected", "selected")
           })
         })}
       </div>
