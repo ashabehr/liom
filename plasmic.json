@@ -1916,20 +1916,6 @@
           "path": "/result-age-pregnant"
         },
         {
-          "id": "iNHFQ5RIM3Tb",
-          "name": "Post2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPost2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/post.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicPost2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/post"
-        },
-        {
           "id": "5V4ceo3a5FXI",
           "name": "BuyComponenct2",
           "type": "managed",
@@ -1994,6 +1980,33 @@
             "modulePath": "RepeatPost.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicRepeatPost.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "iNHFQ5RIM3Tb",
+          "name": "Post2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPost2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/post.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicPost2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/post"
+        },
+        {
+          "id": "eaFD2jwbxRPb",
+          "name": "Post2ForSocialMain",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPost2ForSocialMain.tsx",
+          "importSpec": {
+            "modulePath": "Post2ForSocialMain.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicPost2ForSocialMain.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }

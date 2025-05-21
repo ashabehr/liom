@@ -17343,7 +17343,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                                 currentItem.stepId +
                                                                 "&style=" +
                                                                 currentItem.styleType +
-                                                                "&type=danger" +
+                                                                "&type=pregnancy_danger_sub" +
                                                                 "&token=" +
                                                                 $state.token +
                                                                 "&inApp=" +
@@ -17456,7 +17456,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                                   currentItem.stepId +
                                                                   "&style=" +
                                                                   currentItem.styleType +
-                                                                  "&type=danger" +
+                                                                  "&type=pregnancy_danger_sub" +
                                                                   "&token=" +
                                                                   $state.token +
                                                                   "&inApp=" +

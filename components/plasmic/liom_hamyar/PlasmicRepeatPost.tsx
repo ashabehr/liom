@@ -59,6 +59,9 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import UploudeTime from "../../UploudeTime"; // plasmic-import: aUO_fJR7ceN4/component
+import Post2ForSocialMain from "../../Post2ForSocialMain"; // plasmic-import: eaFD2jwbxRPb/component
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -80,6 +83,9 @@ export const PlasmicRepeatPost__ArgProps = new Array<ArgPropType>();
 export type PlasmicRepeatPost__OverridesType = {
   root?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
+  uploudeTime?: Flex__<typeof UploudeTime>;
+  svg?: Flex__<"svg">;
+  post2ForSocialMain?: Flex__<typeof Post2ForSocialMain>;
 };
 
 export interface DefaultRepeatPostProps {
@@ -157,14 +163,8 @@ function PlasmicRepeatPost__RenderFunc(props: {
               displayMaxWidth={"100%"}
               displayMinHeight={"0"}
               displayMinWidth={"0"}
-              displayWidth={"100%"}
+              displayWidth={"auto"}
               loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_hamyar/images/image2.png",
-                fullWidth: 512,
-                fullHeight: 512,
-                aspectRatio: undefined
-              }}
             />
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__jntva)}>
@@ -187,16 +187,39 @@ function PlasmicRepeatPost__RenderFunc(props: {
               {"amir__@"}
             </div>
           </div>
+          <div className={classNames(projectcss.all, sty.freeBox__gc81X)}>
+            <UploudeTime
+              data-plasmic-name={"uploudeTime"}
+              data-plasmic-override={overrides.uploudeTime}
+              className={classNames("__wab_instance", sty.uploudeTime)}
+            />
+
+            <svg
+              data-plasmic-name={"svg"}
+              data-plasmic-override={overrides.svg}
+              className={classNames(projectcss.all, sty.svg)}
+              role={"img"}
+            />
+          </div>
         </div>
-        <div className={classNames(projectcss.all, sty.freeBox__tDfeu)} />
+      </div>
+      <div className={classNames(projectcss.all, sty.freeBox__vsEl2)}>
+        <Post2ForSocialMain
+          data-plasmic-name={"post2ForSocialMain"}
+          data-plasmic-override={overrides.post2ForSocialMain}
+          className={classNames("__wab_instance", sty.post2ForSocialMain)}
+        />
       </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img"],
-  img: ["img"]
+  root: ["root", "img", "uploudeTime", "svg", "post2ForSocialMain"],
+  img: ["img"],
+  uploudeTime: ["uploudeTime"],
+  svg: ["svg"],
+  post2ForSocialMain: ["post2ForSocialMain"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -204,6 +227,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   img: typeof PlasmicImg__;
+  uploudeTime: typeof UploudeTime;
+  svg: "svg";
+  post2ForSocialMain: typeof Post2ForSocialMain;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -267,6 +293,9 @@ export const PlasmicRepeatPost = Object.assign(
   {
     // Helper components rendering sub-elements
     img: makeNodeComponent("img"),
+    uploudeTime: makeNodeComponent("uploudeTime"),
+    svg: makeNodeComponent("svg"),
+    post2ForSocialMain: makeNodeComponent("post2ForSocialMain"),
 
     // Metadata about props expected for PlasmicRepeatPost
     internalVariantProps: PlasmicRepeatPost__VariantProps,

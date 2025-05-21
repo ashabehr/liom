@@ -5,6 +5,7 @@ import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-we
 import GlobalContextsProvider from "../../components/plasmic/todo_mvc_app/PlasmicGlobalContextsProvider";
 import { UnnamedGlobalGroupOfVariants4Context } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
 import { UnnamedGlobalGroupOfVariants5Context } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
+import { PlasmicPost2 } from "../../components/plasmic/liom_hamyar/PlasmicPost2";
 import { useRouter } from "next/router";
 
 function Post2() {
@@ -34,6 +35,7 @@ function Post2() {
             params={useRouter()?.query}
             query={useRouter()?.query}
           >
+            <PlasmicPost2 />
           </PageParamsProvider__>
         </GlobalContextsProvider>
       </UnnamedGlobalGroupOfVariants4Context.Provider>
