@@ -66,10 +66,9 @@ import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/compo
 import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
 import RadioGrop2 from "../../RadioGrop2"; // plasmic-import: S5lwX58ZN_a3/component
 import RepeatPost from "../../RepeatPost"; // plasmic-import: O_6FIPF6rDTy/component
-import ReactionBar2 from "../../ReactionBar2"; // plasmic-import: H6dfyqWexG5G/component
+import ReactionBar2ForSocialMain from "../../ReactionBar2ForSocialMain"; // plasmic-import: H6dfyqWexG5G/component
 import Like from "../../Like"; // plasmic-import: ARJf0DiYhPbe/component
 import Save from "../../Save"; // plasmic-import: _x22uBJ4ZqC9/component
-import SwitchBarSocialMain from "../../SwitchBarSocialMain"; // plasmic-import: 39fIW19kX-oH/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -108,8 +107,7 @@ export type PlasmicSocialMain__OverridesType = {
   groupBy?: Flex__<"div">;
   radioGrop2?: Flex__<typeof RadioGrop2>;
   repeatPost?: Flex__<typeof RepeatPost>;
-  reactionBar2?: Flex__<typeof ReactionBar2>;
-  switchBarSocialMain?: Flex__<typeof SwitchBarSocialMain>;
+  reactionBar2ForSocialMain?: Flex__<typeof ReactionBar2ForSocialMain>;
   getInfo?: Flex__<typeof ApiRequest>;
 };
 
@@ -221,7 +219,7 @@ function PlasmicSocialMain__RenderFunc(props: {
         path: "choiceType",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) => "new_liom"
       },
       {
         path: "like2.islike",
@@ -241,6 +239,12 @@ function PlasmicSocialMain__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "switchBar",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -343,7 +347,69 @@ function PlasmicSocialMain__RenderFunc(props: {
                   </div>
                 </Stack__>
               }
-            />
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___55IIv)}
+              >
+                <Icon185Icon
+                  className={classNames(projectcss.all, sty.svg__hiXWo)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDrawerOpen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["drawer", "open"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDrawerOpen"] != null &&
+                      typeof $steps["updateDrawerOpen"] === "object" &&
+                      typeof $steps["updateDrawerOpen"].then === "function"
+                    ) {
+                      $steps["updateDrawerOpen"] = await $steps[
+                        "updateDrawerOpen"
+                      ];
+                    }
+                  }}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__rQw8X
+                  )}
+                >
+                  {
+                    "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647"
+                  }
+                </div>
+              </Stack__>
+            </MainHeader>
           </section>
           <div className={classNames(projectcss.all, sty.freeBox___2BKpP)}>
             <Stack__
@@ -460,14 +526,15 @@ function PlasmicSocialMain__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["updateToken"] = true
+                        $steps["updateChoiceType"] = true
                           ? (() => {
                               const actionArgs = {
                                 variable: {
                                   objRoot: $state,
-                                  variablePath: ["token"]
+                                  variablePath: ["choiceType"]
                                 },
-                                operation: 0
+                                operation: 0,
+                                value: currentItem.type
                               };
                               return (({
                                 variable,
@@ -486,11 +553,13 @@ function PlasmicSocialMain__RenderFunc(props: {
                             })()
                           : undefined;
                         if (
-                          $steps["updateToken"] != null &&
-                          typeof $steps["updateToken"] === "object" &&
-                          typeof $steps["updateToken"].then === "function"
+                          $steps["updateChoiceType"] != null &&
+                          typeof $steps["updateChoiceType"] === "object" &&
+                          typeof $steps["updateChoiceType"].then === "function"
                         ) {
-                          $steps["updateToken"] = await $steps["updateToken"];
+                          $steps["updateChoiceType"] = await $steps[
+                            "updateChoiceType"
+                          ];
                         }
                       }}
                       selected={(() => {
@@ -506,7 +575,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                           throw e;
                         }
                       })()}
-                      style2={"line"}
+                      style2={"grayBackgerand"}
                       text={(() => {
                         try {
                           return currentItem.text;
@@ -534,30 +603,14 @@ function PlasmicSocialMain__RenderFunc(props: {
                 className={classNames("__wab_instance", sty.repeatPost)}
               />
 
-              <ReactionBar2
-                data-plasmic-name={"reactionBar2"}
-                data-plasmic-override={overrides.reactionBar2}
-                className={classNames("__wab_instance", sty.reactionBar2)}
+              <ReactionBar2ForSocialMain
+                data-plasmic-name={"reactionBar2ForSocialMain"}
+                data-plasmic-override={overrides.reactionBar2ForSocialMain}
+                className={classNames(
+                  "__wab_instance",
+                  sty.reactionBar2ForSocialMain
+                )}
               />
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__qRQf)}>
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
-                2, 3, 4
-              ]).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <SwitchBarSocialMain
-                    data-plasmic-name={"switchBarSocialMain"}
-                    data-plasmic-override={overrides.switchBarSocialMain}
-                    className={classNames(
-                      "__wab_instance",
-                      sty.switchBarSocialMain
-                    )}
-                    key={currentIndex}
-                  />
-                );
-              })}
             </div>
           </div>
           <ApiRequest
@@ -637,8 +690,7 @@ const PlasmicDescendants = {
     "groupBy",
     "radioGrop2",
     "repeatPost",
-    "reactionBar2",
-    "switchBarSocialMain",
+    "reactionBar2ForSocialMain",
     "getInfo"
   ],
   section: ["section", "mainHeader"],
@@ -647,8 +699,7 @@ const PlasmicDescendants = {
   groupBy: ["groupBy", "radioGrop2"],
   radioGrop2: ["radioGrop2"],
   repeatPost: ["repeatPost"],
-  reactionBar2: ["reactionBar2"],
-  switchBarSocialMain: ["switchBarSocialMain"],
+  reactionBar2ForSocialMain: ["reactionBar2ForSocialMain"],
   getInfo: ["getInfo"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -662,8 +713,7 @@ type NodeDefaultElementType = {
   groupBy: "div";
   radioGrop2: typeof RadioGrop2;
   repeatPost: typeof RepeatPost;
-  reactionBar2: typeof ReactionBar2;
-  switchBarSocialMain: typeof SwitchBarSocialMain;
+  reactionBar2ForSocialMain: typeof ReactionBar2ForSocialMain;
   getInfo: typeof ApiRequest;
 };
 
@@ -758,8 +808,7 @@ export const PlasmicSocialMain = Object.assign(
     groupBy: makeNodeComponent("groupBy"),
     radioGrop2: makeNodeComponent("radioGrop2"),
     repeatPost: makeNodeComponent("repeatPost"),
-    reactionBar2: makeNodeComponent("reactionBar2"),
-    switchBarSocialMain: makeNodeComponent("switchBarSocialMain"),
+    reactionBar2ForSocialMain: makeNodeComponent("reactionBar2ForSocialMain"),
     getInfo: makeNodeComponent("getInfo"),
 
     // Metadata about props expected for PlasmicSocialMain

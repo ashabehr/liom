@@ -1,18 +1,18 @@
 .root {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-right: 8px;
-  padding-bottom: 8px;
-  padding-top: 8px;
   position: relative;
   background: #ffffff;
   justify-self: flex-start;
+  width: auto;
+  height: auto;
   border-radius: 8px;
+  padding: 8px;
 }
 .rootselected {
-  background: #7444bcb3;
+  background: #d6baffb3;
   border-width: 0px;
 }
 .rootselectedLine {
@@ -25,7 +25,7 @@
   border-width: 0px;
 }
 .rootstyle2_grayBackgerand {
-  background: var(--token-Y4frplZPI0IJ);
+  background: var(--token-LN1YkB123lXQ);
   border-style: none;
 }
 .rootselected_color_light {
@@ -46,9 +46,12 @@
   height: auto;
   max-width: 100%;
   color: var(--token-fn6i10-y5r1L);
-  font-weight: 700;
+  font-weight: 400;
   text-align: center;
   white-space: pre;
   font-family: "Risque";
   min-width: 0;
+}
+.textselected {
+  color: #8254c6;
 }

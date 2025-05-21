@@ -76,7 +76,7 @@
   width: auto;
   height: 35px;
   max-width: 100%;
-  padding: 0px 0px 0px 8px;
+  padding: 0px;
 }
 .freeBox___55IIv > :global(.__wab_flex-container) {
   flex-direction: row;
@@ -370,7 +370,7 @@
   width: 100%;
   min-width: 0;
 }
-.reactionBar2:global(.__wab_instance) {
+.reactionBar2ForSocialMain:global(.__wab_instance) {
   max-width: 100%;
 }
 .like__sh9Q0:global(.__wab_instance) {
@@ -458,22 +458,6 @@
   max-width: 100%;
   text-align: center;
   min-width: 0;
-}
-.freeBox__qRQf {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  background: var(--token-R_Rsn0nP9oIv);
-  min-width: 0;
-  padding: 8px;
-}
-.switchBarSocialMain:global(.__wab_instance) {
-  position: relative;
 }
 .getInfo:global(.__wab_instance) {
   max-width: 100%;

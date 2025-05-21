@@ -1002,29 +1002,24 @@ function PlasmicSelfCare__RenderFunc(props: {
                           $steps["runCode"] = await $steps["runCode"];
                         }
 
-                        $steps["goToSubItems"] = true
+                        $steps["runCode2"] = true
                           ? (() => {
-                              const actionArgs = { destination: `/subItems` };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return window.open("/subItems", "_self");
                                 }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
                         if (
-                          $steps["goToSubItems"] != null &&
-                          typeof $steps["goToSubItems"] === "object" &&
-                          typeof $steps["goToSubItems"].then === "function"
+                          $steps["runCode2"] != null &&
+                          typeof $steps["runCode2"] === "object" &&
+                          typeof $steps["runCode2"].then === "function"
                         ) {
-                          $steps["goToSubItems"] = await $steps["goToSubItems"];
+                          $steps["runCode2"] = await $steps["runCode2"];
                         }
 
                         $steps["updateLoadLoading2"] = true

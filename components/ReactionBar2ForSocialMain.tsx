@@ -2,9 +2,9 @@
 // This file is owned by you, feel free to edit as you see fit.
 import * as React from "react";
 import {
-  PlasmicSwitchBarSocialMain,
-  DefaultSwitchBarSocialMainProps
-} from "./plasmic/liom_hamyar/PlasmicSwitchBarSocialMain";
+  PlasmicReactionBar2ForSocialMain,
+  DefaultReactionBar2ForSocialMainProps
+} from "./plasmic/liom_hamyar/PlasmicReactionBar2ForSocialMain";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
 // Your component props start with props for variants and slots you defined
@@ -14,36 +14,36 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // If you don't want to expose certain variants or slots as a prop, you can use
 // Omit to hide them:
 //
-// interface SwitchBarSocialMainProps extends Omit<DefaultSwitchBarSocialMainProps, "hideProps1"|"hideProp2"> {
+// interface ReactionBar2ForSocialMainProps extends Omit<DefaultReactionBar2ForSocialMainProps, "hideProps1"|"hideProp2"> {
 //   // etc.
 // }
 //
-// You can also stop extending from DefaultSwitchBarSocialMainProps altogether and have
+// You can also stop extending from DefaultReactionBar2ForSocialMainProps altogether and have
 // total control over the props for your component.
-export interface SwitchBarSocialMainProps
-  extends DefaultSwitchBarSocialMainProps {}
+export interface ReactionBar2ForSocialMainProps
+  extends DefaultReactionBar2ForSocialMainProps {}
 
-function SwitchBarSocialMain_(
-  props: SwitchBarSocialMainProps,
+function ReactionBar2ForSocialMain_(
+  props: ReactionBar2ForSocialMainProps,
   ref: HTMLElementRefOf<"div">
 ) {
-  // Use PlasmicSwitchBarSocialMain to render this component as it was
+  // Use PlasmicReactionBar2ForSocialMain to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicSwitchBarSocialMain are:
+  // Props you can pass into PlasmicReactionBar2ForSocialMain are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, we are just piping all SwitchBarSocialMainProps here, but feel free
+  // By default, we are just piping all ReactionBar2ForSocialMainProps here, but feel free
   // to do whatever works for you.
 
-  return <PlasmicSwitchBarSocialMain root={{ ref }} {...props} />;
+  return <PlasmicReactionBar2ForSocialMain root={{ ref }} {...props} />;
 }
 
-const SwitchBarSocialMain = React.forwardRef(SwitchBarSocialMain_);
-export default SwitchBarSocialMain;
+const ReactionBar2ForSocialMain = React.forwardRef(ReactionBar2ForSocialMain_);
+export default ReactionBar2ForSocialMain;

@@ -359,7 +359,8 @@ function PlasmicBioritm2__RenderFunc(props: {
             try {
               return (
                 window.sessionStorage.getItem("birthDate") == "" ||
-                window.sessionStorage.getItem("birthDate") == null
+                window.sessionStorage.getItem("birthDate") == null ||
+                window.sessionStorage.getItem("birthDate") == "undefined"
               );
             } catch (e) {
               if (

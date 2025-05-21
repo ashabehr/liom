@@ -139,7 +139,7 @@ function PlasmicRadioGrop2__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          text: "cdsCdCC"
+          text: "amiirrr"
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -238,6 +238,25 @@ function PlasmicRadioGrop2__RenderFunc(props: {
           [sty.rootstyle2_line]: hasVariant($state, "style2", "line")
         }
       )}
+      onClick={async event => {
+        const $steps = {};
+
+        $steps["runOnClick"] = true
+          ? (() => {
+              const actionArgs = { eventRef: $props["onClick"] };
+              return (({ eventRef, args }) => {
+                return eventRef?.(...(args ?? []));
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["runOnClick"] != null &&
+          typeof $steps["runOnClick"] === "object" &&
+          typeof $steps["runOnClick"].then === "function"
+        ) {
+          $steps["runOnClick"] = await $steps["runOnClick"];
+        }
+      }}
     >
       <div
         data-plasmic-name={"freeBox"}
@@ -254,6 +273,7 @@ function PlasmicRadioGrop2__RenderFunc(props: {
             projectcss.__wab_text,
             sty.text,
             {
+              [sty.textselected]: hasVariant($state, "selected", "selected"),
               [sty.textselected_color_light]:
                 hasVariant($state, "color", "light") &&
                 hasVariant($state, "selected", "selected")
@@ -269,7 +289,7 @@ function PlasmicRadioGrop2__RenderFunc(props: {
                   e instanceof TypeError ||
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  return "";
+                  return "amittt";
                 }
                 throw e;
               }
