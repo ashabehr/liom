@@ -2087,12 +2087,13 @@ function PlasmicCalendar__RenderFunc(props: {
                             "userinfo",
                             JSON.stringify($steps.userinfo?.data.result)
                           );
-                          window.sessionStorage.setItem(
-                            "birthDate",
-                            JSON.stringify(
-                              $steps.userinfo?.data.result.user.birthDate
-                            )
-                          );
+                          if ($steps.userinfo?.data?.result?.user?.birthDate)
+                            window.sessionStorage.setItem(
+                              "birthDate",
+                              JSON.stringify(
+                                $steps.userinfo?.data.result.user.birthDate
+                              )
+                            );
                           return ($state.name =
                             $steps.userinfo?.data.result.user.name);
                         })();

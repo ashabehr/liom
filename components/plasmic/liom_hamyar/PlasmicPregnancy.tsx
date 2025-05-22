@@ -1945,7 +1945,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   $state.loadingAdvice = false;
                                   fetch(
                                     "https://n8n.staas.ir/webhook/getAdvice-v3/?weekNumber=" +
-                                      $state.selectedWeek,
+                                      $state.selectedWeek +
+                                      "&token=" +
+                                      $state.token,
                                     { method: "GET" }
                                   )
                                     .then(response => response.json())
