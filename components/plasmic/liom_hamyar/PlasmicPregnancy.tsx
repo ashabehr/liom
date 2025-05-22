@@ -16849,6 +16849,34 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                       }}
                                                     />
                                                   </div>
+                                                  {(() => {
+                                                    try {
+                                                      return (
+                                                        currentItem.animation !=
+                                                        undefined
+                                                      );
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return false;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })() ? (
+                                                    <LottieWrapper
+                                                      animationData={
+                                                        currentItem.animation
+                                                      }
+                                                      className={classNames(
+                                                        "__wab_instance",
+                                                        sty.lottie__ioZv
+                                                      )}
+                                                    />
+                                                  ) : null}
                                                 </Stack__>
                                               ) : null}
                                             </Stack__>
