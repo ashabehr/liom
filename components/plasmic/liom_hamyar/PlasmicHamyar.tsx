@@ -119,6 +119,8 @@ import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
 import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
 import Icon202Icon from "./icons/PlasmicIcon__Icon202"; // plasmic-import: lD6NOJADOGZx/icon
+import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
+import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -192,6 +194,7 @@ export type PlasmicHamyar__OverridesType = {
   timer?: Flex__<typeof Timer>;
   dialog3?: Flex__<typeof Dialog>;
   button13?: Flex__<typeof Button>;
+  button16?: Flex__<typeof Button>;
 };
 
 export interface DefaultHamyarProps {}
@@ -1542,6 +1545,12 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "button16.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -2384,7 +2393,7 @@ function PlasmicHamyar__RenderFunc(props: {
 
           {(() => {
             try {
-              return !$state.loadingPage;
+              return $state.userdata && !$state.loadingPage;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -17606,6 +17615,110 @@ function PlasmicHamyar__RenderFunc(props: {
               }}
             />
           </div>
+          {(() => {
+            try {
+              return !$state.userdata && !$state.loadingPage;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__bPeEl)}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__lm8R9)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__mhiG
+                  )}
+                >
+                  {
+                    "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0639\u0646 \u0634\u0648\u06cc\u062f."
+                  }
+                </div>
+              </div>
+              <Button
+                data-plasmic-name={"button16"}
+                data-plasmic-override={overrides.button16}
+                className={classNames("__wab_instance", sty.button16)}
+                color={generateStateValueProp($state, ["button16", "color"])}
+                endIcon={
+                  <Icon144Icon
+                    className={classNames(projectcss.all, sty.svg__atuoZ)}
+                    role={"img"}
+                  />
+                }
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              window.sessionStorage.removeItem("cash");
+                              return window.location.reload();
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button16", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                startIcon={
+                  <ChevronRightIcon
+                    className={classNames(projectcss.all, sty.svg__twZo)}
+                    role={"img"}
+                  />
+                }
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__hehRe
+                  )}
+                >
+                  {
+                    "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
+                  }
+                </div>
+              </Button>
+            </Stack__>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -17665,7 +17778,8 @@ const PlasmicDescendants = {
     "iframe",
     "timer",
     "dialog3",
-    "button13"
+    "button13",
+    "button16"
   ],
   sideEffect: ["sideEffect"],
   cyclebox: ["cyclebox", "lineClomp", "progress"],
@@ -17738,7 +17852,8 @@ const PlasmicDescendants = {
   iframe: ["iframe"],
   timer: ["timer"],
   dialog3: ["dialog3", "button13"],
-  button13: ["button13"]
+  button13: ["button13"],
+  button16: ["button16"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -17796,6 +17911,7 @@ type NodeDefaultElementType = {
   timer: typeof Timer;
   dialog3: typeof Dialog;
   button13: typeof Button;
+  button16: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -17934,6 +18050,7 @@ export const PlasmicHamyar = Object.assign(
     timer: makeNodeComponent("timer"),
     dialog3: makeNodeComponent("dialog3"),
     button13: makeNodeComponent("button13"),
+    button16: makeNodeComponent("button16"),
 
     // Metadata about props expected for PlasmicHamyar
     internalVariantProps: PlasmicHamyar__VariantProps,
