@@ -1227,6 +1227,52 @@ function PlasmicPregnancy__RenderFunc(props: {
                 onMount={async () => {
                   const $steps = {};
 
+                  $steps["getUser2"] = false
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return fetch(
+                              "https://n8n.staas.ir/webhook/status/?userId=" +
+                                $state.userId,
+                              {
+                                method: "GET",
+                                headers: {
+                                  "Content-Type": "application/json",
+                                  Authorization:
+                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                }
+                              }
+                            )
+                              .then(response => response.json())
+                              .then(data => {
+                                if (
+                                  typeof data?.[0]?.dueDate == "undefined" ||
+                                  data?.[0]?.dueDate == null
+                                ) {
+                                  $state.isNoData = true;
+                                } else {
+                                  $state.isNoData = false;
+                                  $state.user = data;
+                                  $state.loading = false;
+                                }
+                                console.log("user get");
+                              })
+                              .catch(error => console.error("Error3:", error));
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["getUser2"] != null &&
+                    typeof $steps["getUser2"] === "object" &&
+                    typeof $steps["getUser2"].then === "function"
+                  ) {
+                    $steps["getUser2"] = await $steps["getUser2"];
+                  }
+
                   $steps["getParams"] = true
                     ? (() => {
                         const actionArgs = {
@@ -1899,7 +1945,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["goToPageSetting"] = await $steps["goToPageSetting"];
                   }
 
-                  $steps["advice"] = true
+                  $steps["advice"] = !$state.isNoData
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -1950,7 +1996,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["advice"] = await $steps["advice"];
                   }
 
-                  $steps["danger"] = true
+                  $steps["danger"] = !$state.isNoData
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -2002,7 +2048,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["danger"] = await $steps["danger"];
                   }
 
-                  $steps["task"] = true
+                  $steps["task"] = !$state.isNoData
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -2035,7 +2081,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["task"] = await $steps["task"];
                   }
 
-                  $steps["ads"] = true
+                  $steps["ads"] = !$state.isNoData
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -2065,7 +2111,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["ads"] = await $steps["ads"];
                   }
 
-                  $steps["question"] = true
+                  $steps["question"] = !$state.isNoData
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -2097,7 +2143,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["question"] = await $steps["question"];
                   }
 
-                  $steps["tools"] = true
+                  $steps["tools"] = !$state.isNoData
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -2127,7 +2173,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["tools"] = await $steps["tools"];
                   }
 
-                  $steps["setUser"] = true
+                  $steps["setUser"] = !$state.isNoData
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -2332,7 +2378,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["setUser"] = await $steps["setUser"];
                   }
 
-                  $steps["scroll"] = $state.isNoData
+                  $steps["scroll"] = !$state.isNoData
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -2368,7 +2414,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["scroll"] = await $steps["scroll"];
                   }
 
-                  $steps["refreshData"] = true
+                  $steps["refreshData"] = false
                     ? (() => {
                         const actionArgs = {
                           queryInvalidation: ["plasmic_refresh_all"]
@@ -2389,7 +2435,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["refreshData"] = await $steps["refreshData"];
                   }
 
-                  $steps["log"] = true
+                  $steps["log"] = !$state.isNoData
                     ? (() => {
                         const actionArgs = {
                           args: [
@@ -2451,6 +2497,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                 }}
                 runWhileEditing={true}
               />
+
+              <div className={classNames(projectcss.all, sty.freeBox__rPd0G)} />
 
               <Embed
                 data-plasmic-name={"favIcone"}
@@ -15643,8 +15691,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               $state.userId ==
                                 "4ddd1fab-100c-49f0-b843-e70bff8add34" ||
                               $state.userId ==
-                                "b6945f4d-7ab6-4a77-92aa-e4f0944cc61c" ||
-                              $state.getAdvice2.length != 0
+                                "b6945f4d-7ab6-4a77-92aa-e4f0944cc61c"
                             );
                           } catch (e) {
                             if (
@@ -15775,7 +15822,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       )}
                                     >
                                       {
-                                        "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632"
+                                        "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650 \u062a\u0648:"
                                       }
                                     </div>
                                     <div
