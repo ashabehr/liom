@@ -1892,11 +1892,16 @@ function PlasmicHamyar__RenderFunc(props: {
                               100
                             );
                           }
+                          if ($steps.userdata?.data?.result?.man?.birthDate)
+                            window.sessionStorage.setItem(
+                              "birthDate",
+                              JSON.stringify(
+                                $steps.userdata.data.result.man.birthDate
+                              )
+                            );
                           return window.sessionStorage.setItem(
-                            "birthDate",
-                            JSON.stringify(
-                              $steps.userdata.data.result.man.birthDate
-                            )
+                            "hamyar",
+                            "true"
                           );
                         })();
                       }

@@ -366,7 +366,7 @@ function PlasmicSelfCare__RenderFunc(props: {
         >
           {(() => {
             try {
-              return $state.paramsObject.hamyar != "true";
+              return window.sessionStorage.getItem("hamyar") != "true";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1360,7 +1360,27 @@ function PlasmicSelfCare__RenderFunc(props: {
                                   "lll",
                                   "false",
                                   undefined,
-                                  true
+                                  true,
+                                  (() => {
+                                    try {
+                                      return window.sessionStorage.getItem(
+                                        "hamyar"
+                                      ) == "true"
+                                        ? {
+                                            gender: "male"
+                                          }
+                                        : {};
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
                                 ]
                               };
                               return $globalActions["Fragment.deepLink"]?.apply(
@@ -1707,7 +1727,7 @@ function PlasmicSelfCare__RenderFunc(props: {
               >
                 {(() => {
                   try {
-                    return $state.paramsObject.hamyar != "true";
+                    return window.sessionStorage.getItem("hamyar") != "true";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1764,7 +1784,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                 ) : null}
                 {(() => {
                   try {
-                    return $state.paramsObject.hamyar == "true";
+                    return window.sessionStorage.getItem("hamyar") == "true";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

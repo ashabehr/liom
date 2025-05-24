@@ -7516,7 +7516,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   ? filteredItem.active
                                                   : false;
                                                 var token = $state.token;
-                                                console.log(allowance);
+                                                console.log(
+                                                  $state?.getUserInfo
+                                                );
                                                 if (!token.startsWith("ey")) {
                                                   token = token.slice(
                                                     6,
