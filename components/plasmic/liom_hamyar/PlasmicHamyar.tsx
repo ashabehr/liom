@@ -1694,11 +1694,16 @@ function PlasmicHamyar__RenderFunc(props: {
                             const cookies = document.cookie.split("; ");
                             for (let cookie of cookies) {
                               const [key, value] = cookie.split("=");
-                              if (key === name) return JSON.parse(value)[0];
+                              if (key === name)
+                                try {
+                                  return JSON.parse(value)[0];
+                                } catch {
+                                  return "";
+                                }
                             }
                             return "";
                           };
-                          return ($state.tokenUser = getCookie("token"));
+                          return ($state.tokenUser = getCookie("token") || "");
                         })();
                       }
                     };
@@ -14535,26 +14540,11 @@ function PlasmicHamyar__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToPage"] =
+                    $steps["goToSelfCare"] =
                       localStorage.getItem("token") != "undefined" ||
                       localStorage.getItem("token") != null
                         ? (() => {
-                            const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return `/Self-care?hamyar=true`;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return `/Self-care`;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            };
+                            const actionArgs = { destination: `/Self-care` };
                             return (({ destination }) => {
                               if (
                                 typeof destination === "string" &&
@@ -14570,11 +14560,11 @@ function PlasmicHamyar__RenderFunc(props: {
                           })()
                         : undefined;
                     if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
+                      $steps["goToSelfCare"] != null &&
+                      typeof $steps["goToSelfCare"] === "object" &&
+                      typeof $steps["goToSelfCare"].then === "function"
                     ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
+                      $steps["goToSelfCare"] = await $steps["goToSelfCare"];
                     }
                   }}
                 >

@@ -1220,165 +1220,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                 onMount={async () => {
                   const $steps = {};
 
-                  $steps["getUser2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return fetch(
-                              "https://n8n.staas.ir/webhook/status/?userId=" +
-                                $state.userId,
-                              {
-                                method: "GET",
-                                headers: {
-                                  "Content-Type": "application/json",
-                                  Authorization:
-                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                }
-                              }
-                            )
-                              .then(response => response.json())
-                              .then(data => {
-                                if (
-                                  typeof data?.[0]?.dueDate == "undefined" ||
-                                  data?.[0]?.dueDate == null
-                                ) {
-                                  $state.isNoData = true;
-                                } else {
-                                  $state.isNoData = false;
-                                  $state.user = data;
-                                  $state.loading = false;
-                                }
-                                console.log("user get");
-                                console.log(data);
-                              })
-                              .catch(error => console.error("Error3:", error));
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["getUser2"] != null &&
-                    typeof $steps["getUser2"] === "object" &&
-                    typeof $steps["getUser2"].then === "function"
-                  ) {
-                    $steps["getUser2"] = await $steps["getUser2"];
-                  }
-
-                  $steps["showToast"] = $state.isNoData
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            undefined,
-                            "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0628\u062a\u062f\u0627 \u0628\u0627\u06cc\u062f \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
-                            "bottom-center"
-                          ]
-                        };
-                        return $globalActions["Fragment.showToast"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["showToast"] != null &&
-                    typeof $steps["showToast"] === "object" &&
-                    typeof $steps["showToast"].then === "function"
-                  ) {
-                    $steps["showToast"] = await $steps["showToast"];
-                  }
-
-                  $steps["goToPageSetting"] = $state.isNoData
-                    ? (() => {
-                        const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return (() => {
-                                var token = $state.token;
-                                return (
-                                  "https://apps.liom.app/setting-pregnancy/?token=" +
-                                  token +
-                                  "&userId=" +
-                                  $state.userId +
-                                  "&theme=" +
-                                  $ctx.query.theme +
-                                  "&inApp=" +
-                                  $ctx.query.inApp +
-                                  "&inBo=t" +
-                                  $ctx.query.inBot
-                                );
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToPageSetting"] != null &&
-                    typeof $steps["goToPageSetting"] === "object" &&
-                    typeof $steps["goToPageSetting"].then === "function"
-                  ) {
-                    $steps["goToPageSetting"] = await $steps["goToPageSetting"];
-                  }
-
-                  $steps["scroll"] = !$state.isNoData
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              const list =
-                                document.getElementById("my-scroll-list");
-                              const list2 = list.children[0];
-                              const fourthItem =
-                                list2.children[$state.selectedWeek];
-                              if (fourthItem) {
-                                const itemPosition =
-                                  fourthItem.offsetLeft -
-                                  list.offsetWidth * 0.35 +
-                                  fourthItem.offsetWidth / 2;
-                                return list.scrollTo({
-                                  left: itemPosition,
-                                  behavior: "smooth"
-                                });
-                              }
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["scroll"] != null &&
-                    typeof $steps["scroll"] === "object" &&
-                    typeof $steps["scroll"].then === "function"
-                  ) {
-                    $steps["scroll"] = await $steps["scroll"];
-                  }
-
                   $steps["getParams"] = true
                     ? (() => {
                         const actionArgs = {
@@ -1868,6 +1709,165 @@ function PlasmicPregnancy__RenderFunc(props: {
                     typeof $steps["updateIsTimer"].then === "function"
                   ) {
                     $steps["updateIsTimer"] = await $steps["updateIsTimer"];
+                  }
+
+                  $steps["getUser2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return fetch(
+                              "https://n8n.staas.ir/webhook/status/?userId=" +
+                                $state.userId,
+                              {
+                                method: "GET",
+                                headers: {
+                                  "Content-Type": "application/json",
+                                  Authorization:
+                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                }
+                              }
+                            )
+                              .then(response => response.json())
+                              .then(data => {
+                                if (
+                                  typeof data?.[0]?.dueDate == "undefined" ||
+                                  data?.[0]?.dueDate == null
+                                ) {
+                                  $state.isNoData = true;
+                                } else {
+                                  $state.isNoData = false;
+                                  $state.user = data;
+                                  $state.loading = false;
+                                }
+                                console.log("user get");
+                                console.log(data);
+                              })
+                              .catch(error => console.error("Error3:", error));
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["getUser2"] != null &&
+                    typeof $steps["getUser2"] === "object" &&
+                    typeof $steps["getUser2"].then === "function"
+                  ) {
+                    $steps["getUser2"] = await $steps["getUser2"];
+                  }
+
+                  $steps["showToast"] = $state.isNoData
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0628\u062a\u062f\u0627 \u0628\u0627\u06cc\u062f \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                            "bottom-center"
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["showToast"] != null &&
+                    typeof $steps["showToast"] === "object" &&
+                    typeof $steps["showToast"].then === "function"
+                  ) {
+                    $steps["showToast"] = await $steps["showToast"];
+                  }
+
+                  $steps["goToPageSetting"] = $state.isNoData
+                    ? (() => {
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return (() => {
+                                var token = $state.token;
+                                return (
+                                  "https://apps.liom.app/setting-pregnancy/?token=" +
+                                  token +
+                                  "&userId=" +
+                                  $state.userId +
+                                  "&theme=" +
+                                  $ctx.query.theme +
+                                  "&inApp=" +
+                                  $ctx.query.inApp +
+                                  "&inBo=t" +
+                                  $ctx.query.inBot
+                                );
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToPageSetting"] != null &&
+                    typeof $steps["goToPageSetting"] === "object" &&
+                    typeof $steps["goToPageSetting"].then === "function"
+                  ) {
+                    $steps["goToPageSetting"] = await $steps["goToPageSetting"];
+                  }
+
+                  $steps["scroll"] = !$state.isNoData
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              const list =
+                                document.getElementById("my-scroll-list");
+                              const list2 = list.children[0];
+                              const fourthItem =
+                                list2.children[$state.selectedWeek];
+                              if (fourthItem) {
+                                const itemPosition =
+                                  fourthItem.offsetLeft -
+                                  list.offsetWidth * 0.35 +
+                                  fourthItem.offsetWidth / 2;
+                                return list.scrollTo({
+                                  left: itemPosition,
+                                  behavior: "smooth"
+                                });
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["scroll"] != null &&
+                    typeof $steps["scroll"] === "object" &&
+                    typeof $steps["scroll"].then === "function"
+                  ) {
+                    $steps["scroll"] = await $steps["scroll"];
                   }
                 }}
               />
