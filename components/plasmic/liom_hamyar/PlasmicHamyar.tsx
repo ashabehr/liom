@@ -1862,37 +1862,46 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["updateName"] = await $steps["updateName"];
               }
 
-              $steps["runCode"] = false
+              $steps["runCode"] = (
+                $steps.userdata?.data?.success ? true : false
+              )
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
                           window.sessionStorage.setItem("hamyar", "true");
-                          localStorage.setItem("token", $state.tokenUser);
-                          $state.userdata.result["r"] = $state.paramsObject.r;
-                          $state.userdata.result["m"] = $state.paramsObject.m;
-                          localStorage.setItem(
-                            "userinfo",
-                            JSON.stringify($state.userdata.result)
-                          );
-                          var setCookie = (name, value, days) => {
-                            const expires = new Date(
-                              Date.now() + days * 86400000
-                            ).toUTCString();
-                            document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
-                          };
-                          setCookie(
-                            "token",
-                            JSON.stringify([$state.tokenUser]),
-                            100
-                          );
-                          if ($steps.userdata?.data?.result?.man?.birthDate)
+                          if ($state?.tokenUser) {
+                            localStorage.setItem("token", $state.tokenUser);
+                            const setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              const encodedValue = encodeURIComponent(
+                                JSON.stringify([value])
+                              );
+                              document.cookie = `${name}=${encodedValue}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            setCookie("token", $state.tokenUser, 100);
+                          }
+                          if (
+                            $state?.paramsObject &&
+                            $state?.userdata?.result
+                          ) {
+                            $state.userdata.result["r"] = $state.paramsObject.r;
+                            $state.userdata.result["m"] = $state.paramsObject.m;
+                            localStorage.setItem(
+                              "userinfo",
+                              JSON.stringify($state.userdata.result)
+                            );
+                          }
+                          if ($steps?.userdata?.data?.result?.man?.birthDate) {
                             return window.sessionStorage.setItem(
                               "birthDate",
                               JSON.stringify(
                                 $steps.userdata.data.result.man.birthDate
                               )
                             );
+                          }
                         })();
                       }
                     };
