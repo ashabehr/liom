@@ -2468,7 +2468,9 @@ function PlasmicCalendar__RenderFunc(props: {
                                     ? "period"
                                     : $state.status === "fertility"
                                     ? "pregnancy"
-                                    : $state.status || "white",
+                                    : $state.status == "pms"
+                                    ? "pms"
+                                    : "white" || "white",
                                 maritalStatus: "single",
                                 education: "",
                                 job: "",

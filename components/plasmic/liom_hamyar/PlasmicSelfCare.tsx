@@ -1436,9 +1436,16 @@ function PlasmicSelfCare__RenderFunc(props: {
                                         "hamyar"
                                       ) == "true"
                                         ? {
-                                            gender: "male"
+                                            gender: "male",
+                                            "home-page": encodeURIComponent(
+                                              window.location.href
+                                            )
                                           }
-                                        : {};
+                                        : {
+                                            "home-page": encodeURIComponent(
+                                              window.location.href
+                                            )
+                                          };
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||

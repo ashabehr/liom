@@ -1473,7 +1473,8 @@ function PlasmicMainHeader__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            window.localStorage.removeItem("loginInfo");
+                            window.document.cookie =
+                              "token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.liom.app; secure; SameSite=Lax";
                             return (window.location.href = "/login");
                           })();
                         }
