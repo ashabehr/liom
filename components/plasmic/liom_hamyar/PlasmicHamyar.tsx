@@ -1867,13 +1867,8 @@ function PlasmicHamyar__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
+                          window.sessionStorage.setItem("hamyar", "true");
                           localStorage.setItem("token", $state.tokenUser);
-                          localStorage.setItem(
-                            "birthDate",
-                            JSON.stringify(
-                              $steps.userdata.data.result.man.birthDate
-                            )
-                          );
                           $state.userdata.result["r"] = $state.paramsObject.r;
                           $state.userdata.result["m"] = $state.paramsObject.m;
                           localStorage.setItem(
@@ -1892,16 +1887,12 @@ function PlasmicHamyar__RenderFunc(props: {
                             100
                           );
                           if ($steps.userdata?.data?.result?.man?.birthDate)
-                            window.sessionStorage.setItem(
+                            return window.sessionStorage.setItem(
                               "birthDate",
                               JSON.stringify(
                                 $steps.userdata.data.result.man.birthDate
                               )
                             );
-                          return window.sessionStorage.setItem(
-                            "hamyar",
-                            "true"
-                          );
                         })();
                       }
                     };
