@@ -2827,10 +2827,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                     const actionArgs = {
                       args: [
                         undefined,
-                        "https://n8n.staas.ir/webhook/userInfo",
+                        "https://n8n.staas.ir/webhook/users/profile",
+                        undefined,
+                        undefined,
                         (() => {
                           try {
-                            return { token: $state.token };
+                            return { headers: { Authorization: $state.token } };
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -2858,7 +2860,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                 ];
               }
 
-              $steps["updateHealthStatus"] = true
+              $steps["updateHealthStatus"] = $steps.invokeGlobalAction?.data
+                ?.healthStatus
                 ? (() => {
                     const actionArgs = {
                       variable: {
@@ -2866,9 +2869,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         variablePath: ["healthStatus"]
                       },
                       operation: 0,
-                      value:
-                        $steps.invokeGlobalAction.data?.[0]?.result?.user
-                          ?.healthStatus
+                      value: $steps.invokeGlobalAction?.data?.healthStatus
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
