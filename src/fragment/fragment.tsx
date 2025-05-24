@@ -172,12 +172,22 @@ export const Fragment = ({
 
             case "#pregnancyDiabetes": {
               const link = `https://tools.liom.app/self-test/?app=paziresh24&type=pregnancyDiabetes&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}`;
-              sendMessage("دیابت بارداری", link,inWebViow);
+              sendMessage("تشخیص دیابت بارداری", link,inWebViow);
               break;
             }
             case "#preeclampsia": {
               const link = `https://tools.liom.app/self-test/?app=liom&type=preeclampsia&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}`;
-              sendMessage("مسمومیت بارداری", link,inWebViow);
+              sendMessage("تشخیص مسمومیت بارداری", link,inWebViow);
+              break;
+            }
+            case "#depression": {
+              const link = `https://tools.liom.app/self-test/?app=liom&type=depression&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}`;
+              sendMessage("تشخیص افسوردگی بر اساس علائم", link,inWebViow);
+              break;
+            }
+            case "#genderDetection": {
+              const link = `https://tools.liom.app/self-test/?app=liom&type=genderDetection&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}`;
+              sendMessage("تشخیص جنسیت", link,inWebViow);
               break;
             }
             
@@ -204,12 +214,63 @@ export const Fragment = ({
                 sendMessage("نوبت دهی", link,inWebViow);
                 break;
             }
+
+
+            case "#weight": {
+                const queryString = buildQueryString(params);
+                const link = `https://tools.liom.app/pregnancy-bmi/?${queryString}`;
+                sendMessage("کنترل اضافه وزن بارداری", link,inWebViow);
+                break;
+            }
+              
             case "#directDialog": {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
               window.FlutterChannel.postMessage(action);}
               break;
             }
             case "#hamyarInfo": {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                window.FlutterChannel.postMessage(action);}
+              else {    
+                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
+                      duration: 3000,
+                      position: "top-right",
+                    });
+                  // let link = `/hamyar-add/?token=${token}`;
+                  // link=`/web-viow?link=${encodeURIComponent(link)}`;
+                  // window.open(link, "_self");
+              }
+              break;
+            }
+            case "#sismony": {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                window.FlutterChannel.postMessage(action);}
+              else {    
+                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
+                      duration: 3000,
+                      position: "top-right",
+                    });
+                  // let link = `/hamyar-add/?token=${token}`;
+                  // link=`/web-viow?link=${encodeURIComponent(link)}`;
+                  // window.open(link, "_self");
+              }
+              break;
+            }
+            case "#hospitalBag": {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                window.FlutterChannel.postMessage(action);}
+              else {    
+                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
+                      duration: 3000,
+                      position: "top-right",
+                    });
+                  // let link = `/hamyar-add/?token=${token}`;
+                  // link=`/web-viow?link=${encodeURIComponent(link)}`;
+                  // window.open(link, "_self");
+              }
+              break;
+            }
+            case "#need_therapy": {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
