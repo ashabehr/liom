@@ -288,6 +288,11 @@
   border-bottom-style: solid;
   min-width: 0;
 }
+@media (max-width: 640px) {
+  .embedHtml:global(.__wab_instance) {
+    display: flex;
+  }
+}
 .freeBox__dl9Wb {
   display: flex;
   flex-direction: column;
@@ -842,7 +847,7 @@
 }
 @media (max-width: 640px) {
   .freeBox___7PIRr {
-    background: #8254c61a;
+    background: none;
     align-items: center;
     justify-content: space-around;
     align-self: center;

@@ -893,6 +893,26 @@ function PlasmicSelfCare__RenderFunc(props: {
               ) {
                 $steps["updateSelfCare2"] = await $steps["updateSelfCare2"];
               }
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return undefined;
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
             }}
           />
 
@@ -913,6 +933,24 @@ function PlasmicSelfCare__RenderFunc(props: {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox___3HIjn)}
+              style={(() => {
+                try {
+                  return {
+                    "padding-top":
+                      window.sessionStorage.getItem("hamyar") == "true"
+                        ? "16px"
+                        : "72px"
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             >
               <div className={classNames(projectcss.all, sty.freeBox__hRvuO)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -1249,13 +1287,32 @@ function PlasmicSelfCare__RenderFunc(props: {
                   );
                 })}
               </div>
-              <Embed
-                data-plasmic-name={"embedHtml"}
-                data-plasmic-override={overrides.embedHtml}
-                className={classNames("__wab_instance", sty.embedHtml)}
-                code={"<hr></hr>"}
-              />
-
+              {(
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? true
+                  : (() => {
+                      try {
+                        return (
+                          window.sessionStorage.getItem("hamyar") != "true"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
+              ) ? (
+                <Embed
+                  data-plasmic-name={"embedHtml"}
+                  data-plasmic-override={overrides.embedHtml}
+                  className={classNames("__wab_instance", sty.embedHtml)}
+                  code={"<hr></hr>"}
+                />
+              ) : null}
               <Stack__
                 as={"div"}
                 hasGap={true}

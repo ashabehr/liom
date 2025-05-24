@@ -5528,7 +5528,6 @@
   }
 }
 .section__fywj {
-  display: grid;
   position: fixed;
   align-content: flex-start;
   justify-items: center;
@@ -5543,6 +5542,7 @@
   z-index: 1;
   right: 0;
   bottom: 0;
+  display: none;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(

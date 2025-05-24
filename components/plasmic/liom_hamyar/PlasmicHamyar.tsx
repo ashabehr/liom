@@ -1862,9 +1862,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["updateName"] = await $steps["updateName"];
               }
 
-              $steps["runCode"] = (
-                $steps.userdata?.data?.success ? true : false
-              )
+              $steps["runCode"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1876,8 +1874,8 @@ function PlasmicHamyar__RenderFunc(props: {
                               $steps.userdata.data.result.man.birthDate
                             )
                           );
-                          $state.userdata.result["r"] = $state.r;
-                          $state.userdata.result["m"] = $state.m;
+                          $state.userdata.result["r"] = $state.paramsObject.r;
+                          $state.userdata.result["m"] = $state.paramsObject.m;
                           localStorage.setItem(
                             "userinfo",
                             JSON.stringify($state.userdata.result)
