@@ -1740,7 +1740,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   $state.loading = false;
                                 }
                                 console.log("user get");
-                                console.log(data);
                               })
                               .catch(error => console.error("Error3:", error));
                           }
@@ -7317,6 +7316,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   ? filteredItem.active
                                                   : false;
                                                 var token = $state.token;
+                                                console.log(allowance);
                                                 if (!token.startsWith("ey")) {
                                                   token = token.slice(
                                                     6,
@@ -7516,6 +7516,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   ? filteredItem.active
                                                   : false;
                                                 var token = $state.token;
+                                                console.log(allowance);
                                                 if (!token.startsWith("ey")) {
                                                   token = token.slice(
                                                     6,

@@ -1886,12 +1886,18 @@ function PlasmicHamyar__RenderFunc(props: {
                               ).toUTCString();
                               document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
                             };
-                            return setCookie(
+                            setCookie(
                               "token",
                               JSON.stringify([$state.tokenUser]),
                               100
                             );
                           }
+                          return window.sessionStorage.setItem(
+                            "birthDate",
+                            JSON.stringify(
+                              $steps.userdata.data.result.man.birthDate
+                            )
+                          );
                         })();
                       }
                     };
