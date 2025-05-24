@@ -170,18 +170,22 @@ export const Fragment = ({
               break;
             }
 
+              
             case "#pregnancyDiabetes": {
-              const link = `https://tools.liom.app/self-test/?app=paziresh24&type=pregnancyDiabetes&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}`;
+              const queryString = buildQueryString(params);
+              const link = `https://tools.liom.app/self-test/?app=liom&type=pregnancyDiabetes&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}&${queryString}`;
               sendMessage("تشخیص دیابت بارداری", link,inWebViow);
               break;
             }
             case "#preeclampsia": {
-              const link = `https://tools.liom.app/self-test/?app=liom&type=preeclampsia&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}`;
+              const queryString = buildQueryString(params);
+              const link = `https://tools.liom.app/self-test/?app=liom&type=preeclampsia&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}&${queryString}`;
               sendMessage("تشخیص مسمومیت بارداری", link,inWebViow);
               break;
             }
             case "#depression": {
-              const link = `https://tools.liom.app/self-test/?app=liom&type=depression&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}`;
+              const queryString = buildQueryString(params);
+              const link = `https://tools.liom.app/self-test/?app=liom&type=depression&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}&${queryString}`;
               sendMessage("تشخیص افسوردگی بر اساس علائم", link,inWebViow);
               break;
             }
@@ -190,10 +194,15 @@ export const Fragment = ({
               sendMessage("تشخیص جنسیت", link,inWebViow);
               break;
             }
+            case "#need_therapy": {
+              const queryString = buildQueryString(params);
+              const link = `https://tools.liom.app/self-test/?app=liom&type=need_therapy&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}&${queryString}`;
+              sendMessage("آیا نیاز به تراپی دارم؟", link,inWebViow);
+              break;
+            }
             
 
             case "#stretch_marks": {
-
               const link = `https://tools.liom.app/self-medication/?type=stretch_marks&inApp=${inApp}&token=${token}&selectStep=0&userId=${userId}&theme=${theme}`;
               sendMessage("ترک پوستی", link,inWebViow);
               break;
@@ -218,7 +227,7 @@ export const Fragment = ({
 
             case "#weight": {
                 const queryString = buildQueryString(params);
-                const link = `https://tools.liom.app/pregnancy-bmi/?${queryString}`;
+                const link = `https://tools.liom.app/pregnancy-bmi/?inApp=${inApp}&${queryString}`;
                 sendMessage("کنترل اضافه وزن بارداری", link,inWebViow);
                 break;
             }
@@ -270,20 +279,6 @@ export const Fragment = ({
               }
               break;
             }
-            case "#need_therapy": {
-              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
-                window.FlutterChannel.postMessage(action);}
-              else {    
-                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
-                      duration: 3000,
-                      position: "top-right",
-                    });
-                  // let link = `/hamyar-add/?token=${token}`;
-                  // link=`/web-viow?link=${encodeURIComponent(link)}`;
-                  // window.open(link, "_self");
-              }
-              break;
-            }
 
             case "#healthSubscription": {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
@@ -305,7 +300,7 @@ export const Fragment = ({
             }
             case "#irregularQuestion": {
                 const queryString = buildQueryString(params);
-                const link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${token}&userId=${userId}&inApp=${inApp}&${queryString}&home-page=https://apps.liom.app/Self-care/&${queryString}`;
+                const link = `https://tools.liom.app/self-test/?app=liom&type=irregular&origin=liom_selfcare_pwa&token=${token}&userId=${userId}&inApp=${inApp}&${queryString}&home-page=https://apps.liom.app/Self-care/`;
                 sendMessage("تست نامنظمی", link,inWebViow);
                 break;
             }
