@@ -1536,6 +1536,12 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1610,6 +1616,105 @@ function PlasmicHamyar__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
+              $steps["params"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                          if ($state.paramsObject.token)
+                            return ($state.tokenUser =
+                              $state.paramsObject.token);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["params"] != null &&
+                typeof $steps["params"] === "object" &&
+                typeof $steps["params"].then === "function"
+              ) {
+                $steps["params"] = await $steps["params"];
+              }
+
+              $steps["clear"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["input", "value"]
+                      },
+                      operation: 0,
+                      value: (() => {
+                        const searchParams = new URLSearchParams(
+                          window.location.search
+                        );
+                        searchParams.delete("token");
+                        searchParams.delete("userId");
+                        searchParams.delete("user_id");
+                        const newUrl = `${
+                          window.location.pathname
+                        }?${searchParams.toString()}`;
+                        return window.history.replaceState(null, "", newUrl);
+                      })()
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["clear"] != null &&
+                typeof $steps["clear"] === "object" &&
+                typeof $steps["clear"].then === "function"
+              ) {
+                $steps["clear"] = await $steps["clear"];
+              }
+
+              $steps["getCookie"] = false
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.tokenUser = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getCookie"] != null &&
+                typeof $steps["getCookie"] === "object" &&
+                typeof $steps["getCookie"].then === "function"
+              ) {
+                $steps["getCookie"] = await $steps["getCookie"];
+              }
+
               $steps["userdata"] = true
                 ? (() => {
                     const actionArgs = {
@@ -1620,23 +1725,9 @@ function PlasmicHamyar__RenderFunc(props: {
                         (() => {
                           try {
                             return {
-                              r:
-                                $ctx.query.r ||
-                                new URLSearchParams(window.location.search).get(
-                                  "r"
-                                ) ||
-                                "",
-                              m:
-                                $ctx.query.m ||
-                                new URLSearchParams(window.location.search).get(
-                                  "m"
-                                ) ||
-                                ""
-                              //   "token": (
-                              //     ($ctx?.query?.token ?? "").trim() === ""
-                              // ? new URLSearchParams(window.location.search).get("token")
-                              //       : $ctx.query.token
-                              //   ) || ""
+                              r: $state.paramsObject.r || "",
+                              m: $state.paramsObject.m || ""
+                              // "token":$state.tokenUser
                             };
                           } catch (e) {
                             if (
@@ -1773,10 +1864,29 @@ function PlasmicHamyar__RenderFunc(props: {
                           );
                           $state.userdata.result["r"] = $state.r;
                           $state.userdata.result["m"] = $state.m;
-                          return localStorage.setItem(
+                          localStorage.setItem(
                             "userinfo",
                             JSON.stringify($state.userdata.result)
                           );
+                          if (
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token.trim() !== ""
+                          ) {
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.tokenUser]),
+                              100
+                            );
+                          }
                         })();
                       }
                     };
