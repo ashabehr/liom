@@ -193,8 +193,14 @@ export const Fragment = ({
                 sendMessage("بیوریتم", link,inWebViow);
                 break;
             }
+            case "#bioritm": {
+                const link = `/bioritm/?token=${token}`;
+                sendMessage("بیوریتم", link,inWebViow);
+                break;
+            }
             case "#appoinment": {
-                const link = `/clinic/?token=${token}&userId=${userId}`;
+                const queryString = buildQueryString(params);
+                const link = `/clinic/?token=${token}&userId=${userId}&${queryString}`;
                 sendMessage("نوبت دهی", link,inWebViow);
                 break;
             }
