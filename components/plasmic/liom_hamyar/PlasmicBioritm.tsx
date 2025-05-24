@@ -76,6 +76,9 @@ import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
+import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -96,6 +99,8 @@ import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: liLrwe8fc
 import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5Pd9666/icon
 import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
 import Icon202Icon from "./icons/PlasmicIcon__Icon202"; // plasmic-import: lD6NOJADOGZx/icon
+import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
 
@@ -138,7 +143,9 @@ export type PlasmicBioritm__OverridesType = {
   button?: Flex__<typeof Button>;
   button4?: Flex__<typeof Button>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
-  section?: Flex__<"section">;
+  mainHeader?: Flex__<typeof MainHeader>;
+  headerLiom?: Flex__<typeof HeaderLiom>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultBioritmProps {}
@@ -238,7 +245,7 @@ function PlasmicBioritm__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                let birthDate = localStorage.getItem("birthDate");
+                let birthDate = window.sessionStorage.getItem("birthDate");
                 if (birthDate == "undefined" || birthDate == null) {
                   birthDate = {
                     day: 1,
@@ -317,20 +324,7 @@ function PlasmicBioritm__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return localStorage.getItem("token");
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "datePickers2.value",
@@ -352,8 +346,8 @@ function PlasmicBioritm__RenderFunc(props: {
           (() => {
             try {
               return (
-                localStorage.getItem("birthDate") == "undefined" ||
-                localStorage.getItem("birthDate") == null
+                window.sessionStorage.getItem("birthDate") == "undefined" ||
+                window.sessionStorage.getItem("birthDate") == null
               );
             } catch (e) {
               if (
@@ -440,70 +434,32 @@ function PlasmicBioritm__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                let birthDate =
-                  $state.userInfo.user.biorhythm.date.split("T")[0];
-                if (birthDate == "undefined" || birthDate == null) {
-                  return {
-                    day: 7,
-                    month: 7,
-                    year: 1377
+                var birthDate =
+                  $state.userInfo.user.biorhythm.date?.split("T")[0];
+                if (birthDate === "undefined" || birthDate == null) {
+                  birthDate = {
+                    day: 1,
+                    month: 1,
+                    year: 2002
                   };
                 } else {
-                  let gy = parseInt(birthDate.split("-")[0]);
-                  let gm = parseInt(birthDate.split("-")[1]);
-                  let gd = parseInt(birthDate.split("-")[2]);
-                  let shamsiMonthDays = [
-                    31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29
-                  ];
-
-                  let miladiDaysInMonth = [
-                    31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
-                  ];
-
-                  let isLeapYear =
-                    gy % 4 === 0 && (gy % 100 !== 0 || gy % 400 === 0);
-                  if (isLeapYear) {
-                    miladiDaysInMonth[1] = 29;
-                  }
-                  let daysPassedMiladi = gd;
-                  for (let i = 0; i < gm - 1; i++) {
-                    daysPassedMiladi += miladiDaysInMonth[i];
-                  }
-                  let shamsiNewYearDay = new Date(gy, 2, 21);
-                  let shamsiStartDayInMiladi =
-                    (shamsiNewYearDay - new Date(gy, 0, 1)) /
-                    (1000 * 60 * 60 * 24);
-                  let daysPassedInShamsiYear =
-                    daysPassedMiladi - shamsiStartDayInMiladi;
-                  if (daysPassedInShamsiYear < 0) {
-                    gy--;
-                    shamsiNewYearDay = new Date(gy, 2, 21);
-                    shamsiStartDayInMiladi =
-                      (shamsiNewYearDay - new Date(gy, 0, 1)) /
-                      (1000 * 60 * 60 * 24);
-                    daysPassedInShamsiYear =
-                      daysPassedMiladi + (365 - shamsiStartDayInMiladi);
-                    if (isLeapYear) {
-                      daysPassedInShamsiYear++;
-                    }
-                  }
-                  let jy = gy - 621;
-                  let jm = 0;
-                  let jd = daysPassedInShamsiYear;
-                  for (let i = 0; i < shamsiMonthDays.length; i++) {
-                    if (jd <= shamsiMonthDays[i]) {
-                      jm = i + 1;
-                      break;
-                    } else {
-                      jd -= shamsiMonthDays[i];
-                    }
-                  }
-                  return {
-                    day: jd,
-                    month: jm,
-                    year: jy
+                  var parts = birthDate.split("-");
+                  birthDate = {
+                    year: parseInt(parts[0]),
+                    month: parseInt(parts[1]),
+                    day: parseInt(parts[2])
                   };
                 }
+                var { jy, jm, jd } = window.jalaali.toJalaali(
+                  birthDate.year,
+                  birthDate.month,
+                  birthDate.day
+                );
+                return {
+                  day: jd,
+                  month: jm,
+                  year: jy
+                };
               })();
             } catch (e) {
               if (
@@ -558,6 +514,25 @@ function PlasmicBioritm__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "mainHeader.dopen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.dopen;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -6529,7 +6504,7 @@ function PlasmicBioritm__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return localStorage.setItem(
+                            return window.sessionStorage.setItem(
                               "birthDate",
                               JSON.stringify({
                                 year: parseInt($state.bday.split("-")[0]),
@@ -6691,11 +6666,7 @@ function PlasmicBioritm__RenderFunc(props: {
           className={classNames("__wab_instance", sty.pullToRefresh)}
         />
 
-        <section
-          data-plasmic-name={"section"}
-          data-plasmic-override={overrides.section}
-          className={classNames(projectcss.all, sty.section)}
-        >
+        <section className={classNames(projectcss.all, sty.section__tYaP)}>
           <Stack__
             as={"div"}
             hasGap={true}
@@ -6925,6 +6896,249 @@ function PlasmicBioritm__RenderFunc(props: {
             </div>
           </Stack__>
         </section>
+        <section className={classNames(projectcss.all, sty.section__bGtQp)}>
+          <MainHeader
+            data-plasmic-name={"mainHeader"}
+            data-plasmic-override={overrides.mainHeader}
+            className={classNames("__wab_instance", sty.mainHeader)}
+            dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
+            onDopenChange2={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["mainHeader", "dopen"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            token={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? (() => {
+                    try {
+                      return localStorage.getItem("token");
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                : undefined
+            }
+            userinfo={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? (() => {
+                    try {
+                      return JSON.parse(localStorage.getItem("userinfo")).user;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return {
+                          mobile: false,
+                          username: "guest_3DiroEaKCW",
+                          name: "jjjj",
+                          last_time: {
+                            year: 2025,
+                            month: 2,
+                            day: 9,
+                            hour: 0,
+                            minute: 0,
+                            second: 0,
+                            nanosecond: 0,
+                            timeZoneOffsetSeconds: 0
+                          },
+                          cycle: 20,
+                          length: 5,
+                          image: "https://liom-app.ir/data/profile/default.png",
+                          biorhythm: {
+                            date: "2025-03-05T05:32:07.747Z",
+                            advice:
+                              "- \u0628\u0647 \u06a9\u0633\u06cc \u06a9\u0647 \u062e\u06cc\u0644\u06cc \u062f\u0648\u0633\u062a\u0634 \u062f\u0627\u0631\u06cc \u0632\u0646\u06af \u0628\u0632\u0646 \u06cc\u0627 \u067e\u06cc\u0627\u0645 \u0628\u062f\u0647.\n- \u0627\u06af\u0647 \u0627\u0645\u0631\u0648\u0632 \u0627\u062d\u0633\u0627\u0633 \u0628\u06cc \u062d\u0627\u0644\u06cc \u0648 \u06a9\u0633\u0627\u0644\u062a \u062f\u0627\u0631\u06cc \u0648 \u062f\u0644\u062a \u0646\u0645\u06cc\u062e\u0648\u0627\u062f \u0641\u0639\u0627\u0644\u06cc\u062a \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0627\u0634\u06a9\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc \u0645\u062f\u06cc\u062a\u06cc\u0634\u0646 \u06a9\u0646\u06cc \u062a\u0627 \u0627\u062d\u0633\u0627\u0633 \u062e\u0648\u0628\u06cc \u067e\u06cc\u062f\u0627 \u06a9\u0646\u06cc.\n- \u0627\u0645\u0631\u0648\u0632 \u0632\u0645\u0627\u0646 \u062e\u0648\u0628\u06cc \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u0648 \u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u06a9\u0631\u062f\u0646\u0647.\n",
+                            avg: 13,
+                            physical: -100,
+                            emotional: 43,
+                            intellectual: 95
+                          },
+                          id: "ee975e9c-19dd-42fc-b7d7-8822f621b4f8",
+                          healthStatus: "period",
+                          birthDate: {
+                            year: 2002,
+                            month: 1,
+                            day: 7,
+                            hour: 0,
+                            minute: 0,
+                            second: 0,
+                            nanosecond: 0,
+                            timeZoneOffsetSeconds: 0
+                          }
+                        };
+                      }
+                      throw e;
+                    }
+                  })()
+                : undefined
+            }
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__lJz3P)}
+            >
+              <Icon185Icon
+                className={classNames(projectcss.all, sty.svg___0IVy)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateMainHeaderDopen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["mainHeader", "dopen"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateMainHeaderDopen"] != null &&
+                    typeof $steps["updateMainHeaderDopen"] === "object" &&
+                    typeof $steps["updateMainHeaderDopen"].then === "function"
+                  ) {
+                    $steps["updateMainHeaderDopen"] = await $steps[
+                      "updateMainHeaderDopen"
+                    ];
+                  }
+                }}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__iby8A
+                )}
+              >
+                {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
+              </div>
+            </Stack__>
+          </MainHeader>
+          <HeaderLiom
+            data-plasmic-name={"headerLiom"}
+            data-plasmic-override={overrides.headerLiom}
+            className={classNames("__wab_instance", sty.headerLiom)}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__iTCgi)}
+            >
+              <XIcon
+                className={classNames(projectcss.all, sty.svg___025Ao)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return window.history.back();
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___9BJCz
+                )}
+              >
+                {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
+              </div>
+            </Stack__>
+          </HeaderLiom>
+        </section>
+        <SideEffect
+          data-plasmic-name={"sideEffect"}
+          data-plasmic-override={overrides.sideEffect}
+          className={classNames("__wab_instance", sty.sideEffect)}
+          onMount={async () => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        var getCookie = name => {
+                          const cookies = document.cookie.split("; ");
+                          for (let cookie of cookies) {
+                            const [key, value] = cookie.split("=");
+                            if (key === name) return JSON.parse(value)[0];
+                          }
+                          return "";
+                        };
+                        return ($state.token = getCookie("token"));
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
+        />
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
@@ -6955,7 +7169,9 @@ const PlasmicDescendants = {
     "button",
     "button4",
     "pullToRefresh",
-    "section"
+    "mainHeader",
+    "headerLiom",
+    "sideEffect"
   ],
   favicon: ["favicon"],
   biorhythm: [
@@ -6995,7 +7211,9 @@ const PlasmicDescendants = {
   button: ["button"],
   button4: ["button4"],
   pullToRefresh: ["pullToRefresh"],
-  section: ["section"]
+  mainHeader: ["mainHeader"],
+  headerLiom: ["headerLiom"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -7024,7 +7242,9 @@ type NodeDefaultElementType = {
   button: typeof Button;
   button4: typeof Button;
   pullToRefresh: typeof PullToRefresh;
-  section: "section";
+  mainHeader: typeof MainHeader;
+  headerLiom: typeof HeaderLiom;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -7134,7 +7354,9 @@ export const PlasmicBioritm = Object.assign(
     button: makeNodeComponent("button"),
     button4: makeNodeComponent("button4"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
-    section: makeNodeComponent("section"),
+    mainHeader: makeNodeComponent("mainHeader"),
+    headerLiom: makeNodeComponent("headerLiom"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicBioritm
     internalVariantProps: PlasmicBioritm__VariantProps,

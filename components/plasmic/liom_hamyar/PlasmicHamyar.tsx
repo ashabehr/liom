@@ -1685,7 +1685,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["clear"] = await $steps["clear"];
               }
 
-              $steps["getCookie"] = false
+              $steps["getCookie"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1731,8 +1731,8 @@ function PlasmicHamyar__RenderFunc(props: {
                           try {
                             return {
                               r: $state.paramsObject.r || "",
-                              m: $state.paramsObject.m || ""
-                              // "token":$state.tokenUser
+                              m: $state.paramsObject.m || "",
+                              token: $state.tokenUser
                             };
                           } catch (e) {
                             if (
@@ -1873,25 +1873,17 @@ function PlasmicHamyar__RenderFunc(props: {
                             "userinfo",
                             JSON.stringify($state.userdata.result)
                           );
-                          if (
-                            $state.paramsObject.token !== undefined &&
-                            $state.paramsObject.token.trim() !== ""
-                          ) {
-                            if (!$state.paramsObject.token.startsWith("ey"))
-                              $state.paramsObject.token =
-                                $state.paramsObject.token.slice(6, -3);
-                            var setCookie = (name, value, days) => {
-                              const expires = new Date(
-                                Date.now() + days * 86400000
-                              ).toUTCString();
-                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
-                            };
-                            setCookie(
-                              "token",
-                              JSON.stringify([$state.tokenUser]),
-                              100
-                            );
-                          }
+                          var setCookie = (name, value, days) => {
+                            const expires = new Date(
+                              Date.now() + days * 86400000
+                            ).toUTCString();
+                            document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                          };
+                          setCookie(
+                            "token",
+                            JSON.stringify([$state.tokenUser]),
+                            100
+                          );
                           if ($steps.userdata?.data?.result?.man?.birthDate)
                             window.sessionStorage.setItem(
                               "birthDate",

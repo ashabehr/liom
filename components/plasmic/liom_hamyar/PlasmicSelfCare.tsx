@@ -1331,7 +1331,19 @@ function PlasmicSelfCare__RenderFunc(props: {
                                 args: [
                                   (() => {
                                     try {
-                                      return currentItem.action;
+                                      return (() => {
+                                        if (
+                                          currentItem.action == "#biorhythm"
+                                        ) {
+                                          return window.sessionStorage.getItem(
+                                            "hamyar"
+                                          ) == "true"
+                                            ? "#bioritm"
+                                            : currentItem.action;
+                                        } else {
+                                          return currentItem.action;
+                                        }
+                                      })();
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||

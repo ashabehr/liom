@@ -6556,6 +6556,7 @@
   }
 }
 .freeBox__wi1Kk {
+  display: flex;
   flex-direction: column;
   position: relative;
   align-items: center;
@@ -6566,7 +6567,6 @@
   background: none;
   cursor: pointer;
   min-width: 0;
-  display: none;
   border-radius: 100px;
   padding: 8px;
 }
@@ -6615,7 +6615,6 @@
   }
 }
 .freeBox___5FEcR {
-  display: flex;
   flex-direction: column;
   position: relative;
   align-items: center;
@@ -6626,6 +6625,7 @@
   background: none;
   cursor: pointer;
   min-width: 0;
+  display: none;
   border-radius: 100px;
   padding: 8px;
 }
@@ -6673,7 +6673,6 @@
   }
 }
 .freeBox__sHtVa {
-  display: flex;
   flex-direction: column;
   position: relative;
   align-items: center;
@@ -6684,6 +6683,7 @@
   background: none;
   cursor: pointer;
   min-width: 0;
+  display: none;
   border-radius: 100px;
   padding: 8px;
 }
