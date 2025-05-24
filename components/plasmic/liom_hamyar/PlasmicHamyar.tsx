@@ -1872,16 +1872,17 @@ function PlasmicHamyar__RenderFunc(props: {
                           window.sessionStorage.setItem("hamyar", "true");
                           if ($state?.tokenUser) {
                             localStorage.setItem("token", $state.tokenUser);
-                            const setCookie = (name, value, days) => {
+                            var setCookie = (name, value, days) => {
                               const expires = new Date(
                                 Date.now() + days * 86400000
                               ).toUTCString();
-                              const encodedValue = encodeURIComponent(
-                                JSON.stringify([value])
-                              );
-                              document.cookie = `${name}=${encodedValue}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax  `;
                             };
-                            setCookie("token", $state.tokenUser, 100);
+                            setCookie(
+                              "token",
+                              JSON.stringify([$state.tokenUser]),
+                              100
+                            );
                           }
                           if (
                             $state?.paramsObject &&
