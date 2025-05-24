@@ -26527,7 +26527,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                url={"https://n8n.staas.ir/webhook/userInfo"}
+                url={"https://n8n.staas.ir/webhook/userInfo_v2"}
               />
 
               {(() => {
