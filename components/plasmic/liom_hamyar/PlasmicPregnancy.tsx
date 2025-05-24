@@ -16818,6 +16818,59 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     projectcss.all,
                                                     sty.freeBox__u8TzQ
                                                   )}
+                                                  onClick={async event => {
+                                                    const $steps = {};
+
+                                                    $steps["runCode"] =
+                                                      currentItem.type == "sign"
+                                                        ? (() => {
+                                                            const actionArgs = {
+                                                              customFunction:
+                                                                async () => {
+                                                                  return (() => {
+                                                                    if (
+                                                                      $ctx.query
+                                                                        .inApp ==
+                                                                      "true"
+                                                                    ) {
+                                                                      var link = `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=true`;
+                                                                      return window.FlutterChannel.postMessage(
+                                                                        "#inAppWebView**@@**" +
+                                                                          "وضعیت امروز" +
+                                                                          "**@@**" +
+                                                                          link
+                                                                      );
+                                                                    } else {
+                                                                      return window.open(
+                                                                        `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=false`,
+                                                                        "_self"
+                                                                      );
+                                                                    }
+                                                                  })();
+                                                                }
+                                                            };
+                                                            return (({
+                                                              customFunction
+                                                            }) => {
+                                                              return customFunction();
+                                                            })?.apply(null, [
+                                                              actionArgs
+                                                            ]);
+                                                          })()
+                                                        : undefined;
+                                                    if (
+                                                      $steps["runCode"] !=
+                                                        null &&
+                                                      typeof $steps[
+                                                        "runCode"
+                                                      ] === "object" &&
+                                                      typeof $steps["runCode"]
+                                                        .then === "function"
+                                                    ) {
+                                                      $steps["runCode"] =
+                                                        await $steps["runCode"];
+                                                    }
+                                                  }}
                                                 >
                                                   <div
                                                     className={classNames(
