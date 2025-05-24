@@ -2464,14 +2464,11 @@ function PlasmicCalendar__RenderFunc(props: {
                               return {
                                 gender: "female",
                                 status:
-                                  $state &&
-                                  $state.status &&
                                   $state.status === "blood"
                                     ? "period"
-                                    : $state.status &&
-                                      $state.status === "fertility"
+                                    : $state.status === "fertility"
                                     ? "pregnancy"
-                                    : $state.status || "unknown",
+                                    : $state.status || "white",
                                 maritalStatus: "single",
                                 education: "",
                                 job: "",
