@@ -332,9 +332,9 @@ export const Fragment = ({
                 if (param.has("inApp")) {
                     param.set("inApp",inApp );
                     url.search = param.toString();
-                    urlLink = url.toString()+`&${queryString}`;
+                    urlLink = url.toString();
                 }
-                sendMessage(link[1], urlLink ,inWebViow);
+                sendMessage(link[1], urlLink+`&${queryString}` ,inWebViow);
             }
           }
       }
