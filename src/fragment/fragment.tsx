@@ -326,12 +326,12 @@ export const Fragment = ({
             if (action.startsWith("#inAppWebView")) {
               const link = action.split("**@@**");
               let url = new URL(link[2]);
-                let params = new URLSearchParams(url.search);
+                let param = new URLSearchParams(url.search);
                 const queryString = buildQueryString(params);
                 let urlLink="";
-                if (params.has("inApp")) {
-                    params.set("inApp",inApp );
-                    url.search = params.toString();
+                if (param.has("inApp")) {
+                    param.set("inApp",inApp );
+                    url.search = param.toString();
                     urlLink = url.toString()+`&${queryString}`;
                 }
                 sendMessage(link[1], urlLink ,inWebViow);
