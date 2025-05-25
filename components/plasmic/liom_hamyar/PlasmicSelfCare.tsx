@@ -823,32 +823,34 @@ function PlasmicSelfCare__RenderFunc(props: {
                 $steps["setCookieGust"] = await $steps["setCookieGust"];
               }
 
-              $steps["invokeGlobalAction"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        undefined,
-                        "https://n8n.staas.ir/webhook/rest/tools/selfCare",
-                        (() => {
-                          try {
-                            return { authorization: $state.token };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
+              $steps["invokeGlobalAction"] =
+                window.sessionStorage.getItem("hamyar") != "true"
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/rest/tools/selfCare",
+                          (() => {
+                            try {
+                              return { authorization: $state.token };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
               if (
                 $steps["invokeGlobalAction"] != null &&
                 typeof $steps["invokeGlobalAction"] === "object" &&
@@ -859,14 +861,35 @@ function PlasmicSelfCare__RenderFunc(props: {
                 ];
               }
 
-              $steps["invokeGlobalAction3"] = true
-                ? (() => {
-                    const actionArgs = { args: ["POST", ``] };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
+              $steps["invokeGlobalAction3"] =
+                window.sessionStorage.getItem("hamyar") == "true"
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/rest/tools/selfCare",
+                          undefined,
+                          (() => {
+                            try {
+                              return { authorization: $state.token };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
               if (
                 $steps["invokeGlobalAction3"] != null &&
                 typeof $steps["invokeGlobalAction3"] === "object" &&
@@ -878,7 +901,8 @@ function PlasmicSelfCare__RenderFunc(props: {
               }
 
               $steps["updateSelfCare2"] =
-                $steps.invokeGlobalAction.data.success == true
+                $steps.invokeGlobalAction?.data?.success == true ||
+                $steps.invokeGlobalAction3?.data?.success == true
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -886,7 +910,9 @@ function PlasmicSelfCare__RenderFunc(props: {
                           variablePath: ["selfCare2"]
                         },
                         operation: 0,
-                        value: $steps.invokeGlobalAction.data
+                        value:
+                          $steps.invokeGlobalAction?.data ||
+                          $steps.invokeGlobalAction3?.data
                       };
                       return (({
                         variable,

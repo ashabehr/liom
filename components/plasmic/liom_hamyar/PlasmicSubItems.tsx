@@ -1180,7 +1180,25 @@ function PlasmicSubItems__RenderFunc(props: {
                                     undefined,
                                     "false",
                                     undefined,
-                                    true
+                                    true,
+                                    (() => {
+                                      try {
+                                        return {
+                                          "home-page": encodeURIComponent(
+                                            window.location.href
+                                          )
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
                                   ]
                                 };
                                 return $globalActions[

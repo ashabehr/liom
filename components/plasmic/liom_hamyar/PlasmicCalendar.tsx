@@ -4456,23 +4456,35 @@ function PlasmicCalendar__RenderFunc(props: {
               }
             }}
             open={generateStateValueProp($state, ["directDialog", "open"])}
-            redirectUrl={(() => {
-              try {
-                return `https://apps.liom.app/shopResult?buyId=${
-                  $state.directDialog.selectShop.id
-                }&?offCode=&token=hjk812${localStorage.getItem(
-                  "token"
-                )}jkp&redirectUrl=${window.location.href}`;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
+            redirectUrl={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? (() => {
+                    try {
+                      return `https://apps.liom.app/shopResult?buyId=${$state.directDialog.selectShop.id}&?offCode=&token=hjk812${$state.token}jkp&redirectUrl=${window.location.href}`;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                : (() => {
+                    try {
+                      return `https://apps.liom.app/shopResult?buyId=${$state.directDialog.selectShop.id}&?offCode=&token=hjk812${$state.token}jkp&redirectUrl=${window.location.href}`;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+            }
             token={`${(() => {})()}${$state.token}`}
             type={"special_advice"}
           />
