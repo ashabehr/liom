@@ -1992,7 +1992,7 @@ function PlasmicSubItems__RenderFunc(props: {
             open={generateStateValueProp($state, ["directDialog2", "open"])}
             redirectUrl={(() => {
               try {
-                return `https://apps.liom.app/shopResult?buyId=${$state.shop}&?offCode=&token=hjk812${$state.token}jkp&redirectUrl=${window.location.href}`;
+                return `https://apps.liom.app/shopResult?buyId=${$state.shop}&?offCode=&token=${$state.token}&redirectUrl=https://apps.liom.app/Self-care/`;
               } catch (e) {
                 if (
                   e instanceof TypeError ||

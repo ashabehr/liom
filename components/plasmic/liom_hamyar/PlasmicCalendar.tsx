@@ -2610,6 +2610,98 @@ function PlasmicCalendar__RenderFunc(props: {
               ) {
                 $steps["runCode2"] = await $steps["runCode2"];
               }
+
+              $steps["profilee"] =
+                window.sessionStorage.getItem("cash") != "true"
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/calendar/rest/user/profile/edit",
+                          (() => {
+                            try {
+                              return { authorization: $state.token };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["profilee"] != null &&
+                typeof $steps["profilee"] === "object" &&
+                typeof $steps["profilee"].then === "function"
+              ) {
+                $steps["profilee"] = await $steps["profilee"];
+              }
+
+              $steps["updateProfile"] = $steps.profilee?.data
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["profile"]
+                      },
+                      operation: 0,
+                      value: $steps.profilee?.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateProfile"] != null &&
+                typeof $steps["updateProfile"] === "object" &&
+                typeof $steps["updateProfile"].then === "function"
+              ) {
+                $steps["updateProfile"] = await $steps["updateProfile"];
+              }
+
+              $steps["runCode3"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          try {
+                            return localStorage.setItem(
+                              "allowanceUser",
+                              JSON.stringify($state.profile.result.allowance)
+                            );
+                          } catch {}
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode3"] != null &&
+                typeof $steps["runCode3"] === "object" &&
+                typeof $steps["runCode3"].then === "function"
+              ) {
+                $steps["runCode3"] = await $steps["runCode3"];
+              }
             }}
           />
 
@@ -2687,62 +2779,6 @@ function PlasmicCalendar__RenderFunc(props: {
                 $steps["invokeGlobalAction"] = await $steps[
                   "invokeGlobalAction"
                 ];
-              }
-
-              $steps["updateProfile"] = $steps.invokeGlobalAction?.data
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["profile"]
-                      },
-                      operation: 0,
-                      value: $steps.invokeGlobalAction.data
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateProfile"] != null &&
-                typeof $steps["updateProfile"] === "object" &&
-                typeof $steps["updateProfile"].then === "function"
-              ) {
-                $steps["updateProfile"] = await $steps["updateProfile"];
-              }
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          try {
-                            return localStorage.setItem(
-                              "allowanceUser",
-                              JSON.stringify($state.profile.result.allowance)
-                            );
-                          } catch {}
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
               }
 
               $steps["invokeGlobalAction2"] = true
