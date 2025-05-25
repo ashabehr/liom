@@ -1184,9 +1184,8 @@ function PlasmicSubItems__RenderFunc(props: {
                                     (() => {
                                       try {
                                         return {
-                                          "home-page": encodeURIComponent(
-                                            window.location.href
-                                          )
+                                          "home-page":
+                                            "https://apps.liom.app/subItems/"
                                         };
                                       } catch (e) {
                                         if (
