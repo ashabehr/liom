@@ -151,7 +151,7 @@ function PlasmicDirectDialog2__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          type: "pregnancySub",
+          type: "special_advice",
           token:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyNmQyMjZhLTY2NjgtNDUyOC05MTg4LTExZWQwOWQ5MjQ5OCIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzQ2MDg0NDY0fQ.sPO8Ulln4jsrA0znTiSxSUcuXcB9JGLvD4HGb9KfA8M",
           desc: "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0648 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631\u060c \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062a\u0647\u06cc\u0647 \u0646\u0645\u0627\u06cc\u06cc\u062f."

@@ -692,6 +692,12 @@ function PlasmicShop2__RenderFunc(props: {
         path: "checkbox[][].isChecked",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "itemSelect",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]

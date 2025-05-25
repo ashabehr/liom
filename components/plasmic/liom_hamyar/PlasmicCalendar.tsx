@@ -4473,19 +4473,7 @@ function PlasmicCalendar__RenderFunc(props: {
                 throw e;
               }
             })()}
-            token={(() => {
-              try {
-                return localStorage.getItem("token");
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
+            token={`${(() => {})()}${$state.token}`}
             type={"special_advice"}
           />
 
