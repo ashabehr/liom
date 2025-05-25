@@ -137,7 +137,8 @@ export const Fragment = ({
         
           switch (action.split('-')[0]) {
             case "#adhd": {
-              const link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&inApp=${inApp}&token=${token}`;
+              const queryString = buildQueryString(params);
+              const link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&inApp=${inApp}&token=${token}&${queryString}`;
               sendMessage("تست ADHD", link,inWebViow);
               break;
             }
@@ -190,7 +191,8 @@ export const Fragment = ({
               break;
             }
             case "#genderDetection": {
-              const link = `https://tools.liom.app/self-test/?app=liom&type=genderDetection&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}`;
+              const queryString = buildQueryString(params);
+              const link = `https://tools.liom.app/self-test/?app=liom&type=genderDetection&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}&${queryString}`;
               sendMessage("تشخیص جنسیت", link,inWebViow);
               break;
             }
@@ -325,11 +327,12 @@ export const Fragment = ({
               const link = action.split("**@@**");
               let url = new URL(link[2]);
                 let params = new URLSearchParams(url.search);
+                const queryString = buildQueryString(params);
                 let urlLink="";
                 if (params.has("inApp")) {
                     params.set("inApp",inApp );
                     url.search = params.toString();
-                    urlLink = url.toString();
+                    urlLink = url.toString()+`&${queryString}`;
                 }
                 sendMessage(link[1], urlLink ,inWebViow);
             }
