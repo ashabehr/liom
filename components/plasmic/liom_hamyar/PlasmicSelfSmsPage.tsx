@@ -70,9 +70,9 @@ import {
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
-import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -107,7 +107,6 @@ export type PlasmicSelfSmsPage__OverridesType = {
   countdown?: Flex__<typeof Countdown>;
   button2?: Flex__<typeof Button>;
   button?: Flex__<typeof Button>;
-  lottie?: Flex__<typeof LottieWrapper>;
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   svg?: Flex__<"svg">;
@@ -679,1000 +678,1524 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               url={"https://n8n.staas.ir/webhook/sub"}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox___2HVpP)}>
-              <div className={classNames(projectcss.all, sty.freeBox__kbF6)}>
+            {(() => {
+              try {
+                return $state.getSub.loading || $state.loading;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__cMoHt)}>
                 {(() => {
                   try {
-                    return $state.reload;
+                    return true;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return false;
+                      return true;
                     }
                     throw e;
                   }
                 })() ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox___2D3Xa)}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return window.FlutterChannel.postMessage(
-                                  "reload"
-                                );
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
-                    }}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___3ZnEs
-                      )}
-                    >
-                      {
-                        "\u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
-                      }
-                    </div>
-                  </Stack__>
-                ) : null}
-                {(() => {
-                  try {
-                    return $state.paramsObject.status != "pregnancy";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__jFfaO)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__qbI5J
-                      )}
-                      onClick={async event => {
-                        const $steps = {};
-                      }}
-                    >
-                      <React.Fragment>
-                        <React.Fragment>
-                          {
-                            "\u0628\u062f\u0646\u062a \u0628\u0627\u0647\u0627\u062a \u062d\u0631\u0641 \u0645\u06cc\u0632\u0646\u0647\u061b \u0628\u0627 \u06af\u0648\u0634 \u062f\u0627\u062f\u0646 \u0628\u0647\u0634\u060c  "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u0633\u0627\u0644\u0645\u200c\u062a\u0631 "}
-                        </span>
-                        <React.Fragment>{" \u0648  "}</React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u0634\u0627\u062f\u062a\u0631"}
-                        </span>
-                        <React.Fragment>
-                          {
-                            "  \u0628\u0627\u0634.\n\u0628\u0647 \u0637\u0648\u0631 \u06a9\u0644\u06cc \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647 "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 500 }}
-                        >
-                          {"\u0686\u0647\u0627\u0631"}
-                        </span>
-                        <React.Fragment>
-                          {
-                            " \u0645\u0631\u062d\u0644\u0647 \u062a\u0642\u0633\u06cc\u0645 \u0645\u06cc\u200c\u0634\u0648\u062f:"
-                          }
-                        </React.Fragment>
-                      </React.Fragment>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__vw2Q)}
-                    >
-                      <ul
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.ul,
-                          sty.ul__p75F1
-                        )}
-                      >
-                        <li
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.li,
-                            sty.li__cvkGu
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__uYnqz
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__dBsYg
-                              )}
-                            >
-                              <React.Fragment>
-                                <React.Fragment>{""}</React.Fragment>
+                  <LottieWrapper
+                    animationData={{
+                      nm: "Loading Dots",
+                      ddd: 0,
+                      h: 50,
+                      w: 100,
+                      meta: { g: "@lottiefiles/toolkit-js 0.33.2" },
+                      layers: [
+                        {
+                          ty: 4,
+                          nm: "Dot4",
+                          sr: 1,
+                          st: 0,
+                          op: 360,
+                          ip: 0,
+                          hd: false,
+                          ddd: 0,
+                          bm: 0,
+                          hasMask: false,
+                          ao: 0,
+                          ks: {
+                            a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                            s: {
+                              a: 1,
+                              k: [
                                 {
-                                  <ul
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.ul,
-                                      sty.ul__eceL4
-                                    )}
-                                  >
-                                    <li
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.li,
-                                        projectcss.__wab_text,
-                                        sty.li__iqCDt
-                                      )}
-                                    >
-                                      <React.Fragment>
-                                        <span
-                                          className={
-                                            "plasmic_default__all plasmic_default__span"
-                                          }
-                                          style={{ fontWeight: 500 }}
-                                        >
-                                          {
-                                            "\u0642\u0627\u0639\u062f\u06af\u06cc"
-                                          }
-                                        </span>
-                                        <React.Fragment>
-                                          {
-                                            ": \u0632\u0645\u0627\u0646 \u0627\u0633\u062a\u0631\u0627\u062d\u062a \u0648 \u062a\u063a\u0630\u06cc\u0647 \u0645\u0646\u0627\u0633\u0628"
-                                          }
-                                        </React.Fragment>
-                                      </React.Fragment>
-                                    </li>
-                                  </ul>
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [2.61, 2.32, 100],
+                                  t: 25
+                                },
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [3.91, 3.47, 100],
+                                  t: 39
+                                },
+                                { s: [2.61, 2.32, 100], t: 55 }
+                              ],
+                              ix: 6
+                            },
+                            sk: { a: 0, k: 0 },
+                            p: {
+                              a: 1,
+                              k: [
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [59.48, 25, 0],
+                                  t: 25
+                                },
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [59.48, 23.15, 0],
+                                  t: 39
+                                },
+                                { s: [59.48, 25, 0], t: 55 }
+                              ],
+                              ix: 2
+                            },
+                            r: { a: 0, k: 0, ix: 10 },
+                            sa: { a: 0, k: 0 },
+                            o: {
+                              a: 1,
+                              k: [
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [25],
+                                  t: 25
+                                },
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [100],
+                                  t: 39
+                                },
+                                { s: [25], t: 55 }
+                              ],
+                              ix: 11
+                            }
+                          },
+                          ef: [],
+                          shapes: [
+                            {
+                              ty: "gr",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Group",
+                              nm: "Ellipse 1",
+                              ix: 1,
+                              cix: 2,
+                              np: 3,
+                              it: [
+                                {
+                                  ty: "el",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  nm: "Ellipse Path 1",
+                                  d: 1,
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  s: { a: 0, k: [120, 120], ix: 2 }
+                                },
+                                {
+                                  ty: "fl",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Graphic - Fill",
+                                  nm: "Fill 1",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765],
+                                    ix: 4
+                                  },
+                                  r: 1,
+                                  o: { a: 0, k: 100, ix: 5 }
+                                },
+                                {
+                                  ty: "tr",
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  p: { a: 0, k: [-284, 92], ix: 2 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  o: { a: 0, k: 100, ix: 7 }
                                 }
-                                <React.Fragment>{""}</React.Fragment>
-                              </React.Fragment>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                      <ul
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.ul,
-                          sty.ul__hskj
-                        )}
-                      >
-                        <li
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.li,
-                            sty.li__wjBi6
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__i1Opm
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__fq8G9
-                              )}
-                            >
-                              <React.Fragment>
-                                <span
-                                  className={
-                                    "plasmic_default__all plasmic_default__span"
-                                  }
-                                  style={{ fontWeight: 500 }}
-                                >
-                                  {
-                                    "\u0641\u0648\u0644\u06cc\u06a9\u0648\u0644\u0627\u0631"
-                                  }
-                                </span>
-                                <React.Fragment>
-                                  {
-                                    ": \u062f\u0648\u0631\u0647\u200c\u0627\u06cc \u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u0641\u0639\u0627\u0644\u06cc\u062a\u200c\u0647\u0627\u06cc  \u0648 \u067e\u0631\u0627\u0646\u0631\u0698\u06cc"
-                                  }
-                                </React.Fragment>
-                              </React.Fragment>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                      <ul
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.ul,
-                          sty.ul__rrg2B
-                        )}
-                      >
-                        <li
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.li,
-                            sty.li__k60EL
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___5In2E
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__or0X1
-                              )}
-                            >
-                              <React.Fragment>
-                                <span
-                                  className={
-                                    "plasmic_default__all plasmic_default__span"
-                                  }
-                                  style={{ fontWeight: 500 }}
-                                >
-                                  {
-                                    "\u062a\u062e\u0645\u06a9\u200c\u06af\u0630\u0627\u0631\u06cc"
-                                  }
-                                </span>
-                                <React.Fragment>
-                                  {
-                                    ": \u0627\u0648\u062c \u0627\u0646\u0631\u0698\u06cc\u061b \u0645\u0646\u0627\u0633\u0628 \u0628\u0631\u0627\u06cc \u0641\u0639\u0627\u0644\u06cc\u062a\u200c\u0647\u0627\u06cc \u0627\u062c\u062a\u0645\u0627\u0639\u06cc \u0648 \u062a\u0645\u0631\u06cc\u0646 \u0634\u062f\u06cc\u062f"
-                                  }
-                                </React.Fragment>
-                              </React.Fragment>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                      <ul
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.ul,
-                          sty.ul__bNpGs
-                        )}
-                      >
-                        <li
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.li,
-                            sty.li__ecUcs
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___4WxZ1
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__kz9ZQ
-                              )}
-                            >
-                              <React.Fragment>
-                                <span
-                                  className={
-                                    "plasmic_default__all plasmic_default__span"
-                                  }
-                                  style={{ fontWeight: 500 }}
-                                >
-                                  {"\u0644\u0648\u062a\u0626\u0627\u0644"}
-                                </span>
-                                <React.Fragment>
-                                  {
-                                    ": \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0627\u0633\u062a\u0631\u0627\u062d\u062a\u061b \u0648\u0631\u0632\u0634 \u0633\u0628\u06a9 \u0648 \u062a\u063a\u0630\u06cc\u0647 \u0645\u0642\u0648\u06cc"
-                                  }
-                                </React.Fragment>
-                              </React.Fragment>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__jaOdM
-                      )}
-                      onClick={async event => {
-                        const $steps = {};
-                      }}
-                    >
-                      <React.Fragment>
-                        <React.Fragment>{"\u0628\u0627   "}</React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ color: "#7444BC", fontWeight: 700 }}
-                        >
-                          {
-                            "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f "
-                          }
-                        </span>
-                        <React.Fragment>
-                          {
-                            "\u0645\u06cc\u062a\u0648\u0646\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627\u06cc \u062f\u0648\u0631\u062a \u0631\u0648 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc \u0648 \u0632\u0645\u0627\u0646 \u062f\u0631\u0633\u062a \u0627\u0646\u062c\u0627\u0645 \u0647\u0631 \u06a9\u0627\u0631\u06cc \u0631\u0648 \u0628\u062f\u0648\u0646\u06cc. \u0627\u0632 \u0631\u0698\u06cc\u0645 \u06af\u0631\u0641\u062a\u0647 \u062a\u0627 \u062a\u0635\u0645\u06cc\u0645 \u0647\u0627\u06cc \u0645\u0647\u0645 \u0632\u0646\u062f\u06af\u06cc!\n \u0648 \u06cc\u0627 \u0634\u0631\u0648\u0639 \u0648\u0631\u0632\u0634 \u06a9\u0631\u062f\u0646\u060c \u0645\u0647\u0645\u0648\u0646\u06cc \u06af\u0631\u0641\u062a\u0646 \u0648 \u06cc\u0627 \u0645\u0647\u0645\u0648\u0646\u06cc \u0631\u0641\u062a\u0646 \u0648 ..."
-                          }
-                        </React.Fragment>
-                      </React.Fragment>
-                    </div>
-                  </div>
+                              ]
+                            }
+                          ],
+                          ind: 1
+                        },
+                        {
+                          ty: 4,
+                          nm: "Dot3",
+                          sr: 1,
+                          st: 0,
+                          op: 360,
+                          ip: 0,
+                          hd: false,
+                          ddd: 0,
+                          bm: 0,
+                          hasMask: false,
+                          ao: 0,
+                          ks: {
+                            a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                            s: {
+                              a: 1,
+                              k: [
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [2.61, 2.32, 100],
+                                  t: 17
+                                },
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [3.91, 3.47, 100],
+                                  t: 31
+                                },
+                                { s: [2.61, 2.32, 100], t: 47 }
+                              ],
+                              ix: 6
+                            },
+                            sk: { a: 0, k: 0 },
+                            p: {
+                              a: 1,
+                              k: [
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [53.23, 25, 0],
+                                  t: 17
+                                },
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [53.23, 23.15, 0],
+                                  t: 31
+                                },
+                                { s: [53.23, 25, 0], t: 47 }
+                              ],
+                              ix: 2
+                            },
+                            r: { a: 0, k: 0, ix: 10 },
+                            sa: { a: 0, k: 0 },
+                            o: {
+                              a: 1,
+                              k: [
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [25],
+                                  t: 17
+                                },
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [100],
+                                  t: 31
+                                },
+                                { s: [25], t: 47 }
+                              ],
+                              ix: 11
+                            }
+                          },
+                          ef: [],
+                          shapes: [
+                            {
+                              ty: "gr",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Group",
+                              nm: "Ellipse 1",
+                              ix: 1,
+                              cix: 2,
+                              np: 3,
+                              it: [
+                                {
+                                  ty: "el",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  nm: "Ellipse Path 1",
+                                  d: 1,
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  s: { a: 0, k: [120, 120], ix: 2 }
+                                },
+                                {
+                                  ty: "fl",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Graphic - Fill",
+                                  nm: "Fill 1",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765],
+                                    ix: 4
+                                  },
+                                  r: 1,
+                                  o: { a: 0, k: 100, ix: 5 }
+                                },
+                                {
+                                  ty: "tr",
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  p: { a: 0, k: [-284, 92], ix: 2 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  o: { a: 0, k: 100, ix: 7 }
+                                }
+                              ]
+                            }
+                          ],
+                          ind: 2
+                        },
+                        {
+                          ty: 4,
+                          nm: "Dot2",
+                          sr: 1,
+                          st: 0,
+                          op: 360,
+                          ip: 0,
+                          hd: false,
+                          ddd: 0,
+                          bm: 0,
+                          hasMask: false,
+                          ao: 0,
+                          ks: {
+                            a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                            s: {
+                              a: 1,
+                              k: [
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [2.61, 2.32, 100],
+                                  t: 9
+                                },
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [3.91, 3.47, 100],
+                                  t: 23
+                                },
+                                { s: [2.61, 2.32, 100], t: 39 }
+                              ],
+                              ix: 6
+                            },
+                            sk: { a: 0, k: 0 },
+                            p: {
+                              a: 1,
+                              k: [
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [46.98, 25, 0],
+                                  t: 9
+                                },
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [46.98, 23.15, 0],
+                                  t: 23
+                                },
+                                { s: [46.98, 25, 0], t: 39 }
+                              ],
+                              ix: 2
+                            },
+                            r: { a: 0, k: 0, ix: 10 },
+                            sa: { a: 0, k: 0 },
+                            o: {
+                              a: 1,
+                              k: [
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [25],
+                                  t: 9
+                                },
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [100],
+                                  t: 23
+                                },
+                                { s: [25], t: 39 }
+                              ],
+                              ix: 11
+                            }
+                          },
+                          ef: [],
+                          shapes: [
+                            {
+                              ty: "gr",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Group",
+                              nm: "Ellipse 1",
+                              ix: 1,
+                              cix: 2,
+                              np: 3,
+                              it: [
+                                {
+                                  ty: "el",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  nm: "Ellipse Path 1",
+                                  d: 1,
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  s: { a: 0, k: [120, 120], ix: 2 }
+                                },
+                                {
+                                  ty: "fl",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Graphic - Fill",
+                                  nm: "Fill 1",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765],
+                                    ix: 4
+                                  },
+                                  r: 1,
+                                  o: { a: 0, k: 100, ix: 5 }
+                                },
+                                {
+                                  ty: "tr",
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  p: { a: 0, k: [-284, 92], ix: 2 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  o: { a: 0, k: 100, ix: 7 }
+                                }
+                              ]
+                            }
+                          ],
+                          ind: 3
+                        },
+                        {
+                          ty: 4,
+                          nm: "Dot1",
+                          sr: 1,
+                          st: 0,
+                          op: 360,
+                          ip: 0,
+                          hd: false,
+                          ddd: 0,
+                          bm: 0,
+                          hasMask: false,
+                          ao: 0,
+                          ks: {
+                            a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                            s: {
+                              a: 1,
+                              k: [
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [2.61, 2.32, 100],
+                                  t: 0
+                                },
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [3.91, 3.47, 100],
+                                  t: 14
+                                },
+                                { s: [2.61, 2.32, 100], t: 30 }
+                              ],
+                              ix: 6
+                            },
+                            sk: { a: 0, k: 0 },
+                            p: {
+                              a: 1,
+                              k: [
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [40.73, 25, 0],
+                                  t: 0
+                                },
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [40.73, 23.15, 0],
+                                  t: 14
+                                },
+                                { s: [40.73, 25, 0], t: 30 }
+                              ],
+                              ix: 2
+                            },
+                            r: { a: 0, k: 0, ix: 10 },
+                            sa: { a: 0, k: 0 },
+                            o: {
+                              a: 1,
+                              k: [
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [25],
+                                  t: 0
+                                },
+                                {
+                                  o: { x: 0.333, y: 0 },
+                                  i: { x: 0.667, y: 1 },
+                                  s: [100],
+                                  t: 14
+                                },
+                                { s: [25], t: 30 }
+                              ],
+                              ix: 11
+                            }
+                          },
+                          ef: [],
+                          shapes: [
+                            {
+                              ty: "gr",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Group",
+                              nm: "Ellipse 1",
+                              ix: 1,
+                              cix: 2,
+                              np: 3,
+                              it: [
+                                {
+                                  ty: "el",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  nm: "Ellipse Path 1",
+                                  d: 1,
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  s: { a: 0, k: [120, 120], ix: 2 }
+                                },
+                                {
+                                  ty: "fl",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Graphic - Fill",
+                                  nm: "Fill 1",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765],
+                                    ix: 4
+                                  },
+                                  r: 1,
+                                  o: { a: 0, k: 100, ix: 5 }
+                                },
+                                {
+                                  ty: "tr",
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  p: { a: 0, k: [-284, 92], ix: 2 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  o: { a: 0, k: 100, ix: 7 }
+                                }
+                              ]
+                            }
+                          ],
+                          ind: 4
+                        }
+                      ],
+                      v: "5.7.11",
+                      fr: 60,
+                      op: 81,
+                      ip: 0,
+                      assets: []
+                    }}
+                    className={classNames("__wab_instance", sty.lottie___2EvHu)}
+                  />
                 ) : null}
-                {(() => {
-                  try {
-                    return $state.paramsObject.status == "pregnancy";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___26DdR)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__iZlr6
-                      )}
-                      onClick={async event => {
-                        const $steps = {};
-                      }}
-                    >
-                      <React.Fragment>
-                        <React.Fragment>
-                          {
-                            "\u0628\u062f\u0646\u062a \u062f\u0627\u0631\u0647 \u06cc\u0647 \u0633\u0641\u0631 \u0641\u0648\u0642\u200c\u0627\u0644\u0639\u0627\u062f\u0647 \u0648 \u0628\u06cc\u200c\u0646\u0638\u06cc\u0631 \u0631\u0648 \u0637\u06cc \u0645\u06cc\u200c\u06a9\u0646\u0647 \u0648 \u0645\u0627 \u0627\u06cc\u0646\u062c\u0627 \u0647\u0633\u062a\u06cc\u0645 \u062a\u0627 \u0647\u0631 \u0647\u0641\u062a\u0647 "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u06a9\u0646\u0627\u0631\u062a"}
-                        </span>
-                        <React.Fragment>
-                          {
-                            " \u0628\u0627\u0634\u06cc\u0645.\n\u0628\u0627 \u062f\u0631\u06cc\u0627\u0641\u062a \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627\u06cc "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u0647\u0641\u062a\u06af\u06cc"}
-                        </span>
-                        <React.Fragment>
-                          {" \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u060c "}
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u0631\u0634\u062f"}
-                        </span>
-                        <React.Fragment>
-                          {" \u06a9\u0648\u0686\u0648\u0644\u0648\u062a\u060c "}
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {
-                            "\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0628\u062f\u0646\u062a"
-                          }
-                        </span>
-                        <React.Fragment>
-                          {
-                            " \u0648 \u0646\u06a9\u0627\u062a \u0645\u0647\u0645 "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u0633\u0644\u0627\u0645\u062a\u06cc"}
-                        </span>
-                        <React.Fragment>
-                          {
-                            " \u0631\u0648 \u062f\u0642\u06cc\u0642 \u0648 \u0633\u0627\u062f\u0647 "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"}
-                        </span>
-                        <React.Fragment>
-                          {" \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645."}
-                        </React.Fragment>
-                      </React.Fragment>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__t9B0O
-                      )}
-                      onClick={async event => {
-                        const $steps = {};
-                      }}
-                    >
-                      <React.Fragment>
-                        <React.Fragment>
-                          {
-                            "\u0647\u0631 \u0647\u0641\u062a\u0647 \u06cc\u06a9 \u062f\u0627\u0633\u062a\u0627\u0646 \u062c\u062f\u06cc\u062f \u0627\u0632 \u062f\u0646\u06cc\u0627\u06cc \u062f\u0631\u0648\u0646\u062a\u060c \u0627\u0632 \u0642\u0644\u0628 \u06a9\u0648\u0686\u0648\u0644\u0648 \u062a\u0627 \u0627\u0648\u0644\u06cc\u0646 \u0644\u06af\u062f\u0647\u0627\u060c \u0627\u0632 "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {
-                            "\u0633\u0648\u0646\u0648\u06af\u0631\u0627\u0641\u06cc\u200c\u0647\u0627"
-                          }
-                        </span>
-                        <React.Fragment>{" \u0648 "}</React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {
-                            "\u0622\u0632\u0645\u0627\u06cc\u0634\u200c\u0647\u0627\u06cc"
-                          }
-                        </span>
-                        <React.Fragment> </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u0645\u0647\u0645"}
-                        </span>
-                        <React.Fragment>
-                          {
-                            " \u062a\u0627 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u062a\u063a\u0630\u06cc\u0647"}
-                        </span>
-                        <React.Fragment>{" \u0648 "}</React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u0622\u0631\u0627\u0645\u0634"}
-                        </span>
-                        <React.Fragment>
-                          {
-                            " \u0628\u0631\u0627\u06cc \u0645\u0627\u0645\u0627\u0646 \u0645\u0647\u0631\u0628\u0648\u0646.\n\u0647\u0645\u0631\u0627\u0647 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9\u200c \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u0627\u0646\u062c\u0627\u0645 "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {
-                            "\u0622\u0632\u0645\u0627\u06cc\u0634\u200c\u0647\u0627"
-                          }
-                        </span>
-                        <React.Fragment>{" \u0648 "}</React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u0686\u06a9\u0627\u067e\u200c\u0647\u0627\u06cc"}
-                        </span>
-                        <React.Fragment>
-                          {
-                            " \u0636\u0631\u0648\u0631\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u062f\u0627\u0631\u06cc \u062a\u0627 \u0628\u0627 \u062e\u06cc\u0627\u0644 "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u0631\u0627\u062d\u062a"}
-                        </span>
-                        <React.Fragment>{" \u0648 "}</React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u0633\u0644\u0627\u0645\u062a"}
-                        </span>
-                        <React.Fragment>
-                          {
-                            " \u06a9\u0627\u0645\u0644 \u067e\u06cc\u0634 \u0628\u0631\u06cc.\n\n\u0628\u0627"
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{
-                            fontWeight: 700,
-                            color: "var(--token-55cSeNPovQFh)"
-                          }}
-                        >
-                          {
-                            " \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f"
-                          }
-                        </span>
-                        <React.Fragment>
-                          {
-                            " \u060c \u062d\u0633 \u0645\u06cc\u200c\u06a9\u0646\u06cc \u0647\u0645\u06cc\u0634\u0647 \u06cc\u0647 \u062f\u0648\u0633\u062a \u0645\u0647\u0631\u0628\u0648\u0646 \u062f\u0627\u0631\u06cc \u06a9\u0647 \u0628\u0647\u062a \u0627\u0646\u0631\u0698\u06cc \u0648 \u0627\u0645\u06cc\u062f \u0645\u06cc\u200c\u062f\u0647 \u0648 \u0645\u0633\u06cc\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0631\u0648 \u067e\u0631 \u0627\u0632 "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u0622\u0631\u0627\u0645\u0634"}
-                        </span>
-                        <React.Fragment>{" \u0648 "}</React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u0634\u0627\u062f\u06cc"}
-                        </span>
-                        <React.Fragment>
-                          {" \u0645\u06cc\u200c\u06a9\u0646\u0647."}
-                        </React.Fragment>
-                      </React.Fragment>
-                    </div>
-                  </div>
-                ) : null}
-                {(() => {
-                  try {
-                    return (() => {
-                      if ($state.getSub.loading) return false;
-                      else if (
-                        $state?.getSub?.data?.[0]?.result == null ||
-                        $state?.getSub?.data?.[0]?.result?.active == false
-                      )
+              </div>
+            ) : null}
+            {(
+              hasVariant(globalVariants, "screen", "mobile")
+                ? true
+                : (() => {
+                    try {
+                      return !$state.getSub.loading && !$state.loading;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
                         return false;
-                      else if ($state.state == true) return true;
-                      else return true;
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__cm9TK)}
-                  >
-                    {(
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? (() => {
-                            try {
-                              return (
-                                ($state.getSub.data[0].result.mobile ?? "") ==
-                                ""
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return false;
-                              }
-                              throw e;
-                            }
-                          })()
-                        : (() => {
-                            try {
-                              return (
-                                ($state.getSub.data[0].result.mobile ?? "") ==
-                                ""
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return false;
-                              }
-                              throw e;
-                            }
-                          })()
-                    ) ? (
+                  })()
+            ) ? (
+              <div className={classNames(projectcss.all, sty.freeBox___2HVpP)}>
+                <div className={classNames(projectcss.all, sty.freeBox__kbF6)}>
+                  {(() => {
+                    try {
+                      return $state.reload;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___2D3Xa
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return window.FlutterChannel.postMessage(
+                                    "reload"
+                                  );
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                    >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__njRxo
+                          projectcss.__wab_text,
+                          sty.text___3ZnEs
+                        )}
+                      >
+                        {
+                          "\u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
+                        }
+                      </div>
+                    </Stack__>
+                  ) : null}
+                  {(() => {
+                    try {
+                      return $state.paramsObject.status != "pregnancy";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__jFfaO)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__qbI5J
                         )}
                         onClick={async event => {
                           const $steps = {};
-
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return window.FlutterChannel.postMessage(
-                                      "#mobileModal"
-                                    );
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-
-                          $steps["invokeGlobalAction"] = true
-                            ? (() => {
-                                const actionArgs = { args: [1000] };
-                                return $globalActions["Fragment.wait"]?.apply(
-                                  null,
-                                  [...actionArgs.args]
-                                );
-                              })()
-                            : undefined;
-                          if (
-                            $steps["invokeGlobalAction"] != null &&
-                            typeof $steps["invokeGlobalAction"] === "object" &&
-                            typeof $steps["invokeGlobalAction"].then ===
-                              "function"
-                          ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
-                          }
-
-                          $steps["updateReload"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["reload"]
-                                  },
-                                  operation: 0,
-                                  value: true
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateReload"] != null &&
-                            typeof $steps["updateReload"] === "object" &&
-                            typeof $steps["updateReload"].then === "function"
-                          ) {
-                            $steps["updateReload"] = await $steps[
-                              "updateReload"
-                            ];
-                          }
                         }}
                       >
-                        <div
+                        <React.Fragment>
+                          <React.Fragment>
+                            {
+                              "\u0628\u062f\u0646\u062a \u0628\u0627\u0647\u0627\u062a \u062d\u0631\u0641 \u0645\u06cc\u0632\u0646\u0647\u061b \u0628\u0627 \u06af\u0648\u0634 \u062f\u0627\u062f\u0646 \u0628\u0647\u0634\u060c  "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u0633\u0627\u0644\u0645\u200c\u062a\u0631 "}
+                          </span>
+                          <React.Fragment>{" \u0648  "}</React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u0634\u0627\u062f\u062a\u0631"}
+                          </span>
+                          <React.Fragment>
+                            {
+                              "  \u0628\u0627\u0634.\n\u0628\u0647 \u0637\u0648\u0631 \u06a9\u0644\u06cc \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647 "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 500 }}
+                          >
+                            {"\u0686\u0647\u0627\u0631"}
+                          </span>
+                          <React.Fragment>
+                            {
+                              " \u0645\u0631\u062d\u0644\u0647 \u062a\u0642\u0633\u06cc\u0645 \u0645\u06cc\u200c\u0634\u0648\u062f:"
+                            }
+                          </React.Fragment>
+                        </React.Fragment>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__vw2Q
+                        )}
+                      >
+                        <ul
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__uoaiw
+                            projectcss.ul,
+                            sty.ul__p75F1
                           )}
                         >
-                          {hasVariant(globalVariants, "screen", "mobile") ? (
-                            <React.Fragment>
-                              <React.Fragment>
-                                {
-                                  "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0628\u0627\u06cc\u062f \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc. "
-                                }
-                              </React.Fragment>
-                              <span
-                                className={
-                                  "plasmic_default__all plasmic_default__span"
-                                }
-                                style={{ fontWeight: 700 }}
+                          <li
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.li,
+                              sty.li__cvkGu
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__uYnqz
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__dBsYg
+                                )}
                               >
-                                {"\u0627\u06cc\u0646\u062c\u0627"}
-                              </span>
-                              <React.Fragment>
-                                {
-                                  " \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u0634\u0645\u0627\u0631\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
-                                }
-                              </React.Fragment>
-                            </React.Fragment>
-                          ) : (
-                            "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0628\u0627\u06cc\u062f \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc. \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u0634\u0645\u0627\u0631\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
+                                <React.Fragment>
+                                  <React.Fragment>{""}</React.Fragment>
+                                  {
+                                    <ul
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.ul,
+                                        sty.ul__eceL4
+                                      )}
+                                    >
+                                      <li
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.li,
+                                          projectcss.__wab_text,
+                                          sty.li__iqCDt
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          <span
+                                            className={
+                                              "plasmic_default__all plasmic_default__span"
+                                            }
+                                            style={{ fontWeight: 500 }}
+                                          >
+                                            {
+                                              "\u0642\u0627\u0639\u062f\u06af\u06cc"
+                                            }
+                                          </span>
+                                          <React.Fragment>
+                                            {
+                                              ": \u0632\u0645\u0627\u0646 \u0627\u0633\u062a\u0631\u0627\u062d\u062a \u0648 \u062a\u063a\u0630\u06cc\u0647 \u0645\u0646\u0627\u0633\u0628"
+                                            }
+                                          </React.Fragment>
+                                        </React.Fragment>
+                                      </li>
+                                    </ul>
+                                  }
+                                  <React.Fragment>{""}</React.Fragment>
+                                </React.Fragment>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <ul
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.ul,
+                            sty.ul__hskj
                           )}
-                        </div>
+                        >
+                          <li
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.li,
+                              sty.li__wjBi6
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__i1Opm
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__fq8G9
+                                )}
+                              >
+                                <React.Fragment>
+                                  <span
+                                    className={
+                                      "plasmic_default__all plasmic_default__span"
+                                    }
+                                    style={{ fontWeight: 500 }}
+                                  >
+                                    {
+                                      "\u0641\u0648\u0644\u06cc\u06a9\u0648\u0644\u0627\u0631"
+                                    }
+                                  </span>
+                                  <React.Fragment>
+                                    {
+                                      ": \u062f\u0648\u0631\u0647\u200c\u0627\u06cc \u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u0641\u0639\u0627\u0644\u06cc\u062a\u200c\u0647\u0627\u06cc  \u0648 \u067e\u0631\u0627\u0646\u0631\u0698\u06cc"
+                                    }
+                                  </React.Fragment>
+                                </React.Fragment>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <ul
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.ul,
+                            sty.ul__rrg2B
+                          )}
+                        >
+                          <li
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.li,
+                              sty.li__k60EL
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox___5In2E
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__or0X1
+                                )}
+                              >
+                                <React.Fragment>
+                                  <span
+                                    className={
+                                      "plasmic_default__all plasmic_default__span"
+                                    }
+                                    style={{ fontWeight: 500 }}
+                                  >
+                                    {
+                                      "\u062a\u062e\u0645\u06a9\u200c\u06af\u0630\u0627\u0631\u06cc"
+                                    }
+                                  </span>
+                                  <React.Fragment>
+                                    {
+                                      ": \u0627\u0648\u062c \u0627\u0646\u0631\u0698\u06cc\u061b \u0645\u0646\u0627\u0633\u0628 \u0628\u0631\u0627\u06cc \u0641\u0639\u0627\u0644\u06cc\u062a\u200c\u0647\u0627\u06cc \u0627\u062c\u062a\u0645\u0627\u0639\u06cc \u0648 \u062a\u0645\u0631\u06cc\u0646 \u0634\u062f\u06cc\u062f"
+                                    }
+                                  </React.Fragment>
+                                </React.Fragment>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <ul
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.ul,
+                            sty.ul__bNpGs
+                          )}
+                        >
+                          <li
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.li,
+                              sty.li__ecUcs
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox___4WxZ1
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__kz9ZQ
+                                )}
+                              >
+                                <React.Fragment>
+                                  <span
+                                    className={
+                                      "plasmic_default__all plasmic_default__span"
+                                    }
+                                    style={{ fontWeight: 500 }}
+                                  >
+                                    {"\u0644\u0648\u062a\u0626\u0627\u0644"}
+                                  </span>
+                                  <React.Fragment>
+                                    {
+                                      ": \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0627\u0633\u062a\u0631\u0627\u062d\u062a\u061b \u0648\u0631\u0632\u0634 \u0633\u0628\u06a9 \u0648 \u062a\u063a\u0630\u06cc\u0647 \u0645\u0642\u0648\u06cc"
+                                    }
+                                  </React.Fragment>
+                                </React.Fragment>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__jaOdM
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+                        }}
+                      >
+                        <React.Fragment>
+                          <React.Fragment>{"\u0628\u0627   "}</React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ color: "#7444BC", fontWeight: 700 }}
+                          >
+                            {
+                              "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f "
+                            }
+                          </span>
+                          <React.Fragment>
+                            {
+                              "\u0645\u06cc\u062a\u0648\u0646\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627\u06cc \u062f\u0648\u0631\u062a \u0631\u0648 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc \u0648 \u0632\u0645\u0627\u0646 \u062f\u0631\u0633\u062a \u0627\u0646\u062c\u0627\u0645 \u0647\u0631 \u06a9\u0627\u0631\u06cc \u0631\u0648 \u0628\u062f\u0648\u0646\u06cc. \u0627\u0632 \u0631\u0698\u06cc\u0645 \u06af\u0631\u0641\u062a\u0647 \u062a\u0627 \u062a\u0635\u0645\u06cc\u0645 \u0647\u0627\u06cc \u0645\u0647\u0645 \u0632\u0646\u062f\u06af\u06cc!\n \u0648 \u06cc\u0627 \u0634\u0631\u0648\u0639 \u0648\u0631\u0632\u0634 \u06a9\u0631\u062f\u0646\u060c \u0645\u0647\u0645\u0648\u0646\u06cc \u06af\u0631\u0641\u062a\u0646 \u0648 \u06cc\u0627 \u0645\u0647\u0645\u0648\u0646\u06cc \u0631\u0641\u062a\u0646 \u0648 ..."
+                            }
+                          </React.Fragment>
+                        </React.Fragment>
+                      </div>
+                    </div>
+                  ) : null}
+                  {(() => {
+                    try {
+                      return $state.paramsObject.status == "pregnancy";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___26DdR
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__iZlr6
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+                        }}
+                      >
+                        <React.Fragment>
+                          <React.Fragment>
+                            {
+                              "\u0628\u062f\u0646\u062a \u062f\u0627\u0631\u0647 \u06cc\u0647 \u0633\u0641\u0631 \u0641\u0648\u0642\u200c\u0627\u0644\u0639\u0627\u062f\u0647 \u0648 \u0628\u06cc\u200c\u0646\u0638\u06cc\u0631 \u0631\u0648 \u0637\u06cc \u0645\u06cc\u200c\u06a9\u0646\u0647 \u0648 \u0645\u0627 \u0627\u06cc\u0646\u062c\u0627 \u0647\u0633\u062a\u06cc\u0645 \u062a\u0627 \u0647\u0631 \u0647\u0641\u062a\u0647 "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u06a9\u0646\u0627\u0631\u062a"}
+                          </span>
+                          <React.Fragment>
+                            {
+                              " \u0628\u0627\u0634\u06cc\u0645.\n\u0628\u0627 \u062f\u0631\u06cc\u0627\u0641\u062a \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627\u06cc "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u0647\u0641\u062a\u06af\u06cc"}
+                          </span>
+                          <React.Fragment>
+                            {
+                              " \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u060c "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u0631\u0634\u062f"}
+                          </span>
+                          <React.Fragment>
+                            {
+                              " \u06a9\u0648\u0686\u0648\u0644\u0648\u062a\u060c "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {
+                              "\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0628\u062f\u0646\u062a"
+                            }
+                          </span>
+                          <React.Fragment>
+                            {
+                              " \u0648 \u0646\u06a9\u0627\u062a \u0645\u0647\u0645 "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u0633\u0644\u0627\u0645\u062a\u06cc"}
+                          </span>
+                          <React.Fragment>
+                            {
+                              " \u0631\u0648 \u062f\u0642\u06cc\u0642 \u0648 \u0633\u0627\u062f\u0647 "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"}
+                          </span>
+                          <React.Fragment>
+                            {" \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645."}
+                          </React.Fragment>
+                        </React.Fragment>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__t9B0O
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+                        }}
+                      >
+                        <React.Fragment>
+                          <React.Fragment>
+                            {
+                              "\u0647\u0631 \u0647\u0641\u062a\u0647 \u06cc\u06a9 \u062f\u0627\u0633\u062a\u0627\u0646 \u062c\u062f\u06cc\u062f \u0627\u0632 \u062f\u0646\u06cc\u0627\u06cc \u062f\u0631\u0648\u0646\u062a\u060c \u0627\u0632 \u0642\u0644\u0628 \u06a9\u0648\u0686\u0648\u0644\u0648 \u062a\u0627 \u0627\u0648\u0644\u06cc\u0646 \u0644\u06af\u062f\u0647\u0627\u060c \u0627\u0632 "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {
+                              "\u0633\u0648\u0646\u0648\u06af\u0631\u0627\u0641\u06cc\u200c\u0647\u0627"
+                            }
+                          </span>
+                          <React.Fragment>{" \u0648 "}</React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {
+                              "\u0622\u0632\u0645\u0627\u06cc\u0634\u200c\u0647\u0627\u06cc"
+                            }
+                          </span>
+                          <React.Fragment> </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u0645\u0647\u0645"}
+                          </span>
+                          <React.Fragment>
+                            {
+                              " \u062a\u0627 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u062a\u063a\u0630\u06cc\u0647"}
+                          </span>
+                          <React.Fragment>{" \u0648 "}</React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u0622\u0631\u0627\u0645\u0634"}
+                          </span>
+                          <React.Fragment>
+                            {
+                              " \u0628\u0631\u0627\u06cc \u0645\u0627\u0645\u0627\u0646 \u0645\u0647\u0631\u0628\u0648\u0646.\n\u0647\u0645\u0631\u0627\u0647 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9\u200c \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u0627\u0646\u062c\u0627\u0645 "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {
+                              "\u0622\u0632\u0645\u0627\u06cc\u0634\u200c\u0647\u0627"
+                            }
+                          </span>
+                          <React.Fragment>{" \u0648 "}</React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u0686\u06a9\u0627\u067e\u200c\u0647\u0627\u06cc"}
+                          </span>
+                          <React.Fragment>
+                            {
+                              " \u0636\u0631\u0648\u0631\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u062f\u0627\u0631\u06cc \u062a\u0627 \u0628\u0627 \u062e\u06cc\u0627\u0644 "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u0631\u0627\u062d\u062a"}
+                          </span>
+                          <React.Fragment>{" \u0648 "}</React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u0633\u0644\u0627\u0645\u062a"}
+                          </span>
+                          <React.Fragment>
+                            {
+                              " \u06a9\u0627\u0645\u0644 \u067e\u06cc\u0634 \u0628\u0631\u06cc.\n\n\u0628\u0627"
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{
+                              fontWeight: 700,
+                              color: "var(--token-55cSeNPovQFh)"
+                            }}
+                          >
+                            {
+                              " \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f"
+                            }
+                          </span>
+                          <React.Fragment>
+                            {
+                              " \u060c \u062d\u0633 \u0645\u06cc\u200c\u06a9\u0646\u06cc \u0647\u0645\u06cc\u0634\u0647 \u06cc\u0647 \u062f\u0648\u0633\u062a \u0645\u0647\u0631\u0628\u0648\u0646 \u062f\u0627\u0631\u06cc \u06a9\u0647 \u0628\u0647\u062a \u0627\u0646\u0631\u0698\u06cc \u0648 \u0627\u0645\u06cc\u062f \u0645\u06cc\u200c\u062f\u0647 \u0648 \u0645\u0633\u06cc\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0631\u0648 \u067e\u0631 \u0627\u0632 "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u0622\u0631\u0627\u0645\u0634"}
+                          </span>
+                          <React.Fragment>{" \u0648 "}</React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u0634\u0627\u062f\u06cc"}
+                          </span>
+                          <React.Fragment>
+                            {" \u0645\u06cc\u200c\u06a9\u0646\u0647."}
+                          </React.Fragment>
+                        </React.Fragment>
+                      </div>
+                    </div>
+                  ) : null}
+                  {(() => {
+                    try {
+                      return (() => {
+                        if ($state.getSub.loading) return false;
+                        else if (
+                          $state?.getSub?.data?.[0]?.result == null ||
+                          $state?.getSub?.data?.[0]?.result?.active == false
+                        )
+                          return false;
+                        else if ($state.state == true) return true;
+                        else return true;
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__cm9TK)}
+                    >
+                      {(
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? (() => {
+                              try {
+                                return (
+                                  ($state.getSub.data[0].result.mobile ?? "") ==
+                                  ""
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })()
+                          : (() => {
+                              try {
+                                return (
+                                  ($state.getSub.data[0].result.mobile ?? "") ==
+                                  ""
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })()
+                      ) ? (
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__u4OfL
+                            sty.freeBox__njRxo
                           )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return window.FlutterChannel.postMessage(
+                                        "#mobileModal"
+                                      );
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = { args: [1000] };
+                                  return $globalActions["Fragment.wait"]?.apply(
+                                    null,
+                                    [...actionArgs.args]
+                                  );
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
+                            }
+
+                            $steps["updateReload"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["reload"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateReload"] != null &&
+                              typeof $steps["updateReload"] === "object" &&
+                              typeof $steps["updateReload"].then === "function"
+                            ) {
+                              $steps["updateReload"] = await $steps[
+                                "updateReload"
+                              ];
+                            }
+                          }}
                         >
                           <div
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__uuiMk
+                              sty.text__uoaiw
+                            )}
+                          >
+                            {hasVariant(globalVariants, "screen", "mobile") ? (
+                              <React.Fragment>
+                                <React.Fragment>
+                                  {
+                                    "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0628\u0627\u06cc\u062f \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc. "
+                                  }
+                                </React.Fragment>
+                                <span
+                                  className={
+                                    "plasmic_default__all plasmic_default__span"
+                                  }
+                                  style={{ fontWeight: 700 }}
+                                >
+                                  {"\u0627\u06cc\u0646\u062c\u0627"}
+                                </span>
+                                <React.Fragment>
+                                  {
+                                    " \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u0634\u0645\u0627\u0631\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
+                                  }
+                                </React.Fragment>
+                              </React.Fragment>
+                            ) : (
+                              "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0628\u0627\u06cc\u062f \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc. \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u0634\u0645\u0627\u0631\u062a\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
+                            )}
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__u4OfL
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__uuiMk
+                              )}
+                            >
+                              {
+                                "\u0627\u0641\u0632\u0648\u062f\u0646 \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                              }
+                            </div>
+                          </div>
+                        </div>
+                      ) : null}
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__nDjGi
+                        )}
+                        style={(() => {
+                          try {
+                            return (() => {
+                              var thenDay;
+                              let future_date = new Date(
+                                $state.getSub.data[0].result.time.year,
+                                $state.getSub.data[0].result.time.month - 1,
+                                $state.getSub.data[0].result.time.day,
+                                $state.getSub.data[0].result.time.hour,
+                                $state.getSub.data[0].result.time.minute,
+                                $state.getSub.data[0].result.time.second
+                              );
+                              let offset = 3.5 * 60 * 60 * 1000;
+                              var expdate = future_date.setTime(
+                                future_date.getTime() + offset
+                              );
+                              let current_date = new Date();
+                              let delta = expdate - current_date;
+                              let tenDaysInMs = 10 * 24 * 60 * 60 * 1000;
+                              if (delta < tenDaysInMs) {
+                                thenDay = true;
+                              } else {
+                                thenDay = false;
+                              }
+                              return {
+                                boxShadow: `0 0px 4px 2px ${
+                                  thenDay == false ? "#00C371" : "#EB464A"
+                                }`
+                              };
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      >
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__fyj3R
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__bTEuD
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__iEpf
                             )}
                           >
                             {
-                              "\u0627\u0641\u0632\u0648\u062f\u0646 \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                              "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a."
                             }
                           </div>
-                        </div>
-                      </div>
-                    ) : null}
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__nDjGi)}
-                      style={(() => {
-                        try {
-                          return (() => {
-                            var thenDay;
-                            let future_date = new Date(
-                              $state.getSub.data[0].result.time.year,
-                              $state.getSub.data[0].result.time.month - 1,
-                              $state.getSub.data[0].result.time.day,
-                              $state.getSub.data[0].result.time.hour,
-                              $state.getSub.data[0].result.time.minute,
-                              $state.getSub.data[0].result.time.second
-                            );
-                            let offset = 3.5 * 60 * 60 * 1000;
-                            var expdate = future_date.setTime(
-                              future_date.getTime() + offset
-                            );
-                            let current_date = new Date();
-                            let delta = expdate - current_date;
-                            let tenDaysInMs = 10 * 24 * 60 * 60 * 1000;
-                            if (delta < tenDaysInMs) {
-                              thenDay = true;
-                            } else {
-                              thenDay = false;
-                            }
-                            return {
-                              boxShadow: `0 0px 4px 2px ${
-                                thenDay == false ? "#00C371" : "#EB464A"
-                              }`
-                            };
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
-                    >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__fyj3R
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__bTEuD
-                          )}
-                        />
-
+                        </Stack__>
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__iEpf
+                            sty.text__fX6Hp
                           )}
                         >
                           {
-                            "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a."
+                            "\u0632\u0645\u0627\u0646 \u0627\u0639\u062a\u0628\u0627\u0631 \u0627\u0634\u062a\u0631\u0627\u06a9 :"
                           }
                         </div>
-                      </Stack__>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__fX6Hp
-                        )}
-                      >
-                        {
-                          "\u0632\u0645\u0627\u0646 \u0627\u0639\u062a\u0628\u0627\u0631 \u0627\u0634\u062a\u0631\u0627\u06a9 :"
-                        }
-                      </div>
-                      {(() => {
-                        const child$Props = {
-                          className: classNames(
-                            "__wab_instance",
-                            sty.countdown
-                          ),
-                          color: (() => {
-                            try {
-                              return (() => {
-                                let future_date = new Date(
-                                  $state.getSub.data[0].result.time.year,
-                                  $state.getSub.data[0].result.time.month - 1,
-                                  $state.getSub.data[0].result.time.day,
-                                  $state.getSub.data[0].result.time.hour,
-                                  $state.getSub.data[0].result.time.minute,
-                                  $state.getSub.data[0].result.time.second
-                                );
-                                let offset = 3.5 * 60 * 60 * 1000;
-                                var expdate = future_date.setTime(
-                                  future_date.getTime() + offset
-                                );
-                                let current_date = new Date();
-                                let delta = expdate - current_date;
-                                let tenDaysInMs = 10 * 24 * 60 * 60 * 1000;
-                                if (delta < tenDaysInMs) {
-                                  return "red";
-                                } else {
-                                  return "green";
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "green";
-                              }
-                              throw e;
-                            }
-                          })(),
-                          date: "dey",
-                          onRemainingSecondsChange: async (
-                            ...eventArgs: any
-                          ) => {
-                            generateStateOnChangeProp($state, [
-                              "countdown",
-                              "remainingSeconds"
-                            ]).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          },
-                          remainingSeconds: generateStateValueProp($state, [
-                            "countdown",
-                            "remainingSeconds"
-                          ])
-                        };
-
-                        initializePlasmicStates(
-                          $state,
-                          [
-                            {
-                              name: "countdown.remainingSeconds",
-                              initFunc: ({ $props, $state, $queries }) =>
-                                (() => {
+                        {(() => {
+                          const child$Props = {
+                            className: classNames(
+                              "__wab_instance",
+                              sty.countdown
+                            ),
+                            color: (() => {
+                              try {
+                                return (() => {
                                   let future_date = new Date(
                                     $state.getSub.data[0].result.time.year,
                                     $state.getSub.data[0].result.time.month - 1,
@@ -1687,228 +2210,336 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                   );
                                   let current_date = new Date();
                                   let delta = expdate - current_date;
-                                  return Math.floor(delta / 1000);
-                                })()
-                            }
-                          ],
-                          []
-                        );
-                        return (
-                          <Countdown
-                            data-plasmic-name={"countdown"}
-                            data-plasmic-override={overrides.countdown}
-                            {...child$Props}
-                          />
-                        );
-                      })()}
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__uuqzz
-                      )}
-                    >
-                      {hasVariant(globalVariants, "screen", "mobile") ? (
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (() => {
-                                const today = new Date();
-                                let months =
-                                  today.getMonth() -
-                                  $state.getSub.data[0].result.time.month;
-                                let days =
-                                  today.getDate() -
-                                  $state.getSub.data[0].result.time.day;
-                                if (days < 0) {
-                                  months--;
-                                  const lastMonth = new Date(
-                                    today.getFullYear(),
-                                    today.getMonth(),
-                                    0
-                                  );
-                                  days += lastMonth.getDate();
-                                }
-                                if (months < 0) {
-                                  months += 12;
-                                }
-                                return (
-                                  "اشتراک شما تا " +
-                                  (months == 0 ? "" : months + " ماه") +
-                                  (days == 0 ? "" : days + " روز") +
-                                  " .آینده فعال است " +
-                                  "\n" +
-                                  "برای غیرفعال کردن پیامک به خود روی دکمه زیر کلیک کنید."
-                                );
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      ) : (
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (() => {
-                                const today = new Date();
-                                let months =
-                                  today.getMonth() -
-                                  $state.getSub.data[0].result.time.month;
-                                let days =
-                                  today.getDate() -
-                                  $state.getSub.data[0].result.time.day;
-                                if (days < 0) {
-                                  months--;
-                                  const lastMonth = new Date(
-                                    today.getFullYear(),
-                                    today.getMonth(),
-                                    0
-                                  );
-                                  days += lastMonth.getDate();
-                                }
-                                if (months < 0) {
-                                  months += 12;
-                                }
-                                return (
-                                  "اشتراک شما تا " +
-                                  (months == 0 ? "" : months + " ماه") +
-                                  (days == 0 ? "" : days + " روز") +
-                                  " .آینده فعال است " +
-                                  "برای غیرفعال کردن پیامک به خود روی دکمه زیر کلیک کنید."
-                                );
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      )}
-                    </div>
-                    {(() => {
-                      try {
-                        return (() => {
-                          if ($state.getSub.loading) return false;
-                          else if (
-                            $state?.getSub?.data?.[0]?.result == null ||
-                            $state?.getSub?.data?.[0]?.result?.active == false
-                          )
-                            return false;
-                          else if ($state.state == true) return true;
-                          else return false;
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <Button
-                        data-plasmic-name={"button2"}
-                        data-plasmic-override={overrides.button2}
-                        className={classNames("__wab_instance", sty.button2)}
-                        color={generateStateValueProp($state, [
-                          "button2",
-                          "color"
-                        ])}
-                        loading={(() => {
-                          try {
-                            return $state.getSub.loading || $state.loading;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
-                          }
-                        })()}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["updateLoading"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["loading"]
-                                  },
-                                  operation: 4
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
+                                  let tenDaysInMs = 10 * 24 * 60 * 60 * 1000;
+                                  if (delta < tenDaysInMs) {
+                                    return "red";
+                                  } else {
+                                    return "green";
                                   }
-                                  const { objRoot, variablePath } = variable;
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "green";
+                                }
+                                throw e;
+                              }
+                            })(),
+                            date: "dey",
+                            onRemainingSecondsChange: async (
+                              ...eventArgs: any
+                            ) => {
+                              generateStateOnChangeProp($state, [
+                                "countdown",
+                                "remainingSeconds"
+                              ]).apply(null, eventArgs);
 
-                                  const oldValue = $stateGet(
-                                    objRoot,
-                                    variablePath
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            },
+                            remainingSeconds: generateStateValueProp($state, [
+                              "countdown",
+                              "remainingSeconds"
+                            ])
+                          };
+
+                          initializePlasmicStates(
+                            $state,
+                            [
+                              {
+                                name: "countdown.remainingSeconds",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    let future_date = new Date(
+                                      $state.getSub.data[0].result.time.year,
+                                      $state.getSub.data[0].result.time.month -
+                                        1,
+                                      $state.getSub.data[0].result.time.day,
+                                      $state.getSub.data[0].result.time.hour,
+                                      $state.getSub.data[0].result.time.minute,
+                                      $state.getSub.data[0].result.time.second
+                                    );
+                                    let offset = 3.5 * 60 * 60 * 1000;
+                                    var expdate = future_date.setTime(
+                                      future_date.getTime() + offset
+                                    );
+                                    let current_date = new Date();
+                                    let delta = expdate - current_date;
+                                    return Math.floor(delta / 1000);
+                                  })()
+                              }
+                            ],
+                            []
+                          );
+                          return (
+                            <Countdown
+                              data-plasmic-name={"countdown"}
+                              data-plasmic-override={overrides.countdown}
+                              {...child$Props}
+                            />
+                          );
+                        })()}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__uuqzz
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  const today = new Date();
+                                  let months =
+                                    today.getMonth() -
+                                    $state.getSub.data[0].result.time.month;
+                                  let days =
+                                    today.getDate() -
+                                    $state.getSub.data[0].result.time.day;
+                                  if (days < 0) {
+                                    months--;
+                                    const lastMonth = new Date(
+                                      today.getFullYear(),
+                                      today.getMonth(),
+                                      0
+                                    );
+                                    days += lastMonth.getDate();
+                                  }
+                                  if (months < 0) {
+                                    months += 12;
+                                  }
+                                  return (
+                                    "اشتراک شما تا " +
+                                    (months == 0 ? "" : months + " ماه") +
+                                    (days == 0 ? "" : days + " روز") +
+                                    " .آینده فعال است " +
+                                    "\n" +
+                                    "برای غیرفعال کردن پیامک به خود روی دکمه زیر کلیک کنید."
                                   );
-                                  $stateSet(objRoot, variablePath, !oldValue);
-                                  return !oldValue;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        ) : (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  const today = new Date();
+                                  let months =
+                                    today.getMonth() -
+                                    $state.getSub.data[0].result.time.month;
+                                  let days =
+                                    today.getDate() -
+                                    $state.getSub.data[0].result.time.day;
+                                  if (days < 0) {
+                                    months--;
+                                    const lastMonth = new Date(
+                                      today.getFullYear(),
+                                      today.getMonth(),
+                                      0
+                                    );
+                                    days += lastMonth.getDate();
+                                  }
+                                  if (months < 0) {
+                                    months += 12;
+                                  }
+                                  return (
+                                    "اشتراک شما تا " +
+                                    (months == 0 ? "" : months + " ماه") +
+                                    (days == 0 ? "" : days + " روز") +
+                                    " .آینده فعال است " +
+                                    "برای غیرفعال کردن پیامک به خود روی دکمه زیر کلیک کنید."
+                                  );
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        )}
+                      </div>
+                      {(() => {
+                        try {
+                          return (() => {
+                            if ($state.getSub.loading) return false;
+                            else if (
+                              $state?.getSub?.data?.[0]?.result == null ||
+                              $state?.getSub?.data?.[0]?.result?.active == false
+                            )
+                              return false;
+                            else if ($state.state == true) return true;
+                            else return false;
+                          })();
+                        } catch (e) {
                           if (
-                            $steps["updateLoading"] != null &&
-                            typeof $steps["updateLoading"] === "object" &&
-                            typeof $steps["updateLoading"].then === "function"
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            $steps["updateLoading"] = await $steps[
-                              "updateLoading"
-                            ];
+                            return false;
                           }
+                          throw e;
+                        }
+                      })() ? (
+                        <Button
+                          data-plasmic-name={"button2"}
+                          data-plasmic-override={overrides.button2}
+                          className={classNames("__wab_instance", sty.button2)}
+                          color={generateStateValueProp($state, [
+                            "button2",
+                            "color"
+                          ])}
+                          loading={(() => {
+                            try {
+                              return $state.getSub.loading || $state.loading;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()}
+                          onClick={async event => {
+                            const $steps = {};
 
-                          $steps["runCode"] =
-                            $state?.getSub?.data?.[0]?.result == null ||
-                            $state?.getSub?.data?.[0]?.result?.active == false
+                            $steps["updateLoading"] = true
                               ? (() => {
                                   const actionArgs = {
-                                    customFunction: async () => {
-                                      return window.FlutterChannel.postMessage(
-                                        "#directDialog-self_hamyar_sms"
-                                      );
-                                    }
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["loading"]
+                                    },
+                                    operation: 4
                                   };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    const oldValue = $stateGet(
+                                      objRoot,
+                                      variablePath
+                                    );
+                                    $stateSet(objRoot, variablePath, !oldValue);
+                                    return !oldValue;
                                   })?.apply(null, [actionArgs]);
                                 })()
                               : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
+                            if (
+                              $steps["updateLoading"] != null &&
+                              typeof $steps["updateLoading"] === "object" &&
+                              typeof $steps["updateLoading"].then === "function"
+                            ) {
+                              $steps["updateLoading"] = await $steps[
+                                "updateLoading"
+                              ];
+                            }
 
-                          $steps["invokeGlobalAction"] =
-                            $state?.state ?? false
+                            $steps["runCode"] =
+                              $state?.getSub?.data?.[0]?.result == null ||
+                              $state?.getSub?.data?.[0]?.result?.active == false
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return window.FlutterChannel.postMessage(
+                                          "#directDialog-self_hamyar_sms"
+                                        );
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+
+                            $steps["invokeGlobalAction"] =
+                              $state?.state ?? false
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "POST",
+                                        "https://n8n.staas.ir/webhook/setSub",
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return {
+                                              Authorization: $state.token,
+                                              type: "selfHamyarSms",
+                                              data: false
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
+                            }
+
+                            $steps["updateButtonColor3"] = !(
+                              $state?.state ?? false
+                            )
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -1920,7 +2551,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                           return {
                                             Authorization: $state.token,
                                             type: "selfHamyarSms",
-                                            data: false
+                                            data: true
                                           };
                                         } catch (e) {
                                           if (
@@ -1940,20 +2571,360 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                   ]?.apply(null, [...actionArgs.args]);
                                 })()
                               : undefined;
-                          if (
-                            $steps["invokeGlobalAction"] != null &&
-                            typeof $steps["invokeGlobalAction"] === "object" &&
-                            typeof $steps["invokeGlobalAction"].then ===
-                              "function"
-                          ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
-                          }
+                            if (
+                              $steps["updateButtonColor3"] != null &&
+                              typeof $steps["updateButtonColor3"] ===
+                                "object" &&
+                              typeof $steps["updateButtonColor3"].then ===
+                                "function"
+                            ) {
+                              $steps["updateButtonColor3"] = await $steps[
+                                "updateButtonColor3"
+                              ];
+                            }
 
-                          $steps["updateButtonColor3"] = !(
-                            $state?.state ?? false
-                          )
+                            $steps["updateLoading2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["loading"]
+                                    },
+                                    operation: 4
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    const oldValue = $stateGet(
+                                      objRoot,
+                                      variablePath
+                                    );
+                                    $stateSet(objRoot, variablePath, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateLoading2"] != null &&
+                              typeof $steps["updateLoading2"] === "object" &&
+                              typeof $steps["updateLoading2"].then ===
+                                "function"
+                            ) {
+                              $steps["updateLoading2"] = await $steps[
+                                "updateLoading2"
+                              ];
+                            }
+
+                            $steps["updateState"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["state"]
+                                    },
+                                    operation: 4
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    const oldValue = $stateGet(
+                                      objRoot,
+                                      variablePath
+                                    );
+                                    $stateSet(objRoot, variablePath, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateState"] != null &&
+                              typeof $steps["updateState"] === "object" &&
+                              typeof $steps["updateState"].then === "function"
+                            ) {
+                              $steps["updateState"] = await $steps[
+                                "updateState"
+                              ];
+                            }
+
+                            $steps["wait"] = true
+                              ? (() => {
+                                  const actionArgs = { args: [2000] };
+                                  return $globalActions["Fragment.wait"]?.apply(
+                                    null,
+                                    [...actionArgs.args]
+                                  );
+                                })()
+                              : undefined;
+                            if (
+                              $steps["wait"] != null &&
+                              typeof $steps["wait"] === "object" &&
+                              typeof $steps["wait"].then === "function"
+                            ) {
+                              $steps["wait"] = await $steps["wait"];
+                            }
+
+                            $steps["refreshData"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    queryInvalidation: ["plasmic_refresh_all"]
+                                  };
+                                  return (async ({ queryInvalidation }) => {
+                                    if (!queryInvalidation) {
+                                      return;
+                                    }
+                                    await plasmicInvalidate(queryInvalidation);
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["refreshData"] != null &&
+                              typeof $steps["refreshData"] === "object" &&
+                              typeof $steps["refreshData"].then === "function"
+                            ) {
+                              $steps["refreshData"] = await $steps[
+                                "refreshData"
+                              ];
+                            }
+                          }}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button2",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          size={"minimal"}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__mO1E
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (
+                                    " " + " غیرفعالسازی پیام به خود " + "  "
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </Button>
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (() => {
+                            if (
+                              $state?.getSub?.data?.[0]?.result == null ||
+                              $state?.getSub?.data?.[0]?.result?.active == false
+                            )
+                              return false;
+                            else if ($state?.state == true) return false;
+                            else return true;
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return false;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___5ZwdQ
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>
+                              {
+                                "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 "
+                              }
+                            </React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"\u067e\u06cc\u0627\u0645\u06a9"}
+                            </span>
+                            <React.Fragment>
+                              {
+                                " \u0628\u0647\u062a \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0647  "
+                              }
+                            </React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"\u0641\u0639\u0627\u0644\u0634"}
+                            </span>
+                            <React.Fragment>
+                              {" \u06a9\u0646\ud83d\udc47"}
+                            </React.Fragment>
+                          </React.Fragment>
+                        </div>
+                      ) : null}
+                    </div>
+                  ) : null}
+                  {(() => {
+                    try {
+                      return (() => {
+                        if ($state.getSub.loading) return true;
+                        else if (
+                          $state?.getSub?.data?.[0]?.result == null ||
+                          $state?.getSub?.data?.[0]?.result?.active == false
+                        )
+                          return true;
+                        else if ($state.state == true) return false;
+                        else return true;
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <Button
+                      data-plasmic-name={"button"}
+                      data-plasmic-override={overrides.button}
+                      className={classNames("__wab_instance", sty.button)}
+                      color={generateStateValueProp($state, [
+                        "button",
+                        "color"
+                      ])}
+                      loading={(() => {
+                        try {
+                          return $state.getSub.loading || $state.loading;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateLoading"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loading"]
+                                },
+                                operation: 4
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, !oldValue);
+                                return !oldValue;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoading"] != null &&
+                          typeof $steps["updateLoading"] === "object" &&
+                          typeof $steps["updateLoading"].then === "function"
+                        ) {
+                          $steps["updateLoading"] = await $steps[
+                            "updateLoading"
+                          ];
+                        }
+
+                        $steps["runCode"] =
+                          $state?.getSub?.data?.[0]?.result == null ||
+                          $state?.getSub?.data?.[0]?.result?.active == false
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      $state.needToRefresh = true;
+                                      return window.FlutterChannel.postMessage(
+                                        "#directDialog-self_hamyar_sms"
+                                      );
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["invokeGlobalAction"] =
+                          $state?.state ?? false
                             ? (() => {
                                 const actionArgs = {
                                   args: [
@@ -1965,7 +2936,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                         return {
                                           Authorization: $state.token,
                                           type: "selfHamyarSms",
-                                          data: true
+                                          data: false
                                         };
                                       } catch (e) {
                                         if (
@@ -1985,343 +2956,18 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                 ]?.apply(null, [...actionArgs.args]);
                               })()
                             : undefined;
-                          if (
-                            $steps["updateButtonColor3"] != null &&
-                            typeof $steps["updateButtonColor3"] === "object" &&
-                            typeof $steps["updateButtonColor3"].then ===
-                              "function"
-                          ) {
-                            $steps["updateButtonColor3"] = await $steps[
-                              "updateButtonColor3"
-                            ];
-                          }
-
-                          $steps["updateLoading2"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["loading"]
-                                  },
-                                  operation: 4
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  const oldValue = $stateGet(
-                                    objRoot,
-                                    variablePath
-                                  );
-                                  $stateSet(objRoot, variablePath, !oldValue);
-                                  return !oldValue;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateLoading2"] != null &&
-                            typeof $steps["updateLoading2"] === "object" &&
-                            typeof $steps["updateLoading2"].then === "function"
-                          ) {
-                            $steps["updateLoading2"] = await $steps[
-                              "updateLoading2"
-                            ];
-                          }
-
-                          $steps["updateState"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["state"]
-                                  },
-                                  operation: 4
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  const oldValue = $stateGet(
-                                    objRoot,
-                                    variablePath
-                                  );
-                                  $stateSet(objRoot, variablePath, !oldValue);
-                                  return !oldValue;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateState"] != null &&
-                            typeof $steps["updateState"] === "object" &&
-                            typeof $steps["updateState"].then === "function"
-                          ) {
-                            $steps["updateState"] = await $steps["updateState"];
-                          }
-
-                          $steps["wait"] = true
-                            ? (() => {
-                                const actionArgs = { args: [2000] };
-                                return $globalActions["Fragment.wait"]?.apply(
-                                  null,
-                                  [...actionArgs.args]
-                                );
-                              })()
-                            : undefined;
-                          if (
-                            $steps["wait"] != null &&
-                            typeof $steps["wait"] === "object" &&
-                            typeof $steps["wait"].then === "function"
-                          ) {
-                            $steps["wait"] = await $steps["wait"];
-                          }
-
-                          $steps["refreshData"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  queryInvalidation: ["plasmic_refresh_all"]
-                                };
-                                return (async ({ queryInvalidation }) => {
-                                  if (!queryInvalidation) {
-                                    return;
-                                  }
-                                  await plasmicInvalidate(queryInvalidation);
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["refreshData"] != null &&
-                            typeof $steps["refreshData"] === "object" &&
-                            typeof $steps["refreshData"].then === "function"
-                          ) {
-                            $steps["refreshData"] = await $steps["refreshData"];
-                          }
-                        }}
-                        onColorChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button2",
-                              "color"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                        size={"minimal"}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__mO1E
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return " " + " غیرفعالسازی پیام به خود " + "  ";
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      </Button>
-                    ) : null}
-                    {(() => {
-                      try {
-                        return (() => {
-                          if (
-                            $state?.getSub?.data?.[0]?.result == null ||
-                            $state?.getSub?.data?.[0]?.result?.active == false
-                          )
-                            return false;
-                          else if ($state?.state == true) return false;
-                          else return true;
-                        })();
-                      } catch (e) {
                         if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
                         ) {
-                          return false;
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
                         }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___5ZwdQ
-                        )}
-                      >
-                        <React.Fragment>
-                          <React.Fragment>
-                            {
-                              "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 "
-                            }
-                          </React.Fragment>
-                          <span
-                            className={
-                              "plasmic_default__all plasmic_default__span"
-                            }
-                            style={{ fontWeight: 700 }}
-                          >
-                            {"\u067e\u06cc\u0627\u0645\u06a9"}
-                          </span>
-                          <React.Fragment>
-                            {
-                              " \u0628\u0647\u062a \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0647  "
-                            }
-                          </React.Fragment>
-                          <span
-                            className={
-                              "plasmic_default__all plasmic_default__span"
-                            }
-                            style={{ fontWeight: 700 }}
-                          >
-                            {"\u0641\u0639\u0627\u0644\u0634"}
-                          </span>
-                          <React.Fragment>
-                            {" \u06a9\u0646\ud83d\udc47"}
-                          </React.Fragment>
-                        </React.Fragment>
-                      </div>
-                    ) : null}
-                  </div>
-                ) : null}
-                {(() => {
-                  try {
-                    return (() => {
-                      if ($state.getSub.loading) return true;
-                      else if (
-                        $state?.getSub?.data?.[0]?.result == null ||
-                        $state?.getSub?.data?.[0]?.result?.active == false
-                      )
-                        return true;
-                      else if ($state.state == true) return false;
-                      else return true;
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <Button
-                    data-plasmic-name={"button"}
-                    data-plasmic-override={overrides.button}
-                    className={classNames("__wab_instance", sty.button)}
-                    color={generateStateValueProp($state, ["button", "color"])}
-                    loading={(() => {
-                      try {
-                        return $state.getSub.loading || $state.loading;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()}
-                    onClick={async event => {
-                      const $steps = {};
 
-                      $steps["updateLoading"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loading"]
-                              },
-                              operation: 4
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoading"] != null &&
-                        typeof $steps["updateLoading"] === "object" &&
-                        typeof $steps["updateLoading"].then === "function"
-                      ) {
-                        $steps["updateLoading"] = await $steps["updateLoading"];
-                      }
-
-                      $steps["runCode"] =
-                        $state?.getSub?.data?.[0]?.result == null ||
-                        $state?.getSub?.data?.[0]?.result?.active == false
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    $state.needToRefresh = true;
-                                    return window.FlutterChannel.postMessage(
-                                      "#directDialog-self_hamyar_sms"
-                                    );
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
-
-                      $steps["invokeGlobalAction"] =
-                        $state?.state ?? false
+                        $steps["updateButtonColor3"] = !($state?.state ?? false)
                           ? (() => {
                               const actionArgs = {
                                 args: [
@@ -2333,7 +2979,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                       return {
                                         Authorization: $state.token,
                                         type: "selfHamyarSms",
-                                        data: false
+                                        data: true
                                       };
                                     } catch (e) {
                                       if (
@@ -2353,286 +2999,258 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               ]?.apply(null, [...actionArgs.args]);
                             })()
                           : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
+                        if (
+                          $steps["updateButtonColor3"] != null &&
+                          typeof $steps["updateButtonColor3"] === "object" &&
+                          typeof $steps["updateButtonColor3"].then ===
+                            "function"
+                        ) {
+                          $steps["updateButtonColor3"] = await $steps[
+                            "updateButtonColor3"
+                          ];
+                        }
 
-                      $steps["updateButtonColor3"] = !($state?.state ?? false)
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/setSub",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      Authorization: $state.token,
-                                      type: "selfHamyarSms",
-                                      data: true
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateButtonColor3"] != null &&
-                        typeof $steps["updateButtonColor3"] === "object" &&
-                        typeof $steps["updateButtonColor3"].then === "function"
-                      ) {
-                        $steps["updateButtonColor3"] = await $steps[
-                          "updateButtonColor3"
-                        ];
-                      }
+                        $steps["updateLoading2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loading"]
+                                },
+                                operation: 4
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
 
-                      $steps["updateLoading2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loading"]
-                              },
-                              operation: 4
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, !oldValue);
+                                return !oldValue;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoading2"] != null &&
+                          typeof $steps["updateLoading2"] === "object" &&
+                          typeof $steps["updateLoading2"].then === "function"
+                        ) {
+                          $steps["updateLoading2"] = await $steps[
+                            "updateLoading2"
+                          ];
+                        }
+
+                        $steps["updateState"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["state"]
+                                },
+                                operation: 4
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, !oldValue);
+                                return !oldValue;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateState"] != null &&
+                          typeof $steps["updateState"] === "object" &&
+                          typeof $steps["updateState"].then === "function"
+                        ) {
+                          $steps["updateState"] = await $steps["updateState"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__yTdjn
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                if (
+                                  $state?.getSub?.data?.[0]?.result == null ||
+                                  $state?.getSub?.data?.[0]?.result?.active ==
+                                    false
+                                )
+                                  return "خرید اشتراک ارسال پیامک به خود";
+                                else if ($state?.state == true)
+                                  return "غیرفعالسازی پیام به خود";
+                                else return "فعالسازی پیام به خود";
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
                               }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </Button>
+                  ) : null}
+                  {(() => {
+                    try {
+                      return $state.needToRefresh;
+                    } catch (e) {
                       if (
-                        $steps["updateLoading2"] != null &&
-                        typeof $steps["updateLoading2"] === "object" &&
-                        typeof $steps["updateLoading2"].then === "function"
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        $steps["updateLoading2"] = await $steps[
-                          "updateLoading2"
-                        ];
+                        return false;
                       }
-
-                      $steps["updateState"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["state"]
-                              },
-                              operation: 4
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateState"] != null &&
-                        typeof $steps["updateState"] === "object" &&
-                        typeof $steps["updateState"].then === "function"
-                      ) {
-                        $steps["updateState"] = await $steps["updateState"];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                  >
+                      throw e;
+                    }
+                  })() ? (
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__yTdjn
+                        sty.text__e7S9C
                       )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return fetch(
+                                      "https://n8n.staas.ir/webhook/sub",
+                                      {
+                                        method: "POST",
+                                        headers: {},
+                                        body: JSON.stringify({
+                                          Authorization:
+                                            $ctx.query.token ||
+                                            new URLSearchParams(
+                                              window.location.search
+                                            ).get("token"),
+                                          sub: "selfHamyarSmsSubStatus"
+                                        })
+                                      }
+                                    )
+                                      .then(response => {
+                                        $state.loading = false;
+                                        $state.state =
+                                          $state?.getSub?.data?.[0]?.result
+                                            ?.activateNotif ?? false;
+                                        return response.json();
+                                      })
+                                      .then(data => {
+                                        console.log("get sub");
+                                      })
+                                      .catch(error => {
+                                        console.error("Error3333:", error);
+                                      });
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
                     >
                       <React.Fragment>
-                        {(() => {
-                          try {
-                            return (() => {
-                              if (
-                                $state?.getSub?.data?.[0]?.result == null ||
-                                $state?.getSub?.data?.[0]?.result?.active ==
-                                  false
-                              )
-                                return "خرید اشتراک ارسال پیامک به خود";
-                              else if ($state?.state == true)
-                                return "غیرفعالسازی پیام به خود";
-                              else return "فعالسازی پیام به خود";
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
                           }
-                        })()}
+                          style={{ color: "var(--token-55cSeNPovQFh)" }}
+                        >
+                          {
+                            "\u0628\u0631\u0627\u06cc \u062f\u06cc\u062f\u0646 \u0646\u062a\u06cc\u062d\u0647 \u062e\u0631\u06cc\u062f "
+                          }
+                        </span>
+                        <React.Fragment>{""}</React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{
+                            color: "var(--token-55cSeNPovQFh)",
+                            fontWeight: 700
+                          }}
+                        >
+                          {"\u0627\u06cc\u0646\u062c\u0627"}
+                        </span>
+                        <React.Fragment>{""}</React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ color: "var(--token-55cSeNPovQFh)" }}
+                        >
+                          {
+                            " \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f >"
+                          }
+                        </span>
                       </React.Fragment>
                     </div>
-                  </Button>
-                ) : null}
-                {(() => {
-                  try {
-                    return $state.needToRefresh;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__e7S9C
-                    )}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  return fetch(
-                                    "https://n8n.staas.ir/webhook/sub",
-                                    {
-                                      method: "POST",
-                                      headers: {},
-                                      body: JSON.stringify({
-                                        Authorization:
-                                          $ctx.query.token ||
-                                          new URLSearchParams(
-                                            window.location.search
-                                          ).get("token"),
-                                        sub: "selfHamyarSmsSubStatus"
-                                      })
-                                    }
-                                  )
-                                    .then(response => {
-                                      $state.loading = false;
-                                      $state.state =
-                                        $state?.getSub?.data?.[0]?.result
-                                          ?.activateNotif ?? false;
-                                      return response.json();
-                                    })
-                                    .then(data => {
-                                      console.log("get sub");
-                                    })
-                                    .catch(error => {
-                                      console.error("Error3333:", error);
-                                    });
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
-                    }}
-                  >
-                    <React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ color: "var(--token-55cSeNPovQFh)" }}
-                      >
-                        {
-                          "\u0628\u0631\u0627\u06cc \u062f\u06cc\u062f\u0646 \u0646\u062a\u06cc\u062d\u0647 \u062e\u0631\u06cc\u062f "
-                        }
-                      </span>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{
-                          color: "var(--token-55cSeNPovQFh)",
-                          fontWeight: 700
-                        }}
-                      >
-                        {"\u0627\u06cc\u0646\u062c\u0627"}
-                      </span>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ color: "var(--token-55cSeNPovQFh)" }}
-                      >
-                        {" \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f >"}
-                      </span>
-                    </React.Fragment>
-                  </div>
-                ) : null}
+                  ) : null}
+                </div>
               </div>
-            </div>
+            ) : null}
             <LottieWrapper
-              data-plasmic-name={"lottie"}
-              data-plasmic-override={overrides.lottie}
               animationData={{
                 nm: "Ima",
                 ddd: 1,
@@ -36585,7 +37203,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                 ip: 0,
                 assets: []
               }}
-              className={classNames("__wab_instance", sty.lottie)}
+              className={classNames("__wab_instance", sty.lottie__gGgMp)}
             />
           </div>
           {(() => {
@@ -36678,7 +37296,6 @@ const PlasmicDescendants = {
     "countdown",
     "button2",
     "button",
-    "lottie",
     "section",
     "headerLiom",
     "svg"
@@ -36689,7 +37306,6 @@ const PlasmicDescendants = {
   countdown: ["countdown"],
   button2: ["button2"],
   button: ["button"],
-  lottie: ["lottie"],
   section: ["section", "headerLiom", "svg"],
   headerLiom: ["headerLiom", "svg"],
   svg: ["svg"]
@@ -36705,7 +37321,6 @@ type NodeDefaultElementType = {
   countdown: typeof Countdown;
   button2: typeof Button;
   button: typeof Button;
-  lottie: typeof LottieWrapper;
   section: "section";
   headerLiom: typeof HeaderLiom;
   svg: "svg";
@@ -36802,7 +37417,6 @@ export const PlasmicSelfSmsPage = Object.assign(
     countdown: makeNodeComponent("countdown"),
     button2: makeNodeComponent("button2"),
     button: makeNodeComponent("button"),
-    lottie: makeNodeComponent("lottie"),
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     svg: makeNodeComponent("svg"),
