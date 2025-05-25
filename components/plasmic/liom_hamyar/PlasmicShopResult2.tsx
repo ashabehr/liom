@@ -599,43 +599,33 @@ function PlasmicShopResult2__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToPage"] = true
+                $steps["runCode"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return `${$ctx.query.redirectUrl}`;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
+                        customFunction: async () => {
+                          return (() => {
+                            history.pushState(
+                              null,
+                              "",
+                              "https://apps.liom.app/Self-care/"
+                            );
+                            return window.location.replace(
+                              `${$ctx.query.redirectUrl}`
+                            );
+                          })();
                         }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
               }}
               onColorChange={async (...eventArgs: any) => {
@@ -877,17 +867,12 @@ function PlasmicShopResult2__RenderFunc(props: {
                                   return {
                                     id: $ctx.query.buyId,
                                     offCode: $ctx.query.offCode,
-                                    authorization: $ctx.query.token.slice(
-                                      6,
-                                      -3
-                                    ),
+                                    authorization: $ctx.query.token,
                                     redirectUrl: `https://apps.liom.app/shopResult?buyId=${
                                       $ctx.query.buyId
-                                    }&?offCode=${
-                                      $ctx.query.offCode
-                                    }&token=hjk812${
+                                    }&?offCode=${$ctx.query.offCode}&token=${
                                       $ctx.query.token
-                                    }jkp&redirectUrl=${encodeURIComponent(
+                                    }&redirectUrl=${encodeURIComponent(
                                       $ctx.query.redirectUrl
                                     )}`
                                   };
@@ -1135,43 +1120,33 @@ function PlasmicShopResult2__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToPage"] = true
+                    $steps["runCode"] = true
                       ? (() => {
                           const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return `${$ctx.query.redirectUrl}`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
+                            customFunction: async () => {
+                              return (() => {
+                                history.pushState(
+                                  null,
+                                  "",
+                                  "https://apps.liom.app/Self-care/"
+                                );
+                                return window.location.replace(
+                                  `${$ctx.query.redirectUrl}`
+                                );
+                              })();
                             }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
                     ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
+                      $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {

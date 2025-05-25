@@ -947,25 +947,19 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                       $steps["updateLoading3"] = true
                         ? (() => {
                             const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["selectShop"]
-                              },
-                              operation: 0
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
+                              customFunction: async () => {
+                                return (() => {
+                                  const url = new URL($props.redirectUrl);
+                                  url.searchParams.set(
+                                    "buyId",
+                                    $state.topShop.id
+                                  );
+                                  return ($props.redirectUrl = url.toString());
+                                })();
                               }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
@@ -1648,6 +1642,33 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                 })()}
                 onClick={async event => {
                   const $steps = {};
+
+                  $steps["updateLoading3"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              const url = new URL($props.redirectUrl);
+                              url.searchParams.set(
+                                "buyId",
+                                $state.selectShop.id
+                              );
+                              return ($props.redirectUrl = url.toString());
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLoading3"] != null &&
+                    typeof $steps["updateLoading3"] === "object" &&
+                    typeof $steps["updateLoading3"].then === "function"
+                  ) {
+                    $steps["updateLoading3"] = await $steps["updateLoading3"];
+                  }
 
                   $steps["updateLoading"] = true
                     ? (() => {

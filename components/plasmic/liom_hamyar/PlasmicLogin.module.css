@@ -385,6 +385,7 @@
   max-width: 100%;
   text-align: center;
   cursor: pointer;
+  display: none;
 }
 .reveal__hzsaP:global(.__wab_instance) {
   max-width: 100%;
