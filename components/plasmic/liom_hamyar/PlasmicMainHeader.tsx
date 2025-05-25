@@ -1475,6 +1475,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                           return (() => {
                             window.document.cookie =
                               "token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.liom.app; secure; SameSite=Lax";
+                            window.sessionStorage.clear();
                             return (window.location.href = "/login");
                           })();
                         }
