@@ -12721,10 +12721,7 @@ function PlasmicLogin__RenderFunc(props: {
                                   destination: (() => {
                                     try {
                                       return (() => {
-                                        if (
-                                          $state.loginData.result
-                                            .healthStatus == "pregnancy"
-                                        )
+                                        if ($state.status == "pregnancy")
                                           var baseUrl =
                                             "https://apps.liom.app/pregnancy/";
                                         else
