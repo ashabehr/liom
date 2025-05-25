@@ -5,23 +5,23 @@ import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-we
 import GlobalContextsProvider from "../../components/plasmic/todo_mvc_app/PlasmicGlobalContextsProvider";
 import { UnnamedGlobalGroupOfVariants4Context } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
 import { UnnamedGlobalGroupOfVariants5Context } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
-import { PlasmicCustomShop } from "../../components/plasmic/liom_hamyar/PlasmicCustomShop";
+import { PlasmicShop3 } from "../../components/plasmic/liom_hamyar/PlasmicShop3";
 import { useRouter } from "next/router";
 
-function CustomShop() {
-  // Use PlasmicCustomShop to render this component as it was
+function Shop3() {
+  // Use PlasmicShop3 to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicCustomShop are:
+  // Props you can pass into PlasmicShop3 are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicCustomShop is wrapped by your project's global
+  // By default, PlasmicShop3 is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
@@ -35,7 +35,7 @@ function CustomShop() {
             params={useRouter()?.query}
             query={useRouter()?.query}
           >
-            <PlasmicCustomShop />
+            <PlasmicShop3 />
           </PageParamsProvider__>
         </GlobalContextsProvider>
       </UnnamedGlobalGroupOfVariants4Context.Provider>
@@ -43,4 +43,4 @@ function CustomShop() {
   );
 }
 
-export default CustomShop;
+export default Shop3;

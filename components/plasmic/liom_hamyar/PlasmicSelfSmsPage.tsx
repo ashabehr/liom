@@ -739,10 +739,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                 ) : null}
                 {(() => {
                   try {
-                    return (
-                      ($ctx.query?.status ?? "") == "" ||
-                      ($ctx.query?.status ?? "") == "period"
-                    );
+                    return $state.paramsObject.status != "pregnancy";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1059,7 +1056,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                 ) : null}
                 {(() => {
                   try {
-                    return ($ctx.query?.status ?? "") == "pregnancy";
+                    return $state.paramsObject.status == "pregnancy";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

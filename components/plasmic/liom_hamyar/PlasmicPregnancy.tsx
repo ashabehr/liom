@@ -1871,8 +1871,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                 }}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox__kz1Vu)} />
-
               <Timer
                 data-plasmic-name={"timer"}
                 data-plasmic-override={overrides.timer}
@@ -2584,8 +2582,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                 }}
                 runWhileEditing={true}
               />
-
-              <div className={classNames(projectcss.all, sty.freeBox__rPd0G)} />
 
               <Embed
                 data-plasmic-name={"favIcone"}

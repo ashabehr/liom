@@ -894,24 +894,59 @@ function PlasmicSelfCare__RenderFunc(props: {
                 $steps["updateSelfCare2"] = await $steps["updateSelfCare2"];
               }
 
-              $steps["runCode"] = true
+              $steps["invokeGlobalAction2"] = true
                 ? (() => {
                     const actionArgs = {
-                      customFunction: async () => {
-                        return undefined;
-                      }
+                      args: [
+                        "POST",
+                        "https://api.liom.app/service/log",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              userId:
+                                new URLSearchParams(window.location.search).get(
+                                  "userId"
+                                ) ||
+                                JSON.parse(
+                                  window.localStorage.getItem("userinfo")
+                                ).user.id,
+                              pageName: "self-care",
+                              action: "loadePage",
+                              extraData: {}
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        {
+                          headers: {
+                            "Content-Type": "application/json",
+                            Authorization:
+                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                          }
+                        }
+                      ]
                     };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
                   })()
                 : undefined;
               if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
               ) {
-                $steps["runCode"] = await $steps["runCode"];
+                $steps["invokeGlobalAction2"] = await $steps[
+                  "invokeGlobalAction2"
+                ];
               }
             }}
           />
@@ -1094,6 +1129,67 @@ function PlasmicSelfCare__RenderFunc(props: {
                         ) {
                           $steps["updateLoadLoading2"] = await $steps[
                             "updateLoadLoading2"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/service/log",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        userId:
+                                          new URLSearchParams(
+                                            window.location.search
+                                          ).get("userId") ||
+                                          JSON.parse(
+                                            window.localStorage.getItem(
+                                              "userinfo"
+                                            )
+                                          ).user.id,
+                                        pageName: "self-care",
+                                        action: "category",
+                                        extraData: {
+                                          type: currentItem.type
+                                        }
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  {
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization:
+                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                    }
+                                  }
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
                           ];
                         }
                       }}

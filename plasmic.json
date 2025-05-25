@@ -1957,20 +1957,6 @@
           "path": "/subscription-page"
         },
         {
-          "id": "yqGCHhg-0hjW",
-          "name": "Shop2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShop2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/shop-2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicShop2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/shop-2"
-        },
-        {
           "id": "O_6FIPF6rDTy",
           "name": "RepeatPost",
           "type": "managed",
@@ -2022,6 +2008,34 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicReactionBar2ForSocialMain.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "yqGCHhg-0hjW",
+          "name": "CustomShop",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCustomShop.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/shop-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCustomShop.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/shop-2"
+        },
+        {
+          "id": "7zVUeewG8mP-",
+          "name": "Shop3",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShop3.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/shopping-cart.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShop3.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/shopping-cart"
         }
       ],
       "icons": [

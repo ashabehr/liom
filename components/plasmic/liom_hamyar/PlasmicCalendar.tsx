@@ -1291,7 +1291,7 @@ function PlasmicCalendar__RenderFunc(props: {
                   bigTitle: "clinic",
                   btnText: "َشروع گفتگو",
                   title: "پزشک هوشمند",
-                  text: "پزشک هوش هوشمند؛ همراه هوشمند سلامت شما.",
+                  text: "سوالات پزشکی خودتون رو از پزشک هوشمند لیوم بپرسید",
                   action: "#chatBot"
                 },
                 {
@@ -56733,7 +56733,24 @@ function PlasmicCalendar__RenderFunc(props: {
                                       "screen",
                                       "mobile"
                                     )
-                                  ? true
+                                  ? (() => {
+                                      try {
+                                        return (
+                                          $state.userInfo?.result
+                                            ?.todoNotTodoLists?.notToDo
+                                            ?.length != 0
+                                        );
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
                                   : (() => {
                                       try {
                                         return (

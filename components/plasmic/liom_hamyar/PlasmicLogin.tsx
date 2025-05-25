@@ -12185,7 +12185,7 @@ function PlasmicLogin__RenderFunc(props: {
                                           target: "calendar",
                                           sex: $state.gender || "",
                                           token: $state.token || "",
-                                          version: "",
+                                          version: "pwa.1.0.0",
                                           lang: "fa",
                                           country: "98",
                                           anotherLang: "fa",
@@ -12347,7 +12347,7 @@ function PlasmicLogin__RenderFunc(props: {
                                           target: "calendar",
                                           sex: $state.gender || "",
                                           token: $state.token || "",
-                                          version: "",
+                                          version: "pwa.1.0.0",
                                           lang: "fa",
                                           country: "98",
                                           anotherLang: "fa",
@@ -12501,7 +12501,7 @@ function PlasmicLogin__RenderFunc(props: {
                                           country: "98",
                                           isCountryPending: false,
                                           lang: "fa",
-                                          version: "",
+                                          version: "pwa.1.0.0",
                                           os: (() => {
                                             const userAgent =
                                               window.navigator.userAgent;
