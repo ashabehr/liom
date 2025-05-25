@@ -532,7 +532,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
         path: "pickers3.value",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => -1
       },
       {
         path: "variable",
