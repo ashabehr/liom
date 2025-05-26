@@ -5776,6 +5776,21 @@ function PlasmicBioritm2__RenderFunc(props: {
                 "ferstTimepage"
               )
             })}
+            style={(() => {
+              try {
+                return {
+                  height: "100dvh"
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           >
             <p
               className={classNames(
@@ -5949,6 +5964,21 @@ function PlasmicBioritm2__RenderFunc(props: {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__c3Rt5)}
+              style={(() => {
+                try {
+                  return {
+                    height: "100dvh"
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             >
               <div className={classNames(projectcss.all, sty.freeBox___0K9Q)}>
                 <div

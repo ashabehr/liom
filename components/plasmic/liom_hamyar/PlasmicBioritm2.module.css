@@ -1801,7 +1801,7 @@
 .freeBox__i4FpF {
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: auto;
   max-width: 100%;
   min-width: 0;
   display: none;
@@ -1895,7 +1895,7 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: auto;
   max-width: 100%;
   min-width: 0;
   padding: 8px;

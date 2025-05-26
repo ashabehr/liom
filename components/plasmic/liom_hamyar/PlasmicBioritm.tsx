@@ -5977,6 +5977,21 @@ function PlasmicBioritm__RenderFunc(props: {
                 "ferstTimepage"
               )
             })}
+            style={(() => {
+              try {
+                return {
+                  height: "100dvh"
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           >
             <p
               className={classNames(

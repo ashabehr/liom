@@ -2429,7 +2429,7 @@ function PlasmicCalendar__RenderFunc(props: {
                               let result = [];
                               if ($state.day) {
                                 try {
-                                  if ($state.day) {
+                                  if ($state.day && $state.day.result) {
                                     var day = $state.day.result;
                                     result = [
                                       day.bloodColor || "",
@@ -2439,12 +2439,7 @@ function PlasmicCalendar__RenderFunc(props: {
                                       day.sex || ""
                                     ];
                                   }
-                                } catch (error) {
-                                  console.error(
-                                    "Error parsing JSON data:",
-                                    error
-                                  );
-                                }
+                                } catch (error) {}
                               }
                               if ($state && $state.sing && $state.sing.result) {
                                 result.push(
@@ -2529,86 +2524,6 @@ function PlasmicCalendar__RenderFunc(props: {
                 typeof $steps["updateAdvace"].then === "function"
               ) {
                 $steps["updateAdvace"] = await $steps["updateAdvace"];
-              }
-
-              $steps["store"] = (
-                $steps.userinfo?.data?.success
-                  ? $steps.userinfo?.data?.success
-                  : false && $steps.advices?.data
-                  ? true
-                  : false
-              )
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          window.sessionStorage.setItem("cash", "true");
-                          window.sessionStorage.setItem(
-                            "advice",
-                            JSON.stringify($state.advace)
-                          );
-                          window.sessionStorage.setItem(
-                            "sing",
-                            JSON.stringify($state.sing)
-                          );
-                          return window.sessionStorage.setItem(
-                            "day",
-                            JSON.stringify($state.day)
-                          );
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["store"] != null &&
-                typeof $steps["store"] === "object" &&
-                typeof $steps["store"].then === "function"
-              ) {
-                $steps["store"] = await $steps["store"];
-              }
-
-              $steps["runCode2"] =
-                window.sessionStorage.getItem("cash") == "true"
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            $state.advace = JSON.parse(
-                              window.sessionStorage.getItem("advice")
-                            );
-                            $state.sing = JSON.parse(
-                              window.sessionStorage.getItem("sing")
-                            );
-                            $state.day = JSON.parse(
-                              window.sessionStorage.getItem("day")
-                            );
-                            var user = JSON.parse(
-                              window.localStorage.getItem("userinfo")
-                            );
-                            $state.userInfo = {
-                              success: true,
-                              result: user
-                            };
-                            return ($state.status =
-                              $state.userInfo.result.userStatus.periodStatus);
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["runCode2"] != null &&
-                typeof $steps["runCode2"] === "object" &&
-                typeof $steps["runCode2"].then === "function"
-              ) {
-                $steps["runCode2"] = await $steps["runCode2"];
               }
 
               $steps["profilee"] =
@@ -2701,6 +2616,86 @@ function PlasmicCalendar__RenderFunc(props: {
                 typeof $steps["runCode3"].then === "function"
               ) {
                 $steps["runCode3"] = await $steps["runCode3"];
+              }
+
+              $steps["store"] = (
+                $steps.userinfo?.data?.success
+                  ? $steps.userinfo?.data?.success
+                  : false && $steps.advices?.data
+                  ? true
+                  : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          window.sessionStorage.setItem("cash", "true");
+                          window.sessionStorage.setItem(
+                            "advice",
+                            JSON.stringify($state.advace)
+                          );
+                          window.sessionStorage.setItem(
+                            "sing",
+                            JSON.stringify($state.sing)
+                          );
+                          return window.sessionStorage.setItem(
+                            "day",
+                            JSON.stringify($state.day)
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["store"] != null &&
+                typeof $steps["store"] === "object" &&
+                typeof $steps["store"].then === "function"
+              ) {
+                $steps["store"] = await $steps["store"];
+              }
+
+              $steps["runCode2"] =
+                window.sessionStorage.getItem("cash") == "true"
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            $state.advace = JSON.parse(
+                              window.sessionStorage.getItem("advice")
+                            );
+                            $state.sing = JSON.parse(
+                              window.sessionStorage.getItem("sing")
+                            );
+                            $state.day = JSON.parse(
+                              window.sessionStorage.getItem("day")
+                            );
+                            var user = JSON.parse(
+                              window.localStorage.getItem("userinfo")
+                            );
+                            $state.userInfo = {
+                              success: true,
+                              result: user
+                            };
+                            return ($state.status =
+                              $state.userInfo.result.userStatus.periodStatus);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
+              ) {
+                $steps["runCode2"] = await $steps["runCode2"];
               }
             }}
           />
