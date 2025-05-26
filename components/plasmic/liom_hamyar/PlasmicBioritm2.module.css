@@ -10,6 +10,7 @@
   align-items: center;
   background: #f8f8f8;
   padding-top: 70px;
+  overflow: auto;
   min-width: 0;
   min-height: 0;
   grid-template-columns:
@@ -50,9 +51,10 @@
   padding-left: 0;
   padding-right: 0;
   left: 0;
-  top: -1px;
-  z-index: 1;
+  top: 0;
+  z-index: 10;
   right: 0;
+  bottom: auto;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
@@ -552,8 +554,6 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-bottom: 0px;
-  margin-top: 0px;
   min-width: 0;
   padding: 0px 0px 16px;
 }
@@ -609,30 +609,6 @@
 .freeBoxferstTimepage__apHtGb6Kk {
   display: none;
 }
-.freeBox__zBonA {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  z-index: 10;
-  margin-top: var(--token-VmvIyNmCXbhh) !important;
-  margin-left: var(--token-VmvIyNmCXbhh);
-  margin-right: var(--token-VmvIyNmCXbhh);
-  min-width: 0;
-  padding: 0px;
-}
-@media (max-width: 640px) {
-  .freeBox__zBonA {
-    margin-top: calc(0px + 8px) !important;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: calc(0px + 0px) !important;
-  }
-}
 .freeBox__fSiXi {
   display: flex;
   flex-direction: column;
@@ -643,7 +619,9 @@
   max-width: 100%;
   box-shadow: 0px 4px 16px 0px #12121214;
   background: #ffffff;
-  z-index: 10;
+  position: relative;
+  left: auto;
+  top: auto;
   min-width: 0;
   border-radius: 8px;
 }
@@ -1417,23 +1395,6 @@
   bottom: auto;
   display: none;
 }
-.freeBox__dii {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  align-items: flex-end;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  top: auto;
-  left: 0px;
-  bottom: -45px;
-  z-index: 1;
-  min-width: 0;
-  min-height: 0;
-  padding: 0px;
-}
 .freeBox__fzEGz {
   display: flex;
   flex-direction: column;
@@ -1444,10 +1405,6 @@
   height: auto;
   max-width: 100%;
   box-shadow: 0px 4px 16px 0px #12121214;
-  margin-top: calc(0px + 16px) !important;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
   background: #ffffff;
   opacity: 1;
   min-width: 0;
@@ -1457,14 +1414,11 @@
 @media (max-width: 640px) {
   .freeBox__fzEGz {
     box-shadow: 0px 4px 16px 0px #12121214;
-    margin-left: calc(0px + 0px) !important;
-    margin-top: calc(0px + 8px) !important;
     border-radius: 8px;
   }
 }
 .freeBoxferstTimepage__fzEGzGb6Kk {
   opacity: 0.5;
-  margin-top: calc(0px + 16px) !important;
 }
 .freeBox__jejmn {
   display: flex;
@@ -1996,37 +1950,6 @@
 .text__biEoS {
   font-size: 16px;
 }
-.section__aQStJ {
-  display: grid;
-  position: fixed;
-  align-content: flex-start;
-  justify-items: center;
-  width: auto;
-  padding-left: 0;
-  padding-right: 0;
-  left: 0;
-  top: auto;
-  z-index: 1;
-  right: 0;
-  bottom: 0;
-  grid-template-columns:
-    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
-    min(
-      var(--plsmc-standard-width),
-      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
-    )
-    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
-}
-.section__aQStJ > * {
-  grid-column: 4;
-}
-.text__zvc9O {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
 .section__htBqi {
   display: grid;
   position: fixed;
@@ -2034,7 +1957,7 @@
   justify-items: center;
   width: auto;
   left: 0;
-  top: 0;
+  top: auto;
   z-index: 1;
   right: 0;
   height: auto;
@@ -2042,6 +1965,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  bottom: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
@@ -2064,15 +1988,6 @@
 }
 .sectionferstTimepage__htBqiGb6Kk > * {
   grid-column: 4;
-}
-.freeBox__a0Cr4 {
-  display: block;
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 0px;
 }
 .dialog2:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;

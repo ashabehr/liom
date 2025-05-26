@@ -1664,10 +1664,620 @@ function PlasmicBioritm2__RenderFunc(props: {
                   )
                 })}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__zBonA)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__fSiXi, {
+                    [sty.freeBoxferstTimepage__fSiXiGb6Kk]: hasVariant(
+                      $state,
+                      "ferstTimepage",
+                      "ferstTimepage"
+                    )
+                  })}
+                >
+                  <p
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.p,
+                      projectcss.__wab_text,
+                      sty.p__twofn,
+                      {
+                        [sty.pferstTimepage__twofnGb6Kk]: hasVariant(
+                          $state,
+                          "ferstTimepage",
+                          "ferstTimepage"
+                        )
+                      }
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateDialog2Opendialog"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dialog2", "opendialog"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDialog2Opendialog"] != null &&
+                        typeof $steps["updateDialog2Opendialog"] === "object" &&
+                        typeof $steps["updateDialog2Opendialog"].then ===
+                          "function"
+                      ) {
+                        $steps["updateDialog2Opendialog"] = await $steps[
+                          "updateDialog2Opendialog"
+                        ];
+                      }
+                    }}
+                  >
+                    {hasVariant(globalVariants, "screen", "mobile")
+                      ? "\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u06cc\u0633\u062a\u061f  > "
+                      : "\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u06cc\u0633\u062a\u061f"}
+                  </p>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__fSiXi, {
-                      [sty.freeBoxferstTimepage__fSiXiGb6Kk]: hasVariant(
+                    className={classNames(projectcss.all, sty.freeBox___71LmI, {
+                      [sty.freeBoxferstTimepage___71LmIGb6Kk]: hasVariant(
+                        $state,
+                        "ferstTimepage",
+                        "ferstTimepage"
+                      )
+                    })}
+                  >
+                    {(
+                      hasVariant($state, "ferstTimepage", "ferstTimepage")
+                        ? true
+                        : (() => {
+                            try {
+                              return !$state.biorhythm.loading;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                    ) ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__pAflK,
+                          {
+                            [sty.textferstTimepage__pAflKGb6Kk]: hasVariant(
+                              $state,
+                              "ferstTimepage",
+                              "ferstTimepage"
+                            )
+                          }
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          <div
+                            className={projectcss.__wab_expr_html_text}
+                            dangerouslySetInnerHTML={{
+                              __html: (() => {
+                                try {
+                                  return (() => {
+                                    if (!isNaN($state.birthday.year)) {
+                                      return (
+                                        'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
+                                        $state.birthday.year +
+                                        "/" +
+                                        $state.birthday.month +
+                                        "/" +
+                                        $state.birthday.day +
+                                        "</b> محاسبه شده است."
+                                      );
+                                    } else {
+                                      return "";
+                                    }
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            }}
+                          />
+                        ) : (
+                          <div
+                            className={projectcss.__wab_expr_html_text}
+                            dangerouslySetInnerHTML={{
+                              __html: (() => {
+                                try {
+                                  return (() => {
+                                    if (!isNaN($state.birthday.year)) {
+                                      return (
+                                        'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
+                                        $state.birthday.year +
+                                        "/" +
+                                        $state.birthday.month +
+                                        "/" +
+                                        $state.birthday.day +
+                                        "</b> محاسبه شده است."
+                                      );
+                                    } else {
+                                      return "";
+                                    }
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "--";
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            }}
+                          />
+                        )}
+                      </div>
+                    ) : null}
+                    {(
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? (() => {
+                            try {
+                              return $state.biorhythm.loading;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                        : (() => {
+                            try {
+                              return $state.biorhythm.loading;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                    ) ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___4E1Uc,
+                          {
+                            [sty.textferstTimepage___4E1UcGb6Kk]: hasVariant(
+                              $state,
+                              "ferstTimepage",
+                              "ferstTimepage"
+                            )
+                          }
+                        )}
+                      >
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: (() => {
+                              try {
+                                return "در حال دریافت اطلاعات از سرور ...";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "--";
+                                }
+                                throw e;
+                              }
+                            })()
+                          }}
+                        />
+                      </div>
+                    ) : null}
+                  </div>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__uH8Z, {
+                      [sty.freeBoxferstTimepage__uH8ZGb6Kk]: hasVariant(
+                        $state,
+                        "ferstTimepage",
+                        "ferstTimepage"
+                      )
+                    })}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__ccM8N,
+                        "bioritmbox"
+                      )}
+                      dir={"ltr"}
+                    >
+                      <PlasmicIcon__
+                        PlasmicIconType={
+                          hasVariant(globalVariants, "screen", "mobile")
+                            ? Icon25Icon
+                            : Icon25Icon
+                        }
+                        className={classNames(projectcss.all, sty.svg__tx2If)}
+                        role={"img"}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__gqWlr,
+                          {
+                            [sty.textferstTimepage__gqWlrGb6Kk]: hasVariant(
+                              $state,
+                              "ferstTimepage",
+                              "ferstTimepage"
+                            )
+                          }
+                        )}
+                      >
+                        {"\u0641\u06a9\u0631\u06cc"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__bzwLj,
+                          "negative",
+                          {
+                            [sty.textferstTimepage__bzwLjGb6Kk]: hasVariant(
+                              $state,
+                              "ferstTimepage",
+                              "ferstTimepage"
+                            )
+                          }
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (
+                                $state.biorhythm.data.result.intellectual + "%"
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "--";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      <AntdProgress
+                        className={classNames(
+                          "__wab_instance",
+                          sty.progress__mIrZb
+                        )}
+                        percent={(() => {
+                          try {
+                            return Math.abs(
+                              $state.biorhythm.data.result.intellectual
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return 0;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        strokeColor={(() => {
+                          try {
+                            return (() => {
+                              if (
+                                $state.biorhythm.data.result.intellectual > 0
+                              ) {
+                                return "#00C371AA";
+                              } else {
+                                return "#EB464AAA";
+                              }
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        type={"circle"}
+                      />
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__kF2,
+                        "bioritmbox"
+                      )}
+                      dir={"ltr"}
+                    >
+                      <Icon17Icon
+                        className={classNames(projectcss.all, sty.svg__aeWbR)}
+                        role={"img"}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__s2NK
+                        )}
+                      >
+                        {"\u062c\u0633\u0645\u06cc"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__hradF,
+                          "negative",
+                          {
+                            [sty.textferstTimepage__hradFGb6Kk]: hasVariant(
+                              $state,
+                              "ferstTimepage",
+                              "ferstTimepage"
+                            )
+                          }
+                        )}
+                        dir={"ltr"}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (
+                                $state.biorhythm.data.result.physical + "%"
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "--";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      <AntdProgress
+                        className={classNames(
+                          "__wab_instance",
+                          sty.progress__csnC5
+                        )}
+                        percent={(() => {
+                          try {
+                            return Math.abs(
+                              $state.biorhythm.data.result.physical
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return 0;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        strokeColor={(() => {
+                          try {
+                            return (() => {
+                              if ($state.biorhythm.data.result.physical > 0) {
+                                return "#00C371AA";
+                              } else {
+                                return "#EB464AAA";
+                              }
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        type={"circle"}
+                      />
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___23SJt,
+                        "bioritmbox"
+                      )}
+                      dir={"ltr"}
+                    >
+                      <Icon16Icon
+                        className={classNames(projectcss.all, sty.svg__gziK)}
+                        role={"img"}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__u0Awo
+                        )}
+                      >
+                        {"\u0627\u062d\u0633\u0627\u0633\u06cc"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rkNd,
+                          "negative",
+                          {
+                            [sty.textferstTimepage__rkNdGb6Kk]: hasVariant(
+                              $state,
+                              "ferstTimepage",
+                              "ferstTimepage"
+                            )
+                          }
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (
+                                $state.biorhythm.data.result.emotional + "%"
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "--";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      <AntdProgress
+                        className={classNames(
+                          "__wab_instance",
+                          sty.progress__mKzqj
+                        )}
+                        percent={
+                          hasVariant(globalVariants, "screen", "mobile")
+                            ? (() => {
+                                try {
+                                  return Math.abs(
+                                    $state.biorhythm.data.result.emotional
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return 0;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : (() => {
+                                try {
+                                  return Math.abs(
+                                    $state.biorhythm.data.result.emotional
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return 0;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                        }
+                        strokeColor={
+                          hasVariant(globalVariants, "screen", "mobile")
+                            ? (() => {
+                                try {
+                                  return (() => {
+                                    if (
+                                      $state.biorhythm.data.result.emotional > 0
+                                    ) {
+                                      return "#00C371AA";
+                                    } else {
+                                      return "#EB464AAA";
+                                    }
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : (() => {
+                                try {
+                                  return (() => {
+                                    if (
+                                      $state.biorhythm.data.result.emotional > 0
+                                    ) {
+                                      return "#00C371AA";
+                                    } else {
+                                      return "#EB464AAA";
+                                    }
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                        }
+                        type={"circle"}
+                      />
+                    </div>
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__nKHlm, {
+                      [sty.freeBoxferstTimepage__nKHlmGb6Kk]: hasVariant(
                         $state,
                         "ferstTimepage",
                         "ferstTimepage"
@@ -1679,24 +2289,94 @@ function PlasmicBioritm2__RenderFunc(props: {
                         projectcss.all,
                         projectcss.p,
                         projectcss.__wab_text,
-                        sty.p__twofn,
+                        sty.p__mIwbv
+                      )}
+                    >
+                      {"\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646"}
+                    </p>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__dnfhe,
+                        "negative",
                         {
-                          [sty.pferstTimepage__twofnGb6Kk]: hasVariant(
+                          [sty.textferstTimepage__dnfheGb6Kk]: hasVariant(
                             $state,
                             "ferstTimepage",
                             "ferstTimepage"
                           )
                         }
                       )}
+                      dir={
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "rtl"
+                          : undefined
+                      }
+                    >
+                      {hasVariant(globalVariants, "screen", "mobile") ? (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.biorhythm.data.result.avg + "%";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "--";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      ) : (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.biorhythm.data.result.avg + "%";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "--";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      )}
+                    </div>
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__sMvC)}
+                  >
+                    <Button
+                      data-plasmic-name={"button2"}
+                      data-plasmic-override={overrides.button2}
+                      className={classNames("__wab_instance", sty.button2, {
+                        [sty.button2ferstTimepage]: hasVariant(
+                          $state,
+                          "ferstTimepage",
+                          "ferstTimepage"
+                        )
+                      })}
+                      color={generateStateValueProp($state, [
+                        "button2",
+                        "color"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["updateDialog2Opendialog"] = true
+                        $steps["updateDialogOpendialog"] = true
                           ? (() => {
                               const actionArgs = {
                                 variable: {
                                   objRoot: $state,
-                                  variablePath: ["dialog2", "opendialog"]
+                                  variablePath: ["dialog", "opendialog"]
                                 },
                                 operation: 0,
                                 value: true
@@ -1718,858 +2398,153 @@ function PlasmicBioritm2__RenderFunc(props: {
                             })()
                           : undefined;
                         if (
-                          $steps["updateDialog2Opendialog"] != null &&
-                          typeof $steps["updateDialog2Opendialog"] ===
+                          $steps["updateDialogOpendialog"] != null &&
+                          typeof $steps["updateDialogOpendialog"] ===
                             "object" &&
-                          typeof $steps["updateDialog2Opendialog"].then ===
+                          typeof $steps["updateDialogOpendialog"].then ===
                             "function"
                         ) {
-                          $steps["updateDialog2Opendialog"] = await $steps[
-                            "updateDialog2Opendialog"
+                          $steps["updateDialogOpendialog"] = await $steps[
+                            "updateDialogOpendialog"
                           ];
                         }
                       }}
-                    >
-                      {hasVariant(globalVariants, "screen", "mobile")
-                        ? "\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u06cc\u0633\u062a\u061f  > "
-                        : "\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u06cc\u0633\u062a\u061f"}
-                    </p>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___71LmI,
-                        {
-                          [sty.freeBoxferstTimepage___71LmIGb6Kk]: hasVariant(
-                            $state,
-                            "ferstTimepage",
-                            "ferstTimepage"
-                          )
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button2",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
                         }
-                      )}
+                      }}
                     >
-                      {(
-                        hasVariant($state, "ferstTimepage", "ferstTimepage")
-                          ? true
-                          : (() => {
-                              try {
-                                return !$state.biorhythm.loading;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })()
-                      ) ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__pAflK,
-                            {
-                              [sty.textferstTimepage__pAflKGb6Kk]: hasVariant(
-                                $state,
-                                "ferstTimepage",
-                                "ferstTimepage"
-                              )
-                            }
-                          )}
-                        >
-                          {hasVariant(globalVariants, "screen", "mobile") ? (
-                            <div
-                              className={projectcss.__wab_expr_html_text}
-                              dangerouslySetInnerHTML={{
-                                __html: (() => {
-                                  try {
-                                    return (() => {
-                                      if (!isNaN($state.birthday.year)) {
-                                        return (
-                                          'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
-                                          $state.birthday.year +
-                                          "/" +
-                                          $state.birthday.month +
-                                          "/" +
-                                          $state.birthday.day +
-                                          "</b> محاسبه شده است."
-                                        );
-                                      } else {
-                                        return "";
-                                      }
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "";
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              }}
-                            />
-                          ) : (
-                            <div
-                              className={projectcss.__wab_expr_html_text}
-                              dangerouslySetInnerHTML={{
-                                __html: (() => {
-                                  try {
-                                    return (() => {
-                                      if (!isNaN($state.birthday.year)) {
-                                        return (
-                                          'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
-                                          $state.birthday.year +
-                                          "/" +
-                                          $state.birthday.month +
-                                          "/" +
-                                          $state.birthday.day +
-                                          "</b> محاسبه شده است."
-                                        );
-                                      } else {
-                                        return "";
-                                      }
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "--";
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              }}
-                            />
-                          )}
-                        </div>
-                      ) : null}
-                      {(
-                        hasVariant(globalVariants, "screen", "mobile")
-                          ? (() => {
-                              try {
-                                return $state.biorhythm.loading;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })()
-                          : (() => {
-                              try {
-                                return $state.biorhythm.loading;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })()
-                      ) ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___4E1Uc,
-                            {
-                              [sty.textferstTimepage___4E1UcGb6Kk]: hasVariant(
-                                $state,
-                                "ferstTimepage",
-                                "ferstTimepage"
-                              )
-                            }
-                          )}
-                        >
-                          <div
-                            className={projectcss.__wab_expr_html_text}
-                            dangerouslySetInnerHTML={{
-                              __html: (() => {
-                                try {
-                                  return "در حال دریافت اطلاعات از سرور ...";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "--";
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            }}
-                          />
-                        </div>
-                      ) : null}
-                    </div>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__uH8Z, {
-                        [sty.freeBoxferstTimepage__uH8ZGb6Kk]: hasVariant(
+                      {
+                        "\u062a\u063a\u06cc\u06cc\u0631 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
+                      }
+                    </Button>
+                    <Button
+                      data-plasmic-name={"button3"}
+                      data-plasmic-override={overrides.button3}
+                      className={classNames("__wab_instance", sty.button3, {
+                        [sty.button3ferstTimepage]: hasVariant(
                           $state,
                           "ferstTimepage",
                           "ferstTimepage"
                         )
                       })}
+                      color={generateStateValueProp($state, [
+                        "button3",
+                        "color"
+                      ])}
+                      isDisabled={
+                        hasVariant($state, "ferstTimepage", "ferstTimepage")
+                          ? true
+                          : undefined
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    let emothional =
+                                      $state.biorhythm.data.result.emotional;
+                                    let phisycal =
+                                      $state.biorhythm.data.result.physical;
+                                    let intellectual =
+                                      $state.biorhythm.data.result.intellectual;
+                                    let emothionalTxt = "",
+                                      phisycalTxt = "",
+                                      intellectualTxt = "";
+                                    if (emothional < 0) {
+                                      emothionalTxt = `امروز از نظر روحی خیلی پایین هستی. سطح شما: ${emothional}`;
+                                    } else if (emothional < 50) {
+                                      emothionalTxt = `امروز از نظر روحی نسبتا متعادل هستی اما لطفا باز هم هوای خودت رو داشته باش. سطح شما: ${emothional}`;
+                                    } else if (emothional < 70) {
+                                      emothionalTxt = `امروز از نظر روحی در وضعیت خوبی به سر میبری و همه چیز خوبه. سطح شما: ${emothional}`;
+                                    } else if (emothional > 70) {
+                                      emothionalTxt = `امروز از نظر روحی فوق العاده ای. سطح شما: ${emothional}`;
+                                    }
+                                    if (phisycal < 0) {
+                                      phisycalTxt = `امروز از نظر فیزیکی خیلی کم انرژی و خسته ای به خودت سخت نگیر. سطح شما: ${phisycal}`;
+                                    } else if (phisycal < 50) {
+                                      phisycalTxt = `امروز از نظر فیزیکی سرحالی. سطح شما: ${phisycal}`;
+                                    } else if (phisycal < 70) {
+                                      phisycalTxt = `امروز روز خوبی برای انجام فعالیت های فیزیکی هست ازشون غافل نشو. سطح شما: ${phisycal}`;
+                                    } else if (phisycal > 70) {
+                                      phisycalTxt = `امروز از نظر فیزیکی در بهترین وضعیت خودت هستی. سطح شما: ${phisycal}`;
+                                    }
+                                    if (intellectual < 0) {
+                                      intellectualTxt = `امروز از نظر فکری خیلی کم تمرکز به نظر میای. سطح شما: ${intellectual}`;
+                                    } else if (intellectual < 50) {
+                                      intellectualTxt = `امروز از نظر آمادگی ذهنی در وضعیت تقریبا خوبی به سر میبری. سطح شما: ${intellectual}`;
+                                    } else if (intellectual < 70) {
+                                      intellectualTxt = `امروز از نظر فکری عالی هستی وقتشه کارایی که نیاز به تمرکز دارن رو بذاری تو اولویت. سطح شما: ${intellectual}`;
+                                    } else if (intellectual > 70) {
+                                      intellectualTxt = `امروز از نظر ذهنی بهترین خودت هستی٬ بهترین موقع برای انجام کارای سخته!. سطح شما: ${intellectual}`;
+                                    }
+                                    let biorythmText = `وضعیت بیوریتم:\n${emothionalTxt}\n${phisycalTxt}\n${intellectualTxt}`;
+                                    let shareText = `لیوم | تقویم قاعدگی\n${biorythmText}\nبرای دانلود رایگان لیوم و بررسی بیوریتم خود به لینک زیر مراجعه کنید:\nhttps://liom.app/link`;
+                                    if (navigator.share) {
+                                      return navigator.share({
+                                        title: "لیوم | تقویم قاعدگی",
+                                        text: shareText,
+                                        url: "https://liom.app/link"
+                                      });
+                                    } else {
+                                      $$.copyToClipboard(shareText);
+                                      return alert(
+                                        "مرورگر شما از قابلیت اشتراک‌گذاری پشتیبانی نمی‌کند.\nمتن در کلیپ‌بورد کپی شد. حالا می‌توانید آن را در برنامه‌های دیگر به اشتراک بگذارید."
+                                      );
+                                    }
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button3",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__ccM8N,
-                          "bioritmbox"
-                        )}
-                        dir={"ltr"}
-                      >
-                        <PlasmicIcon__
-                          PlasmicIconType={
-                            hasVariant(globalVariants, "screen", "mobile")
-                              ? Icon25Icon
-                              : Icon25Icon
-                          }
-                          className={classNames(projectcss.all, sty.svg__tx2If)}
-                          role={"img"}
-                        />
-
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__gqWlr,
-                            {
-                              [sty.textferstTimepage__gqWlrGb6Kk]: hasVariant(
-                                $state,
-                                "ferstTimepage",
-                                "ferstTimepage"
-                              )
-                            }
-                          )}
-                        >
-                          {"\u0641\u06a9\u0631\u06cc"}
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__bzwLj,
-                            "negative",
-                            {
-                              [sty.textferstTimepage__bzwLjGb6Kk]: hasVariant(
-                                $state,
-                                "ferstTimepage",
-                                "ferstTimepage"
-                              )
-                            }
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  $state.biorhythm.data.result.intellectual +
-                                  "%"
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "--";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                        <AntdProgress
-                          className={classNames(
-                            "__wab_instance",
-                            sty.progress__mIrZb
-                          )}
-                          percent={(() => {
-                            try {
-                              return Math.abs(
-                                $state.biorhythm.data.result.intellectual
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return 0;
-                              }
-                              throw e;
-                            }
-                          })()}
-                          strokeColor={(() => {
-                            try {
-                              return (() => {
-                                if (
-                                  $state.biorhythm.data.result.intellectual > 0
-                                ) {
-                                  return "#00C371AA";
-                                } else {
-                                  return "#EB464AAA";
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
-                          type={"circle"}
-                        />
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__kF2,
-                          "bioritmbox"
-                        )}
-                        dir={"ltr"}
-                      >
-                        <Icon17Icon
-                          className={classNames(projectcss.all, sty.svg__aeWbR)}
-                          role={"img"}
-                        />
-
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__s2NK
-                          )}
-                        >
-                          {"\u062c\u0633\u0645\u06cc"}
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__hradF,
-                            "negative",
-                            {
-                              [sty.textferstTimepage__hradFGb6Kk]: hasVariant(
-                                $state,
-                                "ferstTimepage",
-                                "ferstTimepage"
-                              )
-                            }
-                          )}
-                          dir={"ltr"}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  $state.biorhythm.data.result.physical + "%"
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "--";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                        <AntdProgress
-                          className={classNames(
-                            "__wab_instance",
-                            sty.progress__csnC5
-                          )}
-                          percent={(() => {
-                            try {
-                              return Math.abs(
-                                $state.biorhythm.data.result.physical
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return 0;
-                              }
-                              throw e;
-                            }
-                          })()}
-                          strokeColor={(() => {
-                            try {
-                              return (() => {
-                                if ($state.biorhythm.data.result.physical > 0) {
-                                  return "#00C371AA";
-                                } else {
-                                  return "#EB464AAA";
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
-                          type={"circle"}
-                        />
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___23SJt,
-                          "bioritmbox"
-                        )}
-                        dir={"ltr"}
-                      >
-                        <Icon16Icon
-                          className={classNames(projectcss.all, sty.svg__gziK)}
-                          role={"img"}
-                        />
-
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__u0Awo
-                          )}
-                        >
-                          {"\u0627\u062d\u0633\u0627\u0633\u06cc"}
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__rkNd,
-                            "negative",
-                            {
-                              [sty.textferstTimepage__rkNdGb6Kk]: hasVariant(
-                                $state,
-                                "ferstTimepage",
-                                "ferstTimepage"
-                              )
-                            }
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  $state.biorhythm.data.result.emotional + "%"
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "--";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                        <AntdProgress
-                          className={classNames(
-                            "__wab_instance",
-                            sty.progress__mKzqj
-                          )}
-                          percent={
-                            hasVariant(globalVariants, "screen", "mobile")
-                              ? (() => {
-                                  try {
-                                    return Math.abs(
-                                      $state.biorhythm.data.result.emotional
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return 0;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              : (() => {
-                                  try {
-                                    return Math.abs(
-                                      $state.biorhythm.data.result.emotional
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return 0;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                          }
-                          strokeColor={
-                            hasVariant(globalVariants, "screen", "mobile")
-                              ? (() => {
-                                  try {
-                                    return (() => {
-                                      if (
-                                        $state.biorhythm.data.result.emotional >
-                                        0
-                                      ) {
-                                        return "#00C371AA";
-                                      } else {
-                                        return "#EB464AAA";
-                                      }
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              : (() => {
-                                  try {
-                                    return (() => {
-                                      if (
-                                        $state.biorhythm.data.result.emotional >
-                                        0
-                                      ) {
-                                        return "#00C371AA";
-                                      } else {
-                                        return "#EB464AAA";
-                                      }
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                          }
-                          type={"circle"}
-                        />
-                      </div>
-                    </Stack__>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__nKHlm,
-                        {
-                          [sty.freeBoxferstTimepage__nKHlmGb6Kk]: hasVariant(
-                            $state,
-                            "ferstTimepage",
-                            "ferstTimepage"
-                          )
-                        }
-                      )}
-                    >
-                      <p
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.p,
-                          projectcss.__wab_text,
-                          sty.p__mIwbv
-                        )}
-                      >
-                        {"\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646"}
-                      </p>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__dnfhe,
-                          "negative",
-                          {
-                            [sty.textferstTimepage__dnfheGb6Kk]: hasVariant(
-                              $state,
-                              "ferstTimepage",
-                              "ferstTimepage"
-                            )
-                          }
-                        )}
-                        dir={
-                          hasVariant(globalVariants, "screen", "mobile")
-                            ? "rtl"
-                            : undefined
-                        }
-                      >
-                        {hasVariant(globalVariants, "screen", "mobile") ? (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $state.biorhythm.data.result.avg + "%";
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "--";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        ) : (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $state.biorhythm.data.result.avg + "%";
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "--";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        )}
-                      </div>
-                    </Stack__>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__sMvC)}
-                    >
-                      <Button
-                        data-plasmic-name={"button2"}
-                        data-plasmic-override={overrides.button2}
-                        className={classNames("__wab_instance", sty.button2, {
-                          [sty.button2ferstTimepage]: hasVariant(
-                            $state,
-                            "ferstTimepage",
-                            "ferstTimepage"
-                          )
-                        })}
-                        color={generateStateValueProp($state, [
-                          "button2",
-                          "color"
-                        ])}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["updateDialogOpendialog"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["dialog", "opendialog"]
-                                  },
-                                  operation: 0,
-                                  value: true
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateDialogOpendialog"] != null &&
-                            typeof $steps["updateDialogOpendialog"] ===
-                              "object" &&
-                            typeof $steps["updateDialogOpendialog"].then ===
-                              "function"
-                          ) {
-                            $steps["updateDialogOpendialog"] = await $steps[
-                              "updateDialogOpendialog"
-                            ];
-                          }
-                        }}
-                        onColorChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button2",
-                              "color"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                      >
-                        {
-                          "\u062a\u063a\u06cc\u06cc\u0631 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
-                        }
-                      </Button>
-                      <Button
-                        data-plasmic-name={"button3"}
-                        data-plasmic-override={overrides.button3}
-                        className={classNames("__wab_instance", sty.button3, {
-                          [sty.button3ferstTimepage]: hasVariant(
-                            $state,
-                            "ferstTimepage",
-                            "ferstTimepage"
-                          )
-                        })}
-                        color={generateStateValueProp($state, [
-                          "button3",
-                          "color"
-                        ])}
-                        isDisabled={
-                          hasVariant($state, "ferstTimepage", "ferstTimepage")
-                            ? true
-                            : undefined
-                        }
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      let emothional =
-                                        $state.biorhythm.data.result.emotional;
-                                      let phisycal =
-                                        $state.biorhythm.data.result.physical;
-                                      let intellectual =
-                                        $state.biorhythm.data.result
-                                          .intellectual;
-                                      let emothionalTxt = "",
-                                        phisycalTxt = "",
-                                        intellectualTxt = "";
-                                      if (emothional < 0) {
-                                        emothionalTxt = `امروز از نظر روحی خیلی پایین هستی. سطح شما: ${emothional}`;
-                                      } else if (emothional < 50) {
-                                        emothionalTxt = `امروز از نظر روحی نسبتا متعادل هستی اما لطفا باز هم هوای خودت رو داشته باش. سطح شما: ${emothional}`;
-                                      } else if (emothional < 70) {
-                                        emothionalTxt = `امروز از نظر روحی در وضعیت خوبی به سر میبری و همه چیز خوبه. سطح شما: ${emothional}`;
-                                      } else if (emothional > 70) {
-                                        emothionalTxt = `امروز از نظر روحی فوق العاده ای. سطح شما: ${emothional}`;
-                                      }
-                                      if (phisycal < 0) {
-                                        phisycalTxt = `امروز از نظر فیزیکی خیلی کم انرژی و خسته ای به خودت سخت نگیر. سطح شما: ${phisycal}`;
-                                      } else if (phisycal < 50) {
-                                        phisycalTxt = `امروز از نظر فیزیکی سرحالی. سطح شما: ${phisycal}`;
-                                      } else if (phisycal < 70) {
-                                        phisycalTxt = `امروز روز خوبی برای انجام فعالیت های فیزیکی هست ازشون غافل نشو. سطح شما: ${phisycal}`;
-                                      } else if (phisycal > 70) {
-                                        phisycalTxt = `امروز از نظر فیزیکی در بهترین وضعیت خودت هستی. سطح شما: ${phisycal}`;
-                                      }
-                                      if (intellectual < 0) {
-                                        intellectualTxt = `امروز از نظر فکری خیلی کم تمرکز به نظر میای. سطح شما: ${intellectual}`;
-                                      } else if (intellectual < 50) {
-                                        intellectualTxt = `امروز از نظر آمادگی ذهنی در وضعیت تقریبا خوبی به سر میبری. سطح شما: ${intellectual}`;
-                                      } else if (intellectual < 70) {
-                                        intellectualTxt = `امروز از نظر فکری عالی هستی وقتشه کارایی که نیاز به تمرکز دارن رو بذاری تو اولویت. سطح شما: ${intellectual}`;
-                                      } else if (intellectual > 70) {
-                                        intellectualTxt = `امروز از نظر ذهنی بهترین خودت هستی٬ بهترین موقع برای انجام کارای سخته!. سطح شما: ${intellectual}`;
-                                      }
-                                      let biorythmText = `وضعیت بیوریتم:\n${emothionalTxt}\n${phisycalTxt}\n${intellectualTxt}`;
-                                      let shareText = `لیوم | تقویم قاعدگی\n${biorythmText}\nبرای دانلود رایگان لیوم و بررسی بیوریتم خود به لینک زیر مراجعه کنید:\nhttps://liom.app/link`;
-                                      if (navigator.share) {
-                                        return navigator.share({
-                                          title: "لیوم | تقویم قاعدگی",
-                                          text: shareText,
-                                          url: "https://liom.app/link"
-                                        });
-                                      } else {
-                                        $$.copyToClipboard(shareText);
-                                        return alert(
-                                          "مرورگر شما از قابلیت اشتراک‌گذاری پشتیبانی نمی‌کند.\nمتن در کلیپ‌بورد کپی شد. حالا می‌توانید آن را در برنامه‌های دیگر به اشتراک بگذارید."
-                                        );
-                                      }
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-                        }}
-                        onColorChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button3",
-                              "color"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                      >
-                        {
-                          "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc"
-                        }
-                      </Button>
-                    </Stack__>
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__dii, {
-                      [sty.freeBoxferstTimepage__diiGb6Kk]: hasVariant(
-                        $state,
-                        "ferstTimepage",
-                        "ferstTimepage"
-                      )
-                    })}
-                  />
+                      {
+                        "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc"
+                      }
+                    </Button>
+                  </Stack__>
                 </div>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__fzEGz, {
@@ -6141,17 +6116,6 @@ function PlasmicBioritm2__RenderFunc(props: {
               </Stack__>
             ) : null}
           </ApiRequest>
-          <section className={classNames(projectcss.all, sty.section__aQStJ)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__zvc9O
-              )}
-            >
-              {"Enter some text"}
-            </div>
-          </section>
           <section
             className={classNames(projectcss.all, sty.section__htBqi, {
               [sty.sectionferstTimepage__htBqiGb6Kk]: hasVariant(
@@ -6161,594 +6125,556 @@ function PlasmicBioritm2__RenderFunc(props: {
               )
             })}
           >
-            <div
-              className={classNames(projectcss.all, sty.freeBox__a0Cr4)}
-              style={(() => {
-                try {
-                  return {
-                    position: "absolute",
-                    "z-index": 300
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
+            <Dialog
+              data-plasmic-name={"dialog2"}
+              data-plasmic-override={overrides.dialog2}
+              className={classNames("__wab_instance", sty.dialog2, {
+                [sty.dialog2ferstTimepage]: hasVariant(
+                  $state,
+                  "ferstTimepage",
+                  "ferstTimepage"
+                )
+              })}
+              onOpendialogChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "dialog2",
+                  "opendialog"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
                 }
-              })()}
+              }}
+              opendialog={generateStateValueProp($state, [
+                "dialog2",
+                "opendialog"
+              ])}
             >
-              <Dialog
-                data-plasmic-name={"dialog2"}
-                data-plasmic-override={overrides.dialog2}
-                className={classNames("__wab_instance", sty.dialog2, {
-                  [sty.dialog2ferstTimepage]: hasVariant(
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__vxzJu)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__a8JN
+                  )}
+                >
+                  {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__eegmp,
+                    {
+                      [sty.textferstTimepage__eegmpGb6Kk]: hasVariant(
+                        $state,
+                        "ferstTimepage",
+                        "ferstTimepage"
+                      )
+                    }
+                  )}
+                >
+                  {
+                    "\u0634\u062f\u0647 \u06af\u0627\u0647\u06cc \u0627\u0648\u0642\u0627\u062a \u0628\u0627 \u062e\u0648\u062f\u062a \u0628\u06af\u06cc \u0627\u0644\u0627\u0646 \u00bb \u062d\u0648\u0635\u0644\u0647 \u0647\u06cc\u0686 \u06a9\u0627\u0631\u06cc \u0631\u0648 \u0646\u062f\u0627\u0631\u0645 \u061b \u06cc\u0627 \u0627\u0645\u0631\u0648\u0632 \u0631\u0648\u06cc \u0645\u0646 \u0646\u06cc\u0633\u062a . \u00bb \u0627\u06cc\u0646\u0637\u0648\u0631 \u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0631\u0633\u0647 \u06a9\u0647 \u062f\u0631 \u0628\u0639\u0636\u06cc \u0634\u0631\u0627\u06cc\u0637 \u060c \u0642\u062f\u0631\u062a \u062c\u0633\u0645\u06cc \u0630\u0647\u0646\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633\u06cc \u060c \u0645\u0627 \u0628\u0627 \u0647\u0645 . \u0647\u0645\u0627\u0647\u0646\u06af \u0646\u06cc\u0633\u062a\u0646 \u06a9\u0647 \u0647\u0645\u0647 \u0627\u06cc\u0646\u0647\u0627 \u0628\u0647 \u0633\u06cc\u06a9\u0644\u0647\u0627\u06cc \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0628\u0631\u0645\u06cc\u06af\u0631\u062f\u0647.\n\u062f\u0631 \u0648\u0627\u0642\u0639 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0646\u0628\u0636 \u062d\u064a\u0627\u062a \u06cc\u0627 \u0632\u06cc\u0633\u062a \u060c \u0622\u0647\u0646\u06af \u0639\u0644\u0645 \u0648 \u062f\u0627\u0646\u0634\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0628\u0647 \u0648\u0627\u0633\u0637\u0647 \u0627\u0648\u0646 \u0631\u06cc\u062a\u0645\u0647\u0627\u06cc \u0628\u062f\u0646 \u0627\u0646\u0633\u0627\u0646 \u0634\u0646\u0627\u062e\u062a\u0647 \u0645\u06cc\u0634\u0647 \u0628\u0631\u0627\u0633\u0627\u0633 \u0646\u0638\u0631\u064a\u0647 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0633\u0637\u0648\u062d \u0645\u062e\u062a\u0644\u0641\u06cc \u0627\u0632 \u0627\u0646\u0631\u0698\u06cc \u0627\u0632 \u0647\u0645\u0627\u0646 \u0627\u0628\u062a\u062f\u0627\u06cc \u062a\u0648\u0644\u062f \u062f\u0631 \u0627\u0646\u0633\u0627\u0646 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u0647 \u062f\u0631 \u0648\u0627\u0642\u0639 \u0634\u0631\u0648\u0639 \u0648 \u067e\u0627\u06cc\u0627\u0646 \u0647\u0631 \u0686\u0631\u062e\u0647 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f \u0641\u0631\u062f \u062a\u0639\u06cc\u06cc\u0646 \u0645\u06cc\u0634\u0647 \u0627\u06cc\u0646 \u0627\u0646\u0631\u0698\u06cc \u062f\u0631 \u06cc\u06a9 \u0628\u0627\u0632\u0647 \u0632\u0645\u0627\u0646\u06cc \u0645\u0634\u062e\u0635 \u06a9\u0645 \u0648 \u0632\u06cc\u0627\u062f \u0645\u06cc\u0634\u0647 \u0648 \u0631\u0648\u06cc \u0631\u0641\u062a\u0627\u0631 \u0648 \u062d\u0627\u0644\u0627\u062a \u0627\u0646\u0633\u0627\u0646 \u062a\u0623\u062b\u06cc\u0631 \u0645\u06cc\u0630\u0627\u0631\u0647. \n\n1- \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc ( Physical ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0647\u0631 \u06f2\u06f3 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u0627\u062a\u0641\u0627\u0642 \u0645\u06cc\u0627\u0641\u062a\u062f \u0632\u0645\u0627\u0646\u06cc \u06a9\u0647 \u062f\u0631 \u0627\u0648\u062c \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631\u06cc \u0627\u0639\u062a\u0645\u0627\u062f \u0628\u0647 \u0646\u0641\u0633 \u060c \u0627\u0646\u0631\u0698\u06cc \u0648 ... \u062f\u0627\u0631\u06cc\u062f . \u0627\u06cc\u0646 \u062f\u0631 \u062d\u0627\u0644\u06cc \u0627\u0633\u062a \u06a9\u0647 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0628\u06cc\u0634\u062a\u0631 \u062a\u062d\u062a \u062a\u0623\u062b\u06cc\u0631 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627 \u0642\u0631\u0627\u0631 \u0645\u06cc \u06af\u06cc\u0631\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0627\u0633\u062a \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n\n\u06f2- \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc ( Emotional ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u06f2\u06f8 \u0631\u0648\u0632\u0647 \u0627\u0633\u062a \u0648\u0642\u062a\u06cc \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0627\u062d\u0633\u0627\u0633 \u0645\u06cc\u06a9\u0646\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631 \u0634\u0627\u062f \u0648 \u0628\u0627\u0637\u0631\u0627\u0648\u062a \u0647\u0633\u062a\u06cc\u062f . \u062f\u0631 \u0645\u0642\u0627\u0628\u0644 \u0622\u0646 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u062a\u062d\u0631\u06cc\u06a9 \u067e\u0630\u06cc\u0631\u06cc \u0628\u0627\u0644\u0627\u06cc\u06cc \u062f\u0627\u0631\u06cc\u062f \u061b \u0627\u062d\u062a\u0645\u0627\u0644\u0627 \u0647\u0645\u0627\u0646 \u0631\u0648\u0632\u0647\u0627\u06cc\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0645\u062b\u0644\u0627 \u0645\u06cc\u06af\u0648\u06cc\u06cc\u062f \u062d\u0648\u0635\u0644\u0647 \u0646\u062f\u0627\u0631\u0645 \u0648\u0644\u0645 \u06a9\u0646\u06cc\u062f \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631\u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0631\u0648\u062d\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n \n\u06f3- \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc ( Intellectual ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0631\u0627 \u0647\u0631 \u0663\u0663 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u062a\u062c\u0631\u0628\u0647 \u0645\u06cc.\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u062f\u0631\u062a \u062a\u0635\u0645\u06cc\u0645 \u06af\u06cc\u0631\u06cc \u062e\u0648\u0628\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0645\u06cc \u062a\u0648\u0627\u0646\u06cc\u062f \u0645\u0633\u0627\u0626\u0644 \u0648 \u0645\u0634\u06a9\u0644\u0627\u062a \u0631\u0627 \u062d\u0644 \u0648 \u0645\u062f\u06cc\u0631\u06cc\u062a .\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0641\u0648\u0644 \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u062a\u0645\u0631\u06a9\u0632 \u0628\u0633\u06cc\u0627\u0631 \u06a9\u0645\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u062d\u062a\u06cc \u0634\u0627\u06cc\u062f \u062a\u0648\u0627\u0646 \u0627\u0646\u062c\u0627\u0645 \u062f\u0627\u062f\u0646 \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0642\u0628\u0644\u0627 \u062f\u0627\u0634\u062a\u06cc\u062f \u0631\u0627 \u0646\u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0630\u0647\u0646\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc. \n"
+                  }
+                </div>
+              </Stack__>
+            </Dialog>
+            <Dialog
+              data-plasmic-name={"dialog"}
+              data-plasmic-override={overrides.dialog}
+              className={classNames("__wab_instance", sty.dialog, {
+                [sty.dialogferstTimepage]: hasVariant(
+                  $state,
+                  "ferstTimepage",
+                  "ferstTimepage"
+                )
+              })}
+              onOpendialogChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "dialog",
+                  "opendialog"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              opendialog={generateStateValueProp($state, [
+                "dialog",
+                "opendialog"
+              ])}
+            >
+              <div
+                className={classNames(projectcss.all, sty.freeBox__g9MPg, {
+                  [sty.freeBoxferstTimepage__g9MPgGb6Kk]: hasVariant(
                     $state,
                     "ferstTimepage",
                     "ferstTimepage"
                   )
                 })}
-                onOpendialogChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "dialog2",
-                    "opendialog"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                opendialog={generateStateValueProp($state, [
-                  "dialog2",
-                  "opendialog"
-                ])}
               >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ypcb
+                  )}
+                >
+                  {
+                    "\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
+                  }
+                </div>
+                <DatePickers
+                  data-plasmic-name={"datePickers"}
+                  data-plasmic-override={overrides.datePickers}
+                  SelectedDay={(() => {
+                    try {
+                      return $state.birthday.day;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return 10;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  SelectedMonth={(() => {
+                    try {
+                      return $state.birthday.month;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return 10;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  SelectedYear={(() => {
+                    try {
+                      return $state.birthday.year;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return 1379;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  className={classNames("__wab_instance", sty.datePickers)}
+                  customYears={[]}
+                  onChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "datePickers",
+                      "value"
+                    ]).apply(null, eventArgs);
+                  }}
+                  selectedValues={generateStateValueProp($state, [
+                    "datePickers",
+                    "value"
+                  ])}
+                />
+
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__vxzJu)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__a8JN
-                    )}
-                  >
-                    {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__eegmp,
-                      {
-                        [sty.textferstTimepage__eegmpGb6Kk]: hasVariant(
-                          $state,
-                          "ferstTimepage",
-                          "ferstTimepage"
-                        )
-                      }
-                    )}
-                  >
-                    {
-                      "\u0634\u062f\u0647 \u06af\u0627\u0647\u06cc \u0627\u0648\u0642\u0627\u062a \u0628\u0627 \u062e\u0648\u062f\u062a \u0628\u06af\u06cc \u0627\u0644\u0627\u0646 \u00bb \u062d\u0648\u0635\u0644\u0647 \u0647\u06cc\u0686 \u06a9\u0627\u0631\u06cc \u0631\u0648 \u0646\u062f\u0627\u0631\u0645 \u061b \u06cc\u0627 \u0627\u0645\u0631\u0648\u0632 \u0631\u0648\u06cc \u0645\u0646 \u0646\u06cc\u0633\u062a . \u00bb \u0627\u06cc\u0646\u0637\u0648\u0631 \u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0631\u0633\u0647 \u06a9\u0647 \u062f\u0631 \u0628\u0639\u0636\u06cc \u0634\u0631\u0627\u06cc\u0637 \u060c \u0642\u062f\u0631\u062a \u062c\u0633\u0645\u06cc \u0630\u0647\u0646\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633\u06cc \u060c \u0645\u0627 \u0628\u0627 \u0647\u0645 . \u0647\u0645\u0627\u0647\u0646\u06af \u0646\u06cc\u0633\u062a\u0646 \u06a9\u0647 \u0647\u0645\u0647 \u0627\u06cc\u0646\u0647\u0627 \u0628\u0647 \u0633\u06cc\u06a9\u0644\u0647\u0627\u06cc \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0628\u0631\u0645\u06cc\u06af\u0631\u062f\u0647.\n\u062f\u0631 \u0648\u0627\u0642\u0639 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0646\u0628\u0636 \u062d\u064a\u0627\u062a \u06cc\u0627 \u0632\u06cc\u0633\u062a \u060c \u0622\u0647\u0646\u06af \u0639\u0644\u0645 \u0648 \u062f\u0627\u0646\u0634\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0628\u0647 \u0648\u0627\u0633\u0637\u0647 \u0627\u0648\u0646 \u0631\u06cc\u062a\u0645\u0647\u0627\u06cc \u0628\u062f\u0646 \u0627\u0646\u0633\u0627\u0646 \u0634\u0646\u0627\u062e\u062a\u0647 \u0645\u06cc\u0634\u0647 \u0628\u0631\u0627\u0633\u0627\u0633 \u0646\u0638\u0631\u064a\u0647 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0633\u0637\u0648\u062d \u0645\u062e\u062a\u0644\u0641\u06cc \u0627\u0632 \u0627\u0646\u0631\u0698\u06cc \u0627\u0632 \u0647\u0645\u0627\u0646 \u0627\u0628\u062a\u062f\u0627\u06cc \u062a\u0648\u0644\u062f \u062f\u0631 \u0627\u0646\u0633\u0627\u0646 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u0647 \u062f\u0631 \u0648\u0627\u0642\u0639 \u0634\u0631\u0648\u0639 \u0648 \u067e\u0627\u06cc\u0627\u0646 \u0647\u0631 \u0686\u0631\u062e\u0647 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f \u0641\u0631\u062f \u062a\u0639\u06cc\u06cc\u0646 \u0645\u06cc\u0634\u0647 \u0627\u06cc\u0646 \u0627\u0646\u0631\u0698\u06cc \u062f\u0631 \u06cc\u06a9 \u0628\u0627\u0632\u0647 \u0632\u0645\u0627\u0646\u06cc \u0645\u0634\u062e\u0635 \u06a9\u0645 \u0648 \u0632\u06cc\u0627\u062f \u0645\u06cc\u0634\u0647 \u0648 \u0631\u0648\u06cc \u0631\u0641\u062a\u0627\u0631 \u0648 \u062d\u0627\u0644\u0627\u062a \u0627\u0646\u0633\u0627\u0646 \u062a\u0623\u062b\u06cc\u0631 \u0645\u06cc\u0630\u0627\u0631\u0647. \n\n1- \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc ( Physical ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0647\u0631 \u06f2\u06f3 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u0627\u062a\u0641\u0627\u0642 \u0645\u06cc\u0627\u0641\u062a\u062f \u0632\u0645\u0627\u0646\u06cc \u06a9\u0647 \u062f\u0631 \u0627\u0648\u062c \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631\u06cc \u0627\u0639\u062a\u0645\u0627\u062f \u0628\u0647 \u0646\u0641\u0633 \u060c \u0627\u0646\u0631\u0698\u06cc \u0648 ... \u062f\u0627\u0631\u06cc\u062f . \u0627\u06cc\u0646 \u062f\u0631 \u062d\u0627\u0644\u06cc \u0627\u0633\u062a \u06a9\u0647 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0628\u06cc\u0634\u062a\u0631 \u062a\u062d\u062a \u062a\u0623\u062b\u06cc\u0631 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627 \u0642\u0631\u0627\u0631 \u0645\u06cc \u06af\u06cc\u0631\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0627\u0633\u062a \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n\n\u06f2- \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc ( Emotional ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u06f2\u06f8 \u0631\u0648\u0632\u0647 \u0627\u0633\u062a \u0648\u0642\u062a\u06cc \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0627\u062d\u0633\u0627\u0633 \u0645\u06cc\u06a9\u0646\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631 \u0634\u0627\u062f \u0648 \u0628\u0627\u0637\u0631\u0627\u0648\u062a \u0647\u0633\u062a\u06cc\u062f . \u062f\u0631 \u0645\u0642\u0627\u0628\u0644 \u0622\u0646 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u062a\u062d\u0631\u06cc\u06a9 \u067e\u0630\u06cc\u0631\u06cc \u0628\u0627\u0644\u0627\u06cc\u06cc \u062f\u0627\u0631\u06cc\u062f \u061b \u0627\u062d\u062a\u0645\u0627\u0644\u0627 \u0647\u0645\u0627\u0646 \u0631\u0648\u0632\u0647\u0627\u06cc\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0645\u062b\u0644\u0627 \u0645\u06cc\u06af\u0648\u06cc\u06cc\u062f \u062d\u0648\u0635\u0644\u0647 \u0646\u062f\u0627\u0631\u0645 \u0648\u0644\u0645 \u06a9\u0646\u06cc\u062f \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631\u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0631\u0648\u062d\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n \n\u06f3- \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc ( Intellectual ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0631\u0627 \u0647\u0631 \u0663\u0663 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u062a\u062c\u0631\u0628\u0647 \u0645\u06cc.\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u062f\u0631\u062a \u062a\u0635\u0645\u06cc\u0645 \u06af\u06cc\u0631\u06cc \u062e\u0648\u0628\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0645\u06cc \u062a\u0648\u0627\u0646\u06cc\u062f \u0645\u0633\u0627\u0626\u0644 \u0648 \u0645\u0634\u06a9\u0644\u0627\u062a \u0631\u0627 \u062d\u0644 \u0648 \u0645\u062f\u06cc\u0631\u06cc\u062a .\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0641\u0648\u0644 \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u062a\u0645\u0631\u06a9\u0632 \u0628\u0633\u06cc\u0627\u0631 \u06a9\u0645\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u062d\u062a\u06cc \u0634\u0627\u06cc\u062f \u062a\u0648\u0627\u0646 \u0627\u0646\u062c\u0627\u0645 \u062f\u0627\u062f\u0646 \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0642\u0628\u0644\u0627 \u062f\u0627\u0634\u062a\u06cc\u062f \u0631\u0627 \u0646\u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0630\u0647\u0646\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc. \n"
-                    }
-                  </div>
-                </Stack__>
-              </Dialog>
-              <Dialog
-                data-plasmic-name={"dialog"}
-                data-plasmic-override={overrides.dialog}
-                className={classNames("__wab_instance", sty.dialog, {
-                  [sty.dialogferstTimepage]: hasVariant(
-                    $state,
-                    "ferstTimepage",
-                    "ferstTimepage"
-                  )
-                })}
-                onOpendialogChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "dialog",
-                    "opendialog"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                opendialog={generateStateValueProp($state, [
-                  "dialog",
-                  "opendialog"
-                ])}
-              >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__g9MPg, {
-                    [sty.freeBoxferstTimepage__g9MPgGb6Kk]: hasVariant(
+                  className={classNames(projectcss.all, sty.freeBox__bNrx1, {
+                    [sty.freeBoxferstTimepage__bNrx1Gb6Kk]: hasVariant(
                       $state,
                       "ferstTimepage",
                       "ferstTimepage"
                     )
                   })}
                 >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ypcb
-                    )}
-                  >
-                    {
-                      "\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
-                    }
-                  </div>
-                  <DatePickers
-                    data-plasmic-name={"datePickers"}
-                    data-plasmic-override={overrides.datePickers}
-                    SelectedDay={(() => {
-                      try {
-                        return $state.birthday.day;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return 10;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    SelectedMonth={(() => {
-                      try {
-                        return $state.birthday.month;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return 10;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    SelectedYear={(() => {
-                      try {
-                        return $state.birthday.year;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return 1379;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    className={classNames("__wab_instance", sty.datePickers)}
-                    customYears={[]}
-                    onChange={async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "datePickers",
-                        "value"
-                      ]).apply(null, eventArgs);
-                    }}
-                    selectedValues={generateStateValueProp($state, [
-                      "datePickers",
-                      "value"
-                    ])}
-                  />
-
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__bNrx1, {
-                      [sty.freeBoxferstTimepage__bNrx1Gb6Kk]: hasVariant(
+                  <Button
+                    data-plasmic-name={"button"}
+                    data-plasmic-override={overrides.button}
+                    className={classNames("__wab_instance", sty.button, {
+                      [sty.buttonferstTimepage]: hasVariant(
                         $state,
                         "ferstTimepage",
                         "ferstTimepage"
                       )
                     })}
-                  >
-                    <Button
-                      data-plasmic-name={"button"}
-                      data-plasmic-override={overrides.button}
-                      className={classNames("__wab_instance", sty.button, {
-                        [sty.buttonferstTimepage]: hasVariant(
-                          $state,
-                          "ferstTimepage",
-                          "ferstTimepage"
-                        )
-                      })}
-                      color={generateStateValueProp($state, [
-                        "button",
-                        "color"
-                      ])}
-                      onClick={async event => {
-                        const $steps = {};
+                    color={generateStateValueProp($state, ["button", "color"])}
+                    onClick={async event => {
+                      const $steps = {};
 
-                        $steps["updateBirthday"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["birthday"]
-                                },
-                                operation: 0,
-                                value: $state.datePickers.value
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                      $steps["updateBirthday"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["birthday"]
+                              },
+                              operation: 0,
+                              value: $state.datePickers.value
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateBirthday"] != null &&
-                          typeof $steps["updateBirthday"] === "object" &&
-                          typeof $steps["updateBirthday"].then === "function"
-                        ) {
-                          $steps["updateBirthday"] = await $steps[
-                            "updateBirthday"
-                          ];
-                        }
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateBirthday"] != null &&
+                        typeof $steps["updateBirthday"] === "object" &&
+                        typeof $steps["updateBirthday"].then === "function"
+                      ) {
+                        $steps["updateBirthday"] = await $steps[
+                          "updateBirthday"
+                        ];
+                      }
 
-                        $steps["updateBday"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["bday"]
-                                },
-                                operation: 0,
-                                value: (() => {
-                                  let jy = $state.birthday.year;
-                                  let jm = $state.birthday.month;
-                                  let jd = $state.birthday.day;
-                                  var a = window.jalaali.toGregorian(
-                                    jy,
-                                    jm,
-                                    jd
-                                  );
-                                  return `${a.gy}-${a.gm}-${a.gd}`;
+                      $steps["updateBday"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["bday"]
+                              },
+                              operation: 0,
+                              value: (() => {
+                                let jy = $state.birthday.year;
+                                let jm = $state.birthday.month;
+                                let jd = $state.birthday.day;
+                                var a = window.jalaali.toGregorian(jy, jm, jd);
+                                return `${a.gy}-${a.gm}-${a.gd}`;
+                              })()
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateBday"] != null &&
+                        typeof $steps["updateBday"] === "object" &&
+                        typeof $steps["updateBday"].then === "function"
+                      ) {
+                        $steps["updateBday"] = await $steps["updateBday"];
+                      }
+
+                      $steps["updateDialogOpendialog"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dialog", "opendialog"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDialogOpendialog"] != null &&
+                        typeof $steps["updateDialogOpendialog"] === "object" &&
+                        typeof $steps["updateDialogOpendialog"].then ===
+                          "function"
+                      ) {
+                        $steps["updateDialogOpendialog"] = await $steps[
+                          "updateDialogOpendialog"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "PUT",
+                                "https://n8n.staas.ir/webhook/hamyar/biorhythm",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return { birthDate: $state.bday };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                (() => {
+                                  try {
+                                    return {
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                        Authorization: $state.token
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
                                 })()
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateBday"] != null &&
-                          typeof $steps["updateBday"] === "object" &&
-                          typeof $steps["updateBday"].then === "function"
-                        ) {
-                          $steps["updateBday"] = await $steps["updateBday"];
-                        }
-
-                        $steps["updateDialogOpendialog"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["dialog", "opendialog"]
-                                },
-                                operation: 0,
-                                value: false
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateDialogOpendialog"] != null &&
-                          typeof $steps["updateDialogOpendialog"] ===
-                            "object" &&
-                          typeof $steps["updateDialogOpendialog"].then ===
-                            "function"
-                        ) {
-                          $steps["updateDialogOpendialog"] = await $steps[
-                            "updateDialogOpendialog"
-                          ];
-                        }
-
-                        $steps["invokeGlobalAction"] = true
+                      $steps["invokeGlobalAction2"] =
+                        $steps.invokeGlobalAction.data.success == true
                           ? (() => {
                               const actionArgs = {
                                 args: [
-                                  "PUT",
-                                  "https://n8n.staas.ir/webhook/hamyar/biorhythm",
                                   undefined,
-                                  (() => {
-                                    try {
-                                      return { birthDate: $state.bday };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })(),
-                                  (() => {
-                                    try {
-                                      return {
-                                        headers: {
-                                          "Content-Type": "application/json",
-                                          Authorization: $state.token
-                                        }
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
+                                  "\u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f.",
+                                  "top-left"
                                 ]
                               };
                               return $globalActions[
-                                "Fragment.apiRequest"
+                                "Fragment.showToast"
                               ]?.apply(null, [...actionArgs.args]);
                             })()
                           : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
+                      if (
+                        $steps["invokeGlobalAction2"] != null &&
+                        typeof $steps["invokeGlobalAction2"] === "object" &&
+                        typeof $steps["invokeGlobalAction2"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction2"] = await $steps[
+                          "invokeGlobalAction2"
+                        ];
+                      }
 
-                        $steps["invokeGlobalAction2"] =
-                          $steps.invokeGlobalAction.data.success == true
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    undefined,
-                                    "\u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f.",
-                                    "top-left"
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.showToast"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["invokeGlobalAction2"] != null &&
-                          typeof $steps["invokeGlobalAction2"] === "object" &&
-                          typeof $steps["invokeGlobalAction2"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
-                        }
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return window.sessionStorage.setItem(
+                                  "birthDate",
+                                  JSON.stringify({
+                                    year: parseInt($state.bday.split("-")[0]),
+                                    month: parseInt($state.bday.split("-")[1]),
+                                    day: parseInt($state.bday.split("-")[2])
+                                  })
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
 
-                        $steps["runCode"] = true
+                      $steps["updateFerstTimepage"] =
+                        $steps.invokeGlobalAction.data.success == true
                           ? (() => {
                               const actionArgs = {
-                                customFunction: async () => {
-                                  return window.sessionStorage.setItem(
-                                    "birthDate",
-                                    JSON.stringify({
-                                      year: parseInt($state.bday.split("-")[0]),
-                                      month: parseInt(
-                                        $state.bday.split("-")[1]
-                                      ),
-                                      day: parseInt($state.bday.split("-")[2])
-                                    })
-                                  );
-                                }
+                                vgroup: "ferstTimepage",
+                                operation: 6,
+                                value: "ferstTimepage"
                               };
-                              return (({ customFunction }) => {
-                                return customFunction();
+                              return (({ vgroup, value }) => {
+                                if (typeof value === "string") {
+                                  value = [value];
+                                }
+
+                                $stateSet($state, vgroup, false);
+                                return false;
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
+                      if (
+                        $steps["updateFerstTimepage"] != null &&
+                        typeof $steps["updateFerstTimepage"] === "object" &&
+                        typeof $steps["updateFerstTimepage"].then === "function"
+                      ) {
+                        $steps["updateFerstTimepage"] = await $steps[
+                          "updateFerstTimepage"
+                        ];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
 
-                        $steps["updateFerstTimepage"] =
-                          $steps.invokeGlobalAction.data.success == true
-                            ? (() => {
-                                const actionArgs = {
-                                  vgroup: "ferstTimepage",
-                                  operation: 6,
-                                  value: "ferstTimepage"
-                                };
-                                return (({ vgroup, value }) => {
-                                  if (typeof value === "string") {
-                                    value = [value];
-                                  }
-
-                                  $stateSet($state, vgroup, false);
-                                  return false;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["updateFerstTimepage"] != null &&
-                          typeof $steps["updateFerstTimepage"] === "object" &&
-                          typeof $steps["updateFerstTimepage"].then ===
-                            "function"
-                        ) {
-                          $steps["updateFerstTimepage"] = await $steps[
-                            "updateFerstTimepage"
-                          ];
-                        }
-                      }}
-                      onColorChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "button",
-                            "color"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__sqbf6
+                      )}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__sqbf6
-                        )}
-                      >
-                        {"\u0627\u0646\u062a\u062e\u0627\u0628"}
-                      </div>
-                    </Button>
-                    <Button
-                      data-plasmic-name={"button4"}
-                      data-plasmic-override={overrides.button4}
-                      className={classNames("__wab_instance", sty.button4, {
-                        [sty.button4ferstTimepage]: hasVariant(
-                          $state,
-                          "ferstTimepage",
-                          "ferstTimepage"
-                        )
-                      })}
-                      color={generateStateValueProp($state, [
-                        "button4",
-                        "color"
-                      ])}
-                      onClick={async event => {
-                        const $steps = {};
+                      {"\u0627\u0646\u062a\u062e\u0627\u0628"}
+                    </div>
+                  </Button>
+                  <Button
+                    data-plasmic-name={"button4"}
+                    data-plasmic-override={overrides.button4}
+                    className={classNames("__wab_instance", sty.button4, {
+                      [sty.button4ferstTimepage]: hasVariant(
+                        $state,
+                        "ferstTimepage",
+                        "ferstTimepage"
+                      )
+                    })}
+                    color={generateStateValueProp($state, ["button4", "color"])}
+                    onClick={async event => {
+                      const $steps = {};
 
-                        $steps["updateDialogOpendialog"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["dialog", "opendialog"]
-                                },
-                                operation: 0,
-                                value: false
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                      $steps["updateDialogOpendialog"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dialog", "opendialog"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateDialogOpendialog"] != null &&
-                          typeof $steps["updateDialogOpendialog"] ===
-                            "object" &&
-                          typeof $steps["updateDialogOpendialog"].then ===
-                            "function"
-                        ) {
-                          $steps["updateDialogOpendialog"] = await $steps[
-                            "updateDialogOpendialog"
-                          ];
-                        }
-                      }}
-                      onColorChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "button4",
-                            "color"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDialogOpendialog"] != null &&
+                        typeof $steps["updateDialogOpendialog"] === "object" &&
+                        typeof $steps["updateDialogOpendialog"].then ===
+                          "function"
+                      ) {
+                        $steps["updateDialogOpendialog"] = await $steps[
+                          "updateDialogOpendialog"
+                        ];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button4", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
 
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__tV0Si
+                      )}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__tV0Si
-                        )}
-                      >
-                        {"\u0628\u0631\u06af\u0634\u062a"}
-                      </div>
-                    </Button>
-                  </Stack__>
-                </div>
-              </Dialog>
-            </div>
+                      {"\u0628\u0631\u06af\u0634\u062a"}
+                    </div>
+                  </Button>
+                </Stack__>
+              </div>
+            </Dialog>
           </section>
           <PullToRefresh
             data-plasmic-name={"pullToRefresh"}
