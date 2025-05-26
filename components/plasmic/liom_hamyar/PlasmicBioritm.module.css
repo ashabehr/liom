@@ -9,6 +9,8 @@
   justify-content: flex-start;
   align-items: center;
   background: #f8f8f8;
+  overflow: auto;
+  padding-top: 70px;
   min-width: 0;
   min-height: 0;
   grid-template-columns:
@@ -310,10 +312,10 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-bottom: 150px;
+  margin-bottom: 0px;
   margin-top: 0px;
   min-width: 0;
-  padding: 70px 0px 0px;
+  padding: 0px 0px 16px;
 }
 .freeBox__l2VNg > :global(.__wab_flex-container) {
   flex-direction: column;
@@ -2454,9 +2456,10 @@
 .freeBox__pa75 {
   flex-direction: column;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   min-width: 0;
+  min-height: 0;
   display: none;
   padding: 16px;
 }
@@ -2465,6 +2468,7 @@
   justify-content: center;
   align-items: center;
   min-width: 0;
+  min-height: 0;
   margin-top: calc(0px - 8px);
   height: calc(100% + 8px);
 }
@@ -2543,6 +2547,41 @@
   bottom: auto;
   display: none;
 }
+.section__qdZn {
+  display: grid;
+  position: fixed;
+  align-content: flex-start;
+  justify-items: center;
+  width: auto;
+  padding-left: 0;
+  padding-right: 0;
+  left: 0;
+  top: auto;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+}
+.section__qdZn > * {
+  grid-column: 4;
+}
+.sectionferstTimepage__qdZnSTpN {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  top: auto;
+}
+.sectionferstTimepage__qdZnSTpN > * {
+  grid-column: 4;
+}
 .dialog2:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
 }
@@ -2594,6 +2633,41 @@
   font-size: 12px;
   min-width: 0;
   min-height: 0;
+}
+.section__nPbR8 {
+  display: grid;
+  position: fixed;
+  align-content: flex-start;
+  justify-items: center;
+  width: auto;
+  padding-left: 0;
+  padding-right: 0;
+  left: 0;
+  top: auto;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+}
+.section__nPbR8 > * {
+  grid-column: 4;
+}
+.sectionferstTimepage__nPbR8STpN {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  top: auto;
+}
+.sectionferstTimepage__nPbR8STpN > * {
+  grid-column: 4;
 }
 .dialog:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
