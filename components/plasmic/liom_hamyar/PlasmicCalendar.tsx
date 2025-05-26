@@ -2728,59 +2728,6 @@ function PlasmicCalendar__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["invokeGlobalAction"] =
-                window.sessionStorage.getItem("cash") != "true"
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          undefined,
-                          "https://n8n.staas.ir/webhook/calendar/rest/user/profile/edit",
-                          (() => {
-                            try {
-                              return (() => {
-                                let tokenFromUrl =
-                                  $ctx.query.token ||
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("token");
-                                if (tokenFromUrl) {
-                                  tokenFromUrl = tokenFromUrl.slice(
-                                    6,
-                                    tokenFromUrl.length - 3
-                                  );
-                                }
-                                let token =
-                                  tokenFromUrl || localStorage.getItem("token");
-                                return { authorization: token };
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
-              if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
-              ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
-              }
-
               $steps["invokeGlobalAction2"] = true
                 ? (() => {
                     const actionArgs = {
