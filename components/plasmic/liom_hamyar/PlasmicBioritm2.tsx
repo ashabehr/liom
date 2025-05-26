@@ -6141,6 +6141,17 @@ function PlasmicBioritm2__RenderFunc(props: {
               </Stack__>
             ) : null}
           </ApiRequest>
+          <section className={classNames(projectcss.all, sty.section__aQStJ)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__zvc9O
+              )}
+            >
+              {"Enter some text"}
+            </div>
+          </section>
           <section
             className={classNames(projectcss.all, sty.section__htBqi, {
               [sty.sectionferstTimepage__htBqiGb6Kk]: hasVariant(
@@ -6231,517 +6242,511 @@ function PlasmicBioritm2__RenderFunc(props: {
                     }
                   </div>
                 </Stack__>
-                <Dialog
-                  data-plasmic-name={"dialog"}
-                  data-plasmic-override={overrides.dialog}
-                  className={classNames("__wab_instance", sty.dialog, {
-                    [sty.dialogferstTimepage]: hasVariant(
+              </Dialog>
+              <Dialog
+                data-plasmic-name={"dialog"}
+                data-plasmic-override={overrides.dialog}
+                className={classNames("__wab_instance", sty.dialog, {
+                  [sty.dialogferstTimepage]: hasVariant(
+                    $state,
+                    "ferstTimepage",
+                    "ferstTimepage"
+                  )
+                })}
+                onOpendialogChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "dialog",
+                    "opendialog"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                opendialog={generateStateValueProp($state, [
+                  "dialog",
+                  "opendialog"
+                ])}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__g9MPg, {
+                    [sty.freeBoxferstTimepage__g9MPgGb6Kk]: hasVariant(
                       $state,
                       "ferstTimepage",
                       "ferstTimepage"
                     )
                   })}
-                  onOpendialogChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "dialog",
-                      "opendialog"
-                    ]).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  opendialog={generateStateValueProp($state, [
-                    "dialog",
-                    "opendialog"
-                  ])}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__g9MPg, {
-                      [sty.freeBoxferstTimepage__g9MPgGb6Kk]: hasVariant(
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ypcb
+                    )}
+                  >
+                    {
+                      "\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
+                    }
+                  </div>
+                  <DatePickers
+                    data-plasmic-name={"datePickers"}
+                    data-plasmic-override={overrides.datePickers}
+                    SelectedDay={(() => {
+                      try {
+                        return $state.birthday.day;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return 10;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    SelectedMonth={(() => {
+                      try {
+                        return $state.birthday.month;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return 10;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    SelectedYear={(() => {
+                      try {
+                        return $state.birthday.year;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return 1379;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    className={classNames("__wab_instance", sty.datePickers)}
+                    customYears={[]}
+                    onChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "datePickers",
+                        "value"
+                      ]).apply(null, eventArgs);
+                    }}
+                    selectedValues={generateStateValueProp($state, [
+                      "datePickers",
+                      "value"
+                    ])}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__bNrx1, {
+                      [sty.freeBoxferstTimepage__bNrx1Gb6Kk]: hasVariant(
                         $state,
                         "ferstTimepage",
                         "ferstTimepage"
                       )
                     })}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__ypcb
-                      )}
-                    >
-                      {
-                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
-                      }
-                    </div>
-                    <DatePickers
-                      data-plasmic-name={"datePickers"}
-                      data-plasmic-override={overrides.datePickers}
-                      SelectedDay={(() => {
-                        try {
-                          return $state.birthday.day;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return 10;
-                          }
-                          throw e;
-                        }
-                      })()}
-                      SelectedMonth={(() => {
-                        try {
-                          return $state.birthday.month;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return 10;
-                          }
-                          throw e;
-                        }
-                      })()}
-                      SelectedYear={(() => {
-                        try {
-                          return $state.birthday.year;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return 1379;
-                          }
-                          throw e;
-                        }
-                      })()}
-                      className={classNames("__wab_instance", sty.datePickers)}
-                      customYears={[]}
-                      onChange={async (...eventArgs: any) => {
-                        generateStateOnChangeProp($state, [
-                          "datePickers",
-                          "value"
-                        ]).apply(null, eventArgs);
-                      }}
-                      selectedValues={generateStateValueProp($state, [
-                        "datePickers",
-                        "value"
+                    <Button
+                      data-plasmic-name={"button"}
+                      data-plasmic-override={overrides.button}
+                      className={classNames("__wab_instance", sty.button, {
+                        [sty.buttonferstTimepage]: hasVariant(
+                          $state,
+                          "ferstTimepage",
+                          "ferstTimepage"
+                        )
+                      })}
+                      color={generateStateValueProp($state, [
+                        "button",
+                        "color"
                       ])}
-                    />
+                      onClick={async event => {
+                        const $steps = {};
 
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__bNrx1,
-                        {
-                          [sty.freeBoxferstTimepage__bNrx1Gb6Kk]: hasVariant(
-                            $state,
-                            "ferstTimepage",
-                            "ferstTimepage"
-                          )
+                        $steps["updateBirthday"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["birthday"]
+                                },
+                                operation: 0,
+                                value: $state.datePickers.value
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateBirthday"] != null &&
+                          typeof $steps["updateBirthday"] === "object" &&
+                          typeof $steps["updateBirthday"].then === "function"
+                        ) {
+                          $steps["updateBirthday"] = await $steps[
+                            "updateBirthday"
+                          ];
                         }
-                      )}
-                    >
-                      <Button
-                        data-plasmic-name={"button"}
-                        data-plasmic-override={overrides.button}
-                        className={classNames("__wab_instance", sty.button, {
-                          [sty.buttonferstTimepage]: hasVariant(
-                            $state,
-                            "ferstTimepage",
-                            "ferstTimepage"
-                          )
-                        })}
-                        color={generateStateValueProp($state, [
-                          "button",
-                          "color"
-                        ])}
-                        onClick={async event => {
-                          const $steps = {};
 
-                          $steps["updateBirthday"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["birthday"]
-                                  },
-                                  operation: 0,
-                                  value: $state.datePickers.value
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
+                        $steps["updateBday"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["bday"]
+                                },
+                                operation: 0,
+                                value: (() => {
+                                  let jy = $state.birthday.year;
+                                  let jm = $state.birthday.month;
+                                  let jd = $state.birthday.day;
+                                  var a = window.jalaali.toGregorian(
+                                    jy,
+                                    jm,
+                                    jd
+                                  );
+                                  return `${a.gy}-${a.gm}-${a.gd}`;
+                                })()
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
 
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateBirthday"] != null &&
-                            typeof $steps["updateBirthday"] === "object" &&
-                            typeof $steps["updateBirthday"].then === "function"
-                          ) {
-                            $steps["updateBirthday"] = await $steps[
-                              "updateBirthday"
-                            ];
-                          }
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateBday"] != null &&
+                          typeof $steps["updateBday"] === "object" &&
+                          typeof $steps["updateBday"].then === "function"
+                        ) {
+                          $steps["updateBday"] = await $steps["updateBday"];
+                        }
 
-                          $steps["updateBday"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["bday"]
-                                  },
-                                  operation: 0,
-                                  value: (() => {
-                                    let jy = $state.birthday.year;
-                                    let jm = $state.birthday.month;
-                                    let jd = $state.birthday.day;
-                                    var a = window.jalaali.toGregorian(
-                                      jy,
-                                      jm,
-                                      jd
-                                    );
-                                    return `${a.gy}-${a.gm}-${a.gd}`;
+                        $steps["updateDialogOpendialog"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["dialog", "opendialog"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDialogOpendialog"] != null &&
+                          typeof $steps["updateDialogOpendialog"] ===
+                            "object" &&
+                          typeof $steps["updateDialogOpendialog"].then ===
+                            "function"
+                        ) {
+                          $steps["updateDialogOpendialog"] = await $steps[
+                            "updateDialogOpendialog"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "PUT",
+                                  "https://n8n.staas.ir/webhook/hamyar/biorhythm",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return { birthDate: $state.bday };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return {
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization: $state.token
+                                        }
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
                                   })()
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
 
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateBday"] != null &&
-                            typeof $steps["updateBday"] === "object" &&
-                            typeof $steps["updateBday"].then === "function"
-                          ) {
-                            $steps["updateBday"] = await $steps["updateBday"];
-                          }
-
-                          $steps["updateDialogOpendialog"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["dialog", "opendialog"]
-                                  },
-                                  operation: 0,
-                                  value: false
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateDialogOpendialog"] != null &&
-                            typeof $steps["updateDialogOpendialog"] ===
-                              "object" &&
-                            typeof $steps["updateDialogOpendialog"].then ===
-                              "function"
-                          ) {
-                            $steps["updateDialogOpendialog"] = await $steps[
-                              "updateDialogOpendialog"
-                            ];
-                          }
-
-                          $steps["invokeGlobalAction"] = true
+                        $steps["invokeGlobalAction2"] =
+                          $steps.invokeGlobalAction.data.success == true
                             ? (() => {
                                 const actionArgs = {
                                   args: [
-                                    "PUT",
-                                    "https://n8n.staas.ir/webhook/hamyar/biorhythm",
                                     undefined,
-                                    (() => {
-                                      try {
-                                        return { birthDate: $state.bday };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })(),
-                                    (() => {
-                                      try {
-                                        return {
-                                          headers: {
-                                            "Content-Type": "application/json",
-                                            Authorization: $state.token
-                                          }
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
+                                    "\u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f.",
+                                    "top-left"
                                   ]
                                 };
                                 return $globalActions[
-                                  "Fragment.apiRequest"
+                                  "Fragment.showToast"
                                 ]?.apply(null, [...actionArgs.args]);
                               })()
                             : undefined;
-                          if (
-                            $steps["invokeGlobalAction"] != null &&
-                            typeof $steps["invokeGlobalAction"] === "object" &&
-                            typeof $steps["invokeGlobalAction"].then ===
-                              "function"
-                          ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
-                          }
+                        if (
+                          $steps["invokeGlobalAction2"] != null &&
+                          typeof $steps["invokeGlobalAction2"] === "object" &&
+                          typeof $steps["invokeGlobalAction2"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction2"] = await $steps[
+                            "invokeGlobalAction2"
+                          ];
+                        }
 
-                          $steps["invokeGlobalAction2"] =
-                            $steps.invokeGlobalAction.data.success == true
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      undefined,
-                                      "\u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f.",
-                                      "top-left"
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "Fragment.showToast"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["invokeGlobalAction2"] != null &&
-                            typeof $steps["invokeGlobalAction2"] === "object" &&
-                            typeof $steps["invokeGlobalAction2"].then ===
-                              "function"
-                          ) {
-                            $steps["invokeGlobalAction2"] = await $steps[
-                              "invokeGlobalAction2"
-                            ];
-                          }
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return window.sessionStorage.setItem(
+                                    "birthDate",
+                                    JSON.stringify({
+                                      year: parseInt($state.bday.split("-")[0]),
+                                      month: parseInt(
+                                        $state.bday.split("-")[1]
+                                      ),
+                                      day: parseInt($state.bday.split("-")[2])
+                                    })
+                                  );
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
 
-                          $steps["runCode"] = true
+                        $steps["updateFerstTimepage"] =
+                          $steps.invokeGlobalAction.data.success == true
                             ? (() => {
                                 const actionArgs = {
-                                  customFunction: async () => {
-                                    return window.sessionStorage.setItem(
-                                      "birthDate",
-                                      JSON.stringify({
-                                        year: parseInt(
-                                          $state.bday.split("-")[0]
-                                        ),
-                                        month: parseInt(
-                                          $state.bday.split("-")[1]
-                                        ),
-                                        day: parseInt($state.bday.split("-")[2])
-                                      })
-                                    );
-                                  }
+                                  vgroup: "ferstTimepage",
+                                  operation: 6,
+                                  value: "ferstTimepage"
                                 };
-                                return (({ customFunction }) => {
-                                  return customFunction();
+                                return (({ vgroup, value }) => {
+                                  if (typeof value === "string") {
+                                    value = [value];
+                                  }
+
+                                  $stateSet($state, vgroup, false);
+                                  return false;
                                 })?.apply(null, [actionArgs]);
                               })()
                             : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
+                        if (
+                          $steps["updateFerstTimepage"] != null &&
+                          typeof $steps["updateFerstTimepage"] === "object" &&
+                          typeof $steps["updateFerstTimepage"].then ===
+                            "function"
+                        ) {
+                          $steps["updateFerstTimepage"] = await $steps[
+                            "updateFerstTimepage"
+                          ];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
 
-                          $steps["updateFerstTimepage"] =
-                            $steps.invokeGlobalAction.data.success == true
-                              ? (() => {
-                                  const actionArgs = {
-                                    vgroup: "ferstTimepage",
-                                    operation: 6,
-                                    value: "ferstTimepage"
-                                  };
-                                  return (({ vgroup, value }) => {
-                                    if (typeof value === "string") {
-                                      value = [value];
-                                    }
-
-                                    $stateSet($state, vgroup, false);
-                                    return false;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["updateFerstTimepage"] != null &&
-                            typeof $steps["updateFerstTimepage"] === "object" &&
-                            typeof $steps["updateFerstTimepage"].then ===
-                              "function"
-                          ) {
-                            $steps["updateFerstTimepage"] = await $steps[
-                              "updateFerstTimepage"
-                            ];
-                          }
-                        }}
-                        onColorChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button",
-                              "color"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__sqbf6
+                        )}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__sqbf6
-                          )}
-                        >
-                          {"\u0627\u0646\u062a\u062e\u0627\u0628"}
-                        </div>
-                      </Button>
-                      <Button
-                        data-plasmic-name={"button4"}
-                        data-plasmic-override={overrides.button4}
-                        className={classNames("__wab_instance", sty.button4, {
-                          [sty.button4ferstTimepage]: hasVariant(
-                            $state,
-                            "ferstTimepage",
-                            "ferstTimepage"
-                          )
-                        })}
-                        color={generateStateValueProp($state, [
-                          "button4",
-                          "color"
-                        ])}
-                        onClick={async event => {
-                          const $steps = {};
+                        {"\u0627\u0646\u062a\u062e\u0627\u0628"}
+                      </div>
+                    </Button>
+                    <Button
+                      data-plasmic-name={"button4"}
+                      data-plasmic-override={overrides.button4}
+                      className={classNames("__wab_instance", sty.button4, {
+                        [sty.button4ferstTimepage]: hasVariant(
+                          $state,
+                          "ferstTimepage",
+                          "ferstTimepage"
+                        )
+                      })}
+                      color={generateStateValueProp($state, [
+                        "button4",
+                        "color"
+                      ])}
+                      onClick={async event => {
+                        const $steps = {};
 
-                          $steps["updateDialogOpendialog"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["dialog", "opendialog"]
-                                  },
-                                  operation: 0,
-                                  value: false
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
+                        $steps["updateDialogOpendialog"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["dialog", "opendialog"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
 
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateDialogOpendialog"] != null &&
-                            typeof $steps["updateDialogOpendialog"] ===
-                              "object" &&
-                            typeof $steps["updateDialogOpendialog"].then ===
-                              "function"
-                          ) {
-                            $steps["updateDialogOpendialog"] = await $steps[
-                              "updateDialogOpendialog"
-                            ];
-                          }
-                        }}
-                        onColorChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button4",
-                              "color"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDialogOpendialog"] != null &&
+                          typeof $steps["updateDialogOpendialog"] ===
+                            "object" &&
+                          typeof $steps["updateDialogOpendialog"].then ===
+                            "function"
+                        ) {
+                          $steps["updateDialogOpendialog"] = await $steps[
+                            "updateDialogOpendialog"
+                          ];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button4",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
 
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__tV0Si
+                        )}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__tV0Si
-                          )}
-                        >
-                          {"\u0628\u0631\u06af\u0634\u062a"}
-                        </div>
-                      </Button>
-                    </Stack__>
-                  </div>
-                </Dialog>
+                        {"\u0628\u0631\u06af\u0634\u062a"}
+                      </div>
+                    </Button>
+                  </Stack__>
+                </div>
               </Dialog>
             </div>
           </section>
@@ -7122,7 +7127,7 @@ const PlasmicDescendants = {
   button5: ["button5"],
   button6: ["button6"],
   button9: ["button9"],
-  dialog2: ["dialog2", "dialog", "datePickers", "button", "button4"],
+  dialog2: ["dialog2"],
   dialog: ["dialog", "datePickers", "button", "button4"],
   datePickers: ["datePickers"],
   button: ["button"],
