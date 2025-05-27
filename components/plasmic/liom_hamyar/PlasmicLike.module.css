@@ -372,9 +372,11 @@
   width: auto;
   height: auto;
   max-width: 100%;
+  padding-bottom: 8px;
   justify-content: flex-start;
   align-items: center;
-  padding: 8px;
+  padding-top: 8px;
+  padding-right: 8px;
 }
 .svg__vsNmA {
   object-fit: cover;

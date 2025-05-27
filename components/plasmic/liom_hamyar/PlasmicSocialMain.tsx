@@ -66,9 +66,6 @@ import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/compo
 import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
 import RadioGrop2 from "../../RadioGrop2"; // plasmic-import: S5lwX58ZN_a3/component
 import RepeatPost from "../../RepeatPost"; // plasmic-import: O_6FIPF6rDTy/component
-import ReactionBar2ForSocialMain from "../../ReactionBar2ForSocialMain"; // plasmic-import: H6dfyqWexG5G/component
-import Like from "../../Like"; // plasmic-import: ARJf0DiYhPbe/component
-import Save from "../../Save"; // plasmic-import: _x22uBJ4ZqC9/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -84,9 +81,6 @@ import Icon222Icon from "./icons/PlasmicIcon__Icon222"; // plasmic-import: 9jhVY
 import Icon223Icon from "./icons/PlasmicIcon__Icon223"; // plasmic-import: 0ISCKAZ1VQ2U/icon
 import Icon179Icon from "./icons/PlasmicIcon__Icon179"; // plasmic-import: qlPLXoOalpf5/icon
 import Icon218Icon from "./icons/PlasmicIcon__Icon218"; // plasmic-import: efUVKFegcS0a/icon
-import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: 4NJq6NYKqIPu/icon
-import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: bJ7kVZQK3ovZ/icon
-import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: 2SO3BEHlRKXI/icon
 
 createPlasmicElementProxy;
 
@@ -107,7 +101,6 @@ export type PlasmicSocialMain__OverridesType = {
   groupBy?: Flex__<"div">;
   radioGrop2?: Flex__<typeof RadioGrop2>;
   repeatPost?: Flex__<typeof RepeatPost>;
-  reactionBar2ForSocialMain?: Flex__<typeof ReactionBar2ForSocialMain>;
   getInfo?: Flex__<typeof ApiRequest>;
   postPostesInfo?: Flex__<typeof ApiRequest>;
 };
@@ -221,25 +214,6 @@ function PlasmicSocialMain__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "new_liom"
-      },
-      {
-        path: "like2.islike",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.isLikeForBar;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
       },
       {
         path: "switchBar",
@@ -663,14 +637,6 @@ function PlasmicSocialMain__RenderFunc(props: {
                   />
                 );
               })}
-              <ReactionBar2ForSocialMain
-                data-plasmic-name={"reactionBar2ForSocialMain"}
-                data-plasmic-override={overrides.reactionBar2ForSocialMain}
-                className={classNames(
-                  "__wab_instance",
-                  sty.reactionBar2ForSocialMain
-                )}
-              />
             </Stack__>
           </Stack__>
           <ApiRequest
@@ -819,7 +785,6 @@ const PlasmicDescendants = {
     "groupBy",
     "radioGrop2",
     "repeatPost",
-    "reactionBar2ForSocialMain",
     "getInfo",
     "postPostesInfo"
   ],
@@ -829,7 +794,6 @@ const PlasmicDescendants = {
   groupBy: ["groupBy", "radioGrop2"],
   radioGrop2: ["radioGrop2"],
   repeatPost: ["repeatPost"],
-  reactionBar2ForSocialMain: ["reactionBar2ForSocialMain"],
   getInfo: ["getInfo"],
   postPostesInfo: ["postPostesInfo"]
 } as const;
@@ -844,7 +808,6 @@ type NodeDefaultElementType = {
   groupBy: "div";
   radioGrop2: typeof RadioGrop2;
   repeatPost: typeof RepeatPost;
-  reactionBar2ForSocialMain: typeof ReactionBar2ForSocialMain;
   getInfo: typeof ApiRequest;
   postPostesInfo: typeof ApiRequest;
 };
@@ -940,7 +903,6 @@ export const PlasmicSocialMain = Object.assign(
     groupBy: makeNodeComponent("groupBy"),
     radioGrop2: makeNodeComponent("radioGrop2"),
     repeatPost: makeNodeComponent("repeatPost"),
-    reactionBar2ForSocialMain: makeNodeComponent("reactionBar2ForSocialMain"),
     getInfo: makeNodeComponent("getInfo"),
     postPostesInfo: makeNodeComponent("postPostesInfo"),
 

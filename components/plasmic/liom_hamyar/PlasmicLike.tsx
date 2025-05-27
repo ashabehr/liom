@@ -643,37 +643,6 @@ function PlasmicLike__RenderFunc(props: {
         onClick={async event => {
           const $steps = {};
 
-          $steps["updateLikeCountForLikeBar3"] = $props.shere
-            ? (() => {
-                const actionArgs = {
-                  variable: {
-                    objRoot: $state,
-                    variablePath: ["modal", "open"]
-                  },
-                  operation: 0,
-                  value: true
-                };
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
-                  }
-                  const { objRoot, variablePath } = variable;
-
-                  $stateSet(objRoot, variablePath, value);
-                  return value;
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["updateLikeCountForLikeBar3"] != null &&
-            typeof $steps["updateLikeCountForLikeBar3"] === "object" &&
-            typeof $steps["updateLikeCountForLikeBar3"].then === "function"
-          ) {
-            $steps["updateLikeCountForLikeBar3"] = await $steps[
-              "updateLikeCountForLikeBar3"
-            ];
-          }
-
           $steps["updateIslike"] = true
             ? (() => {
                 const actionArgs = {

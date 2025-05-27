@@ -66,6 +66,7 @@ import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -94,6 +95,7 @@ export type PlasmicErrortest__OverridesType = {
   button?: Flex__<typeof Button>;
   text?: Flex__<"div">;
   textInput?: Flex__<typeof TextInput>;
+  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultErrortestProps {}
@@ -277,6 +279,15 @@ function PlasmicErrortest__RenderFunc(props: {
             }}
             value={generateStateValueProp($state, ["textInput", "value"]) ?? ""}
           />
+
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              '<script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2/dist/css-vars-ponyfill.min.js"></script>\r\n<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>\r\n<script>\r\n  cssVars({ onlyLegacy: true });\r\n</script>\r\n'
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -284,10 +295,11 @@ function PlasmicErrortest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "text", "textInput"],
+  root: ["root", "button", "text", "textInput", "embedHtml"],
   button: ["button"],
   text: ["text"],
-  textInput: ["textInput"]
+  textInput: ["textInput"],
+  embedHtml: ["embedHtml"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -297,6 +309,7 @@ type NodeDefaultElementType = {
   button: typeof Button;
   text: "div";
   textInput: typeof TextInput;
+  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -387,6 +400,7 @@ export const PlasmicErrortest = Object.assign(
     button: makeNodeComponent("button"),
     text: makeNodeComponent("text"),
     textInput: makeNodeComponent("textInput"),
+    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicErrortest
     internalVariantProps: PlasmicErrortest__VariantProps,

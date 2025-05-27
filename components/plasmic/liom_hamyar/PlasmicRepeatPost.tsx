@@ -61,6 +61,9 @@ import {
 
 import UploudeTime from "../../UploudeTime"; // plasmic-import: aUO_fJR7ceN4/component
 import Post2ForSocialMain from "../../Post2ForSocialMain"; // plasmic-import: eaFD2jwbxRPb/component
+import ReactionBar2ForSocialMain from "../../ReactionBar2ForSocialMain"; // plasmic-import: H6dfyqWexG5G/component
+import Like from "../../Like"; // plasmic-import: ARJf0DiYhPbe/component
+import Save from "../../Save"; // plasmic-import: _x22uBJ4ZqC9/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -69,6 +72,11 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicRepeatPost.module.css"; // plasmic-import: O_6FIPF6rDTy/css
+
+import Icon153Icon from "./icons/PlasmicIcon__Icon153"; // plasmic-import: P9oglo5LEXFz/icon
+import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: 4NJq6NYKqIPu/icon
+import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: bJ7kVZQK3ovZ/icon
+import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: 2SO3BEHlRKXI/icon
 
 createPlasmicElementProxy;
 
@@ -85,8 +93,10 @@ export type PlasmicRepeatPost__OverridesType = {
   root?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
   uploudeTime?: Flex__<typeof UploudeTime>;
-  svg?: Flex__<"svg">;
   post2ForSocialMain?: Flex__<typeof Post2ForSocialMain>;
+  reactionBar2ForSocialMain?: Flex__<typeof ReactionBar2ForSocialMain>;
+  like2?: Flex__<typeof Like>;
+  save?: Flex__<typeof Save>;
 };
 
 export interface DefaultRepeatPostProps {
@@ -135,6 +145,37 @@ function PlasmicRepeatPost__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "like2.islike",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.isLikeForBar;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -160,7 +201,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
               data-plasmic-override={overrides.img}
               alt={""}
               className={classNames(sty.img)}
-              displayHeight={"auto"}
+              displayHeight={"48px"}
               displayMaxHeight={"none"}
               displayMaxWidth={"100%"}
               displayMinHeight={"0"}
@@ -237,12 +278,23 @@ function PlasmicRepeatPost__RenderFunc(props: {
               data-plasmic-name={"uploudeTime"}
               data-plasmic-override={overrides.uploudeTime}
               className={classNames("__wab_instance", sty.uploudeTime)}
+              posttime={(() => {
+                try {
+                  return $props.postData.post.updatedAt;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             />
 
-            <svg
-              data-plasmic-name={"svg"}
-              data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
+            <Icon153Icon
+              className={classNames(projectcss.all, sty.svg__pcnU)}
               role={"img"}
             />
           </div>
@@ -281,7 +333,15 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
           postType={(() => {
             try {
-              return undefined;
+              return $props.postData.post.actionText == "باز کردن تصویر"
+                ? "image"
+                : $props.postData.post.actionText == "باز کردن صدا"
+                ? "voise"
+                : $props.postData.post.actionText == "نمایش ویدیو"
+                ? "video"
+                : $props.postData.post.actionText == "دانلود لوگو"
+                ? "file"
+                : "jastText";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -333,16 +393,216 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
         />
       </div>
+      <ReactionBar2ForSocialMain
+        data-plasmic-name={"reactionBar2ForSocialMain"}
+        data-plasmic-override={overrides.reactionBar2ForSocialMain}
+        className={classNames("__wab_instance", sty.reactionBar2ForSocialMain)}
+      >
+        <Like
+          data-plasmic-name={"like2"}
+          data-plasmic-override={overrides.like2}
+          className={classNames("__wab_instance", sty.like2)}
+          islike={generateStateValueProp($state, ["like2", "islike"])}
+          likeCountForBar={(() => {
+            try {
+              return $props.postData.likeCount;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          onIslikeChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["like2", "islike"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          postIdForLike={(() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+        />
+
+        <div
+          className={classNames(projectcss.all, sty.freeBox__nZx9G)}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        var comment = document.getElementById("focus_comment");
+                        return comment.firstElementChild.focus();
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
+        >
+          <Icon150Icon
+            className={classNames(projectcss.all, sty.svg__klwFu)}
+            role={"img"}
+          />
+
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__m6ZXy
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.postData.commentCount;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "432";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__qvCzh)}>
+          <Icon149Icon
+            className={classNames(projectcss.all, sty.svg__tOs4)}
+            role={"img"}
+          />
+
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__cthRt
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.postData.shareCount;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "32";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+        </div>
+        <Save
+          data-plasmic-name={"save"}
+          data-plasmic-override={overrides.save}
+          bokmarkcount={(() => {
+            try {
+              return $props.postData.bookmarkCount;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          className={classNames("__wab_instance", sty.save)}
+        />
+
+        <div className={classNames(projectcss.all, sty.freeBox__pCtk6)}>
+          <Icon147Icon
+            className={classNames(projectcss.all, sty.svg__jqTbo)}
+            role={"img"}
+          />
+
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__m1HnJ
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.postData.viewCount;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "143";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+        </div>
+      </ReactionBar2ForSocialMain>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "uploudeTime", "svg", "post2ForSocialMain"],
+  root: [
+    "root",
+    "img",
+    "uploudeTime",
+    "post2ForSocialMain",
+    "reactionBar2ForSocialMain",
+    "like2",
+    "save"
+  ],
   img: ["img"],
   uploudeTime: ["uploudeTime"],
-  svg: ["svg"],
-  post2ForSocialMain: ["post2ForSocialMain"]
+  post2ForSocialMain: ["post2ForSocialMain"],
+  reactionBar2ForSocialMain: ["reactionBar2ForSocialMain", "like2", "save"],
+  like2: ["like2"],
+  save: ["save"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -351,8 +611,10 @@ type NodeDefaultElementType = {
   root: "div";
   img: typeof PlasmicImg__;
   uploudeTime: typeof UploudeTime;
-  svg: "svg";
   post2ForSocialMain: typeof Post2ForSocialMain;
+  reactionBar2ForSocialMain: typeof ReactionBar2ForSocialMain;
+  like2: typeof Like;
+  save: typeof Save;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -417,8 +679,10 @@ export const PlasmicRepeatPost = Object.assign(
     // Helper components rendering sub-elements
     img: makeNodeComponent("img"),
     uploudeTime: makeNodeComponent("uploudeTime"),
-    svg: makeNodeComponent("svg"),
     post2ForSocialMain: makeNodeComponent("post2ForSocialMain"),
+    reactionBar2ForSocialMain: makeNodeComponent("reactionBar2ForSocialMain"),
+    like2: makeNodeComponent("like2"),
+    save: makeNodeComponent("save"),
 
     // Metadata about props expected for PlasmicRepeatPost
     internalVariantProps: PlasmicRepeatPost__VariantProps,
