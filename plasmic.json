@@ -2036,6 +2036,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/shopping-cart"
+        },
+        {
+          "id": "e2OIcRNbNaBb",
+          "name": "Errortest",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicErrortest.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/errortest.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicErrortest.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/errortest"
         }
       ],
       "icons": [
@@ -5420,6 +5434,16 @@
           "id": "qxWwW7vbw7na",
           "name": "EitaaIcon",
           "moduleFilePath": "plasmic/fragment_icons/icons/PlasmicIcon__Eitaa.tsx"
+        },
+        {
+          "id": "vu4uxcIH4gVk",
+          "name": "TelegramIcon",
+          "moduleFilePath": "plasmic/fragment_icons/icons/PlasmicIcon__Telegram.tsx"
+        },
+        {
+          "id": "0Ejs1gKiFp1s",
+          "name": "TwitterXIcon",
+          "moduleFilePath": "plasmic/fragment_icons/icons/PlasmicIcon__TwitterX.tsx"
         }
       ],
       "images": [
@@ -5446,8 +5470,7 @@
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "sqPBLwEBBKHA2WDuGb17eV",

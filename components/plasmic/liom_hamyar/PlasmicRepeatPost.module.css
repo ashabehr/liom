@@ -50,6 +50,8 @@
 .img {
   object-fit: cover;
   max-width: 100%;
+  width: 48px;
+  flex-shrink: 0;
   border-radius: 50%;
 }
 .img > picture > img {

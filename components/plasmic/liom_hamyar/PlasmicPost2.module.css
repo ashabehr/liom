@@ -212,7 +212,7 @@
 .freeBox__iV3Z6 > :global(.__wab_flex-container) {
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin-top: calc(0px - 2px);
   height: calc(100% + 2px);
 }

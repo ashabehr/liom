@@ -2287,8 +2287,11 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       return (() => {
                         if ($state.getSub.loading) return true;
                         else if (
-                          $state?.getSub?.data?.[0]?.result == null ||
-                          $state?.getSub?.data?.[0]?.result?.active == false
+                          ($state.getSub.data != null &&
+                            $state.getSub.data[0] != null &&
+                            $state.getSub.data[0].result == null) ||
+                          ($state.getSub.data[0].result != null &&
+                            $state.getSub.data[0].result.active == false)
                         )
                           return true;
                         else if ($state.state == true) return false;

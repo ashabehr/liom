@@ -109,6 +109,7 @@ export type PlasmicSocialMain__OverridesType = {
   repeatPost?: Flex__<typeof RepeatPost>;
   reactionBar2ForSocialMain?: Flex__<typeof ReactionBar2ForSocialMain>;
   getInfo?: Flex__<typeof ApiRequest>;
+  postPostesInfo?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultSocialMainProps {}
@@ -245,6 +246,24 @@ function PlasmicSocialMain__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "postPostesInfo.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "postPostesInfo.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "postPostesInfo.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -595,14 +614,55 @@ function PlasmicSocialMain__RenderFunc(props: {
               </Stack__>
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__rjNb)}>
-            <div className={classNames(projectcss.all, sty.freeBox__g1Xj8)}>
-              <RepeatPost
-                data-plasmic-name={"repeatPost"}
-                data-plasmic-override={overrides.repeatPost}
-                className={classNames("__wab_instance", sty.repeatPost)}
-              />
-
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__rjNb)}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__g1Xj8)}
+            >
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $state.postPostesInfo.data.result.list;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <RepeatPost
+                    data-plasmic-name={"repeatPost"}
+                    data-plasmic-override={overrides.repeatPost}
+                    className={classNames("__wab_instance", sty.repeatPost)}
+                    key={currentIndex}
+                    postData={(() => {
+                      try {
+                        return currentItem;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                  />
+                );
+              })}
               <ReactionBar2ForSocialMain
                 data-plasmic-name={"reactionBar2ForSocialMain"}
                 data-plasmic-override={overrides.reactionBar2ForSocialMain}
@@ -611,8 +671,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                   sty.reactionBar2ForSocialMain
                 )}
               />
-            </div>
-          </div>
+            </Stack__>
+          </Stack__>
           <ApiRequest
             data-plasmic-name={"getInfo"}
             data-plasmic-override={overrides.getInfo}
@@ -675,6 +735,75 @@ function PlasmicSocialMain__RenderFunc(props: {
             })()}
             url={"https://n8n.staas.ir/webhook/rest/social"}
           />
+
+          <ApiRequest
+            data-plasmic-name={"postPostesInfo"}
+            data-plasmic-override={overrides.postPostesInfo}
+            body={(() => {
+              try {
+                return {
+                  data: {
+                    type: "new_liom",
+                    text: "منتخب ها"
+                  },
+                  scrollId: "",
+                  authorization:
+                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzMDUwOCIsImFwcCI6InNoYXJlIiwibmFtZSI6InNoYXJlIn0.RROB1VkkE_RQnSsUEPG_CpfgVh2yRtVSVLpiHsY62uM"
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            className={classNames("__wab_instance", sty.postPostesInfo)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___1RoEo
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__hCbA
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"POST"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "postPostesInfo",
+                "error"
+              ]).apply(null, eventArgs);
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "postPostesInfo",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "postPostesInfo",
+                "data"
+              ]).apply(null, eventArgs);
+            }}
+            url={"https://n8n.staas.ir/webhook/rest/social"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -691,7 +820,8 @@ const PlasmicDescendants = {
     "radioGrop2",
     "repeatPost",
     "reactionBar2ForSocialMain",
-    "getInfo"
+    "getInfo",
+    "postPostesInfo"
   ],
   section: ["section", "mainHeader"],
   mainHeader: ["mainHeader"],
@@ -700,7 +830,8 @@ const PlasmicDescendants = {
   radioGrop2: ["radioGrop2"],
   repeatPost: ["repeatPost"],
   reactionBar2ForSocialMain: ["reactionBar2ForSocialMain"],
-  getInfo: ["getInfo"]
+  getInfo: ["getInfo"],
+  postPostesInfo: ["postPostesInfo"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -715,6 +846,7 @@ type NodeDefaultElementType = {
   repeatPost: typeof RepeatPost;
   reactionBar2ForSocialMain: typeof ReactionBar2ForSocialMain;
   getInfo: typeof ApiRequest;
+  postPostesInfo: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -810,6 +942,7 @@ export const PlasmicSocialMain = Object.assign(
     repeatPost: makeNodeComponent("repeatPost"),
     reactionBar2ForSocialMain: makeNodeComponent("reactionBar2ForSocialMain"),
     getInfo: makeNodeComponent("getInfo"),
+    postPostesInfo: makeNodeComponent("postPostesInfo"),
 
     // Metadata about props expected for PlasmicSocialMain
     internalVariantProps: PlasmicSocialMain__VariantProps,

@@ -61,6 +61,7 @@ import {
 
 import UploudeTime from "../../UploudeTime"; // plasmic-import: aUO_fJR7ceN4/component
 import Post2ForSocialMain from "../../Post2ForSocialMain"; // plasmic-import: eaFD2jwbxRPb/component
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -76,9 +77,9 @@ export type PlasmicRepeatPost__VariantsArgs = {};
 type VariantPropType = keyof PlasmicRepeatPost__VariantsArgs;
 export const PlasmicRepeatPost__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicRepeatPost__ArgsType = {};
+export type PlasmicRepeatPost__ArgsType = { postData?: any };
 type ArgPropType = keyof PlasmicRepeatPost__ArgsType;
-export const PlasmicRepeatPost__ArgProps = new Array<ArgPropType>();
+export const PlasmicRepeatPost__ArgProps = new Array<ArgPropType>("postData");
 
 export type PlasmicRepeatPost__OverridesType = {
   root?: Flex__<"div">;
@@ -89,6 +90,7 @@ export type PlasmicRepeatPost__OverridesType = {
 };
 
 export interface DefaultRepeatPostProps {
+  postData?: any;
   className?: string;
 }
 
@@ -163,8 +165,23 @@ function PlasmicRepeatPost__RenderFunc(props: {
               displayMaxWidth={"100%"}
               displayMinHeight={"0"}
               displayMinWidth={"0"}
-              displayWidth={"auto"}
+              displayWidth={"48px"}
+              height={``}
               loading={"lazy"}
+              src={(() => {
+                try {
+                  return $props.postData.user.image;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              width={``}
             />
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__jntva)}>
@@ -175,7 +192,21 @@ function PlasmicRepeatPost__RenderFunc(props: {
                 sty.text___59Di2
               )}
             >
-              {"\u0627\u0645\u06cc\u0631 \u062d\u0633\u06cc\u0646"}
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.postData.user.name;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "\u0627\u0645\u06cc\u0631 \u062d\u0633\u06cc\u0646";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             </div>
             <div
               className={classNames(
@@ -184,7 +215,21 @@ function PlasmicRepeatPost__RenderFunc(props: {
                 sty.text__fqDdC
               )}
             >
-              {"amir__@"}
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.postData.user.username;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "amir__@";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__gc81X)}>
@@ -208,6 +253,84 @@ function PlasmicRepeatPost__RenderFunc(props: {
           data-plasmic-name={"post2ForSocialMain"}
           data-plasmic-override={overrides.post2ForSocialMain}
           className={classNames("__wab_instance", sty.post2ForSocialMain)}
+          data={(() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          image2={(() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "https://storage.c2.liara.space/liom/2025-03/post/2025-03-28-38fa0b71-308d-49f8-87e0-290a8573a25c.mp4\n";
+              }
+              throw e;
+            }
+          })()}
+          postType={(() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()}
+          text={(() => {
+            try {
+              return $props.postData.post.text;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          title={(() => {
+            try {
+              return $props.postData.post.title;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          video={(() => {
+            try {
+              return $props.postData.post.action;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         />
       </div>
     </div>
