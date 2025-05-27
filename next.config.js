@@ -5,6 +5,14 @@ const nextConfig = {
   },
   trailingSlash: true,
 
+  swcMinify: false, // swc ممکنه syntax جدید نگه داره
+  transpilePackages: [],
+
+  experimental: {
+    legacyBrowsers: true,
+    forceSwcTransforms: true,
+  },
+
   async headers() {
     return [
       {
@@ -18,7 +26,6 @@ const nextConfig = {
       }
     ];
   }
-  
 };
 
-module.exports = nextConfig;    
+module.exports = nextConfig;
