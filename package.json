@@ -77,7 +77,8 @@
   },
   "browserslist": [
     "defaults",
-    "Chrome >= 70",
+    "Chrome >= 60",
+    "Android >= 5",
     "not IE 11"
   ]
 }
