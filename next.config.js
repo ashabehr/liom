@@ -10,6 +10,7 @@ const nextConfig = {
 
   experimental: {
     legacyBrowsers: true,
+    modern: false,
     forceSwcTransforms: true,
   },
 
