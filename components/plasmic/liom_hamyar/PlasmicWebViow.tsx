@@ -89,7 +89,6 @@ export type PlasmicWebViow__OverridesType = {
   root?: Flex__<"div">;
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
-  freeBox?: Flex__<"div">;
   svg?: Flex__<"svg">;
   text?: Flex__<"div">;
   iframe?: Flex__<typeof Iframe>;
@@ -210,10 +209,8 @@ function PlasmicWebViow__RenderFunc(props: {
               >
                 <Stack__
                   as={"div"}
-                  data-plasmic-name={"freeBox"}
-                  data-plasmic-override={overrides.freeBox}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox)}
+                  className={classNames(projectcss.all, sty.freeBox__p3Ttu)}
                 >
                   <XIcon
                     data-plasmic-name={"svg"}
@@ -264,107 +261,11 @@ function PlasmicWebViow__RenderFunc(props: {
               </HeaderLiom>
             </section>
           ) : null}
-          <Iframe
-            data-plasmic-name={"iframe"}
-            data-plasmic-override={overrides.iframe}
-            className={classNames("__wab_instance", sty.iframe)}
-            onLoad={async event => {
-              const $steps = {};
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const iframe =
-                            window.document.querySelector(".WebView__iframe");
-                          try {
-                            const iframeDocument =
-                              iframe.contentDocument ||
-                              iframe.contentWindow.document;
-                            if (
-                              iframeDocument &&
-                              iframeDocument.readyState === "complete"
-                            ) {
-                              console.log(
-                                "Iframe با کلاس WebView__iframe به طور کامل لود شد."
-                              );
-                            } else {
-                              console.log(
-                                "محتوای Iframe هنوز به طور کامل لود نشده است."
-                              );
-                            }
-                          } catch (error) {
-                            console.log(
-                              "Iframe لود شده\u060C اما دسترسی به محتوا به دلیل محدودیت‌های Cross-Origin ممکن نیست."
-                            );
-                          }
-                          return ($state.loading = false);
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-
-              $steps["updateLoading2"] = true
-                ? (() => {
-                    const actionArgs = { args: [1000] };
-                    return $globalActions["Fragment.wait"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateLoading2"] != null &&
-                typeof $steps["updateLoading2"] === "object" &&
-                typeof $steps["updateLoading2"].then === "function"
-              ) {
-                $steps["updateLoading2"] = await $steps["updateLoading2"];
-              }
-
-              $steps["updateLoading"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["loading"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateLoading"] != null &&
-                typeof $steps["updateLoading"] === "object" &&
-                typeof $steps["updateLoading"].then === "function"
-              ) {
-                $steps["updateLoading"] = await $steps["updateLoading"];
-              }
-            }}
-            preview={true}
-            src={(() => {
+          <div
+            className={classNames(projectcss.all, sty.freeBox__zfzGz)}
+            style={(() => {
               try {
-                return $ctx.query.link;
+                return { height: "100dvh" };
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -375,7 +276,125 @@ function PlasmicWebViow__RenderFunc(props: {
                 throw e;
               }
             })()}
-          />
+          >
+            <Iframe
+              data-plasmic-name={"iframe"}
+              data-plasmic-override={overrides.iframe}
+              className={classNames("__wab_instance", sty.iframe)}
+              onLoad={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            const iframe =
+                              window.document.querySelector(".WebView__iframe");
+                            try {
+                              const iframeDocument =
+                                iframe.contentDocument ||
+                                iframe.contentWindow.document;
+                              if (
+                                iframeDocument &&
+                                iframeDocument.readyState === "complete"
+                              ) {
+                                console.log(
+                                  "Iframe با کلاس WebView__iframe به طور کامل لود شد."
+                                );
+                              } else {
+                                console.log(
+                                  "محتوای Iframe هنوز به طور کامل لود نشده است."
+                                );
+                              }
+                            } catch (error) {
+                              console.log(
+                                "Iframe لود شده\u060C اما دسترسی به محتوا به دلیل محدودیت‌های Cross-Origin ممکن نیست."
+                              );
+                            }
+                            return ($state.loading = false);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["updateLoading2"] = true
+                  ? (() => {
+                      const actionArgs = { args: [1000] };
+                      return $globalActions["Fragment.wait"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateLoading2"] != null &&
+                  typeof $steps["updateLoading2"] === "object" &&
+                  typeof $steps["updateLoading2"].then === "function"
+                ) {
+                  $steps["updateLoading2"] = await $steps["updateLoading2"];
+                }
+
+                $steps["updateLoading"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["loading"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateLoading"] != null &&
+                  typeof $steps["updateLoading"] === "object" &&
+                  typeof $steps["updateLoading"].then === "function"
+                ) {
+                  $steps["updateLoading"] = await $steps["updateLoading"];
+                }
+              }}
+              preview={true}
+              src={(() => {
+                try {
+                  return $ctx.query.link;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -383,10 +402,9 @@ function PlasmicWebViow__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "headerLiom", "freeBox", "svg", "text", "iframe"],
-  section: ["section", "headerLiom", "freeBox", "svg", "text"],
-  headerLiom: ["headerLiom", "freeBox", "svg", "text"],
-  freeBox: ["freeBox", "svg", "text"],
+  root: ["root", "section", "headerLiom", "svg", "text", "iframe"],
+  section: ["section", "headerLiom", "svg", "text"],
+  headerLiom: ["headerLiom", "svg", "text"],
   svg: ["svg"],
   text: ["text"],
   iframe: ["iframe"]
@@ -398,7 +416,6 @@ type NodeDefaultElementType = {
   root: "div";
   section: "section";
   headerLiom: typeof HeaderLiom;
-  freeBox: "div";
   svg: "svg";
   text: "div";
   iframe: typeof Iframe;
@@ -491,7 +508,6 @@ export const PlasmicWebViow = Object.assign(
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
-    freeBox: makeNodeComponent("freeBox"),
     svg: makeNodeComponent("svg"),
     text: makeNodeComponent("text"),
     iframe: makeNodeComponent("iframe"),
