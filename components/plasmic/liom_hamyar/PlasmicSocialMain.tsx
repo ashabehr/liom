@@ -63,10 +63,15 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
+import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { DialogTitle } from "@plasmicpkgs/radix-ui";
+import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
 import RadioGrop2 from "../../RadioGrop2"; // plasmic-import: S5lwX58ZN_a3/component
 import RepeatPost from "../../RepeatPost"; // plasmic-import: O_6FIPF6rDTy/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -81,6 +86,10 @@ import Icon222Icon from "./icons/PlasmicIcon__Icon222"; // plasmic-import: 9jhVY
 import Icon223Icon from "./icons/PlasmicIcon__Icon223"; // plasmic-import: 0ISCKAZ1VQ2U/icon
 import Icon179Icon from "./icons/PlasmicIcon__Icon179"; // plasmic-import: qlPLXoOalpf5/icon
 import Icon218Icon from "./icons/PlasmicIcon__Icon218"; // plasmic-import: efUVKFegcS0a/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 
 createPlasmicElementProxy;
 
@@ -97,6 +106,7 @@ export type PlasmicSocialMain__OverridesType = {
   root?: Flex__<"div">;
   section?: Flex__<"section">;
   mainHeader?: Flex__<typeof MainHeader>;
+  dialog?: Flex__<typeof Dialog>;
   story?: Flex__<"div">;
   groupBy?: Flex__<"div">;
   radioGrop2?: Flex__<typeof RadioGrop2>;
@@ -216,12 +226,6 @@ function PlasmicSocialMain__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => "new_liom"
       },
       {
-        path: "switchBar",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
-      },
-      {
         path: "postPostesInfo.data",
         type: "private",
         variableType: "object",
@@ -238,6 +242,56 @@ function PlasmicSocialMain__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "dialog.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "faType",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       }
     ],
     [$props, $ctx, $refs]
@@ -403,6 +457,29 @@ function PlasmicSocialMain__RenderFunc(props: {
                 </div>
               </Stack__>
             </MainHeader>
+            <Dialog
+              data-plasmic-name={"dialog"}
+              data-plasmic-override={overrides.dialog}
+              className={classNames("__wab_instance", sty.dialog)}
+              onOpendialogChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "dialog",
+                  "opendialog"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              opendialog={generateStateValueProp($state, [
+                "dialog",
+                "opendialog"
+              ])}
+            />
           </section>
           <div className={classNames(projectcss.all, sty.freeBox___2BKpP)}>
             <Stack__
@@ -554,6 +631,40 @@ function PlasmicSocialMain__RenderFunc(props: {
                             "updateChoiceType"
                           ];
                         }
+
+                        $steps["updateFaType"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["faType"]
+                                },
+                                operation: 0,
+                                value: currentItem.text
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateFaType"] != null &&
+                          typeof $steps["updateFaType"] === "object" &&
+                          typeof $steps["updateFaType"].then === "function"
+                        ) {
+                          $steps["updateFaType"] = await $steps["updateFaType"];
+                        }
                       }}
                       selected={(() => {
                         try {
@@ -621,9 +732,62 @@ function PlasmicSocialMain__RenderFunc(props: {
                     data-plasmic-override={overrides.repeatPost}
                     className={classNames("__wab_instance", sty.repeatPost)}
                     key={currentIndex}
+                    onClickShere={async event => {
+                      const $steps = {};
+
+                      $steps["updateDialogOpendialog"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dialog", "opendialog"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDialogOpendialog"] != null &&
+                        typeof $steps["updateDialogOpendialog"] === "object" &&
+                        typeof $steps["updateDialogOpendialog"].then ===
+                          "function"
+                      ) {
+                        $steps["updateDialogOpendialog"] = await $steps[
+                          "updateDialogOpendialog"
+                        ];
+                      }
+                    }}
                     postData={(() => {
                       try {
                         return currentItem;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    postToken={(() => {
+                      try {
+                        return $state.token;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -709,12 +873,11 @@ function PlasmicSocialMain__RenderFunc(props: {
               try {
                 return {
                   data: {
-                    type: "new_liom",
-                    text: "منتخب ها"
+                    type: $state.choiceType,
+                    text: $state.faType
                   },
                   scrollId: "",
-                  authorization:
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzMDUwOCIsImFwcCI6InNoYXJlIiwibmFtZSI6InNoYXJlIn0.RROB1VkkE_RQnSsUEPG_CpfgVh2yRtVSVLpiHsY62uM"
+                  authorization: $state.token
                 };
               } catch (e) {
                 if (
@@ -781,6 +944,7 @@ const PlasmicDescendants = {
     "root",
     "section",
     "mainHeader",
+    "dialog",
     "story",
     "groupBy",
     "radioGrop2",
@@ -788,8 +952,9 @@ const PlasmicDescendants = {
     "getInfo",
     "postPostesInfo"
   ],
-  section: ["section", "mainHeader"],
+  section: ["section", "mainHeader", "dialog"],
   mainHeader: ["mainHeader"],
+  dialog: ["dialog"],
   story: ["story"],
   groupBy: ["groupBy", "radioGrop2"],
   radioGrop2: ["radioGrop2"],
@@ -804,6 +969,7 @@ type NodeDefaultElementType = {
   root: "div";
   section: "section";
   mainHeader: typeof MainHeader;
+  dialog: typeof Dialog;
   story: "div";
   groupBy: "div";
   radioGrop2: typeof RadioGrop2;
@@ -899,6 +1065,7 @@ export const PlasmicSocialMain = Object.assign(
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
     mainHeader: makeNodeComponent("mainHeader"),
+    dialog: makeNodeComponent("dialog"),
     story: makeNodeComponent("story"),
     groupBy: makeNodeComponent("groupBy"),
     radioGrop2: makeNodeComponent("radioGrop2"),

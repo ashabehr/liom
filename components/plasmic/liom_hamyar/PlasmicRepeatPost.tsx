@@ -85,9 +85,17 @@ export type PlasmicRepeatPost__VariantsArgs = {};
 type VariantPropType = keyof PlasmicRepeatPost__VariantsArgs;
 export const PlasmicRepeatPost__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicRepeatPost__ArgsType = { postData?: any };
+export type PlasmicRepeatPost__ArgsType = {
+  postData?: any;
+  postToken?: string;
+  onClickShere?: (event: any) => void;
+};
 type ArgPropType = keyof PlasmicRepeatPost__ArgsType;
-export const PlasmicRepeatPost__ArgProps = new Array<ArgPropType>("postData");
+export const PlasmicRepeatPost__ArgProps = new Array<ArgPropType>(
+  "postData",
+  "postToken",
+  "onClickShere"
+);
 
 export type PlasmicRepeatPost__OverridesType = {
   root?: Flex__<"div">;
@@ -101,6 +109,8 @@ export type PlasmicRepeatPost__OverridesType = {
 
 export interface DefaultRepeatPostProps {
   postData?: any;
+  postToken?: string;
+  onClickShere?: (event: any) => void;
   className?: string;
 }
 
@@ -154,13 +164,13 @@ function PlasmicRepeatPost__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.isLikeForBar;
+              return $props.postData.isLiked;
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return undefined;
+                return [];
               }
               throw e;
             }
@@ -432,7 +442,20 @@ function PlasmicRepeatPost__RenderFunc(props: {
           }}
           postIdForLike={(() => {
             try {
-              return undefined;
+              return $props.postData.post.id;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          tokenForPostLike={(() => {
+            try {
+              return $props.postToken;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -503,7 +526,10 @@ function PlasmicRepeatPost__RenderFunc(props: {
             </React.Fragment>
           </div>
         </div>
-        <div className={classNames(projectcss.all, sty.freeBox__qvCzh)}>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__qvCzh)}
+          onClick={args.onClickShere}
+        >
           <Icon149Icon
             className={classNames(projectcss.all, sty.svg__tOs4)}
             role={"img"}
@@ -550,6 +576,45 @@ function PlasmicRepeatPost__RenderFunc(props: {
             }
           })()}
           className={classNames("__wab_instance", sty.save)}
+          isBooookMarked={(() => {
+            try {
+              return $props.postData.isBookmarked;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()}
+          postIdBookmark={(() => {
+            try {
+              return $props.postData.post.id;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          tokenbookmark={(() => {
+            try {
+              return $props.postToken;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         />
 
         <div className={classNames(projectcss.all, sty.freeBox__pCtk6)}>

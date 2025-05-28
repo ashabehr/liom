@@ -597,35 +597,6 @@ function PlasmicSave__RenderFunc(props: {
               "updateBookmarkcount3"
             ];
           }
-
-          $steps["updateModalOpen"] = $props.bookMarkPropsShere
-            ? (() => {
-                const actionArgs = {
-                  variable: {
-                    objRoot: $state,
-                    variablePath: ["modal", "open"]
-                  },
-                  operation: 0,
-                  value: true
-                };
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
-                  }
-                  const { objRoot, variablePath } = variable;
-
-                  $stateSet(objRoot, variablePath, value);
-                  return value;
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["updateModalOpen"] != null &&
-            typeof $steps["updateModalOpen"] === "object" &&
-            typeof $steps["updateModalOpen"].then === "function"
-          ) {
-            $steps["updateModalOpen"] = await $steps["updateModalOpen"];
-          }
         }}
       >
         <PlasmicIcon__

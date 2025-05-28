@@ -128,13 +128,16 @@ createPlasmicElementProxy;
 
 export type PlasmicHamyar__VariantMembers = {
   lackOfCourseInformation: "lackOfCourseInformation";
+  noPartner: "noPartner";
 };
 export type PlasmicHamyar__VariantsArgs = {
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
+  noPartner?: SingleBooleanChoiceArg<"noPartner">;
 };
 type VariantPropType = keyof PlasmicHamyar__VariantsArgs;
 export const PlasmicHamyar__VariantProps = new Array<VariantPropType>(
-  "lackOfCourseInformation"
+  "lackOfCourseInformation",
+  "noPartner"
 );
 
 export type PlasmicHamyar__ArgsType = {};
@@ -144,6 +147,7 @@ export const PlasmicHamyar__ArgProps = new Array<ArgPropType>();
 export type PlasmicHamyar__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
+  main?: Flex__<"div">;
   cyclebox?: Flex__<typeof Cyclebox>;
   lineClomp?: Flex__<typeof LineClomp>;
   progress?: Flex__<typeof AntdProgress>;
@@ -176,6 +180,7 @@ export type PlasmicHamyar__OverridesType = {
   button6?: Flex__<typeof Button>;
   tooltip?: Flex__<typeof AntdTooltip>;
   heart?: Flex__<typeof Heart>;
+  loading?: Flex__<"div">;
   favicon?: Flex__<typeof Embed>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   section?: Flex__<"section">;
@@ -1551,6 +1556,12 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "noPartner",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.noPartner
       }
     ],
     [$props, $ctx, $refs]
@@ -1611,7 +1622,8 @@ function PlasmicHamyar__RenderFunc(props: {
                 $state,
                 "lackOfCourseInformation",
                 "lackOfCourseInformation"
-              )
+              ),
+              [sty.rootnoPartner]: hasVariant($state, "noPartner", "noPartner")
             }
           )}
           onLoad={async event => {
@@ -1621,7 +1633,13 @@ function PlasmicHamyar__RenderFunc(props: {
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
+            className={classNames("__wab_instance", sty.sideEffect, {
+              [sty.sideEffectnoPartner]: hasVariant(
+                $state,
+                "noPartner",
+                "noPartner"
+              )
+            })}
             onMount={async () => {
               const $steps = {};
 
@@ -1694,6 +1712,47 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["clear"] = await $steps["clear"];
               }
 
+              $steps["runCode3"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          window.sessionStorage.setItem("hamyar", "true");
+                          if (
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token.trim() !== ""
+                          ) {
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.paramsObject.token]),
+                              100
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode3"] != null &&
+                typeof $steps["runCode3"] === "object" &&
+                typeof $steps["runCode3"].then === "function"
+              ) {
+                $steps["runCode3"] = await $steps["runCode3"];
+              }
+
               $steps["getCookie"] = true
                 ? (() => {
                     const actionArgs = {
@@ -1738,11 +1797,19 @@ function PlasmicHamyar__RenderFunc(props: {
                         undefined,
                         (() => {
                           try {
-                            return {
-                              r: $state.paramsObject.r || "",
-                              m: $state.paramsObject.m || "",
-                              token: $state.tokenUser
-                            };
+                            return (() => {
+                              if ($state.paramsObject.r != undefined)
+                                return {
+                                  r: $state.paramsObject.r || "",
+                                  m: $state.paramsObject.m || ""
+                                };
+                              else
+                                return {
+                                  r: $state.paramsObject.r || "",
+                                  m: $state.paramsObject.m || "",
+                                  token: $state.tokenUser
+                                };
+                            })();
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1869,7 +1936,6 @@ function PlasmicHamyar__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          window.sessionStorage.setItem("hamyar", "true");
                           if ($state?.tokenUser) {
                             localStorage.setItem("token", $state.tokenUser);
                             var setCookie = (name, value, days) => {
@@ -2074,6 +2140,28 @@ function PlasmicHamyar__RenderFunc(props: {
                 typeof $steps["variant"].then === "function"
               ) {
                 $steps["variant"] = await $steps["variant"];
+              }
+
+              $steps["updateNoPartner"] =
+                $steps.userdata?.data?.error?.code == 1070149
+                  ? (() => {
+                      const actionArgs = { vgroup: "noPartner", operation: 4 };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        $stateSet($state, vgroup, true);
+                        return true;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateNoPartner"] != null &&
+                typeof $steps["updateNoPartner"] === "object" &&
+                typeof $steps["updateNoPartner"].then === "function"
+              ) {
+                $steps["updateNoPartner"] = await $steps["updateNoPartner"];
               }
 
               $steps["shop"] = ($steps.userdata?.data?.success ? true : false)
@@ -2404,11 +2492,18 @@ function PlasmicHamyar__RenderFunc(props: {
             }
           })() ? (
             <div
-              className={classNames(projectcss.all, sty.freeBox__kJv6J, {
-                [sty.freeBoxlackOfCourseInformation__kJv6J07Srs]: hasVariant(
+              data-plasmic-name={"main"}
+              data-plasmic-override={overrides.main}
+              className={classNames(projectcss.all, sty.main, {
+                [sty.mainlackOfCourseInformation]: hasVariant(
                   $state,
                   "lackOfCourseInformation",
                   "lackOfCourseInformation"
+                ),
+                [sty.mainnoPartner]: hasVariant(
+                  $state,
+                  "noPartner",
+                  "noPartner"
                 )
               })}
             >
@@ -2420,6 +2515,11 @@ function PlasmicHamyar__RenderFunc(props: {
                     $state,
                     "lackOfCourseInformation",
                     "lackOfCourseInformation"
+                  ),
+                  [sty.freeBoxnoPartner__tNnSfc7PeD]: hasVariant(
+                    $state,
+                    "noPartner",
+                    "noPartner"
                   )
                 })}
               >
@@ -14298,6 +14398,1139 @@ function PlasmicHamyar__RenderFunc(props: {
                   </div>
                 </div>
               </AntdTooltip>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__rDam, {
+                  [sty.freeBoxnoPartner__rDaMc7PeD]: hasVariant(
+                    $state,
+                    "noPartner",
+                    "noPartner"
+                  )
+                })}
+              >
+                <LottieWrapper
+                  animationData={
+                    hasVariant($state, "noPartner", "noPartner")
+                      ? {
+                          nm: "compos 1",
+                          ddd: 0,
+                          h: 250,
+                          w: 250,
+                          meta: { g: "@lottiefiles/toolkit-js 0.33.2" },
+                          layers: [
+                            {
+                              ty: 4,
+                              nm: "Shape Layer 1",
+                              sr: 1,
+                              st: 0,
+                              op: 180,
+                              ip: 0,
+                              hd: false,
+                              ddd: 0,
+                              bm: 0,
+                              hasMask: false,
+                              ao: 0,
+                              ks: {
+                                a: { a: 0, k: [0, 0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100, 100], ix: 6 },
+                                sk: { a: 0, k: 0 },
+                                p: { a: 0, k: [125, 125, 0], ix: 2 },
+                                r: { a: 0, k: 0, ix: 10 },
+                                sa: { a: 0, k: 0 },
+                                o: { a: 0, k: 100, ix: 11 }
+                              },
+                              ef: [],
+                              shapes: [
+                                {
+                                  ty: "rc",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Shape - Rect",
+                                  nm: "Rectangle Path 1",
+                                  d: 1,
+                                  p: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        o: { x: 0.26, y: 0 },
+                                        i: { x: 0.74, y: 1 },
+                                        s: [0, -23],
+                                        t: 93,
+                                        ti: [0, -20.5],
+                                        to: [0, 13]
+                                      },
+                                      {
+                                        o: { x: 0.26, y: 0 },
+                                        i: { x: 0.74, y: 1 },
+                                        s: [0, 55],
+                                        t: 117,
+                                        ti: [0, -7.5],
+                                        to: [0, 20.5]
+                                      },
+                                      { s: [0, 100], t: 135 }
+                                    ],
+                                    ix: 3
+                                  },
+                                  r: { a: 0, k: 10, ix: 4 },
+                                  s: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        o: { x: 0.26, y: 0 },
+                                        i: { x: 0.74, y: 1 },
+                                        s: [0, 0],
+                                        t: 93
+                                      },
+                                      {
+                                        o: { x: 0.26, y: 0 },
+                                        i: { x: 0.74, y: 1 },
+                                        s: [15, 30],
+                                        t: 117
+                                      },
+                                      { s: [0, 0], t: 135 }
+                                    ],
+                                    ix: 2
+                                  }
+                                },
+                                {
+                                  ty: "fl",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Graphic - Fill",
+                                  nm: "Fill 1",
+                                  c: { a: 0, k: [0.9255, 0.2392, 1], ix: 4 },
+                                  r: 1,
+                                  o: { a: 0, k: 100, ix: 5 }
+                                },
+                                {
+                                  ty: "rp",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Filter - Repeater",
+                                  nm: "Repeater 1",
+                                  ix: 3,
+                                  m: 1,
+                                  c: { a: 0, k: 8, ix: 1 },
+                                  o: { a: 0, k: 0, ix: 2 },
+                                  tr: {
+                                    a: { a: 0, k: [0, 0], ix: 1 },
+                                    s: { a: 0, k: [100, 100], ix: 3 },
+                                    sk: { a: 0, k: 0 },
+                                    p: { a: 0, k: [0, 0], ix: 2 },
+                                    r: { a: 0, k: 45, ix: 4 },
+                                    sa: { a: 0, k: 0 },
+                                    so: { a: 0, k: 100, ix: 5 },
+                                    eo: { a: 0, k: 100, ix: 6 }
+                                  }
+                                }
+                              ],
+                              ind: 1
+                            },
+                            {
+                              ty: 4,
+                              nm: "\u00e2\u0080\u009cicon-black\u00e2\u0080\u009d\u00e8\u00bd\u00ae\u00e5\u00bb\u0093 2",
+                              sr: 1,
+                              st: 0,
+                              op: 180,
+                              ip: 0,
+                              hd: false,
+                              ddd: 0,
+                              bm: 0,
+                              hasMask: false,
+                              ao: 0,
+                              ks: {
+                                a: { a: 0, k: [10, 9.5, 0], ix: 1 },
+                                s: { a: 0, k: [800, 800, 100], ix: 6 },
+                                sk: { a: 0, k: 0 },
+                                p: { a: 0, k: [-79.382, 0.631, 0], ix: 2 },
+                                r: { a: 0, k: 0, ix: 10 },
+                                sa: { a: 0, k: 0 },
+                                o: { a: 0, k: 100, ix: 11 }
+                              },
+                              ef: [],
+                              shapes: [
+                                {
+                                  ty: "gr",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Group",
+                                  nm: "\u00e7\u00bb\u0084 2",
+                                  ix: 1,
+                                  cix: 2,
+                                  np: 2,
+                                  it: [
+                                    {
+                                      ty: "sh",
+                                      bm: 0,
+                                      hd: false,
+                                      mn: "ADBE Vector Shape - Group",
+                                      nm: "\u00e8\u00b7\u00af\u00e5\u00be\u0084 1",
+                                      ix: 1,
+                                      d: 1,
+                                      ks: {
+                                        a: 0,
+                                        k: {
+                                          c: false,
+                                          i: [
+                                            [0, 0],
+                                            [0.311, 1.914],
+                                            [-3.787, -8.158],
+                                            [0.986, -0.094],
+                                            [-0.309, 0.959],
+                                            [-4.384, -2.641],
+                                            [0, -2.637],
+                                            [1.4, -1.792],
+                                            [3.446, -2.681],
+                                            [1.038, 0.352]
+                                          ],
+                                          o: [
+                                            [-1.574, -1.769],
+                                            [-0.916, -5.639],
+                                            [0.193, 0.594],
+                                            [-1.019, 0.097],
+                                            [0.308, -0.959],
+                                            [1.251, 0.753],
+                                            [0, 1.323],
+                                            [-1.147, 1.468],
+                                            [-1.008, -0.967],
+                                            [0, 0]
+                                          ],
+                                          v: [
+                                            [-5.56, 5.191],
+                                            [-8.706, -0.257],
+                                            [1.591, -2.158],
+                                            [0.407, -0.863],
+                                            [-0.759, -2.316],
+                                            [7.124, -5.923],
+                                            [9.622, -0.863],
+                                            [7.298, 4.094],
+                                            [0.41, 10.316],
+                                            [-2.66, 8.339]
+                                          ]
+                                        },
+                                        ix: 2
+                                      }
+                                    },
+                                    {
+                                      ty: "st",
+                                      bm: 0,
+                                      hd: false,
+                                      mn: "ADBE Vector Graphic - Stroke",
+                                      nm: "\u00e6\u008f\u008f\u00e8\u00be\u00b9 1",
+                                      lc: 2,
+                                      lj: 2,
+                                      ml: 1,
+                                      o: { a: 0, k: 100, ix: 4 },
+                                      w: { a: 0, k: 1.5, ix: 5 },
+                                      d: [
+                                        {
+                                          nm: "dash",
+                                          n: "d",
+                                          v: { a: 0, k: 70, ix: 1 }
+                                        },
+                                        {
+                                          nm: "offset",
+                                          n: "o",
+                                          v: {
+                                            a: 1,
+                                            k: [
+                                              {
+                                                o: { x: 0.167, y: 0 },
+                                                i: { x: 0.833, y: 1 },
+                                                s: [-64],
+                                                t: 0
+                                              },
+                                              {
+                                                o: { x: 0.2, y: 0 },
+                                                i: { x: 0.8, y: 1 },
+                                                s: [-64],
+                                                t: 14
+                                              },
+                                              { s: [0], t: 104 }
+                                            ],
+                                            ix: 7
+                                          }
+                                        }
+                                      ],
+                                      c: { a: 0, k: [0.5882, 0, 0.8784], ix: 3 }
+                                    },
+                                    {
+                                      ty: "tr",
+                                      a: { a: 0, k: [0, 0], ix: 1 },
+                                      s: { a: 0, k: [100, 100], ix: 3 },
+                                      sk: { a: 0, k: 0, ix: 4 },
+                                      p: { a: 0, k: [19.619, 7.603], ix: 2 },
+                                      r: { a: 0, k: 0, ix: 6 },
+                                      sa: { a: 0, k: 0, ix: 5 },
+                                      o: { a: 0, k: 100, ix: 7 }
+                                    }
+                                  ]
+                                }
+                              ],
+                              ind: 2,
+                              parent: 5
+                            },
+                            {
+                              ty: 4,
+                              nm: "\u00e2\u0080\u009cicon-black\u00e2\u0080\u009d\u00e8\u00bd\u00ae\u00e5\u00bb\u0093",
+                              sr: 1,
+                              st: 0,
+                              op: 180,
+                              ip: 0,
+                              hd: false,
+                              ddd: 0,
+                              bm: 0,
+                              hasMask: false,
+                              ao: 0,
+                              ks: {
+                                a: { a: 0, k: [10, 9.5, 0], ix: 1 },
+                                s: { a: 0, k: [800, 800, 100], ix: 6 },
+                                sk: { a: 0, k: 0 },
+                                p: { a: 0, k: [-79.382, 0.631, 0], ix: 2 },
+                                r: { a: 0, k: 0, ix: 10 },
+                                sa: { a: 0, k: 0 },
+                                o: { a: 0, k: 100, ix: 11 }
+                              },
+                              ef: [],
+                              shapes: [
+                                {
+                                  ty: "gr",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Group",
+                                  nm: "\u00e7\u00bb\u0084 2",
+                                  ix: 1,
+                                  cix: 2,
+                                  np: 2,
+                                  it: [
+                                    {
+                                      ty: "sh",
+                                      bm: 0,
+                                      hd: false,
+                                      mn: "ADBE Vector Shape - Group",
+                                      nm: "\u00e8\u00b7\u00af\u00e5\u00be\u0084 1",
+                                      ix: 1,
+                                      d: 1,
+                                      ks: {
+                                        a: 0,
+                                        k: {
+                                          c: false,
+                                          i: [
+                                            [0, 0],
+                                            [0.311, 1.914],
+                                            [-3.787, -8.158],
+                                            [0.986, -0.094],
+                                            [-0.309, 0.959],
+                                            [-4.384, -2.641],
+                                            [0, -2.637],
+                                            [1.4, -1.792],
+                                            [3.446, -2.681],
+                                            [1.038, 0.352]
+                                          ],
+                                          o: [
+                                            [-1.574, -1.769],
+                                            [-0.916, -5.639],
+                                            [0.193, 0.594],
+                                            [-1.019, 0.097],
+                                            [0.308, -0.959],
+                                            [1.251, 0.753],
+                                            [0, 1.323],
+                                            [-1.147, 1.468],
+                                            [-1.008, -0.967],
+                                            [0, 0]
+                                          ],
+                                          v: [
+                                            [-5.56, 5.191],
+                                            [-8.706, -0.257],
+                                            [1.591, -2.158],
+                                            [0.407, -0.863],
+                                            [-0.759, -2.316],
+                                            [7.124, -5.923],
+                                            [9.622, -0.863],
+                                            [7.298, 4.094],
+                                            [0.41, 10.316],
+                                            [-2.66, 8.339]
+                                          ]
+                                        },
+                                        ix: 2
+                                      }
+                                    },
+                                    {
+                                      ty: "st",
+                                      bm: 0,
+                                      hd: false,
+                                      mn: "ADBE Vector Graphic - Stroke",
+                                      nm: "\u00e6\u008f\u008f\u00e8\u00be\u00b9 1",
+                                      lc: 2,
+                                      lj: 2,
+                                      ml: 1,
+                                      o: { a: 0, k: 100, ix: 4 },
+                                      w: { a: 0, k: 1.5, ix: 5 },
+                                      d: [
+                                        {
+                                          nm: "dash",
+                                          n: "d",
+                                          v: { a: 0, k: 64, ix: 1 }
+                                        },
+                                        {
+                                          nm: "offset",
+                                          n: "o",
+                                          v: {
+                                            a: 1,
+                                            k: [
+                                              {
+                                                o: { x: 0.167, y: 0.167 },
+                                                i: { x: 0.6, y: 1 },
+                                                s: [0],
+                                                t: 14
+                                              },
+                                              { s: [64], t: 104 }
+                                            ],
+                                            ix: 7
+                                          }
+                                        }
+                                      ],
+                                      c: { a: 0, k: [0.3765, 0, 0.5843], ix: 3 }
+                                    },
+                                    {
+                                      ty: "tr",
+                                      a: { a: 0, k: [0, 0], ix: 1 },
+                                      s: { a: 0, k: [100, 100], ix: 3 },
+                                      sk: { a: 0, k: 0, ix: 4 },
+                                      p: { a: 0, k: [19.619, 7.603], ix: 2 },
+                                      r: { a: 0, k: 0, ix: 6 },
+                                      sa: { a: 0, k: 0, ix: 5 },
+                                      o: { a: 0, k: 100, ix: 7 }
+                                    }
+                                  ]
+                                }
+                              ],
+                              ind: 3,
+                              parent: 5
+                            },
+                            {
+                              ty: 4,
+                              nm: "\u00e2\u0080\u009cicon-black\u00e2\u0080\u009d\u00e8\u00bd\u00ae\u00e5\u00bb\u0093 3",
+                              sr: 1,
+                              st: 0,
+                              op: 180,
+                              ip: 0,
+                              hd: false,
+                              ddd: 0,
+                              bm: 0,
+                              hasMask: false,
+                              ao: 0,
+                              ks: {
+                                a: { a: 0, k: [10, 9.5, 0], ix: 1 },
+                                s: { a: 0, k: [800, 800, 100], ix: 6 },
+                                sk: { a: 0, k: 0 },
+                                p: { a: 0, k: [0.618, 0.631, 0], ix: 2 },
+                                r: { a: 0, k: 0, ix: 10 },
+                                sa: { a: 0, k: 0 },
+                                o: { a: 0, k: 100, ix: 11 }
+                              },
+                              ef: [],
+                              shapes: [
+                                {
+                                  ty: "gr",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Group",
+                                  nm: "\u00e7\u00bb\u0084 2",
+                                  ix: 1,
+                                  cix: 2,
+                                  np: 2,
+                                  it: [
+                                    {
+                                      ty: "sh",
+                                      bm: 0,
+                                      hd: false,
+                                      mn: "ADBE Vector Shape - Group",
+                                      nm: "\u00e8\u00b7\u00af\u00e5\u00be\u0084 1",
+                                      ix: 1,
+                                      d: 1,
+                                      ks: {
+                                        a: 0,
+                                        k: {
+                                          c: true,
+                                          i: [
+                                            [1.251, 0.753],
+                                            [0.308, -0.959],
+                                            [-1.019, 0.097],
+                                            [0.193, 0.594],
+                                            [-0.916, -5.639],
+                                            [-1.574, -1.769],
+                                            [-1.008, -0.967],
+                                            [-1.147, 1.468],
+                                            [0, 1.323]
+                                          ],
+                                          o: [
+                                            [-4.384, -2.641],
+                                            [-0.309, 0.959],
+                                            [0.986, -0.094],
+                                            [-3.787, -8.158],
+                                            [0.311, 1.914],
+                                            [0, 0],
+                                            [3.446, -2.681],
+                                            [1.4, -1.792],
+                                            [0, -2.637]
+                                          ],
+                                          v: [
+                                            [7.124, -5.923],
+                                            [-0.759, -2.316],
+                                            [0.407, -0.863],
+                                            [1.591, -2.158],
+                                            [-8.706, -0.257],
+                                            [-5.435, 5.191],
+                                            [0.41, 10.316],
+                                            [7.298, 4.094],
+                                            [9.622, -0.863]
+                                          ]
+                                        },
+                                        ix: 2
+                                      }
+                                    },
+                                    {
+                                      ty: "st",
+                                      bm: 0,
+                                      hd: false,
+                                      mn: "ADBE Vector Graphic - Stroke",
+                                      nm: "\u00e6\u008f\u008f\u00e8\u00be\u00b9 1",
+                                      lc: 2,
+                                      lj: 2,
+                                      ml: 1,
+                                      o: { a: 0, k: 100, ix: 4 },
+                                      w: { a: 0, k: 0, ix: 5 },
+                                      c: { a: 0, k: [0.5882, 0, 0.8784], ix: 3 }
+                                    },
+                                    {
+                                      ty: "tr",
+                                      a: { a: 0, k: [0, 0], ix: 1 },
+                                      s: { a: 0, k: [100, 100], ix: 3 },
+                                      sk: { a: 0, k: 0, ix: 4 },
+                                      p: { a: 0, k: [9.619, 7.603], ix: 2 },
+                                      r: { a: 0, k: 0, ix: 6 },
+                                      sa: { a: 0, k: 0, ix: 5 },
+                                      o: { a: 0, k: 100, ix: 7 }
+                                    }
+                                  ]
+                                },
+                                {
+                                  ty: "gf",
+                                  bm: 0,
+                                  hd: false,
+                                  mn: "ADBE Vector Graphic - G-Fill",
+                                  nm: "Gradient Fill 1",
+                                  e: { a: 0, k: [104, 28], ix: 6 },
+                                  g: {
+                                    p: 3,
+                                    k: {
+                                      a: 0,
+                                      k: [
+                                        0, 0.9921568627450981,
+                                        0.9921568627450981, 0.9921568627450981,
+                                        0.328, 0.9803921568627451,
+                                        0.45098039215686275, 1, 0.655,
+                                        0.8627450980392157, 0.45098039215686275,
+                                        1, 0, 0, 0.328, 0.5, 0.655, 1
+                                      ],
+                                      ix: 9
+                                    }
+                                  },
+                                  t: 1,
+                                  a: { a: 0, k: 0 },
+                                  h: { a: 0, k: 0 },
+                                  s: { a: 0, k: [100, 41], ix: 5 },
+                                  r: 1,
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        o: { x: 0.167, y: 0.167 },
+                                        i: { x: 0.833, y: 0.833 },
+                                        s: [1],
+                                        t: 62
+                                      },
+                                      { s: [100], t: 119 }
+                                    ],
+                                    ix: 10
+                                  }
+                                }
+                              ],
+                              ind: 4,
+                              parent: 5
+                            },
+                            {
+                              ty: 3,
+                              nm: "heart",
+                              sr: 1,
+                              st: -179,
+                              op: 150,
+                              ip: -179,
+                              hd: false,
+                              ddd: 0,
+                              bm: 0,
+                              hasMask: false,
+                              ao: 0,
+                              ks: {
+                                a: { a: 0, k: [0, 0, 0], ix: 1 },
+                                s: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      o: { x: 0.167, y: 0.167 },
+                                      i: { x: 0.54, y: 1 },
+                                      s: [100, 100, 100],
+                                      t: 98
+                                    },
+                                    {
+                                      o: { x: 0.167, y: 0.167 },
+                                      i: { x: 0.54, y: 1 },
+                                      s: [113, 113, 100],
+                                      t: 114
+                                    },
+                                    { s: [100, 100, 100], t: 130 }
+                                  ],
+                                  ix: 6
+                                },
+                                sk: { a: 0, k: 0 },
+                                p: { a: 0, k: [125, 125, 0], ix: 2 },
+                                r: { a: 0, k: 0, ix: 10 },
+                                sa: { a: 0, k: 0 },
+                                o: { a: 0, k: 0, ix: 11 }
+                              },
+                              ef: [],
+                              ind: 5
+                            }
+                          ],
+                          v: "5.3.4",
+                          fr: 60,
+                          op: 149,
+                          ip: 0,
+                          assets: []
+                        }
+                      : {
+                          v: "4.10.1",
+                          fr: 30,
+                          ip: 0,
+                          op: 40,
+                          w: 80,
+                          h: 80,
+                          nm: "Success Checkmark",
+                          ddd: 0,
+                          assets: [],
+                          layers: [
+                            {
+                              ddd: 0,
+                              ind: 1,
+                              ty: 4,
+                              nm: "Check Mark",
+                              sr: 1,
+                              ks: {
+                                o: { a: 0, k: 100, ix: 11 },
+                                r: { a: 0, k: 0, ix: 10 },
+                                p: { a: 0, k: [40, 40, 0], ix: 2 },
+                                a: { a: 0, k: [-1.312, 6, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100, 100], ix: 6 }
+                              },
+                              ao: 0,
+                              shapes: [
+                                {
+                                  ty: "gr",
+                                  it: [
+                                    {
+                                      ind: 0,
+                                      ty: "sh",
+                                      ix: 1,
+                                      ks: {
+                                        a: 0,
+                                        k: {
+                                          i: [
+                                            [0, 0],
+                                            [0, 0],
+                                            [0, 0]
+                                          ],
+                                          o: [
+                                            [0, 0],
+                                            [0, 0],
+                                            [0, 0]
+                                          ],
+                                          v: [
+                                            [-15.75, 8],
+                                            [-8, 16],
+                                            [13.125, -4]
+                                          ],
+                                          c: false
+                                        },
+                                        ix: 2
+                                      },
+                                      nm: "Path 1",
+                                      mn: "ADBE Vector Shape - Group",
+                                      hd: false
+                                    },
+                                    {
+                                      ty: "tm",
+                                      s: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            i: { x: [0.667], y: [1] },
+                                            o: { x: [0.333], y: [0] },
+                                            n: ["0p667_1_0p333_0"],
+                                            t: 25,
+                                            s: [0],
+                                            e: [100]
+                                          },
+                                          { t: 33 }
+                                        ],
+                                        ix: 1
+                                      },
+                                      e: { a: 0, k: 0, ix: 2 },
+                                      o: { a: 0, k: 0, ix: 3 },
+                                      m: 1,
+                                      ix: 2,
+                                      nm: "Trim Paths 1",
+                                      mn: "ADBE Vector Filter - Trim",
+                                      hd: false
+                                    },
+                                    {
+                                      ty: "st",
+                                      c: { a: 0, k: [1, 1, 1, 1], ix: 3 },
+                                      o: { a: 0, k: 100, ix: 4 },
+                                      w: { a: 0, k: 3, ix: 5 },
+                                      lc: 2,
+                                      lj: 2,
+                                      nm: "Stroke 1",
+                                      mn: "ADBE Vector Graphic - Stroke",
+                                      hd: false
+                                    },
+                                    {
+                                      ty: "tr",
+                                      p: { a: 0, k: [0, 0], ix: 2 },
+                                      a: { a: 0, k: [0, 0], ix: 1 },
+                                      s: { a: 0, k: [100, 100], ix: 3 },
+                                      r: { a: 0, k: 0, ix: 6 },
+                                      o: { a: 0, k: 100, ix: 7 },
+                                      sk: { a: 0, k: 0, ix: 4 },
+                                      sa: { a: 0, k: 0, ix: 5 },
+                                      nm: "Transform"
+                                    }
+                                  ],
+                                  nm: "Shape 1",
+                                  np: 3,
+                                  cix: 2,
+                                  ix: 1,
+                                  mn: "ADBE Vector Group",
+                                  hd: false
+                                }
+                              ],
+                              ip: 0,
+                              op: 40,
+                              st: 0,
+                              bm: 0
+                            },
+                            {
+                              ddd: 0,
+                              ind: 2,
+                              ty: 4,
+                              nm: "Circle Flash",
+                              sr: 1,
+                              ks: {
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.833], y: [0.833] },
+                                      o: { x: [0.167], y: [0.167] },
+                                      n: ["0p833_0p833_0p167_0p167"],
+                                      t: 25,
+                                      s: [0],
+                                      e: [98]
+                                    },
+                                    {
+                                      i: { x: [0.833], y: [0.833] },
+                                      o: { x: [0.167], y: [0.167] },
+                                      n: ["0p833_0p833_0p167_0p167"],
+                                      t: 30,
+                                      s: [98],
+                                      e: [0]
+                                    },
+                                    { t: 38 }
+                                  ],
+                                  ix: 11
+                                },
+                                r: { a: 0, k: 0, ix: 10 },
+                                p: { a: 0, k: [40, 40, 0], ix: 2 },
+                                a: { a: 0, k: [0, 0, 0], ix: 1 },
+                                s: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: {
+                                        x: [0.667, 0.667, 0.667],
+                                        y: [1, 1, 1]
+                                      },
+                                      o: {
+                                        x: [0.333, 0.333, 0.333],
+                                        y: [0, 0, 0]
+                                      },
+                                      n: [
+                                        "0p667_1_0p333_0",
+                                        "0p667_1_0p333_0",
+                                        "0p667_1_0p333_0"
+                                      ],
+                                      t: 25,
+                                      s: [0, 0, 100],
+                                      e: [100, 100, 100]
+                                    },
+                                    { t: 30 }
+                                  ],
+                                  ix: 6
+                                }
+                              },
+                              ao: 0,
+                              shapes: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [64, 64], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "Ellipse Path 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "fl",
+                                  c: {
+                                    a: 0,
+                                    k: [
+                                      0.529866635799, 0.961458325386,
+                                      0.448091417551, 1
+                                    ],
+                                    ix: 4
+                                  },
+                                  o: { a: 0, k: 100, ix: 5 },
+                                  r: 1,
+                                  nm: "Fill 1",
+                                  mn: "ADBE Vector Graphic - Fill",
+                                  hd: false
+                                }
+                              ],
+                              ip: 0,
+                              op: 40,
+                              st: 0,
+                              bm: 0
+                            },
+                            {
+                              ddd: 0,
+                              ind: 3,
+                              ty: 4,
+                              nm: "Circle Stroke",
+                              sr: 1,
+                              ks: {
+                                o: { a: 0, k: 100, ix: 11 },
+                                r: { a: 0, k: 0, ix: 10 },
+                                p: { a: 0, k: [39.022, 39.022, 0], ix: 2 },
+                                a: { a: 0, k: [0, 0, 0], ix: 1 },
+                                s: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: {
+                                        x: [0.667, 0.667, 0.667],
+                                        y: [1, 1, 1]
+                                      },
+                                      o: {
+                                        x: [0.333, 0.333, 0.333],
+                                        y: [0, 0, 0]
+                                      },
+                                      n: [
+                                        "0p667_1_0p333_0",
+                                        "0p667_1_0p333_0",
+                                        "0p667_1_0p333_0"
+                                      ],
+                                      t: 16,
+                                      s: [100, 100, 100],
+                                      e: [80, 80, 100]
+                                    },
+                                    {
+                                      i: {
+                                        x: [0.667, 0.667, 0.667],
+                                        y: [1, 1, 1]
+                                      },
+                                      o: {
+                                        x: [0.333, 0.333, 0.333],
+                                        y: [0, 0, 0]
+                                      },
+                                      n: [
+                                        "0p667_1_0p333_0",
+                                        "0p667_1_0p333_0",
+                                        "0p667_1_0p333_0"
+                                      ],
+                                      t: 22,
+                                      s: [80, 80, 100],
+                                      e: [120, 120, 100]
+                                    },
+                                    {
+                                      i: {
+                                        x: [0.667, 0.667, 0.667],
+                                        y: [1, 1, 1]
+                                      },
+                                      o: {
+                                        x: [0.333, 0.333, 0.333],
+                                        y: [0, 0, 0]
+                                      },
+                                      n: [
+                                        "0p667_1_0p333_0",
+                                        "0p667_1_0p333_0",
+                                        "0p667_1_0p333_0"
+                                      ],
+                                      t: 25,
+                                      s: [120, 120, 100],
+                                      e: [100, 100, 100]
+                                    },
+                                    { t: 29 }
+                                  ],
+                                  ix: 6
+                                }
+                              },
+                              ao: 0,
+                              shapes: [
+                                {
+                                  ty: "gr",
+                                  it: [
+                                    {
+                                      d: 1,
+                                      ty: "el",
+                                      s: { a: 0, k: [60, 60], ix: 2 },
+                                      p: { a: 0, k: [0, 0], ix: 3 },
+                                      nm: "Ellipse Path 1",
+                                      mn: "ADBE Vector Shape - Ellipse",
+                                      hd: false
+                                    },
+                                    {
+                                      ty: "tm",
+                                      s: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            i: { x: [0.667], y: [1] },
+                                            o: { x: [0.333], y: [0] },
+                                            n: ["0p667_1_0p333_0"],
+                                            t: 0,
+                                            s: [0],
+                                            e: [100]
+                                          },
+                                          { t: 16 }
+                                        ],
+                                        ix: 1
+                                      },
+                                      e: { a: 0, k: 0, ix: 2 },
+                                      o: { a: 0, k: 0, ix: 3 },
+                                      m: 1,
+                                      ix: 2,
+                                      nm: "Trim Paths 1",
+                                      mn: "ADBE Vector Filter - Trim",
+                                      hd: false
+                                    },
+                                    {
+                                      ty: "st",
+                                      c: {
+                                        a: 0,
+                                        k: [
+                                          0.427450984716, 0.800000011921,
+                                          0.35686275363, 1
+                                        ],
+                                        ix: 3
+                                      },
+                                      o: { a: 0, k: 100, ix: 4 },
+                                      w: { a: 0, k: 3, ix: 5 },
+                                      lc: 2,
+                                      lj: 2,
+                                      nm: "Stroke 1",
+                                      mn: "ADBE Vector Graphic - Stroke",
+                                      hd: false
+                                    },
+                                    {
+                                      ty: "tr",
+                                      p: { a: 0, k: [0.978, 0.978], ix: 2 },
+                                      a: { a: 0, k: [0, 0], ix: 1 },
+                                      s: { a: 0, k: [100, 100], ix: 3 },
+                                      r: { a: 0, k: 0, ix: 6 },
+                                      o: { a: 0, k: 100, ix: 7 },
+                                      sk: { a: 0, k: 0, ix: 4 },
+                                      sa: { a: 0, k: 0, ix: 5 },
+                                      nm: "Transform"
+                                    }
+                                  ],
+                                  nm: "Ellipse 1",
+                                  np: 3,
+                                  cix: 2,
+                                  ix: 1,
+                                  mn: "ADBE Vector Group",
+                                  hd: false
+                                }
+                              ],
+                              ip: 0,
+                              op: 40,
+                              st: 0,
+                              bm: 0
+                            },
+                            {
+                              ddd: 0,
+                              ind: 4,
+                              ty: 4,
+                              nm: "Circle Green Fill",
+                              sr: 1,
+                              ks: {
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.833], y: [0.833] },
+                                      o: { x: [0.167], y: [0.167] },
+                                      n: ["0p833_0p833_0p167_0p167"],
+                                      t: 21,
+                                      s: [0],
+                                      e: [98]
+                                    },
+                                    { t: 28 }
+                                  ],
+                                  ix: 11
+                                },
+                                r: { a: 0, k: 0, ix: 10 },
+                                p: { a: 0, k: [40, 40, 0], ix: 2 },
+                                a: { a: 0, k: [0, 0, 0], ix: 1 },
+                                s: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: {
+                                        x: [0.667, 0.667, 0.667],
+                                        y: [1, 1, 1]
+                                      },
+                                      o: {
+                                        x: [0.333, 0.333, 0.333],
+                                        y: [0, 0, 0]
+                                      },
+                                      n: [
+                                        "0p667_1_0p333_0",
+                                        "0p667_1_0p333_0",
+                                        "0p667_1_0p333_0"
+                                      ],
+                                      t: 21,
+                                      s: [0, 0, 100],
+                                      e: [100, 100, 100]
+                                    },
+                                    { t: 28 }
+                                  ],
+                                  ix: 6
+                                }
+                              },
+                              ao: 0,
+                              shapes: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [64, 64], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "Ellipse Path 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "fl",
+                                  c: {
+                                    a: 0,
+                                    k: [
+                                      0.427450984716, 0.800000011921,
+                                      0.35686275363, 1
+                                    ],
+                                    ix: 4
+                                  },
+                                  o: { a: 0, k: 100, ix: 5 },
+                                  r: 1,
+                                  nm: "Fill 1",
+                                  mn: "ADBE Vector Graphic - Fill",
+                                  hd: false
+                                }
+                              ],
+                              ip: 0,
+                              op: 40,
+                              st: 0,
+                              bm: 0
+                            }
+                          ]
+                        }
+                  }
+                  className={classNames("__wab_instance", sty.lottie__oDn4L, {
+                    [sty.lottienoPartner__oDn4Lc7PeD]: hasVariant(
+                      $state,
+                      "noPartner",
+                      "noPartner"
+                    )
+                  })}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__aqgYp,
+                    {
+                      [sty.textnoPartner__aqgYpc7PeD]: hasVariant(
+                        $state,
+                        "noPartner",
+                        "noPartner"
+                      )
+                    }
+                  )}
+                >
+                  {hasVariant($state, "noPartner", "noPartner") ? (
+                    <React.Fragment>
+                      <React.Fragment>
+                        {
+                          "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u200c\u0631\u0633\u0647 "
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 700 }}
+                      >
+                        {"\u0647\u0645\u06cc\u0627\u0631\u062a "}
+                      </span>
+                      <React.Fragment>
+                        {
+                          "\u0647\u0646\u0648\u0632 \u062a\u0648\u0631\u0648 \u0627\u0636\u0627\u0641\u0647 \u0646\u06a9\u0631\u062f\u0647.\n\u0628\u0647\u0634 \u0628\u06af\u0648 \u06a9\u0647 \u062a\u0648\u0631\u0648 \u0628\u0647"
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 700 }}
+                      >
+                        {
+                          " \u0639\u0646\u0648\u0627\u0646 \u0647\u0645\u06cc\u0627\u0631 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u0647"
+                        }
+                      </span>
+                      <React.Fragment>
+                        {"\n\u062a\u0627 \u0628\u062a\u0648\u0646\u06cc\u0646 "}
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          fontWeight: 700,
+                          color: "var(--token-55cSeNPovQFh)"
+                        }}
+                      >
+                        {
+                          "\u0647\u0648\u0627\u06cc \u0647\u0645\u0648 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u0646."
+                        }
+                      </span>
+                    </React.Fragment>
+                  ) : (
+                    "Enter some text"
+                  )}
+                </div>
+              </div>
             </div>
           ) : null}
           {(() => {
@@ -14313,12 +15546,36 @@ function PlasmicHamyar__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__q7NB)}>
-              <div className={classNames(projectcss.all, sty.freeBox__u5GW)}>
+            <div
+              data-plasmic-name={"loading"}
+              data-plasmic-override={overrides.loading}
+              className={classNames(projectcss.all, sty.loading, {
+                [sty.loadingnoPartner]: hasVariant(
+                  $state,
+                  "noPartner",
+                  "noPartner"
+                )
+              })}
+            >
+              <div
+                className={classNames(projectcss.all, sty.freeBox__u5GW, {
+                  [sty.freeBoxnoPartner__u5GWc7PeD]: hasVariant(
+                    $state,
+                    "noPartner",
+                    "noPartner"
+                  )
+                })}
+              >
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox___2U0Lk)}
+                  className={classNames(projectcss.all, sty.freeBox___2U0Lk, {
+                    [sty.freeBoxnoPartner___2U0Lkc7PeD]: hasVariant(
+                      $state,
+                      "noPartner",
+                      "noPartner"
+                    )
+                  })}
                 >
                   <Stack__
                     as={"div"}
@@ -14344,7 +15601,14 @@ function PlasmicHamyar__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__ibnI7,
-                          "shimmer"
+                          "shimmer",
+                          {
+                            [sty.freeBoxnoPartner__ibnI7C7PeD]: hasVariant(
+                              $state,
+                              "noPartner",
+                              "noPartner"
+                            )
+                          }
                         )}
                       />
 
@@ -14368,7 +15632,14 @@ function PlasmicHamyar__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__kXwIg,
-                        "shimmer"
+                        "shimmer",
+                        {
+                          [sty.freeBoxnoPartner__kXwIgc7PeD]: hasVariant(
+                            $state,
+                            "noPartner",
+                            "noPartner"
+                          )
+                        }
                       )}
                     />
                   </div>
@@ -17728,6 +18999,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "sideEffect",
+    "main",
     "cyclebox",
     "lineClomp",
     "progress",
@@ -17760,6 +19032,7 @@ const PlasmicDescendants = {
     "button6",
     "tooltip",
     "heart",
+    "loading",
     "favicon",
     "pullToRefresh",
     "section",
@@ -17781,6 +19054,41 @@ const PlasmicDescendants = {
     "button16"
   ],
   sideEffect: ["sideEffect"],
+  main: [
+    "main",
+    "cyclebox",
+    "lineClomp",
+    "progress",
+    "button9",
+    "button14",
+    "button10",
+    "button15",
+    "countdown4",
+    "checkbox",
+    "reveal",
+    "useful2",
+    "useful",
+    "harmful2",
+    "harmful",
+    "shopModalWeb",
+    "subscription",
+    "button3",
+    "modal2",
+    "modal3",
+    "input",
+    "button",
+    "button2",
+    "button7",
+    "shopModalMobile",
+    "subscription2",
+    "button4",
+    "modal",
+    "input2",
+    "button5",
+    "button6",
+    "tooltip",
+    "heart"
+  ],
   cyclebox: ["cyclebox", "lineClomp", "progress"],
   lineClomp: ["lineClomp"],
   progress: ["progress"],
@@ -17813,6 +19121,7 @@ const PlasmicDescendants = {
   button6: ["button6"],
   tooltip: ["tooltip", "heart"],
   heart: ["heart"],
+  loading: ["loading"],
   favicon: ["favicon"],
   pullToRefresh: ["pullToRefresh"],
   section: ["section"],
@@ -17860,6 +19169,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
+  main: "div";
   cyclebox: typeof Cyclebox;
   lineClomp: typeof LineClomp;
   progress: typeof AntdProgress;
@@ -17892,6 +19202,7 @@ type NodeDefaultElementType = {
   button6: typeof Button;
   tooltip: typeof AntdTooltip;
   heart: typeof Heart;
+  loading: "div";
   favicon: typeof Embed;
   pullToRefresh: typeof PullToRefresh;
   section: "section";
@@ -17999,6 +19310,7 @@ export const PlasmicHamyar = Object.assign(
   {
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
+    main: makeNodeComponent("main"),
     cyclebox: makeNodeComponent("cyclebox"),
     lineClomp: makeNodeComponent("lineClomp"),
     progress: makeNodeComponent("progress"),
@@ -18031,6 +19343,7 @@ export const PlasmicHamyar = Object.assign(
     button6: makeNodeComponent("button6"),
     tooltip: makeNodeComponent("tooltip"),
     heart: makeNodeComponent("heart"),
+    loading: makeNodeComponent("loading"),
     favicon: makeNodeComponent("favicon"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     section: makeNodeComponent("section"),
