@@ -73,7 +73,6 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicRepeatPost.module.css"; // plasmic-import: O_6FIPF6rDTy/css
 
-import Icon153Icon from "./icons/PlasmicIcon__Icon153"; // plasmic-import: P9oglo5LEXFz/icon
 import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: 4NJq6NYKqIPu/icon
 import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: bJ7kVZQK3ovZ/icon
 import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: 2SO3BEHlRKXI/icon
@@ -301,11 +300,6 @@ function PlasmicRepeatPost__RenderFunc(props: {
                   throw e;
                 }
               })()}
-            />
-
-            <Icon153Icon
-              className={classNames(projectcss.all, sty.svg__pcnU)}
-              role={"img"}
             />
           </div>
         </div>
