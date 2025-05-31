@@ -1159,40 +1159,35 @@ function PlasmicToolsPage__RenderFunc(props: {
                       description:
                         "یادآوری‌های هوشمند در دقیق‌ترین زمان‌های ممکن (مثلاً «تایم طلایی» خودآزمایی سرطان سینه).",
                       color: "#FDEDEC",
-                      icon_svg:
-                        "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#E74C3C' stroke-width='2'/><path d='M12 6V12L16 14' stroke='#E74C3C' stroke-width='2' stroke-linecap='round'/></svg>"
+                      icon: "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#E74C3C' stroke-width='2'/><path d='M12 6V12L16 14' stroke='#E74C3C' stroke-width='2' stroke-linecap='round'/></svg>"
                     },
                     {
                       title: "💰 صرفه‌جویی واقعی",
                       description:
                         "بسته‌های چندماهه تا ۴۰٪ ارزان‌تر از خرید جداگانه هستند.",
                       color: "#FEF9E7",
-                      icon_svg:
-                        "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#F1C40F' stroke-width='2'/><path d='M8 12H16' stroke='#F1C40F' stroke-width='2' stroke-linecap='round'/><path d='M12 8V16' stroke='#F1C40F' stroke-width='2' stroke-linecap='round'/></svg>"
+                      icon: "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#F1C40F' stroke-width='2'/><path d='M8 12H16' stroke='#F1C40F' stroke-width='2' stroke-linecap='round'/><path d='M12 8V16' stroke='#F1C40F' stroke-width='2' stroke-linecap='round'/></svg>"
                     },
                     {
                       title: "🧑‍⚕️ پشتیبانی تخصصی",
                       description:
                         "از پیامک‌های طراحی‌شده توسط کارشناسان تا گفت‌وگوی محرمانه با روان‌شناس.",
                       color: "#E8F8F5",
-                      icon_svg:
-                        "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='8' r='4' stroke='#1ABC9C' stroke-width='2'/><path d='M6 20C6 16 18 16 18 20' stroke='#1ABC9C' stroke-width='2' stroke-linecap='round'/></svg>"
+                      icon: "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='8' r='4' stroke='#1ABC9C' stroke-width='2'/><path d='M6 20C6 16 18 16 18 20' stroke='#1ABC9C' stroke-width='2' stroke-linecap='round'/></svg>"
                     },
                     {
                       title: "👫 حمایت عاطفی دوطرفه",
                       description:
                         "پیامک‌هایی برای همسر که درک و همدلی او را نسبت به تو بیشتر می‌کند.",
                       color: "#FDEBD0",
-                      icon_svg:
-                        "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12 21C12 21 5 14 5 9.5C5 7 7 5 9.5 5C11 5 12 6.5 12 6.5C12 6.5 13 5 14.5 5C17 5 19 7 19 9.5C19 14 12 21 12 21Z' stroke='#F39C12' stroke-width='2' stroke-linejoin='round'/></svg>"
+                      icon: "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12 21C12 21 5 14 5 9.5C5 7 7 5 9.5 5C11 5 12 6.5 12 6.5C12 6.5 13 5 14.5 5C17 5 19 7 19 9.5C19 14 12 21 12 21Z' stroke='#F39C12' stroke-width='2' stroke-linejoin='round'/></svg>"
                     },
                     {
                       title: "🔒 حریم خصوصی کامل",
                       description:
                         "پیامک‌ها بدون نام برنامه و داده‌ها رمزگذاری‌شده‌اند.",
                       color: "#EBF5FB",
-                      icon_svg:
-                        "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='6' y='11' width='12' height='9' stroke='#3498DB' stroke-width='2' rx='2'/><path d='M9 11V8C9 6 15 6 15 8V11' stroke='#3498DB' stroke-width='2'/></svg>"
+                      icon: "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='6' y='11' width='12' height='9' stroke='#3498DB' stroke-width='2' rx='2'/><path d='M9 11V8C9 6 15 6 15 8V11' stroke='#3498DB' stroke-width='2'/></svg>"
                     }
                   ],
 
@@ -1203,26 +1198,27 @@ function PlasmicToolsPage__RenderFunc(props: {
                         {
                           text: "یادآوری خودآزمایی سرطان سینه",
                           color: "#FADBD8",
-                          icon_svg:
-                            "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#E74C3C' stroke-width='2'/><path d='M8 12L11 15L16 10' stroke='#E74C3C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/breastCancerOutlined.png"
                         },
                         {
                           text: "تست دیابت بارداری (GD)",
                           color: "#D6EAF8",
-                          icon_svg:
-                            "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='3' y='3' width='18' height='18' rx='3' stroke='#2980B9' stroke-width='2'/><circle cx='12' cy='12' r='5' stroke='#2980B9' stroke-width='2'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/diabetOutlined.png"
                         },
                         {
                           text: "تست مسمومیت بارداری",
                           color: "#D5F5E3",
-                          icon_svg:
-                            "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12 2L2 22H22L12 2Z' stroke='#27AE60' stroke-width='2' stroke-linejoin='round'/><line x1='12' y1='8' x2='12' y2='14' stroke='#27AE60' stroke-width='2' stroke-linecap='round'/><circle cx='12' cy='17' r='1' fill='#27AE60'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/preeclampsiaOutlined.png"
                         },
                         {
                           text: "درمان  ADHD ",
                           color: "#F9E79F",
-                          icon_svg:
-                            "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#F1C40F' stroke-width='2'/><path d='M8 12L11 15L16 10' stroke='#F1C40F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
+                        },
+                        {
+                          text: "تشخیص اختلال تیروئید",
+                          color: "#F9E79F",
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
                         }
                       ]
                     },
@@ -1232,26 +1228,17 @@ function PlasmicToolsPage__RenderFunc(props: {
                         {
                           text: "چک‌لیست ایمنی و علائم هشدار همان هفته",
                           color: "#E8DAEF",
-                          icon_svg:
-                            "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='5' y='4' width='14' height='16' rx='2' stroke='#8E44AD' stroke-width='2'/><path d='M8 10H16' stroke='#8E44AD' stroke-width='2' stroke-linecap='round'/><path d='M8 14H13' stroke='#8E44AD' stroke-width='2' stroke-linecap='round'/></svg>"
-                        },
-                        {
-                          text: "به‌روزرسانی براساس سن بارداری",
-                          color: "#FDEBD0",
-                          icon_svg:
-                            "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#F39C12' stroke-width='2'/><path d='M12 6V12L16 14' stroke='#F39C12' stroke-width='2' stroke-linecap='round'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/dangerOutlined.png"
                         },
                         {
                           text: "یادآوری غربالگری و آزمایش های مهم",
                           color: "#FDEBD0",
-                          icon_svg:
-                            "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#F39C12' stroke-width='2'/><path d='M12 6V12L16 14' stroke='#F39C12' stroke-width='2' stroke-linecap='round'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/selfSmsOutlined.png"
                         },
                         {
                           text: "معرفی مکمل‌ها و ویتامین‌ها",
                           color: "#FDEBD0",
-                          icon_svg:
-                            "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#F39C12' stroke-width='2'/><path d='M12 6V12L16 14' stroke='#F39C12' stroke-width='2' stroke-linecap='round'/></svg>"
+                          icon: "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#F39C12' stroke-width='2'/><path d='M12 6V12L16 14' stroke='#F39C12' stroke-width='2' stroke-linecap='round'/></svg>"
                         }
                       ]
                     },
@@ -1261,20 +1248,17 @@ function PlasmicToolsPage__RenderFunc(props: {
                         {
                           text: "پیامک درک نیازهای تو",
                           color: "#FADBD8",
-                          icon_svg:
-                            "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 4H20V20H4V4Z' stroke='#E74C3C' stroke-width='2' stroke-linejoin='round'/><path d='M4 10H20' stroke='#E74C3C' stroke-width='2'/><circle cx='8' cy='16' r='1.5' fill='#E74C3C'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/hamyarOutlined.png"
                         },
                         {
                           text: "پیامک رشد جنین برای پدر",
                           color: "#D6EAF8",
-                          icon_svg:
-                            "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='3' y='3' width='18' height='18' rx='3' stroke='#2980B9' stroke-width='2'/><circle cx='12' cy='12' r='5' stroke='#2980B9' stroke-width='2'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/hamyarOutlined.png"
                         },
                         {
                           text: "پیامک چطور پدر بهتری باشم",
                           color: "#D5F5E3",
-                          icon_svg:
-                            "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12 2L2 22H22L12 2Z' stroke='#27AE60' stroke-width='2' stroke-linejoin='round'/><line x1='12' y1='8' x2='12' y2='14' stroke='#27AE60' stroke-width='2' stroke-linecap='round'/><circle cx='12' cy='17' r='1' fill='#27AE60'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/hamyarOutlined.png"
                         }
                       ]
                     },
@@ -1284,14 +1268,12 @@ function PlasmicToolsPage__RenderFunc(props: {
                         {
                           text: "امکان انتخاب متخصص (مامایی، روان‌شناسی، تغذیه)",
                           color: "#F9E79F",
-                          icon_svg:
-                            "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#F1C40F' stroke-width='2'/><path d='M8 12L11 15L16 10' stroke='#F1C40F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/clinicOutlined.png"
                         },
                         {
-                          text: "بدون افشای هویت و درون اپ",
+                          text: "پزشک هوشمند",
                           color: "#EBF5FB",
-                          icon_svg:
-                            "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='6' y='11' width='12' height='9' stroke='#3498DB' stroke-width='2' rx='2'/><path d='M9 11V8C9 6 15 6 15 8V11' stroke='#3498DB' stroke-width='2'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/chatBotOutlined.png"
                         }
                       ]
                     },
@@ -1303,24 +1285,21 @@ function PlasmicToolsPage__RenderFunc(props: {
                           description:
                             "برنامه مراقبت و نگهداری از موها در دوران بارداری.",
                           color: "#FFD8A8", // پاستلی زرد کمرنگ
-                          icon_svg:
-                            "<svg width='24' height='24' fill='#FFD8A8' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10'/><path d='M7 12h10' stroke='#FFF' stroke-width='2'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/hairCareOutlined.png"
                         },
                         {
                           text: "روتین پوست",
                           description:
                             "راهنمای مراقبت از پوست در دوران بارداری برای حفظ زیبایی و سلامت.",
                           color: "#FFB5A7", // پاستلی هلویی روشن
-                          icon_svg:
-                            "<svg width='24' height='24' fill='#FFB5A7' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='16' height='16' rx='8'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/skinCareOutlined.png"
                         },
                         {
                           text: "پیشگیری از ترک پوستی",
                           description:
                             "روش‌های جلوگیری از ایجاد ترک‌های پوستی در بارداری.",
                           color: "#FF9CEE", // پاستلی صورتی ملایم
-                          icon_svg:
-                            "<svg width='24' height='24' fill='#FF9CEE' xmlns='http://www.w3.org/2000/svg'><path d='M6 6l12 12M18 6L6 18' stroke='#FFF' stroke-width='2'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/stretchMarkOutlined.png"
                         }
                       ]
                     },
@@ -1332,52 +1311,46 @@ function PlasmicToolsPage__RenderFunc(props: {
                           description:
                             "ارزیابی نیاز به خدمات تراپی روانشناسی و درمانی.",
                           color: "#B5A7FF", // پاستلی بنفش روشن
-                          icon_svg:
-                            "<svg width='24' height='24' fill='#B5A7FF' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10'/><path d='M12 7v5l4 2' stroke='#FFF' stroke-width='2'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
                         },
                         {
                           text: "تست افسردگی",
                           description:
                             "ارزیابی سلامت روان و تشخیص علائم افسردگی.",
                           color: "#A7C7FF", // پاستلی آبی روشن
-                          icon_svg:
-                            "<svg width='24' height='24' fill='#A7C7FF' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10'/><path d='M8 16h8M8 12h8M8 8h8' stroke='#FFF' stroke-width='2'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/depressionNew.png"
                         },
                         {
                           text: "تست ADHD",
                           description:
                             "آزمون و ارزیابی اختلال نقص توجه و بیش‌فعالی.",
                           color: "#A7FFF1", // پاستلی فیروزه‌ای خیلی روشن
-                          icon_svg:
-                            "<svg width='24' height='24' fill='#A7FFF1' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='16' height='16'/><circle cx='12' cy='12' r='5' fill='#FFF'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
                         },
                         {
                           text: "تست پیش‌بینی جنسیت",
                           description: "آزمون و بررسی احتمالات جنسیت نوزاد.",
                           color: "#B5FFF1", // پاستلی آبی-سبز ملایم
-                          icon_svg:
-                            "<svg width='24' height='24' fill='#B5FFF1' xmlns='http://www.w3.org/2000/svg'><path d='M12 2l3 7h-6l3-7zM5 21h14v-2H5v2z'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/genderTestOutlined.png"
                         }
                       ]
                     },
                     {
-                      category: "آمادگی زایمان و نوزاد",
+                      category: "آمادگی زایمان",
                       items: [
                         {
                           text: "سیسمونی",
                           description:
                             "راهنمای انتخاب و تهیه سیسمونی مناسب برای نوزاد.",
                           color: "#FFB3C6", // پاستلی صورتی خیلی روشن
-                          icon_svg:
-                            "<svg width='24' height='24' fill='#FFB3C6' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10'/><path d='M8 12h8M8 16h8' stroke='#FFF' stroke-width='2'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/sismoonyOutlined.png"
                         },
                         {
                           text: "کیف بیمارستان",
                           description:
                             "لیست کامل وسایل ضروری برای بیمارستان هنگام زایمان.",
                           color: "#C9B3FF", // پاستلی بنفش خیلی روشن
-                          icon_svg:
-                            "<svg width='24' height='24' fill='#C9B3FF' xmlns='http://www.w3.org/2000/svg'><rect x='6' y='8' width='12' height='10' rx='2'/><path d='M9 8v-2h6v2' stroke='#FFF' stroke-width='2'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/haspitalBagOutlined.png"
                         }
                       ]
                     },
@@ -1389,58 +1362,23 @@ function PlasmicToolsPage__RenderFunc(props: {
                           description:
                             "برنامه کنترل وزن مادر و نوزاد در دوران بارداری.",
                           color: "#B3FFC9", // پاستلی سبز روشن
-                          icon_svg:
-                            "<svg width='24' height='24' fill='#B3FFC9' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10'/><path d='M8 12l4 4 4-8' stroke='#FFF' stroke-width='2'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/bmiOutlined.png"
                         },
                         {
                           text: "بیوریتم",
                           description:
                             "برنامه بیوریتم و چرخه‌های طبیعی بدن در دوران بارداری.",
                           color: "#DCC9B3", // پاستلی قهوه‌ای روشن
-                          icon_svg:
-                            "<svg width='24' height='24' fill='#DCC9B3' xmlns='http://www.w3.org/2000/svg'><path d='M12 2v20M2 12h20' stroke='#FFF' stroke-width='2'/></svg>"
-                        }
-                      ]
-                    },
-                    {
-                      category: "آموزش و ویدیو",
-                      items: [
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/biorhythmOutlined.png"
+                        },
                         {
                           text: "ویدیو آموزشی",
                           description:
                             "مجموعه ویدیوهای آموزشی مرتبط با بارداری و مراقبت‌ها.",
                           color: "#A7B3FF", // پاستلی آبی ملایم
-                          icon_svg:
-                            "<svg width='24' height='24' fill='#A7B3FF' xmlns='http://www.w3.org/2000/svg'><polygon points='8,5 19,12 8,19' fill='#FFF'/></svg>"
+                          icon: "https://liom.storage.c2.liara.space/config/self_care/videoOutlined.png"
                         }
                       ]
-                    }
-                  ],
-
-                  plans: [
-                    {
-                      title: "ماهیانه",
-                      price_per_month: null,
-                      description: "انعطاف بالا، بدون تعهد",
-                      color: "#D6EAF8",
-                      icon_svg:
-                        "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#2980B9' stroke-width='2'/><path d='M12 6V12L16 14' stroke='#2980B9' stroke-width='2' stroke-linecap='round'/></svg>"
-                    },
-                    {
-                      title: "۶ ماهه",
-                      price_per_month: "۴۰٪ تخفیف",
-                      description: "مناسب افرادی که برنامه بلندمدت می‌خوان",
-                      color: "#FADBD8",
-                      icon_svg:
-                        "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#E74C3C' stroke-width='2'/><path d='M8 12L11 15L16 10' stroke='#E74C3C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>"
-                    },
-                    {
-                      title: "۱۲ ماهه",
-                      price_per_month: "۴۰٪ تخفیف",
-                      description: "پیشنهاد ویژه و به صرفه",
-                      color: "#FEF9E7",
-                      icon_svg:
-                        "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#F1C40F' stroke-width='2'/><path d='M12 8V16' stroke='#F1C40F' stroke-width='2' stroke-linecap='round'/></svg>"
                     }
                   ]
                 }
@@ -1455,6 +1393,12 @@ function PlasmicToolsPage__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "index",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -1645,100 +1589,355 @@ function PlasmicToolsPage__RenderFunc(props: {
                       hasGap={true}
                       className={classNames(projectcss.all, sty.freeBox__lS1B)}
                     >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return currentItem.items.length > 0
+                              ? currentItem.items
+                              : [];
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                        const currentItem = __plasmic_item_1;
+                        const currentIndex = __plasmic_idx_1;
+                        return (
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__aqhLt
+                            )}
+                            key={currentIndex}
+                            style={(() => {
+                              try {
+                                return {
+                                  "background-color": "#ffffff" //currentItem.color
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                          >
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img___2QqF)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"auto"}
+                              loading={"lazy"}
+                              src={currentItem.icon}
+                              width={"30"}
+                            />
+
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__fRhjC
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return currentItem.text;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </Stack__>
+                        );
+                      })}
                       <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___9Mg7C
                         )}
+                      />
+                    </Stack__>
+                  </div>
+                );
+              })}
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox___3YrZ2)}>
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $state.subList.length > 0 ? $state.subList : [];
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__mkQ6F)}
+                    key={currentIndex}
+                  >
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img___8E7Ro)}
+                      displayHeight={"50px"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"50px"}
+                      loading={"lazy"}
+                      src={(() => {
+                        try {
+                          return $state.subList[currentIndex].items[0].image;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return {
+                              src: "/plasmic/liom_hamyar/images/image2.png",
+                              fullWidth: 512,
+                              fullHeight: 512,
+                              aspectRatio: undefined
+                            };
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__b8P4)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___5Fkw0
+                        )}
                       >
-                        {(_par =>
-                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                          (() => {
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: $state.subList[currentIndex].text
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__tZujX
+                        )}
+                      >
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: $state.subList[currentIndex].hint
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___8MFfr)}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.sub.subscription_features.services.length >
+                        0
+                        ? $state.sub.subscription_features.services
+                        : [];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__n4FjW)}
+                      key={currentIndex}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateIndex"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["index"]
+                                },
+                                operation: 0,
+                                value: currentIndex
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateIndex"] != null &&
+                          typeof $steps["updateIndex"] === "object" &&
+                          typeof $steps["updateIndex"].then === "function"
+                        ) {
+                          $steps["updateIndex"] = await $steps["updateIndex"];
+                        }
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__nnjzW
+                        )}
+                      >
+                        <React.Fragment>{currentItem.category}</React.Fragment>
+                      </div>
+                    </div>
+                  );
+                })}
+              </Stack__>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__zM1HH)}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.sub.subscription_features.services[
+                        $state.index
+                      ].items.length > 0
+                        ? $state.sub.subscription_features.services[
+                            $state.index
+                          ].items
+                        : [];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__x9PxY)}
+                      key={currentIndex}
+                      style={(() => {
+                        try {
+                          return {
+                            "background-color": "#ffffff" //currentItem.color
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    >
+                      <Embed
+                        data-plasmic-name={"embedHtml"}
+                        data-plasmic-override={overrides.embedHtml}
+                        className={classNames("__wab_instance", sty.embedHtml)}
+                        code={currentItem.icon_svg}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__dVmV1
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
                             try {
-                              return currentItem.items.length > 0
-                                ? currentItem.items
-                                : [];
+                              return currentItem.text;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return [];
+                                return "";
                               }
                               throw e;
                             }
-                          })()
-                        ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                          const currentItem = __plasmic_item_1;
-                          const currentIndex = __plasmic_idx_1;
-                          return (
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__aqhLt
-                              )}
-                              key={currentIndex}
-                              style={(() => {
-                                try {
-                                  return {
-                                    "background-color": "#ffffff" //currentItem.color
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            >
-                              <Embed
-                                data-plasmic-name={"embedHtml"}
-                                data-plasmic-override={overrides.embedHtml}
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.embedHtml
-                                )}
-                                code={currentItem.icon_svg}
-                              />
-
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__fRhjC
-                                )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return currentItem.text;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                            </Stack__>
-                          );
-                        })}
+                          })()}
+                        </React.Fragment>
                       </div>
                     </Stack__>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </Stack__>
             </div>
           </div>
         </div>
