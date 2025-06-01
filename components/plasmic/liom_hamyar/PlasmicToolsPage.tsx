@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import TabWidget from "../../TabWidget"; // plasmic-import: 5oNm4PTVAr6q/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -86,6 +87,7 @@ export const PlasmicToolsPage__ArgProps = new Array<ArgPropType>();
 export type PlasmicToolsPage__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
+  apiRequest?: Flex__<typeof ApiRequest>;
   tabWidget?: Flex__<typeof TabWidget>;
   img?: Flex__<typeof PlasmicImg__>;
 };
@@ -249,19 +251,19 @@ function PlasmicToolsPage__RenderFunc(props: {
                               description:
                                 "آزمون و ارزیابی اختلال نقص توجه و بیش‌فعالی.",
                               action: "#adhd",
-                              shopType: "",
+                              shopType: "adhd_sub",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
                             },
                             {
                               text: "تست دیابت بارداری (GD)",
                               action: "#pregnancyDiabetes",
-                              shopType: "",
+                              shopType: "pregnancy_diabetes",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/diabetOutlined.png"
                             },
                             {
                               text: "تست مسمومیت بارداری",
                               action: "#preeclampsia",
-                              shopType: "",
+                              shopType: "preeclampsia",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/preeclampsiaOutlined.png"
                             },
                             {
@@ -370,6 +372,24 @@ function PlasmicToolsPage__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -544,6 +564,69 @@ function PlasmicToolsPage__RenderFunc(props: {
                 ];
               }
             }}
+          />
+
+          <ApiRequest
+            data-plasmic-name={"apiRequest"}
+            data-plasmic-override={overrides.apiRequest}
+            className={classNames("__wab_instance", sty.apiRequest)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__oaPTc
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__blrFo
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "apiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            params={(() => {
+              try {
+                return {
+                  token: $state.token
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/userInfo_v2"}
           />
 
           <div className={classNames(projectcss.all, sty.freeBox___9Tbb)}>
@@ -952,8 +1035,9 @@ function PlasmicToolsPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideEffect", "tabWidget", "img"],
+  root: ["root", "sideEffect", "apiRequest", "tabWidget", "img"],
   sideEffect: ["sideEffect"],
+  apiRequest: ["apiRequest"],
   tabWidget: ["tabWidget"],
   img: ["img"]
 } as const;
@@ -963,6 +1047,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
+  apiRequest: typeof ApiRequest;
   tabWidget: typeof TabWidget;
   img: typeof PlasmicImg__;
 };
@@ -1053,6 +1138,7 @@ export const PlasmicToolsPage = Object.assign(
   {
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
+    apiRequest: makeNodeComponent("apiRequest"),
     tabWidget: makeNodeComponent("tabWidget"),
     img: makeNodeComponent("img"),
 
