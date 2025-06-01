@@ -62,9 +62,8 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
-
-import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import TabWidget from "../../TabWidget"; // plasmic-import: 5oNm4PTVAr6q/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -86,7 +85,9 @@ export const PlasmicToolsPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicToolsPage__OverridesType = {
   root?: Flex__<"div">;
-  embedHtml?: Flex__<typeof Embed>;
+  sideEffect?: Flex__<typeof SideEffect>;
+  tabWidget?: Flex__<typeof TabWidget>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultToolsPageProps {}
@@ -130,1020 +131,20 @@ function PlasmicToolsPage__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "subList",
+        path: "index",
         type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return [
-                {
-                  text: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                  hint: "<b>تایم های طلایی</b> انجام این خودآزمایی رو بهت با پیامک یادآوری میکنیم تا حواست به خودت باشه",
-                  id: "92bc0061-5edd-414f-8f3a-618ed010e6fd",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "breast_cancer_sms",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "breast_cancer_sms",
-                      title: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                      timer: "",
-                      createdAt: {
-                        year: 2024,
-                        month: 12,
-                        day: 12,
-                        hour: 13,
-                        minute: 49,
-                        second: 54,
-                        nanosecond: 115000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      upsellingTypes: [
-                        "self_hamyar_sms",
-                        "pcos_sub",
-                        "husband_sms",
-                        "irregular"
-                      ],
-
-                      smsSub: true,
-                      price: 16000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 38,
-                      text: "اشتراک ۲ ماهه",
-                      id: "8862e720-3977-4a82-a07b-2fbfd0b7ce03",
-                      percentItem: 50,
-                      value: 2,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/config/self_care/icon_brest_cancer.png",
-                      buyCount: 31,
-                      pregnancy: false,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "<b>تایم های طلایی</b> انجام این خودآزمایی رو بهت با پیامک یادآوری میکنیم تا حواست به خودت باشه",
-                      name: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  8,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      topBadge: "پرفروش ترین",
-                      portion: 1,
-                      section: "customPage",
-                      fullPrice: 24000,
-                      type: "breast_cancer_sms",
-                      title: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                      timer: "",
-                      createdAt: {
-                        year: 2024,
-                        month: 12,
-                        day: 12,
-                        hour: 13,
-                        minute: 49,
-                        second: 57,
-                        nanosecond: 430000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      upsellingTypes: [
-                        "self_hamyar_sms",
-                        "pcos_sub",
-                        "husband_sms",
-                        "irregular"
-                      ],
-
-                      smsSub: true,
-                      price: 19000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 37,
-                      text: "اشتراک ۳ ماهه",
-                      id: "b34ea769-ee91-4913-ba30-0fb78cf5e4a9",
-                      percentItem: 50,
-                      value: 3,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/config/self_care/icon_brest_cancer.png",
-                      buyCount: 11,
-                      pregnancy: false,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "20%",
-                      hint: "<b>تایم های طلایی</b> انجام این خودآزمایی رو بهت با پیامک یادآوری میکنیم تا حواست به خودت باشه",
-                      name: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  6,300 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      topBadge: "🌷 به صرفه ترین🌷",
-                      portion: 1,
-                      section: "customPage",
-                      fullPrice: 48000,
-                      type: "breast_cancer_sms",
-                      title: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                      timer: "",
-                      createdAt: {
-                        year: 2024,
-                        month: 12,
-                        day: 12,
-                        hour: 13,
-                        minute: 50,
-                        second: 3,
-                        nanosecond: 301000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      upsellingTypes: [
-                        "self_hamyar_sms",
-                        "pcos_sub",
-                        "husband_sms",
-                        "irregular"
-                      ],
-
-                      smsSub: true,
-                      price: 29000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 36,
-                      text: "اشتراک ۶ ماهه",
-                      id: "92bc0061-5edd-414f-8f3a-618ed010e6fd",
-                      percentItem: 50,
-                      value: 6,
-                      selected: 1,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/config/self_care/icon_brest_cancer.png",
-                      buyCount: 178,
-                      pregnancy: false,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "40%",
-                      hint: "<b>تایم های طلایی</b> انجام این خودآزمایی رو بهت با پیامک یادآوری میکنیم تا حواست به خودت باشه",
-                      name: "پیامک یادآوری انجام <b>خودآزمایی سرطان سینه</b>",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  4,800 تومان"
-                    }
-                  ]
-                },
-                {
-                  text: " پیامک به همسرت برای درک بیشتر نیازهات",
-                  hint: "با این پیام‌ها، همسرت بهتر نیازهای جسمی و عاطفی‌ات را درک می‌کنه و بیشتر از همیشه از تو حمایت خواهد کرد.",
-                  id: "d5229f56-3bcf-4293-a74d-17045fb456f4",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "pregnancy_sub_better_relation",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_better_relation",
-                      title: " پیامک به همسرت برای درک بیشتر نیازهات",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 9,
-                        hour: 8,
-                        minute: 35,
-                        second: 1,
-                        nanosecond: 569000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      timer: "",
-                      smsSub: true,
-                      price: 30000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 47,
-                      text: "اشتراک ۳ ماهه",
-                      id: "b679a490-45b0-4bbf-87b5-cd53397319d7",
-                      percentItem: 50,
-                      value: 3,
-                      order: 1,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 7,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "با این پیام‌ها، همسرت بهتر نیازهای جسمی و عاطفی‌ات را درک می‌کنه و بیشتر از همیشه از تو حمایت خواهد کرد.",
-                      name: " پیامک به همسرت برای درک بیشتر نیازهات",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  10,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      topBadge: "💝 محبوب ترین 💝",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_better_relation",
-                      title: " پیامک به همسرت برای درک بیشتر نیازهات",
-                      fullPrice: 60000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 9,
-                        hour: 8,
-                        minute: 36,
-                        second: 4,
-                        nanosecond: 258000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 49000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 48,
-                      text: "اشتراک ۶ ماهه",
-                      id: "d5229f56-3bcf-4293-a74d-17045fb456f4",
-                      percentItem: 50,
-                      value: 6,
-                      selected: 1,
-                      order: 2,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 3,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "20%",
-                      hint: "با این پیام‌ها، همسرت بهتر نیازهای جسمی و عاطفی‌ات را درک می‌کنه و بیشتر از همیشه از تو حمایت خواهد کرد.",
-                      name: " پیامک به همسرت برای درک بیشتر نیازهات",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  8,200 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_better_relation",
-                      title: " پیامک به همسرت برای درک بیشتر نیازهات",
-                      fullPrice: 90000,
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 9,
-                        hour: 8,
-                        minute: 36,
-                        second: 31,
-                        nanosecond: 100000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      timer: "",
-                      smsSub: true,
-                      price: 69000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 49,
-                      text: "اشتراک ۹ ماهه",
-                      id: "c8800390-efa4-4ad5-b85e-2d7c25f83680",
-                      percentItem: 50,
-                      value: 9,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 2,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "24%",
-                      hint: "با این پیام‌ها، همسرت بهتر نیازهای جسمی و عاطفی‌ات را درک می‌کنه و بیشتر از همیشه از تو حمایت خواهد کرد.",
-                      name: " پیامک به همسرت برای درک بیشتر نیازهات",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  7,700 تومان"
-                    }
-                  ]
-                },
-                {
-                  text: "پیامک به همسرت راجع به رشد جنین",
-                  hint: "با ارسال پیام‌های جالب درباره وضعیت جنین، همسرت را در جریان رشد جنین و لحظات خاص بارداری قرار بده",
-                  id: "254684e7-7a07-49d1-8434-7cbe649260b8",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "pregnancy_sub_baby_growth",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_baby_growth",
-                      title: "پیامک به همسرت راجع به رشد جنین",
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 12,
-                        hour: 8,
-                        minute: 10,
-                        second: 17,
-                        nanosecond: 258000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 30000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 50,
-                      text: "اشتراک ۳ ماهه",
-                      id: "18ceabb1-b44d-4fcc-a096-202c89fe7754",
-                      percentItem: 50,
-                      value: 3,
-                      order: 1,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 6,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "با ارسال پیام‌های جالب درباره وضعیت جنین، همسرت را در جریان رشد جنین و لحظات خاص بارداری قرار بده",
-                      name: "پیامک به همسرت راجع به رشد جنین",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  10,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      topBadge: "💝 محبوب ترین 💝",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_baby_growth",
-                      title: "پیامک به همسرت راجع به رشد جنین",
-                      fullPrice: 60000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 12,
-                        hour: 8,
-                        minute: 10,
-                        second: 1,
-                        nanosecond: 594000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 49000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 51,
-                      text: "اشتراک ۶ ماهه",
-                      id: "254684e7-7a07-49d1-8434-7cbe649260b8",
-                      percentItem: 50,
-                      value: 6,
-                      selected: 1,
-                      order: 2,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 5,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "20%",
-                      hint: "با ارسال پیام‌های جالب درباره وضعیت جنین، همسرت را در جریان رشد جنین و لحظات خاص بارداری قرار بده",
-                      name: "پیامک به همسرت راجع به رشد جنین",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  8,200 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_baby_growth",
-                      title: "پیامک به همسرت راجع به رشد جنین",
-                      fullPrice: 90000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 12,
-                        hour: 8,
-                        minute: 9,
-                        second: 41,
-                        nanosecond: 754000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 69000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 52,
-                      text: "اشتراک ۹ ماهه",
-                      id: "353385d5-001c-4622-92d3-1f7f788370a7",
-                      percentItem: 50,
-                      value: 9,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 2,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "24%",
-                      hint: "با ارسال پیام‌های جالب درباره وضعیت جنین، همسرت را در جریان رشد جنین و لحظات خاص بارداری قرار بده",
-                      name: "پیامک به همسرت راجع به رشد جنین",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  7,700 تومان"
-                    }
-                  ]
-                },
-                {
-                  text: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                  hint: "همسرت هم درگیر احساسات متفاوتی هست و نمیدونه چیکار کنه، با دریافت این پیامک ها بهش کمک میشه تا بتونه بیشتر پدر بودن رو درک کنه و در نتیجه مراقب نیاز های تو و فرزندتون باشه.",
-                  id: "1230df8c-e5aa-4673-a929-8484e1014f27",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "pregnancy_sub_become_father",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_become_father",
-                      title: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 12,
-                        hour: 8,
-                        minute: 13,
-                        second: 33,
-                        nanosecond: 174000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 30000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 44,
-                      text: "اشتراک ۳ ماهه",
-                      id: "7c726b5b-e305-4758-9367-5a65ed456e90",
-                      percentItem: 50,
-                      value: 3,
-                      order: 1,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 6,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "همسرت هم درگیر احساسات متفاوتی هست و نمیدونه چیکار کنه، با دریافت این پیامک ها بهش کمک میشه تا بتونه بیشتر پدر بودن رو درک کنه و در نتیجه مراقب نیاز های تو و فرزندتون باشه.",
-                      name: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  10,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      topBadge: "💝 محبوب ترین 💝",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_become_father",
-                      title: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                      fullPrice: 60000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 12,
-                        hour: 8,
-                        minute: 13,
-                        second: 47,
-                        nanosecond: 213000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 49000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 45,
-                      text: "اشتراک ۶ ماهه",
-                      id: "1230df8c-e5aa-4673-a929-8484e1014f27",
-                      percentItem: 50,
-                      value: 6,
-                      selected: 1,
-                      order: 2,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 4,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "20%",
-                      hint: "همسرت هم درگیر احساسات متفاوتی هست و نمیدونه چیکار کنه، با دریافت این پیامک ها بهش کمک میشه تا بتونه بیشتر پدر بودن رو درک کنه و در نتیجه مراقب نیاز های تو و فرزندتون باشه.",
-                      name: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  8,200 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 1,
-                      section: "customPage",
-                      type: "pregnancy_sub_become_father",
-                      title: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                      fullPrice: 90000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 1,
-                        day: 12,
-                        hour: 8,
-                        minute: 14,
-                        second: 29,
-                        nanosecond: 18000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      smsSub: true,
-                      price: 69000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 46,
-                      text: "اشتراک ۹ ماهه",
-                      id: "18bb7829-505b-4b35-a1fa-2fb408373fd7",
-                      percentItem: 50,
-                      value: 9,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 2,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      badge: "24%",
-                      hint: "همسرت هم درگیر احساسات متفاوتی هست و نمیدونه چیکار کنه، با دریافت این پیامک ها بهش کمک میشه تا بتونه بیشتر پدر بودن رو درک کنه و در نتیجه مراقب نیاز های تو و فرزندتون باشه.",
-                      name: " پیامک‌ راهنمایی برای تبدیل شدن به پدر بهتر",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  7,700 تومان"
-                    }
-                  ]
-                },
-                {
-                  text: "<b>مشاوره با کارشناس لیوم</b>",
-                  hint: "می‌توانید از بین کارشناسان در حوزه های مختلف با یک شخص به صورت کاملا محرمانه ارتباط برقرار کنید",
-                  id: "563e47c6-83ea-4c71-81fc-9b987b05b7d0",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "therapy",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      portion: 0,
-                      section: "customPage",
-                      type: "therapy",
-                      title: "<b>مشاوره با کارشناس لیوم</b>",
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 3,
-                        day: 14,
-                        hour: 20,
-                        minute: 49,
-                        second: 35,
-                        nanosecond: 802000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      upsellingTypes: [
-                        "adhd_sub",
-                        "special_advice",
-                        "husband_sms"
-                      ],
-
-                      smsSub: true,
-                      price: 99000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 60,
-                      text: "مشاوره با کارشناس لیوم",
-                      id: "563e47c6-83ea-4c71-81fc-9b987b05b7d0",
-                      percentItem: 50,
-                      value: 1,
-                      order: 3,
-                      image:
-                        "https://liom.storage.c2.liara.space/icon_clinik.png",
-                      buyCount: 48,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "می‌توانید از بین کارشناسان در حوزه های مختلف با یک شخص به صورت کاملا محرمانه ارتباط برقرار کنید",
-                      name: "<b>مشاوره با کارشناس لیوم</b>"
-                    }
-                  ]
-                },
-                {
-                  text: "مراقبت‌های هفتگی در بارداری",
-                  hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
-                  id: "a78efb43-5add-4cc0-8afb-8c4991196bb0",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "pregnancy_danger_sub",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: "برای خرید روی دکمه فعالسازی کلیک کنید",
-                      portion: 2,
-                      section: "customPage",
-                      type: "pregnancy_danger_sub",
-                      title: "مراقبت‌های هفتگی در بارداری",
-                      fullPrice: 30000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 2,
-                        day: 8,
-                        hour: 13,
-                        minute: 12,
-                        second: 55,
-                        nanosecond: 280000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 10000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 55,
-                      text: "اشتراک ۱ ماهه",
-                      id: "7c399f31-f849-41b1-ade6-51351e3a3ccb",
-                      value: 2,
-                      percentItem: 50,
-                      selected: 0,
-                      order: 6,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 20,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
-                      name: "مراقبت‌های هفتگی در بارداری",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  5,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: "برای خرید روی دکمه فعالسازی کلیک کنید",
-                      portion: 2,
-                      section: "customPage",
-                      type: "pregnancy_danger_sub",
-                      title: "مراقبت‌های هفتگی در بارداری",
-                      fullPrice: 60000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 2,
-                        day: 8,
-                        hour: 13,
-                        minute: 12,
-                        second: 55,
-                        nanosecond: 280000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 36000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 55,
-                      text: "اشتراک ۶ ماهه",
-                      id: "ecacd093-9327-48dd-b48f-3b63fbdf59a8",
-                      value: 6,
-                      percentItem: 50,
-                      selected: 0,
-                      order: 6,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 4,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      badge: "40%",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
-                      name: "مراقبت‌های هفتگی در بارداری",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  6,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: "برای خرید روی دکمه فعالسازی کلیک کنید",
-                      topBadge: "محبوب ترین",
-                      portion: 2,
-                      section: "customPage",
-                      type: "pregnancy_danger_sub",
-                      title: "مراقبت‌های هفتگی در بارداری",
-                      fullPrice: 30000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 2,
-                        day: 8,
-                        hour: 13,
-                        minute: 12,
-                        second: 55,
-                        nanosecond: 280000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 24000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 55,
-                      text: "اشتراک ۳ ماهه",
-                      id: "a78efb43-5add-4cc0-8afb-8c4991196bb0",
-                      value: 2,
-                      percentItem: 50,
-                      selected: 1,
-                      order: 6,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 36,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      badge: "20%",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
-                      name: "مراقبت‌های هفتگی در بارداری",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  12,000 تومان"
-                    },
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: "برای خرید روی دکمه فعالسازی کلیک کنید",
-                      topBadge: "به صرفه ترین",
-                      portion: 2,
-                      section: "customPage",
-                      type: "pregnancy_danger_sub",
-                      title: "مراقبت‌های هفتگی در بارداری",
-                      fullPrice: 90000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 2,
-                        day: 8,
-                        hour: 13,
-                        minute: 12,
-                        second: 55,
-                        nanosecond: 280000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 45000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      int_id: 55,
-                      text: "اشتراک ۹ ماهه",
-                      id: "12c136a9-a70d-4ffb-9c6a-9fae045b61b3",
-                      value: 9,
-                      percentItem: 50,
-                      selected: 0,
-                      order: 6,
-                      image:
-                        "https://liom.storage.c2.liara.space/Ads%20banner.png",
-                      buyCount: 10,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      badge: "50%",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "در هر هفته از بارداری، باید بدونی چه چیزهایی برای تو و فرزندت بی‌خطره، چه مراقبت‌هایی و چه اقداماتی برای سلامتتون ضروری هست.",
-                      name: "مراقبت‌های هفتگی در بارداری",
-                      otherItem: true,
-                      per_month_text: "ماهیانه  5,000 تومان"
-                    }
-                  ]
-                },
-                {
-                  text: "درمان ADHD",
-                  hint: "با انجام این برنامه و مراحل گفته‌شده می‌تونی ADHD رو درمان کنی",
-                  id: "1d50af4e-265e-42c9-b7a4-babb7bf71472",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "adhd_treatment_sub",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: " برای خرید روی دکمه فعالسازی کلیک کنید",
-                      topBadge: "⭐️ تخفیف استثنایی ⭐️",
-                      portion: 2,
-                      section: "customPage",
-                      title: "درمان ADHD",
-                      type: "adhd_treatment_sub",
-                      fullPrice: 100000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 5,
-                        day: 5,
-                        hour: 6,
-                        minute: 29,
-                        second: 4,
-                        nanosecond: 595000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 69000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      lable: "یکبار خرید",
-                      int_id: 65,
-                      id: "1d50af4e-265e-42c9-b7a4-babb7bf71472",
-                      text: "با انجام این برنامه و مراحل گفته‌شده می‌تونی ADHD رو درمان کنی",
-                      sku: "adhd-treatment-sub-1",
-                      value: 1,
-                      percentItem: 40,
-                      order: 6,
-                      image: "https://files.devliom.ir/config/premium/gem4.png",
-                      buyCount: 16,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      badge: "30%",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "با انجام این برنامه و مراحل گفته‌شده می‌تونی ADHD رو درمان کنی",
-                      name: "درمان ADHD"
-                    }
-                  ]
-                },
-                {
-                  text: "تست مسمومیت بارداری",
-                  hint: "با انجام تست مسمومیت بارداری، می‌توانید به طور زودهنگام از احتمال مسمومیت خود مطلع شوید و از بروز مشکلات احتمالی جلوگیری کنید.",
-                  id: "a60cb42d-f4a6-46de-8b5b-b1f9650b7139",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "preeclampsia_sub",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: " برای خرید روی دکمه فعالسازی کلیک کنید",
-                      topBadge: "⭐️ تخفیف استثنایی ⭐️",
-                      portion: 2,
-                      section: "customPage",
-                      title: "تست مسمومیت بارداری",
-                      type: "preeclampsia_sub",
-                      fullPrice: 69000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 5,
-                        day: 14,
-                        hour: 9,
-                        minute: 35,
-                        second: 21,
-                        nanosecond: 961000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 49000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      lable: "یکبار خرید",
-                      int_id: 69,
-                      text: "با انجام تست مسمومیت بارداری، می‌توانید به طور زودهنگام از احتمال مسمومیت خود مطلع شوید و از بروز مشکلات احتمالی جلوگیری کنید.",
-                      id: "a60cb42d-f4a6-46de-8b5b-b1f9650b7139",
-                      sku: "preeclampsia-sub-1",
-                      value: 1,
-                      percentItem: 40,
-                      order: 6,
-                      image: "https://files.devliom.ir/config/premium/gem4.png",
-                      buyCount: 1,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      badge: "29%",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "با انجام تست مسمومیت بارداری، می‌توانید به طور زودهنگام از احتمال مسمومیت خود مطلع شوید و از بروز مشکلات احتمالی جلوگیری کنید.",
-                      name: "تست مسمومیت بارداری"
-                    }
-                  ]
-                },
-                {
-                  text: "تست دیابت بارداری",
-                  hint: "شما می‌توانید با انجام تست دیابت بارداری، از وضعیت قند خون خود مطمئن شوید و از سلامت خود و جنین مراقبت کنید.",
-                  id: "fa28cf85-ee89-4932-9d9a-206b11e6fb81",
-                  active: false,
-                  time: null,
-                  always: false,
-                  type: "pregnancy_diabetes_sub",
-                  items: [
-                    {
-                      topBadgeBgColor: "#000000",
-                      descc: " برای خرید روی دکمه فعالسازی کلیک کنید",
-                      topBadge: "⭐️ تخفیف استثنایی ⭐️",
-                      portion: 2,
-                      section: "customPage",
-                      type: "pregnancy_diabetes_sub",
-                      title: "تست دیابت بارداری",
-                      fullPrice: 79000,
-                      timer: "",
-                      createdAt: {
-                        year: 2025,
-                        month: 5,
-                        day: 14,
-                        hour: 9,
-                        minute: 35,
-                        second: 17,
-                        nanosecond: 155000000,
-                        timeZoneOffsetSeconds: 0
-                      },
-                      price: 59000,
-                      fullscreenBanner:
-                        "https://liom.storage.c2.liara.space/banner1specialoffr.png",
-                      lable: "یکبار خرید",
-                      int_id: 70,
-                      id: "fa28cf85-ee89-4932-9d9a-206b11e6fb81",
-                      text: "شما می‌توانید با انجام تست دیابت بارداری، از وضعیت قند خون خود مطمئن شوید و از سلامت خود و جنین مراقبت کنید.",
-                      sku: "pregnancy_diabetes-sub-1",
-                      value: 1,
-                      percentItem: 40,
-                      order: 6,
-                      image: "https://files.devliom.ir/config/premium/gem4.png",
-                      buyCount: 0,
-                      pregnancy: true,
-                      isVisible: true,
-                      timeBgColor: "#000000",
-                      timerTextColor: "#ffffff",
-                      quality: "customPage",
-                      badge: "26%",
-                      topBadgeTextColor: "#ffffff",
-                      hint: "شما می‌توانید با انجام تست دیابت بارداری، از وضعیت قند خون خود مطمئن شوید و از سلامت خود و جنین مراقبت کنید.",
-                      name: "تست دیابت بارداری"
-                    }
-                  ]
-                }
-              ];
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
-        path: "sub",
+        path: "sub2",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -1151,232 +152,174 @@ function PlasmicToolsPage__RenderFunc(props: {
             try {
               return {
                 subscription_features: {
-                  intro:
-                    "با فعال‌سازی اشتراک ویژه، مجموعه‌ای از خدمات علمی، عاطفی و سلامتی را یک‌جا دریافت می‌کنی.",
-                  benefits: [
-                    {
-                      title: "⏰ به‌موقع و بدون فراموشی",
-                      description:
-                        "یادآوری‌های هوشمند در دقیق‌ترین زمان‌های ممکن (مثلاً «تایم طلایی» خودآزمایی سرطان سینه).",
-                      color: "#FDEDEC",
-                      icon: "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#E74C3C' stroke-width='2'/><path d='M12 6V12L16 14' stroke='#E74C3C' stroke-width='2' stroke-linecap='round'/></svg>"
-                    },
-                    {
-                      title: "💰 صرفه‌جویی واقعی",
-                      description:
-                        "بسته‌های چندماهه تا ۴۰٪ ارزان‌تر از خرید جداگانه هستند.",
-                      color: "#FEF9E7",
-                      icon: "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#F1C40F' stroke-width='2'/><path d='M8 12H16' stroke='#F1C40F' stroke-width='2' stroke-linecap='round'/><path d='M12 8V16' stroke='#F1C40F' stroke-width='2' stroke-linecap='round'/></svg>"
-                    },
-                    {
-                      title: "🧑‍⚕️ پشتیبانی تخصصی",
-                      description:
-                        "از پیامک‌های طراحی‌شده توسط کارشناسان تا گفت‌وگوی محرمانه با روان‌شناس.",
-                      color: "#E8F8F5",
-                      icon: "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='8' r='4' stroke='#1ABC9C' stroke-width='2'/><path d='M6 20C6 16 18 16 18 20' stroke='#1ABC9C' stroke-width='2' stroke-linecap='round'/></svg>"
-                    },
-                    {
-                      title: "👫 حمایت عاطفی دوطرفه",
-                      description:
-                        "پیامک‌هایی برای همسر که درک و همدلی او را نسبت به تو بیشتر می‌کند.",
-                      color: "#FDEBD0",
-                      icon: "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12 21C12 21 5 14 5 9.5C5 7 7 5 9.5 5C11 5 12 6.5 12 6.5C12 6.5 13 5 14.5 5C17 5 19 7 19 9.5C19 14 12 21 12 21Z' stroke='#F39C12' stroke-width='2' stroke-linejoin='round'/></svg>"
-                    },
-                    {
-                      title: "🔒 حریم خصوصی کامل",
-                      description:
-                        "پیامک‌ها بدون نام برنامه و داده‌ها رمزگذاری‌شده‌اند.",
-                      color: "#EBF5FB",
-                      icon: "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='6' y='11' width='12' height='9' stroke='#3498DB' stroke-width='2' rx='2'/><path d='M9 11V8C9 6 15 6 15 8V11' stroke='#3498DB' stroke-width='2'/></svg>"
-                    }
-                  ],
-
                   services: [
                     {
-                      category: "سلامت و غربالگری",
+                      category: "مادر",
                       items: [
                         {
-                          text: "یادآوری خودآزمایی سرطان سینه",
-                          color: "#FADBD8",
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/breastCancerOutlined.png"
+                          title: "ابزارهای بارداری",
+                          items: [
+                            {
+                              text: "یادآوری غربالگری و آزمایش های مهم",
+                              action: "",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/selfSmsOutlined.png"
+                            },
+                            {
+                              text: "معرفی مکمل‌ها و ویتامین‌ها",
+                              action: "",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/vitaminOutlined.png"
+                            },
+                            {
+                              text: "ویدیو آموزشی",
+                              description:
+                                "مجموعه ویدیوهای آموزشی مرتبط با بارداری و مراقبت‌ها.",
+                              action: "",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/videoOutlined.png"
+                            },
+                            {
+                              text: "کنترل وزن",
+                              description:
+                                "برنامه کنترل وزن مادر و نوزاد در دوران بارداری.",
+                              action: "#weight",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/bmiOutlined.png"
+                            }
+                          ]
+                        },
+
+                        {
+                          title: "خود درمانی",
+                          items: [
+                            {
+                              text: "روتین مو",
+                              description:
+                                "برنامه مراقبت و نگهداری از موها در دوران بارداری.",
+                              action: "#hair_care",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/hairCareOutlined.png"
+                            },
+                            {
+                              text: "روتین پوست",
+                              description:
+                                "راهنمای مراقبت از پوست در دوران بارداری برای حفظ زیبایی و سلامت.",
+                              action: "#skinCare",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/skinCareOutlined.png"
+                            },
+                            {
+                              text: "پیشگیری از ترک پوستی",
+                              description:
+                                "روش‌های جلوگیری از ایجاد ترک‌های پوستی در بارداری.",
+                              action: "#stretch_marks",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/stretchMarkOutlined.png"
+                            },
+                            {
+                              text: "درمان  ADHD ",
+                              action: "#adhd_treatment_sub",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
+                            }
+                          ]
                         },
                         {
-                          text: "تست دیابت بارداری (GD)",
-                          color: "#D6EAF8",
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/diabetOutlined.png"
+                          title: "خود آزمایی",
+                          items: [
+                            {
+                              text: "تست نیاز به تراپی دارم",
+                              description:
+                                "ارزیابی نیاز به خدمات تراپی روانشناسی و درمانی.",
+                              action: "#need_therapy",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
+                            },
+                            {
+                              text: "تست افسردگی",
+                              description:
+                                "ارزیابی سلامت روان و تشخیص علائم افسردگی.",
+                              action: "#depression",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/depressionNew.png"
+                            },
+                            {
+                              text: "تست ADHD",
+                              description:
+                                "آزمون و ارزیابی اختلال نقص توجه و بیش‌فعالی.",
+                              action: "#adhd",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
+                            },
+                            {
+                              text: "تست دیابت بارداری (GD)",
+                              action: "#pregnancyDiabetes",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/diabetOutlined.png"
+                            },
+                            {
+                              text: "تست مسمومیت بارداری",
+                              action: "#preeclampsia",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/preeclampsiaOutlined.png"
+                            },
+                            {
+                              text: "تشخیص اختلال تیروئید",
+                              action: "",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
+                            }
+                          ]
                         },
                         {
-                          text: "تست مسمومیت بارداری",
-                          color: "#D5F5E3",
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/preeclampsiaOutlined.png"
-                        },
-                        {
-                          text: "درمان  ADHD ",
-                          color: "#F9E79F",
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
-                        },
-                        {
-                          text: "تشخیص اختلال تیروئید",
-                          color: "#F9E79F",
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
+                          title: "دیگر ابزارها",
+                          items: [
+                            {
+                              text: "یادآوری خودآزمایی سرطان سینه",
+                              action: "",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/breastCancerOutlined.png"
+                            },
+                            {
+                              text: "همیار بارداری",
+                              action: "#hamyarInfo",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/hamyarOutlined.png"
+                            },
+                            {
+                              text: "کلینیک",
+                              action: "#clinic",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/clinicOutlined.png"
+                            },
+                            {
+                              text: "بیوریتم",
+                              description:
+                                "برنامه بیوریتم و چرخه‌های طبیعی بدن در دوران بارداری.",
+                              action: "#biorhythm",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/biorhythmOutlined.png"
+                            }
+                          ]
                         }
                       ]
                     },
                     {
-                      category: "مراقبت هفته‌به‌هفته بارداری",
+                      category: "فرزند",
                       items: [
                         {
-                          text: "چک‌لیست ایمنی و علائم هشدار همان هفته",
-                          color: "#E8DAEF",
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/dangerOutlined.png"
-                        },
-                        {
-                          text: "یادآوری غربالگری و آزمایش های مهم",
-                          color: "#FDEBD0",
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/selfSmsOutlined.png"
-                        },
-                        {
-                          text: "معرفی مکمل‌ها و ویتامین‌ها",
-                          color: "#FDEBD0",
-                          icon: "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='10' stroke='#F39C12' stroke-width='2'/><path d='M12 6V12L16 14' stroke='#F39C12' stroke-width='2' stroke-linecap='round'/></svg>"
-                        }
-                      ]
-                    },
-                    {
-                      category: "همراهی همسر",
-                      items: [
-                        {
-                          text: "پیامک درک نیازهای تو",
-                          color: "#FADBD8",
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/hamyarOutlined.png"
-                        },
-                        {
-                          text: "پیامک رشد جنین برای پدر",
-                          color: "#D6EAF8",
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/hamyarOutlined.png"
-                        },
-                        {
-                          text: "پیامک چطور پدر بهتری باشم",
-                          color: "#D5F5E3",
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/hamyarOutlined.png"
-                        }
-                      ]
-                    },
-                    {
-                      category: "گفت‌وگوی محرمانه با کارشناس لیوم",
-                      items: [
-                        {
-                          text: "امکان انتخاب متخصص (مامایی، روان‌شناسی، تغذیه)",
-                          color: "#F9E79F",
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/clinicOutlined.png"
-                        },
-                        {
-                          text: "پزشک هوشمند",
-                          color: "#EBF5FB",
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/chatBotOutlined.png"
-                        }
-                      ]
-                    },
-                    {
-                      category: "مراقبت پوست و مو",
-                      items: [
-                        {
-                          text: "روتین مو",
-                          description:
-                            "برنامه مراقبت و نگهداری از موها در دوران بارداری.",
-                          color: "#FFD8A8", // پاستلی زرد کمرنگ
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/hairCareOutlined.png"
-                        },
-                        {
-                          text: "روتین پوست",
-                          description:
-                            "راهنمای مراقبت از پوست در دوران بارداری برای حفظ زیبایی و سلامت.",
-                          color: "#FFB5A7", // پاستلی هلویی روشن
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/skinCareOutlined.png"
-                        },
-                        {
-                          text: "پیشگیری از ترک پوستی",
-                          description:
-                            "روش‌های جلوگیری از ایجاد ترک‌های پوستی در بارداری.",
-                          color: "#FF9CEE", // پاستلی صورتی ملایم
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/stretchMarkOutlined.png"
-                        }
-                      ]
-                    },
-                    {
-                      category: "آزمون‌ها و تست‌ها",
-                      items: [
-                        {
-                          text: "تست نیاز به تراپی دارم",
-                          description:
-                            "ارزیابی نیاز به خدمات تراپی روانشناسی و درمانی.",
-                          color: "#B5A7FF", // پاستلی بنفش روشن
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
-                        },
-                        {
-                          text: "تست افسردگی",
-                          description:
-                            "ارزیابی سلامت روان و تشخیص علائم افسردگی.",
-                          color: "#A7C7FF", // پاستلی آبی روشن
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/depressionNew.png"
-                        },
-                        {
-                          text: "تست ADHD",
-                          description:
-                            "آزمون و ارزیابی اختلال نقص توجه و بیش‌فعالی.",
-                          color: "#A7FFF1", // پاستلی فیروزه‌ای خیلی روشن
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
-                        },
-                        {
-                          text: "تست پیش‌بینی جنسیت",
-                          description: "آزمون و بررسی احتمالات جنسیت نوزاد.",
-                          color: "#B5FFF1", // پاستلی آبی-سبز ملایم
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/genderTestOutlined.png"
-                        }
-                      ]
-                    },
-                    {
-                      category: "آمادگی زایمان",
-                      items: [
-                        {
-                          text: "سیسمونی",
-                          description:
-                            "راهنمای انتخاب و تهیه سیسمونی مناسب برای نوزاد.",
-                          color: "#FFB3C6", // پاستلی صورتی خیلی روشن
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/sismoonyOutlined.png"
-                        },
-                        {
-                          text: "کیف بیمارستان",
-                          description:
-                            "لیست کامل وسایل ضروری برای بیمارستان هنگام زایمان.",
-                          color: "#C9B3FF", // پاستلی بنفش خیلی روشن
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/haspitalBagOutlined.png"
-                        }
-                      ]
-                    },
-                    {
-                      category: "سلامت و سبک زندگی",
-                      items: [
-                        {
-                          text: "کنترل وزن",
-                          description:
-                            "برنامه کنترل وزن مادر و نوزاد در دوران بارداری.",
-                          color: "#B3FFC9", // پاستلی سبز روشن
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/bmiOutlined.png"
-                        },
-                        {
-                          text: "بیوریتم",
-                          description:
-                            "برنامه بیوریتم و چرخه‌های طبیعی بدن در دوران بارداری.",
-                          color: "#DCC9B3", // پاستلی قهوه‌ای روشن
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/biorhythmOutlined.png"
-                        },
-                        {
-                          text: "ویدیو آموزشی",
-                          description:
-                            "مجموعه ویدیوهای آموزشی مرتبط با بارداری و مراقبت‌ها.",
-                          color: "#A7B3FF", // پاستلی آبی ملایم
-                          icon: "https://liom.storage.c2.liara.space/config/self_care/videoOutlined.png"
+                          title: "",
+                          items: [
+                            {
+                              text: "سیسمونی",
+                              description:
+                                "راهنمای انتخاب و تهیه سیسمونی مناسب برای نوزاد.",
+                              action: "#sismony",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/sismoonyOutlined.png"
+                            },
+                            {
+                              text: "کیف بیمارستان",
+                              description:
+                                "لیست کامل وسایل ضروری برای بیمارستان هنگام زایمان.",
+                              action: "#hospitalBag",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/haspitalBagOutlined.png"
+                            },
+                            {
+                              text: "تست پیش‌بینی جنسیت",
+                              description:
+                                "آزمون و بررسی احتمالات جنسیت نوزاد.",
+                              action: "#genderDetection",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/genderTestOutlined.png"
+                            },
+                            {
+                              text: "چک‌لیست ایمنی و علائم هشدار",
+                              action: "#danger",
+                              icon: "https://liom.storage.c2.liara.space/config/self_care/dangerOutlined.png"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -1395,10 +338,16 @@ function PlasmicToolsPage__RenderFunc(props: {
           })()
       },
       {
-        path: "index",
+        path: "paramsObject",
         type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1408,10 +357,6 @@ function PlasmicToolsPage__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
-  });
-
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6BytLjmha8VC()
   });
 
   return (
@@ -1441,350 +386,157 @@ function PlasmicToolsPage__RenderFunc(props: {
             sty.root
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox___9Tbb)}>
-            <div className={classNames(projectcss.all, sty.freeBox__qFmH)}>
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img__c8Hmc)}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"auto"}
-                loading={"lazy"}
-                src={{
-                  src: "/plasmic/liom_hamyar/images/newProjectPng3.png",
-                  fullWidth: 1640,
-                  fullHeight: 664,
-                  aspectRatio: undefined
-                }}
-              />
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
 
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $state.subList.length > 0 ? $state.subList : [];
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___13Im)}
-                    key={currentIndex}
-                  >
-                    <PlasmicImg__
-                      alt={""}
-                      className={classNames(sty.img__u33Ga)}
-                      displayHeight={"50px"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"50px"}
-                      loading={"lazy"}
-                      src={(() => {
-                        try {
-                          return $state.subList[currentIndex].items[0].image;
-                        } catch (e) {
+              $steps["getParams"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          return urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getParams"] != null &&
+                typeof $steps["getParams"] === "object" &&
+                typeof $steps["getParams"].then === "function"
+              ) {
+                $steps["getParams"] = await $steps["getParams"];
+              }
+
+              $steps["clearParams"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const searchParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          searchParams.delete("token");
+                          searchParams.delete("userId");
+                          searchParams.delete("user_id");
+                          const newUrl = `${
+                            window.location.pathname
+                          }?${searchParams.toString()}`;
+                          return window.history.replaceState(null, "", newUrl);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["clearParams"] != null &&
+                typeof $steps["clearParams"] === "object" &&
+                typeof $steps["clearParams"].then === "function"
+              ) {
+                $steps["clearParams"] = await $steps["clearParams"];
+              }
+
+              $steps["getToken"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
                           if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token.trim() !== ""
                           ) {
-                            return {
-                              src: "/plasmic/liom_hamyar/images/image2.png",
-                              fullWidth: 512,
-                              fullHeight: 512,
-                              aspectRatio: undefined
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
                             };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.paramsObject.token]),
+                              100
+                            );
                           }
-                          throw e;
-                        }
-                      })()}
-                    />
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getToken"] != null &&
+                typeof $steps["getToken"] === "object" &&
+                typeof $steps["getToken"].then === "function"
+              ) {
+                $steps["getToken"] = await $steps["getToken"];
+              }
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___36FbG
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__dvNw1
-                        )}
-                      >
-                        <div
-                          className={projectcss.__wab_expr_html_text}
-                          dangerouslySetInnerHTML={{
-                            __html: $state.subList[currentIndex].text
-                          }}
-                        />
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__i2PSu
-                        )}
-                      >
-                        <div
-                          className={projectcss.__wab_expr_html_text}
-                          dangerouslySetInnerHTML={{
-                            __html: $state.subList[currentIndex].hint
-                          }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $state.sub.subscription_features.services;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__goqcG)}
-                    key={currentIndex}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__f9239
-                      )}
-                    >
-                      <React.Fragment>
-                        {currentItem.category + ":"}
-                      </React.Fragment>
-                    </div>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__lS1B)}
-                    >
-                      {(_par =>
-                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                        (() => {
-                          try {
-                            return currentItem.items.length > 0
-                              ? currentItem.items
-                              : [];
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
+              $steps["getTokenFromCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
                             }
-                            throw e;
-                          }
-                        })()
-                      ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                        const currentItem = __plasmic_item_1;
-                        const currentIndex = __plasmic_idx_1;
-                        return (
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__aqhLt
-                            )}
-                            key={currentIndex}
-                            style={(() => {
-                              try {
-                                return {
-                                  "background-color": "#ffffff" //currentItem.color
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
-                          >
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img___2QqF)}
-                              displayHeight={"auto"}
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={"100%"}
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={"auto"}
-                              loading={"lazy"}
-                              src={currentItem.icon}
-                              width={"30"}
-                            />
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getTokenFromCookie"] != null &&
+                typeof $steps["getTokenFromCookie"] === "object" &&
+                typeof $steps["getTokenFromCookie"].then === "function"
+              ) {
+                $steps["getTokenFromCookie"] = await $steps[
+                  "getTokenFromCookie"
+                ];
+              }
+            }}
+          />
 
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__fRhjC
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return currentItem.text;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                          </Stack__>
-                        );
-                      })}
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___9Mg7C
-                        )}
-                      />
-                    </Stack__>
-                  </div>
-                );
-              })}
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox___3YrZ2)}>
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $state.subList.length > 0 ? $state.subList : [];
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__mkQ6F)}
-                    key={currentIndex}
-                  >
-                    <PlasmicImg__
-                      alt={""}
-                      className={classNames(sty.img___8E7Ro)}
-                      displayHeight={"50px"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"50px"}
-                      loading={"lazy"}
-                      src={(() => {
-                        try {
-                          return $state.subList[currentIndex].items[0].image;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return {
-                              src: "/plasmic/liom_hamyar/images/image2.png",
-                              fullWidth: 512,
-                              fullHeight: 512,
-                              aspectRatio: undefined
-                            };
-                          }
-                          throw e;
-                        }
-                      })()}
-                    />
-
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__b8P4)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___5Fkw0
-                        )}
-                      >
-                        <div
-                          className={projectcss.__wab_expr_html_text}
-                          dangerouslySetInnerHTML={{
-                            __html: $state.subList[currentIndex].text
-                          }}
-                        />
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__tZujX
-                        )}
-                      >
-                        <div
-                          className={projectcss.__wab_expr_html_text}
-                          dangerouslySetInnerHTML={{
-                            __html: $state.subList[currentIndex].hint
-                          }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+          <div className={classNames(projectcss.all, sty.freeBox___9Tbb)}>
+            <div className={classNames(projectcss.all, sty.freeBox__tqSx)}>
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___8MFfr)}
+                className={classNames(projectcss.all, sty.freeBox__zyKgI)}
               >
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return $state.sub.subscription_features.services.length >
+                      return $state.sub2.subscription_features.services.length >
                         0
-                        ? $state.sub.subscription_features.services
+                        ? $state.sub2.subscription_features.services
                         : [];
                     } catch (e) {
                       if (
@@ -1800,8 +552,10 @@ function PlasmicToolsPage__RenderFunc(props: {
                   const currentItem = __plasmic_item_0;
                   const currentIndex = __plasmic_idx_0;
                   return (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__n4FjW)}
+                    <TabWidget
+                      data-plasmic-name={"tabWidget"}
+                      data-plasmic-override={overrides.tabWidget}
+                      className={classNames("__wab_instance", sty.tabWidget)}
                       key={currentIndex}
                       onClick={async event => {
                         const $steps = {};
@@ -1840,32 +594,48 @@ function PlasmicToolsPage__RenderFunc(props: {
                           $steps["updateIndex"] = await $steps["updateIndex"];
                         }
                       }}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__nnjzW
-                        )}
-                      >
-                        <React.Fragment>{currentItem.category}</React.Fragment>
-                      </div>
-                    </div>
+                      selected={(() => {
+                        try {
+                          return $state.index == currentIndex;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      title={(() => {
+                        try {
+                          return currentItem.category;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
                   );
                 })}
               </Stack__>
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__zM1HH)}
+                className={classNames(projectcss.all, sty.freeBox__mc3U5)}
               >
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return $state.sub.subscription_features.services[
+                      return $state.sub2.subscription_features.services[
                         $state.index
                       ].items.length > 0
-                        ? $state.sub.subscription_features.services[
+                        ? $state.sub2.subscription_features.services[
                             $state.index
                           ].items
                         : [];
@@ -1883,45 +653,21 @@ function PlasmicToolsPage__RenderFunc(props: {
                   const currentItem = __plasmic_item_0;
                   const currentIndex = __plasmic_idx_0;
                   return (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__x9PxY)}
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__fRaT)}
                       key={currentIndex}
-                      style={(() => {
-                        try {
-                          return {
-                            "background-color": "#ffffff" //currentItem.color
-                          };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
                     >
-                      <Embed
-                        data-plasmic-name={"embedHtml"}
-                        data-plasmic-override={overrides.embedHtml}
-                        className={classNames("__wab_instance", sty.embedHtml)}
-                        code={currentItem.icon_svg}
-                      />
-
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__dVmV1
+                          sty.text__jDvq7
                         )}
                       >
                         <React.Fragment>
                           {(() => {
                             try {
-                              return currentItem.text;
+                              return currentItem.title;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1934,7 +680,186 @@ function PlasmicToolsPage__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
-                    </Stack__>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__txWpb
+                        )}
+                      >
+                        {(_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
+                            try {
+                              return currentItem.items.length > 0
+                                ? currentItem.items
+                                : [];
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                          const currentItem = __plasmic_item_1;
+                          const currentIndex = __plasmic_idx_1;
+                          return (
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__xWbfQ
+                              )}
+                              key={currentIndex}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["invokeGlobalAction"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          (() => {
+                                            try {
+                                              return currentItem.action;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })(),
+                                          (() => {
+                                            try {
+                                              return undefined;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })(),
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return $ctx.query.inApp;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })(),
+                                          (() => {
+                                            try {
+                                              return $ctx.query.theme;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.deepLink"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["invokeGlobalAction"] != null &&
+                                  typeof $steps["invokeGlobalAction"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction"] = await $steps[
+                                    "invokeGlobalAction"
+                                  ];
+                                }
+                              }}
+                              style={(() => {
+                                try {
+                                  return {
+                                    "background-color": "#ffffff" //currentItem.color
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            >
+                              <PlasmicImg__
+                                data-plasmic-name={"img"}
+                                data-plasmic-override={overrides.img}
+                                alt={""}
+                                className={classNames(sty.img)}
+                                displayHeight={"auto"}
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={"auto"}
+                                loading={"lazy"}
+                                src={currentItem.icon}
+                                width={"30"}
+                              />
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___2OeZq
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return currentItem.text;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </Stack__>
+                          );
+                        })}
+                      </div>
+                    </div>
                   );
                 })}
               </Stack__>
@@ -1947,15 +872,19 @@ function PlasmicToolsPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "embedHtml"],
-  embedHtml: ["embedHtml"]
+  root: ["root", "sideEffect", "tabWidget", "img"],
+  sideEffect: ["sideEffect"],
+  tabWidget: ["tabWidget"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  embedHtml: typeof Embed;
+  sideEffect: typeof SideEffect;
+  tabWidget: typeof TabWidget;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2043,7 +972,9 @@ export const PlasmicToolsPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    embedHtml: makeNodeComponent("embedHtml"),
+    sideEffect: makeNodeComponent("sideEffect"),
+    tabWidget: makeNodeComponent("tabWidget"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicToolsPage
     internalVariantProps: PlasmicToolsPage__VariantProps,

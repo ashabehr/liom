@@ -2050,6 +2050,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/errortest"
+        },
+        {
+          "id": "5oNm4PTVAr6q",
+          "name": "TabWidget",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicTabWidget.tsx",
+          "importSpec": {
+            "modulePath": "TabWidget.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicTabWidget.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
