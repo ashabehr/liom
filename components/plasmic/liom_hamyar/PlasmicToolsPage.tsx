@@ -162,11 +162,13 @@ function PlasmicToolsPage__RenderFunc(props: {
                             {
                               text: "یادآوری غربالگری و آزمایش های مهم",
                               action: "",
+                              shopType: "pregnancy_sub_self_sms",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/selfSmsOutlined.png"
                             },
                             {
                               text: "معرفی مکمل‌ها و ویتامین‌ها",
                               action: "",
+                              shopType: "danger",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/vitaminOutlined.png"
                             },
                             {
@@ -174,6 +176,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                               description:
                                 "مجموعه ویدیوهای آموزشی مرتبط با بارداری و مراقبت‌ها.",
                               action: "",
+                              shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/videoOutlined.png"
                             },
                             {
@@ -181,6 +184,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                               description:
                                 "برنامه کنترل وزن مادر و نوزاد در دوران بارداری.",
                               action: "#weight",
+                              shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/bmiOutlined.png"
                             }
                           ]
@@ -194,6 +198,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                               description:
                                 "برنامه مراقبت و نگهداری از موها در دوران بارداری.",
                               action: "#hair_care",
+                              shopType: "hair_car",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/hairCareOutlined.png"
                             },
                             {
@@ -201,6 +206,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                               description:
                                 "راهنمای مراقبت از پوست در دوران بارداری برای حفظ زیبایی و سلامت.",
                               action: "#skinCare",
+                              shopType: "skinCare",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/skinCareOutlined.png"
                             },
                             {
@@ -208,11 +214,13 @@ function PlasmicToolsPage__RenderFunc(props: {
                               description:
                                 "روش‌های جلوگیری از ایجاد ترک‌های پوستی در بارداری.",
                               action: "#stretch_marks",
+                              shopType: "stretch_marks_sub",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/stretchMarkOutlined.png"
                             },
                             {
                               text: "درمان  ADHD ",
                               action: "#adhd_treatment_sub",
+                              shopType: "adhd_treatment_sub",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
                             }
                           ]
@@ -225,6 +233,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                               description:
                                 "ارزیابی نیاز به خدمات تراپی روانشناسی و درمانی.",
                               action: "#need_therapy",
+                              shopType: "need_therapy_sub",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
                             },
                             {
@@ -232,6 +241,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                               description:
                                 "ارزیابی سلامت روان و تشخیص علائم افسردگی.",
                               action: "#depression",
+                              shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/depressionNew.png"
                             },
                             {
@@ -239,21 +249,25 @@ function PlasmicToolsPage__RenderFunc(props: {
                               description:
                                 "آزمون و ارزیابی اختلال نقص توجه و بیش‌فعالی.",
                               action: "#adhd",
+                              shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/adhdOutlined.png"
                             },
                             {
                               text: "تست دیابت بارداری (GD)",
                               action: "#pregnancyDiabetes",
+                              shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/diabetOutlined.png"
                             },
                             {
                               text: "تست مسمومیت بارداری",
                               action: "#preeclampsia",
+                              shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/preeclampsiaOutlined.png"
                             },
                             {
-                              text: "تشخیص اختلال تیروئید",
+                              text: "تست اختلال تیروئید",
                               action: "",
+                              shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
                             }
                           ]
@@ -264,16 +278,19 @@ function PlasmicToolsPage__RenderFunc(props: {
                             {
                               text: "یادآوری خودآزمایی سرطان سینه",
                               action: "",
+                              shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/breastCancerOutlined.png"
                             },
                             {
                               text: "همیار بارداری",
+                              shopType: "",
                               action: "#hamyarInfo",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/hamyarOutlined.png"
                             },
                             {
                               text: "کلینیک",
                               action: "#clinic",
+                              shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/clinicOutlined.png"
                             },
                             {
@@ -281,6 +298,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                               description:
                                 "برنامه بیوریتم و چرخه‌های طبیعی بدن در دوران بارداری.",
                               action: "#biorhythm",
+                              shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/biorhythmOutlined.png"
                             }
                           ]
@@ -295,6 +313,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                           items: [
                             {
                               text: "سیسمونی",
+                              shopType: "",
                               description:
                                 "راهنمای انتخاب و تهیه سیسمونی مناسب برای نوزاد.",
                               action: "#sismony",
@@ -302,6 +321,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                             },
                             {
                               text: "کیف بیمارستان",
+                              shopType: "",
                               description:
                                 "لیست کامل وسایل ضروری برای بیمارستان هنگام زایمان.",
                               action: "#hospitalBag",
@@ -309,6 +329,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                             },
                             {
                               text: "تست پیش‌بینی جنسیت",
+                              shopType: "",
                               description:
                                 "آزمون و بررسی احتمالات جنسیت نوزاد.",
                               action: "#genderDetection",
@@ -317,6 +338,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                             {
                               text: "چک‌لیست ایمنی و علائم هشدار",
                               action: "#danger",
+                              shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/dangerOutlined.png"
                             }
                           ]
@@ -718,7 +740,18 @@ function PlasmicToolsPage__RenderFunc(props: {
                               onClick={async event => {
                                 const $steps = {};
 
-                                $steps["invokeGlobalAction"] = true
+                                $steps["invokeGlobalAction"] = (() => {
+                                  const allowance =
+                                    $state?.getUserInfo?.data?.[0]?.result
+                                      ?.allowance || [];
+                                  const filteredItem = allowance.find(item =>
+                                    item.type.includes(currentItem.shopType)
+                                  );
+                                  const active = filteredItem
+                                    ? filteredItem.active
+                                    : false;
+                                  return active || currentItem.shopType == "";
+                                })()
                                   ? (() => {
                                       const actionArgs = {
                                         args: [
@@ -796,6 +829,53 @@ function PlasmicToolsPage__RenderFunc(props: {
                                   $steps["invokeGlobalAction"] = await $steps[
                                     "invokeGlobalAction"
                                   ];
+                                }
+
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            const allowance =
+                                              $state?.getUserInfo?.data?.[0]
+                                                ?.result?.allowance || [];
+                                            const filteredItem = allowance.find(
+                                              item =>
+                                                item.type.includes(
+                                                  currentItem.shopType
+                                                )
+                                            );
+                                            const active = filteredItem
+                                              ? filteredItem.active
+                                              : false;
+                                            if (
+                                              !active &&
+                                              currentItem.shopType != ""
+                                            ) {
+                                              if ($ctx.query.inApp != "true") {
+                                                $state.typeBuy = "pregnancySub";
+                                                return ($state.directDialog2.open =
+                                                  true);
+                                              } else {
+                                                return window.FlutterChannel.postMessage(
+                                                  "#healthSubscription"
+                                                );
+                                              }
+                                            }
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
                                 }
                               }}
                               style={(() => {
