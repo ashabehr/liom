@@ -163,7 +163,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                           items: [
                             {
                               text: "یادآوری غربالگری و آزمایش های مهم",
-                              action: "",
+                              action: "#selfSms",
                               shopType: "pregnancy_sub_self_sms",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/selfSmsOutlined.png"
                             },
@@ -177,7 +177,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                               text: "ویدیو آموزشی",
                               description:
                                 "مجموعه ویدیوهای آموزشی مرتبط با بارداری و مراقبت‌ها.",
-                              action: "",
+                              action: "#video",
                               shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/videoOutlined.png"
                             },
@@ -268,8 +268,8 @@ function PlasmicToolsPage__RenderFunc(props: {
                             },
                             {
                               text: "تست اختلال تیروئید",
-                              action: "",
-                              shopType: "",
+                              action: "#thyroid",
+                              shopType: "thyroid",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/therapyOutlined.png"
                             }
                           ]
@@ -279,7 +279,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                           items: [
                             {
                               text: "یادآوری خودآزمایی سرطان سینه",
-                              action: "",
+                              action: "#breastCancer",
                               shopType: "",
                               icon: "https://liom.storage.c2.liara.space/config/self_care/breastCancerOutlined.png"
                             },
