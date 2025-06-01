@@ -2972,7 +2972,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               $steps["goToPage"] = true
                                 ? (() => {
                                     const actionArgs = {
-                                      destination: `status-day?token=${$state.token}&userId=${$state.userId}`
+                                      destination: `tools-page?token=${$state.token}&userId=${$state.userId}`
                                     };
                                     return (({ destination }) => {
                                       if (
