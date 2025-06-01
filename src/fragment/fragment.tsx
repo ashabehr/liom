@@ -170,7 +170,11 @@ export const Fragment = ({
               sendMessage("درمان اختلال ADHD", link,inWebViow);
               break;
             }
-
+            case "#danger": {
+              const link = `https://tools.liom.app/self-medication/?type=pregnancy_danger_sub&inApp=${inApp}&token=${token}&selectStep=0&userId=${userId}&theme=${theme}`;
+              sendMessage("خطرناکه یانه", link,inWebViow);
+              break;
+            }
               
             case "#pregnancyDiabetes": {
               const queryString = buildQueryString(params);
@@ -188,6 +192,12 @@ export const Fragment = ({
               const queryString = buildQueryString(params);
               const link = `https://tools.liom.app/self-test/?app=liom&type=depression&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}&${queryString}`;
               sendMessage("تشخیص افسوردگی بر اساس علائم", link,inWebViow);
+              break;
+            }
+            case "#thyroid": {
+              const queryString = buildQueryString(params);
+              const link = `https://tools.liom.app/self-test/?app=liom&type=thyroid&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}&${queryString}`;
+              sendMessage("تشخیص اختلال تیروئید", link,inWebViow);
               break;
             }
             case "#genderDetection": {
@@ -270,6 +280,20 @@ export const Fragment = ({
             case "#hospitalBag": {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
+              else {    
+                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
+                      duration: 3000,
+                      position: "top-right",
+                    });
+                  // let link = `/hamyar-add/?token=${token}`;
+                  // link=`/web-viow?link=${encodeURIComponent(link)}`;
+                  // window.open(link, "_self");
+              }
+              break;
+            }
+            case "#breastCancer": {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                window.FlutterChannel.postMessage("#breastCancerDatePage");}
               else {    
                     toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
                       duration: 3000,
