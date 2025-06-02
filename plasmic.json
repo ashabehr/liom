@@ -2063,6 +2063,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicTabWidget.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "PRBLNVS2iGX7",
+          "name": "IsReady",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicIsReady.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/is-ready.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicIsReady.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/is-ready"
         }
       ],
       "icons": [
