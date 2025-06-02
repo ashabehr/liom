@@ -208,7 +208,7 @@ export const Fragment = ({
             }
             case "#need_therapy": {
               const queryString = buildQueryString(params);
-              const link = `https://tools.liom.app/self-test/?app=liom&type=need_therapy&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}&${queryString}`;
+              const link = `https://tools.liom.app/self-test/?app=liom&type=needTherapy&inApp=${inApp}&token=${token}&userId=${userId}&theme=${theme}&${queryString}`;
               sendMessage("آیا نیاز به تراپی دارم؟", link,inWebViow);
               break;
             }
