@@ -79,6 +79,11 @@
   text-align: right;
   min-width: 0;
 }
+@media (max-width: 640px) {
+  .text___59Di2 {
+    white-space: pre;
+  }
+}
 .text__fqDdC {
   position: relative;
   width: 100%;

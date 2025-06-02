@@ -72,6 +72,7 @@ import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
 import RadioGrop2 from "../../RadioGrop2"; // plasmic-import: S5lwX58ZN_a3/component
 import RepeatPost from "../../RepeatPost"; // plasmic-import: O_6FIPF6rDTy/component
+import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -113,6 +114,7 @@ export type PlasmicSocialMain__OverridesType = {
   repeatPost?: Flex__<typeof RepeatPost>;
   getInfo?: Flex__<typeof ApiRequest>;
   postPostesInfo?: Flex__<typeof ApiRequest>;
+  timer?: Flex__<typeof Timer>;
 };
 
 export interface DefaultSocialMainProps {}
@@ -155,6 +157,8 @@ function PlasmicSocialMain__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -292,6 +296,56 @@ function PlasmicSocialMain__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ``
+      },
+      {
+        path: "hasmore",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "isloding",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "scrolid",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.postPostesInfo.data.result.scrollId;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "postsData",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.postPostesInfo.data;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -933,6 +987,139 @@ function PlasmicSocialMain__RenderFunc(props: {
             }}
             url={"https://n8n.staas.ir/webhook/rest/social"}
           />
+
+          <Timer
+            data-plasmic-name={"timer"}
+            data-plasmic-override={overrides.timer}
+            className={classNames("__wab_instance", sty.timer)}
+            intervalSeconds={5}
+            isRunning={true}
+            onTick={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return window.addEventListener("scroll", () => {
+                          if ($state.isLoading || !$state.hasmore) return;
+                          const { scrollTop, scrollHeight } =
+                            window.document.documentElement;
+                          const { innerHeight } = window;
+                          const isNearBottom =
+                            scrollTop + innerHeight >= scrollHeight - 50;
+                          if (isNearBottom) {
+                            $state.isloding = true;
+                          }
+                        });
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["invokeGlobalAction"] = $state.isloding
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/rest/social",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              data: {
+                                type: $state.choiceType,
+                                text: $state.faType
+                              },
+                              scrollId: $state.scrolid,
+                              authorization: $state.token
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["runCode2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          $state.isloding = false;
+                          const newData = $steps.invokeGlobalAction.data.result;
+                          if (!newData || newData.length == 0) {
+                            return ($state.hasmore = false);
+                          } else {
+                            return ($state.postsData.result.list =
+                              $state.postsData.result.list.concat(newData));
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
+              ) {
+                $steps["runCode2"] = await $steps["runCode2"];
+              }
+
+              $steps["invokeGlobalAction2"] = true
+                ? (() => {
+                    const actionArgs = { args: ["info"] };
+                    return $globalActions[
+                      "plasmic-antd5-config-provider.showNotification"
+                    ]?.apply(null, [...actionArgs.args]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
+              ) {
+                $steps["invokeGlobalAction2"] = await $steps[
+                  "invokeGlobalAction2"
+                ];
+              }
+            }}
+            runWhileEditing={false}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -950,7 +1137,8 @@ const PlasmicDescendants = {
     "radioGrop2",
     "repeatPost",
     "getInfo",
-    "postPostesInfo"
+    "postPostesInfo",
+    "timer"
   ],
   section: ["section", "mainHeader", "dialog"],
   mainHeader: ["mainHeader"],
@@ -960,7 +1148,8 @@ const PlasmicDescendants = {
   radioGrop2: ["radioGrop2"],
   repeatPost: ["repeatPost"],
   getInfo: ["getInfo"],
-  postPostesInfo: ["postPostesInfo"]
+  postPostesInfo: ["postPostesInfo"],
+  timer: ["timer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -976,6 +1165,7 @@ type NodeDefaultElementType = {
   repeatPost: typeof RepeatPost;
   getInfo: typeof ApiRequest;
   postPostesInfo: typeof ApiRequest;
+  timer: typeof Timer;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1072,6 +1262,7 @@ export const PlasmicSocialMain = Object.assign(
     repeatPost: makeNodeComponent("repeatPost"),
     getInfo: makeNodeComponent("getInfo"),
     postPostesInfo: makeNodeComponent("postPostesInfo"),
+    timer: makeNodeComponent("timer"),
 
     // Metadata about props expected for PlasmicSocialMain
     internalVariantProps: PlasmicSocialMain__VariantProps,
