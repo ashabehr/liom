@@ -87,7 +87,7 @@ export const PlasmicToolsPage__ArgProps = new Array<ArgPropType>();
 export type PlasmicToolsPage__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
-  apiRequest?: Flex__<typeof ApiRequest>;
+  getUserInfo?: Flex__<typeof ApiRequest>;
   tabWidget?: Flex__<typeof TabWidget>;
   img?: Flex__<typeof PlasmicImg__>;
 };
@@ -374,19 +374,19 @@ function PlasmicToolsPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "apiRequest.data",
+        path: "getUserInfo.data",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "apiRequest.error",
+        path: "getUserInfo.error",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "apiRequest.loading",
+        path: "getUserInfo.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -567,9 +567,9 @@ function PlasmicToolsPage__RenderFunc(props: {
           />
 
           <ApiRequest
-            data-plasmic-name={"apiRequest"}
-            data-plasmic-override={overrides.apiRequest}
-            className={classNames("__wab_instance", sty.apiRequest)}
+            data-plasmic-name={"getUserInfo"}
+            data-plasmic-override={overrides.getUserInfo}
+            className={classNames("__wab_instance", sty.getUserInfo)}
             errorDisplay={
               <div
                 className={classNames(
@@ -701,19 +701,19 @@ function PlasmicToolsPage__RenderFunc(props: {
             }
             method={"GET"}
             onError={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+              generateStateOnChangeProp($state, ["getUserInfo", "error"]).apply(
                 null,
                 eventArgs
               );
             }}
             onLoading={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
-                "apiRequest",
+                "getUserInfo",
                 "loading"
               ]).apply(null, eventArgs);
             }}
             onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+              generateStateOnChangeProp($state, ["getUserInfo", "data"]).apply(
                 null,
                 eventArgs
               );
@@ -1148,9 +1148,9 @@ function PlasmicToolsPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideEffect", "apiRequest", "tabWidget", "img"],
+  root: ["root", "sideEffect", "getUserInfo", "tabWidget", "img"],
   sideEffect: ["sideEffect"],
-  apiRequest: ["apiRequest", "tabWidget", "img"],
+  getUserInfo: ["getUserInfo", "tabWidget", "img"],
   tabWidget: ["tabWidget"],
   img: ["img"]
 } as const;
@@ -1160,7 +1160,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
-  apiRequest: typeof ApiRequest;
+  getUserInfo: typeof ApiRequest;
   tabWidget: typeof TabWidget;
   img: typeof PlasmicImg__;
 };
@@ -1251,7 +1251,7 @@ export const PlasmicToolsPage = Object.assign(
   {
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
-    apiRequest: makeNodeComponent("apiRequest"),
+    getUserInfo: makeNodeComponent("getUserInfo"),
     tabWidget: makeNodeComponent("tabWidget"),
     img: makeNodeComponent("img"),
 

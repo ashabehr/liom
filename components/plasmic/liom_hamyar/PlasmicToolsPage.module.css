@@ -31,7 +31,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.apiRequest:global(.__wab_instance) {
+.getUserInfo:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
