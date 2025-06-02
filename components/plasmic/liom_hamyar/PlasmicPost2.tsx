@@ -3308,7 +3308,9 @@ function PlasmicPost2__RenderFunc(props: {
             data-plasmic-override={overrides.timer}
             className={classNames("__wab_instance", sty.timer)}
             intervalSeconds={5}
-            isRunning={true}
+            isRunning={
+              hasVariant(globalVariants, "screen", "mobile") ? false : true
+            }
             onTick={async () => {
               const $steps = {};
 

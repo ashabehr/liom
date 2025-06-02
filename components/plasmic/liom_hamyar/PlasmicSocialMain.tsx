@@ -1071,27 +1071,30 @@ function PlasmicSocialMain__RenderFunc(props: {
                 ];
               }
 
-              $steps["runCode2"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          $state.isloding = false;
-                          const newData = $steps.invokeGlobalAction.data.result;
-                          if (!newData || newData.length == 0) {
-                            return ($state.hasmore = false);
-                          } else {
-                            return ($state.postsData.result.list =
-                              $state.postsData.result.list.concat(newData));
-                          }
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+              $steps["runCode2"] =
+                $steps.invokeGlobalAction.data.success == false ||
+                $steps.invokeGlobalAction.data.success == true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            $state.isloding = false;
+                            const newData =
+                              $steps.invokeGlobalAction.data.result;
+                            if (!newData || newData.length == 0) {
+                              return ($state.hasmore = false);
+                            } else {
+                              return ($state.postsData.result.list =
+                                $state.postsData.result.list.concat(newData));
+                            }
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
                 $steps["runCode2"] != null &&
                 typeof $steps["runCode2"] === "object" &&
@@ -1100,14 +1103,17 @@ function PlasmicSocialMain__RenderFunc(props: {
                 $steps["runCode2"] = await $steps["runCode2"];
               }
 
-              $steps["invokeGlobalAction2"] = true
-                ? (() => {
-                    const actionArgs = { args: ["info"] };
-                    return $globalActions[
-                      "plasmic-antd5-config-provider.showNotification"
-                    ]?.apply(null, [...actionArgs.args]);
-                  })()
-                : undefined;
+              $steps["invokeGlobalAction2"] =
+                !$state.isloding && !$state.hasmore
+                  ? (() => {
+                      const actionArgs = {
+                        args: ["info", ``, undefined, undefined, "bottom"]
+                      };
+                      return $globalActions[
+                        "plasmic-antd5-config-provider.showNotification"
+                      ]?.apply(null, [...actionArgs.args]);
+                    })()
+                  : undefined;
               if (
                 $steps["invokeGlobalAction2"] != null &&
                 typeof $steps["invokeGlobalAction2"] === "object" &&
