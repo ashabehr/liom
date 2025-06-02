@@ -219,11 +219,7 @@ export const Fragment = ({
               sendMessage("ترک پوستی", link,inWebViow);
               break;
             }
-            case "#biorhythm": {
-                const link = `/Biorhythm/?token=${token}`;
-                sendMessage("بیوریتم", link,inWebViow);
-                break;
-            }
+
             case "#bioritm": {
                 const link = `/bioritm/?token=${token}`;
                 sendMessage("بیوریتم", link,inWebViow);
@@ -305,6 +301,16 @@ export const Fragment = ({
               }
               break;
             }
+              
+            case "#biorhythm": {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                window.FlutterChannel.postMessage("#biorhythm");}
+              else {    
+                const link = `/Biorhythm/?token=${token}`;
+                sendMessage("بیوریتم", link,inWebViow);
+              }
+                break;
+            }
 
             case "#healthSubscription": {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
@@ -343,6 +349,11 @@ export const Fragment = ({
             case "#rediucePain": {
                 const link = `https://tools.liom.app/self-medication/?type=irregular&token=${token}&userId=${userId}&inApp=${inApp}`;
                 sendMessage("کاهش درد", link,inWebViow);
+                break;
+            }
+            case "#video": {
+                const link = `https://tools.liom.app/play-list/?inApp=${inApp}`;
+                sendMessage("محتوا آموزشی", link,inWebViow);
                 break;
             }
 
