@@ -963,7 +963,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                                             })(),
                                             (() => {
                                               try {
-                                                return undefined;
+                                                return $state.token;
                                               } catch (e) {
                                                 if (
                                                   e instanceof TypeError ||
@@ -975,7 +975,21 @@ function PlasmicToolsPage__RenderFunc(props: {
                                                 throw e;
                                               }
                                             })(),
-                                            undefined,
+                                            (() => {
+                                              try {
+                                                return $state.paramsObject
+                                                  .userId;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })(),
                                             (() => {
                                               try {
                                                 return $ctx.query.inApp;
