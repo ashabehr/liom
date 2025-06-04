@@ -65,6 +65,8 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -74,6 +76,7 @@ import sty from "./PlasmicTest.module.css"; // plasmic-import: sfemSfmG6qsw/css
 
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon235Icon from "./icons/PlasmicIcon__Icon235"; // plasmic-import: 5FkrBtoVdaZJ/icon
 
 createPlasmicElementProxy;
 
@@ -89,8 +92,9 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
   button?: Flex__<typeof Button>;
-  text?: Flex__<"div">;
   input?: Flex__<typeof Input>;
+  freeBox?: Flex__<"div">;
+  svg?: Flex__<"svg">;
 };
 
 export interface DefaultTestProps {}
@@ -181,6 +185,10 @@ function PlasmicTest__RenderFunc(props: {
     $refs
   });
 
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -253,12 +261,10 @@ function PlasmicTest__RenderFunc(props: {
             }}
           >
             <div
-              data-plasmic-name={"text"}
-              data-plasmic-override={overrides.text}
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text
+                sty.text__hvQeb
               )}
             >
               {" "}
@@ -315,6 +321,39 @@ function PlasmicTest__RenderFunc(props: {
             type={"text"}
             value={generateStateValueProp($state, ["input", "value"])}
           />
+
+          <Stack__
+            as={"div"}
+            data-plasmic-name={"freeBox"}
+            data-plasmic-override={overrides.freeBox}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox)}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__pAv0W
+              )}
+            >
+              {"\u06a9\u062f \u0645\u0644\u06cc:"}
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__k3J53
+              )}
+            >
+              {""}
+            </div>
+            <Icon235Icon
+              data-plasmic-name={"svg"}
+              data-plasmic-override={overrides.svg}
+              className={classNames(projectcss.all, sty.svg)}
+              role={"img"}
+            />
+          </Stack__>
         </div>
       </div>
     </React.Fragment>
@@ -322,10 +361,11 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "text", "input"],
-  button: ["button", "text"],
-  text: ["text"],
-  input: ["input"]
+  root: ["root", "button", "input", "freeBox", "svg"],
+  button: ["button"],
+  input: ["input"],
+  freeBox: ["freeBox", "svg"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -333,8 +373,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   button: typeof Button;
-  text: "div";
   input: typeof Input;
+  freeBox: "div";
+  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -423,8 +464,9 @@ export const PlasmicTest = Object.assign(
   {
     // Helper components rendering sub-elements
     button: makeNodeComponent("button"),
-    text: makeNodeComponent("text"),
     input: makeNodeComponent("input"),
+    freeBox: makeNodeComponent("freeBox"),
+    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

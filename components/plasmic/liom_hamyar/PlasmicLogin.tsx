@@ -18883,6 +18883,8 @@ function PlasmicLogin__RenderFunc(props: {
               className={classNames("__wab_instance", sty.iframe)}
               preview={true}
               src={"/add-to-home/"}
+              srcDoc={"<div><h3>Heading</h3><p>Example text...</p></div>"}
+              useHtml={false}
             />
           ) : null}
           <Timer

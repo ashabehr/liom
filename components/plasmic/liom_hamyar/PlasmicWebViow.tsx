@@ -393,6 +393,8 @@ function PlasmicWebViow__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              srcDoc={"<div><h3>Heading</h3><p>Example text...</p></div>"}
+              useHtml={false}
             />
           </div>
         </div>

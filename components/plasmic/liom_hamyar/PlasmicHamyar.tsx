@@ -16123,6 +16123,37 @@ function PlasmicHamyar__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.freeBox___5YvYk)}
                   onClick={async event => {
                     const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                if (
+                                  typeof window !== "undefined" &&
+                                  window.FlutterChannel &&
+                                  typeof window.FlutterChannel.postMessage ===
+                                    "function"
+                                ) {
+                                  return window.FlutterChannel.postMessage(
+                                    `#inAppWebView**@@**${"همیار"}**@@**${"https://apps.liom.app/hamyar/"}`
+                                  );
+                                }
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
                   }}
                 >
                   <Icon7Icon
@@ -18504,6 +18535,8 @@ function PlasmicHamyar__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              srcDoc={"<div><h3>Heading</h3><p>Example text...</p></div>"}
+              useHtml={false}
             />
           ) : null}
           <Timer
