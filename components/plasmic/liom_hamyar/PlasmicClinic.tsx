@@ -7566,11 +7566,14 @@ function PlasmicClinic__RenderFunc(props: {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                if (window.sessionStorage.getItem("home-page"))
-                                  return window.location.replace(
+                                if (
+                                  window.sessionStorage.getItem("home-page")
+                                ) {
+                                  var homePage = decodeURIComponent(
                                     window.sessionStorage.getItem("home-page")
                                   );
-                                else if (window.history.length > 1)
+                                  return window.location.replace(homePage);
+                                } else if (window.history.length > 1)
                                   return window.history.back();
                               })();
                             }
