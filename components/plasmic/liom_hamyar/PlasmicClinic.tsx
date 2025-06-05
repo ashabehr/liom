@@ -926,7 +926,7 @@ function PlasmicClinic__RenderFunc(props: {
                           }
                           return window.sessionStorage.setItem(
                             "home-page",
-                            $state.paramsObject.home - page
+                            $state.paramsObject["home-page"]
                           );
                         })();
                       }
