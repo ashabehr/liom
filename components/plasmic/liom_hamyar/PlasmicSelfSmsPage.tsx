@@ -2378,9 +2378,17 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                   customFunction: async () => {
                                     return (() => {
                                       $state.needToRefresh = true;
-                                      return window.FlutterChannel.postMessage(
-                                        "#directDialog-self_hamyar_sms"
-                                      );
+                                      if (
+                                        $state.paramsObject.status !=
+                                        "pregnancy"
+                                      )
+                                        return window.FlutterChannel.postMessage(
+                                          "#directDialog-self_hamyar_sms"
+                                        );
+                                      else
+                                        return window.FlutterChannel.postMessage(
+                                          "#directDialog-pregnancy_sub_self_sms"
+                                        );
                                     })();
                                   }
                                 };

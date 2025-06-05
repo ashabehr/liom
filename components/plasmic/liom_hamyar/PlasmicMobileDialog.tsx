@@ -160,7 +160,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
         {
           type: "pregnancy_danger_sub",
           token:
-            "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYmFiYXJrYXRBcHAiLCJpZCI6MjEzNTN9.M8r0SsjS1pvDgQzyvstwPCNgrgZkGFsXTE2vZy-StqlcViL3Km9aM1iCRcAhHq6l5QXmF1rZiAiG4lUqTES2Lw",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU3MWNlZWYxLWM3YTgtNDllMC1hZjc4LWE4YzdiZjk4ZTdiMyIsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNzQ4NDMyMTc5fQ.ZkLMiVv4juiTMBADoLVhPGOZm92gNsWEXOFs-drE_zE",
           desc: "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0648 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631\u060c \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062a\u0647\u06cc\u0647 \u0646\u0645\u0627\u06cc\u06cc\u062f."
         },
         Object.fromEntries(
@@ -991,39 +991,6 @@ function PlasmicMobileDialog__RenderFunc(props: {
                       $steps["invokeGlobalAction2"] = await $steps[
                         "invokeGlobalAction2"
                       ];
-                    }
-
-                    $steps["updateLoading"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["loading"]
-                            },
-                            operation: 0
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateLoading"] != null &&
-                      typeof $steps["updateLoading"] === "object" &&
-                      typeof $steps["updateLoading"].then === "function"
-                    ) {
-                      $steps["updateLoading"] = await $steps["updateLoading"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -1988,6 +1955,53 @@ function PlasmicMobileDialog__RenderFunc(props: {
                         $steps["updateDialogOpendialog"] = await $steps[
                           "updateDialogOpendialog"
                         ];
+                      }
+
+                      $steps["invokeGlobalAction3"] =
+                        $steps.invokeGlobalAction?.data?.success === true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  undefined,
+                                  "\u0634\u0645\u0627\u0631\u0647 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u062b\u0628\u062a \u0634\u062f."
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction3"] != null &&
+                        typeof $steps["invokeGlobalAction3"] === "object" &&
+                        typeof $steps["invokeGlobalAction3"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction3"] = await $steps[
+                          "invokeGlobalAction3"
+                        ];
+                      }
+
+                      $steps["runCode"] =
+                        $steps.invokeGlobalAction?.data?.success === true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return window.location.reload();
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {

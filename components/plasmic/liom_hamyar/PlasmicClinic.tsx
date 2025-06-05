@@ -904,7 +904,7 @@ function PlasmicClinic__RenderFunc(props: {
                               }?${urlParams.toString()}`;
                               window.history.pushState({}, "", newUrl);
                             }
-                            return ($state.status = "false");
+                            $state.status = "false";
                           } else if (status == "true") {
                             var chatstart = JSON.parse(
                               localStorage.getItem("chatstart")
@@ -913,17 +913,21 @@ function PlasmicClinic__RenderFunc(props: {
                               chatstart.listID == 7 ||
                               chatstart.listID == 6
                             ) {
-                              return window.open(
+                              window.open(
                                 `/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}&gender=male`,
                                 "_self"
                               );
                             } else {
-                              return window.open(
+                              window.open(
                                 `/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}&gender=female`,
                                 "_self"
                               );
                             }
                           }
+                          return window.sessionStorage.setItem(
+                            "home-page",
+                            $state.paramsObject.home - page
+                          );
                         })();
                       }
                     };
@@ -7562,7 +7566,11 @@ function PlasmicClinic__RenderFunc(props: {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                if (window.history.length > 1)
+                                if (window.sessionStorage.getItem("home-page"))
+                                  return window.open(
+                                    window.sessionStorage.getItem("home-page")
+                                  );
+                                else if (window.history.length > 1)
                                   return window.history.back();
                               })();
                             }
