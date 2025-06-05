@@ -7567,7 +7567,7 @@ function PlasmicClinic__RenderFunc(props: {
                             customFunction: async () => {
                               return (() => {
                                 if (window.sessionStorage.getItem("home-page"))
-                                  return window.open(
+                                  return window.location.replace(
                                     window.sessionStorage.getItem("home-page")
                                   );
                                 else if (window.history.length > 1)
