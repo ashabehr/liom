@@ -150,6 +150,7 @@
   max-width: 100%;
   width: 20px;
   height: 20px;
+  color: #000000;
   flex-shrink: 0;
 }
 .text__m6ZXy {
@@ -175,7 +176,7 @@
   object-fit: cover;
   max-width: 100%;
   width: 20px;
-  height: 20px;
+  height: 1em;
   color: var(--token-ODBUExjR6VEF);
   flex-shrink: 0;
 }

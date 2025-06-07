@@ -73,7 +73,7 @@ import IconSvgIcon from "./icons/PlasmicIcon__IconSvg"; // plasmic-import: -XPXy
 import CafeBazaarLogoSvgIcon from "./icons/PlasmicIcon__CafeBazaarLogoSvg"; // plasmic-import: W_GsLw69YDUh/icon
 import BrokenLink2SvgrepoComSvgIcon from "./icons/PlasmicIcon__BrokenLink2SvgrepoComSvg"; // plasmic-import: blnLvMghko66/icon
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
-import Icon41Icon from "./icons/PlasmicIcon__Icon41"; // plasmic-import: r6SoVxvsvftJ/icon
+import Icon237Icon from "./icons/PlasmicIcon__Icon237"; // plasmic-import: 1YA41ClYhYY4/icon
 import Icon43Icon from "./icons/PlasmicIcon__Icon43"; // plasmic-import: zSmDwH85ZJh8/icon
 
 createPlasmicElementProxy;
@@ -799,7 +799,7 @@ function PlasmicLike__RenderFunc(props: {
       >
         <PlasmicIcon__
           PlasmicIconType={
-            hasVariant($state, "islike", "islike") ? Icon43Icon : Icon41Icon
+            hasVariant($state, "islike", "islike") ? Icon43Icon : Icon237Icon
           }
           className={classNames(projectcss.all, sty.svg__vsNmA, {
             [sty.svgislike__vsNmAm2Mbn]: hasVariant($state, "islike", "islike")

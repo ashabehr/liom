@@ -163,7 +163,6 @@
   }
 }
 .freeBox__ewqKl {
-  display: flex;
   flex-direction: row;
   position: relative;
   align-items: center;
@@ -173,6 +172,7 @@
   max-width: 100%;
   padding-bottom: 1px;
   flex-shrink: 0;
+  display: none;
   border-radius: 50%;
   border: 1px solid var(--token-rGxK1TpZE_rW);
 }
@@ -194,6 +194,7 @@
   width: 20px;
   height: 20px;
   flex-shrink: 0;
+  display: none;
 }
 .freeBox__bb4BN {
   display: flex;

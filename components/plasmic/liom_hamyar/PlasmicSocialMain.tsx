@@ -63,14 +63,10 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
-import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
-import { DialogTitle } from "@plasmicpkgs/radix-ui";
-import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import RadioGrop2 from "../../RadioGrop2"; // plasmic-import: S5lwX58ZN_a3/component
+import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import RepeatPost from "../../RepeatPost"; // plasmic-import: O_6FIPF6rDTy/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
@@ -88,10 +84,9 @@ import Icon222Icon from "./icons/PlasmicIcon__Icon222"; // plasmic-import: 9jhVY
 import Icon223Icon from "./icons/PlasmicIcon__Icon223"; // plasmic-import: 0ISCKAZ1VQ2U/icon
 import Icon179Icon from "./icons/PlasmicIcon__Icon179"; // plasmic-import: qlPLXoOalpf5/icon
 import Icon218Icon from "./icons/PlasmicIcon__Icon218"; // plasmic-import: efUVKFegcS0a/icon
-import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
-import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
-import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
+import Icon239Icon from "./icons/PlasmicIcon__Icon239"; // plasmic-import: aS735Bmxge2K/icon
+
+import __lib_copyToClipboard from "copy-to-clipboard";
 
 createPlasmicElementProxy;
 
@@ -108,12 +103,12 @@ export type PlasmicSocialMain__OverridesType = {
   root?: Flex__<"div">;
   mainHeader?: Flex__<typeof MainHeader>;
   section?: Flex__<"section">;
-  dialog?: Flex__<typeof Dialog>;
   story?: Flex__<"div">;
   getInfo?: Flex__<typeof ApiRequest>;
   groupBy?: Flex__<"div">;
   radioGrop2?: Flex__<typeof RadioGrop2>;
   postPostesInfo?: Flex__<typeof ApiRequest>;
+  dialog?: Flex__<typeof Dialog>;
   repeatPost?: Flex__<typeof RepeatPost>;
   timer?: Flex__<typeof Timer>;
   sideEffect?: Flex__<typeof SideEffect>;
@@ -121,7 +116,9 @@ export type PlasmicSocialMain__OverridesType = {
 
 export interface DefaultSocialMainProps {}
 
-const $$ = {};
+const $$ = {
+  copyToClipboard: __lib_copyToClipboard
+};
 
 function useNextRouter() {
   try {
@@ -296,58 +293,7 @@ function PlasmicSocialMain__RenderFunc(props: {
         path: "postsData",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.postPostesInfo.data;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return {};
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "apiRequest.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "input.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
-      },
-      {
-        path: "button.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button2.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -506,31 +452,8 @@ function PlasmicSocialMain__RenderFunc(props: {
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
             className={classNames(projectcss.all, sty.section)}
-          >
-            <Dialog
-              data-plasmic-name={"dialog"}
-              data-plasmic-override={overrides.dialog}
-              className={classNames("__wab_instance", sty.dialog)}
-              onOpendialogChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "dialog",
-                  "opendialog"
-                ]).apply(null, eventArgs);
+          />
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              opendialog={generateStateValueProp($state, [
-                "dialog",
-                "opendialog"
-              ])}
-            />
-          </section>
           <div className={classNames(projectcss.all, sty.freeBox___2BKpP)}>
             <Stack__
               as={"div"}
@@ -1217,7 +1140,86 @@ function PlasmicSocialMain__RenderFunc(props: {
                         sty.freeBox__izPou,
                         "shimmer"
                       )}
-                    />
+                    >
+                      <Dialog
+                        data-plasmic-name={"dialog"}
+                        data-plasmic-override={overrides.dialog}
+                        className={classNames("__wab_instance", sty.dialog)}
+                        onOpendialogChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "dialog",
+                            "opendialog"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        opendialog={generateStateValueProp($state, [
+                          "dialog",
+                          "opendialog"
+                        ])}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__ivSiu
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__ypRxW
+                            )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return $$.copyToClipboard();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
+                          >
+                            <Icon239Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__ylYOd
+                              )}
+                              role={"img"}
+                            />
+
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__x11Xu
+                              )}
+                            >
+                              {"\u06a9\u067e\u06cc \u0644\u06cc\u0646\u06a9"}
+                            </div>
+                          </div>
+                        </div>
+                      </Dialog>
+                    </div>
                   </Stack__>
                 </div>
                 <div
@@ -1466,6 +1468,44 @@ function PlasmicSocialMain__RenderFunc(props: {
                 "postPostesInfo",
                 "data"
               ]).apply(null, eventArgs);
+
+              (async data => {
+                const $steps = {};
+
+                $steps["updatePostsData"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["postsData"]
+                        },
+                        operation: 0,
+                        value: $state.postPostesInfo.data
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updatePostsData"] != null &&
+                  typeof $steps["updatePostsData"] === "object" &&
+                  typeof $steps["updatePostsData"].then === "function"
+                ) {
+                  $steps["updatePostsData"] = await $steps["updatePostsData"];
+                }
+              }).apply(null, eventArgs);
             }}
             url={"https://n8n.staas.ir/webhook/rest/social"}
           >
@@ -1614,40 +1654,42 @@ function PlasmicSocialMain__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
 
-              $steps["invokeGlobalAction"] = $state.isloding
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        "POST",
-                        "https://n8n.staas.ir/webhook/rest/social",
-                        undefined,
-                        (() => {
-                          try {
-                            return {
-                              data: {
-                                type: $state.choiceType,
-                                text: $state.faType
-                              },
-                              scrollId: $state.scrolid,
-                              authorization: $state.token
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
+              $steps["invokeGlobalAction"] =
+                $state.isloding || !$state.hasmore
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/rest/social",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                data: {
+                                  type: $state.choiceType,
+                                  text: $state.faType
+                                },
+                                scrollId: $state.scrolid,
+                                authorization: $state.token
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
               if (
                 $steps["invokeGlobalAction"] != null &&
                 typeof $steps["invokeGlobalAction"] === "object" &&
@@ -1667,7 +1709,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                           return (() => {
                             $state.isloding = false;
                             const newData =
-                              $steps.invokeGlobalAction.data.result;
+                              $steps.invokeGlobalAction.data.result.list;
                             if (!newData || newData.length == 0) {
                               return ($state.hasmore = false);
                             } else {
@@ -1688,27 +1730,6 @@ function PlasmicSocialMain__RenderFunc(props: {
                 typeof $steps["runCode2"].then === "function"
               ) {
                 $steps["runCode2"] = await $steps["runCode2"];
-              }
-
-              $steps["invokeGlobalAction2"] =
-                !$state.isloding && !$state.hasmore
-                  ? (() => {
-                      const actionArgs = {
-                        args: ["info", ``, undefined, undefined, "bottom"]
-                      };
-                      return $globalActions[
-                        "plasmic-antd5-config-provider.showNotification"
-                      ]?.apply(null, [...actionArgs.args]);
-                    })()
-                  : undefined;
-              if (
-                $steps["invokeGlobalAction2"] != null &&
-                typeof $steps["invokeGlobalAction2"] === "object" &&
-                typeof $steps["invokeGlobalAction2"].then === "function"
-              ) {
-                $steps["invokeGlobalAction2"] = await $steps[
-                  "invokeGlobalAction2"
-                ];
               }
             }}
             runWhileEditing={false}
@@ -1876,6 +1897,57 @@ function PlasmicSocialMain__RenderFunc(props: {
               }
             }}
           />
+
+          {(() => {
+            try {
+              return $state.isloding;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox___3EzuP)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__q1T5
+                )}
+              >
+                {
+                  "\u062f\u0631 \u062d\u0627\u0644 \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc ..."
+                }
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__qoE3W,
+                  "line-container"
+                )}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__xQgzH,
+                    "line line-1"
+                  )}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__prW2,
+                    "line line-2"
+                  )}
+                />
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -1887,24 +1959,24 @@ const PlasmicDescendants = {
     "root",
     "mainHeader",
     "section",
-    "dialog",
     "story",
     "getInfo",
     "groupBy",
     "radioGrop2",
     "postPostesInfo",
+    "dialog",
     "repeatPost",
     "timer",
     "sideEffect"
   ],
   mainHeader: ["mainHeader"],
-  section: ["section", "dialog"],
-  dialog: ["dialog"],
+  section: ["section"],
   story: ["story"],
   getInfo: ["getInfo", "groupBy", "radioGrop2"],
   groupBy: ["groupBy", "radioGrop2"],
   radioGrop2: ["radioGrop2"],
-  postPostesInfo: ["postPostesInfo", "repeatPost"],
+  postPostesInfo: ["postPostesInfo", "dialog", "repeatPost"],
+  dialog: ["dialog"],
   repeatPost: ["repeatPost"],
   timer: ["timer"],
   sideEffect: ["sideEffect"]
@@ -1916,12 +1988,12 @@ type NodeDefaultElementType = {
   root: "div";
   mainHeader: typeof MainHeader;
   section: "section";
-  dialog: typeof Dialog;
   story: "div";
   getInfo: typeof ApiRequest;
   groupBy: "div";
   radioGrop2: typeof RadioGrop2;
   postPostesInfo: typeof ApiRequest;
+  dialog: typeof Dialog;
   repeatPost: typeof RepeatPost;
   timer: typeof Timer;
   sideEffect: typeof SideEffect;
@@ -2014,12 +2086,12 @@ export const PlasmicSocialMain = Object.assign(
     // Helper components rendering sub-elements
     mainHeader: makeNodeComponent("mainHeader"),
     section: makeNodeComponent("section"),
-    dialog: makeNodeComponent("dialog"),
     story: makeNodeComponent("story"),
     getInfo: makeNodeComponent("getInfo"),
     groupBy: makeNodeComponent("groupBy"),
     radioGrop2: makeNodeComponent("radioGrop2"),
     postPostesInfo: makeNodeComponent("postPostesInfo"),
+    dialog: makeNodeComponent("dialog"),
     repeatPost: makeNodeComponent("repeatPost"),
     timer: makeNodeComponent("timer"),
     sideEffect: makeNodeComponent("sideEffect"),
