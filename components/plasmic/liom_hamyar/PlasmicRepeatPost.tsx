@@ -211,7 +211,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
               alt={""}
               className={classNames(sty.img)}
               displayHeight={"48px"}
-              displayMaxHeight={"none"}
+              displayMaxHeight={"100%"}
               displayMaxWidth={"100%"}
               displayMinHeight={"0"}
               displayMinWidth={"0"}
@@ -506,35 +506,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
         />
 
-        <div
-          className={classNames(projectcss.all, sty.freeBox__nZx9G)}
-          onClick={async event => {
-            const $steps = {};
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        var comment = document.getElementById("focus_comment");
-                        return comment.firstElementChild.focus();
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
-          }}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__nZx9G)}>
           <Icon236Icon
             className={classNames(projectcss.all, sty.svg__klwFu)}
             role={"img"}

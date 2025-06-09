@@ -1257,8 +1257,11 @@ function PlasmicPost2__RenderFunc(props: {
                 })()}
                 postType={(() => {
                   try {
-                    return $state.getInfo.data.result.details.post.actionText ==
-                      "باز کردن تصویر"
+                    return $state.getInfo.data.result.details.attachments[0]
+                      .type
+                      ? $state.getInfo.data.result.details.attachments[0].type
+                      : $state.getInfo.data.result.details.post.actionText ==
+                        "باز کردن تصویر"
                       ? "image"
                       : $state.getInfo.data.result.details.post.actionText ==
                         "باز کردن صدا"

@@ -226,7 +226,7 @@ function PlasmicSocialMain__RenderFunc(props: {
         path: "choiceType",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "new_liom"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "all"
       },
       {
         path: "postPostesInfo.data",

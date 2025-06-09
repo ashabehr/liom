@@ -1935,197 +1935,273 @@ function PlasmicSelfCare__RenderFunc(props: {
               />
             </Stack__>
           ) : null}
-          <section className={classNames(projectcss.all, sty.section__pS3H)}>
-            <div className={classNames(projectcss.all, sty.freeBox__yzrXx)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___4NQg7)}
-              >
-                {(() => {
-                  try {
-                    return window.sessionStorage.getItem("hamyar") != "true";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__awpI3)}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return window.open("/calendar", "_self");
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+          {(() => {
+            try {
+              return (
+                new URLSearchParams(window.location.search).get("footer") !=
+                "false"
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <section className={classNames(projectcss.all, sty.section__pS3H)}>
+              <div className={classNames(projectcss.all, sty.freeBox__yzrXx)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox___4NQg7)}
+                >
+                  {(() => {
+                    try {
+                      return window.sessionStorage.getItem("hamyar") != "true";
+                    } catch (e) {
                       if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        $steps["runCode"] = await $steps["runCode"];
+                        return true;
                       }
-                    }}
-                  >
-                    <Icon138Icon
-                      className={classNames(projectcss.all, sty.svg__l5B5)}
-                      role={"img"}
-                    />
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__awpI3)}
+                      onClick={async event => {
+                        const $steps = {};
 
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return window.open("/calendar", "_self");
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                    >
+                      <Icon138Icon
+                        className={classNames(projectcss.all, sty.svg__l5B5)}
+                        role={"img"}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___2QvJp
+                        )}
+                      >
+                        {
+                          "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                        }
+                      </div>
+                    </div>
+                  ) : null}
+                  {(() => {
+                    try {
+                      return window.sessionStorage.getItem("hamyar") == "true";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
                     <div
                       className={classNames(
                         projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___2QvJp
+                        sty.freeBox___7PIRr
                       )}
-                    >
-                      {
-                        "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
-                      }
-                    </div>
-                  </div>
-                ) : null}
-                {(() => {
-                  try {
-                    return window.sessionStorage.getItem("hamyar") == "true";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___7PIRr)}
-                    onClick={async event => {
-                      const $steps = {};
+                      onClick={async event => {
+                        const $steps = {};
 
-                      $steps["goToHamyar"] = true
-                        ? (() => {
-                            const actionArgs = { destination: `/hamyar` };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                        $steps["goToHamyar"] = true
+                          ? (() => {
+                              const actionArgs = { destination: `/hamyar` };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToHamyar"] != null &&
+                          typeof $steps["goToHamyar"] === "object" &&
+                          typeof $steps["goToHamyar"].then === "function"
+                        ) {
+                          $steps["goToHamyar"] = await $steps["goToHamyar"];
+                        }
+                      }}
+                    >
+                      <Icon6Icon
+                        className={classNames(projectcss.all, sty.svg__naXZ)}
+                        role={"img"}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___2Dg7
+                        )}
+                      >
+                        {"\u0647\u0645\u06cc\u0627\u0631"}
+                      </div>
+                    </div>
+                  ) : null}
+                  {(() => {
+                    try {
+                      return window.sessionStorage.getItem("hamyar") == "true";
+                    } catch (e) {
                       if (
-                        $steps["goToHamyar"] != null &&
-                        typeof $steps["goToHamyar"] === "object" &&
-                        typeof $steps["goToHamyar"].then === "function"
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        $steps["goToHamyar"] = await $steps["goToHamyar"];
+                        return true;
                       }
-                    }}
-                  >
-                    <Icon6Icon
-                      className={classNames(projectcss.all, sty.svg__naXZ)}
-                      role={"img"}
-                    />
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___2Dg7
-                      )}
-                    >
-                      {"\u0647\u0645\u06cc\u0627\u0631"}
-                    </div>
-                  </div>
-                ) : null}
-                {(() => {
-                  try {
-                    return window.sessionStorage.getItem("hamyar") == "true";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
+                      throw e;
                     }
-                    throw e;
-                  }
-                })() ? (
+                  })() ? (
+                    <div
+                      aria-pressed={undefined}
+                      className={classNames(projectcss.all, sty.freeBox__iz7Oe)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return `https://tools.liom.app/chat-bot/?hamyar=true`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+                      }}
+                    >
+                      <PlasmicIcon__
+                        PlasmicIconType={
+                          hasVariant(globalVariants, "screen", "mobile")
+                            ? Icon234Icon
+                            : Icon234Icon
+                        }
+                        className={classNames(projectcss.all, sty.svg___4K4S)}
+                        role={"img"}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rEcHr
+                        )}
+                      >
+                        {
+                          "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"
+                        }
+                      </div>
+                    </div>
+                  ) : null}
                   <div
                     aria-pressed={undefined}
-                    className={classNames(projectcss.all, sty.freeBox__iz7Oe)}
+                    className={classNames(projectcss.all, sty.freeBox__gg4Ka)}
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["goToPage"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return `https://tools.liom.app/chat-bot/?hamyar=true`;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
+                      $steps["goToBioritm2"] =
+                        localStorage.getItem("token") != "undefined" ||
+                        localStorage.getItem("token") != null
+                          ? (() => {
+                              const actionArgs = { destination: `/Biorhythm` };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
                                 }
-                              })()
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
                       if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
+                        $steps["goToBioritm2"] != null &&
+                        typeof $steps["goToBioritm2"] === "object" &&
+                        typeof $steps["goToBioritm2"].then === "function"
                       ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
+                        $steps["goToBioritm2"] = await $steps["goToBioritm2"];
                       }
                     }}
                   >
                     <PlasmicIcon__
                       PlasmicIconType={
                         hasVariant(globalVariants, "screen", "mobile")
-                          ? Icon234Icon
-                          : Icon234Icon
+                          ? Icon212Icon
+                          : Icon212Icon
                       }
-                      className={classNames(projectcss.all, sty.svg___4K4S)}
+                      className={classNames(projectcss.all, sty.svg__h0MCv)}
                       role={"img"}
                     />
 
@@ -2133,74 +2209,18 @@ function PlasmicSelfCare__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__rEcHr
+                        sty.text__tRec
                       )}
                     >
                       {
-                        "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"
+                        "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f"
                       }
                     </div>
                   </div>
-                ) : null}
-                <div
-                  aria-pressed={undefined}
-                  className={classNames(projectcss.all, sty.freeBox__gg4Ka)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToBioritm2"] =
-                      localStorage.getItem("token") != "undefined" ||
-                      localStorage.getItem("token") != null
-                        ? (() => {
-                            const actionArgs = { destination: `/Biorhythm` };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                    if (
-                      $steps["goToBioritm2"] != null &&
-                      typeof $steps["goToBioritm2"] === "object" &&
-                      typeof $steps["goToBioritm2"].then === "function"
-                    ) {
-                      $steps["goToBioritm2"] = await $steps["goToBioritm2"];
-                    }
-                  }}
-                >
-                  <PlasmicIcon__
-                    PlasmicIconType={
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? Icon212Icon
-                        : Icon212Icon
-                    }
-                    className={classNames(projectcss.all, sty.svg__h0MCv)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__tRec
-                    )}
-                  >
-                    {
-                      "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f"
-                    }
-                  </div>
-                </div>
-              </Stack__>
-            </div>
-          </section>
+                </Stack__>
+              </div>
+            </section>
+          ) : null}
           <Load
             data-plasmic-name={"load"}
             data-plasmic-override={overrides.load}
