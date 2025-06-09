@@ -1377,6 +1377,13 @@ function PlasmicLogin2__RenderFunc(props: {
             }
           />
 
+          <Embed
+            className={classNames("__wab_instance", sty.embedHtml__onsO)}
+            code={
+              '<button onclick="askNotif()">\u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646</button>\r\n\r\n<script>\r\nfunction askNotif() {\r\n  if (!("Notification" in window)) {\r\n    alert("\u274c \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u0646\u0645\u06cc\u200c\u0634\u0648\u062f.");\r\n    return;\r\n  }\r\n\r\n  console.log("\ud83d\udce2 \u0648\u0636\u0639\u06cc\u062a \u0641\u0639\u0644\u06cc:", Notification.permission);\r\n\r\n  Notification.requestPermission().then((permission) => {\r\n    alert("\u0648\u0636\u0639\u06cc\u062a \u0645\u062c\u0648\u0632: " + permission);\r\n\r\n    if (permission === "granted") {\r\n      new Notification("\ud83d\udfe2 \u062a\u0633\u062a \u0646\u0648\u062a\u06cc\u0641: \u0634\u0645\u0627 \u0645\u062c\u0648\u0632 \u062f\u0627\u062f\u0647\u200c\u0627\u06cc\u062f!");\r\n    }\r\n  });\r\n}\r\n</script>\r\n'
+            }
+          />
+
           <Reveal
             className={classNames("__wab_instance", sty.reveal___3Vvk, {
               [sty.revealloginPage_emailCode___3VvkVJ04U]: hasVariant(
