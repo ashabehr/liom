@@ -20386,13 +20386,3 @@
     transform-style: preserve-3d;
   }
 }
-.embedHtml__lq0IY:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-  color: var(--token-R_Rsn0nP9oIv);
-  left: 0;
-  top: auto;
-  z-index: 1;
-  position: fixed;
-  bottom: 0;
-}
