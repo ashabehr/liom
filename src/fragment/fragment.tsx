@@ -142,7 +142,7 @@ export const Fragment = ({
               sendMessage("تست ADHD", link,inWebViow);
               break;
             }
-            case "#clinic": {
+            case "#clinic": case "#counseling" : {
               const generateRandomString = (length: number) => {
                 const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
                 return Array.from({ length }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
@@ -245,7 +245,7 @@ export const Fragment = ({
               window.FlutterChannel.postMessage(action);}
               break;
             }
-            case "#hamyarInfo": {
+            case "#hamyarInfo": case "#carePartner":  {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
@@ -259,6 +259,30 @@ export const Fragment = ({
               }
               break;
             }
+            case "#rediucePain": case "#reports" :  case "#irregularTest" :  case "#pcos" : {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                window.FlutterChannel.postMessage(action);}
+              else {    
+                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
+                      duration: 3000,
+                      position: "top-right",
+                    });
+                  // let link = `/hamyar-add/?token=${token}`;
+                  // link=`/web-viow?link=${encodeURIComponent(link)}`;
+                  // window.open(link, "_self");
+              }
+              break;
+            }
+            case "#events": {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                window.FlutterChannel.postMessage(action);}
+              else {    
+                  let link = `https://apps.liom.app/status-day/`;
+                  window.open(link, "_self");
+              }
+              break;
+            }
+              
             case "#sismony": {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
@@ -287,7 +311,7 @@ export const Fragment = ({
               }
               break;
             }
-            case "#breastCancer": {
+            case "#breastCancer" : case "#breastCancerDatePage": {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage("#breastCancerDatePage");}
               else {    
