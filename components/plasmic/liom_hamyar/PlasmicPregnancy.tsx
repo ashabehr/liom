@@ -1926,52 +1926,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["updateIsTimer"] = await $steps["updateIsTimer"];
                   }
 
-                  $steps["getUser"] = false
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return fetch(
-                              "https://n8n.staas.ir/webhook/status/?userId=" +
-                                $state.userId,
-                              {
-                                method: "GET",
-                                headers: {
-                                  "Content-Type": "application/json",
-                                  Authorization:
-                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                }
-                              }
-                            )
-                              .then(response => response.json())
-                              .then(data => {
-                                if (
-                                  typeof data?.[0]?.dueDate == "undefined" ||
-                                  data?.[0]?.dueDate == null
-                                ) {
-                                  $state.isNoData = true;
-                                } else {
-                                  $state.isNoData = false;
-                                  $state.user = data;
-                                  $state.loading = false;
-                                }
-                                console.log("user get");
-                              })
-                              .catch(error => console.error("Error3:", error));
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["getUser"] != null &&
-                    typeof $steps["getUser"] === "object" &&
-                    typeof $steps["getUser"].then === "function"
-                  ) {
-                    $steps["getUser"] = await $steps["getUser"];
-                  }
-
                   $steps["showToast"] =
                     $state.isNoData && false
                       ? (() => {
@@ -9876,7 +9830,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                             customFunction: async () => {
                                               return (() => {
                                                 $state.loadingAdvice = true;
-                                                $state.getAdvice[0].text = "";
                                                 return fetch(
                                                   "https://n8n.staas.ir/webhook/getAdvice-v2/?weekNumber=" +
                                                     $state.selectedWeek,
@@ -9890,6 +9843,29 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     $state.getAdvice = data;
                                                     $state.loadingAdvice =
                                                       false;
+                                                    fetch(
+                                                      "https://n8n.staas.ir/webhook/getAdvice-v3/?weekNumber=" +
+                                                        $state.selectedWeek +
+                                                        "&token=" +
+                                                        $state.token,
+                                                      { method: "GET" }
+                                                    )
+                                                      .then(response =>
+                                                        response.json()
+                                                      )
+                                                      .then(data2 => {
+                                                        console.log(
+                                                          "adviceee new"
+                                                        );
+                                                        $state.getAdvice2 =
+                                                          data2;
+                                                      })
+                                                      .catch(error =>
+                                                        console.error(
+                                                          "Error2:",
+                                                          error
+                                                        )
+                                                      );
                                                   })
                                                   .catch(error =>
                                                     console.error(

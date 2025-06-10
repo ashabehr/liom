@@ -123,6 +123,7 @@ import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS
 import Icon202Icon from "./icons/PlasmicIcon__Icon202"; // plasmic-import: lD6NOJADOGZx/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
+import Icon242Icon from "./icons/PlasmicIcon__Icon242"; // plasmic-import: rdGNS3m3zs7z/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -204,6 +205,8 @@ export type PlasmicHamyar__OverridesType = {
   button13?: Flex__<typeof Button>;
   button16?: Flex__<typeof Button>;
   mobileDialog?: Flex__<typeof MobileDialog>;
+  telegram?: Flex__<typeof Dialog>;
+  button18?: Flex__<typeof Button>;
 };
 
 export interface DefaultHamyarProps {}
@@ -1590,6 +1593,18 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "telegram.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button18.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -19643,6 +19658,103 @@ function PlasmicHamyar__RenderFunc(props: {
               }
             })()}
           />
+
+          <Dialog
+            data-plasmic-name={"telegram"}
+            data-plasmic-override={overrides.telegram}
+            className={classNames("__wab_instance", sty.telegram)}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "telegram",
+                "opendialog"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            opendialog={generateStateValueProp($state, [
+              "telegram",
+              "opendialog"
+            ])}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(
+                projectcss.all,
+                sty.freeBox___5LrUb,
+                ".fixed-object"
+              )}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__sg0Fm
+                )}
+              >
+                {
+                  "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627 \u0648 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627: \u062d\u0627\u0644\u0627 \u062f\u0631 \u062a\u0644\u06af\u0631\u0627\u0645"
+                }
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___4HjKs
+                )}
+              >
+                {
+                  "\u0627\u0632 \u0627\u06cc\u0646 \u0628\u0647 \u0628\u0639\u062f\u060c \u062a\u0645\u0627\u0645 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627 \u0648 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc \u0645\u0647\u0645 \u0631\u0648 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc\u062f \u0645\u0633\u062a\u0642\u06cc\u0645 \u062a\u0648\u06cc \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645 \u0645\u0627 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f. \u062f\u06cc\u06af\u0647 \u0646\u06af\u0631\u0627\u0646 \u0627\u0632 \u062f\u0633\u062a \u062f\u0627\u062f\u0646 \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627 \u0646\u0628\u0627\u0634\u06cc\u062f \u0648 \u0647\u0645\u06cc\u0634\u0647 \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0628\u0647 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u062a\u0648\u0646 \u062f\u0633\u062a\u0631\u0633\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u062f.\n\u0647\u0645\u06cc\u0646 \u0627\u0644\u0627\u0646 \u0631\u0628\u0627\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646!"
+                }
+              </div>
+            </Stack__>
+            <Button
+              data-plasmic-name={"button18"}
+              data-plasmic-override={overrides.button18}
+              className={classNames("__wab_instance", sty.button18)}
+              color={generateStateValueProp($state, ["button18", "color"])}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button18", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              showStartIcon={true}
+              startIcon={
+                <Icon242Icon
+                  className={classNames(projectcss.all, sty.svg__rWfgL)}
+                  role={"img"}
+                />
+              }
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__sYtc0
+                )}
+              >
+                {
+                  "\u0648\u0631\u0648\u062f \u0628\u0647 \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
+                }
+              </div>
+            </Button>
+          </Dialog>
         </div>
       </div>
     </React.Fragment>
@@ -19707,7 +19819,9 @@ const PlasmicDescendants = {
     "dialog3",
     "button13",
     "button16",
-    "mobileDialog"
+    "mobileDialog",
+    "telegram",
+    "button18"
   ],
   sideEffect: ["sideEffect"],
   main: [
@@ -19820,7 +19934,9 @@ const PlasmicDescendants = {
   dialog3: ["dialog3", "button13"],
   button13: ["button13"],
   button16: ["button16"],
-  mobileDialog: ["mobileDialog"]
+  mobileDialog: ["mobileDialog"],
+  telegram: ["telegram", "button18"],
+  button18: ["button18"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -19883,6 +19999,8 @@ type NodeDefaultElementType = {
   button13: typeof Button;
   button16: typeof Button;
   mobileDialog: typeof MobileDialog;
+  telegram: typeof Dialog;
+  button18: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -20026,6 +20144,8 @@ export const PlasmicHamyar = Object.assign(
     button13: makeNodeComponent("button13"),
     button16: makeNodeComponent("button16"),
     mobileDialog: makeNodeComponent("mobileDialog"),
+    telegram: makeNodeComponent("telegram"),
+    button18: makeNodeComponent("button18"),
 
     // Metadata about props expected for PlasmicHamyar
     internalVariantProps: PlasmicHamyar__VariantProps,
