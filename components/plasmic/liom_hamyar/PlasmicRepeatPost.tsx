@@ -398,15 +398,19 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
           postType={(() => {
             try {
-              return $props.postData.post.actionText == "باز کردن تصویر"
-                ? "image"
-                : $props.postData.post.actionText == "باز کردن صدا"
-                ? "voise"
-                : $props.postData.post.actionText == "نمایش ویدیو"
-                ? "video"
-                : $props.postData.post.actionText == "دانلود لوگو"
-                ? "file"
-                : "jastText";
+              return (() => {
+                const typeMap = {
+                  "بازکردن تصویر": "image",
+                  "بازکردن صدا": "voice",
+                  "نمایش ویدیو": "video",
+                  "دانلود لوگو": "file"
+                };
+                const type =
+                  $state.getInfo.data.result.details.attachments[0]?.type ||
+                  typeMap[$state.getInfo.data.result.details.post.actionText] ||
+                  "justText";
+                return type;
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
