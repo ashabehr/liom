@@ -277,6 +277,33 @@ function PlasmicMain__RenderFunc(props: {
                   return;
                 }
               }}
+              token={(() => {
+                try {
+                  return localStorage.getItem("token");
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              userinfo={(() => {
+                try {
+                  return JSON.parse(window.localStorage.getItem("userinfo"))
+                    .user;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return {};
+                  }
+                  throw e;
+                }
+              })()}
             >
               <Stack__
                 as={"div"}
@@ -292,12 +319,12 @@ function PlasmicMain__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["updateDrawerOpen"] = true
+                    $steps["updateMainHeaderDopen"] = true
                       ? (() => {
                           const actionArgs = {
                             variable: {
                               objRoot: $state,
-                              variablePath: ["drawer", "open"]
+                              variablePath: ["mainHeader", "dopen"]
                             },
                             operation: 0,
                             value: true
@@ -319,12 +346,12 @@ function PlasmicMain__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      $steps["updateDrawerOpen"] != null &&
-                      typeof $steps["updateDrawerOpen"] === "object" &&
-                      typeof $steps["updateDrawerOpen"].then === "function"
+                      $steps["updateMainHeaderDopen"] != null &&
+                      typeof $steps["updateMainHeaderDopen"] === "object" &&
+                      typeof $steps["updateMainHeaderDopen"].then === "function"
                     ) {
-                      $steps["updateDrawerOpen"] = await $steps[
-                        "updateDrawerOpen"
+                      $steps["updateMainHeaderDopen"] = await $steps[
+                        "updateMainHeaderDopen"
                       ];
                     }
                   }}
