@@ -1264,7 +1264,7 @@ function PlasmicPost2__RenderFunc(props: {
                         "باز کردن تصویر"
                       ? "image"
                       : $state.getInfo.data.result.details.post.actionText ==
-                        "باز کردن صدا"
+                        "بازکردن صدا"
                       ? "voise"
                       : $state.getInfo.data.result.details.post.actionText ==
                         "نمایش ویدیو"
