@@ -1065,7 +1065,9 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "getAdvice2",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          { title: "fdsfds", text: "ffsd" }
+        ]
       },
       {
         path: "button3[].color",
@@ -9843,29 +9845,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     $state.getAdvice = data;
                                                     $state.loadingAdvice =
                                                       false;
-                                                    fetch(
-                                                      "https://n8n.staas.ir/webhook/getAdvice-v3/?weekNumber=" +
-                                                        $state.selectedWeek +
-                                                        "&token=" +
-                                                        $state.token,
-                                                      { method: "GET" }
-                                                    )
-                                                      .then(response =>
-                                                        response.json()
-                                                      )
-                                                      .then(data2 => {
-                                                        console.log(
-                                                          "adviceee new"
-                                                        );
-                                                        $state.getAdvice2 =
-                                                          data2;
-                                                      })
-                                                      .catch(error =>
-                                                        console.error(
-                                                          "Error2:",
-                                                          error
-                                                        )
-                                                      );
                                                   })
                                                   .catch(error =>
                                                     console.error(

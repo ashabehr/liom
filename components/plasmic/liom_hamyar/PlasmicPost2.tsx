@@ -1213,19 +1213,7 @@ function PlasmicPost2__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                failName={(() => {
-                  try {
-                    return undefined;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
+                failName={``}
                 image2={(() => {
                   try {
                     return $state.getInfo.data.result.details.attachments[0]
@@ -1261,7 +1249,7 @@ function PlasmicPost2__RenderFunc(props: {
                       .type
                       ? $state.getInfo.data.result.details.attachments[0].type
                       : $state.getInfo.data.result.details.post.actionText ==
-                        "باز کردن تصویر"
+                        "بازکردن تصویر"
                       ? "image"
                       : $state.getInfo.data.result.details.post.actionText ==
                         "بازکردن صدا"

@@ -352,6 +352,19 @@ function PlasmicRepeatPost__RenderFunc(props: {
         <Post2ForSocialMain
           data-plasmic-name={"post2ForSocialMain"}
           data-plasmic-override={overrides.post2ForSocialMain}
+          audioLinkInPost={(() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
           className={classNames("__wab_instance", sty.post2ForSocialMain)}
           data={(() => {
             try {
