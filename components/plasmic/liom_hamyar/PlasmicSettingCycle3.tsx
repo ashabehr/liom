@@ -907,29 +907,26 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToCalendar"] = true
+                    $steps["runCode"] = true
                       ? (() => {
-                          const actionArgs = { destination: `/calendar` };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return window.history.back();
+                              })();
                             }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["goToCalendar"] != null &&
-                      typeof $steps["goToCalendar"] === "object" &&
-                      typeof $steps["goToCalendar"].then === "function"
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
                     ) {
-                      $steps["goToCalendar"] = await $steps["goToCalendar"];
+                      $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
                 >
@@ -2629,30 +2626,27 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["goToCalendar"] =
+                      $steps["runCode"] =
                         $steps.add?.data?.success || $steps.edit?.data?.success
                           ? (() => {
-                              const actionArgs = { destination: `/calendar` };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return window.history.back();
+                                  })();
                                 }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
                       if (
-                        $steps["goToCalendar"] != null &&
-                        typeof $steps["goToCalendar"] === "object" &&
-                        typeof $steps["goToCalendar"].then === "function"
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
                       ) {
-                        $steps["goToCalendar"] = await $steps["goToCalendar"];
+                        $steps["runCode"] = await $steps["runCode"];
                       }
 
                       $steps["updateLoadbtn2"] = true

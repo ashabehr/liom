@@ -73,10 +73,10 @@ import sty from "./PlasmicPost2ForSocialMain.module.css"; // plasmic-import: eaF
 createPlasmicElementProxy;
 
 export type PlasmicPost2ForSocialMain__VariantMembers = {
-  postType: "image" | "voise" | "video" | "jastText" | "file";
+  postType: "image" | "audio" | "video" | "jastText" | "file";
 };
 export type PlasmicPost2ForSocialMain__VariantsArgs = {
-  postType?: SingleChoiceArg<"image" | "voise" | "video" | "jastText" | "file">;
+  postType?: SingleChoiceArg<"image" | "audio" | "video" | "jastText" | "file">;
 };
 type VariantPropType = keyof PlasmicPost2ForSocialMain__VariantsArgs;
 export const PlasmicPost2ForSocialMain__VariantProps =
@@ -129,7 +129,7 @@ export interface DefaultPost2ForSocialMainProps {
   textForBottum?: string;
   linkForAction?: string;
   title?: string;
-  postType?: SingleChoiceArg<"image" | "voise" | "video" | "jastText" | "file">;
+  postType?: SingleChoiceArg<"image" | "audio" | "video" | "jastText" | "file">;
   className?: string;
 }
 
@@ -223,6 +223,7 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
         {
+          [sty.rootpostType_audio]: hasVariant($state, "postType", "audio"),
           [sty.rootpostType_file]: hasVariant($state, "postType", "file"),
           [sty.rootpostType_image]: hasVariant($state, "postType", "image"),
           [sty.rootpostType_jastText]: hasVariant(
@@ -230,8 +231,7 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
             "postType",
             "jastText"
           ),
-          [sty.rootpostType_video]: hasVariant($state, "postType", "video"),
-          [sty.rootpostType_voise]: hasVariant($state, "postType", "voise")
+          [sty.rootpostType_video]: hasVariant($state, "postType", "video")
         }
       )}
     >
@@ -239,15 +239,15 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
         as={"div"}
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__o3Uw0, {
+          [sty.freeBoxpostType_audio__o3Uw03CTnO]: hasVariant(
+            $state,
+            "postType",
+            "audio"
+          ),
           [sty.freeBoxpostType_file__o3Uw0ElNv0]: hasVariant(
             $state,
             "postType",
             "file"
-          ),
-          [sty.freeBoxpostType_voise__o3Uw03CTnO]: hasVariant(
-            $state,
-            "postType",
-            "voise"
           )
         })}
       >
@@ -333,15 +333,15 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
               projectcss.__wab_text,
               sty.text__zh6Sl,
               {
+                [sty.textpostType_audio__zh6Sl3CTnO]: hasVariant(
+                  $state,
+                  "postType",
+                  "audio"
+                ),
                 [sty.textpostType_image__zh6SlMadp0]: hasVariant(
                   $state,
                   "postType",
                   "image"
-                ),
-                [sty.textpostType_voise__zh6Sl3CTnO]: hasVariant(
-                  $state,
-                  "postType",
-                  "voise"
                 )
               }
             )}
@@ -367,6 +367,7 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
           data-plasmic-name={"image3"}
           data-plasmic-override={overrides.image3}
           className={classNames(projectcss.all, sty.image3, {
+            [sty.image3postType_audio]: hasVariant($state, "postType", "audio"),
             [sty.image3postType_file]: hasVariant($state, "postType", "file"),
             [sty.image3postType_image]: hasVariant($state, "postType", "image"),
             [sty.image3postType_jastText]: hasVariant(
@@ -374,8 +375,7 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
               "postType",
               "jastText"
             ),
-            [sty.image3postType_video]: hasVariant($state, "postType", "video"),
-            [sty.image3postType_voise]: hasVariant($state, "postType", "voise")
+            [sty.image3postType_video]: hasVariant($state, "postType", "video")
           })}
         >
           <PlasmicImg__
@@ -383,9 +383,9 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
             data-plasmic-override={overrides.img}
             alt={""}
             className={classNames(sty.img, {
+              [sty.imgpostType_audio]: hasVariant($state, "postType", "audio"),
               [sty.imgpostType_image]: hasVariant($state, "postType", "image"),
-              [sty.imgpostType_video]: hasVariant($state, "postType", "video"),
-              [sty.imgpostType_voise]: hasVariant($state, "postType", "voise")
+              [sty.imgpostType_video]: hasVariant($state, "postType", "video")
             })}
             displayHeight={"auto"}
             displayMaxHeight={"50%"}
@@ -411,6 +411,11 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
         </div>
         <div
           className={classNames(projectcss.all, sty.freeBox__t44Wv, {
+            [sty.freeBoxpostType_audio__t44Wv3CTnO]: hasVariant(
+              $state,
+              "postType",
+              "audio"
+            ),
             [sty.freeBoxpostType_file__t44WvelNv0]: hasVariant(
               $state,
               "postType",
@@ -425,11 +430,6 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
               $state,
               "postType",
               "jastText"
-            ),
-            [sty.freeBoxpostType_voise__t44Wv3CTnO]: hasVariant(
-              $state,
-              "postType",
-              "voise"
             )
           })}
         >
@@ -437,6 +437,11 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
             data-plasmic-name={"htmlVideo"}
             data-plasmic-override={overrides.htmlVideo}
             className={classNames("__wab_instance", sty.htmlVideo, {
+              [sty.htmlVideopostType_audio]: hasVariant(
+                $state,
+                "postType",
+                "audio"
+              ),
               [sty.htmlVideopostType_file]: hasVariant(
                 $state,
                 "postType",
@@ -446,11 +451,6 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
                 $state,
                 "postType",
                 "image"
-              ),
-              [sty.htmlVideopostType_voise]: hasVariant(
-                $state,
-                "postType",
-                "voise"
               )
             })}
             controls={true}
@@ -471,6 +471,11 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
         </div>
         <div
           className={classNames(projectcss.all, sty.freeBox___2Trdr, {
+            [sty.freeBoxpostType_audio___2Trdr3CTnO]: hasVariant(
+              $state,
+              "postType",
+              "audio"
+            ),
             [sty.freeBoxpostType_file___2TrdRelNv0]: hasVariant(
               $state,
               "postType",
@@ -490,11 +495,6 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
               $state,
               "postType",
               "video"
-            ),
-            [sty.freeBoxpostType_voise___2Trdr3CTnO]: hasVariant(
-              $state,
-              "postType",
-              "voise"
             )
           })}
         >
@@ -515,21 +515,26 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
               }
             })()}
             className={classNames("__wab_instance", sty.audioPlayer, {
+              [sty.audioPlayerpostType_audio]: hasVariant(
+                $state,
+                "postType",
+                "audio"
+              ),
               [sty.audioPlayerpostType_image]: hasVariant(
                 $state,
                 "postType",
                 "image"
-              ),
-              [sty.audioPlayerpostType_voise]: hasVariant(
-                $state,
-                "postType",
-                "voise"
               )
             })}
           />
         </div>
         <div
           className={classNames(projectcss.all, sty.freeBox___1JXt, {
+            [sty.freeBoxpostType_audio___1JXt3CTnO]: hasVariant(
+              $state,
+              "postType",
+              "audio"
+            ),
             [sty.freeBoxpostType_file___1JXtelNv0]: hasVariant(
               $state,
               "postType",
@@ -544,11 +549,6 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
               $state,
               "postType",
               "jastText"
-            ),
-            [sty.freeBoxpostType_voise___1JXt3CTnO]: hasVariant(
-              $state,
-              "postType",
-              "voise"
             )
           })}
           onClick={async event => {
@@ -581,10 +581,10 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
               projectcss.__wab_text,
               sty.text__qUiyE,
               {
-                [sty.textpostType_voise__qUiyE3CTnO]: hasVariant(
+                [sty.textpostType_audio__qUiyE3CTnO]: hasVariant(
                   $state,
                   "postType",
-                  "voise"
+                  "audio"
                 )
               }
             )}

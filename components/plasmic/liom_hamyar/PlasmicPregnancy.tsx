@@ -1788,41 +1788,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["updateUserId"] = await $steps["updateUserId"];
                   }
 
-                  $steps["updateIsTimer"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["isTimer"]
-                          },
-                          operation: 4,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          const oldValue = $stateGet(objRoot, variablePath);
-                          $stateSet(objRoot, variablePath, !oldValue);
-                          return !oldValue;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateIsTimer"] != null &&
-                    typeof $steps["updateIsTimer"] === "object" &&
-                    typeof $steps["updateIsTimer"].then === "function"
-                  ) {
-                    $steps["updateIsTimer"] = await $steps["updateIsTimer"];
-                  }
-
                   $steps["getUser2"] = true
                     ? (() => {
                         const actionArgs = {
@@ -2019,6 +1984,41 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["updateRandomIndex"] = await $steps[
                       "updateRandomIndex"
                     ];
+                  }
+
+                  $steps["updateIsTimer"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["isTimer"]
+                          },
+                          operation: 4,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          const oldValue = $stateGet(objRoot, variablePath);
+                          $stateSet(objRoot, variablePath, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateIsTimer"] != null &&
+                    typeof $steps["updateIsTimer"] === "object" &&
+                    typeof $steps["updateIsTimer"].then === "function"
+                  ) {
+                    $steps["updateIsTimer"] = await $steps["updateIsTimer"];
                   }
                 }}
               />
@@ -18074,13 +18074,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 try {
                                                   return {
                                                     userId:
-                                                      $ctx.query.userId
-                                                        ?.length > 0
-                                                        ? $ctx.query.userId.slice(
-                                                            4,
-                                                            $ctx.query.userId
-                                                              .length - 4
-                                                          )
+                                                      $state.userId.length > 0
+                                                        ? $state.userId
                                                         : "guest",
                                                     pageName: "weekByWeekPage",
                                                     action: "clickOpen-danger",
@@ -19938,13 +19933,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 try {
                                                   return {
                                                     userId:
-                                                      $ctx.query.userId
-                                                        ?.length > 0
-                                                        ? $ctx.query.userId.slice(
-                                                            4,
-                                                            $ctx.query.userId
-                                                              .length - 4
-                                                          )
+                                                      $state.userId.length > 0
+                                                        ? $state.userId
                                                         : "guest",
                                                     pageName: "weekByWeekPage",
                                                     action:
@@ -21572,13 +21562,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 try {
                                                   return {
                                                     userId:
-                                                      $ctx.query.userId
-                                                        ?.length > 0
-                                                        ? $ctx.query.userId.slice(
-                                                            4,
-                                                            $ctx.query.userId
-                                                              .length - 4
-                                                          )
+                                                      $state.userId.length > 0
+                                                        ? $state.userId
                                                         : "guest",
                                                     pageName: "weekByWeekPage",
                                                     action:
@@ -23006,13 +22991,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                               try {
                                                 return {
                                                   userId:
-                                                    $ctx.query.userId?.length >
-                                                    0
-                                                      ? $ctx.query.userId.slice(
-                                                          4,
-                                                          $ctx.query.userId
-                                                            .length - 4
-                                                        )
+                                                    $state.userId.length > 0
+                                                      ? $state.userId
                                                       : "guest",
                                                   pageName: "weekByWeekPage",
                                                   action:
@@ -24046,13 +24026,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                               try {
                                                 return {
                                                   userId:
-                                                    $ctx.query.userId?.length >
-                                                    0
-                                                      ? $ctx.query.userId.slice(
-                                                          4,
-                                                          $ctx.query.userId
-                                                            .length - 4
-                                                        )
+                                                    $state.userId.length > 0
+                                                      ? $state.userId
                                                       : "guest",
                                                   pageName: "weekByWeekPage",
                                                   action:
@@ -25494,13 +25469,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                               try {
                                                 return {
                                                   userId:
-                                                    $ctx.query.userId?.length >
-                                                    0
-                                                      ? $ctx.query.userId.slice(
-                                                          4,
-                                                          $ctx.query.userId
-                                                            .length - 4
-                                                        )
+                                                    $state.userId.length > 0
+                                                      ? $state.userId
                                                       : "guest",
                                                   pageName: "weekByWeekPage",
                                                   action:

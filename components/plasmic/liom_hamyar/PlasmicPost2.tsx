@@ -1245,20 +1245,23 @@ function PlasmicPost2__RenderFunc(props: {
                 })()}
                 postType={(() => {
                   try {
-                    return (() => {
-                      typeMap = {
-                        "بازکردن تصویر": "image",
-                        "بازکردن صدا": "voice",
-                        "نمایش ویدیو": "video",
-                        "دانلود لوگو": "file",
-                        "": "justText"
-                      };
-                      const type =
-                        $props.postData.attachments[0]?.type ||
-                        typeMap[$props.postData.post.actionText] ||
-                        "justText";
-                      return type;
-                    })();
+                    return (
+                      $state.getInfo?.data?.result?.details?.attachments?.[0]
+                        ?.type ||
+                      ($state.getInfo.data.result.details.post.actionText ===
+                      "بازکردن تصویر"
+                        ? "image"
+                        : $state.getInfo.data.result.details.post.actionText ===
+                          "بازکردن صدا"
+                        ? "voice"
+                        : $state.getInfo.data.result.details.post.actionText ===
+                          "نمایش ویدیو"
+                        ? "video"
+                        : $state.getInfo.data.result.details.post.actionText ===
+                          "دانلود لوگو"
+                        ? "file"
+                        : "jastText")
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

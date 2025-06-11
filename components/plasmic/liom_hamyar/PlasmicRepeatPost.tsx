@@ -402,7 +402,18 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
           postType={(() => {
             try {
-              return undefined;
+              return (
+                $props.postData.attachments[0]?.type ||
+                ($props.postData.post.actionText === "بازکردن تصویر"
+                  ? "image"
+                  : $props.postData.post.actionText === "بازکردن صدا"
+                  ? "audio"
+                  : $props.postData.post.actionText === "نمایش ویدیو"
+                  ? "video"
+                  : $props.postData.post.actionText === "دانلود لوگو"
+                  ? "file"
+                  : "jastText")
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -523,7 +534,32 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
         />
 
-        <div className={classNames(projectcss.all, sty.freeBox__nZx9G)}>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__nZx9G)}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return `/post?post=${$props.postData.post.id}`;
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
+        >
           <Icon236Icon
             className={classNames(projectcss.all, sty.svg__klwFu)}
             role={"img"}

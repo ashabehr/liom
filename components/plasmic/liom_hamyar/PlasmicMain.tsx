@@ -90,6 +90,9 @@ export type PlasmicMain__OverridesType = {
   root?: Flex__<"div">;
   mainPage?: Flex__<typeof MainPage>;
   mainHeader?: Flex__<typeof MainHeader>;
+  freeBox?: Flex__<"div">;
+  svg?: Flex__<"svg">;
+  text?: Flex__<"div">;
   footerMain?: Flex__<typeof FooterMain>;
 };
 
@@ -162,7 +165,19 @@ function PlasmicMain__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          `calendar${window.sessionStorage.getItem("footer") || "calendar"}`
+          (() => {
+            try {
+              return window.sessionStorage.getItem("footer") || "calendar";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "page",
@@ -171,7 +186,10 @@ function PlasmicMain__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return [
+                { name: "calendar", namefa: "چرخه قاعدگی" },
+                { name: "self", namefa: "مراقبت از خود" }
+              ];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -259,7 +277,89 @@ function PlasmicMain__RenderFunc(props: {
                   return;
                 }
               }}
-            />
+            >
+              <Stack__
+                as={"div"}
+                data-plasmic-name={"freeBox"}
+                data-plasmic-override={overrides.freeBox}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox)}
+              >
+                <Icon185Icon
+                  data-plasmic-name={"svg"}
+                  data-plasmic-override={overrides.svg}
+                  className={classNames(projectcss.all, sty.svg)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDrawerOpen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["drawer", "open"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDrawerOpen"] != null &&
+                      typeof $steps["updateDrawerOpen"] === "object" &&
+                      typeof $steps["updateDrawerOpen"].then === "function"
+                    ) {
+                      $steps["updateDrawerOpen"] = await $steps[
+                        "updateDrawerOpen"
+                      ];
+                    }
+                  }}
+                  role={"img"}
+                />
+
+                <div
+                  data-plasmic-name={"text"}
+                  data-plasmic-override={overrides.text}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.page.find(
+                          item => item.name == $state.footerMain.type
+                        ).namefa;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </Stack__>
+            </MainHeader>
           </section>
           <section className={classNames(projectcss.all, sty.section__vtIx7)}>
             {(() => {
@@ -301,9 +401,22 @@ function PlasmicMain__RenderFunc(props: {
                   {
                     name: "footerMain.type",
                     initFunc: ({ $props, $state, $queries }) =>
-                      `calendar${
-                        window.sessionStorage.getItem("footer") || "calendar"
-                      }`
+                      (() => {
+                        try {
+                          return (
+                            window.sessionStorage.getItem("footer") ||
+                            "calendar"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
                   }
                 ],
                 []
@@ -324,9 +437,20 @@ function PlasmicMain__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "mainPage", "mainHeader", "footerMain"],
+  root: [
+    "root",
+    "mainPage",
+    "mainHeader",
+    "freeBox",
+    "svg",
+    "text",
+    "footerMain"
+  ],
   mainPage: ["mainPage"],
-  mainHeader: ["mainHeader"],
+  mainHeader: ["mainHeader", "freeBox", "svg", "text"],
+  freeBox: ["freeBox", "svg", "text"],
+  svg: ["svg"],
+  text: ["text"],
   footerMain: ["footerMain"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -336,6 +460,9 @@ type NodeDefaultElementType = {
   root: "div";
   mainPage: typeof MainPage;
   mainHeader: typeof MainHeader;
+  freeBox: "div";
+  svg: "svg";
+  text: "div";
   footerMain: typeof FooterMain;
 };
 
@@ -426,6 +553,9 @@ export const PlasmicMain = Object.assign(
     // Helper components rendering sub-elements
     mainPage: makeNodeComponent("mainPage"),
     mainHeader: makeNodeComponent("mainHeader"),
+    freeBox: makeNodeComponent("freeBox"),
+    svg: makeNodeComponent("svg"),
+    text: makeNodeComponent("text"),
     footerMain: makeNodeComponent("footerMain"),
 
     // Metadata about props expected for PlasmicMain

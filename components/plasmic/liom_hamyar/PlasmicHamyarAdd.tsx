@@ -502,6 +502,12 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "shopType",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -2995,7 +3001,19 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                 throw e;
               }
             })()}
-            type={"husband_sms"}
+            type={(() => {
+              try {
+                return $state.shopType;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           />
 
           {(() => {
@@ -3908,6 +3926,53 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                                       ];
                                     }
 
+                                    $steps["updateShopType"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["shopType"]
+                                            },
+                                            operation: 0,
+                                            value:
+                                              currentItem.rel.relation ==
+                                              "mother"
+                                                ? "mother_sms"
+                                                : "husband_sms"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateShopType"] != null &&
+                                      typeof $steps["updateShopType"] ===
+                                        "object" &&
+                                      typeof $steps["updateShopType"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updateShopType"] = await $steps[
+                                        "updateShopType"
+                                      ];
+                                    }
+
                                     $steps["updateDirectDialog2Open"] =
                                       $steps.invokeGlobalAction?.data?.error
                                         ?.code == 1220046
@@ -4388,6 +4453,44 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       $steps["invokeGlobalAction"] = await $steps[
                         "invokeGlobalAction"
                       ];
+                    }
+
+                    $steps["updateShopType"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["shopType"]
+                            },
+                            operation: 0,
+                            value:
+                              $state.hamyarList.data.result[0].rel.relation ==
+                              "mother"
+                                ? "mother_sms"
+                                : "husband_sms"
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateShopType"] != null &&
+                      typeof $steps["updateShopType"] === "object" &&
+                      typeof $steps["updateShopType"].then === "function"
+                    ) {
+                      $steps["updateShopType"] = await $steps["updateShopType"];
                     }
 
                     $steps["runCode"] = true
