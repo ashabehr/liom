@@ -124,6 +124,7 @@ import Icon202Icon from "./icons/PlasmicIcon__Icon202"; // plasmic-import: lD6NO
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
 import Icon242Icon from "./icons/PlasmicIcon__Icon242"; // plasmic-import: rdGNS3m3zs7z/icon
+import Icon241Icon from "./icons/PlasmicIcon__Icon241"; // plasmic-import: NVGHEtw_eA_-/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -1598,7 +1599,22 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "telegram.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                return !window.localStorage.getItem("telegram");
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "button18.color",
@@ -19659,72 +19675,14 @@ function PlasmicHamyar__RenderFunc(props: {
             })()}
           />
 
-          <Dialog
-            data-plasmic-name={"telegram"}
-            data-plasmic-override={overrides.telegram}
-            className={classNames("__wab_instance", sty.telegram)}
-            onOpendialogChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "telegram",
-                "opendialog"
-              ]).apply(null, eventArgs);
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            opendialog={generateStateValueProp($state, [
-              "telegram",
-              "opendialog"
-            ])}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(
-                projectcss.all,
-                sty.freeBox___5LrUb,
-                ".fixed-object"
-              )}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__sg0Fm
-                )}
-              >
-                {
-                  "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627 \u0648 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627: \u062d\u0627\u0644\u0627 \u062f\u0631 \u062a\u0644\u06af\u0631\u0627\u0645"
-                }
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___4HjKs
-                )}
-              >
-                {
-                  "\u0627\u0632 \u0627\u06cc\u0646 \u0628\u0647 \u0628\u0639\u062f\u060c \u062a\u0645\u0627\u0645 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627 \u0648 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc \u0645\u0647\u0645 \u0631\u0648 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc\u062f \u0645\u0633\u062a\u0642\u06cc\u0645 \u062a\u0648\u06cc \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645 \u0645\u0627 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f. \u062f\u06cc\u06af\u0647 \u0646\u06af\u0631\u0627\u0646 \u0627\u0632 \u062f\u0633\u062a \u062f\u0627\u062f\u0646 \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627 \u0646\u0628\u0627\u0634\u06cc\u062f \u0648 \u0647\u0645\u06cc\u0634\u0647 \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0628\u0647 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u062a\u0648\u0646 \u062f\u0633\u062a\u0631\u0633\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u062f.\n\u0647\u0645\u06cc\u0646 \u0627\u0644\u0627\u0646 \u0631\u0628\u0627\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646!"
-                }
-              </div>
-            </Stack__>
-            <Button
-              data-plasmic-name={"button18"}
-              data-plasmic-override={overrides.button18}
-              className={classNames("__wab_instance", sty.button18)}
-              color={generateStateValueProp($state, ["button18", "color"])}
-              onColorChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button18", "color"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
+          {(() => {
+            const child$Props = {
+              className: classNames("__wab_instance", sty.telegram),
+              onOpendialogChange: async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "telegram",
+                  "opendialog"
+                ]).apply(null, eventArgs);
 
                 if (
                   eventArgs.length > 1 &&
@@ -19733,28 +19691,290 @@ function PlasmicHamyar__RenderFunc(props: {
                 ) {
                   return;
                 }
-              }}
-              showStartIcon={true}
-              startIcon={
-                <Icon242Icon
-                  className={classNames(projectcss.all, sty.svg__rWfgL)}
-                  role={"img"}
-                />
-              }
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__sYtc0
-                )}
-              >
+
+                (async val => {
+                  const $steps = {};
+
+                  $steps["runCode"] =
+                    $state.telegram.opendialog == false
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return window.localStorage.setItem(
+                                  "telegram",
+                                  true
+                                );
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }).apply(null, eventArgs);
+              },
+              opendialog: generateStateValueProp($state, [
+                "telegram",
+                "opendialog"
+              ])
+            };
+
+            initializePlasmicStates(
+              $state,
+              [
                 {
-                  "\u0648\u0631\u0648\u062f \u0628\u0647 \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
+                  name: "telegram.opendialog",
+                  initFunc: ({ $props, $state, $queries }) =>
+                    (() => {
+                      try {
+                        return (() => {
+                          return !window.localStorage.getItem("telegram");
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()
                 }
-              </div>
-            </Button>
-          </Dialog>
+              ],
+              []
+            );
+            return (
+              <Dialog
+                data-plasmic-name={"telegram"}
+                data-plasmic-override={overrides.telegram}
+                {...child$Props}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox___5LrUb,
+                    "fixed-object"
+                  )}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__sg0Fm
+                    )}
+                  >
+                    {
+                      "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627 \u0648 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627: \u062d\u0627\u0644\u0627 \u062f\u0631 \u062a\u0644\u06af\u0631\u0627\u0645"
+                    }
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___4HjKs
+                    )}
+                  >
+                    {
+                      "\u0627\u0632 \u0627\u06cc\u0646 \u0628\u0647 \u0628\u0639\u062f\u060c \u062a\u0645\u0627\u0645 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627 \u0648 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc \u0645\u0647\u0645 \u0631\u0648 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc\u062f \u0645\u0633\u062a\u0642\u06cc\u0645 \u062a\u0648\u06cc \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645 \u0645\u0627 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f. \u062f\u06cc\u06af\u0647 \u0646\u06af\u0631\u0627\u0646 \u0627\u0632 \u062f\u0633\u062a \u062f\u0627\u062f\u0646 \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627 \u0646\u0628\u0627\u0634\u06cc\u062f \u0648 \u0639\u0644\u0627\u0648\u0647 \u0628\u0631 \u067e\u06cc\u0627\u0645\u200c\u0647\u0627\u06cc \u0642\u0628\u0644\u06cc\u060c \u0641\u06cc\u0644\u0645\u200c\u0647\u0627 \u0648 \u062a\u0635\u0627\u0648\u06cc\u0631 \u0622\u0645\u0648\u0632\u0634\u06cc \u0646\u06cc\u0632 \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0627\u0631\u0633\u0627\u0644 \u062e\u0648\u0627\u0647\u0646\u062f \u0634\u062f.\n\u0647\u0645\u06cc\u0646 \u0627\u0644\u0627\u0646 \u0631\u0628\u0627\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646!"
+                    }
+                  </div>
+                </Stack__>
+                <Button
+                  data-plasmic-name={"button18"}
+                  data-plasmic-override={overrides.button18}
+                  className={classNames("__wab_instance", sty.button18)}
+                  color={generateStateValueProp($state, ["button18", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                window.open(
+                                  "https://t.me/liomApp_bot",
+                                  "_blank"
+                                );
+                                return window.localStorage.setItem(
+                                  "telegram",
+                                  true
+                                );
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["updateTelegramOpendialog"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["telegram", "opendialog"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateTelegramOpendialog"] != null &&
+                      typeof $steps["updateTelegramOpendialog"] === "object" &&
+                      typeof $steps["updateTelegramOpendialog"].then ===
+                        "function"
+                    ) {
+                      $steps["updateTelegramOpendialog"] = await $steps[
+                        "updateTelegramOpendialog"
+                      ];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button18", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  showStartIcon={true}
+                  startIcon={
+                    <Icon242Icon
+                      className={classNames(projectcss.all, sty.svg__rWfgL)}
+                      role={"img"}
+                    />
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__sYtc0
+                    )}
+                  >
+                    {
+                      "\u0648\u0631\u0648\u062f \u0628\u0647 \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
+                    }
+                  </div>
+                </Button>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__gmpcN)}
+                  style={(() => {
+                    try {
+                      return (() => {
+                        const element =
+                          window.document.querySelector(".fixed-object");
+                        return { top: element?.offsetTop || 20 };
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                />
+
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__xvk)}
+                  style={
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? (() => {
+                          try {
+                            return (() => {
+                              const element =
+                                window.document.querySelector(".fixed-object");
+                              const absoluteTop =
+                                element.getBoundingClientRect().top +
+                                window.scrollY;
+                              return { top: absoluteTop - 50 || "" };
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : (() => {
+                          try {
+                            return (() => {
+                              const element =
+                                window.document.querySelector(".fixed-object");
+                              const absoluteTop =
+                                element.getBoundingClientRect().top +
+                                window.scrollY;
+                              return { top: absoluteTop - 50 || "" };
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                  }
+                >
+                  <Icon241Icon
+                    className={classNames(projectcss.all, sty.svg__gjnF2)}
+                    role={"img"}
+                  />
+                </div>
+              </Dialog>
+            );
+          })()}
         </div>
       </div>
     </React.Fragment>
