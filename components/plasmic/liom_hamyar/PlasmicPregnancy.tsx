@@ -1187,9 +1187,10 @@ function PlasmicPregnancy__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (() => {
-                return Math.floor(Math.random() * $state.playList.length);
-              })();
+              return (
+                //  Math.floor(Math.random() * $state.playList.length);
+                2
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||

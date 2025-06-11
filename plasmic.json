@@ -2091,6 +2091,59 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/login-2"
+        },
+        {
+          "id": "j_hR0f0gqi6e",
+          "name": "Main",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMain.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/main.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMain.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/main"
+        },
+        {
+          "id": "g_La9K58nhrs",
+          "name": "Calendar2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCalendar2.tsx",
+          "importSpec": {
+            "modulePath": "Calendar2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCalendar2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "q5NYbKztjYXR",
+          "name": "SelfCare2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSelfCare2.tsx",
+          "importSpec": {
+            "modulePath": "SelfCare2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSelfCare2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "ev8_tr4YKTDz",
+          "name": "FooterMain",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicFooterMain.tsx",
+          "importSpec": {
+            "modulePath": "FooterMain.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicFooterMain.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
