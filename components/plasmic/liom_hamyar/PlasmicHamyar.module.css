@@ -8033,7 +8033,7 @@
     width: auto;
   }
 }
-.svg__gjnF2 {
+.img__sDzKv {
   object-fit: cover;
   max-width: 100%;
   width: 80px;
@@ -8041,4 +8041,7 @@
   flex-shrink: 0;
   border-radius: 100%;
   border: 6px solid var(--token-R_Rsn0nP9oIv);
+}
+.img__sDzKv > picture > img {
+  object-fit: cover;
 }

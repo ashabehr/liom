@@ -124,7 +124,6 @@ import Icon202Icon from "./icons/PlasmicIcon__Icon202"; // plasmic-import: lD6NO
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
 import Icon242Icon from "./icons/PlasmicIcon__Icon242"; // plasmic-import: rdGNS3m3zs7z/icon
-import Icon241Icon from "./icons/PlasmicIcon__Icon241"; // plasmic-import: NVGHEtw_eA_-/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -19967,9 +19966,22 @@ function PlasmicHamyar__RenderFunc(props: {
                         })()
                   }
                 >
-                  <Icon241Icon
-                    className={classNames(projectcss.all, sty.svg__gjnF2)}
-                    role={"img"}
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__sDzKv)}
+                    displayHeight={"80px"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"80px"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image98.png",
+                      fullWidth: 1170,
+                      fullHeight: 1170,
+                      aspectRatio: undefined
+                    }}
                   />
                 </div>
               </Dialog>
