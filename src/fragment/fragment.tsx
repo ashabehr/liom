@@ -249,13 +249,9 @@ export const Fragment = ({
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
-                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
-                      duration: 3000,
-                      position: "top-right",
-                    });
-                  // let link = `/hamyar-add/?token=${token}`;
-                  // link=`/web-viow?link=${encodeURIComponent(link)}`;
-                  // window.open(link, "_self");
+                  let link = `/hamyar-add/?token=${token}`;
+                  link=`/web-viow?link=${encodeURIComponent(link)}`;
+                  window.open(link, "_self");
               }
               break;
             }
