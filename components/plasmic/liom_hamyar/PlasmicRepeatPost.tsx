@@ -406,8 +406,8 @@ function PlasmicRepeatPost__RenderFunc(props: {
                   "دانلود لوگو": "file"
                 };
                 const type =
-                  $state.getInfo.data.result.details.attachments[0]?.type ||
-                  typeMap[$state.getInfo.data.result.details.post.actionText] ||
+                  $props.postData.attachments[0]?.type ||
+                  typeMap[$props.postData.post.actionText] ||
                   "justText";
                 return type;
               })();

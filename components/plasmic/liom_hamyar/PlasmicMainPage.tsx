@@ -71,10 +71,14 @@ import sty from "./PlasmicMainPage.module.css"; // plasmic-import: mwylH28Efyne/
 
 createPlasmicElementProxy;
 
-export type PlasmicMainPage__VariantMembers = {};
-export type PlasmicMainPage__VariantsArgs = {};
+export type PlasmicMainPage__VariantMembers = {
+  page: "calendar" | "self";
+};
+export type PlasmicMainPage__VariantsArgs = {
+  page?: SingleChoiceArg<"calendar" | "self">;
+};
 type VariantPropType = keyof PlasmicMainPage__VariantsArgs;
-export const PlasmicMainPage__VariantProps = new Array<VariantPropType>();
+export const PlasmicMainPage__VariantProps = new Array<VariantPropType>("page");
 
 export type PlasmicMainPage__ArgsType = {};
 type ArgPropType = keyof PlasmicMainPage__ArgsType;
@@ -87,6 +91,7 @@ export type PlasmicMainPage__OverridesType = {
 };
 
 export interface DefaultMainPageProps {
+  page?: SingleChoiceArg<"calendar" | "self">;
   className?: string;
 }
 
@@ -131,6 +136,24 @@ function PlasmicMainPage__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "page",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.page
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -145,19 +168,26 @@ function PlasmicMainPage__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        { [sty.rootpage_calendar]: hasVariant($state, "page", "calendar") }
       )}
     >
       <Calendar2
         data-plasmic-name={"calendar2"}
         data-plasmic-override={overrides.calendar2}
-        className={classNames("__wab_instance", sty.calendar2)}
+        className={classNames("__wab_instance", sty.calendar2, {
+          [sty.calendar2page_calendar]: hasVariant($state, "page", "calendar"),
+          [sty.calendar2page_self]: hasVariant($state, "page", "self")
+        })}
       />
 
       <SelfCare2
         data-plasmic-name={"selfCare2"}
         data-plasmic-override={overrides.selfCare2}
-        className={classNames("__wab_instance", sty.selfCare2)}
+        className={classNames("__wab_instance", sty.selfCare2, {
+          [sty.selfCare2page_calendar]: hasVariant($state, "page", "calendar"),
+          [sty.selfCare2page_self]: hasVariant($state, "page", "self")
+        })}
       />
     </div>
   ) as React.ReactElement | null;

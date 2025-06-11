@@ -63,8 +63,8 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import MainPage from "../../MainPage"; // plasmic-import: mwylH28Efyne/component
-import FooterMain from "../../FooterMain"; // plasmic-import: ev8_tr4YKTDz/component
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
+import FooterMain from "../../FooterMain"; // plasmic-import: ev8_tr4YKTDz/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -89,9 +89,8 @@ export const PlasmicMain__ArgProps = new Array<ArgPropType>();
 export type PlasmicMain__OverridesType = {
   root?: Flex__<"div">;
   mainPage?: Flex__<typeof MainPage>;
-  footerMain?: Flex__<typeof FooterMain>;
-  section?: Flex__<"section">;
   mainHeader?: Flex__<typeof MainHeader>;
+  footerMain?: Flex__<typeof FooterMain>;
 };
 
 export interface DefaultMainProps {}
@@ -162,7 +161,13 @@ function PlasmicMain__RenderFunc(props: {
         path: "footerMain.type",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) => "calendar"
+      },
+      {
+        path: "page",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -205,34 +210,22 @@ function PlasmicMain__RenderFunc(props: {
             data-plasmic-name={"mainPage"}
             data-plasmic-override={overrides.mainPage}
             className={classNames("__wab_instance", sty.mainPage)}
-          />
-
-          <FooterMain
-            data-plasmic-name={"footerMain"}
-            data-plasmic-override={overrides.footerMain}
-            className={classNames("__wab_instance", sty.footerMain)}
-            onTypeChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["footerMain", "type"]).apply(
-                null,
-                eventArgs
-              );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
+            page={(() => {
+              try {
+                return $state.footerMain.type;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [];
+                }
+                throw e;
               }
-            }}
-            type={generateStateValueProp($state, ["footerMain", "type"])}
+            })()}
           />
 
-          <section
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
-          >
+          <section className={classNames(projectcss.all, sty.section__n8IXm)}>
             <MainHeader
               data-plasmic-name={"mainHeader"}
               data-plasmic-override={overrides.mainHeader}
@@ -254,6 +247,41 @@ function PlasmicMain__RenderFunc(props: {
               }}
             />
           </section>
+          <section className={classNames(projectcss.all, sty.section__vtIx7)}>
+            <FooterMain
+              data-plasmic-name={"footerMain"}
+              data-plasmic-override={overrides.footerMain}
+              className={classNames("__wab_instance", sty.footerMain)}
+              footer2={(() => {
+                try {
+                  return $state.footerMain.type;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "calendar";
+                  }
+                  throw e;
+                }
+              })()}
+              onTypeChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["footerMain", "type"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              type={generateStateValueProp($state, ["footerMain", "type"])}
+            />
+          </section>
         </div>
       </div>
     </React.Fragment>
@@ -261,11 +289,10 @@ function PlasmicMain__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "mainPage", "footerMain", "section", "mainHeader"],
+  root: ["root", "mainPage", "mainHeader", "footerMain"],
   mainPage: ["mainPage"],
-  footerMain: ["footerMain"],
-  section: ["section", "mainHeader"],
-  mainHeader: ["mainHeader"]
+  mainHeader: ["mainHeader"],
+  footerMain: ["footerMain"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -273,9 +300,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   mainPage: typeof MainPage;
-  footerMain: typeof FooterMain;
-  section: "section";
   mainHeader: typeof MainHeader;
+  footerMain: typeof FooterMain;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -364,9 +390,8 @@ export const PlasmicMain = Object.assign(
   {
     // Helper components rendering sub-elements
     mainPage: makeNodeComponent("mainPage"),
-    footerMain: makeNodeComponent("footerMain"),
-    section: makeNodeComponent("section"),
     mainHeader: makeNodeComponent("mainHeader"),
+    footerMain: makeNodeComponent("footerMain"),
 
     // Metadata about props expected for PlasmicMain
     internalVariantProps: PlasmicMain__VariantProps,

@@ -70,10 +70,10 @@ import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: n
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import InformationBox from "../../InformationBox"; // plasmic-import: CRVLEAaVQvJw/component
-import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
-import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
+import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import BuyComponenct from "../../BuyComponenct"; // plasmic-import: Ww7_RchUYDdQ/component
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
@@ -122,10 +122,10 @@ export type PlasmicPregnancy__OverridesType = {
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   progress?: Flex__<typeof AntdProgress>;
   informationBox?: Flex__<typeof InformationBox>;
-  tabWeek?: Flex__<typeof TabWeek>;
-  switchbest?: Flex__<typeof Switchbest>;
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
   button3?: Flex__<typeof Button>;
+  tabWeek?: Flex__<typeof TabWeek>;
+  switchbest?: Flex__<typeof Switchbest>;
   collapseDanger?: Flex__<typeof AntdSingleCollapse>;
   collapseMedicine2?: Flex__<typeof AntdSingleCollapse>;
   button2?: Flex__<typeof Button>;
@@ -8896,6 +8896,1910 @@ function PlasmicPregnancy__RenderFunc(props: {
                           })}
                         </Stack__>
                       </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__xywlO
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___58Ir2,
+                            {
+                              [sty.freeBoxdarkMod___58Ir2OQOo]: hasVariant(
+                                $state,
+                                "darkMod",
+                                "darkMod"
+                              )
+                            }
+                          )}
+                          id={"advice"}
+                        >
+                          {(() => {
+                            const child$Props = {
+                              bordered: true,
+                              className: classNames(
+                                "__wab_instance",
+                                sty.collapseAdvice
+                              ),
+                              defaultOpen: true,
+                              expandIcon: (
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return $state.collapseAdvice.open != true;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <PlasmicImg__
+                                      alt={""}
+                                      className={classNames(sty.img__kWrhQ)}
+                                      displayHeight={"auto"}
+                                      displayMaxHeight={"none"}
+                                      displayMaxWidth={"100%"}
+                                      displayMinHeight={"0"}
+                                      displayMinWidth={"0"}
+                                      displayWidth={"15px"}
+                                      loading={"lazy"}
+                                      src={{
+                                        src: "/plasmic/liom_hamyar/images/image32.svg",
+                                        fullWidth: 16,
+                                        fullHeight: 16,
+                                        aspectRatio: 1
+                                      }}
+                                    />
+                                  ) : null}
+                                  {(() => {
+                                    try {
+                                      return $state.collapseAdvice.open == true;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return true;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <PlasmicImg__
+                                      alt={""}
+                                      className={classNames(sty.img__cIk6V)}
+                                      displayHeight={"auto"}
+                                      displayMaxHeight={"none"}
+                                      displayMaxWidth={"100%"}
+                                      displayMinHeight={"0"}
+                                      displayMinWidth={"0"}
+                                      displayWidth={"25px"}
+                                      loading={"lazy"}
+                                      src={{
+                                        src: "/plasmic/liom_hamyar/images/image31.svg",
+                                        fullWidth: 16,
+                                        fullHeight: 16,
+                                        aspectRatio: 1
+                                      }}
+                                    />
+                                  ) : null}
+                                </React.Fragment>
+                              ),
+                              expandIconPosition: "end",
+                              ghost: true,
+                              label2: (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__m6S56
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__apNe,
+                                      {
+                                        [sty.textdarkMod__apNeoQOo]: hasVariant(
+                                          $state,
+                                          "darkMod",
+                                          "darkMod"
+                                        )
+                                      }
+                                    )}
+                                  >
+                                    {
+                                      "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650 \u062a\u0648"
+                                    }
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__jDh45
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return "هفته " + $state.weeksPregnant;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                </div>
+                              ),
+                              onChange: async (...eventArgs: any) => {
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "open",
+                                  ["collapseAdvice", "open"],
+                                  AntdSingleCollapse_Helpers
+                                ).apply(null, eventArgs);
+                              },
+                              open: generateStateValueProp($state, [
+                                "collapseAdvice",
+                                "open"
+                              ]),
+                              showArrow: true,
+                              size: "small"
+                            };
+                            initializeCodeComponentStates(
+                              $state,
+                              [
+                                {
+                                  name: "open",
+                                  plasmicStateName: "collapseAdvice.open"
+                                }
+                              ],
+                              [],
+                              AntdSingleCollapse_Helpers ?? {},
+                              child$Props
+                            );
+
+                            return (
+                              <AntdSingleCollapse
+                                data-plasmic-name={"collapseAdvice"}
+                                data-plasmic-override={overrides.collapseAdvice}
+                                {...child$Props}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__aqSel
+                                  )}
+                                >
+                                  {(() => {
+                                    try {
+                                      return $state.loadingAdvice;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <LottieWrapper
+                                      animationData={{
+                                        nm: "Loading Dots",
+                                        ddd: 0,
+                                        h: 50,
+                                        w: 100,
+                                        meta: {
+                                          g: "@lottiefiles/toolkit-js 0.33.2"
+                                        },
+                                        layers: [
+                                          {
+                                            ty: 4,
+                                            nm: "Dot4",
+                                            sr: 1,
+                                            st: 0,
+                                            op: 360,
+                                            ip: 0,
+                                            hd: false,
+                                            ddd: 0,
+                                            bm: 0,
+                                            hasMask: false,
+                                            ao: 0,
+                                            ks: {
+                                              a: {
+                                                a: 0,
+                                                k: [-284, 92, 0],
+                                                ix: 1
+                                              },
+                                              s: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 25
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [3.91, 3.47, 100],
+                                                    t: 39
+                                                  },
+                                                  {
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 55
+                                                  }
+                                                ],
+                                                ix: 6
+                                              },
+                                              sk: { a: 0, k: 0 },
+                                              p: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [59.48, 25, 0],
+                                                    t: 25
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [59.48, 23.15, 0],
+                                                    t: 39
+                                                  },
+                                                  { s: [59.48, 25, 0], t: 55 }
+                                                ],
+                                                ix: 2
+                                              },
+                                              r: { a: 0, k: 0, ix: 10 },
+                                              sa: { a: 0, k: 0 },
+                                              o: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [25],
+                                                    t: 25
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [100],
+                                                    t: 39
+                                                  },
+                                                  { s: [25], t: 55 }
+                                                ],
+                                                ix: 11
+                                              }
+                                            },
+                                            ef: [],
+                                            shapes: [
+                                              {
+                                                ty: "gr",
+                                                bm: 0,
+                                                hd: false,
+                                                mn: "ADBE Vector Group",
+                                                nm: "Ellipse 1",
+                                                ix: 1,
+                                                cix: 2,
+                                                np: 3,
+                                                it: [
+                                                  {
+                                                    ty: "el",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Shape - Ellipse",
+                                                    nm: "Ellipse Path 1",
+                                                    d: 1,
+                                                    p: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 3
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [120, 120],
+                                                      ix: 2
+                                                    }
+                                                  },
+                                                  {
+                                                    ty: "fl",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Graphic - Fill",
+                                                    nm: "Fill 1",
+                                                    c: {
+                                                      a: 0,
+                                                      k: [
+                                                        0.5098, 0.3294, 0.7765
+                                                      ],
+                                                      ix: 4
+                                                    },
+                                                    r: 1,
+                                                    o: { a: 0, k: 100, ix: 5 }
+                                                  },
+                                                  {
+                                                    ty: "tr",
+                                                    a: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 1
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [100, 100],
+                                                      ix: 3
+                                                    },
+                                                    sk: { a: 0, k: 0, ix: 4 },
+                                                    p: {
+                                                      a: 0,
+                                                      k: [-284, 92],
+                                                      ix: 2
+                                                    },
+                                                    r: { a: 0, k: 0, ix: 6 },
+                                                    sa: { a: 0, k: 0, ix: 5 },
+                                                    o: { a: 0, k: 100, ix: 7 }
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            ind: 1
+                                          },
+                                          {
+                                            ty: 4,
+                                            nm: "Dot3",
+                                            sr: 1,
+                                            st: 0,
+                                            op: 360,
+                                            ip: 0,
+                                            hd: false,
+                                            ddd: 0,
+                                            bm: 0,
+                                            hasMask: false,
+                                            ao: 0,
+                                            ks: {
+                                              a: {
+                                                a: 0,
+                                                k: [-284, 92, 0],
+                                                ix: 1
+                                              },
+                                              s: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 17
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [3.91, 3.47, 100],
+                                                    t: 31
+                                                  },
+                                                  {
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 47
+                                                  }
+                                                ],
+                                                ix: 6
+                                              },
+                                              sk: { a: 0, k: 0 },
+                                              p: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [53.23, 25, 0],
+                                                    t: 17
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [53.23, 23.15, 0],
+                                                    t: 31
+                                                  },
+                                                  { s: [53.23, 25, 0], t: 47 }
+                                                ],
+                                                ix: 2
+                                              },
+                                              r: { a: 0, k: 0, ix: 10 },
+                                              sa: { a: 0, k: 0 },
+                                              o: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [25],
+                                                    t: 17
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [100],
+                                                    t: 31
+                                                  },
+                                                  { s: [25], t: 47 }
+                                                ],
+                                                ix: 11
+                                              }
+                                            },
+                                            ef: [],
+                                            shapes: [
+                                              {
+                                                ty: "gr",
+                                                bm: 0,
+                                                hd: false,
+                                                mn: "ADBE Vector Group",
+                                                nm: "Ellipse 1",
+                                                ix: 1,
+                                                cix: 2,
+                                                np: 3,
+                                                it: [
+                                                  {
+                                                    ty: "el",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Shape - Ellipse",
+                                                    nm: "Ellipse Path 1",
+                                                    d: 1,
+                                                    p: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 3
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [120, 120],
+                                                      ix: 2
+                                                    }
+                                                  },
+                                                  {
+                                                    ty: "fl",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Graphic - Fill",
+                                                    nm: "Fill 1",
+                                                    c: {
+                                                      a: 0,
+                                                      k: [
+                                                        0.5098, 0.3294, 0.7765
+                                                      ],
+                                                      ix: 4
+                                                    },
+                                                    r: 1,
+                                                    o: { a: 0, k: 100, ix: 5 }
+                                                  },
+                                                  {
+                                                    ty: "tr",
+                                                    a: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 1
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [100, 100],
+                                                      ix: 3
+                                                    },
+                                                    sk: { a: 0, k: 0, ix: 4 },
+                                                    p: {
+                                                      a: 0,
+                                                      k: [-284, 92],
+                                                      ix: 2
+                                                    },
+                                                    r: { a: 0, k: 0, ix: 6 },
+                                                    sa: { a: 0, k: 0, ix: 5 },
+                                                    o: { a: 0, k: 100, ix: 7 }
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            ind: 2
+                                          },
+                                          {
+                                            ty: 4,
+                                            nm: "Dot2",
+                                            sr: 1,
+                                            st: 0,
+                                            op: 360,
+                                            ip: 0,
+                                            hd: false,
+                                            ddd: 0,
+                                            bm: 0,
+                                            hasMask: false,
+                                            ao: 0,
+                                            ks: {
+                                              a: {
+                                                a: 0,
+                                                k: [-284, 92, 0],
+                                                ix: 1
+                                              },
+                                              s: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 9
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [3.91, 3.47, 100],
+                                                    t: 23
+                                                  },
+                                                  {
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 39
+                                                  }
+                                                ],
+                                                ix: 6
+                                              },
+                                              sk: { a: 0, k: 0 },
+                                              p: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [46.98, 25, 0],
+                                                    t: 9
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [46.98, 23.15, 0],
+                                                    t: 23
+                                                  },
+                                                  { s: [46.98, 25, 0], t: 39 }
+                                                ],
+                                                ix: 2
+                                              },
+                                              r: { a: 0, k: 0, ix: 10 },
+                                              sa: { a: 0, k: 0 },
+                                              o: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [25],
+                                                    t: 9
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [100],
+                                                    t: 23
+                                                  },
+                                                  { s: [25], t: 39 }
+                                                ],
+                                                ix: 11
+                                              }
+                                            },
+                                            ef: [],
+                                            shapes: [
+                                              {
+                                                ty: "gr",
+                                                bm: 0,
+                                                hd: false,
+                                                mn: "ADBE Vector Group",
+                                                nm: "Ellipse 1",
+                                                ix: 1,
+                                                cix: 2,
+                                                np: 3,
+                                                it: [
+                                                  {
+                                                    ty: "el",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Shape - Ellipse",
+                                                    nm: "Ellipse Path 1",
+                                                    d: 1,
+                                                    p: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 3
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [120, 120],
+                                                      ix: 2
+                                                    }
+                                                  },
+                                                  {
+                                                    ty: "fl",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Graphic - Fill",
+                                                    nm: "Fill 1",
+                                                    c: {
+                                                      a: 0,
+                                                      k: [
+                                                        0.5098, 0.3294, 0.7765
+                                                      ],
+                                                      ix: 4
+                                                    },
+                                                    r: 1,
+                                                    o: { a: 0, k: 100, ix: 5 }
+                                                  },
+                                                  {
+                                                    ty: "tr",
+                                                    a: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 1
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [100, 100],
+                                                      ix: 3
+                                                    },
+                                                    sk: { a: 0, k: 0, ix: 4 },
+                                                    p: {
+                                                      a: 0,
+                                                      k: [-284, 92],
+                                                      ix: 2
+                                                    },
+                                                    r: { a: 0, k: 0, ix: 6 },
+                                                    sa: { a: 0, k: 0, ix: 5 },
+                                                    o: { a: 0, k: 100, ix: 7 }
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            ind: 3
+                                          },
+                                          {
+                                            ty: 4,
+                                            nm: "Dot1",
+                                            sr: 1,
+                                            st: 0,
+                                            op: 360,
+                                            ip: 0,
+                                            hd: false,
+                                            ddd: 0,
+                                            bm: 0,
+                                            hasMask: false,
+                                            ao: 0,
+                                            ks: {
+                                              a: {
+                                                a: 0,
+                                                k: [-284, 92, 0],
+                                                ix: 1
+                                              },
+                                              s: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 0
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [3.91, 3.47, 100],
+                                                    t: 14
+                                                  },
+                                                  {
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 30
+                                                  }
+                                                ],
+                                                ix: 6
+                                              },
+                                              sk: { a: 0, k: 0 },
+                                              p: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [40.73, 25, 0],
+                                                    t: 0
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [40.73, 23.15, 0],
+                                                    t: 14
+                                                  },
+                                                  { s: [40.73, 25, 0], t: 30 }
+                                                ],
+                                                ix: 2
+                                              },
+                                              r: { a: 0, k: 0, ix: 10 },
+                                              sa: { a: 0, k: 0 },
+                                              o: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [25],
+                                                    t: 0
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [100],
+                                                    t: 14
+                                                  },
+                                                  { s: [25], t: 30 }
+                                                ],
+                                                ix: 11
+                                              }
+                                            },
+                                            ef: [],
+                                            shapes: [
+                                              {
+                                                ty: "gr",
+                                                bm: 0,
+                                                hd: false,
+                                                mn: "ADBE Vector Group",
+                                                nm: "Ellipse 1",
+                                                ix: 1,
+                                                cix: 2,
+                                                np: 3,
+                                                it: [
+                                                  {
+                                                    ty: "el",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Shape - Ellipse",
+                                                    nm: "Ellipse Path 1",
+                                                    d: 1,
+                                                    p: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 3
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [120, 120],
+                                                      ix: 2
+                                                    }
+                                                  },
+                                                  {
+                                                    ty: "fl",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Graphic - Fill",
+                                                    nm: "Fill 1",
+                                                    c: {
+                                                      a: 0,
+                                                      k: [
+                                                        0.5098, 0.3294, 0.7765
+                                                      ],
+                                                      ix: 4
+                                                    },
+                                                    r: 1,
+                                                    o: { a: 0, k: 100, ix: 5 }
+                                                  },
+                                                  {
+                                                    ty: "tr",
+                                                    a: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 1
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [100, 100],
+                                                      ix: 3
+                                                    },
+                                                    sk: { a: 0, k: 0, ix: 4 },
+                                                    p: {
+                                                      a: 0,
+                                                      k: [-284, 92],
+                                                      ix: 2
+                                                    },
+                                                    r: { a: 0, k: 0, ix: 6 },
+                                                    sa: { a: 0, k: 0, ix: 5 },
+                                                    o: { a: 0, k: 100, ix: 7 }
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            ind: 4
+                                          }
+                                        ],
+                                        v: "5.7.11",
+                                        fr: 60,
+                                        op: 81,
+                                        ip: 0,
+                                        assets: []
+                                      }}
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.lottie__vjwxh
+                                      )}
+                                      preview={true}
+                                    />
+                                  ) : null}
+                                  <Stack__
+                                    as={"div"}
+                                    hasGap={true}
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__jGbTn
+                                    )}
+                                  >
+                                    {(_par =>
+                                      !_par
+                                        ? []
+                                        : Array.isArray(_par)
+                                        ? _par
+                                        : [_par])(
+                                      (() => {
+                                        try {
+                                          return $state.getAdvice2.length > 0
+                                            ? $state.getAdvice2
+                                            : [];
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return [];
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ).map(
+                                      (__plasmic_item_0, __plasmic_idx_0) => {
+                                        const currentItem = __plasmic_item_0;
+                                        const currentIndex = __plasmic_idx_0;
+                                        return (
+                                          <Stack__
+                                            as={"div"}
+                                            hasGap={true}
+                                            className={classNames(
+                                              projectcss.all,
+                                              sty.freeBox__i2CeO
+                                            )}
+                                            key={currentIndex}
+                                            onClick={async event => {
+                                              const $steps = {};
+
+                                              $steps["runCode"] =
+                                                $ctx.query.inApp == "true"
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        customFunction:
+                                                          async () => {
+                                                            return (() => {
+                                                              const allowance =
+                                                                $state
+                                                                  ?.getUserInfo
+                                                                  ?.data?.[0]
+                                                                  ?.result
+                                                                  ?.allowance ||
+                                                                [];
+                                                              const filteredItem =
+                                                                allowance.find(
+                                                                  item =>
+                                                                    item.type.includes(
+                                                                      currentItem.action
+                                                                    )
+                                                                );
+                                                              const active =
+                                                                filteredItem
+                                                                  ? filteredItem.active
+                                                                  : false;
+                                                              var token =
+                                                                $state.token;
+                                                              if (
+                                                                !token.startsWith(
+                                                                  "ey"
+                                                                )
+                                                              ) {
+                                                                token =
+                                                                  token.slice(
+                                                                    6,
+                                                                    token.length -
+                                                                      3
+                                                                  );
+                                                              }
+                                                              switch (
+                                                                currentItem.action
+                                                              ) {
+                                                                case "clinic":
+                                                                  {
+                                                                    const chars =
+                                                                      "abcdefghijklmnopqrstuvwxyz0123456789";
+                                                                    let randomStr1 =
+                                                                      "";
+                                                                    let randomStr2 =
+                                                                      "";
+                                                                    for (
+                                                                      let i = 0;
+                                                                      i < 6;
+                                                                      i++
+                                                                    ) {
+                                                                      const rnd =
+                                                                        Math.floor(
+                                                                          Math.random() *
+                                                                            chars.length
+                                                                        );
+                                                                      randomStr1 +=
+                                                                        chars[
+                                                                          rnd
+                                                                        ];
+                                                                    }
+                                                                    for (
+                                                                      let i = 0;
+                                                                      i < 6;
+                                                                      i++
+                                                                    ) {
+                                                                      const rnd =
+                                                                        Math.floor(
+                                                                          Math.random() *
+                                                                            chars.length
+                                                                        );
+                                                                      randomStr2 +=
+                                                                        chars[
+                                                                          rnd
+                                                                        ];
+                                                                    }
+                                                                    var link =
+                                                                      "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
+                                                                      randomStr1 +
+                                                                      token +
+                                                                      randomStr2;
+                                                                    window.FlutterChannel.postMessage(
+                                                                      "#inAppWebView**@@**" +
+                                                                        "کلینیک لیوم " +
+                                                                        "**@@**" +
+                                                                        link
+                                                                    );
+                                                                  }
+                                                                  break;
+                                                                case "hamyar":
+                                                                  window.FlutterChannel.postMessage(
+                                                                    "#hamyarInfo"
+                                                                  );
+                                                                  break;
+                                                                case "skinCare":
+                                                                  {
+                                                                    if (
+                                                                      active
+                                                                    ) {
+                                                                      var link =
+                                                                        "https://tools.liom.app/self-medication/?type=skinCare&inApp=true&token=" +
+                                                                        token +
+                                                                        "&selectStep=0&userId=" +
+                                                                        $state.userId +
+                                                                        "&theme=" +
+                                                                        $ctx
+                                                                          .query
+                                                                          .theme;
+                                                                      window.FlutterChannel.postMessage(
+                                                                        "#inAppWebView**@@**" +
+                                                                          "روتین پوستی" +
+                                                                          "**@@**" +
+                                                                          link
+                                                                      );
+                                                                    } else {
+                                                                      window.FlutterChannel.postMessage(
+                                                                        "#healthSubscription"
+                                                                      );
+                                                                    }
+                                                                  }
+                                                                  break;
+                                                                case "stretch_marks":
+                                                                  {
+                                                                    if (
+                                                                      active
+                                                                    ) {
+                                                                      var link =
+                                                                        "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
+                                                                        token +
+                                                                        "&selectStep=0&userId=" +
+                                                                        $state.userId +
+                                                                        "&theme=" +
+                                                                        $ctx
+                                                                          .query
+                                                                          .theme;
+                                                                      window.FlutterChannel.postMessage(
+                                                                        "#inAppWebView**@@**" +
+                                                                          "ترک پوستی" +
+                                                                          "**@@**" +
+                                                                          link
+                                                                      );
+                                                                    } else {
+                                                                      window.FlutterChannel.postMessage(
+                                                                        "#healthSubscription"
+                                                                      );
+                                                                    }
+                                                                  }
+                                                                  break;
+                                                                case "danger":
+                                                                  {
+                                                                    if (
+                                                                      !active
+                                                                    ) {
+                                                                      document
+                                                                        .getElementById(
+                                                                          "collapseDanger"
+                                                                        )
+                                                                        .scrollIntoView(
+                                                                          {
+                                                                            behavior:
+                                                                              "smooth",
+                                                                            block:
+                                                                              "start"
+                                                                          }
+                                                                        );
+                                                                      $state.collapseDanger.open =
+                                                                        true;
+                                                                      window.FlutterChannel.postMessage(
+                                                                        "#healthSubscription"
+                                                                      );
+                                                                    }
+                                                                  }
+                                                                  break;
+                                                                case "adhd":
+                                                                  {
+                                                                    var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
+                                                                      window
+                                                                        .location
+                                                                        .href
+                                                                    )}&inApp=${
+                                                                      $ctx.query
+                                                                        .inApp
+                                                                    }&userId=${
+                                                                      $state.userId
+                                                                    }`;
+                                                                    window.FlutterChannel.postMessage(
+                                                                      "#inAppWebView**@@**" +
+                                                                        "تست ADHD" +
+                                                                        "**@@**" +
+                                                                        link
+                                                                    );
+                                                                  }
+                                                                  break;
+                                                                case "statusToday":
+                                                                  {
+                                                                    var link = `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=true`;
+                                                                    window.FlutterChannel.postMessage(
+                                                                      "#inAppWebView**@@**" +
+                                                                        "وضعیت امروز" +
+                                                                        "**@@**" +
+                                                                        link
+                                                                    );
+                                                                  }
+                                                                  break;
+                                                                case "chatBot":
+                                                                  var link =
+                                                                    "https://tools.liom.app/chat-bot/?origin_user_id=" +
+                                                                    $state?.userId +
+                                                                    "&topic=pregnancyWeek" +
+                                                                    $state.weeksPregnant +
+                                                                    "&token=" +
+                                                                    token;
+                                                                  window.FlutterChannel.postMessage(
+                                                                    "#inAppWebView**@@**" +
+                                                                      "پزشک هوشمند" +
+                                                                      "**@@**" +
+                                                                      link
+                                                                  );
+                                                                  break;
+                                                              }
+                                                            })();
+                                                          }
+                                                      };
+                                                      return (({
+                                                        customFunction
+                                                      }) => {
+                                                        return customFunction();
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["runCode"] != null &&
+                                                typeof $steps["runCode"] ===
+                                                  "object" &&
+                                                typeof $steps["runCode"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["runCode"] =
+                                                  await $steps["runCode"];
+                                              }
+
+                                              $steps["runCode2"] =
+                                                $ctx.query.inApp != "true"
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        customFunction:
+                                                          async () => {
+                                                            return (() => {
+                                                              const allowance =
+                                                                $state
+                                                                  ?.getUserInfo
+                                                                  ?.data?.[0]
+                                                                  ?.result
+                                                                  ?.allowance ||
+                                                                [];
+                                                              const filteredItem =
+                                                                allowance.find(
+                                                                  item =>
+                                                                    item.type.includes(
+                                                                      currentItem.action
+                                                                    )
+                                                                );
+                                                              const active =
+                                                                filteredItem
+                                                                  ? filteredItem.active
+                                                                  : false;
+                                                              var token =
+                                                                $state.token;
+                                                              if (
+                                                                !token.startsWith(
+                                                                  "ey"
+                                                                )
+                                                              ) {
+                                                                token =
+                                                                  token.slice(
+                                                                    6,
+                                                                    token.length -
+                                                                      3
+                                                                  );
+                                                              }
+                                                              switch (
+                                                                currentItem.action
+                                                              ) {
+                                                                case "clinic":
+                                                                  {
+                                                                    const chars =
+                                                                      "abcdefghijklmnopqrstuvwxyz0123456789";
+                                                                    let randomStr1 =
+                                                                      "";
+                                                                    let randomStr2 =
+                                                                      "";
+                                                                    for (
+                                                                      let i = 0;
+                                                                      i < 6;
+                                                                      i++
+                                                                    ) {
+                                                                      const rnd =
+                                                                        Math.floor(
+                                                                          Math.random() *
+                                                                            chars.length
+                                                                        );
+                                                                      randomStr1 +=
+                                                                        chars[
+                                                                          rnd
+                                                                        ];
+                                                                    }
+                                                                    for (
+                                                                      let i = 0;
+                                                                      i < 6;
+                                                                      i++
+                                                                    ) {
+                                                                      const rnd =
+                                                                        Math.floor(
+                                                                          Math.random() *
+                                                                            chars.length
+                                                                        );
+                                                                      randomStr2 +=
+                                                                        chars[
+                                                                          rnd
+                                                                        ];
+                                                                    }
+                                                                    window.open(
+                                                                      "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
+                                                                        randomStr1 +
+                                                                        token +
+                                                                        randomStr2,
+                                                                      "_self"
+                                                                    );
+                                                                  }
+                                                                  break;
+                                                                case "chatBot":
+                                                                  {
+                                                                    var link =
+                                                                      "https://tools.liom.app/chat-bot/?origin_user_id=" +
+                                                                      $state?.userId +
+                                                                      "&topic=pregnancyWeek" +
+                                                                      $state.weeksPregnant +
+                                                                      "&token=" +
+                                                                      token;
+                                                                    window.open(
+                                                                      link,
+                                                                      "_self"
+                                                                    );
+                                                                  }
+                                                                  break;
+                                                                case "skinCare":
+                                                                  if (active)
+                                                                    window.open(
+                                                                      "https://tools.liom.app/self-medication/?type=skinCare&inApp=false&token=" +
+                                                                        token +
+                                                                        "&selectStep=0&userId=" +
+                                                                        $state.userId +
+                                                                        "&theme=" +
+                                                                        $ctx
+                                                                          .query
+                                                                          .theme,
+                                                                      "_self"
+                                                                    );
+                                                                  else {
+                                                                    $state.typeBuy =
+                                                                      "pregnancySub";
+                                                                    $state.directDialog2.open =
+                                                                      true;
+                                                                  }
+                                                                  break;
+                                                                case "statusToday":
+                                                                  window.open(
+                                                                    `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=false`,
+                                                                    "_self"
+                                                                  );
+                                                                  break;
+                                                                case "stretch_marks":
+                                                                  if (active)
+                                                                    window.open(
+                                                                      "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=false&token=" +
+                                                                        token +
+                                                                        "&selectStep=0&userId=" +
+                                                                        $state.userId +
+                                                                        "&theme=" +
+                                                                        $ctx
+                                                                          .query
+                                                                          .theme,
+                                                                      "_self"
+                                                                    );
+                                                                  else {
+                                                                    $state.typeBuy =
+                                                                      "pregnancySub";
+                                                                    $state.directDialog2.open =
+                                                                      true;
+                                                                  }
+                                                                  break;
+                                                                case "danger":
+                                                                  document
+                                                                    .getElementById(
+                                                                      "collapseDanger"
+                                                                    )
+                                                                    .scrollIntoView(
+                                                                      {
+                                                                        behavior:
+                                                                          "smooth",
+                                                                        block:
+                                                                          "start"
+                                                                      }
+                                                                    );
+                                                                  $state.collapseDanger.open =
+                                                                    true;
+                                                                  if (!active) {
+                                                                    $state.typeBuy =
+                                                                      "pregnancySub";
+                                                                    $state.directDialog2.open =
+                                                                      true;
+                                                                  }
+                                                                  break;
+                                                                case "adhd":
+                                                                  `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
+                                                                    window
+                                                                      .location
+                                                                      .href
+                                                                  )}&inApp=${
+                                                                    $ctx.query
+                                                                      .inApp
+                                                                  }&userId=${
+                                                                    $state.userId
+                                                                  }`;
+                                                                  break;
+                                                              }
+                                                            })();
+                                                          }
+                                                      };
+                                                      return (({
+                                                        customFunction
+                                                      }) => {
+                                                        return customFunction();
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["runCode2"] != null &&
+                                                typeof $steps["runCode2"] ===
+                                                  "object" &&
+                                                typeof $steps["runCode2"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["runCode2"] =
+                                                  await $steps["runCode2"];
+                                              }
+
+                                              $steps["toast"] =
+                                                $ctx.query.inApp != "true" &&
+                                                currentItem.action == "hamyar"
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        args: [
+                                                          "error",
+                                                          "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f.",
+                                                          "bottom-center"
+                                                        ]
+                                                      };
+                                                      return $globalActions[
+                                                        "Fragment.showToast"
+                                                      ]?.apply(null, [
+                                                        ...actionArgs.args
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["toast"] != null &&
+                                                typeof $steps["toast"] ===
+                                                  "object" &&
+                                                typeof $steps["toast"].then ===
+                                                  "function"
+                                              ) {
+                                                $steps["toast"] = await $steps[
+                                                  "toast"
+                                                ];
+                                              }
+
+                                              $steps["log"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      args: [
+                                                        "POST",
+                                                        "https://api.liom.app/service/log",
+                                                        undefined,
+                                                        (() => {
+                                                          try {
+                                                            return {
+                                                              userId:
+                                                                $ctx.query.userId.slice(
+                                                                  4,
+                                                                  $ctx.query
+                                                                    .userId
+                                                                    .length - 4
+                                                                ),
+                                                              pageName:
+                                                                "mainPage",
+                                                              action:
+                                                                "clickTools-" +
+                                                                currentItem.action,
+                                                              extraData: {}
+                                                            };
+                                                          } catch (e) {
+                                                            if (
+                                                              e instanceof
+                                                                TypeError ||
+                                                              e?.plasmicType ===
+                                                                "PlasmicUndefinedDataError"
+                                                            ) {
+                                                              return undefined;
+                                                            }
+                                                            throw e;
+                                                          }
+                                                        })(),
+                                                        (() => {
+                                                          try {
+                                                            return {
+                                                              headers: {
+                                                                "Content-Type":
+                                                                  "application/json",
+                                                                Authorization:
+                                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                              }
+                                                            };
+                                                          } catch (e) {
+                                                            if (
+                                                              e instanceof
+                                                                TypeError ||
+                                                              e?.plasmicType ===
+                                                                "PlasmicUndefinedDataError"
+                                                            ) {
+                                                              return undefined;
+                                                            }
+                                                            throw e;
+                                                          }
+                                                        })()
+                                                      ]
+                                                    };
+                                                    return $globalActions[
+                                                      "Fragment.apiRequest"
+                                                    ]?.apply(null, [
+                                                      ...actionArgs.args
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["log"] != null &&
+                                                typeof $steps["log"] ===
+                                                  "object" &&
+                                                typeof $steps["log"].then ===
+                                                  "function"
+                                              ) {
+                                                $steps["log"] = await $steps[
+                                                  "log"
+                                                ];
+                                              }
+                                            }}
+                                          >
+                                            {(() => {
+                                              try {
+                                                return (() => {
+                                                  const allowance =
+                                                    $state?.getUserInfo
+                                                      ?.data?.[0]?.result
+                                                      ?.allowance || [];
+                                                  const filteredItem =
+                                                    allowance.find(item =>
+                                                      item.type.includes(
+                                                        "advice"
+                                                      )
+                                                    );
+                                                  const active = filteredItem
+                                                    ? filteredItem.active
+                                                    : false;
+                                                  return (
+                                                    !active &&
+                                                    currentItem.vip == 1
+                                                  );
+                                                })();
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return false;
+                                                }
+                                                throw e;
+                                              }
+                                            })() ? (
+                                              <Stack__
+                                                as={"div"}
+                                                hasGap={true}
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__gKrun
+                                                )}
+                                                onClick={async event => {
+                                                  const $steps = {};
+
+                                                  $steps["invokeGlobalAction"] =
+                                                    true
+                                                      ? (() => {
+                                                          const actionArgs = {
+                                                            args: [
+                                                              "#healthSubscription",
+                                                              (() => {
+                                                                try {
+                                                                  return $state.token;
+                                                                } catch (e) {
+                                                                  if (
+                                                                    e instanceof
+                                                                      TypeError ||
+                                                                    e?.plasmicType ===
+                                                                      "PlasmicUndefinedDataError"
+                                                                  ) {
+                                                                    return undefined;
+                                                                  }
+                                                                  throw e;
+                                                                }
+                                                              })(),
+                                                              (() => {
+                                                                try {
+                                                                  return $state.userId;
+                                                                } catch (e) {
+                                                                  if (
+                                                                    e instanceof
+                                                                      TypeError ||
+                                                                    e?.plasmicType ===
+                                                                      "PlasmicUndefinedDataError"
+                                                                  ) {
+                                                                    return undefined;
+                                                                  }
+                                                                  throw e;
+                                                                }
+                                                              })(),
+                                                              (() => {
+                                                                try {
+                                                                  return $ctx
+                                                                    .query
+                                                                    .inApp;
+                                                                } catch (e) {
+                                                                  if (
+                                                                    e instanceof
+                                                                      TypeError ||
+                                                                    e?.plasmicType ===
+                                                                      "PlasmicUndefinedDataError"
+                                                                  ) {
+                                                                    return undefined;
+                                                                  }
+                                                                  throw e;
+                                                                }
+                                                              })(),
+                                                              (() => {
+                                                                try {
+                                                                  return $ctx
+                                                                    .query
+                                                                    .theme;
+                                                                } catch (e) {
+                                                                  if (
+                                                                    e instanceof
+                                                                      TypeError ||
+                                                                    e?.plasmicType ===
+                                                                      "PlasmicUndefinedDataError"
+                                                                  ) {
+                                                                    return undefined;
+                                                                  }
+                                                                  throw e;
+                                                                }
+                                                              })()
+                                                            ]
+                                                          };
+                                                          return $globalActions[
+                                                            "Fragment.deepLink"
+                                                          ]?.apply(null, [
+                                                            ...actionArgs.args
+                                                          ]);
+                                                        })()
+                                                      : undefined;
+                                                  if (
+                                                    $steps[
+                                                      "invokeGlobalAction"
+                                                    ] != null &&
+                                                    typeof $steps[
+                                                      "invokeGlobalAction"
+                                                    ] === "object" &&
+                                                    typeof $steps[
+                                                      "invokeGlobalAction"
+                                                    ].then === "function"
+                                                  ) {
+                                                    $steps[
+                                                      "invokeGlobalAction"
+                                                    ] = await $steps[
+                                                      "invokeGlobalAction"
+                                                    ];
+                                                  }
+                                                }}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text__j0Isb
+                                                  )}
+                                                >
+                                                  <div
+                                                    className={
+                                                      projectcss.__wab_expr_html_text
+                                                    }
+                                                    dangerouslySetInnerHTML={{
+                                                      __html: (() => {
+                                                        try {
+                                                          return "این یک توصیه ویژه، مرتبط ‌تر به وضعیت جسمی و روحیت هست.";
+                                                        } catch (e) {
+                                                          if (
+                                                            e instanceof
+                                                              TypeError ||
+                                                            e?.plasmicType ===
+                                                              "PlasmicUndefinedDataError"
+                                                          ) {
+                                                            return "";
+                                                          }
+                                                          throw e;
+                                                        }
+                                                      })()
+                                                    }}
+                                                  />
+                                                </div>
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text__rUiku
+                                                  )}
+                                                >
+                                                  <div
+                                                    className={
+                                                      projectcss.__wab_expr_html_text
+                                                    }
+                                                    dangerouslySetInnerHTML={{
+                                                      __html: (() => {
+                                                        try {
+                                                          return "برای دیدنش اشتراک ویژه رو فعال کن 👇 ";
+                                                        } catch (e) {
+                                                          if (
+                                                            e instanceof
+                                                              TypeError ||
+                                                            e?.plasmicType ===
+                                                              "PlasmicUndefinedDataError"
+                                                          ) {
+                                                            return "";
+                                                          }
+                                                          throw e;
+                                                        }
+                                                      })()
+                                                    }}
+                                                  />
+                                                </div>
+                                                {(() => {
+                                                  const child$Props = {
+                                                    className: classNames(
+                                                      "__wab_instance",
+                                                      sty.button3
+                                                    ),
+                                                    color:
+                                                      generateStateValueProp(
+                                                        $state,
+                                                        [
+                                                          "button3",
+                                                          __plasmic_idx_0,
+                                                          "color"
+                                                        ]
+                                                      ),
+                                                    onColorChange: async (
+                                                      ...eventArgs: any
+                                                    ) => {
+                                                      ((...eventArgs) => {
+                                                        generateStateOnChangeProp(
+                                                          $state,
+                                                          [
+                                                            "button3",
+                                                            __plasmic_idx_0,
+                                                            "color"
+                                                          ]
+                                                        )(eventArgs[0]);
+                                                      }).apply(null, eventArgs);
+
+                                                      if (
+                                                        eventArgs.length > 1 &&
+                                                        eventArgs[1] &&
+                                                        eventArgs[1]
+                                                          ._plasmic_state_init_
+                                                      ) {
+                                                        return;
+                                                      }
+                                                    },
+                                                    size: "minimal"
+                                                  };
+
+                                                  initializePlasmicStates(
+                                                    $state,
+                                                    [
+                                                      {
+                                                        name: "button3[].color",
+                                                        initFunc: ({
+                                                          $props,
+                                                          $state,
+                                                          $queries
+                                                        }) => undefined
+                                                      }
+                                                    ],
+                                                    [__plasmic_idx_0]
+                                                  );
+                                                  return (
+                                                    <Button
+                                                      data-plasmic-name={
+                                                        "button3"
+                                                      }
+                                                      data-plasmic-override={
+                                                        overrides.button3
+                                                      }
+                                                      {...child$Props}
+                                                    >
+                                                      <div
+                                                        className={classNames(
+                                                          projectcss.all,
+                                                          projectcss.__wab_text,
+                                                          sty.text__eDtK2
+                                                        )}
+                                                      >
+                                                        {
+                                                          "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9"
+                                                        }
+                                                      </div>
+                                                    </Button>
+                                                  );
+                                                })()}
+                                              </Stack__>
+                                            ) : null}
+                                            {(() => {
+                                              try {
+                                                return (() => {
+                                                  const allowance =
+                                                    $state?.getUserInfo
+                                                      ?.data?.[0]?.result
+                                                      ?.allowance || [];
+                                                  const filteredItem =
+                                                    allowance.find(item =>
+                                                      item.type.includes(
+                                                        "special_advice"
+                                                      )
+                                                    );
+                                                  const active = filteredItem
+                                                    ? filteredItem.active
+                                                    : false;
+                                                  if (currentItem.vip == 0)
+                                                    return true;
+                                                  else if (
+                                                    currentItem.vip == 1 &&
+                                                    active
+                                                  )
+                                                    return true;
+                                                  else return false;
+                                                })();
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return false;
+                                                }
+                                                throw e;
+                                              }
+                                            })() ? (
+                                              <Stack__
+                                                as={"div"}
+                                                hasGap={true}
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__u8TzQ
+                                                )}
+                                                onClick={async event => {
+                                                  const $steps = {};
+
+                                                  $steps["runCode"] =
+                                                    currentItem.type == "sign"
+                                                      ? (() => {
+                                                          const actionArgs = {
+                                                            customFunction:
+                                                              async () => {
+                                                                return (() => {
+                                                                  if (
+                                                                    $ctx.query
+                                                                      .inApp ==
+                                                                    "true"
+                                                                  ) {
+                                                                    var link = `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=true`;
+                                                                    return window.FlutterChannel.postMessage(
+                                                                      "#inAppWebView**@@**" +
+                                                                        "وضعیت امروز" +
+                                                                        "**@@**" +
+                                                                        link
+                                                                    );
+                                                                  } else {
+                                                                    return window.open(
+                                                                      `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=false`,
+                                                                      "_self"
+                                                                    );
+                                                                  }
+                                                                })();
+                                                              }
+                                                          };
+                                                          return (({
+                                                            customFunction
+                                                          }) => {
+                                                            return customFunction();
+                                                          })?.apply(null, [
+                                                            actionArgs
+                                                          ]);
+                                                        })()
+                                                      : undefined;
+                                                  if (
+                                                    $steps["runCode"] != null &&
+                                                    typeof $steps["runCode"] ===
+                                                      "object" &&
+                                                    typeof $steps["runCode"]
+                                                      .then === "function"
+                                                  ) {
+                                                    $steps["runCode"] =
+                                                      await $steps["runCode"];
+                                                  }
+                                                }}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text__nuA63
+                                                  )}
+                                                >
+                                                  <div
+                                                    className={
+                                                      projectcss.__wab_expr_html_text
+                                                    }
+                                                    dangerouslySetInnerHTML={{
+                                                      __html: (() => {
+                                                        try {
+                                                          return currentItem.text;
+                                                        } catch (e) {
+                                                          if (
+                                                            e instanceof
+                                                              TypeError ||
+                                                            e?.plasmicType ===
+                                                              "PlasmicUndefinedDataError"
+                                                          ) {
+                                                            return "";
+                                                          }
+                                                          throw e;
+                                                        }
+                                                      })()
+                                                    }}
+                                                  />
+                                                </div>
+                                                {(() => {
+                                                  try {
+                                                    return (
+                                                      currentItem.animation !=
+                                                      undefined
+                                                    );
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return false;
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })() ? (
+                                                  <LottieWrapper
+                                                    animationData={
+                                                      currentItem.animation
+                                                    }
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.lottie__ioZv
+                                                    )}
+                                                  />
+                                                ) : null}
+                                              </Stack__>
+                                            ) : null}
+                                          </Stack__>
+                                        );
+                                      }
+                                    )}
+                                  </Stack__>
+                                </div>
+                              </AntdSingleCollapse>
+                            );
+                          })()}
+                        </div>
+                      </div>
                       {(() => {
                         try {
                           return $state.getQuestion[0].id != -1;
@@ -15882,1903 +17786,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                           sty.freeBox__mQHgs
                         )}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___58Ir2,
-                            {
-                              [sty.freeBoxdarkMod___58Ir2OQOo]: hasVariant(
-                                $state,
-                                "darkMod",
-                                "darkMod"
-                              )
-                            }
-                          )}
-                          id={"advice"}
-                        >
-                          {(() => {
-                            const child$Props = {
-                              bordered: true,
-                              className: classNames(
-                                "__wab_instance",
-                                sty.collapseAdvice
-                              ),
-                              defaultOpen: true,
-                              expandIcon: (
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return $state.collapseAdvice.open != true;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return false;
-                                      }
-                                      throw e;
-                                    }
-                                  })() ? (
-                                    <PlasmicImg__
-                                      alt={""}
-                                      className={classNames(sty.img__kWrhQ)}
-                                      displayHeight={"auto"}
-                                      displayMaxHeight={"none"}
-                                      displayMaxWidth={"100%"}
-                                      displayMinHeight={"0"}
-                                      displayMinWidth={"0"}
-                                      displayWidth={"15px"}
-                                      loading={"lazy"}
-                                      src={{
-                                        src: "/plasmic/liom_hamyar/images/image32.svg",
-                                        fullWidth: 16,
-                                        fullHeight: 16,
-                                        aspectRatio: 1
-                                      }}
-                                    />
-                                  ) : null}
-                                  {(() => {
-                                    try {
-                                      return $state.collapseAdvice.open == true;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return true;
-                                      }
-                                      throw e;
-                                    }
-                                  })() ? (
-                                    <PlasmicImg__
-                                      alt={""}
-                                      className={classNames(sty.img__cIk6V)}
-                                      displayHeight={"auto"}
-                                      displayMaxHeight={"none"}
-                                      displayMaxWidth={"100%"}
-                                      displayMinHeight={"0"}
-                                      displayMinWidth={"0"}
-                                      displayWidth={"25px"}
-                                      loading={"lazy"}
-                                      src={{
-                                        src: "/plasmic/liom_hamyar/images/image31.svg",
-                                        fullWidth: 16,
-                                        fullHeight: 16,
-                                        aspectRatio: 1
-                                      }}
-                                    />
-                                  ) : null}
-                                </React.Fragment>
-                              ),
-                              expandIconPosition: "end",
-                              ghost: true,
-                              label2: (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__m6S56
-                                  )}
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__apNe,
-                                      {
-                                        [sty.textdarkMod__apNeoQOo]: hasVariant(
-                                          $state,
-                                          "darkMod",
-                                          "darkMod"
-                                        )
-                                      }
-                                    )}
-                                  >
-                                    {
-                                      "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650 \u062a\u0648:"
-                                    }
-                                  </div>
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__jDh45
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return "هفته " + $state.weeksPregnant;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </div>
-                                </div>
-                              ),
-                              onChange: async (...eventArgs: any) => {
-                                generateStateOnChangePropForCodeComponents(
-                                  $state,
-                                  "open",
-                                  ["collapseAdvice", "open"],
-                                  AntdSingleCollapse_Helpers
-                                ).apply(null, eventArgs);
-                              },
-                              open: generateStateValueProp($state, [
-                                "collapseAdvice",
-                                "open"
-                              ]),
-                              showArrow: true,
-                              size: "small"
-                            };
-                            initializeCodeComponentStates(
-                              $state,
-                              [
-                                {
-                                  name: "open",
-                                  plasmicStateName: "collapseAdvice.open"
-                                }
-                              ],
-                              [],
-                              AntdSingleCollapse_Helpers ?? {},
-                              child$Props
-                            );
-
-                            return (
-                              <AntdSingleCollapse
-                                data-plasmic-name={"collapseAdvice"}
-                                data-plasmic-override={overrides.collapseAdvice}
-                                {...child$Props}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__aqSel
-                                  )}
-                                >
-                                  {(() => {
-                                    try {
-                                      return $state.loadingAdvice;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return false;
-                                      }
-                                      throw e;
-                                    }
-                                  })() ? (
-                                    <LottieWrapper
-                                      animationData={{
-                                        nm: "Loading Dots",
-                                        ddd: 0,
-                                        h: 50,
-                                        w: 100,
-                                        meta: {
-                                          g: "@lottiefiles/toolkit-js 0.33.2"
-                                        },
-                                        layers: [
-                                          {
-                                            ty: 4,
-                                            nm: "Dot4",
-                                            sr: 1,
-                                            st: 0,
-                                            op: 360,
-                                            ip: 0,
-                                            hd: false,
-                                            ddd: 0,
-                                            bm: 0,
-                                            hasMask: false,
-                                            ao: 0,
-                                            ks: {
-                                              a: {
-                                                a: 0,
-                                                k: [-284, 92, 0],
-                                                ix: 1
-                                              },
-                                              s: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 25
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [3.91, 3.47, 100],
-                                                    t: 39
-                                                  },
-                                                  {
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 55
-                                                  }
-                                                ],
-                                                ix: 6
-                                              },
-                                              sk: { a: 0, k: 0 },
-                                              p: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [59.48, 25, 0],
-                                                    t: 25
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [59.48, 23.15, 0],
-                                                    t: 39
-                                                  },
-                                                  { s: [59.48, 25, 0], t: 55 }
-                                                ],
-                                                ix: 2
-                                              },
-                                              r: { a: 0, k: 0, ix: 10 },
-                                              sa: { a: 0, k: 0 },
-                                              o: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [25],
-                                                    t: 25
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [100],
-                                                    t: 39
-                                                  },
-                                                  { s: [25], t: 55 }
-                                                ],
-                                                ix: 11
-                                              }
-                                            },
-                                            ef: [],
-                                            shapes: [
-                                              {
-                                                ty: "gr",
-                                                bm: 0,
-                                                hd: false,
-                                                mn: "ADBE Vector Group",
-                                                nm: "Ellipse 1",
-                                                ix: 1,
-                                                cix: 2,
-                                                np: 3,
-                                                it: [
-                                                  {
-                                                    ty: "el",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Shape - Ellipse",
-                                                    nm: "Ellipse Path 1",
-                                                    d: 1,
-                                                    p: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 3
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [120, 120],
-                                                      ix: 2
-                                                    }
-                                                  },
-                                                  {
-                                                    ty: "fl",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Graphic - Fill",
-                                                    nm: "Fill 1",
-                                                    c: {
-                                                      a: 0,
-                                                      k: [
-                                                        0.5098, 0.3294, 0.7765
-                                                      ],
-                                                      ix: 4
-                                                    },
-                                                    r: 1,
-                                                    o: { a: 0, k: 100, ix: 5 }
-                                                  },
-                                                  {
-                                                    ty: "tr",
-                                                    a: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 1
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [100, 100],
-                                                      ix: 3
-                                                    },
-                                                    sk: { a: 0, k: 0, ix: 4 },
-                                                    p: {
-                                                      a: 0,
-                                                      k: [-284, 92],
-                                                      ix: 2
-                                                    },
-                                                    r: { a: 0, k: 0, ix: 6 },
-                                                    sa: { a: 0, k: 0, ix: 5 },
-                                                    o: { a: 0, k: 100, ix: 7 }
-                                                  }
-                                                ]
-                                              }
-                                            ],
-                                            ind: 1
-                                          },
-                                          {
-                                            ty: 4,
-                                            nm: "Dot3",
-                                            sr: 1,
-                                            st: 0,
-                                            op: 360,
-                                            ip: 0,
-                                            hd: false,
-                                            ddd: 0,
-                                            bm: 0,
-                                            hasMask: false,
-                                            ao: 0,
-                                            ks: {
-                                              a: {
-                                                a: 0,
-                                                k: [-284, 92, 0],
-                                                ix: 1
-                                              },
-                                              s: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 17
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [3.91, 3.47, 100],
-                                                    t: 31
-                                                  },
-                                                  {
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 47
-                                                  }
-                                                ],
-                                                ix: 6
-                                              },
-                                              sk: { a: 0, k: 0 },
-                                              p: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [53.23, 25, 0],
-                                                    t: 17
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [53.23, 23.15, 0],
-                                                    t: 31
-                                                  },
-                                                  { s: [53.23, 25, 0], t: 47 }
-                                                ],
-                                                ix: 2
-                                              },
-                                              r: { a: 0, k: 0, ix: 10 },
-                                              sa: { a: 0, k: 0 },
-                                              o: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [25],
-                                                    t: 17
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [100],
-                                                    t: 31
-                                                  },
-                                                  { s: [25], t: 47 }
-                                                ],
-                                                ix: 11
-                                              }
-                                            },
-                                            ef: [],
-                                            shapes: [
-                                              {
-                                                ty: "gr",
-                                                bm: 0,
-                                                hd: false,
-                                                mn: "ADBE Vector Group",
-                                                nm: "Ellipse 1",
-                                                ix: 1,
-                                                cix: 2,
-                                                np: 3,
-                                                it: [
-                                                  {
-                                                    ty: "el",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Shape - Ellipse",
-                                                    nm: "Ellipse Path 1",
-                                                    d: 1,
-                                                    p: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 3
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [120, 120],
-                                                      ix: 2
-                                                    }
-                                                  },
-                                                  {
-                                                    ty: "fl",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Graphic - Fill",
-                                                    nm: "Fill 1",
-                                                    c: {
-                                                      a: 0,
-                                                      k: [
-                                                        0.5098, 0.3294, 0.7765
-                                                      ],
-                                                      ix: 4
-                                                    },
-                                                    r: 1,
-                                                    o: { a: 0, k: 100, ix: 5 }
-                                                  },
-                                                  {
-                                                    ty: "tr",
-                                                    a: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 1
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [100, 100],
-                                                      ix: 3
-                                                    },
-                                                    sk: { a: 0, k: 0, ix: 4 },
-                                                    p: {
-                                                      a: 0,
-                                                      k: [-284, 92],
-                                                      ix: 2
-                                                    },
-                                                    r: { a: 0, k: 0, ix: 6 },
-                                                    sa: { a: 0, k: 0, ix: 5 },
-                                                    o: { a: 0, k: 100, ix: 7 }
-                                                  }
-                                                ]
-                                              }
-                                            ],
-                                            ind: 2
-                                          },
-                                          {
-                                            ty: 4,
-                                            nm: "Dot2",
-                                            sr: 1,
-                                            st: 0,
-                                            op: 360,
-                                            ip: 0,
-                                            hd: false,
-                                            ddd: 0,
-                                            bm: 0,
-                                            hasMask: false,
-                                            ao: 0,
-                                            ks: {
-                                              a: {
-                                                a: 0,
-                                                k: [-284, 92, 0],
-                                                ix: 1
-                                              },
-                                              s: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 9
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [3.91, 3.47, 100],
-                                                    t: 23
-                                                  },
-                                                  {
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 39
-                                                  }
-                                                ],
-                                                ix: 6
-                                              },
-                                              sk: { a: 0, k: 0 },
-                                              p: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [46.98, 25, 0],
-                                                    t: 9
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [46.98, 23.15, 0],
-                                                    t: 23
-                                                  },
-                                                  { s: [46.98, 25, 0], t: 39 }
-                                                ],
-                                                ix: 2
-                                              },
-                                              r: { a: 0, k: 0, ix: 10 },
-                                              sa: { a: 0, k: 0 },
-                                              o: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [25],
-                                                    t: 9
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [100],
-                                                    t: 23
-                                                  },
-                                                  { s: [25], t: 39 }
-                                                ],
-                                                ix: 11
-                                              }
-                                            },
-                                            ef: [],
-                                            shapes: [
-                                              {
-                                                ty: "gr",
-                                                bm: 0,
-                                                hd: false,
-                                                mn: "ADBE Vector Group",
-                                                nm: "Ellipse 1",
-                                                ix: 1,
-                                                cix: 2,
-                                                np: 3,
-                                                it: [
-                                                  {
-                                                    ty: "el",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Shape - Ellipse",
-                                                    nm: "Ellipse Path 1",
-                                                    d: 1,
-                                                    p: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 3
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [120, 120],
-                                                      ix: 2
-                                                    }
-                                                  },
-                                                  {
-                                                    ty: "fl",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Graphic - Fill",
-                                                    nm: "Fill 1",
-                                                    c: {
-                                                      a: 0,
-                                                      k: [
-                                                        0.5098, 0.3294, 0.7765
-                                                      ],
-                                                      ix: 4
-                                                    },
-                                                    r: 1,
-                                                    o: { a: 0, k: 100, ix: 5 }
-                                                  },
-                                                  {
-                                                    ty: "tr",
-                                                    a: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 1
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [100, 100],
-                                                      ix: 3
-                                                    },
-                                                    sk: { a: 0, k: 0, ix: 4 },
-                                                    p: {
-                                                      a: 0,
-                                                      k: [-284, 92],
-                                                      ix: 2
-                                                    },
-                                                    r: { a: 0, k: 0, ix: 6 },
-                                                    sa: { a: 0, k: 0, ix: 5 },
-                                                    o: { a: 0, k: 100, ix: 7 }
-                                                  }
-                                                ]
-                                              }
-                                            ],
-                                            ind: 3
-                                          },
-                                          {
-                                            ty: 4,
-                                            nm: "Dot1",
-                                            sr: 1,
-                                            st: 0,
-                                            op: 360,
-                                            ip: 0,
-                                            hd: false,
-                                            ddd: 0,
-                                            bm: 0,
-                                            hasMask: false,
-                                            ao: 0,
-                                            ks: {
-                                              a: {
-                                                a: 0,
-                                                k: [-284, 92, 0],
-                                                ix: 1
-                                              },
-                                              s: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 0
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [3.91, 3.47, 100],
-                                                    t: 14
-                                                  },
-                                                  {
-                                                    s: [2.61, 2.32, 100],
-                                                    t: 30
-                                                  }
-                                                ],
-                                                ix: 6
-                                              },
-                                              sk: { a: 0, k: 0 },
-                                              p: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [40.73, 25, 0],
-                                                    t: 0
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [40.73, 23.15, 0],
-                                                    t: 14
-                                                  },
-                                                  { s: [40.73, 25, 0], t: 30 }
-                                                ],
-                                                ix: 2
-                                              },
-                                              r: { a: 0, k: 0, ix: 10 },
-                                              sa: { a: 0, k: 0 },
-                                              o: {
-                                                a: 1,
-                                                k: [
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [25],
-                                                    t: 0
-                                                  },
-                                                  {
-                                                    o: { x: 0.333, y: 0 },
-                                                    i: { x: 0.667, y: 1 },
-                                                    s: [100],
-                                                    t: 14
-                                                  },
-                                                  { s: [25], t: 30 }
-                                                ],
-                                                ix: 11
-                                              }
-                                            },
-                                            ef: [],
-                                            shapes: [
-                                              {
-                                                ty: "gr",
-                                                bm: 0,
-                                                hd: false,
-                                                mn: "ADBE Vector Group",
-                                                nm: "Ellipse 1",
-                                                ix: 1,
-                                                cix: 2,
-                                                np: 3,
-                                                it: [
-                                                  {
-                                                    ty: "el",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Shape - Ellipse",
-                                                    nm: "Ellipse Path 1",
-                                                    d: 1,
-                                                    p: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 3
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [120, 120],
-                                                      ix: 2
-                                                    }
-                                                  },
-                                                  {
-                                                    ty: "fl",
-                                                    bm: 0,
-                                                    hd: false,
-                                                    mn: "ADBE Vector Graphic - Fill",
-                                                    nm: "Fill 1",
-                                                    c: {
-                                                      a: 0,
-                                                      k: [
-                                                        0.5098, 0.3294, 0.7765
-                                                      ],
-                                                      ix: 4
-                                                    },
-                                                    r: 1,
-                                                    o: { a: 0, k: 100, ix: 5 }
-                                                  },
-                                                  {
-                                                    ty: "tr",
-                                                    a: {
-                                                      a: 0,
-                                                      k: [0, 0],
-                                                      ix: 1
-                                                    },
-                                                    s: {
-                                                      a: 0,
-                                                      k: [100, 100],
-                                                      ix: 3
-                                                    },
-                                                    sk: { a: 0, k: 0, ix: 4 },
-                                                    p: {
-                                                      a: 0,
-                                                      k: [-284, 92],
-                                                      ix: 2
-                                                    },
-                                                    r: { a: 0, k: 0, ix: 6 },
-                                                    sa: { a: 0, k: 0, ix: 5 },
-                                                    o: { a: 0, k: 100, ix: 7 }
-                                                  }
-                                                ]
-                                              }
-                                            ],
-                                            ind: 4
-                                          }
-                                        ],
-                                        v: "5.7.11",
-                                        fr: 60,
-                                        op: 81,
-                                        ip: 0,
-                                        assets: []
-                                      }}
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.lottie__vjwxh
-                                      )}
-                                      preview={true}
-                                    />
-                                  ) : null}
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__jGbTn
-                                    )}
-                                  >
-                                    {(_par =>
-                                      !_par
-                                        ? []
-                                        : Array.isArray(_par)
-                                        ? _par
-                                        : [_par])(
-                                      (() => {
-                                        try {
-                                          return $state.getAdvice2.length > 0
-                                            ? $state.getAdvice2
-                                            : [];
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return [];
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    ).map(
-                                      (__plasmic_item_0, __plasmic_idx_0) => {
-                                        const currentItem = __plasmic_item_0;
-                                        const currentIndex = __plasmic_idx_0;
-                                        return (
-                                          <Stack__
-                                            as={"div"}
-                                            hasGap={true}
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.freeBox__i2CeO
-                                            )}
-                                            key={currentIndex}
-                                            onClick={async event => {
-                                              const $steps = {};
-
-                                              $steps["runCode"] =
-                                                $ctx.query.inApp == "true"
-                                                  ? (() => {
-                                                      const actionArgs = {
-                                                        customFunction:
-                                                          async () => {
-                                                            return (() => {
-                                                              const allowance =
-                                                                $state
-                                                                  ?.getUserInfo
-                                                                  ?.data?.[0]
-                                                                  ?.result
-                                                                  ?.allowance ||
-                                                                [];
-                                                              const filteredItem =
-                                                                allowance.find(
-                                                                  item =>
-                                                                    item.type.includes(
-                                                                      currentItem.action
-                                                                    )
-                                                                );
-                                                              const active =
-                                                                filteredItem
-                                                                  ? filteredItem.active
-                                                                  : false;
-                                                              var token =
-                                                                $state.token;
-                                                              if (
-                                                                !token.startsWith(
-                                                                  "ey"
-                                                                )
-                                                              ) {
-                                                                token =
-                                                                  token.slice(
-                                                                    6,
-                                                                    token.length -
-                                                                      3
-                                                                  );
-                                                              }
-                                                              switch (
-                                                                currentItem.action
-                                                              ) {
-                                                                case "clinic":
-                                                                  {
-                                                                    const chars =
-                                                                      "abcdefghijklmnopqrstuvwxyz0123456789";
-                                                                    let randomStr1 =
-                                                                      "";
-                                                                    let randomStr2 =
-                                                                      "";
-                                                                    for (
-                                                                      let i = 0;
-                                                                      i < 6;
-                                                                      i++
-                                                                    ) {
-                                                                      const rnd =
-                                                                        Math.floor(
-                                                                          Math.random() *
-                                                                            chars.length
-                                                                        );
-                                                                      randomStr1 +=
-                                                                        chars[
-                                                                          rnd
-                                                                        ];
-                                                                    }
-                                                                    for (
-                                                                      let i = 0;
-                                                                      i < 6;
-                                                                      i++
-                                                                    ) {
-                                                                      const rnd =
-                                                                        Math.floor(
-                                                                          Math.random() *
-                                                                            chars.length
-                                                                        );
-                                                                      randomStr2 +=
-                                                                        chars[
-                                                                          rnd
-                                                                        ];
-                                                                    }
-                                                                    var link =
-                                                                      "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
-                                                                      randomStr1 +
-                                                                      token +
-                                                                      randomStr2;
-                                                                    window.FlutterChannel.postMessage(
-                                                                      "#inAppWebView**@@**" +
-                                                                        "کلینیک لیوم " +
-                                                                        "**@@**" +
-                                                                        link
-                                                                    );
-                                                                  }
-                                                                  break;
-                                                                case "hamyar":
-                                                                  window.FlutterChannel.postMessage(
-                                                                    "#hamyarInfo"
-                                                                  );
-                                                                  break;
-                                                                case "skinCare":
-                                                                  {
-                                                                    if (
-                                                                      active
-                                                                    ) {
-                                                                      var link =
-                                                                        "https://tools.liom.app/self-medication/?type=skinCare&inApp=true&token=" +
-                                                                        token +
-                                                                        "&selectStep=0&userId=" +
-                                                                        $state.userId +
-                                                                        "&theme=" +
-                                                                        $ctx
-                                                                          .query
-                                                                          .theme;
-                                                                      window.FlutterChannel.postMessage(
-                                                                        "#inAppWebView**@@**" +
-                                                                          "روتین پوستی" +
-                                                                          "**@@**" +
-                                                                          link
-                                                                      );
-                                                                    } else {
-                                                                      window.FlutterChannel.postMessage(
-                                                                        "#healthSubscription"
-                                                                      );
-                                                                    }
-                                                                  }
-                                                                  break;
-                                                                case "stretch_marks":
-                                                                  {
-                                                                    if (
-                                                                      active
-                                                                    ) {
-                                                                      var link =
-                                                                        "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=true&token=" +
-                                                                        token +
-                                                                        "&selectStep=0&userId=" +
-                                                                        $state.userId +
-                                                                        "&theme=" +
-                                                                        $ctx
-                                                                          .query
-                                                                          .theme;
-                                                                      window.FlutterChannel.postMessage(
-                                                                        "#inAppWebView**@@**" +
-                                                                          "ترک پوستی" +
-                                                                          "**@@**" +
-                                                                          link
-                                                                      );
-                                                                    } else {
-                                                                      window.FlutterChannel.postMessage(
-                                                                        "#healthSubscription"
-                                                                      );
-                                                                    }
-                                                                  }
-                                                                  break;
-                                                                case "danger":
-                                                                  {
-                                                                    if (
-                                                                      !active
-                                                                    ) {
-                                                                      document
-                                                                        .getElementById(
-                                                                          "collapseDanger"
-                                                                        )
-                                                                        .scrollIntoView(
-                                                                          {
-                                                                            behavior:
-                                                                              "smooth",
-                                                                            block:
-                                                                              "start"
-                                                                          }
-                                                                        );
-                                                                      $state.collapseDanger.open =
-                                                                        true;
-                                                                      window.FlutterChannel.postMessage(
-                                                                        "#healthSubscription"
-                                                                      );
-                                                                    }
-                                                                  }
-                                                                  break;
-                                                                case "adhd":
-                                                                  {
-                                                                    var link = `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                                      window
-                                                                        .location
-                                                                        .href
-                                                                    )}&inApp=${
-                                                                      $ctx.query
-                                                                        .inApp
-                                                                    }&userId=${
-                                                                      $state.userId
-                                                                    }`;
-                                                                    window.FlutterChannel.postMessage(
-                                                                      "#inAppWebView**@@**" +
-                                                                        "تست ADHD" +
-                                                                        "**@@**" +
-                                                                        link
-                                                                    );
-                                                                  }
-                                                                  break;
-                                                                case "statusToday":
-                                                                  {
-                                                                    var link = `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=true`;
-                                                                    window.FlutterChannel.postMessage(
-                                                                      "#inAppWebView**@@**" +
-                                                                        "وضعیت امروز" +
-                                                                        "**@@**" +
-                                                                        link
-                                                                    );
-                                                                  }
-                                                                  break;
-                                                                case "chatBot":
-                                                                  var link =
-                                                                    "https://tools.liom.app/chat-bot/?origin_user_id=" +
-                                                                    $state?.userId +
-                                                                    "&topic=pregnancyWeek" +
-                                                                    $state.weeksPregnant +
-                                                                    "&token=" +
-                                                                    token;
-                                                                  window.FlutterChannel.postMessage(
-                                                                    "#inAppWebView**@@**" +
-                                                                      "پزشک هوشمند" +
-                                                                      "**@@**" +
-                                                                      link
-                                                                  );
-                                                                  break;
-                                                              }
-                                                            })();
-                                                          }
-                                                      };
-                                                      return (({
-                                                        customFunction
-                                                      }) => {
-                                                        return customFunction();
-                                                      })?.apply(null, [
-                                                        actionArgs
-                                                      ]);
-                                                    })()
-                                                  : undefined;
-                                              if (
-                                                $steps["runCode"] != null &&
-                                                typeof $steps["runCode"] ===
-                                                  "object" &&
-                                                typeof $steps["runCode"]
-                                                  .then === "function"
-                                              ) {
-                                                $steps["runCode"] =
-                                                  await $steps["runCode"];
-                                              }
-
-                                              $steps["runCode2"] =
-                                                $ctx.query.inApp != "true"
-                                                  ? (() => {
-                                                      const actionArgs = {
-                                                        customFunction:
-                                                          async () => {
-                                                            return (() => {
-                                                              const allowance =
-                                                                $state
-                                                                  ?.getUserInfo
-                                                                  ?.data?.[0]
-                                                                  ?.result
-                                                                  ?.allowance ||
-                                                                [];
-                                                              const filteredItem =
-                                                                allowance.find(
-                                                                  item =>
-                                                                    item.type.includes(
-                                                                      currentItem.action
-                                                                    )
-                                                                );
-                                                              const active =
-                                                                filteredItem
-                                                                  ? filteredItem.active
-                                                                  : false;
-                                                              var token =
-                                                                $state.token;
-                                                              if (
-                                                                !token.startsWith(
-                                                                  "ey"
-                                                                )
-                                                              ) {
-                                                                token =
-                                                                  token.slice(
-                                                                    6,
-                                                                    token.length -
-                                                                      3
-                                                                  );
-                                                              }
-                                                              switch (
-                                                                currentItem.action
-                                                              ) {
-                                                                case "clinic":
-                                                                  {
-                                                                    const chars =
-                                                                      "abcdefghijklmnopqrstuvwxyz0123456789";
-                                                                    let randomStr1 =
-                                                                      "";
-                                                                    let randomStr2 =
-                                                                      "";
-                                                                    for (
-                                                                      let i = 0;
-                                                                      i < 6;
-                                                                      i++
-                                                                    ) {
-                                                                      const rnd =
-                                                                        Math.floor(
-                                                                          Math.random() *
-                                                                            chars.length
-                                                                        );
-                                                                      randomStr1 +=
-                                                                        chars[
-                                                                          rnd
-                                                                        ];
-                                                                    }
-                                                                    for (
-                                                                      let i = 0;
-                                                                      i < 6;
-                                                                      i++
-                                                                    ) {
-                                                                      const rnd =
-                                                                        Math.floor(
-                                                                          Math.random() *
-                                                                            chars.length
-                                                                        );
-                                                                      randomStr2 +=
-                                                                        chars[
-                                                                          rnd
-                                                                        ];
-                                                                    }
-                                                                    window.open(
-                                                                      "https://checkup.liom-app.ir/moshavereh/psychology/4?token=" +
-                                                                        randomStr1 +
-                                                                        token +
-                                                                        randomStr2,
-                                                                      "_self"
-                                                                    );
-                                                                  }
-                                                                  break;
-                                                                case "chatBot":
-                                                                  {
-                                                                    var link =
-                                                                      "https://tools.liom.app/chat-bot/?origin_user_id=" +
-                                                                      $state?.userId +
-                                                                      "&topic=pregnancyWeek" +
-                                                                      $state.weeksPregnant +
-                                                                      "&token=" +
-                                                                      token;
-                                                                    window.open(
-                                                                      link,
-                                                                      "_self"
-                                                                    );
-                                                                  }
-                                                                  break;
-                                                                case "skinCare":
-                                                                  if (active)
-                                                                    window.open(
-                                                                      "https://tools.liom.app/self-medication/?type=skinCare&inApp=false&token=" +
-                                                                        token +
-                                                                        "&selectStep=0&userId=" +
-                                                                        $state.userId +
-                                                                        "&theme=" +
-                                                                        $ctx
-                                                                          .query
-                                                                          .theme,
-                                                                      "_self"
-                                                                    );
-                                                                  else {
-                                                                    $state.typeBuy =
-                                                                      "pregnancySub";
-                                                                    $state.directDialog2.open =
-                                                                      true;
-                                                                  }
-                                                                  break;
-                                                                case "statusToday":
-                                                                  window.open(
-                                                                    `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=false`,
-                                                                    "_self"
-                                                                  );
-                                                                  break;
-                                                                case "stretch_marks":
-                                                                  if (active)
-                                                                    window.open(
-                                                                      "https://tools.liom.app/self-medication/?type=stretch_marks&inApp=false&token=" +
-                                                                        token +
-                                                                        "&selectStep=0&userId=" +
-                                                                        $state.userId +
-                                                                        "&theme=" +
-                                                                        $ctx
-                                                                          .query
-                                                                          .theme,
-                                                                      "_self"
-                                                                    );
-                                                                  else {
-                                                                    $state.typeBuy =
-                                                                      "pregnancySub";
-                                                                    $state.directDialog2.open =
-                                                                      true;
-                                                                  }
-                                                                  break;
-                                                                case "danger":
-                                                                  document
-                                                                    .getElementById(
-                                                                      "collapseDanger"
-                                                                    )
-                                                                    .scrollIntoView(
-                                                                      {
-                                                                        behavior:
-                                                                          "smooth",
-                                                                        block:
-                                                                          "start"
-                                                                      }
-                                                                    );
-                                                                  $state.collapseDanger.open =
-                                                                    true;
-                                                                  if (!active) {
-                                                                    $state.typeBuy =
-                                                                      "pregnancySub";
-                                                                    $state.directDialog2.open =
-                                                                      true;
-                                                                  }
-                                                                  break;
-                                                                case "adhd":
-                                                                  `https://tools.liom.app/self-test/?app=liom&type=adhd&origin=pregnancy&home-page=${encodeURIComponent(
-                                                                    window
-                                                                      .location
-                                                                      .href
-                                                                  )}&inApp=${
-                                                                    $ctx.query
-                                                                      .inApp
-                                                                  }&userId=${
-                                                                    $state.userId
-                                                                  }`;
-                                                                  break;
-                                                              }
-                                                            })();
-                                                          }
-                                                      };
-                                                      return (({
-                                                        customFunction
-                                                      }) => {
-                                                        return customFunction();
-                                                      })?.apply(null, [
-                                                        actionArgs
-                                                      ]);
-                                                    })()
-                                                  : undefined;
-                                              if (
-                                                $steps["runCode2"] != null &&
-                                                typeof $steps["runCode2"] ===
-                                                  "object" &&
-                                                typeof $steps["runCode2"]
-                                                  .then === "function"
-                                              ) {
-                                                $steps["runCode2"] =
-                                                  await $steps["runCode2"];
-                                              }
-
-                                              $steps["toast"] =
-                                                $ctx.query.inApp != "true" &&
-                                                currentItem.action == "hamyar"
-                                                  ? (() => {
-                                                      const actionArgs = {
-                                                        args: [
-                                                          "error",
-                                                          "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f.",
-                                                          "bottom-center"
-                                                        ]
-                                                      };
-                                                      return $globalActions[
-                                                        "Fragment.showToast"
-                                                      ]?.apply(null, [
-                                                        ...actionArgs.args
-                                                      ]);
-                                                    })()
-                                                  : undefined;
-                                              if (
-                                                $steps["toast"] != null &&
-                                                typeof $steps["toast"] ===
-                                                  "object" &&
-                                                typeof $steps["toast"].then ===
-                                                  "function"
-                                              ) {
-                                                $steps["toast"] = await $steps[
-                                                  "toast"
-                                                ];
-                                              }
-
-                                              $steps["log"] = true
-                                                ? (() => {
-                                                    const actionArgs = {
-                                                      args: [
-                                                        "POST",
-                                                        "https://api.liom.app/service/log",
-                                                        undefined,
-                                                        (() => {
-                                                          try {
-                                                            return {
-                                                              userId:
-                                                                $ctx.query.userId.slice(
-                                                                  4,
-                                                                  $ctx.query
-                                                                    .userId
-                                                                    .length - 4
-                                                                ),
-                                                              pageName:
-                                                                "mainPage",
-                                                              action:
-                                                                "clickTools-" +
-                                                                currentItem.action,
-                                                              extraData: {}
-                                                            };
-                                                          } catch (e) {
-                                                            if (
-                                                              e instanceof
-                                                                TypeError ||
-                                                              e?.plasmicType ===
-                                                                "PlasmicUndefinedDataError"
-                                                            ) {
-                                                              return undefined;
-                                                            }
-                                                            throw e;
-                                                          }
-                                                        })(),
-                                                        (() => {
-                                                          try {
-                                                            return {
-                                                              headers: {
-                                                                "Content-Type":
-                                                                  "application/json",
-                                                                Authorization:
-                                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                                              }
-                                                            };
-                                                          } catch (e) {
-                                                            if (
-                                                              e instanceof
-                                                                TypeError ||
-                                                              e?.plasmicType ===
-                                                                "PlasmicUndefinedDataError"
-                                                            ) {
-                                                              return undefined;
-                                                            }
-                                                            throw e;
-                                                          }
-                                                        })()
-                                                      ]
-                                                    };
-                                                    return $globalActions[
-                                                      "Fragment.apiRequest"
-                                                    ]?.apply(null, [
-                                                      ...actionArgs.args
-                                                    ]);
-                                                  })()
-                                                : undefined;
-                                              if (
-                                                $steps["log"] != null &&
-                                                typeof $steps["log"] ===
-                                                  "object" &&
-                                                typeof $steps["log"].then ===
-                                                  "function"
-                                              ) {
-                                                $steps["log"] = await $steps[
-                                                  "log"
-                                                ];
-                                              }
-                                            }}
-                                          >
-                                            {(() => {
-                                              try {
-                                                return (() => {
-                                                  const allowance =
-                                                    $state?.getUserInfo
-                                                      ?.data?.[0]?.result
-                                                      ?.allowance || [];
-                                                  const filteredItem =
-                                                    allowance.find(item =>
-                                                      item.type.includes(
-                                                        "advice"
-                                                      )
-                                                    );
-                                                  const active = filteredItem
-                                                    ? filteredItem.active
-                                                    : false;
-                                                  return (
-                                                    !active &&
-                                                    currentItem.vip == 1
-                                                  );
-                                                })();
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return false;
-                                                }
-                                                throw e;
-                                              }
-                                            })() ? (
-                                              <Stack__
-                                                as={"div"}
-                                                hasGap={true}
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  sty.freeBox__gKrun
-                                                )}
-                                                onClick={async event => {
-                                                  const $steps = {};
-
-                                                  $steps["invokeGlobalAction"] =
-                                                    true
-                                                      ? (() => {
-                                                          const actionArgs = {
-                                                            args: [
-                                                              "#healthSubscription",
-                                                              (() => {
-                                                                try {
-                                                                  return $state.token;
-                                                                } catch (e) {
-                                                                  if (
-                                                                    e instanceof
-                                                                      TypeError ||
-                                                                    e?.plasmicType ===
-                                                                      "PlasmicUndefinedDataError"
-                                                                  ) {
-                                                                    return undefined;
-                                                                  }
-                                                                  throw e;
-                                                                }
-                                                              })(),
-                                                              (() => {
-                                                                try {
-                                                                  return $state.userId;
-                                                                } catch (e) {
-                                                                  if (
-                                                                    e instanceof
-                                                                      TypeError ||
-                                                                    e?.plasmicType ===
-                                                                      "PlasmicUndefinedDataError"
-                                                                  ) {
-                                                                    return undefined;
-                                                                  }
-                                                                  throw e;
-                                                                }
-                                                              })(),
-                                                              (() => {
-                                                                try {
-                                                                  return $ctx
-                                                                    .query
-                                                                    .inApp;
-                                                                } catch (e) {
-                                                                  if (
-                                                                    e instanceof
-                                                                      TypeError ||
-                                                                    e?.plasmicType ===
-                                                                      "PlasmicUndefinedDataError"
-                                                                  ) {
-                                                                    return undefined;
-                                                                  }
-                                                                  throw e;
-                                                                }
-                                                              })(),
-                                                              (() => {
-                                                                try {
-                                                                  return $ctx
-                                                                    .query
-                                                                    .theme;
-                                                                } catch (e) {
-                                                                  if (
-                                                                    e instanceof
-                                                                      TypeError ||
-                                                                    e?.plasmicType ===
-                                                                      "PlasmicUndefinedDataError"
-                                                                  ) {
-                                                                    return undefined;
-                                                                  }
-                                                                  throw e;
-                                                                }
-                                                              })()
-                                                            ]
-                                                          };
-                                                          return $globalActions[
-                                                            "Fragment.deepLink"
-                                                          ]?.apply(null, [
-                                                            ...actionArgs.args
-                                                          ]);
-                                                        })()
-                                                      : undefined;
-                                                  if (
-                                                    $steps[
-                                                      "invokeGlobalAction"
-                                                    ] != null &&
-                                                    typeof $steps[
-                                                      "invokeGlobalAction"
-                                                    ] === "object" &&
-                                                    typeof $steps[
-                                                      "invokeGlobalAction"
-                                                    ].then === "function"
-                                                  ) {
-                                                    $steps[
-                                                      "invokeGlobalAction"
-                                                    ] = await $steps[
-                                                      "invokeGlobalAction"
-                                                    ];
-                                                  }
-                                                }}
-                                              >
-                                                <div
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text__j0Isb
-                                                  )}
-                                                >
-                                                  <div
-                                                    className={
-                                                      projectcss.__wab_expr_html_text
-                                                    }
-                                                    dangerouslySetInnerHTML={{
-                                                      __html: (() => {
-                                                        try {
-                                                          return "این یک توصیه ویژه، مرتبط ‌تر به وضعیت جسمی و روحیت هست.";
-                                                        } catch (e) {
-                                                          if (
-                                                            e instanceof
-                                                              TypeError ||
-                                                            e?.plasmicType ===
-                                                              "PlasmicUndefinedDataError"
-                                                          ) {
-                                                            return "";
-                                                          }
-                                                          throw e;
-                                                        }
-                                                      })()
-                                                    }}
-                                                  />
-                                                </div>
-                                                <div
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text__rUiku
-                                                  )}
-                                                >
-                                                  <div
-                                                    className={
-                                                      projectcss.__wab_expr_html_text
-                                                    }
-                                                    dangerouslySetInnerHTML={{
-                                                      __html: (() => {
-                                                        try {
-                                                          return "برای دیدنش اشتراک ویژه رو فعال کن 👇 ";
-                                                        } catch (e) {
-                                                          if (
-                                                            e instanceof
-                                                              TypeError ||
-                                                            e?.plasmicType ===
-                                                              "PlasmicUndefinedDataError"
-                                                          ) {
-                                                            return "";
-                                                          }
-                                                          throw e;
-                                                        }
-                                                      })()
-                                                    }}
-                                                  />
-                                                </div>
-                                                {(() => {
-                                                  const child$Props = {
-                                                    className: classNames(
-                                                      "__wab_instance",
-                                                      sty.button3
-                                                    ),
-                                                    color:
-                                                      generateStateValueProp(
-                                                        $state,
-                                                        [
-                                                          "button3",
-                                                          __plasmic_idx_0,
-                                                          "color"
-                                                        ]
-                                                      ),
-                                                    onColorChange: async (
-                                                      ...eventArgs: any
-                                                    ) => {
-                                                      ((...eventArgs) => {
-                                                        generateStateOnChangeProp(
-                                                          $state,
-                                                          [
-                                                            "button3",
-                                                            __plasmic_idx_0,
-                                                            "color"
-                                                          ]
-                                                        )(eventArgs[0]);
-                                                      }).apply(null, eventArgs);
-
-                                                      if (
-                                                        eventArgs.length > 1 &&
-                                                        eventArgs[1] &&
-                                                        eventArgs[1]
-                                                          ._plasmic_state_init_
-                                                      ) {
-                                                        return;
-                                                      }
-                                                    },
-                                                    size: "minimal"
-                                                  };
-
-                                                  initializePlasmicStates(
-                                                    $state,
-                                                    [
-                                                      {
-                                                        name: "button3[].color",
-                                                        initFunc: ({
-                                                          $props,
-                                                          $state,
-                                                          $queries
-                                                        }) => undefined
-                                                      }
-                                                    ],
-                                                    [__plasmic_idx_0]
-                                                  );
-                                                  return (
-                                                    <Button
-                                                      data-plasmic-name={
-                                                        "button3"
-                                                      }
-                                                      data-plasmic-override={
-                                                        overrides.button3
-                                                      }
-                                                      {...child$Props}
-                                                    >
-                                                      <div
-                                                        className={classNames(
-                                                          projectcss.all,
-                                                          projectcss.__wab_text,
-                                                          sty.text__eDtK2
-                                                        )}
-                                                      >
-                                                        {
-                                                          "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9"
-                                                        }
-                                                      </div>
-                                                    </Button>
-                                                  );
-                                                })()}
-                                              </Stack__>
-                                            ) : null}
-                                            {(() => {
-                                              try {
-                                                return (() => {
-                                                  const allowance =
-                                                    $state?.getUserInfo
-                                                      ?.data?.[0]?.result
-                                                      ?.allowance || [];
-                                                  const filteredItem =
-                                                    allowance.find(item =>
-                                                      item.type.includes(
-                                                        "special_advice"
-                                                      )
-                                                    );
-                                                  const active = filteredItem
-                                                    ? filteredItem.active
-                                                    : false;
-                                                  if (currentItem.vip == 0)
-                                                    return true;
-                                                  else if (
-                                                    currentItem.vip == 1 &&
-                                                    active
-                                                  )
-                                                    return true;
-                                                  else return false;
-                                                })();
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return false;
-                                                }
-                                                throw e;
-                                              }
-                                            })() ? (
-                                              <Stack__
-                                                as={"div"}
-                                                hasGap={true}
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  sty.freeBox__u8TzQ
-                                                )}
-                                                onClick={async event => {
-                                                  const $steps = {};
-
-                                                  $steps["runCode"] =
-                                                    currentItem.type == "sign"
-                                                      ? (() => {
-                                                          const actionArgs = {
-                                                            customFunction:
-                                                              async () => {
-                                                                return (() => {
-                                                                  if (
-                                                                    $ctx.query
-                                                                      .inApp ==
-                                                                    "true"
-                                                                  ) {
-                                                                    var link = `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=true`;
-                                                                    return window.FlutterChannel.postMessage(
-                                                                      "#inAppWebView**@@**" +
-                                                                        "وضعیت امروز" +
-                                                                        "**@@**" +
-                                                                        link
-                                                                    );
-                                                                  } else {
-                                                                    return window.open(
-                                                                      `https://apps.liom.app/status-day/?token=${$state.token}&userId=${$state.userId}&inApp=false`,
-                                                                      "_self"
-                                                                    );
-                                                                  }
-                                                                })();
-                                                              }
-                                                          };
-                                                          return (({
-                                                            customFunction
-                                                          }) => {
-                                                            return customFunction();
-                                                          })?.apply(null, [
-                                                            actionArgs
-                                                          ]);
-                                                        })()
-                                                      : undefined;
-                                                  if (
-                                                    $steps["runCode"] != null &&
-                                                    typeof $steps["runCode"] ===
-                                                      "object" &&
-                                                    typeof $steps["runCode"]
-                                                      .then === "function"
-                                                  ) {
-                                                    $steps["runCode"] =
-                                                      await $steps["runCode"];
-                                                  }
-                                                }}
-                                              >
-                                                <div
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text__nuA63
-                                                  )}
-                                                >
-                                                  <div
-                                                    className={
-                                                      projectcss.__wab_expr_html_text
-                                                    }
-                                                    dangerouslySetInnerHTML={{
-                                                      __html: (() => {
-                                                        try {
-                                                          return currentItem.text;
-                                                        } catch (e) {
-                                                          if (
-                                                            e instanceof
-                                                              TypeError ||
-                                                            e?.plasmicType ===
-                                                              "PlasmicUndefinedDataError"
-                                                          ) {
-                                                            return "";
-                                                          }
-                                                          throw e;
-                                                        }
-                                                      })()
-                                                    }}
-                                                  />
-                                                </div>
-                                                {(() => {
-                                                  try {
-                                                    return (
-                                                      currentItem.animation !=
-                                                      undefined
-                                                    );
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return false;
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })() ? (
-                                                  <LottieWrapper
-                                                    animationData={
-                                                      currentItem.animation
-                                                    }
-                                                    className={classNames(
-                                                      "__wab_instance",
-                                                      sty.lottie__ioZv
-                                                    )}
-                                                  />
-                                                ) : null}
-                                              </Stack__>
-                                            ) : null}
-                                          </Stack__>
-                                        );
-                                      }
-                                    )}
-                                  </Stack__>
-                                </div>
-                              </AntdSingleCollapse>
-                            );
-                          })()}
-                        </div>
                         <div
                           className={classNames(
                             projectcss.all,
@@ -28078,10 +28085,10 @@ const PlasmicDescendants = {
     "pullToRefresh",
     "progress",
     "informationBox",
-    "tabWeek",
-    "switchbest",
     "collapseAdvice",
     "button3",
+    "tabWeek",
+    "switchbest",
     "collapseDanger",
     "collapseMedicine2",
     "button2",
@@ -28103,10 +28110,10 @@ const PlasmicDescendants = {
     "pullToRefresh",
     "progress",
     "informationBox",
-    "tabWeek",
-    "switchbest",
     "collapseAdvice",
     "button3",
+    "tabWeek",
+    "switchbest",
     "collapseDanger",
     "collapseMedicine2",
     "button2",
@@ -28125,10 +28132,10 @@ const PlasmicDescendants = {
   pullToRefresh: ["pullToRefresh"],
   progress: ["progress"],
   informationBox: ["informationBox"],
-  tabWeek: ["tabWeek"],
-  switchbest: ["switchbest"],
   collapseAdvice: ["collapseAdvice", "button3"],
   button3: ["button3"],
+  tabWeek: ["tabWeek"],
+  switchbest: ["switchbest"],
   collapseDanger: ["collapseDanger"],
   collapseMedicine2: ["collapseMedicine2", "button2"],
   button2: ["button2"],
@@ -28154,10 +28161,10 @@ type NodeDefaultElementType = {
   pullToRefresh: typeof PullToRefresh;
   progress: typeof AntdProgress;
   informationBox: typeof InformationBox;
-  tabWeek: typeof TabWeek;
-  switchbest: typeof Switchbest;
   collapseAdvice: typeof AntdSingleCollapse;
   button3: typeof Button;
+  tabWeek: typeof TabWeek;
+  switchbest: typeof Switchbest;
   collapseDanger: typeof AntdSingleCollapse;
   collapseMedicine2: typeof AntdSingleCollapse;
   button2: typeof Button;
@@ -28264,10 +28271,10 @@ export const PlasmicPregnancy = Object.assign(
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     progress: makeNodeComponent("progress"),
     informationBox: makeNodeComponent("informationBox"),
-    tabWeek: makeNodeComponent("tabWeek"),
-    switchbest: makeNodeComponent("switchbest"),
     collapseAdvice: makeNodeComponent("collapseAdvice"),
     button3: makeNodeComponent("button3"),
+    tabWeek: makeNodeComponent("tabWeek"),
+    switchbest: makeNodeComponent("switchbest"),
     collapseDanger: makeNodeComponent("collapseDanger"),
     collapseMedicine2: makeNodeComponent("collapseMedicine2"),
     button2: makeNodeComponent("button2"),

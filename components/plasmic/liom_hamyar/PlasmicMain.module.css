@@ -22,13 +22,15 @@
 .root > * {
   grid-column: 4;
 }
+@media (max-width: 640px) {
+  .root > * {
+    grid-column: 4;
+  }
+}
 .mainPage:global(.__wab_instance) {
   position: relative;
 }
-.footerMain:global(.__wab_instance) {
-  max-width: 100%;
-}
-.section {
+.section__n8IXm {
   display: grid;
   position: fixed;
   align-content: flex-start;
@@ -48,11 +50,11 @@
     )
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
 }
-.section > * {
+.section__n8IXm > * {
   grid-column: 4;
 }
 @media (max-width: 640px) {
-  .section > * {
+  .section__n8IXm > * {
     grid-column: 4;
   }
 }
@@ -109,4 +111,38 @@
   white-space: pre;
   min-height: 0;
   padding: 8px 8px 0px 16px;
+}
+.section__vtIx7 {
+  display: grid;
+  position: fixed;
+  align-content: flex-start;
+  justify-items: center;
+  width: auto;
+  padding-left: 0;
+  padding-right: 0;
+  left: 0;
+  top: auto;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+}
+.section__vtIx7 > * {
+  grid-column: 4;
+}
+@media (max-width: 640px) {
+  .section__vtIx7 > * {
+    grid-column: 4;
+  }
+}
+.footerMain:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
 }

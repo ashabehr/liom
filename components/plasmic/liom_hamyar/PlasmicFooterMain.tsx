@@ -77,11 +77,11 @@ createPlasmicElementProxy;
 
 export type PlasmicFooterMain__VariantMembers = {
   lackOfCourseInformation: "lackOfCourseInformation";
-  footer2: "calendar" | "selfCare";
+  footer2: "calendar" | "self";
 };
 export type PlasmicFooterMain__VariantsArgs = {
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
-  footer2?: SingleChoiceArg<"calendar" | "selfCare">;
+  footer2?: SingleChoiceArg<"calendar" | "self">;
 };
 type VariantPropType = keyof PlasmicFooterMain__VariantsArgs;
 export const PlasmicFooterMain__VariantProps = new Array<VariantPropType>(
@@ -107,7 +107,7 @@ export interface DefaultFooterMainProps {
   type?: string;
   onTypeChange?: (val: string) => void;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
-  footer2?: SingleChoiceArg<"calendar" | "selfCare">;
+  footer2?: SingleChoiceArg<"calendar" | "self">;
   className?: string;
 }
 
@@ -305,10 +305,10 @@ function PlasmicFooterMain__RenderFunc(props: {
                 "footer2",
                 "calendar"
               ),
-              [sty.freeBoxfooter2_selfCare__aa3NDtRqqb]: hasVariant(
+              [sty.freeBoxfooter2_self__aa3NDtRqqb]: hasVariant(
                 $state,
                 "footer2",
-                "selfCare"
+                "self"
               )
             })}
             onClick={async event => {
@@ -322,7 +322,7 @@ function PlasmicFooterMain__RenderFunc(props: {
                         variablePath: ["type"]
                       },
                       operation: 0,
-                      value: "self-care"
+                      value: "self"
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -346,17 +346,17 @@ function PlasmicFooterMain__RenderFunc(props: {
           >
             <PlasmicIcon__
               PlasmicIconType={
-                hasVariant($state, "footer2", "selfCare")
+                hasVariant($state, "footer2", "self")
                   ? Icon212Icon
                   : hasVariant(globalVariants, "screen", "mobile")
                   ? Icon213Icon
                   : Icon213Icon
               }
               className={classNames(projectcss.all, sty.svg__lj8T3, {
-                [sty.svgfooter2_selfCare__lj8T3TRqqb]: hasVariant(
+                [sty.svgfooter2_self__lj8T3TRqqb]: hasVariant(
                   $state,
                   "footer2",
-                  "selfCare"
+                  "self"
                 )
               })}
               role={"img"}
@@ -368,10 +368,10 @@ function PlasmicFooterMain__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__zvQAq,
                 {
-                  [sty.textfooter2_selfCare__zvQAqtRqqb]: hasVariant(
+                  [sty.textfooter2_self__zvQAqtRqqb]: hasVariant(
                     $state,
                     "footer2",
-                    "selfCare"
+                    "self"
                   )
                 }
               )}
