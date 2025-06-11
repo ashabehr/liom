@@ -354,7 +354,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
           data-plasmic-override={overrides.post2ForSocialMain}
           audioLinkInPost={(() => {
             try {
-              return undefined;
+              return $props.postData.post.action;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -381,7 +381,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
           image2={(() => {
             try {
-              return undefined;
+              return $props.postData.post.action;
             } catch (e) {
               if (
                 e instanceof TypeError ||

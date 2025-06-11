@@ -1245,22 +1245,22 @@ function PlasmicPost2__RenderFunc(props: {
                 })()}
                 postType={(() => {
                   try {
-                    return $state.getInfo.data.result.details.attachments[0]
-                      .type
-                      ? $state.getInfo.data.result.details.attachments[0].type
-                      : $state.getInfo.data.result.details.post.actionText ==
-                        "بازکردن تصویر"
-                      ? "image"
-                      : $state.getInfo.data.result.details.post.actionText ==
-                        "بازکردن صدا"
-                      ? "voise"
-                      : $state.getInfo.data.result.details.post.actionText ==
-                        "نمایش ویدیو"
-                      ? "video"
-                      : $state.getInfo.data.result.details.post.actionText ==
-                        "دانلود لوگو"
-                      ? "file"
-                      : "jastText";
+                    return (
+                      $state.getInfo.data.result.details.attachments[0]?.type ||
+                      ($state.getInfo.data.result.details.post.actionText ===
+                      "بازکردن تصویر"
+                        ? "image"
+                        : $state.getInfo.data.result.details.post.actionText ===
+                          "بازکردن صدا"
+                        ? "voise"
+                        : $state.getInfo.data.result.details.post.actionText ===
+                          "نمایش ویدیو"
+                        ? "video"
+                        : $state.getInfo.data.result.details.post.actionText ===
+                          "دانلود لوگو"
+                        ? "file"
+                        : "jastText")
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -3563,7 +3563,9 @@ function PlasmicPost2__RenderFunc(props: {
                           const actionArgs = {
                             destination: (() => {
                               try {
-                                return window.open("https://web.liom.app/");
+                                return window.open(
+                                  "https://apps.liom.app/login/"
+                                );
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||

@@ -132,6 +132,9 @@
 .img > picture > img {
   object-fit: cover;
 }
+.imgpostType_video {
+  display: none;
+}
 .freeBox__t44Wv {
   display: flex;
   flex-direction: row;

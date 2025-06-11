@@ -298,6 +298,11 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
               $state,
               "postType",
               "jastText"
+            ),
+            [sty.lineClompTextpostType_video]: hasVariant(
+              $state,
+              "postType",
+              "video"
             )
           })}
           more={true}
@@ -373,7 +378,8 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
             data-plasmic-override={overrides.img}
             alt={""}
             className={classNames(sty.img, {
-              [sty.imgpostType_image]: hasVariant($state, "postType", "image")
+              [sty.imgpostType_image]: hasVariant($state, "postType", "image"),
+              [sty.imgpostType_video]: hasVariant($state, "postType", "video")
             })}
             displayHeight={"auto"}
             displayMaxHeight={"50%"}
