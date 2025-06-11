@@ -2144,6 +2144,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicFooterMain.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "mwylH28Efyne",
+          "name": "MainPage",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMainPage.tsx",
+          "importSpec": {
+            "modulePath": "MainPage.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMainPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

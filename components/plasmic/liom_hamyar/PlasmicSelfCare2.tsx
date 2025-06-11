@@ -59,7 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -75,15 +74,10 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSelfCare2.module.css"; // plasmic-import: q5NYbKztjYXR/css
 
-import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon188Icon from "./icons/PlasmicIcon__Icon188"; // plasmic-import: Ap0CNp82zKxk/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
-import Icon138Icon from "./icons/PlasmicIcon__Icon138"; // plasmic-import: _v0CaTT-8IBc/icon
-import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: liLrwe8fcuIp/icon
-import Icon234Icon from "./icons/PlasmicIcon__Icon234"; // plasmic-import: 2zsMoQ1kWX5p/icon
-import Icon212Icon from "./icons/PlasmicIcon__Icon212"; // plasmic-import: EV8ARHn8m9ie/icon
 
 createPlasmicElementProxy;
 
@@ -98,7 +92,6 @@ export const PlasmicSelfCare2__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSelfCare2__OverridesType = {
   root?: Flex__<"div">;
-  mainHeader?: Flex__<typeof MainHeader>;
   sideEffect?: Flex__<typeof SideEffect>;
   lineClomp?: Flex__<typeof LineClomp>;
   button?: Flex__<typeof Button>;
@@ -224,25 +217,6 @@ function PlasmicSelfCare2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "mainHeader.dopen",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.dopen;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
         path: "button[].color",
         type: "private",
         variableType: "text"
@@ -354,168 +328,6 @@ function PlasmicSelfCare2__RenderFunc(props: {
         sty.root
       )}
     >
-      {(() => {
-        try {
-          return window.sessionStorage.getItem("hamyar") != "true";
-        } catch (e) {
-          if (
-            e instanceof TypeError ||
-            e?.plasmicType === "PlasmicUndefinedDataError"
-          ) {
-            return true;
-          }
-          throw e;
-        }
-      })() ? (
-        <section className={classNames(projectcss.all, sty.section___8EINc)}>
-          <MainHeader
-            data-plasmic-name={"mainHeader"}
-            data-plasmic-override={overrides.mainHeader}
-            className={classNames("__wab_instance", sty.mainHeader)}
-            dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
-            onDopenChange2={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["mainHeader", "dopen"]).apply(
-                null,
-                eventArgs
-              );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            token={(() => {
-              try {
-                return localStorage.getItem("token");
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            userinfo={(() => {
-              try {
-                return JSON.parse(window.localStorage.getItem("userinfo")).user;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return {
-                    mobile: false,
-                    username: "guest_3DiroEaKCW",
-                    name: "jjjj",
-                    last_time: {
-                      year: 2025,
-                      month: 2,
-                      day: 9,
-                      hour: 0,
-                      minute: 0,
-                      second: 0,
-                      nanosecond: 0,
-                      timeZoneOffsetSeconds: 0
-                    },
-                    cycle: 20,
-                    length: 5,
-                    image: "https://liom-app.ir/data/profile/default.png",
-                    biorhythm: {
-                      date: "2025-03-05T05:32:07.747Z",
-                      advice:
-                        "- \u0628\u0647 \u06a9\u0633\u06cc \u06a9\u0647 \u062e\u06cc\u0644\u06cc \u062f\u0648\u0633\u062a\u0634 \u062f\u0627\u0631\u06cc \u0632\u0646\u06af \u0628\u0632\u0646 \u06cc\u0627 \u067e\u06cc\u0627\u0645 \u0628\u062f\u0647.\n- \u0627\u06af\u0647 \u0627\u0645\u0631\u0648\u0632 \u0627\u062d\u0633\u0627\u0633 \u0628\u06cc \u062d\u0627\u0644\u06cc \u0648 \u06a9\u0633\u0627\u0644\u062a \u062f\u0627\u0631\u06cc \u0648 \u062f\u0644\u062a \u0646\u0645\u06cc\u062e\u0648\u0627\u062f \u0641\u0639\u0627\u0644\u06cc\u062a \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0627\u0634\u06a9\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc \u0645\u062f\u06cc\u062a\u06cc\u0634\u0646 \u06a9\u0646\u06cc \u062a\u0627 \u0627\u062d\u0633\u0627\u0633 \u062e\u0648\u0628\u06cc \u067e\u06cc\u062f\u0627 \u06a9\u0646\u06cc.\n- \u0627\u0645\u0631\u0648\u0632 \u0632\u0645\u0627\u0646 \u062e\u0648\u0628\u06cc \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u0648 \u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u06a9\u0631\u062f\u0646\u0647.\n",
-                      avg: 13,
-                      physical: -100,
-                      emotional: 43,
-                      intellectual: 95
-                    },
-                    id: "ee975e9c-19dd-42fc-b7d7-8822f621b4f8",
-                    healthStatus: "period",
-                    birthDate: {
-                      year: 2002,
-                      month: 1,
-                      day: 7,
-                      hour: 0,
-                      minute: 0,
-                      second: 0,
-                      nanosecond: 0,
-                      timeZoneOffsetSeconds: 0
-                    }
-                  };
-                }
-                throw e;
-              }
-            })()}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__aMvO)}
-            >
-              <Icon185Icon
-                className={classNames(projectcss.all, sty.svg__qUvQf)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateMainHeaderDopen"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["mainHeader", "dopen"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateMainHeaderDopen"] != null &&
-                    typeof $steps["updateMainHeaderDopen"] === "object" &&
-                    typeof $steps["updateMainHeaderDopen"].then === "function"
-                  ) {
-                    $steps["updateMainHeaderDopen"] = await $steps[
-                      "updateMainHeaderDopen"
-                    ];
-                  }
-                }}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__glAaj
-                )}
-              >
-                {
-                  "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f"
-                }
-              </div>
-            </Stack__>
-          </MainHeader>
-        </section>
-      ) : null}
       <SideEffect
         data-plasmic-name={"sideEffect"}
         data-plasmic-override={overrides.sideEffect}
@@ -968,24 +780,6 @@ function PlasmicSelfCare2__RenderFunc(props: {
           as={"div"}
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__jCz3N)}
-          style={(() => {
-            try {
-              return {
-                "padding-top":
-                  window.sessionStorage.getItem("hamyar") == "true"
-                    ? "16px"
-                    : "72px"
-              };
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()}
         >
           <div className={classNames(projectcss.all, sty.freeBox__pWe4J)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -1866,287 +1660,6 @@ function PlasmicSelfCare2__RenderFunc(props: {
           />
         </Stack__>
       ) : null}
-      {(() => {
-        try {
-          return (
-            new URLSearchParams(window.location.search).get("footer") != "false"
-          );
-        } catch (e) {
-          if (
-            e instanceof TypeError ||
-            e?.plasmicType === "PlasmicUndefinedDataError"
-          ) {
-            return true;
-          }
-          throw e;
-        }
-      })() ? (
-        <section className={classNames(projectcss.all, sty.section__epFpv)}>
-          <div className={classNames(projectcss.all, sty.freeBox__k2Tge)}>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__kBcm4)}
-            >
-              {(() => {
-                try {
-                  return window.sessionStorage.getItem("hamyar") != "true";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__f5HsZ)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return window.open("/calendar", "_self");
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                >
-                  <Icon138Icon
-                    className={classNames(projectcss.all, sty.svg__dcOgs)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__l8YLo
-                    )}
-                  >
-                    {
-                      "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
-                    }
-                  </div>
-                </div>
-              ) : null}
-              {(() => {
-                try {
-                  return window.sessionStorage.getItem("hamyar") == "true";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___2Fbsy)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToHamyar"] = true
-                      ? (() => {
-                          const actionArgs = { destination: `/hamyar` };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToHamyar"] != null &&
-                      typeof $steps["goToHamyar"] === "object" &&
-                      typeof $steps["goToHamyar"].then === "function"
-                    ) {
-                      $steps["goToHamyar"] = await $steps["goToHamyar"];
-                    }
-                  }}
-                >
-                  <Icon6Icon
-                    className={classNames(projectcss.all, sty.svg__zCey1)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__rAFrl
-                    )}
-                  >
-                    {"\u0647\u0645\u06cc\u0627\u0631"}
-                  </div>
-                </div>
-              ) : null}
-              {(() => {
-                try {
-                  return window.sessionStorage.getItem("hamyar") == "true";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div
-                  aria-pressed={undefined}
-                  className={classNames(projectcss.all, sty.freeBox__t8Cwf)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return `https://tools.liom.app/chat-bot/?hamyar=true`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
-                >
-                  <PlasmicIcon__
-                    PlasmicIconType={
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? Icon234Icon
-                        : Icon234Icon
-                    }
-                    className={classNames(projectcss.all, sty.svg___8TT)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__wdKga
-                    )}
-                  >
-                    {
-                      "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"
-                    }
-                  </div>
-                </div>
-              ) : null}
-              <div
-                aria-pressed={undefined}
-                className={classNames(projectcss.all, sty.freeBox___3Plg)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToBioritm2"] =
-                    localStorage.getItem("token") != "undefined" ||
-                    localStorage.getItem("token") != null
-                      ? (() => {
-                          const actionArgs = { destination: `/Biorhythm` };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["goToBioritm2"] != null &&
-                    typeof $steps["goToBioritm2"] === "object" &&
-                    typeof $steps["goToBioritm2"].then === "function"
-                  ) {
-                    $steps["goToBioritm2"] = await $steps["goToBioritm2"];
-                  }
-                }}
-              >
-                <PlasmicIcon__
-                  PlasmicIconType={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? Icon212Icon
-                      : Icon212Icon
-                  }
-                  className={classNames(projectcss.all, sty.svg___4NzyG)}
-                  role={"img"}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__v5Jx9
-                  )}
-                >
-                  {
-                    "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f"
-                  }
-                </div>
-              </div>
-            </Stack__>
-          </div>
-        </section>
-      ) : null}
       <Load
         data-plasmic-name={"load"}
         data-plasmic-override={overrides.load}
@@ -2174,7 +1687,6 @@ function PlasmicSelfCare2__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "mainHeader",
     "sideEffect",
     "lineClomp",
     "button",
@@ -2183,7 +1695,6 @@ const PlasmicDescendants = {
     "lineClomp2",
     "load"
   ],
-  mainHeader: ["mainHeader"],
   sideEffect: ["sideEffect"],
   lineClomp: ["lineClomp"],
   button: ["button"],
@@ -2197,7 +1708,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  mainHeader: typeof MainHeader;
   sideEffect: typeof SideEffect;
   lineClomp: typeof LineClomp;
   button: typeof Button;
@@ -2267,7 +1777,6 @@ export const PlasmicSelfCare2 = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    mainHeader: makeNodeComponent("mainHeader"),
     sideEffect: makeNodeComponent("sideEffect"),
     lineClomp: makeNodeComponent("lineClomp"),
     button: makeNodeComponent("button"),

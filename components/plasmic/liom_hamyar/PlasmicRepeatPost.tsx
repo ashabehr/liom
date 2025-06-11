@@ -354,7 +354,9 @@ function PlasmicRepeatPost__RenderFunc(props: {
           data-plasmic-override={overrides.post2ForSocialMain}
           audioLinkInPost={(() => {
             try {
-              return $props.postData.post.action;
+              return $props.postData.post.action
+                ? $props.postData.post.action
+                : $props.postData.attachments[0].url;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -381,7 +383,9 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
           image2={(() => {
             try {
-              return $props.postData.post.action;
+              return $props.postData.post.action
+                ? $props.postData.post.action
+                : $props.postData.attachments[0].url;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -441,7 +445,9 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
           video={(() => {
             try {
-              return $props.postData.post.action;
+              return $props.postData.post.action
+                ? $props.postData.post.action
+                : $props.postData.attachments[0].url;
             } catch (e) {
               if (
                 e instanceof TypeError ||

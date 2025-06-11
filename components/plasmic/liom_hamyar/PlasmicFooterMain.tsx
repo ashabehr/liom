@@ -68,6 +68,7 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFooterMain.module.css"; // plasmic-import: ev8_tr4YKTDz/css
 
+import Icon138Icon from "./icons/PlasmicIcon__Icon138"; // plasmic-import: _v0CaTT-8IBc/icon
 import Icon137Icon from "./icons/PlasmicIcon__Icon137"; // plasmic-import: DXdLIMYRuTVZ/icon
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
 
@@ -75,25 +76,37 @@ createPlasmicElementProxy;
 
 export type PlasmicFooterMain__VariantMembers = {
   lackOfCourseInformation: "lackOfCourseInformation";
+  footer2: "calendar";
 };
 export type PlasmicFooterMain__VariantsArgs = {
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
+  footer2?: SingleChoiceArg<"calendar">;
 };
 type VariantPropType = keyof PlasmicFooterMain__VariantsArgs;
 export const PlasmicFooterMain__VariantProps = new Array<VariantPropType>(
-  "lackOfCourseInformation"
+  "lackOfCourseInformation",
+  "footer2"
 );
 
-export type PlasmicFooterMain__ArgsType = {};
+export type PlasmicFooterMain__ArgsType = {
+  type?: string;
+  onTypeChange?: (val: string) => void;
+};
 type ArgPropType = keyof PlasmicFooterMain__ArgsType;
-export const PlasmicFooterMain__ArgProps = new Array<ArgPropType>();
+export const PlasmicFooterMain__ArgProps = new Array<ArgPropType>(
+  "type",
+  "onTypeChange"
+);
 
 export type PlasmicFooterMain__OverridesType = {
   footer?: Flex__<"section">;
 };
 
 export interface DefaultFooterMainProps {
+  type?: string;
+  onTypeChange?: (val: string) => void;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
+  footer2?: SingleChoiceArg<"calendar">;
   className?: string;
 }
 
@@ -136,8 +149,6 @@ function PlasmicFooterMain__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const $globalActions = useGlobalActions?.();
-
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -148,6 +159,20 @@ function PlasmicFooterMain__RenderFunc(props: {
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           $props.lackOfCourseInformation
+      },
+      {
+        path: "type",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "type",
+        onChangeProp: "onTypeChange"
+      },
+      {
+        path: "footer2",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.footer2
       }
     ],
     [$props, $ctx, $refs]
@@ -187,9 +212,44 @@ function PlasmicFooterMain__RenderFunc(props: {
           className={classNames(projectcss.all, sty.freeBox__vbOad)}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox__s1U6A)}
+            className={classNames(projectcss.all, sty.freeBox__s1U6A, {
+              [sty.freeBoxfooter2_calendar__s1U6A6MXal]: hasVariant(
+                $state,
+                "footer2",
+                "calendar"
+              )
+            })}
             onClick={async event => {
               const $steps = {};
+
+              $steps["updateType"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["type"]
+                      },
+                      operation: 0,
+                      value: "calendar"
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateType"] != null &&
+                typeof $steps["updateType"] === "object" &&
+                typeof $steps["updateType"].then === "function"
+              ) {
+                $steps["updateType"] = await $steps["updateType"];
+              }
             }}
           >
             <PlasmicIcon__
@@ -200,7 +260,7 @@ function PlasmicFooterMain__RenderFunc(props: {
                   "lackOfCourseInformation"
                 )
                   ? Icon137Icon
-                  : Icon137Icon
+                  : Icon138Icon
               }
               className={classNames(projectcss.all, sty.svg__bb57K, {
                 [sty.svglackOfCourseInformation__bb57KMhezJ]: hasVariant(
@@ -228,80 +288,33 @@ function PlasmicFooterMain__RenderFunc(props: {
             onClick={async event => {
               const $steps = {};
 
-              $steps["runCode"] =
-                window.localStorage.getItem("userinfo") != null
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return window.open("/Self-care", "_self");
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-
-              $steps["invokeGlobalAction"] = true
+              $steps["updateType"] = true
                 ? (() => {
                     const actionArgs = {
-                      args: [
-                        "POST",
-                        "https://api.liom.app/service/log",
-                        undefined,
-                        (() => {
-                          try {
-                            return {
-                              userId:
-                                new URLSearchParams(window.location.search).get(
-                                  "userId"
-                                ) ||
-                                JSON.parse(
-                                  window.localStorage.getItem("userinfo")
-                                ).user.id,
-                              pageName: "calendar",
-                              action: "selfCare",
-                              extraData: {}
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })(),
-                        {
-                          headers: {
-                            "Content-Type": "application/json",
-                            Authorization:
-                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                          }
-                        }
-                      ]
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["type"]
+                      },
+                      operation: 0,
+                      value: "self-care"
                     };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
               if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
+                $steps["updateType"] != null &&
+                typeof $steps["updateType"] === "object" &&
+                typeof $steps["updateType"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["updateType"] = await $steps["updateType"];
               }
             }}
           >

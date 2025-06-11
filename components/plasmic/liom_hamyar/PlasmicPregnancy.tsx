@@ -1065,9 +1065,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "getAdvice2",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
-          { title: "fdsfds", text: "ffsd" }
-        ]
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
         path: "button3[].color",
@@ -6086,7 +6084,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                               displayMaxWidth={"100%"}
                               displayMinHeight={"0"}
                               displayMinWidth={"0"}
-                              displayWidth={"auto"}
+                              displayWidth={
+                                hasVariant(globalVariants, "screen", "mobile")
+                                  ? "auto"
+                                  : "auto"
+                              }
                               loading={"lazy"}
                               src={(() => {
                                 try {
@@ -16007,7 +16009,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     <React.Fragment>
                                       {(() => {
                                         try {
-                                          return "هفته " + $state.selectedWeek;
+                                          return "هفته " + $state.weeksPregnant;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -16063,6 +16065,664 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     sty.freeBox__aqSel
                                   )}
                                 >
+                                  {(() => {
+                                    try {
+                                      return $state.loadingAdvice;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <LottieWrapper
+                                      animationData={{
+                                        nm: "Loading Dots",
+                                        ddd: 0,
+                                        h: 50,
+                                        w: 100,
+                                        meta: {
+                                          g: "@lottiefiles/toolkit-js 0.33.2"
+                                        },
+                                        layers: [
+                                          {
+                                            ty: 4,
+                                            nm: "Dot4",
+                                            sr: 1,
+                                            st: 0,
+                                            op: 360,
+                                            ip: 0,
+                                            hd: false,
+                                            ddd: 0,
+                                            bm: 0,
+                                            hasMask: false,
+                                            ao: 0,
+                                            ks: {
+                                              a: {
+                                                a: 0,
+                                                k: [-284, 92, 0],
+                                                ix: 1
+                                              },
+                                              s: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 25
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [3.91, 3.47, 100],
+                                                    t: 39
+                                                  },
+                                                  {
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 55
+                                                  }
+                                                ],
+                                                ix: 6
+                                              },
+                                              sk: { a: 0, k: 0 },
+                                              p: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [59.48, 25, 0],
+                                                    t: 25
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [59.48, 23.15, 0],
+                                                    t: 39
+                                                  },
+                                                  { s: [59.48, 25, 0], t: 55 }
+                                                ],
+                                                ix: 2
+                                              },
+                                              r: { a: 0, k: 0, ix: 10 },
+                                              sa: { a: 0, k: 0 },
+                                              o: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [25],
+                                                    t: 25
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [100],
+                                                    t: 39
+                                                  },
+                                                  { s: [25], t: 55 }
+                                                ],
+                                                ix: 11
+                                              }
+                                            },
+                                            ef: [],
+                                            shapes: [
+                                              {
+                                                ty: "gr",
+                                                bm: 0,
+                                                hd: false,
+                                                mn: "ADBE Vector Group",
+                                                nm: "Ellipse 1",
+                                                ix: 1,
+                                                cix: 2,
+                                                np: 3,
+                                                it: [
+                                                  {
+                                                    ty: "el",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Shape - Ellipse",
+                                                    nm: "Ellipse Path 1",
+                                                    d: 1,
+                                                    p: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 3
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [120, 120],
+                                                      ix: 2
+                                                    }
+                                                  },
+                                                  {
+                                                    ty: "fl",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Graphic - Fill",
+                                                    nm: "Fill 1",
+                                                    c: {
+                                                      a: 0,
+                                                      k: [
+                                                        0.5098, 0.3294, 0.7765
+                                                      ],
+                                                      ix: 4
+                                                    },
+                                                    r: 1,
+                                                    o: { a: 0, k: 100, ix: 5 }
+                                                  },
+                                                  {
+                                                    ty: "tr",
+                                                    a: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 1
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [100, 100],
+                                                      ix: 3
+                                                    },
+                                                    sk: { a: 0, k: 0, ix: 4 },
+                                                    p: {
+                                                      a: 0,
+                                                      k: [-284, 92],
+                                                      ix: 2
+                                                    },
+                                                    r: { a: 0, k: 0, ix: 6 },
+                                                    sa: { a: 0, k: 0, ix: 5 },
+                                                    o: { a: 0, k: 100, ix: 7 }
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            ind: 1
+                                          },
+                                          {
+                                            ty: 4,
+                                            nm: "Dot3",
+                                            sr: 1,
+                                            st: 0,
+                                            op: 360,
+                                            ip: 0,
+                                            hd: false,
+                                            ddd: 0,
+                                            bm: 0,
+                                            hasMask: false,
+                                            ao: 0,
+                                            ks: {
+                                              a: {
+                                                a: 0,
+                                                k: [-284, 92, 0],
+                                                ix: 1
+                                              },
+                                              s: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 17
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [3.91, 3.47, 100],
+                                                    t: 31
+                                                  },
+                                                  {
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 47
+                                                  }
+                                                ],
+                                                ix: 6
+                                              },
+                                              sk: { a: 0, k: 0 },
+                                              p: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [53.23, 25, 0],
+                                                    t: 17
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [53.23, 23.15, 0],
+                                                    t: 31
+                                                  },
+                                                  { s: [53.23, 25, 0], t: 47 }
+                                                ],
+                                                ix: 2
+                                              },
+                                              r: { a: 0, k: 0, ix: 10 },
+                                              sa: { a: 0, k: 0 },
+                                              o: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [25],
+                                                    t: 17
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [100],
+                                                    t: 31
+                                                  },
+                                                  { s: [25], t: 47 }
+                                                ],
+                                                ix: 11
+                                              }
+                                            },
+                                            ef: [],
+                                            shapes: [
+                                              {
+                                                ty: "gr",
+                                                bm: 0,
+                                                hd: false,
+                                                mn: "ADBE Vector Group",
+                                                nm: "Ellipse 1",
+                                                ix: 1,
+                                                cix: 2,
+                                                np: 3,
+                                                it: [
+                                                  {
+                                                    ty: "el",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Shape - Ellipse",
+                                                    nm: "Ellipse Path 1",
+                                                    d: 1,
+                                                    p: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 3
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [120, 120],
+                                                      ix: 2
+                                                    }
+                                                  },
+                                                  {
+                                                    ty: "fl",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Graphic - Fill",
+                                                    nm: "Fill 1",
+                                                    c: {
+                                                      a: 0,
+                                                      k: [
+                                                        0.5098, 0.3294, 0.7765
+                                                      ],
+                                                      ix: 4
+                                                    },
+                                                    r: 1,
+                                                    o: { a: 0, k: 100, ix: 5 }
+                                                  },
+                                                  {
+                                                    ty: "tr",
+                                                    a: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 1
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [100, 100],
+                                                      ix: 3
+                                                    },
+                                                    sk: { a: 0, k: 0, ix: 4 },
+                                                    p: {
+                                                      a: 0,
+                                                      k: [-284, 92],
+                                                      ix: 2
+                                                    },
+                                                    r: { a: 0, k: 0, ix: 6 },
+                                                    sa: { a: 0, k: 0, ix: 5 },
+                                                    o: { a: 0, k: 100, ix: 7 }
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            ind: 2
+                                          },
+                                          {
+                                            ty: 4,
+                                            nm: "Dot2",
+                                            sr: 1,
+                                            st: 0,
+                                            op: 360,
+                                            ip: 0,
+                                            hd: false,
+                                            ddd: 0,
+                                            bm: 0,
+                                            hasMask: false,
+                                            ao: 0,
+                                            ks: {
+                                              a: {
+                                                a: 0,
+                                                k: [-284, 92, 0],
+                                                ix: 1
+                                              },
+                                              s: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 9
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [3.91, 3.47, 100],
+                                                    t: 23
+                                                  },
+                                                  {
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 39
+                                                  }
+                                                ],
+                                                ix: 6
+                                              },
+                                              sk: { a: 0, k: 0 },
+                                              p: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [46.98, 25, 0],
+                                                    t: 9
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [46.98, 23.15, 0],
+                                                    t: 23
+                                                  },
+                                                  { s: [46.98, 25, 0], t: 39 }
+                                                ],
+                                                ix: 2
+                                              },
+                                              r: { a: 0, k: 0, ix: 10 },
+                                              sa: { a: 0, k: 0 },
+                                              o: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [25],
+                                                    t: 9
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [100],
+                                                    t: 23
+                                                  },
+                                                  { s: [25], t: 39 }
+                                                ],
+                                                ix: 11
+                                              }
+                                            },
+                                            ef: [],
+                                            shapes: [
+                                              {
+                                                ty: "gr",
+                                                bm: 0,
+                                                hd: false,
+                                                mn: "ADBE Vector Group",
+                                                nm: "Ellipse 1",
+                                                ix: 1,
+                                                cix: 2,
+                                                np: 3,
+                                                it: [
+                                                  {
+                                                    ty: "el",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Shape - Ellipse",
+                                                    nm: "Ellipse Path 1",
+                                                    d: 1,
+                                                    p: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 3
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [120, 120],
+                                                      ix: 2
+                                                    }
+                                                  },
+                                                  {
+                                                    ty: "fl",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Graphic - Fill",
+                                                    nm: "Fill 1",
+                                                    c: {
+                                                      a: 0,
+                                                      k: [
+                                                        0.5098, 0.3294, 0.7765
+                                                      ],
+                                                      ix: 4
+                                                    },
+                                                    r: 1,
+                                                    o: { a: 0, k: 100, ix: 5 }
+                                                  },
+                                                  {
+                                                    ty: "tr",
+                                                    a: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 1
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [100, 100],
+                                                      ix: 3
+                                                    },
+                                                    sk: { a: 0, k: 0, ix: 4 },
+                                                    p: {
+                                                      a: 0,
+                                                      k: [-284, 92],
+                                                      ix: 2
+                                                    },
+                                                    r: { a: 0, k: 0, ix: 6 },
+                                                    sa: { a: 0, k: 0, ix: 5 },
+                                                    o: { a: 0, k: 100, ix: 7 }
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            ind: 3
+                                          },
+                                          {
+                                            ty: 4,
+                                            nm: "Dot1",
+                                            sr: 1,
+                                            st: 0,
+                                            op: 360,
+                                            ip: 0,
+                                            hd: false,
+                                            ddd: 0,
+                                            bm: 0,
+                                            hasMask: false,
+                                            ao: 0,
+                                            ks: {
+                                              a: {
+                                                a: 0,
+                                                k: [-284, 92, 0],
+                                                ix: 1
+                                              },
+                                              s: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 0
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [3.91, 3.47, 100],
+                                                    t: 14
+                                                  },
+                                                  {
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 30
+                                                  }
+                                                ],
+                                                ix: 6
+                                              },
+                                              sk: { a: 0, k: 0 },
+                                              p: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [40.73, 25, 0],
+                                                    t: 0
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [40.73, 23.15, 0],
+                                                    t: 14
+                                                  },
+                                                  { s: [40.73, 25, 0], t: 30 }
+                                                ],
+                                                ix: 2
+                                              },
+                                              r: { a: 0, k: 0, ix: 10 },
+                                              sa: { a: 0, k: 0 },
+                                              o: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [25],
+                                                    t: 0
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [100],
+                                                    t: 14
+                                                  },
+                                                  { s: [25], t: 30 }
+                                                ],
+                                                ix: 11
+                                              }
+                                            },
+                                            ef: [],
+                                            shapes: [
+                                              {
+                                                ty: "gr",
+                                                bm: 0,
+                                                hd: false,
+                                                mn: "ADBE Vector Group",
+                                                nm: "Ellipse 1",
+                                                ix: 1,
+                                                cix: 2,
+                                                np: 3,
+                                                it: [
+                                                  {
+                                                    ty: "el",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Shape - Ellipse",
+                                                    nm: "Ellipse Path 1",
+                                                    d: 1,
+                                                    p: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 3
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [120, 120],
+                                                      ix: 2
+                                                    }
+                                                  },
+                                                  {
+                                                    ty: "fl",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Graphic - Fill",
+                                                    nm: "Fill 1",
+                                                    c: {
+                                                      a: 0,
+                                                      k: [
+                                                        0.5098, 0.3294, 0.7765
+                                                      ],
+                                                      ix: 4
+                                                    },
+                                                    r: 1,
+                                                    o: { a: 0, k: 100, ix: 5 }
+                                                  },
+                                                  {
+                                                    ty: "tr",
+                                                    a: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 1
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [100, 100],
+                                                      ix: 3
+                                                    },
+                                                    sk: { a: 0, k: 0, ix: 4 },
+                                                    p: {
+                                                      a: 0,
+                                                      k: [-284, 92],
+                                                      ix: 2
+                                                    },
+                                                    r: { a: 0, k: 0, ix: 6 },
+                                                    sa: { a: 0, k: 0, ix: 5 },
+                                                    o: { a: 0, k: 100, ix: 7 }
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            ind: 4
+                                          }
+                                        ],
+                                        v: "5.7.11",
+                                        fr: 60,
+                                        op: 81,
+                                        ip: 0,
+                                        assets: []
+                                      }}
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.lottie__vjwxh
+                                      )}
+                                      preview={true}
+                                    />
+                                  ) : null}
                                   <Stack__
                                     as={"div"}
                                     hasGap={true}
@@ -16965,7 +17625,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   const filteredItem =
                                                     allowance.find(item =>
                                                       item.type.includes(
-                                                        "advice"
+                                                        "special_advice"
                                                       )
                                                     );
                                                   const active = filteredItem
