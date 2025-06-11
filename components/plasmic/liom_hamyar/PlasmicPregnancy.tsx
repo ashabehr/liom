@@ -1182,23 +1182,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "randomIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (
-                //  Math.floor(Math.random() * $state.playList.length);
-                2
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return 0;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -1995,6 +1979,46 @@ function PlasmicPregnancy__RenderFunc(props: {
                     typeof $steps["scroll"].then === "function"
                   ) {
                     $steps["scroll"] = await $steps["scroll"];
+                  }
+
+                  $steps["updateRandomIndex"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["randomIndex"]
+                          },
+                          operation: 0,
+                          value: (() => {
+                            return Math.floor(
+                              Math.random() * $state.playList.length
+                            );
+                          })()
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateRandomIndex"] != null &&
+                    typeof $steps["updateRandomIndex"] === "object" &&
+                    typeof $steps["updateRandomIndex"].then === "function"
+                  ) {
+                    $steps["updateRandomIndex"] = await $steps[
+                      "updateRandomIndex"
+                    ];
                   }
                 }}
               />
@@ -10397,11 +10421,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   const $steps = {};
 
                                                   $steps["invokeGlobalAction"] =
-                                                    true
+                                                    $state.paramsObject.inApp ==
+                                                    "true"
                                                       ? (() => {
                                                           const actionArgs = {
                                                             args: [
-                                                              "#healthSubscription",
+                                                              "#directDialog-special_advice",
                                                               (() => {
                                                                 try {
                                                                   return $state.token;
@@ -10491,6 +10516,41 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     ] = await $steps[
                                                       "invokeGlobalAction"
                                                     ];
+                                                  }
+
+                                                  $steps["runCode"] =
+                                                    $state.paramsObject.inApp !=
+                                                    "true"
+                                                      ? (() => {
+                                                          const actionArgs = {
+                                                            customFunction:
+                                                              async () => {
+                                                                return (() => {
+                                                                  $state.typeBuy =
+                                                                    "special_advice";
+                                                                  return ($state.directDialog2.open =
+                                                                    true);
+                                                                })();
+                                                              }
+                                                          };
+                                                          return (({
+                                                            customFunction
+                                                          }) => {
+                                                            return customFunction();
+                                                          })?.apply(null, [
+                                                            actionArgs
+                                                          ]);
+                                                        })()
+                                                      : undefined;
+                                                  if (
+                                                    $steps["runCode"] != null &&
+                                                    typeof $steps["runCode"] ===
+                                                      "object" &&
+                                                    typeof $steps["runCode"]
+                                                      .then === "function"
+                                                  ) {
+                                                    $steps["runCode"] =
+                                                      await $steps["runCode"];
                                                   }
                                                 }}
                                               >

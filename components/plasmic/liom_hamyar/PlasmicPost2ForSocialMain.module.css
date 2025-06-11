@@ -132,6 +132,9 @@
 .img > picture > img {
   object-fit: cover;
 }
+.imgpostType_voise {
+  display: none;
+}
 .imgpostType_video {
   display: none;
 }
@@ -170,6 +173,9 @@
   flex-shrink: 0;
   border-radius: 8px;
 }
+.htmlVideopostType_voise:global(.__wab_instance) {
+  display: none;
+}
 .freeBox___2Trdr {
   display: flex;
   flex-direction: row;
@@ -203,9 +209,7 @@
 .audioPlayer:global(.__wab_instance) {
   position: relative;
   width: 100%;
-  height: 100%;
   min-width: 0;
-  min-height: 0;
 }
 .freeBox___1JXt {
   flex-direction: row;
@@ -240,4 +244,7 @@
   font-weight: 700;
   font-size: 16px;
   white-space: pre;
+}
+.textpostType_voise__qUiyE3CTnO {
+  display: none;
 }

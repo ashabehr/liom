@@ -203,7 +203,15 @@ function PlasmicFooterMain__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.footer
+        sty.footer,
+        {
+          [sty.footerfooter2_calendar]: hasVariant(
+            $state,
+            "footer2",
+            "calendar"
+          ),
+          [sty.footerfooter2_self]: hasVariant($state, "footer2", "self")
+        }
       )}
     >
       <div className={classNames(projectcss.all, sty.freeBox__ijEra)}>
@@ -218,6 +226,11 @@ function PlasmicFooterMain__RenderFunc(props: {
                 $state,
                 "footer2",
                 "calendar"
+              ),
+              [sty.freeBoxfooter2_self__s1U6AtRqqb]: hasVariant(
+                $state,
+                "footer2",
+                "self"
               )
             })}
             onClick={async event => {
@@ -250,6 +263,31 @@ function PlasmicFooterMain__RenderFunc(props: {
                 typeof $steps["updateType"].then === "function"
               ) {
                 $steps["updateType"] = await $steps["updateType"];
+              }
+
+              $steps["updateType2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return window.sessionStorage.setItem(
+                            "footer",
+                            "calendar"
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateType2"] != null &&
+                typeof $steps["updateType2"] === "object" &&
+                typeof $steps["updateType2"].then === "function"
+              ) {
+                $steps["updateType2"] = await $steps["updateType2"];
               }
             }}
           >
@@ -341,6 +379,31 @@ function PlasmicFooterMain__RenderFunc(props: {
                 typeof $steps["updateType"].then === "function"
               ) {
                 $steps["updateType"] = await $steps["updateType"];
+              }
+
+              $steps["updateType2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return window.sessionStorage.setItem(
+                            "footer",
+                            "self"
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateType2"] != null &&
+                typeof $steps["updateType2"] === "object" &&
+                typeof $steps["updateType2"].then === "function"
+              ) {
+                $steps["updateType2"] = await $steps["updateType2"];
               }
             }}
           >

@@ -161,13 +161,27 @@ function PlasmicMain__RenderFunc(props: {
         path: "footerMain.type",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "calendar"
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          `calendar${window.sessionStorage.getItem("footer") || "calendar"}`
       },
       {
         path: "page",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -248,39 +262,60 @@ function PlasmicMain__RenderFunc(props: {
             />
           </section>
           <section className={classNames(projectcss.all, sty.section__vtIx7)}>
-            <FooterMain
-              data-plasmic-name={"footerMain"}
-              data-plasmic-override={overrides.footerMain}
-              className={classNames("__wab_instance", sty.footerMain)}
-              footer2={(() => {
-                try {
-                  return $state.footerMain.type;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "calendar";
+            {(() => {
+              const child$Props = {
+                className: classNames("__wab_instance", sty.footerMain),
+                footer2: (() => {
+                  try {
+                    return $state.footerMain.type;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "calendar";
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()}
-              onTypeChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["footerMain", "type"]).apply(
-                  null,
-                  eventArgs
-                );
+                })(),
+                onTypeChange: async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "footerMain",
+                    "type"
+                  ]).apply(null, eventArgs);
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              type={generateStateValueProp($state, ["footerMain", "type"])}
-            />
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                },
+                type: generateStateValueProp($state, ["footerMain", "type"])
+              };
+
+              initializePlasmicStates(
+                $state,
+                [
+                  {
+                    name: "footerMain.type",
+                    initFunc: ({ $props, $state, $queries }) =>
+                      `calendar${
+                        window.sessionStorage.getItem("footer") || "calendar"
+                      }`
+                  }
+                ],
+                []
+              );
+              return (
+                <FooterMain
+                  data-plasmic-name={"footerMain"}
+                  data-plasmic-override={overrides.footerMain}
+                  {...child$Props}
+                />
+              );
+            })()}
           </section>
         </div>
       </div>

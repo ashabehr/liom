@@ -34,6 +34,22 @@
     grid-column: 4;
   }
 }
+.footerfooter2_calendar > * {
+  grid-column: 4;
+}
+@media (max-width: 640px) {
+  .footerfooter2_calendar > * {
+    grid-column: 4;
+  }
+}
+.footerfooter2_self > * {
+  grid-column: 4;
+}
+@media (max-width: 640px) {
+  .footerfooter2_self > * {
+    grid-column: 4;
+  }
+}
 .freeBox__ijEra {
   display: flex;
   flex-direction: column;
@@ -143,6 +159,11 @@
 }
 .freeBoxfooter2_calendar__s1U6A6MXal {
   background: #8254c61a;
+}
+@media (max-width: 640px) {
+  .freeBoxfooter2_self__s1U6AtRqqb {
+    background: none;
+  }
 }
 .svg__bb57K {
   object-fit: cover;

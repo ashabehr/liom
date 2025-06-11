@@ -354,9 +354,11 @@ function PlasmicRepeatPost__RenderFunc(props: {
           data-plasmic-override={overrides.post2ForSocialMain}
           audioLinkInPost={(() => {
             try {
-              return $props.postData.post.action
-                ? $props.postData.post.action
-                : $props.postData.attachments[0].url;
+              return (
+                $props.postData.post.action ||
+                $props.postData.attachments[0]?.url ||
+                ""
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -383,9 +385,11 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
           image2={(() => {
             try {
-              return $props.postData.post.action
-                ? $props.postData.post.action
-                : $props.postData.attachments[0].url;
+              return (
+                $props.postData.post.action ||
+                $props.postData.attachments[0]?.url ||
+                ""
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -398,25 +402,13 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
           postType={(() => {
             try {
-              return (() => {
-                const typeMap = {
-                  "بازکردن تصویر": "image",
-                  "بازکردن صدا": "voice",
-                  "نمایش ویدیو": "video",
-                  "دانلود لوگو": "file"
-                };
-                const type =
-                  $props.postData.attachments[0]?.type ||
-                  typeMap[$props.postData.post.actionText] ||
-                  "justText";
-                return type;
-              })();
+              return undefined;
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return [];
+                return "jastText";
               }
               throw e;
             }
@@ -449,9 +441,11 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
           video={(() => {
             try {
-              return $props.postData.post.action
-                ? $props.postData.post.action
-                : $props.postData.attachments[0].url;
+              return (
+                $props.postData.post.action ||
+                $props.postData.attachments[0]?.url ||
+                ""
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||

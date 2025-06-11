@@ -243,6 +243,11 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
             $state,
             "postType",
             "file"
+          ),
+          [sty.freeBoxpostType_voise__o3Uw03CTnO]: hasVariant(
+            $state,
+            "postType",
+            "voise"
           )
         })}
       >
@@ -379,7 +384,8 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
             alt={""}
             className={classNames(sty.img, {
               [sty.imgpostType_image]: hasVariant($state, "postType", "image"),
-              [sty.imgpostType_video]: hasVariant($state, "postType", "video")
+              [sty.imgpostType_video]: hasVariant($state, "postType", "video"),
+              [sty.imgpostType_voise]: hasVariant($state, "postType", "voise")
             })}
             displayHeight={"auto"}
             displayMaxHeight={"50%"}
@@ -440,6 +446,11 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
                 $state,
                 "postType",
                 "image"
+              ),
+              [sty.htmlVideopostType_voise]: hasVariant(
+                $state,
+                "postType",
+                "voise"
               )
             })}
             controls={true}
@@ -533,6 +544,11 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
               $state,
               "postType",
               "jastText"
+            ),
+            [sty.freeBoxpostType_voise___1JXt3CTnO]: hasVariant(
+              $state,
+              "postType",
+              "voise"
             )
           })}
           onClick={async event => {
@@ -563,7 +579,14 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text__qUiyE
+              sty.text__qUiyE,
+              {
+                [sty.textpostType_voise__qUiyE3CTnO]: hasVariant(
+                  $state,
+                  "postType",
+                  "voise"
+                )
+              }
             )}
           >
             <React.Fragment>
