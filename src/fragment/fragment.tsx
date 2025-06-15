@@ -372,7 +372,8 @@ export const Fragment = ({
                 break;
             }
             case "#video": {
-                const link = `https://tools.liom.app/play-list/?inApp=${inApp}`;
+                const queryString = buildQueryString(params);
+                const link = `https://tools.liom.app/play-list/?inApp=${inApp}&${queryString}`;
                 sendMessage("محتوا آموزشی", link,inWebViow);
                 break;
             }
