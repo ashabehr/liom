@@ -270,6 +270,11 @@ export const Fragment = ({
               break;
             }
             case "#events": {
+              const queryString = buildQueryString(params);
+              if(queryString.includes("status=pregnancy")){
+                  let link = `https://apps.liom.app/status-day/`;
+                  sendMessage("وضعیت امروز", link,inWebViow);
+              }else{
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
@@ -277,7 +282,7 @@ export const Fragment = ({
                   window.open(link, "_self");
               }
               break;
-            }
+            }}
               
             case "#sismony": {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
