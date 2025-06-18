@@ -67,9 +67,9 @@ import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
+import InformationBox from "../../InformationBox"; // plasmic-import: CRVLEAaVQvJw/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
-import InformationBox from "../../InformationBox"; // plasmic-import: CRVLEAaVQvJw/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
@@ -121,7 +121,6 @@ export type PlasmicPregnancy__OverridesType = {
   favIcone?: Flex__<typeof Embed>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   progress?: Flex__<typeof AntdProgress>;
-  informationBox?: Flex__<typeof InformationBox>;
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
   button3?: Flex__<typeof Button>;
   tabWeek?: Flex__<typeof TabWeek>;
@@ -1183,6 +1182,30 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "serviceInterruption",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                return (
+                  window.localStorage.getItem("showServiceInterruption") ||
+                  "true"
+                );
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -3021,6 +3044,77 @@ function PlasmicPregnancy__RenderFunc(props: {
                       )}
                       id={"main"}
                     >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___3NkMm
+                        )}
+                      >
+                        {(() => {
+                          try {
+                            return $state.serviceInterruption == "true";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <InformationBox
+                            backColor={"#FFF3E0"}
+                            btn1={{
+                              text: ""
+                            }}
+                            btn2={{
+                              text: ""
+                            }}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.informationBox__elZnw
+                            )}
+                            onClickClose={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          window.localStorage.setItem(
+                                            "showServiceInterruption",
+                                            "false"
+                                          );
+                                          return ($state.serviceInterruption =
+                                            "false");
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
+                            text={
+                              "\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632\u060c \u062f\u0631 \u062d\u0627\u0644 \u062d\u0627\u0636\u0631 \u0628\u0647 \u062f\u0644\u06cc\u0644 \u0645\u0634\u06a9\u0644 \u0641\u0646\u06cc\u060c \u0627\u0645\u06a9\u0627\u0646 \u0646\u0645\u0627\u06cc\u0634 \u0648\u0636\u0639\u06cc\u062a \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u062f\u0631 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0641\u0631\u0627\u0647\u0645 \u0646\u06cc\u0633\u062a. \u0628\u0627\u0628\u062a \u0627\u06cc\u0646 \u0627\u062e\u062a\u0644\u0627\u0644 \u0635\u0645\u06cc\u0645\u0627\u0646\u0647 \u0639\u0630\u0631\u062e\u0648\u0627\u0647\u06cc \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645.\u062a\u06cc\u0645 \u0645\u0627 \u062f\u0627\u0631\u0647 \u0631\u0648\u06cc \u062d\u0644 \u0645\u0634\u06a9\u0644 \u06a9\u0627\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0647 \u0648 \u0628\u0647 \u0645\u062d\u0636 \u0631\u0641\u0639\u060c \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u062e\u062a\u0644\u0627\u0644 \u0631\u0627 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0627\u0636\u0627\u0641\u0647 \u062e\u0648\u0627\u0647\u06cc\u0645 \u06a9\u0631\u062f \u062a\u0627 \u0686\u06cc\u0632\u06cc \u0627\u0632 \u062f\u0633\u062a \u0646\u0631\u0648\u062f.\u0627\u0632 \u0635\u0628\u0648\u0631\u06cc \u0648 \u0647\u0645\u0631\u0627\u0647\u06cc \u0634\u0645\u0627 \u0645\u0645\u0646\u0648\u0646\u06cc\u0645! \ud83d\ude4f"
+                            }
+                            title={
+                              "\ud83d\udd27  \u0627\u062e\u062a\u0644\u0627\u0644 \u0645\u0648\u0642\u062a \u062f\u0631 \u0646\u0645\u0627\u06cc\u0634 \u0627\u0634\u062a\u0631\u0627\u06a9"
+                            }
+                            userId={$state.userId}
+                          />
+                        ) : null}
+                      </div>
                       <Embed
                         className={classNames(
                           "__wab_instance",
@@ -6879,8 +6973,19 @@ function PlasmicPregnancy__RenderFunc(props: {
                         }
                       })() ? (
                         <InformationBox
-                          data-plasmic-name={"informationBox"}
-                          data-plasmic-override={overrides.informationBox}
+                          backColor={(() => {
+                            try {
+                              return "";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
                           btn1={(() => {
                             try {
                               return {
@@ -6942,7 +7047,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           })()}
                           className={classNames(
                             "__wab_instance",
-                            sty.informationBox
+                            sty.informationBox__zsu9
                           )}
                           onClickBtn1={async event => {
                             const $steps = {};
@@ -28140,7 +28245,6 @@ const PlasmicDescendants = {
     "favIcone",
     "pullToRefresh",
     "progress",
-    "informationBox",
     "collapseAdvice",
     "button3",
     "tabWeek",
@@ -28165,7 +28269,6 @@ const PlasmicDescendants = {
     "favIcone",
     "pullToRefresh",
     "progress",
-    "informationBox",
     "collapseAdvice",
     "button3",
     "tabWeek",
@@ -28187,7 +28290,6 @@ const PlasmicDescendants = {
   favIcone: ["favIcone"],
   pullToRefresh: ["pullToRefresh"],
   progress: ["progress"],
-  informationBox: ["informationBox"],
   collapseAdvice: ["collapseAdvice", "button3"],
   button3: ["button3"],
   tabWeek: ["tabWeek"],
@@ -28216,7 +28318,6 @@ type NodeDefaultElementType = {
   favIcone: typeof Embed;
   pullToRefresh: typeof PullToRefresh;
   progress: typeof AntdProgress;
-  informationBox: typeof InformationBox;
   collapseAdvice: typeof AntdSingleCollapse;
   button3: typeof Button;
   tabWeek: typeof TabWeek;
@@ -28326,7 +28427,6 @@ export const PlasmicPregnancy = Object.assign(
     favIcone: makeNodeComponent("favIcone"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     progress: makeNodeComponent("progress"),
-    informationBox: makeNodeComponent("informationBox"),
     collapseAdvice: makeNodeComponent("collapseAdvice"),
     button3: makeNodeComponent("button3"),
     tabWeek: makeNodeComponent("tabWeek"),

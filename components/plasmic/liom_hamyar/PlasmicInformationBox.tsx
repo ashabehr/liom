@@ -88,6 +88,7 @@ export type PlasmicInformationBox__ArgsType = {
   onClickBtn1?: (event: any) => void;
   onClickBtn2?: (event: any) => void;
   onClickClose?: (event: any) => void;
+  backColor?: string;
 };
 type ArgPropType = keyof PlasmicInformationBox__ArgsType;
 export const PlasmicInformationBox__ArgProps = new Array<ArgPropType>(
@@ -98,7 +99,8 @@ export const PlasmicInformationBox__ArgProps = new Array<ArgPropType>(
   "btn2",
   "onClickBtn1",
   "onClickBtn2",
-  "onClickClose"
+  "onClickClose",
+  "backColor"
 );
 
 export type PlasmicInformationBox__OverridesType = {
@@ -117,6 +119,7 @@ export interface DefaultInformationBoxProps {
   onClickBtn1?: (event: any) => void;
   onClickBtn2?: (event: any) => void;
   onClickClose?: (event: any) => void;
+  backColor?: string;
   className?: string;
 }
 
@@ -255,6 +258,22 @@ function PlasmicInformationBox__RenderFunc(props: {
         as={"div"}
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__ej0Pr)}
+        style={(() => {
+          try {
+            return {
+              "background-color":
+                $props.backColor == "" ? "#CDF6E6" : $props.backColor
+            };
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
       >
         <div
           className={classNames(projectcss.all, sty.freeBox__kM61V)}
@@ -321,37 +340,30 @@ function PlasmicInformationBox__RenderFunc(props: {
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__yshm8)}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__vHEq)}
-            onClick={args.onClickBtn1}
-            style={(() => {
-              try {
-                return {
-                  "background-color": $props.btn1.backColor,
-                  border: "1px solid " + $props.btn1.borderColor
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
+          {(() => {
+            try {
+              return $props.btn1?.text != "";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
               }
-            })()}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__jjKj
-              )}
+              throw e;
+            }
+          })() ? (
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__vHEq)}
+              onClick={args.onClickBtn1}
               style={(() => {
                 try {
-                  return { color: $props.btn1.textColor };
+                  return {
+                    "background-color": $props.btn1.backColor,
+                    border: "1px solid " + $props.btn1.borderColor
+                  };
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -363,43 +375,15 @@ function PlasmicInformationBox__RenderFunc(props: {
                 }
               })()}
             >
-              <React.Fragment>
-                {(() => {
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__jjKj
+                )}
+                style={(() => {
                   try {
-                    return $props.btn1.text;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-            {(() => {
-              try {
-                return $props.btn1.type == "switch";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })() ? (
-              <AntdSwitch
-                data-plasmic-name={"_switch"}
-                data-plasmic-override={overrides._switch}
-                checked={generateStateValueProp($state, ["_switch", "checked"])}
-                className={classNames("__wab_instance", sty._switch)}
-                defaultChecked={(() => {
-                  try {
-                    return $props.btn1.isChecked;
+                    return { color: $props.btn1.textColor };
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -410,56 +394,108 @@ function PlasmicInformationBox__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                disabled={false}
-                onChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.btn1.text;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+              {(() => {
+                try {
+                  return $props.btn1.type == "switch";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <AntdSwitch
+                  data-plasmic-name={"_switch"}
+                  data-plasmic-override={overrides._switch}
+                  checked={generateStateValueProp($state, [
                     "_switch",
                     "checked"
-                  ]).apply(null, eventArgs);
-
-                  (async checked => {
-                    const $steps = {};
-
-                    $steps["updateSwitchChecked"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["_switch", "checked"]
-                            },
-                            operation: 0,
-                            value: $props.btn1.isChecked
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateSwitchChecked"] != null &&
-                      typeof $steps["updateSwitchChecked"] === "object" &&
-                      typeof $steps["updateSwitchChecked"].then === "function"
-                    ) {
-                      $steps["updateSwitchChecked"] = await $steps[
-                        "updateSwitchChecked"
-                      ];
+                  ])}
+                  className={classNames("__wab_instance", sty._switch)}
+                  defaultChecked={(() => {
+                    try {
+                      return $props.btn1.isChecked;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
                     }
-                  }).apply(null, eventArgs);
-                }}
-              />
-            ) : null}
-          </Stack__>
+                  })()}
+                  disabled={false}
+                  onChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "_switch",
+                      "checked"
+                    ]).apply(null, eventArgs);
+
+                    (async checked => {
+                      const $steps = {};
+
+                      $steps["updateSwitchChecked"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["_switch", "checked"]
+                              },
+                              operation: 0,
+                              value: $props.btn1.isChecked
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateSwitchChecked"] != null &&
+                        typeof $steps["updateSwitchChecked"] === "object" &&
+                        typeof $steps["updateSwitchChecked"].then === "function"
+                      ) {
+                        $steps["updateSwitchChecked"] = await $steps[
+                          "updateSwitchChecked"
+                        ];
+                      }
+                    }).apply(null, eventArgs);
+                  }}
+                />
+              ) : null}
+            </Stack__>
+          ) : null}
           {(() => {
             try {
               return $props.btn2?.text != "";
