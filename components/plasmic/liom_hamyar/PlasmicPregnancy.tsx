@@ -2698,6 +2698,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                 }
               />
 
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__okfRw
+                )}
+              >
+                {"Enter some text"}
+              </div>
               <PullToRefresh
                 data-plasmic-name={"pullToRefresh"}
                 data-plasmic-override={overrides.pullToRefresh}
@@ -3037,7 +3046,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           sty.embedHtml__pbDw1
                         )}
                         code={
-                          "<script>\n    (function(h,o,t,j,a,r){\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n        h._hjSettings={hjid:5222936,hjsv:6};\n        a=o.getElementsByTagName('head')[0];\n        r=o.createElement('script');r.async=1;\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n        a.appendChild(r);\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\n</script>"
+                          "<!-- <script>\n    (function(h,o,t,j,a,r){\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n        h._hjSettings={hjid:5222936,hjsv:6};\n        a=o.getElementsByTagName('head')[0];\n        r=o.createElement('script');r.async=1;\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n        a.appendChild(r);\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\n</script> -->"
                         }
                       />
 
@@ -8456,6 +8465,18 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         }
                                       })()}
                                     >
+                                      <LottieWrapper
+                                        animationData={(() => {
+                                          const fixedString =
+                                            currentItem.anim.replace(/'/g, '"');
+                                          return JSON.parse(fixedString);
+                                        })()}
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.lottie__m0Qu2
+                                        )}
+                                      />
+
                                       {(() => {
                                         try {
                                           return (
@@ -8473,19 +8494,30 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           throw e;
                                         }
                                       })() ? (
-                                        <LottieWrapper
-                                          animationData={(() => {
-                                            const fixedString =
-                                              currentItem.anim.replace(
-                                                /'/g,
-                                                '"'
-                                              );
-                                            return JSON.parse(fixedString);
+                                        <PlasmicImg__
+                                          alt={""}
+                                          className={classNames(sty.img__jeMXx)}
+                                          displayHeight={"auto"}
+                                          displayMaxHeight={"none"}
+                                          displayMaxWidth={"100%"}
+                                          displayMinHeight={"0"}
+                                          displayMinWidth={"0"}
+                                          displayWidth={"auto"}
+                                          loading={"lazy"}
+                                          src={(() => {
+                                            try {
+                                              return currentItem.icon;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
                                           })()}
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.lottie__m0Qu2
-                                          )}
                                         />
                                       ) : null}
                                       {(() => {
@@ -9111,7 +9143,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 >
                                   {(() => {
                                     try {
-                                      return $state.loadingAdvice;
+                                      return (
+                                        $state.loadingAdvice ||
+                                        $state.getAdvice2.length == 0
+                                      );
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||

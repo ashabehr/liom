@@ -158,6 +158,13 @@
   max-width: 100%;
   object-fit: cover;
 }
+.text__okfRw {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
 .pullToRefresh:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -1094,6 +1101,14 @@
   width: 35px;
   height: 35px;
   flex-shrink: 0;
+  display: none;
+}
+.img__jeMXx {
+  object-fit: cover;
+  max-width: 100%;
+}
+.img__jeMXx > picture > img {
+  object-fit: cover;
 }
 .embedHtml__kqQqu:global(.__wab_instance) {
   max-width: 100%;

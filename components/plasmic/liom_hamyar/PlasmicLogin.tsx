@@ -1181,8 +1181,7 @@ function PlasmicLogin__RenderFunc(props: {
                               "pregnancy"
                             )
                               var baseUrl = "https://apps.liom.app/pregnancy/";
-                            else
-                              var baseUrl = "https://apps.liom.app/calendar/";
+                            else var baseUrl = "https://apps.liom.app/main/";
                             var separator = baseUrl.includes("?")
                               ? "&token="
                               : "?token=";
@@ -5249,7 +5248,7 @@ function PlasmicLogin__RenderFunc(props: {
                                             "https://apps.liom.app/pregnancy/";
                                         else
                                           var baseUrl =
-                                            "https://apps.liom.app/calendar/";
+                                            "https://apps.liom.app/main/";
                                         var separator = baseUrl.includes("?")
                                           ? "&token="
                                           : "?token=";
@@ -14995,7 +14994,7 @@ function PlasmicLogin__RenderFunc(props: {
                                             "https://apps.liom.app/pregnancy/";
                                         else
                                           var baseUrl =
-                                            "https://apps.liom.app/calendar/";
+                                            "https://apps.liom.app/main/";
                                         var separator = baseUrl.includes("?")
                                           ? "&token="
                                           : "?token=";
