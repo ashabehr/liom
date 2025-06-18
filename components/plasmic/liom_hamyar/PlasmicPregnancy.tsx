@@ -2698,15 +2698,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                 }
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__okfRw
-                )}
-              >
-                {"Enter some text"}
-              </div>
               <PullToRefresh
                 data-plasmic-name={"pullToRefresh"}
                 data-plasmic-override={overrides.pullToRefresh}
