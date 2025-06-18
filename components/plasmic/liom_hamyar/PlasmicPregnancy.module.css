@@ -327,7 +327,7 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 0px 16px;
+  padding: 0px;
 }
 .informationBox__elZnw:global(.__wab_instance) {
   position: relative;
