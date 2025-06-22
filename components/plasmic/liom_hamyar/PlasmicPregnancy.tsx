@@ -3050,70 +3050,56 @@ function PlasmicPregnancy__RenderFunc(props: {
                           sty.freeBox___3NkMm
                         )}
                       >
-                        {(() => {
-                          try {
-                            return $state.serviceInterruption == "true";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return false;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <InformationBox
-                            backColor={"#FFF3E0"}
-                            btn1={{
-                              text: ""
-                            }}
-                            btn2={{
-                              text: ""
-                            }}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.informationBox__elZnw
-                            )}
-                            onClickClose={async event => {
-                              const $steps = {};
+                        <InformationBox
+                          backColor={"#FFF3E0"}
+                          btn1={{
+                            text: ""
+                          }}
+                          btn2={{
+                            text: ""
+                          }}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.informationBox__elZnw
+                          )}
+                          onClickClose={async event => {
+                            const $steps = {};
 
-                              $steps["runCode"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
-                                          window.localStorage.setItem(
-                                            "showServiceInterruption",
-                                            "false"
-                                          );
-                                          return ($state.serviceInterruption =
-                                            "false");
-                                        })();
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["runCode"] != null &&
-                                typeof $steps["runCode"] === "object" &&
-                                typeof $steps["runCode"].then === "function"
-                              ) {
-                                $steps["runCode"] = await $steps["runCode"];
-                              }
-                            }}
-                            text={
-                              "\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632\u060c \u062f\u0631 \u062d\u0627\u0644 \u062d\u0627\u0636\u0631 \u0628\u0647 \u062f\u0644\u06cc\u0644 \u0645\u0634\u06a9\u0644 \u0641\u0646\u06cc\u060c \u0627\u0645\u06a9\u0627\u0646 \u0646\u0645\u0627\u06cc\u0634 \u0648\u0636\u0639\u06cc\u062a \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u062f\u0631 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0641\u0631\u0627\u0647\u0645 \u0646\u06cc\u0633\u062a. \u0628\u0627\u0628\u062a \u0627\u06cc\u0646 \u0627\u062e\u062a\u0644\u0627\u0644 \u0635\u0645\u06cc\u0645\u0627\u0646\u0647 \u0639\u0630\u0631\u062e\u0648\u0627\u0647\u06cc \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645.\u062a\u06cc\u0645 \u0645\u0627 \u062f\u0627\u0631\u0647 \u0631\u0648\u06cc \u062d\u0644 \u0645\u0634\u06a9\u0644 \u06a9\u0627\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0647 \u0648 \u0628\u0647 \u0645\u062d\u0636 \u0631\u0641\u0639\u060c \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u062e\u062a\u0644\u0627\u0644 \u0631\u0627 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0627\u0636\u0627\u0641\u0647 \u062e\u0648\u0627\u0647\u06cc\u0645 \u06a9\u0631\u062f \u062a\u0627 \u0686\u06cc\u0632\u06cc \u0627\u0632 \u062f\u0633\u062a \u0646\u0631\u0648\u062f.\u0627\u0632 \u0635\u0628\u0648\u0631\u06cc \u0648 \u0647\u0645\u0631\u0627\u0647\u06cc \u0634\u0645\u0627 \u0645\u0645\u0646\u0648\u0646\u06cc\u0645! \ud83d\ude4f"
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        window.localStorage.setItem(
+                                          "showServiceInterruption",
+                                          "false"
+                                        );
+                                        return ($state.serviceInterruption =
+                                          "false");
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
                             }
-                            title={
-                              "\ud83d\udd27  \u0627\u062e\u062a\u0644\u0627\u0644 \u0645\u0648\u0642\u062a \u062f\u0631 \u0646\u0645\u0627\u06cc\u0634 \u0627\u0634\u062a\u0631\u0627\u06a9"
-                            }
-                            userId={$state.userId}
-                          />
-                        ) : null}
+                          }}
+                          text={
+                            "\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632\u060c \u062f\u0631 \u062d\u0627\u0644 \u062d\u0627\u0636\u0631 \u0628\u0647 \u062f\u0644\u06cc\u0644 \u0645\u0634\u06a9\u0644 \u0641\u0646\u06cc\u060c \u0627\u0645\u06a9\u0627\u0646 \u0646\u0645\u0627\u06cc\u0634 \u0648\u0636\u0639\u06cc\u062a \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u062f\u0631 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0641\u0631\u0627\u0647\u0645 \u0646\u06cc\u0633\u062a. \u0628\u0627\u0628\u062a \u0627\u06cc\u0646 \u0627\u062e\u062a\u0644\u0627\u0644 \u0635\u0645\u06cc\u0645\u0627\u0646\u0647 \u0639\u0630\u0631\u062e\u0648\u0627\u0647\u06cc \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645.\u062a\u06cc\u0645 \u0645\u0627 \u062f\u0627\u0631\u0647 \u0631\u0648\u06cc \u062d\u0644 \u0645\u0634\u06a9\u0644 \u06a9\u0627\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0647 \u0648 \u0628\u0647 \u0645\u062d\u0636 \u0631\u0641\u0639\u060c \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u062e\u062a\u0644\u0627\u0644 \u0631\u0627 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0627\u0636\u0627\u0641\u0647 \u062e\u0648\u0627\u0647\u06cc\u0645 \u06a9\u0631\u062f \u062a\u0627 \u0686\u06cc\u0632\u06cc \u0627\u0632 \u062f\u0633\u062a \u0646\u0631\u0648\u062f.\u0627\u0632 \u0635\u0628\u0648\u0631\u06cc \u0648 \u0647\u0645\u0631\u0627\u0647\u06cc \u0634\u0645\u0627 \u0645\u0645\u0646\u0648\u0646\u06cc\u0645! \ud83d\ude4f"
+                          }
+                          title={
+                            "\ud83d\udd27  \u0627\u062e\u062a\u0644\u0627\u0644 \u0645\u0648\u0642\u062a \u062f\u0631 \u0646\u0645\u0627\u06cc\u0634 \u0627\u0634\u062a\u0631\u0627\u06a9"
+                          }
+                          userId={$state.userId}
+                        />
                       </div>
                       <Embed
                         className={classNames(

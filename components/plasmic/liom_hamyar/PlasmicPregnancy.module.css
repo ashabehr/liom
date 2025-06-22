@@ -331,6 +331,7 @@
 }
 .informationBox__elZnw:global(.__wab_instance) {
   position: relative;
+  display: none;
 }
 .embedHtml___1Z5Og:global(.__wab_instance) {
   max-width: 100%;
