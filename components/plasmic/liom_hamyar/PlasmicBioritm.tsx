@@ -1317,6 +1317,7 @@ function PlasmicBioritm__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/hamyar/biorhythm"}
           >
             <Stack__

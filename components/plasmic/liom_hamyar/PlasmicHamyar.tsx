@@ -2554,6 +2554,52 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["updateLoadingPage"] = await $steps["updateLoadingPage"];
               }
 
+              $steps["stote"] = (
+                $steps.userdata?.data?.success &&
+                $steps.shop?.data?.success &&
+                $steps.advice?.data
+                  ? true
+                  : false && $steps.todo?.data
+                  ? true
+                  : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          window.sessionStorage.setItem("cash", "true");
+                          window.sessionStorage.setItem(
+                            "userdata",
+                            JSON.stringify($state.userdata)
+                          );
+                          window.sessionStorage.setItem(
+                            "advice",
+                            JSON.stringify($state.advices)
+                          );
+                          window.sessionStorage.setItem(
+                            "todo",
+                            JSON.stringify($state.toDos)
+                          );
+                          return window.sessionStorage.setItem(
+                            "shop",
+                            JSON.stringify($state.shapData)
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["stote"] != null &&
+                typeof $steps["stote"] === "object" &&
+                typeof $steps["stote"].then === "function"
+              ) {
+                $steps["stote"] = await $steps["stote"];
+              }
+
               $steps["log"] = true
                 ? (() => {
                     const actionArgs = {
@@ -2614,52 +2660,6 @@ function PlasmicHamyar__RenderFunc(props: {
                 typeof $steps["log"].then === "function"
               ) {
                 $steps["log"] = await $steps["log"];
-              }
-
-              $steps["stote"] = (
-                $steps.userdata?.data?.success &&
-                $steps.shop?.data?.success &&
-                $steps.advice?.data
-                  ? true
-                  : false && $steps.todo?.data
-                  ? true
-                  : false && $steps.userdata?.data?.error?.code == 1070149
-              )
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          window.sessionStorage.setItem("cash", "true");
-                          window.sessionStorage.setItem(
-                            "userdata",
-                            JSON.stringify($state.userdata)
-                          );
-                          window.sessionStorage.setItem(
-                            "advice",
-                            JSON.stringify($state.advices)
-                          );
-                          window.sessionStorage.setItem(
-                            "todo",
-                            JSON.stringify($state.toDos)
-                          );
-                          return window.sessionStorage.setItem(
-                            "shop",
-                            JSON.stringify($state.shapData)
-                          );
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["stote"] != null &&
-                typeof $steps["stote"] === "object" &&
-                typeof $steps["stote"].then === "function"
-              ) {
-                $steps["stote"] = await $steps["stote"];
               }
             }}
           />
@@ -16916,6 +16916,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   eventArgs
                 );
               }}
+              shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/hamyar/shop"}
             >
               <div className={classNames(projectcss.all, sty.freeBox___4Mhw0)}>

@@ -11705,6 +11705,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                shouldFetch={true}
                 url={"https://n8n.staas.ir/webhook/hamyar/todo"}
               />
 
@@ -12327,6 +12328,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 throw e;
               }
             })()}
+            shouldFetch={true}
             url={
               hasVariant(globalVariants, "screen", "mobile")
                 ? "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"
@@ -12394,6 +12396,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 const $steps = {};
               }).apply(null, eventArgs);
             }}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/hamyar/shop"}
           />
 
@@ -12482,6 +12485,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 throw e;
               }
             })()}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/hamyar/advice"}
           />
 
@@ -12693,6 +12697,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 eventArgs
               );
             }}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/hamyar/notif"}
           />
 
@@ -12787,6 +12792,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </div>
                       }
                       method={"POST"}
+                      shouldFetch={true}
                       url={"https://n8n.staas.ir/webhook/hamyar/shop"}
                     >
                       <div

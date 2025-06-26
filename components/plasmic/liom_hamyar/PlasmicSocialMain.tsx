@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
 import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
@@ -69,7 +70,6 @@ import RadioGrop2 from "../../RadioGrop2"; // plasmic-import: S5lwX58ZN_a3/compo
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import RepeatPost from "../../RepeatPost"; // plasmic-import: O_6FIPF6rDTy/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -101,6 +101,7 @@ export const PlasmicSocialMain__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSocialMain__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   mainHeader?: Flex__<typeof MainHeader>;
   section?: Flex__<"section">;
   story?: Flex__<"div">;
@@ -111,7 +112,6 @@ export type PlasmicSocialMain__OverridesType = {
   dialog?: Flex__<typeof Dialog>;
   repeatPost?: Flex__<typeof RepeatPost>;
   timer?: Flex__<typeof Timer>;
-  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultSocialMainProps {}
@@ -167,23 +167,7 @@ function PlasmicSocialMain__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (
-                $ctx.query.token ||
-                new URLSearchParams(window.location.search).get("token")
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "getInfo.data",
@@ -294,6 +278,12 @@ function PlasmicSocialMain__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -332,6 +322,169 @@ function PlasmicSocialMain__RenderFunc(props: {
             sty.root
           )}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          return urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["updateToken2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const searchParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          searchParams.delete("token");
+                          searchParams.delete("userId");
+                          searchParams.delete("user_id");
+                          const newUrl = `${
+                            window.location.pathname
+                          }?${searchParams.toString()}`;
+                          return window.history.replaceState(null, "", newUrl);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateToken2"] != null &&
+                typeof $steps["updateToken2"] === "object" &&
+                typeof $steps["updateToken2"].then === "function"
+              ) {
+                $steps["updateToken2"] = await $steps["updateToken2"];
+              }
+
+              $steps["updateToken3"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if (
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token?.trim() !== ""
+                          ) {
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.paramsObject.token]),
+                              100
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateToken3"] != null &&
+                typeof $steps["updateToken3"] === "object" &&
+                typeof $steps["updateToken3"].then === "function"
+              ) {
+                $steps["updateToken3"] = await $steps["updateToken3"];
+              }
+
+              $steps["updateToken4"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateToken4"] != null &&
+                typeof $steps["updateToken4"] === "object" &&
+                typeof $steps["updateToken4"].then === "function"
+              ) {
+                $steps["updateToken4"] = await $steps["updateToken4"];
+              }
+
+              $steps["updateToken5"] = false
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          $state.token == ""
+                            ? ($state.shere = true)
+                            : ($state.shere = false);
+                          if ($state.token == "")
+                            return ($state.token =
+                              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzMDUwOCIsImFwcCI6InNoYXJlIiwibmFtZSI6InNoYXJlIn0.RROB1VkkE_RQnSsUEPG_CpfgVh2yRtVSVLpiHsY62uM");
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateToken5"] != null &&
+                typeof $steps["updateToken5"] === "object" &&
+                typeof $steps["updateToken5"].then === "function"
+              ) {
+                $steps["updateToken5"] = await $steps["updateToken5"];
+              }
+            }}
+          />
+
           <MainHeader
             data-plasmic-name={"mainHeader"}
             data-plasmic-override={overrides.mainHeader}
@@ -625,6 +778,19 @@ function PlasmicSocialMain__RenderFunc(props: {
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
                   return undefined;
+                }
+                throw e;
+              }
+            })()}
+            shouldFetch={(() => {
+              try {
+                return $state.token != "";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
                 }
                 throw e;
               }
@@ -1507,6 +1673,19 @@ function PlasmicSocialMain__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
+            shouldFetch={(() => {
+              try {
+                return $state.token != "";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()}
             url={"https://n8n.staas.ir/webhook/rest/social"}
           >
             <Stack__
@@ -1735,169 +1914,6 @@ function PlasmicSocialMain__RenderFunc(props: {
             runWhileEditing={false}
           />
 
-          <SideEffect
-            data-plasmic-name={"sideEffect"}
-            data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
-            onMount={async () => {
-              const $steps = {};
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const queryString = window.location.search;
-                          const urlParams = new URLSearchParams(queryString);
-                          return urlParams.forEach((value, key) => {
-                            $state.paramsObject[key] = value;
-                          });
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-
-              $steps["updateToken2"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const searchParams = new URLSearchParams(
-                            window.location.search
-                          );
-                          searchParams.delete("token");
-                          searchParams.delete("userId");
-                          searchParams.delete("user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
-                          return window.history.replaceState(null, "", newUrl);
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateToken2"] != null &&
-                typeof $steps["updateToken2"] === "object" &&
-                typeof $steps["updateToken2"].then === "function"
-              ) {
-                $steps["updateToken2"] = await $steps["updateToken2"];
-              }
-
-              $steps["updateToken3"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          if (
-                            $state.paramsObject.token !== undefined &&
-                            $state.paramsObject.token?.trim() !== ""
-                          ) {
-                            if (!$state.paramsObject.token.startsWith("ey"))
-                              $state.paramsObject.token =
-                                $state.paramsObject.token.slice(6, -3);
-                            var setCookie = (name, value, days) => {
-                              const expires = new Date(
-                                Date.now() + days * 86400000
-                              ).toUTCString();
-                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
-                            };
-                            return setCookie(
-                              "token",
-                              JSON.stringify([$state.paramsObject.token]),
-                              100
-                            );
-                          }
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateToken3"] != null &&
-                typeof $steps["updateToken3"] === "object" &&
-                typeof $steps["updateToken3"].then === "function"
-              ) {
-                $steps["updateToken3"] = await $steps["updateToken3"];
-              }
-
-              $steps["updateToken4"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          var getCookie = name => {
-                            const cookies = document.cookie.split("; ");
-                            for (let cookie of cookies) {
-                              const [key, value] = cookie.split("=");
-                              if (key === name) return JSON.parse(value)[0];
-                            }
-                            return "";
-                          };
-                          return ($state.token = getCookie("token"));
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateToken4"] != null &&
-                typeof $steps["updateToken4"] === "object" &&
-                typeof $steps["updateToken4"].then === "function"
-              ) {
-                $steps["updateToken4"] = await $steps["updateToken4"];
-              }
-
-              $steps["updateToken5"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          $state.token == ""
-                            ? ($state.shere = true)
-                            : ($state.shere = false);
-                          if ($state.token == "")
-                            return ($state.token =
-                              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzMDUwOCIsImFwcCI6InNoYXJlIiwibmFtZSI6InNoYXJlIn0.RROB1VkkE_RQnSsUEPG_CpfgVh2yRtVSVLpiHsY62uM");
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateToken5"] != null &&
-                typeof $steps["updateToken5"] === "object" &&
-                typeof $steps["updateToken5"].then === "function"
-              ) {
-                $steps["updateToken5"] = await $steps["updateToken5"];
-              }
-            }}
-          />
-
           {(() => {
             try {
               return $state.isloding;
@@ -1957,6 +1973,7 @@ function PlasmicSocialMain__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "mainHeader",
     "section",
     "story",
@@ -1966,9 +1983,9 @@ const PlasmicDescendants = {
     "postPostesInfo",
     "dialog",
     "repeatPost",
-    "timer",
-    "sideEffect"
+    "timer"
   ],
+  sideEffect: ["sideEffect"],
   mainHeader: ["mainHeader"],
   section: ["section"],
   story: ["story"],
@@ -1978,14 +1995,14 @@ const PlasmicDescendants = {
   postPostesInfo: ["postPostesInfo", "dialog", "repeatPost"],
   dialog: ["dialog"],
   repeatPost: ["repeatPost"],
-  timer: ["timer"],
-  sideEffect: ["sideEffect"]
+  timer: ["timer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   mainHeader: typeof MainHeader;
   section: "section";
   story: "div";
@@ -1996,7 +2013,6 @@ type NodeDefaultElementType = {
   dialog: typeof Dialog;
   repeatPost: typeof RepeatPost;
   timer: typeof Timer;
-  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2084,6 +2100,7 @@ export const PlasmicSocialMain = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     mainHeader: makeNodeComponent("mainHeader"),
     section: makeNodeComponent("section"),
     story: makeNodeComponent("story"),
@@ -2094,7 +2111,6 @@ export const PlasmicSocialMain = Object.assign(
     dialog: makeNodeComponent("dialog"),
     repeatPost: makeNodeComponent("repeatPost"),
     timer: makeNodeComponent("timer"),
-    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicSocialMain
     internalVariantProps: PlasmicSocialMain__VariantProps,

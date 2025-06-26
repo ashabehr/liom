@@ -790,6 +790,7 @@ function PlasmicChatviow__RenderFunc(props: {
                 throw e;
               }
             })()}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/help/getListHelp"}
           >
             <Stack__

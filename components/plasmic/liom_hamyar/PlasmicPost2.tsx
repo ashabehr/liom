@@ -3286,6 +3286,7 @@ function PlasmicPost2__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/rest/social"}
           />
 
