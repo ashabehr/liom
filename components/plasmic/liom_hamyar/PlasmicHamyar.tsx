@@ -115,14 +115,14 @@ import Icon211Icon from "./icons/PlasmicIcon__Icon211"; // plasmic-import: KpMP1
 import Icon209Icon from "./icons/PlasmicIcon__Icon209"; // plasmic-import: DRGXDQN0NiBM/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
+import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
+import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
 import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: UbRafB34Z-K-/icon
 import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
 import Icon234Icon from "./icons/PlasmicIcon__Icon234"; // plasmic-import: 2zsMoQ1kWX5p/icon
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: mG0VeezaR1mF/icon
 import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
 import Icon202Icon from "./icons/PlasmicIcon__Icon202"; // plasmic-import: lD6NOJADOGZx/icon
-import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
-import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
 import Icon242Icon from "./icons/PlasmicIcon__Icon242"; // plasmic-import: rdGNS3m3zs7z/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
@@ -187,6 +187,7 @@ export type PlasmicHamyar__OverridesType = {
   loading?: Flex__<"div">;
   favicon?: Flex__<typeof Embed>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
+  button19?: Flex__<typeof Button>;
   section?: Flex__<"section">;
   embedHtml?: Flex__<typeof Embed>;
   dialog?: Flex__<typeof Dialog>;
@@ -1621,6 +1622,12 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button19.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -1893,6 +1900,40 @@ function PlasmicHamyar__RenderFunc(props: {
                 typeof $steps["userdata"].then === "function"
               ) {
                 $steps["userdata"] = await $steps["userdata"];
+              }
+
+              $steps["loadChash"] =
+                window.sessionStorage.getItem("cash") == "true"
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            $state.userdata = JSON.parse(
+                              window.sessionStorage.getItem("userdata")
+                            );
+                            $state.advices = JSON.parse(
+                              window.sessionStorage.getItem("advice")
+                            );
+                            $state.toDos = JSON.parse(
+                              window.sessionStorage.getItem("todo")
+                            );
+                            return ($state.shapData = JSON.parse(
+                              window.sessionStorage.getItem("shop")
+                            ));
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["loadChash"] != null &&
+                typeof $steps["loadChash"] === "object" &&
+                typeof $steps["loadChash"].then === "function"
+              ) {
+                $steps["loadChash"] = await $steps["loadChash"];
               }
 
               $steps["updateUserdata"] = (
@@ -2574,12 +2615,60 @@ function PlasmicHamyar__RenderFunc(props: {
               ) {
                 $steps["log"] = await $steps["log"];
               }
+
+              $steps["stote"] = (
+                $steps.userdata?.data?.success &&
+                $steps.shop?.data?.success &&
+                $steps.advice?.data
+                  ? true
+                  : false && $steps.todo?.data
+                  ? true
+                  : false && $steps.userdata?.data?.error?.code == 1070149
+              )
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          window.sessionStorage.setItem("cash", "true");
+                          window.sessionStorage.setItem(
+                            "userdata",
+                            JSON.stringify($state.userdata)
+                          );
+                          window.sessionStorage.setItem(
+                            "advice",
+                            JSON.stringify($state.advices)
+                          );
+                          window.sessionStorage.setItem(
+                            "todo",
+                            JSON.stringify($state.toDos)
+                          );
+                          return window.sessionStorage.setItem(
+                            "shop",
+                            JSON.stringify($state.shapData)
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["stote"] != null &&
+                typeof $steps["stote"] === "object" &&
+                typeof $steps["stote"].then === "function"
+              ) {
+                $steps["stote"] = await $steps["stote"];
+              }
             }}
           />
 
           {(() => {
             try {
-              return $state.userdata && !$state.loadingPage;
+              return (
+                Object.keys($state.userdata).length > 0 && !$state.loadingPage
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -16136,6 +16225,108 @@ function PlasmicHamyar__RenderFunc(props: {
           {(() => {
             try {
               return (
+                Object.keys($state.userdata).length == 0 && !$state.loadingPage
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__sVmd2)}>
+              <div className={classNames(projectcss.all, sty.freeBox___286PB)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___8NRp
+                  )}
+                >
+                  {
+                    "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0639\u0646 \u0634\u0648\u06cc\u062f."
+                  }
+                </div>
+              </div>
+              <Button
+                data-plasmic-name={"button19"}
+                data-plasmic-override={overrides.button19}
+                className={classNames("__wab_instance", sty.button19)}
+                color={generateStateValueProp($state, ["button19", "color"])}
+                endIcon={
+                  <Icon144Icon
+                    className={classNames(projectcss.all, sty.svg___6Gs4D)}
+                    role={"img"}
+                  />
+                }
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              window.sessionStorage.removeItem("cash");
+                              return window.location.reload();
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button19", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                startIcon={
+                  <ChevronRightIcon
+                    className={classNames(projectcss.all, sty.svg__qMVeh)}
+                    role={"img"}
+                  />
+                }
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___1BM9
+                  )}
+                >
+                  {
+                    "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
+                  }
+                </div>
+              </Button>
+            </div>
+          ) : null}
+          {(() => {
+            try {
+              return (
                 new URLSearchParams(window.location.search).get("footer") !=
                 "false"
               );
@@ -20036,6 +20227,7 @@ const PlasmicDescendants = {
     "loading",
     "favicon",
     "pullToRefresh",
+    "button19",
     "section",
     "embedHtml",
     "dialog",
@@ -20130,6 +20322,7 @@ const PlasmicDescendants = {
   loading: ["loading"],
   favicon: ["favicon"],
   pullToRefresh: ["pullToRefresh"],
+  button19: ["button19"],
   section: ["section"],
   embedHtml: ["embedHtml"],
   dialog: [
@@ -20215,6 +20408,7 @@ type NodeDefaultElementType = {
   loading: "div";
   favicon: typeof Embed;
   pullToRefresh: typeof PullToRefresh;
+  button19: typeof Button;
   section: "section";
   embedHtml: typeof Embed;
   dialog: typeof Dialog;
@@ -20360,6 +20554,7 @@ export const PlasmicHamyar = Object.assign(
     loading: makeNodeComponent("loading"),
     favicon: makeNodeComponent("favicon"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
+    button19: makeNodeComponent("button19"),
     section: makeNodeComponent("section"),
     embedHtml: makeNodeComponent("embedHtml"),
     dialog: makeNodeComponent("dialog"),
