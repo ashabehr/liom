@@ -25,11 +25,11 @@
   border-width: 0px;
 }
 .rootstyle2_grayBackgerand {
-  background: var(--token-LN1YkB123lXQ);
+  background: #f7f7f7;
   border-style: none;
 }
 .rootselected_color_light {
-  background: #8254c680;
+  background: #f8edfe;
 }
 .freeBox {
   width: auto;
@@ -53,5 +53,11 @@
   min-width: 0;
 }
 .textselected {
+  color: #8254c6;
+}
+.textstyle2_grayBackgerand {
+  color: #8f8f8f;
+}
+.textselected_color_light {
   color: #8254c6;
 }

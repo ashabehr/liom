@@ -223,6 +223,8 @@
   --plasmic-token-basic-input-background: var(--token-Y4frplZPI0IJ);
   --token-W2qH6-9wjEvH: 100%;
   --plasmic-token-unnamed-style-token: var(--token-W2qH6-9wjEvH);
+  --token-AupbASVTnAsv: #f8f8f8;
+  --plasmic-token-bg-liom: var(--token-AupbASVTnAsv);
 }
 
 @media (max-width: 640px) {

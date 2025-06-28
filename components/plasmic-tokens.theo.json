@@ -2981,6 +2981,16 @@
       }
     },
     {
+      "name": "bg liom",
+      "type": "color",
+      "value": "#F8F8F8",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "AupbASVTnAsv"
+      }
+    },
+    {
       "name": "border",
       "type": "color",
       "value": "#E0E0E0",

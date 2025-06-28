@@ -196,7 +196,7 @@ function PlasmicUploudeTime__RenderFunc(props: {
                   )}T` +
                   `${pad(updatedAt.hour)}:${pad(updatedAt.minute)}:${pad(
                     updatedAt.second
-                  )}`;
+                  )}+03:30`;
                 const inputDate = new Date(postTime);
                 const diffInMillis = today.getTime() - inputDate.getTime();
                 const diffInMinutes = Math.floor(diffInMillis / (1000 * 60));

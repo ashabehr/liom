@@ -16326,9 +16326,9 @@ function PlasmicHamyar__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
-              return (
-                new URLSearchParams(window.location.search).get("footer") !=
-                "false"
+              return !(
+                window.FlutterChannel &&
+                typeof window.FlutterChannel.postMessage === "function"
               );
             } catch (e) {
               if (

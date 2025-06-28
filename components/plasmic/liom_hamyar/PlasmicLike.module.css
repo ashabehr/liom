@@ -372,18 +372,16 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  padding-bottom: 8px;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 8px;
-  padding-right: 8px;
+  padding: 0px;
 }
 .svg__vsNmA {
   object-fit: cover;
   max-width: 100%;
   width: auto;
   height: 20px;
-  color: var(--token-ODBUExjR6VEF);
+  color: #8c8c8c;
   flex-shrink: 0;
 }
 .svgislike__vsNmAm2Mbn {
@@ -394,7 +392,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  color: #535353;
+  color: #8c8c8c;
   font-size: 16px;
   text-align: center;
   padding-left: 0px;

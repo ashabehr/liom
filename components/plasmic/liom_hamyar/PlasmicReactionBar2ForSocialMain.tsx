@@ -77,13 +77,15 @@ createPlasmicElementProxy;
 
 export type PlasmicReactionBar2ForSocialMain__VariantMembers = {
   like: "like";
+  main: "main";
 };
 export type PlasmicReactionBar2ForSocialMain__VariantsArgs = {
   like?: SingleBooleanChoiceArg<"like">;
+  main?: SingleBooleanChoiceArg<"main">;
 };
 type VariantPropType = keyof PlasmicReactionBar2ForSocialMain__VariantsArgs;
 export const PlasmicReactionBar2ForSocialMain__VariantProps =
-  new Array<VariantPropType>("like");
+  new Array<VariantPropType>("like", "main");
 
 export type PlasmicReactionBar2ForSocialMain__ArgsType = {
   commet?: string;
@@ -116,6 +118,7 @@ export interface DefaultReactionBar2ForSocialMainProps {
   children?: React.ReactNode;
   bokmarkcountbar?: string;
   like?: SingleBooleanChoiceArg<"like">;
+  main?: SingleBooleanChoiceArg<"main">;
   className?: string;
 }
 
@@ -167,6 +170,12 @@ function PlasmicReactionBar2ForSocialMain__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.like
+      },
+      {
+        path: "main",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.main
       }
     ],
     [$props, $ctx, $refs]
@@ -193,7 +202,10 @@ function PlasmicReactionBar2ForSocialMain__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
-        { [sty.rootlike]: hasVariant($state, "like", "like") }
+        {
+          [sty.rootlike]: hasVariant($state, "like", "like"),
+          [sty.rootmain]: hasVariant($state, "main", "main")
+        }
       )}
     >
       {renderPlasmicSlot({

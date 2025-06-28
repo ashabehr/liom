@@ -74,13 +74,15 @@ createPlasmicElementProxy;
 
 export type PlasmicPost2ForSocialMain__VariantMembers = {
   postType: "image" | "audio" | "video" | "jastText" | "file";
+  main: "main";
 };
 export type PlasmicPost2ForSocialMain__VariantsArgs = {
   postType?: SingleChoiceArg<"image" | "audio" | "video" | "jastText" | "file">;
+  main?: SingleBooleanChoiceArg<"main">;
 };
 type VariantPropType = keyof PlasmicPost2ForSocialMain__VariantsArgs;
 export const PlasmicPost2ForSocialMain__VariantProps =
-  new Array<VariantPropType>("postType");
+  new Array<VariantPropType>("postType", "main");
 
 export type PlasmicPost2ForSocialMain__ArgsType = {
   data?: string;
@@ -130,6 +132,7 @@ export interface DefaultPost2ForSocialMainProps {
   linkForAction?: string;
   title?: string;
   postType?: SingleChoiceArg<"image" | "audio" | "video" | "jastText" | "file">;
+  main?: SingleBooleanChoiceArg<"main">;
   className?: string;
 }
 
@@ -196,6 +199,12 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "main",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.main
       }
     ],
     [$props, $ctx, $refs]
@@ -275,7 +284,14 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text___8Tp8A
+              sty.text___8Tp8A,
+              {
+                [sty.textpostType_jastText___8Tp8AdFbbf]: hasVariant(
+                  $state,
+                  "postType",
+                  "jastText"
+                )
+              }
             )}
           >
             <React.Fragment>
@@ -299,6 +315,7 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
           data-plasmic-name={"lineClompText"}
           data-plasmic-override={overrides.lineClompText}
           className={classNames("__wab_instance", sty.lineClompText, {
+            [sty.lineClompTextmain]: hasVariant($state, "main", "main"),
             [sty.lineClompTextpostType_jastText]: hasVariant(
               $state,
               "postType",
@@ -310,7 +327,7 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
               "video"
             )
           })}
-          more={true}
+          more={hasVariant($state, "main", "main") ? undefined : true}
           numberOfLine={4}
           onLineChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["lineClompText", "line"]).apply(
@@ -342,6 +359,11 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
                   $state,
                   "postType",
                   "image"
+                ),
+                [sty.textpostType_jastText__zh6SldFbbf]: hasVariant(
+                  $state,
+                  "postType",
+                  "jastText"
                 )
               }
             )}

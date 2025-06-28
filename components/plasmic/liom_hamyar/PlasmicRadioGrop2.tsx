@@ -235,6 +235,10 @@ function PlasmicRadioGrop2__RenderFunc(props: {
             "style2",
             "grayBackgerand"
           ),
+          [sty.rootstyle2_grayBackgerand_selected_color_light]:
+            hasVariant($state, "color", "light") &&
+            hasVariant($state, "selected", "selected") &&
+            hasVariant($state, "style2", "grayBackgerand"),
           [sty.rootstyle2_line]: hasVariant($state, "style2", "line")
         }
       )}
@@ -276,7 +280,12 @@ function PlasmicRadioGrop2__RenderFunc(props: {
               [sty.textselected]: hasVariant($state, "selected", "selected"),
               [sty.textselected_color_light]:
                 hasVariant($state, "color", "light") &&
-                hasVariant($state, "selected", "selected")
+                hasVariant($state, "selected", "selected"),
+              [sty.textstyle2_grayBackgerand]: hasVariant(
+                $state,
+                "style2",
+                "grayBackgerand"
+              )
             }
           )}
         >
