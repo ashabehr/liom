@@ -89,6 +89,7 @@ import sty from "./PlasmicPost2.module.css"; // plasmic-import: iNHFQ5RIM3Tb/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon184Icon from "./icons/PlasmicIcon__Icon184"; // plasmic-import: qyxzNL8K38N5/icon
+import Icon247Icon from "./icons/PlasmicIcon__Icon247"; // plasmic-import: H5aVrrGZ_wnt/icon
 import Icon227Icon from "./icons/PlasmicIcon__Icon227"; // plasmic-import: HYZYMCyfZITX/icon
 import XIcon2 from "../fragment_icons/icons/PlasmicIcon__X"; // plasmic-import: zb1oqVXdrxPK/icon
 import LogoPwaSvgrepoComSvgIcon from "./icons/PlasmicIcon__LogoPwaSvgrepoComSvg"; // plasmic-import: xd3icqtlIdjI/icon
@@ -123,6 +124,7 @@ export type PlasmicPost2__OverridesType = {
   lineClomp2?: Flex__<typeof LineClomp>;
   timer?: Flex__<typeof Timer>;
   modal?: Flex__<typeof AntdModal>;
+  img?: Flex__<typeof PlasmicImg__>;
   comingSoon?: Flex__<typeof ComingSoon>;
 };
 
@@ -558,9 +560,6 @@ function PlasmicPost2__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          $state.token == ""
-                            ? ($state.shere = true)
-                            : ($state.shere = false);
                           if ($state.token == "")
                             return ($state.token =
                               "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzMDUwOCIsImFwcCI6InNoYXJlIiwibmFtZSI6InNoYXJlIn0.RROB1VkkE_RQnSsUEPG_CpfgVh2yRtVSVLpiHsY62uM");
@@ -1451,6 +1450,78 @@ function PlasmicPost2__RenderFunc(props: {
                               throw e;
                             }
                           })(),
+                          delet: async event => {
+                            const $steps = {};
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "PUT",
+                                      "https://n8n.staas.ir/webhook/rest/social/comment/event",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            commentId: currentItem.comment.id,
+                                            authorization: $state.token
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
+                            }
+
+                            $steps["runCode"] = $steps.invokeGlobalAction?.data
+                              ?.success
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return ($state.comments =
+                                        $state.comments.filter(
+                                          item =>
+                                            item.comment.id !=
+                                            currentItem.comment.id
+                                        ));
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          },
                           likeComment: (() => {
                             try {
                               return currentItem.isLiked;
@@ -1529,6 +1600,19 @@ function PlasmicPost2__RenderFunc(props: {
                               throw e;
                             }
                           })(),
+                          me: (() => {
+                            try {
+                              return currentItem.user.id == "830508";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })(),
                           modalvalueforcomment: (() => {
                             try {
                               return $state.modal.open;
@@ -1545,7 +1629,7 @@ function PlasmicPost2__RenderFunc(props: {
                           onClick: async event => {
                             const $steps = {};
 
-                            $steps["updateModalOpen"] = false
+                            $steps["updateModalOpen"] = $state.shere
                               ? (() => {
                                   const actionArgs = {
                                     variable: {
@@ -1582,7 +1666,7 @@ function PlasmicPost2__RenderFunc(props: {
                               ];
                             }
 
-                            $steps["runCode"] = false
+                            $steps["runCode"] = true
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
@@ -1608,7 +1692,7 @@ function PlasmicPost2__RenderFunc(props: {
                               $steps["runCode"] = await $steps["runCode"];
                             }
 
-                            $steps["updateCurrentUserDataAfterClick"] = false
+                            $steps["updateCurrentUserDataAfterClick"] = true
                               ? (() => {
                                   const actionArgs = {
                                     variable: {
@@ -1649,7 +1733,7 @@ function PlasmicPost2__RenderFunc(props: {
                                 await $steps["updateCurrentUserDataAfterClick"];
                             }
 
-                            $steps["updateComingSoonOpen"] = true
+                            $steps["updateComingSoonOpen"] = false
                               ? (() => {
                                   const actionArgs = {
                                     variable: {
@@ -1727,7 +1811,7 @@ function PlasmicPost2__RenderFunc(props: {
                               ];
                             }
 
-                            $steps["updateComingSoonOpen"] = true
+                            $steps["updateComingSoonOpen"] = false
                               ? (() => {
                                   const actionArgs = {
                                     variable: {
@@ -1992,22 +2076,133 @@ function PlasmicPost2__RenderFunc(props: {
                               projectcss.all,
                               sty.freeBox__pZ5Hb
                             )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["invokeGlobalAction"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "GET",
+                                        "https://n8n.staas.ir/webhook/rest/social/comment/event",
+                                        (() => {
+                                          try {
+                                            return {
+                                              postId: $state.postId,
+                                              commentId: "string",
+                                              text: $state.textArea.value,
+                                              dataId: "",
+                                              anonymous: false,
+                                              type: "",
+                                              subType: "",
+                                              authorization: $state.token
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] = await $steps[
+                                  "invokeGlobalAction"
+                                ];
+                              }
+
+                              $steps["updateTextAreaValue"] = $steps
+                                .invokeGlobalAction?.data?.success
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["textArea", "value"]
+                                      },
+                                      operation: 0,
+                                      value: ""
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateTextAreaValue"] != null &&
+                                typeof $steps["updateTextAreaValue"] ===
+                                  "object" &&
+                                typeof $steps["updateTextAreaValue"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateTextAreaValue"] = await $steps[
+                                  "updateTextAreaValue"
+                                ];
+                              }
+
+                              $steps["updateTextAreaValue2"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          return $state.comments.unshift(
+                                            $steps.invokeGlobalAction.data
+                                              .result
+                                          );
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateTextAreaValue2"] != null &&
+                                typeof $steps["updateTextAreaValue2"] ===
+                                  "object" &&
+                                typeof $steps["updateTextAreaValue2"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateTextAreaValue2"] = await $steps[
+                                  "updateTextAreaValue2"
+                                ];
+                              }
+                            }}
                           >
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img__siBb6)}
-                              displayHeight={"24px"}
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={"none"}
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={"24px"}
-                              src={{
-                                src: "/plasmic/liom_hamyar/images/image97.svg",
-                                fullWidth: 24,
-                                fullHeight: 24,
-                                aspectRatio: 1
-                              }}
+                            <Icon247Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__nevOy
+                              )}
+                              role={"img"}
                             />
                           </div>
                         </Reveal>
@@ -2035,7 +2230,7 @@ function PlasmicPost2__RenderFunc(props: {
                               ).apply(null, eventArgs);
                             },
                             placeholder:
-                              "\u06a9\u0627\u0645\u0646\u062a \u0631\u0648 \u0628\u0646\u0648\u06cc\u0633",
+                              "\u06a9\u0627\u0645\u0646\u062a\u062a \u0631\u0648 \u0628\u0646\u0648\u06cc\u0633",
                             value: generateStateValueProp($state, [
                               "textArea",
                               "value"
@@ -2378,16 +2573,14 @@ function PlasmicPost2__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         args: [
-                          "info",
+                          "custom",
                           "\u06a9\u0627\u0645\u0646\u062a \u0628\u06cc\u0634\u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u0646\u0645\u0627\u06cc\u0634 \u0648\u062c\u0648\u062f \u0646\u062f\u0627\u0631\u062f.",
-                          undefined,
-                          undefined,
-                          "bottom"
+                          "bottom-center"
                         ]
                       };
-                      return $globalActions[
-                        "plasmic-antd5-config-provider.showNotification"
-                      ]?.apply(null, [...actionArgs.args]);
+                      return $globalActions["Fragment.showToast"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
                     })()
                   : undefined;
               if (
@@ -2474,8 +2667,10 @@ function PlasmicPost2__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.freeBox__mbv2C)}
               >
                 <PlasmicImg__
+                  data-plasmic-name={"img"}
+                  data-plasmic-override={overrides.img}
                   alt={""}
-                  className={classNames(sty.img__qiFrn)}
+                  className={classNames(sty.img)}
                   displayHeight={"70px"}
                   displayMaxHeight={"none"}
                   displayMaxWidth={"100%"}
@@ -2909,6 +3104,7 @@ const PlasmicDescendants = {
     "lineClomp2",
     "timer",
     "modal",
+    "img",
     "comingSoon"
   ],
   sideEffect: ["sideEffect"],
@@ -2935,7 +3131,8 @@ const PlasmicDescendants = {
   lineClomp: ["lineClomp"],
   lineClomp2: ["lineClomp2"],
   timer: ["timer"],
-  modal: ["modal"],
+  modal: ["modal", "img"],
+  img: ["img"],
   comingSoon: ["comingSoon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -2957,6 +3154,7 @@ type NodeDefaultElementType = {
   lineClomp2: typeof LineClomp;
   timer: typeof Timer;
   modal: typeof AntdModal;
+  img: typeof PlasmicImg__;
   comingSoon: typeof ComingSoon;
 };
 
@@ -3059,6 +3257,7 @@ export const PlasmicPost2 = Object.assign(
     lineClomp2: makeNodeComponent("lineClomp2"),
     timer: makeNodeComponent("timer"),
     modal: makeNodeComponent("modal"),
+    img: makeNodeComponent("img"),
     comingSoon: makeNodeComponent("comingSoon"),
 
     // Metadata about props expected for PlasmicPost2

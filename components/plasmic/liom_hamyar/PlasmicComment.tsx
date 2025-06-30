@@ -59,10 +59,14 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import UploudeTime from "../../UploudeTime"; // plasmic-import: aUO_fJR7ceN4/component
+import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import Commentlikebutton from "../../Commentlikebutton"; // plasmic-import: wOOFf0E7TUt2/component
 import Reply from "../../Reply"; // plasmic-import: LqO8252FTurB/component
 import ReplyLikeButton from "../../ReplyLikeButton"; // plasmic-import: DqnrMhkRW1DX/component
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -73,7 +77,11 @@ import sty from "./PlasmicComment.module.css"; // plasmic-import: Q00r5f4C3XYv/c
 
 import Icon170Icon from "./icons/PlasmicIcon__Icon170"; // plasmic-import: dXN8uxxnP9W_/icon
 import Icon146Icon from "./icons/PlasmicIcon__Icon146"; // plasmic-import: oL3Gq5u9-MHL/icon
+import Icon169Icon from "./icons/PlasmicIcon__Icon169"; // plasmic-import: bUQKEz-4nD1u/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon251Icon from "./icons/PlasmicIcon__Icon251"; // plasmic-import: OXj7Y-pBlB2X/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon252Icon from "./icons/PlasmicIcon__Icon252"; // plasmic-import: 7qesfxn4TT_Y/icon
 
 createPlasmicElementProxy;
 
@@ -124,6 +132,9 @@ export type PlasmicComment__ArgsType = {
   modalvalueforcomment?: boolean;
   valuForShereForLikeComment?: boolean;
   onClick1?: (event: any) => void;
+  me?: boolean;
+  delet?: (event: any) => void;
+  edit?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
@@ -147,11 +158,18 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "commenttime",
   "modalvalueforcomment",
   "valuForShereForLikeComment",
-  "onClick1"
+  "onClick1",
+  "me",
+  "delet",
+  "edit"
 );
 
 export type PlasmicComment__OverridesType = {
   root?: Flex__<"div">;
+  uploudeTime?: Flex__<typeof UploudeTime>;
+  popover?: Flex__<typeof AntdPopover>;
+  button?: Flex__<typeof Button>;
+  button2?: Flex__<typeof Button>;
   lineClomp?: Flex__<typeof LineClomp>;
   coment?: Flex__<"div">;
   commentlikebutton?: Flex__<typeof Commentlikebutton>;
@@ -161,6 +179,9 @@ export type PlasmicComment__OverridesType = {
   reply2?: Flex__<typeof Reply>;
   replyLikeButton?: Flex__<typeof ReplyLikeButton>;
   reply3?: Flex__<typeof Reply>;
+  deleteModal?: Flex__<typeof AntdModal>;
+  button3?: Flex__<typeof Button>;
+  button4?: Flex__<typeof Button>;
 };
 
 export interface DefaultCommentProps {
@@ -185,6 +206,9 @@ export interface DefaultCommentProps {
   modalvalueforcomment?: boolean;
   valuForShereForLikeComment?: boolean;
   onClick1?: (event: any) => void;
+  me?: boolean;
+  delet?: (event: any) => void;
+  edit?: (event: any) => void;
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
   whenHaveReply?: SingleBooleanChoiceArg<"whenHaveReply">;
   showReply?: SingleBooleanChoiceArg<"showReply">;
@@ -221,7 +245,8 @@ function PlasmicComment__RenderFunc(props: {
           commentId: "3",
           likeComment: false,
           modalvalueforcomment: false,
-          valuForShereForLikeComment: false
+          valuForShereForLikeComment: false,
+          me: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -369,6 +394,42 @@ function PlasmicComment__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "popover.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "deleteModal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "white"
+      },
+      {
+        path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
       }
     ],
     [$props, $ctx, $refs]
@@ -614,78 +675,49 @@ function PlasmicComment__RenderFunc(props: {
           className={classNames(projectcss.all, sty.freeBox__fSs)}
         >
           <div className={classNames(projectcss.all, sty.freeBox__wzkeY)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__iXgHb
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return (() => {
-                      function pad(n) {
-                        return n.toString().padStart(2, "0");
-                      }
-                      const today = new Date();
-                      const updatedAt = $props.commenttime;
-                      const postTime =
-                        `${updatedAt.year}-${pad(updatedAt.month)}-${pad(
-                          updatedAt.day
-                        )}T` +
-                        `${pad(updatedAt.hour)}:${pad(updatedAt.minute)}:${pad(
-                          updatedAt.second
-                        )}`;
-                      const inputDate = new Date(postTime);
-                      const diffInMillis =
-                        today.getTime() - inputDate.getTime();
-                      const diffInMinutes = Math.floor(
-                        diffInMillis / (1000 * 60)
+            <UploudeTime
+              data-plasmic-name={"uploudeTime"}
+              data-plasmic-override={overrides.uploudeTime}
+              className={classNames("__wab_instance", sty.uploudeTime)}
+              posttime={(() => {
+                try {
+                  return (() => {
+                    function addTime(original, addHours, addMinutes) {
+                      let date = new Date(
+                        original.year,
+                        original.month - 1,
+                        original.day,
+                        original.hour,
+                        original.minute,
+                        original.second
                       );
-                      const diffInHours = Math.floor(
-                        diffInMillis / (1000 * 3600)
-                      );
-                      const diffInDays = Math.floor(
-                        diffInMillis / (1000 * 3600 * 24)
-                      );
-                      const diffInWeeks = Math.floor(diffInDays / 7);
-                      const diffInMonths = Math.floor(diffInDays / 30);
-                      let result = "";
-                      if (diffInMinutes < 60) {
-                        result = `${diffInMinutes} دقیقه پیش`;
-                      } else if (diffInHours < 24) {
-                        result = `${diffInHours} ساعت پیش`;
-                      } else if (diffInDays < 7) {
-                        result = `${diffInDays} روز پیش`;
-                      } else if (diffInDays < 30) {
-                        const diffInWeeks = Math.floor(diffInDays / 7);
-                        result = `${diffInWeeks} هفته پیش`;
-                      } else if (diffInMonths < 12) {
-                        result = `${diffInMonths} ماه پیش`;
-                      } else {
-                        const years = Math.floor(diffInMonths / 12);
-                        const remainingMonths = diffInMonths % 12;
-                        if (remainingMonths === 0) {
-                          result = `${years} سال پیش`;
-                        } else {
-                          result = `${years} سال و ${remainingMonths} ماه پیش`;
-                        }
-                      }
-                      return result;
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
+                      date.setHours(date.getHours() + addHours);
+                      date.setMinutes(date.getMinutes() + addMinutes);
+                      return {
+                        year: date.getFullYear(),
+                        month: date.getMonth() + 1,
+                        day: date.getDate(),
+                        hour: date.getHours(),
+                        minute: date.getMinutes(),
+                        second: date.getSeconds(),
+                        nanosecond: original.nanosecond,
+                        timeZoneOffsetSeconds: original.timeZoneOffsetSeconds
+                      };
                     }
-                    throw e;
+                    const newCreatedAt = addTime($props.commenttime, 3, 30);
+                    return newCreatedAt;
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
                   }
-                })()}
-              </React.Fragment>
-            </div>
+                  throw e;
+                }
+              })()}
+            />
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__ewqKl)}>
             <Icon170Icon
@@ -693,10 +725,212 @@ function PlasmicComment__RenderFunc(props: {
               role={"img"}
             />
           </div>
-          <Icon146Icon
-            className={classNames(projectcss.all, sty.svg__ekfpl)}
-            role={"img"}
-          />
+          <AntdPopover
+            data-plasmic-name={"popover"}
+            data-plasmic-override={overrides.popover}
+            arrow={true}
+            className={classNames("__wab_instance", sty.popover)}
+            content={
+              <React.Fragment>
+                <Button
+                  data-plasmic-name={"button"}
+                  data-plasmic-override={overrides.button}
+                  className={classNames("__wab_instance", sty.button)}
+                  color={generateStateValueProp($state, ["button", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updatePopoverOpen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["popover", "open"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updatePopoverOpen"] != null &&
+                      typeof $steps["updatePopoverOpen"] === "object" &&
+                      typeof $steps["updatePopoverOpen"].then === "function"
+                    ) {
+                      $steps["updatePopoverOpen"] = await $steps[
+                        "updatePopoverOpen"
+                      ];
+                    }
+
+                    $steps["updateDeleteModalOpen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["deleteModal", "open"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDeleteModalOpen"] != null &&
+                      typeof $steps["updateDeleteModalOpen"] === "object" &&
+                      typeof $steps["updateDeleteModalOpen"].then === "function"
+                    ) {
+                      $steps["updateDeleteModalOpen"] = await $steps[
+                        "updateDeleteModalOpen"
+                      ];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  showStartIcon={true}
+                  size={"compact"}
+                  startIcon={
+                    <Icon169Icon
+                      className={classNames(projectcss.all, sty.svg__nYKn7)}
+                      role={"img"}
+                    />
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__g9Xtq
+                    )}
+                  >
+                    {"\u062d\u0630\u0641 \u0646\u0638\u0631"}
+                  </div>
+                </Button>
+                <Button
+                  data-plasmic-name={"button2"}
+                  data-plasmic-override={overrides.button2}
+                  className={classNames("__wab_instance", sty.button2)}
+                  color={generateStateValueProp($state, ["button2", "color"])}
+                  onClick={args.edit}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  showStartIcon={true}
+                  size={"compact"}
+                  startIcon={
+                    <Icon251Icon
+                      className={classNames(projectcss.all, sty.svg___8Jmz)}
+                      role={"img"}
+                    />
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__bPmhE
+                    )}
+                  >
+                    {"\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0646\u0638\u0631"}
+                  </div>
+                </Button>
+              </React.Fragment>
+            }
+            contentText={"Popover contents"}
+            defaultOpen={false}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            mouseEnterDelay={0}
+            mouseLeaveDelay={0}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["popover", "open"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            open={generateStateValueProp($state, ["popover", "open"])}
+            placement={"bottom"}
+            popoverScopeClassName={sty["popover__popover"]}
+            title={null}
+            trigger={"click"}
+          >
+            {(() => {
+              try {
+                return $props.me;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <Icon146Icon
+                className={classNames(projectcss.all, sty.svg__ekfpl)}
+                role={"img"}
+              />
+            ) : null}
+          </AntdPopover>
         </Stack__>
       </div>
       <div
@@ -1938,6 +2172,184 @@ function PlasmicComment__RenderFunc(props: {
           {"\u0628\u0633\u062a\u0646"}
         </div>
       </div>
+      <AntdModal
+        data-plasmic-name={"deleteModal"}
+        data-plasmic-override={overrides.deleteModal}
+        className={classNames("__wab_instance", sty.deleteModal)}
+        defaultStylesClassName={classNames(
+          projectcss.root_reset,
+          projectcss.plasmic_default_styles,
+          projectcss.plasmic_mixins,
+          projectcss.plasmic_tokens,
+          plasmic_antd_5_hostless_css.plasmic_tokens,
+          plasmic_plasmic_rich_components_css.plasmic_tokens
+        )}
+        hideFooter={true}
+        modalContentClassName={classNames({ [sty["pcls_ZeFNv5rMuKol"]]: true })}
+        modalScopeClassName={sty["deleteModal__modal"]}
+        onOpenChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["deleteModal", "open"]).apply(
+            null,
+            eventArgs
+          );
+        }}
+        open={generateStateValueProp($state, ["deleteModal", "open"])}
+        title={
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__pn8Ry)}
+          >
+            <Icon252Icon
+              className={classNames(projectcss.all, sty.svg__fcV5X)}
+              role={"img"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___0FpTf
+              )}
+            >
+              {"\u062d\u0630\u0641 \u0646\u0638\u0631"}
+            </div>
+          </Stack__>
+        }
+        trigger={null}
+      >
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__tf9Il)}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__liMce
+            )}
+          >
+            {
+              "\u0627\u0632 \u062d\u0630\u0641 \u06a9\u0631\u062f\u0646 \u06a9\u0627\u0645\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0626\u0646 \u0647\u0633\u062a\u06cc\u062f\u061f"
+            }
+          </div>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__fHwKv)}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox___3Wjb2)}>
+              <Button
+                data-plasmic-name={"button3"}
+                data-plasmic-override={overrides.button3}
+                className={classNames("__wab_instance", sty.button3)}
+                color={generateStateValueProp($state, ["button3", "color"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runDelet"] = true
+                    ? (() => {
+                        const actionArgs = { eventRef: $props["delet"] };
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runDelet"] != null &&
+                    typeof $steps["runDelet"] === "object" &&
+                    typeof $steps["runDelet"].then === "function"
+                  ) {
+                    $steps["runDelet"] = await $steps["runDelet"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button3", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                size={"compact"}
+              >
+                {"\u062d\u0630\u0641"}
+              </Button>
+            </div>
+            <Button
+              data-plasmic-name={"button4"}
+              data-plasmic-override={overrides.button4}
+              className={classNames("__wab_instance", sty.button4)}
+              color={generateStateValueProp($state, ["button4", "color"])}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateDeleteModalOpen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["deleteModal", "open"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDeleteModalOpen"] != null &&
+                  typeof $steps["updateDeleteModalOpen"] === "object" &&
+                  typeof $steps["updateDeleteModalOpen"].then === "function"
+                ) {
+                  $steps["updateDeleteModalOpen"] = await $steps[
+                    "updateDeleteModalOpen"
+                  ];
+                }
+              }}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button4", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              size={"compact"}
+            >
+              {"\u0641\u0639\u0644\u0627 \u0646\u0647"}
+            </Button>
+          </Stack__>
+        </Stack__>
+      </AntdModal>
     </div>
   ) as React.ReactElement | null;
 }
@@ -1945,6 +2357,10 @@ function PlasmicComment__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "uploudeTime",
+    "popover",
+    "button",
+    "button2",
     "lineClomp",
     "coment",
     "commentlikebutton",
@@ -1953,8 +2369,15 @@ const PlasmicDescendants = {
     "lineClomp2",
     "reply2",
     "replyLikeButton",
-    "reply3"
+    "reply3",
+    "deleteModal",
+    "button3",
+    "button4"
   ],
+  uploudeTime: ["uploudeTime"],
+  popover: ["popover", "button", "button2"],
+  button: ["button"],
+  button2: ["button2"],
   lineClomp: ["lineClomp", "coment"],
   coment: ["coment"],
   commentlikebutton: ["commentlikebutton"],
@@ -1963,13 +2386,20 @@ const PlasmicDescendants = {
   lineClomp2: ["lineClomp2"],
   reply2: ["reply2"],
   replyLikeButton: ["replyLikeButton"],
-  reply3: ["reply3"]
+  reply3: ["reply3"],
+  deleteModal: ["deleteModal", "button3", "button4"],
+  button3: ["button3"],
+  button4: ["button4"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  uploudeTime: typeof UploudeTime;
+  popover: typeof AntdPopover;
+  button: typeof Button;
+  button2: typeof Button;
   lineClomp: typeof LineClomp;
   coment: "div";
   commentlikebutton: typeof Commentlikebutton;
@@ -1979,6 +2409,9 @@ type NodeDefaultElementType = {
   reply2: typeof Reply;
   replyLikeButton: typeof ReplyLikeButton;
   reply3: typeof Reply;
+  deleteModal: typeof AntdModal;
+  button3: typeof Button;
+  button4: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2041,6 +2474,10 @@ export const PlasmicComment = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    uploudeTime: makeNodeComponent("uploudeTime"),
+    popover: makeNodeComponent("popover"),
+    button: makeNodeComponent("button"),
+    button2: makeNodeComponent("button2"),
     lineClomp: makeNodeComponent("lineClomp"),
     coment: makeNodeComponent("coment"),
     commentlikebutton: makeNodeComponent("commentlikebutton"),
@@ -2050,6 +2487,9 @@ export const PlasmicComment = Object.assign(
     reply2: makeNodeComponent("reply2"),
     replyLikeButton: makeNodeComponent("replyLikeButton"),
     reply3: makeNodeComponent("reply3"),
+    deleteModal: makeNodeComponent("deleteModal"),
+    button3: makeNodeComponent("button3"),
+    button4: makeNodeComponent("button4"),
 
     // Metadata about props expected for PlasmicComment
     internalVariantProps: PlasmicComment__VariantProps,
