@@ -80,12 +80,17 @@ createPlasmicElementProxy;
 
 export type PlasmicSave__VariantMembers = {
   click: "click";
+  main: "main";
 };
 export type PlasmicSave__VariantsArgs = {
   click?: SingleBooleanChoiceArg<"click">;
+  main?: SingleBooleanChoiceArg<"main">;
 };
 type VariantPropType = keyof PlasmicSave__VariantsArgs;
-export const PlasmicSave__VariantProps = new Array<VariantPropType>("click");
+export const PlasmicSave__VariantProps = new Array<VariantPropType>(
+  "click",
+  "main"
+);
 
 export type PlasmicSave__ArgsType = {
   bokmarkcount?: string;
@@ -116,6 +121,7 @@ export interface DefaultSaveProps {
   isBooookMarked?: boolean;
   bookMarkPropsShere?: boolean;
   click?: SingleBooleanChoiceArg<"click">;
+  main?: SingleBooleanChoiceArg<"main">;
   className?: string;
 }
 
@@ -229,6 +235,12 @@ function PlasmicSave__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "main",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.main
       }
     ],
     [$props, $ctx, $refs]
@@ -433,9 +445,12 @@ function PlasmicSave__RenderFunc(props: {
           </Stack__>
         </Stack__>
       </AntdModal>
-      <div
+      <Stack__
+        as={"div"}
+        hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__uoAe3, {
-          [sty.freeBoxclick__uoAe3JqTmi]: hasVariant($state, "click", "click")
+          [sty.freeBoxclick__uoAe3JqTmi]: hasVariant($state, "click", "click"),
+          [sty.freeBoxmain__uoAe3Xh1Lx]: hasVariant($state, "main", "main")
         })}
         onClick={async event => {
           const $steps = {};
@@ -604,7 +619,8 @@ function PlasmicSave__RenderFunc(props: {
             hasVariant($state, "click", "click") ? Icon178Icon : Icon238Icon
           }
           className={classNames(projectcss.all, sty.svg__oSoos, {
-            [sty.svgclick__oSoosjqTmi]: hasVariant($state, "click", "click")
+            [sty.svgclick__oSoosjqTmi]: hasVariant($state, "click", "click"),
+            [sty.svgmain__oSoosXh1Lx]: hasVariant($state, "main", "main")
           })}
           role={"img"}
         />
@@ -615,7 +631,8 @@ function PlasmicSave__RenderFunc(props: {
             projectcss.__wab_text,
             sty.text__alnR6,
             {
-              [sty.textclick__alnR6JqTmi]: hasVariant($state, "click", "click")
+              [sty.textclick__alnR6JqTmi]: hasVariant($state, "click", "click"),
+              [sty.textmain__alnR6Xh1Lx]: hasVariant($state, "main", "main")
             }
           )}
         >
@@ -653,7 +670,7 @@ function PlasmicSave__RenderFunc(props: {
             </React.Fragment>
           )}
         </div>
-      </div>
+      </Stack__>
     </div>
   ) as React.ReactElement | null;
 }

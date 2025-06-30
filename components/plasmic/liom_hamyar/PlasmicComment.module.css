@@ -11,7 +11,13 @@
   justify-self: flex-start;
   padding-left: 0px;
   width: 100%;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
   min-width: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 0.5s;
   border-radius: 8px;
   border-width: 1px;
 }
@@ -651,9 +657,25 @@
 }
 .textwhenHaveReply__aAapos2LwI {
   color: var(--token-fn6i10-y5r1L);
+  display: block;
 }
 .textunnamedGroupOfVariants_whenHaveReply__aAapoKmMee {
   color: var(--token-fn6i10-y5r1L);
+}
+.svg__zzNeW {
+  object-fit: cover;
+  max-width: 100%;
+  width: 50px;
+  height: 22px;
+  color: var(--token-55cSeNPovQFh);
+  flex-shrink: 0;
+}
+.svgwhenHaveReply__zzNeWs2LwI {
+  width: 50px;
+  height: 22px;
+  color: var(--token-SX03PBUzWAqr);
+  flex-shrink: 0;
+  display: block;
 }
 .freeBox__wRzZd {
   flex-direction: row;

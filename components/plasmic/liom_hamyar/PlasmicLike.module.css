@@ -372,9 +372,37 @@
   width: auto;
   height: auto;
   max-width: 100%;
+  padding: 0px;
+}
+.freeBox__waP5W > :global(.__wab_flex-container) {
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 0px;
+}
+.freeBoxmain__waP5Wn9Zts {
+  display: flex;
+  flex-direction: row;
+}
+.freeBoxmain__waP5Wn9Zts > :global(.__wab_flex-container) {
+  flex-direction: row;
+  margin-left: calc(0px - 4px);
+  width: calc(100% + 4px);
+  margin-top: calc(0px - 0px);
+  height: calc(100% + 0px);
+}
+.freeBoxmain__waP5Wn9Zts > :global(.__wab_flex-container) > *,
+.freeBoxmain__waP5Wn9Zts
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.freeBoxmain__waP5Wn9Zts > :global(.__wab_flex-container) > picture > img,
+.freeBoxmain__waP5Wn9Zts
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 4px;
+  margin-top: 0px;
 }
 .svg__vsNmA {
   object-fit: cover;

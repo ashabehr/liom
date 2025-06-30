@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import UploudeTime from "../../UploudeTime"; // plasmic-import: aUO_fJR7ceN4/component
+import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import Post2ForSocialMain from "../../Post2ForSocialMain"; // plasmic-import: eaFD2jwbxRPb/component
 import ReactionBar2ForSocialMain from "../../ReactionBar2ForSocialMain"; // plasmic-import: H6dfyqWexG5G/component
 import Like from "../../Like"; // plasmic-import: ARJf0DiYhPbe/component
@@ -74,6 +75,7 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicRepeatPost.module.css"; // plasmic-import: O_6FIPF6rDTy/css
 
 import Icon244Icon from "./icons/PlasmicIcon__Icon244"; // plasmic-import: xGc0UtorNcAW/icon
+import Icon246Icon from "./icons/PlasmicIcon__Icon246"; // plasmic-import: ibkqt9GkPceD/icon
 import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: 4NJq6NYKqIPu/icon
 import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: bJ7kVZQK3ovZ/icon
 import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: 2SO3BEHlRKXI/icon
@@ -99,18 +101,21 @@ export type PlasmicRepeatPost__ArgsType = {
   postToken?: string;
   onClickShere?: (event: any) => void;
   onMainChange?: (val: any) => void;
+  comingSoon?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicRepeatPost__ArgsType;
 export const PlasmicRepeatPost__ArgProps = new Array<ArgPropType>(
   "postData",
   "postToken",
   "onClickShere",
-  "onMainChange"
+  "onMainChange",
+  "comingSoon"
 );
 
 export type PlasmicRepeatPost__OverridesType = {
   root?: Flex__<"div">;
   uploudeTime?: Flex__<typeof UploudeTime>;
+  timer?: Flex__<typeof Timer>;
   post2ForSocialMain?: Flex__<typeof Post2ForSocialMain>;
   reactionBar2ForSocialMain?: Flex__<typeof ReactionBar2ForSocialMain>;
   like2?: Flex__<typeof Like>;
@@ -122,6 +127,7 @@ export interface DefaultRepeatPostProps {
   postToken?: string;
   onClickShere?: (event: any) => void;
   onMainChange?: (val: any) => void;
+  comingSoon?: (event: any) => void;
   type?: SingleChoiceArg<"admin">;
   main?: SingleBooleanChoiceArg<"main">;
   className?: string;
@@ -202,6 +208,31 @@ function PlasmicRepeatPost__RenderFunc(props: {
 
         valueProp: "main",
         onChangeProp: "onMainChange"
+      },
+      {
+        path: "pinTime",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "time",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.postData.time;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -263,6 +294,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
       >
         <div
           className={classNames(projectcss.all, sty.freeBox__zsaNa, {
+            [sty.freeBoxmain__zsaNaaq7Kr]: hasVariant($state, "main", "main"),
             [sty.freeBoxtype_admin__zsaNa78CRa]: hasVariant(
               $state,
               "type",
@@ -493,6 +525,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
                 data-plasmic-name={"uploudeTime"}
                 data-plasmic-override={overrides.uploudeTime}
                 className={classNames("__wab_instance", sty.uploudeTime, {
+                  [sty.uploudeTimemain]: hasVariant($state, "main", "main"),
                   [sty.uploudeTimetype_admin]: hasVariant(
                     $state,
                     "type",
@@ -501,7 +534,36 @@ function PlasmicRepeatPost__RenderFunc(props: {
                 })}
                 posttime={(() => {
                   try {
-                    return $props.postData.post.updatedAt;
+                    return (() => {
+                      function addTime(original, addHours, addMinutes) {
+                        let date = new Date(
+                          original.year,
+                          original.month - 1,
+                          original.day,
+                          original.hour,
+                          original.minute,
+                          original.second
+                        );
+                        date.setHours(date.getHours() + addHours);
+                        date.setMinutes(date.getMinutes() + addMinutes);
+                        return {
+                          year: date.getFullYear(),
+                          month: date.getMonth() + 1,
+                          day: date.getDate(),
+                          hour: date.getHours(),
+                          minute: date.getMinutes(),
+                          second: date.getSeconds(),
+                          nanosecond: original.nanosecond,
+                          timeZoneOffsetSeconds: original.timeZoneOffsetSeconds
+                        };
+                      }
+                      const newCreatedAt = addTime(
+                        $props.postData.post.updatedAt,
+                        3,
+                        30
+                      );
+                      return newCreatedAt;
+                    })();
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -515,25 +577,164 @@ function PlasmicRepeatPost__RenderFunc(props: {
               />
             </div>
             <div className={classNames(projectcss.all, sty.freeBox___9OOx3)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__q8Zsa)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__mEa0E
-                  )}
+              {(() => {
+                try {
+                  return $props.postData.post.pin;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__q8Zsa)}
                 >
-                  {"Enter some text"}
-                </div>
-                <Icon244Icon
-                  className={classNames(projectcss.all, sty.svg__a5VF9)}
-                  role={"img"}
-                />
-              </Stack__>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__mEa0E,
+                      {
+                        [sty.texttype_admin__mEa0E78CRa]: hasVariant(
+                          $state,
+                          "type",
+                          "admin"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "type", "admin") ? (
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.pinTime;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    ) : (
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.pinTime;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    )}
+                  </div>
+                  <Timer
+                    data-plasmic-name={"timer"}
+                    data-plasmic-override={overrides.timer}
+                    className={classNames("__wab_instance", sty.timer, {
+                      [sty.timertype_admin]: hasVariant($state, "type", "admin")
+                    })}
+                    intervalSeconds={1}
+                    isRunning={true}
+                    onTick={async () => {
+                      const $steps = {};
+
+                      $steps["updatePinTime"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["pinTime"]
+                              },
+                              operation: 0,
+                              value: (() => {
+                                function convertSeconds(seconds) {
+                                  const hrs = Math.floor(seconds / 3600);
+                                  const mins = Math.floor(
+                                    (seconds % 3600) / 60
+                                  );
+                                  const secs = seconds % 60;
+                                  const h = String(hrs).padStart(2, "0");
+                                  const m = String(mins).padStart(2, "0");
+                                  const s = String(secs).padStart(2, "0");
+                                  return `${h}:${m}:${s}`;
+                                }
+                                $state.time = $state.time - 1;
+                                return convertSeconds($state.time);
+                              })()
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updatePinTime"] != null &&
+                        typeof $steps["updatePinTime"] === "object" &&
+                        typeof $steps["updatePinTime"].then === "function"
+                      ) {
+                        $steps["updatePinTime"] = await $steps["updatePinTime"];
+                      }
+                    }}
+                    runWhileEditing={false}
+                  />
+
+                  <Icon244Icon
+                    className={classNames(projectcss.all, sty.svg__a5VF9)}
+                    role={"img"}
+                  />
+                </Stack__>
+              ) : null}
+              {(() => {
+                try {
+                  return $props.postData.post.reposted;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__vUu5R)}
+                >
+                  <Icon246Icon
+                    className={classNames(projectcss.all, sty.svg__wxyqe)}
+                    role={"img"}
+                  />
+                </Stack__>
+              ) : null}
             </div>
           </div>
         </div>
@@ -778,6 +979,13 @@ function PlasmicRepeatPost__RenderFunc(props: {
           )
         })}
       >
+        <div
+          className={classNames(projectcss.all, sty.freeBox___0FhSh, {
+            [sty.freeBoxmain___0FhShaq7Kr]: hasVariant($state, "main", "main")
+          })}
+          onClick={args.comingSoon}
+        />
+
         <Like
           data-plasmic-name={"like2"}
           data-plasmic-override={overrides.like2}
@@ -798,6 +1006,23 @@ function PlasmicRepeatPost__RenderFunc(props: {
               throw e;
             }
           })()}
+          main={
+            hasVariant($state, "main", "main")
+              ? (() => {
+                  try {
+                    return $state.main;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              : undefined
+          }
           onIslikeChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["like2", "islike"]).apply(
               null,
@@ -840,7 +1065,9 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
         />
 
-        <div
+        <Stack__
+          as={"div"}
+          hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__nZx9G, {
             [sty.freeBoxmain__nZx9Gaq7Kr]: hasVariant($state, "main", "main")
           })}
@@ -902,8 +1129,10 @@ function PlasmicRepeatPost__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
-        </div>
-        <div
+        </Stack__>
+        <Stack__
+          as={"div"}
+          hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__qvCzh, {
             [sty.freeBoxmain__qvCzHaq7Kr]: hasVariant($state, "main", "main")
           })}
@@ -940,7 +1169,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
-        </div>
+        </Stack__>
         <Save
           data-plasmic-name={"save"}
           data-plasmic-override={overrides.save}
@@ -973,6 +1202,23 @@ function PlasmicRepeatPost__RenderFunc(props: {
               throw e;
             }
           })()}
+          main={
+            hasVariant($state, "main", "main")
+              ? (() => {
+                  try {
+                    return $state.main;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              : undefined
+          }
           postIdBookmark={(() => {
             try {
               return $props.postData.post.id;
@@ -1001,7 +1247,55 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
         />
 
-        <div className={classNames(projectcss.all, sty.freeBox__pCtk6)}>
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__pCtk6, {
+            [sty.freeBoxmain__pCtk6Aq7Kr]: hasVariant($state, "main", "main")
+          })}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["goToPage"] = true
+              ? (() => {
+                  const actionArgs = {
+                    destination: (() => {
+                      try {
+                        return `/post?post=${$props.postData.post.id}`;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  };
+                  return (({ destination }) => {
+                    if (
+                      typeof destination === "string" &&
+                      destination.startsWith("#")
+                    ) {
+                      document
+                        .getElementById(destination.substr(1))
+                        .scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      __nextRouter?.push(destination);
+                    }
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["goToPage"] != null &&
+              typeof $steps["goToPage"] === "object" &&
+              typeof $steps["goToPage"].then === "function"
+            ) {
+              $steps["goToPage"] = await $steps["goToPage"];
+            }
+          }}
+        >
           <Icon147Icon
             className={classNames(projectcss.all, sty.svg__jqTbo, {
               [sty.svgmain__jqTbOaq7Kr]: hasVariant($state, "main", "main")
@@ -1033,7 +1327,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
-        </div>
+        </Stack__>
       </ReactionBar2ForSocialMain>
     </div>
   ) as React.ReactElement | null;
@@ -1043,12 +1337,14 @@ const PlasmicDescendants = {
   root: [
     "root",
     "uploudeTime",
+    "timer",
     "post2ForSocialMain",
     "reactionBar2ForSocialMain",
     "like2",
     "save"
   ],
   uploudeTime: ["uploudeTime"],
+  timer: ["timer"],
   post2ForSocialMain: ["post2ForSocialMain"],
   reactionBar2ForSocialMain: ["reactionBar2ForSocialMain", "like2", "save"],
   like2: ["like2"],
@@ -1060,6 +1356,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   uploudeTime: typeof UploudeTime;
+  timer: typeof Timer;
   post2ForSocialMain: typeof Post2ForSocialMain;
   reactionBar2ForSocialMain: typeof ReactionBar2ForSocialMain;
   like2: typeof Like;
@@ -1127,6 +1424,7 @@ export const PlasmicRepeatPost = Object.assign(
   {
     // Helper components rendering sub-elements
     uploudeTime: makeNodeComponent("uploudeTime"),
+    timer: makeNodeComponent("timer"),
     post2ForSocialMain: makeNodeComponent("post2ForSocialMain"),
     reactionBar2ForSocialMain: makeNodeComponent("reactionBar2ForSocialMain"),
     like2: makeNodeComponent("like2"),

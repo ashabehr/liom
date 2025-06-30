@@ -62,14 +62,15 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
-import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import RadioGrop2 from "../../RadioGrop2"; // plasmic-import: S5lwX58ZN_a3/component
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
+import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import RepeatPost from "../../RepeatPost"; // plasmic-import: O_6FIPF6rDTy/component
-import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import ComingSoon from "../../ComingSoon"; // plasmic-import: -rGZlxMT1IH0/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -103,16 +104,18 @@ export const PlasmicSocialMain__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSocialMain__OverridesType = {
   root?: Flex__<"div">;
-  sideEffect?: Flex__<typeof SideEffect>;
+  section?: Flex__<"section">;
   mainHeader?: Flex__<typeof MainHeader>;
-  story?: Flex__<"div">;
   getInfo?: Flex__<typeof ApiRequest>;
   groupBy?: Flex__<"div">;
   radioGrop2?: Flex__<typeof RadioGrop2>;
+  sideEffect?: Flex__<typeof SideEffect>;
+  story?: Flex__<"div">;
+  timer?: Flex__<typeof Timer>;
   postPostesInfo?: Flex__<typeof ApiRequest>;
   dialog?: Flex__<typeof Dialog>;
   repeatPost?: Flex__<typeof RepeatPost>;
-  timer?: Flex__<typeof Timer>;
+  comingSoon?: Flex__<typeof ComingSoon>;
 };
 
 export interface DefaultSocialMainProps {}
@@ -233,10 +236,9 @@ function PlasmicSocialMain__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "dialog.opendialog",
+        path: "dialog[].opendialog",
         type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        variableType: "boolean"
       },
       {
         path: "faType",
@@ -291,6 +293,18 @@ function PlasmicSocialMain__RenderFunc(props: {
         path: "repeatPost[].main",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "comingSoon.selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "comingSoon.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -333,6 +347,394 @@ function PlasmicSocialMain__RenderFunc(props: {
             sty.root
           )}
         >
+          <section
+            data-plasmic-name={"section"}
+            data-plasmic-override={overrides.section}
+            className={classNames(projectcss.all, sty.section)}
+          >
+            <MainHeader
+              data-plasmic-name={"mainHeader"}
+              data-plasmic-override={overrides.mainHeader}
+              className={classNames("__wab_instance", sty.mainHeader)}
+              dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
+              onDopenChange2={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainHeader",
+                  "dopen"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              slot={
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox___4Bgn1)}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__ufykt)}
+                  >
+                    <Icon222Icon
+                      className={classNames(projectcss.all, sty.svg__e7Ln2)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___4Pi0E)}
+                  >
+                    <Icon223Icon
+                      className={classNames(projectcss.all, sty.svg__gGyXh)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__tjxlw)}
+                  >
+                    <Icon179Icon
+                      className={classNames(projectcss.all, sty.svg__nafDg)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__egJpI)}
+                  >
+                    <Icon218Icon
+                      className={classNames(projectcss.all, sty.svg__fAha)}
+                      role={"img"}
+                    />
+                  </div>
+                </Stack__>
+              }
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___55IIv)}
+              >
+                <Icon185Icon
+                  className={classNames(projectcss.all, sty.svg__hiXWo)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDrawerOpen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["drawer", "open"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDrawerOpen"] != null &&
+                      typeof $steps["updateDrawerOpen"] === "object" &&
+                      typeof $steps["updateDrawerOpen"].then === "function"
+                    ) {
+                      $steps["updateDrawerOpen"] = await $steps[
+                        "updateDrawerOpen"
+                      ];
+                    }
+                  }}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__rQw8X
+                  )}
+                >
+                  {
+                    "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647"
+                  }
+                </div>
+              </Stack__>
+            </MainHeader>
+            <div className={classNames(projectcss.all, sty.freeBox__rlMlo)}>
+              <ApiRequest
+                data-plasmic-name={"getInfo"}
+                data-plasmic-override={overrides.getInfo}
+                className={classNames("__wab_instance", sty.getInfo)}
+                errorDisplay={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__fr80O
+                    )}
+                  >
+                    {"Error fetching data"}
+                  </div>
+                }
+                loadingDisplay={
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___3YbSf)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__xkBZu,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__gpXiJ,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___7ZPtl,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___5UX8O,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__fu1Ul,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                }
+                method={"GET"}
+                onError={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["getInfo", "error"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                onLoading={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "getInfo",
+                    "loading"
+                  ]).apply(null, eventArgs);
+                }}
+                onSuccess={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["getInfo", "data"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                params={(() => {
+                  try {
+                    return {
+                      authorization: $state.token
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                shouldFetch={(() => {
+                  try {
+                    return $state.token != "";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()}
+                url={"https://n8n.staas.ir/webhook/rest/social"}
+              >
+                <div
+                  data-plasmic-name={"groupBy"}
+                  data-plasmic-override={overrides.groupBy}
+                  className={classNames(projectcss.all, sty.groupBy)}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__leuuy)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.getInfo.data.result.buttons;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <RadioGrop2
+                          data-plasmic-name={"radioGrop2"}
+                          data-plasmic-override={overrides.radioGrop2}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.radioGrop2
+                          )}
+                          color={"light"}
+                          key={currentIndex}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateChoiceType"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["choiceType"]
+                                    },
+                                    operation: 0,
+                                    value: currentItem.type
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateChoiceType"] != null &&
+                              typeof $steps["updateChoiceType"] === "object" &&
+                              typeof $steps["updateChoiceType"].then ===
+                                "function"
+                            ) {
+                              $steps["updateChoiceType"] = await $steps[
+                                "updateChoiceType"
+                              ];
+                            }
+
+                            $steps["updateFaType"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["faType"]
+                                    },
+                                    operation: 0,
+                                    value: currentItem.text
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateFaType"] != null &&
+                              typeof $steps["updateFaType"] === "object" &&
+                              typeof $steps["updateFaType"].then === "function"
+                            ) {
+                              $steps["updateFaType"] = await $steps[
+                                "updateFaType"
+                              ];
+                            }
+                          }}
+                          selected={(() => {
+                            try {
+                              return $state.choiceType == currentItem.type;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()}
+                          style2={"grayBackgerand"}
+                          text={(() => {
+                            try {
+                              return currentItem.text;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                        />
+                      );
+                    })}
+                  </Stack__>
+                </div>
+              </ApiRequest>
+            </div>
+          </section>
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
@@ -496,122 +898,6 @@ function PlasmicSocialMain__RenderFunc(props: {
             }}
           />
 
-          <MainHeader
-            data-plasmic-name={"mainHeader"}
-            data-plasmic-override={overrides.mainHeader}
-            className={classNames("__wab_instance", sty.mainHeader)}
-            dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
-            onDopenChange2={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["mainHeader", "dopen"]).apply(
-                null,
-                eventArgs
-              );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            slot={
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___4Bgn1)}
-              >
-                <div className={classNames(projectcss.all, sty.freeBox__ufykt)}>
-                  <Icon222Icon
-                    className={classNames(projectcss.all, sty.svg__e7Ln2)}
-                    role={"img"}
-                  />
-                </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___4Pi0E)}
-                >
-                  <Icon223Icon
-                    className={classNames(projectcss.all, sty.svg__gGyXh)}
-                    role={"img"}
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__tjxlw)}>
-                  <Icon179Icon
-                    className={classNames(projectcss.all, sty.svg__nafDg)}
-                    role={"img"}
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__egJpI)}>
-                  <Icon218Icon
-                    className={classNames(projectcss.all, sty.svg__fAha)}
-                    role={"img"}
-                  />
-                </div>
-              </Stack__>
-            }
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___55IIv)}
-            >
-              <Icon185Icon
-                className={classNames(projectcss.all, sty.svg__hiXWo)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateDrawerOpen"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["drawer", "open"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateDrawerOpen"] != null &&
-                    typeof $steps["updateDrawerOpen"] === "object" &&
-                    typeof $steps["updateDrawerOpen"].then === "function"
-                  ) {
-                    $steps["updateDrawerOpen"] = await $steps[
-                      "updateDrawerOpen"
-                    ];
-                  }
-                }}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__rQw8X
-                )}
-              >
-                {
-                  "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647"
-                }
-              </div>
-            </Stack__>
-          </MainHeader>
           <div className={classNames(projectcss.all, sty.freeBox___2BKpP)}>
             <Stack__
               as={"div"}
@@ -690,1256 +976,6 @@ function PlasmicSocialMain__RenderFunc(props: {
                 );
               })}
             </Stack__>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__jQjme)}>
-            <ApiRequest
-              data-plasmic-name={"getInfo"}
-              data-plasmic-override={overrides.getInfo}
-              className={classNames("__wab_instance", sty.getInfo)}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__fr80O
-                  )}
-                >
-                  {"Error fetching data"}
-                </div>
-              }
-              loadingDisplay={
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox___3YbSf)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__xkBZu,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__gpXiJ,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox___7ZPtl,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox___5UX8O,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__fu1Ul,
-                      "shimmer"
-                    )}
-                  />
-                </Stack__>
-              }
-              method={"GET"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getInfo", "error"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getInfo", "loading"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getInfo", "data"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              params={(() => {
-                try {
-                  return {
-                    authorization: $state.token
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              shouldFetch={(() => {
-                try {
-                  return $state.token != "";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })()}
-              url={"https://n8n.staas.ir/webhook/rest/social"}
-            >
-              <div
-                data-plasmic-name={"groupBy"}
-                data-plasmic-override={overrides.groupBy}
-                className={classNames(projectcss.all, sty.groupBy)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__leuuy)}
-                >
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $state.getInfo.data.result.buttons;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <RadioGrop2
-                        data-plasmic-name={"radioGrop2"}
-                        data-plasmic-override={overrides.radioGrop2}
-                        className={classNames("__wab_instance", sty.radioGrop2)}
-                        color={"light"}
-                        key={currentIndex}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["updateChoiceType"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["choiceType"]
-                                  },
-                                  operation: 0,
-                                  value: currentItem.type
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateChoiceType"] != null &&
-                            typeof $steps["updateChoiceType"] === "object" &&
-                            typeof $steps["updateChoiceType"].then ===
-                              "function"
-                          ) {
-                            $steps["updateChoiceType"] = await $steps[
-                              "updateChoiceType"
-                            ];
-                          }
-
-                          $steps["updateFaType"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["faType"]
-                                  },
-                                  operation: 0,
-                                  value: currentItem.text
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateFaType"] != null &&
-                            typeof $steps["updateFaType"] === "object" &&
-                            typeof $steps["updateFaType"].then === "function"
-                          ) {
-                            $steps["updateFaType"] = await $steps[
-                              "updateFaType"
-                            ];
-                          }
-                        }}
-                        selected={(() => {
-                          try {
-                            return $state.choiceType == currentItem.type;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
-                          }
-                        })()}
-                        style2={"grayBackgerand"}
-                        text={(() => {
-                          try {
-                            return currentItem.text;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}
-                      />
-                    );
-                  })}
-                </Stack__>
-              </div>
-            </ApiRequest>
-            <div className={classNames(projectcss.all, sty.freeBox__hH08O)}>
-              <ApiRequest
-                data-plasmic-name={"postPostesInfo"}
-                data-plasmic-override={overrides.postPostesInfo}
-                body={(() => {
-                  try {
-                    return {
-                      data: {
-                        type: $state.choiceType,
-                        text: $state.faType
-                      },
-                      scrollId: "",
-                      authorization: $state.token
-                    };
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                className={classNames("__wab_instance", sty.postPostesInfo)}
-                errorDisplay={
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___1RoEo
-                    )}
-                  >
-                    {"Error fetching data"}
-                  </div>
-                }
-                loadingDisplay={
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__m9BDj)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___7E074
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___1Htlq
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__adOa
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__bye6K,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__awQjf
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__iimBb,
-                                "shimmer"
-                              )}
-                            />
-
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__il2RG,
-                                "shimmer"
-                              )}
-                            />
-                          </div>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___5LdEs
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__jSaoL
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__mkzW,
-                                "shimmer"
-                              )}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___0Cqxy
-                        )}
-                      >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__plyrf
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__eFhP4,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__v1Yk,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___5KWo,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__uwdLd,
-                              "shimmer"
-                            )}
-                          />
-                        </Stack__>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__gqe7B,
-                            "shimmer"
-                          )}
-                        />
-                      </Stack__>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__wge4T)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__qqbkM
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__kJLo
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___2Vgbw,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___7V3Jw
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__tMqGc,
-                                "shimmer"
-                              )}
-                            />
-
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__mofYo,
-                                "shimmer"
-                              )}
-                            />
-                          </div>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___6EriP
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__iu4Pt
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___3VbiS,
-                                "shimmer"
-                              )}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__kwvdg
-                        )}
-                      >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__clLkz
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___3F9FT,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___3G3C,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__yx9DZ,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___80Lvr,
-                              "shimmer"
-                            )}
-                          />
-                        </Stack__>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___4FYg7,
-                            "shimmer"
-                          )}
-                        />
-                      </Stack__>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__yDglb)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___7Xr6O
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__pgWTl
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__vBfDu,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__ih8Gp
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__s4ELx,
-                                "shimmer"
-                              )}
-                            />
-
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__u2Je0,
-                                "shimmer"
-                              )}
-                            />
-                          </div>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___5PpCz
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__mwVia
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__ssrCd,
-                                "shimmer"
-                              )}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__e5Zfv
-                        )}
-                      >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__kpIw
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__ukm8K,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__is4Pc,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__ilmgz,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__oV23H,
-                              "shimmer"
-                            )}
-                          />
-                        </Stack__>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__izPou,
-                            "shimmer"
-                          )}
-                        >
-                          <Dialog
-                            data-plasmic-name={"dialog"}
-                            data-plasmic-override={overrides.dialog}
-                            className={classNames("__wab_instance", sty.dialog)}
-                            onOpendialogChange={async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "dialog",
-                                "opendialog"
-                              ]).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            }}
-                            opendialog={generateStateValueProp($state, [
-                              "dialog",
-                              "opendialog"
-                            ])}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__ivSiu
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__ypRxW
-                                )}
-                                onClick={async event => {
-                                  const $steps = {};
-
-                                  $steps["runCode"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          customFunction: async () => {
-                                            return $$.copyToClipboard();
-                                          }
-                                        };
-                                        return (({ customFunction }) => {
-                                          return customFunction();
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["runCode"] != null &&
-                                    typeof $steps["runCode"] === "object" &&
-                                    typeof $steps["runCode"].then === "function"
-                                  ) {
-                                    $steps["runCode"] = await $steps["runCode"];
-                                  }
-                                }}
-                              >
-                                <Icon239Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__ylYOd
-                                  )}
-                                  role={"img"}
-                                />
-
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__x11Xu
-                                  )}
-                                >
-                                  {
-                                    "\u06a9\u067e\u06cc \u0644\u06cc\u0646\u06a9"
-                                  }
-                                </div>
-                              </div>
-                            </div>
-                          </Dialog>
-                        </div>
-                      </Stack__>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___8JvPa
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___6NDWi
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__sJkrD
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___09Mta,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__qAsi4
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___1E1Bd,
-                                "shimmer"
-                              )}
-                            />
-
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__ra8Va,
-                                "shimmer"
-                              )}
-                            />
-                          </div>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__vHh2D
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__ePsKg
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___1LhFd,
-                                "shimmer"
-                              )}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__aR4V
-                        )}
-                      >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___3PqIk
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___0T27A,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__jlXbi,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___1Umrq,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__a6UVb,
-                              "shimmer"
-                            )}
-                          />
-                        </Stack__>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__fLyz,
-                            "shimmer"
-                          )}
-                        />
-                      </Stack__>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___027R2
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__ppG97
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___46Gi2
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__rw66Q,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__kHmNj
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__pJKmm,
-                                "shimmer"
-                              )}
-                            />
-
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__td6El,
-                                "shimmer"
-                              )}
-                            />
-                          </div>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__jGUbj
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__nwc2P
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___2R2Hh,
-                                "shimmer"
-                              )}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__c0EdX
-                        )}
-                      >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__ek0K6
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__jUoqu,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___0NuEj,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__dkTK,
-                              "shimmer"
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__k0JgT,
-                              "shimmer"
-                            )}
-                          />
-                        </Stack__>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__xRfI5,
-                            "shimmer"
-                          )}
-                        />
-                      </Stack__>
-                    </div>
-                  </div>
-                }
-                method={"POST"}
-                onError={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "postPostesInfo",
-                    "error"
-                  ]).apply(null, eventArgs);
-                }}
-                onLoading={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "postPostesInfo",
-                    "loading"
-                  ]).apply(null, eventArgs);
-                }}
-                onSuccess={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "postPostesInfo",
-                    "data"
-                  ]).apply(null, eventArgs);
-
-                  (async data => {
-                    const $steps = {};
-
-                    $steps["updatePostsData"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["postsData"]
-                            },
-                            operation: 0,
-                            value: $state.postPostesInfo.data
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updatePostsData"] != null &&
-                      typeof $steps["updatePostsData"] === "object" &&
-                      typeof $steps["updatePostsData"].then === "function"
-                    ) {
-                      $steps["updatePostsData"] = await $steps[
-                        "updatePostsData"
-                      ];
-                    }
-                  }).apply(null, eventArgs);
-                }}
-                shouldFetch={(() => {
-                  try {
-                    return $state.token != "";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()}
-                url={"https://n8n.staas.ir/webhook/rest/social"}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__rjNb)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__g1Xj8)}
-                  >
-                    {(_par =>
-                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                      (() => {
-                        try {
-                          return $state.postPostesInfo.data.result.list;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()
-                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                      const currentItem = __plasmic_item_0;
-                      const currentIndex = __plasmic_idx_0;
-                      return (() => {
-                        const child$Props = {
-                          className: classNames(
-                            "__wab_instance",
-                            sty.repeatPost
-                          ),
-                          key: currentIndex,
-                          main: generateStateValueProp($state, [
-                            "repeatPost",
-                            __plasmic_idx_0,
-                            "main"
-                          ]),
-                          onClickShere: async event => {
-                            const $steps = {};
-
-                            $steps["updateDialogOpendialog"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["dialog", "opendialog"]
-                                    },
-                                    operation: 0,
-                                    value: true
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateDialogOpendialog"] != null &&
-                              typeof $steps["updateDialogOpendialog"] ===
-                                "object" &&
-                              typeof $steps["updateDialogOpendialog"].then ===
-                                "function"
-                            ) {
-                              $steps["updateDialogOpendialog"] = await $steps[
-                                "updateDialogOpendialog"
-                              ];
-                            }
-                          },
-                          onMainChange: async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
-                              "repeatPost",
-                              __plasmic_idx_0,
-                              "main"
-                            ]).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          },
-                          postData: (() => {
-                            try {
-                              return currentItem;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          postToken: (() => {
-                            try {
-                              return $state.token;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          type: (() => {
-                            try {
-                              return currentItem.user.superAdmin == true
-                                ? "admin"
-                                : "";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "admin";
-                              }
-                              throw e;
-                            }
-                          })()
-                        };
-
-                        initializePlasmicStates(
-                          $state,
-                          [
-                            {
-                              name: "repeatPost[].main",
-                              initFunc: ({ $props, $state, $queries }) =>
-                                undefined
-                            }
-                          ],
-                          [__plasmic_idx_0]
-                        );
-                        return (
-                          <RepeatPost
-                            data-plasmic-name={"repeatPost"}
-                            data-plasmic-override={overrides.repeatPost}
-                            {...child$Props}
-                          />
-                        );
-                      })();
-                    })}
-                  </Stack__>
-                </Stack__>
-              </ApiRequest>
-            </div>
           </div>
           <Timer
             data-plasmic-name={"timer"}
@@ -2111,6 +1147,657 @@ function PlasmicSocialMain__RenderFunc(props: {
               </div>
             </div>
           ) : null}
+          <div className={classNames(projectcss.all, sty.freeBox__jQjme)}>
+            <div className={classNames(projectcss.all, sty.freeBox__hH08O)}>
+              <ApiRequest
+                data-plasmic-name={"postPostesInfo"}
+                data-plasmic-override={overrides.postPostesInfo}
+                body={(() => {
+                  try {
+                    return {
+                      data: {
+                        type: $state.choiceType,
+                        text: $state.faType
+                      },
+                      scrollId: "",
+                      authorization: $state.token
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                className={classNames("__wab_instance", sty.postPostesInfo)}
+                errorDisplay={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___1RoEo
+                    )}
+                  >
+                    {"Error fetching data"}
+                  </div>
+                }
+                loadingDisplay={
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__m9BDj)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])([
+                      2, 3, 4
+                    ]).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__yDglb
+                          )}
+                          key={currentIndex}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___7Xr6O
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__pgWTl
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__vBfDu,
+                                  "shimmer"
+                                )}
+                              />
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__ih8Gp
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__s4ELx,
+                                    "shimmer"
+                                  )}
+                                />
+
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__u2Je0,
+                                    "shimmer"
+                                  )}
+                                />
+                              </div>
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox___5PpCz
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__mwVia
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__ssrCd,
+                                    "shimmer"
+                                  )}
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__e5Zfv
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__kpIw
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__ukm8K,
+                                  "shimmer"
+                                )}
+                              />
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__is4Pc,
+                                  "shimmer"
+                                )}
+                              />
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__ilmgz,
+                                  "shimmer"
+                                )}
+                              />
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__oV23H,
+                                  "shimmer"
+                                )}
+                              />
+                            </Stack__>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__izPou,
+                                "shimmer"
+                              )}
+                            >
+                              {(() => {
+                                const child$Props = {
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.dialog
+                                  ),
+                                  onOpendialogChange: async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    generateStateOnChangeProp($state, [
+                                      "dialog",
+                                      __plasmic_idx_0,
+                                      "opendialog"
+                                    ]).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  },
+                                  opendialog: generateStateValueProp($state, [
+                                    "dialog",
+                                    __plasmic_idx_0,
+                                    "opendialog"
+                                  ])
+                                };
+
+                                initializePlasmicStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "dialog[].opendialog",
+                                      initFunc: ({
+                                        $props,
+                                        $state,
+                                        $queries
+                                      }) => false
+                                    }
+                                  ],
+                                  [__plasmic_idx_0]
+                                );
+                                return (
+                                  <Dialog
+                                    data-plasmic-name={"dialog"}
+                                    data-plasmic-override={overrides.dialog}
+                                    {...child$Props}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__ivSiu
+                                      )}
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__ypRxW
+                                        )}
+                                        onClick={async event => {
+                                          const $steps = {};
+
+                                          $steps["runCode"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  customFunction: async () => {
+                                                    return $$.copyToClipboard();
+                                                  }
+                                                };
+                                                return (({
+                                                  customFunction
+                                                }) => {
+                                                  return customFunction();
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["runCode"] != null &&
+                                            typeof $steps["runCode"] ===
+                                              "object" &&
+                                            typeof $steps["runCode"].then ===
+                                              "function"
+                                          ) {
+                                            $steps["runCode"] = await $steps[
+                                              "runCode"
+                                            ];
+                                          }
+                                        }}
+                                      >
+                                        <Icon239Icon
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.svg__ylYOd
+                                          )}
+                                          role={"img"}
+                                        />
+
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__x11Xu
+                                          )}
+                                        >
+                                          {
+                                            "\u06a9\u067e\u06cc \u0644\u06cc\u0646\u06a9"
+                                          }
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </Dialog>
+                                );
+                              })()}
+                            </div>
+                          </Stack__>
+                        </div>
+                      );
+                    })}
+                  </div>
+                }
+                method={"POST"}
+                onError={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "postPostesInfo",
+                    "error"
+                  ]).apply(null, eventArgs);
+                }}
+                onLoading={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "postPostesInfo",
+                    "loading"
+                  ]).apply(null, eventArgs);
+                }}
+                onSuccess={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "postPostesInfo",
+                    "data"
+                  ]).apply(null, eventArgs);
+
+                  (async data => {
+                    const $steps = {};
+
+                    $steps["updatePostsData"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["postsData"]
+                            },
+                            operation: 0,
+                            value: $state.postPostesInfo.data
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updatePostsData"] != null &&
+                      typeof $steps["updatePostsData"] === "object" &&
+                      typeof $steps["updatePostsData"].then === "function"
+                    ) {
+                      $steps["updatePostsData"] = await $steps[
+                        "updatePostsData"
+                      ];
+                    }
+                  }).apply(null, eventArgs);
+                }}
+                shouldFetch={(() => {
+                  try {
+                    return $state.token != "";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()}
+                url={"https://n8n.staas.ir/webhook/rest/social"}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__rjNb)}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__g1Xj8)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.postPostesInfo.data.result.list;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (() => {
+                        const child$Props = {
+                          className: classNames(
+                            "__wab_instance",
+                            sty.repeatPost
+                          ),
+                          comingSoon: async event => {
+                            const $steps = {};
+
+                            $steps["updateComingSoonOpen"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["comingSoon", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateComingSoonOpen"] != null &&
+                              typeof $steps["updateComingSoonOpen"] ===
+                                "object" &&
+                              typeof $steps["updateComingSoonOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateComingSoonOpen"] = await $steps[
+                                "updateComingSoonOpen"
+                              ];
+                            }
+                          },
+                          key: currentIndex,
+                          main: generateStateValueProp($state, [
+                            "repeatPost",
+                            __plasmic_idx_0,
+                            "main"
+                          ]),
+                          onClickShere: async event => {
+                            const $steps = {};
+
+                            $steps["invokeGlobalAction"] = false
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://n8n.staas.ir/webhook/post/share",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            postId: currentItem.post.id,
+                                            type: "",
+                                            authorization: $state.token
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
+                            }
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        let url = `/post?post=${currentItem.post.id}&shere=true`;
+                                        if (
+                                          typeof navigator !== "undefined" &&
+                                          typeof navigator.share === "function"
+                                        ) {
+                                          return navigator.share({
+                                            title: "لیوم | تقویم قاعدگی",
+                                            url: url
+                                          });
+                                        } else {
+                                          $$.copyToClipboard(url);
+                                          return alert(
+                                            "مرورگر شما از قابلیت اشتراک‌گذاری پشتیبانی نمی‌کند.لینک در کلیپ‌بورد کپی شد. حالا می‌توانید آن را در برنامه‌های دیگر به اشتراک بگذارید."
+                                          );
+                                        }
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          },
+                          onMainChange: async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "repeatPost",
+                              __plasmic_idx_0,
+                              "main"
+                            ]).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          },
+                          postData: (() => {
+                            try {
+                              return currentItem;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          postToken: (() => {
+                            try {
+                              return $state.token;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          type: (() => {
+                            try {
+                              return currentItem.user.superAdmin == true
+                                ? "admin"
+                                : "";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "admin";
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
+
+                        initializePlasmicStates(
+                          $state,
+                          [
+                            {
+                              name: "repeatPost[].main",
+                              initFunc: ({ $props, $state, $queries }) => "main"
+                            }
+                          ],
+                          [__plasmic_idx_0]
+                        );
+                        return (
+                          <RepeatPost
+                            data-plasmic-name={"repeatPost"}
+                            data-plasmic-override={overrides.repeatPost}
+                            {...child$Props}
+                          />
+                        );
+                      })();
+                    })}
+                  </Stack__>
+                </Stack__>
+              </ApiRequest>
+            </div>
+          </div>
+          <ComingSoon
+            data-plasmic-name={"comingSoon"}
+            data-plasmic-override={overrides.comingSoon}
+            className={classNames("__wab_instance", sty.comingSoon)}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["comingSoon", "open"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onSelectShopChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "comingSoon",
+                "selectShop"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            open={generateStateValueProp($state, ["comingSoon", "open"])}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -2120,43 +1807,49 @@ function PlasmicSocialMain__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "sideEffect",
+    "section",
     "mainHeader",
-    "story",
     "getInfo",
     "groupBy",
     "radioGrop2",
+    "sideEffect",
+    "story",
+    "timer",
     "postPostesInfo",
     "dialog",
     "repeatPost",
-    "timer"
+    "comingSoon"
   ],
-  sideEffect: ["sideEffect"],
+  section: ["section", "mainHeader", "getInfo", "groupBy", "radioGrop2"],
   mainHeader: ["mainHeader"],
-  story: ["story"],
   getInfo: ["getInfo", "groupBy", "radioGrop2"],
   groupBy: ["groupBy", "radioGrop2"],
   radioGrop2: ["radioGrop2"],
+  sideEffect: ["sideEffect"],
+  story: ["story"],
+  timer: ["timer"],
   postPostesInfo: ["postPostesInfo", "dialog", "repeatPost"],
   dialog: ["dialog"],
   repeatPost: ["repeatPost"],
-  timer: ["timer"]
+  comingSoon: ["comingSoon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  sideEffect: typeof SideEffect;
+  section: "section";
   mainHeader: typeof MainHeader;
-  story: "div";
   getInfo: typeof ApiRequest;
   groupBy: "div";
   radioGrop2: typeof RadioGrop2;
+  sideEffect: typeof SideEffect;
+  story: "div";
+  timer: typeof Timer;
   postPostesInfo: typeof ApiRequest;
   dialog: typeof Dialog;
   repeatPost: typeof RepeatPost;
-  timer: typeof Timer;
+  comingSoon: typeof ComingSoon;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2244,16 +1937,18 @@ export const PlasmicSocialMain = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    sideEffect: makeNodeComponent("sideEffect"),
+    section: makeNodeComponent("section"),
     mainHeader: makeNodeComponent("mainHeader"),
-    story: makeNodeComponent("story"),
     getInfo: makeNodeComponent("getInfo"),
     groupBy: makeNodeComponent("groupBy"),
     radioGrop2: makeNodeComponent("radioGrop2"),
+    sideEffect: makeNodeComponent("sideEffect"),
+    story: makeNodeComponent("story"),
+    timer: makeNodeComponent("timer"),
     postPostesInfo: makeNodeComponent("postPostesInfo"),
     dialog: makeNodeComponent("dialog"),
     repeatPost: makeNodeComponent("repeatPost"),
-    timer: makeNodeComponent("timer"),
+    comingSoon: makeNodeComponent("comingSoon"),
 
     // Metadata about props expected for PlasmicSocialMain
     internalVariantProps: PlasmicSocialMain__VariantProps,

@@ -73,6 +73,7 @@ import sty from "./PlasmicComment.module.css"; // plasmic-import: Q00r5f4C3XYv/c
 
 import Icon170Icon from "./icons/PlasmicIcon__Icon170"; // plasmic-import: dXN8uxxnP9W_/icon
 import Icon146Icon from "./icons/PlasmicIcon__Icon146"; // plasmic-import: oL3Gq5u9-MHL/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -362,6 +363,12 @@ function PlasmicComment__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.whenIsAdminTrue
+      },
+      {
+        path: "loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -405,6 +412,11 @@ function PlasmicComment__RenderFunc(props: {
             hasVariant($state, "whenHaveNoReply", "whenHaveNoReply") &&
             hasVariant($state, "whenHaveReply", "whenHaveReply") &&
             hasVariant($state, "showReply", "showReply"),
+          [sty.rootshowReply_whenIsAdminTrue_whenHaveReply_whenHaveNoReply]:
+            hasVariant($state, "whenHaveNoReply", "whenHaveNoReply") &&
+            hasVariant($state, "whenHaveReply", "whenHaveReply") &&
+            hasVariant($state, "showReply", "showReply") &&
+            hasVariant($state, "whenIsAdminTrue", "whenIsAdminTrue"),
           [sty.rootunnamedGroupOfVariants_showReply]: hasVariant(
             $state,
             "unnamedGroupOfVariants",
@@ -439,7 +451,10 @@ function PlasmicComment__RenderFunc(props: {
             $state,
             "whenHaveReply",
             "whenHaveReply"
-          )
+          ),
+          [sty.rootwhenHaveReply_whenHaveNoReply]:
+            hasVariant($state, "whenHaveNoReply", "whenHaveNoReply") &&
+            hasVariant($state, "whenHaveReply", "whenHaveReply")
         }
       )}
     >
@@ -1338,7 +1353,15 @@ function PlasmicComment__RenderFunc(props: {
                       $state,
                       "unnamedGroupOfVariants",
                       "showReply"
-                    )
+                    ),
+                    [sty.reply2whenHaveReply]: hasVariant(
+                      $state,
+                      "whenHaveReply",
+                      "whenHaveReply"
+                    ),
+                    [sty.reply2whenHaveReply_whenHaveNoReply]:
+                      hasVariant($state, "whenHaveReply", "whenHaveReply") &&
+                      hasVariant($state, "whenHaveNoReply", "whenHaveNoReply")
                   }),
                   onAfterClickUpdateDataChange: async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, [
@@ -1500,6 +1523,35 @@ function PlasmicComment__RenderFunc(props: {
         onClick={async event => {
           const $steps = {};
 
+          $steps["updateCommentData4"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["loading"]
+                  },
+                  operation: 0,
+                  value: true
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateCommentData4"] != null &&
+            typeof $steps["updateCommentData4"] === "object" &&
+            typeof $steps["updateCommentData4"].then === "function"
+          ) {
+            $steps["updateCommentData4"] = await $steps["updateCommentData4"];
+          }
+
           $steps["invokeGlobalAction"] = true
             ? (() => {
                 const actionArgs = {
@@ -1625,81 +1677,189 @@ function PlasmicComment__RenderFunc(props: {
           ) {
             $steps["updateCommentData3"] = await $steps["updateCommentData3"];
           }
+
+          $steps["updateCommentData5"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["loading"]
+                  },
+                  operation: 0,
+                  value: false
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateCommentData5"] != null &&
+            typeof $steps["updateCommentData5"] === "object" &&
+            typeof $steps["updateCommentData5"].then === "function"
+          ) {
+            $steps["updateCommentData5"] = await $steps["updateCommentData5"];
+          }
         }}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__aAapo,
-            {
-              [sty.textunnamedGroupOfVariants_whenHaveNoReply__aAapoCt3Kq]:
-                hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
-              [sty.textunnamedGroupOfVariants_whenHaveReply__aAapoKmMee]:
-                hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
-              [sty.textwhenHaveNoReply__aAapouOheY]: hasVariant(
-                $state,
-                "whenHaveNoReply",
-                "whenHaveNoReply"
-              ),
-              [sty.textwhenHaveReply__aAapos2LwI]: hasVariant(
+        {(
+          hasVariant($state, "whenHaveReply", "whenHaveReply")
+            ? (() => {
+                try {
+                  return !$state.loading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return !$state.loading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()
+        ) ? (
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__aAapo,
+              {
+                [sty.textunnamedGroupOfVariants_whenHaveNoReply__aAapoCt3Kq]:
+                  hasVariant(
+                    $state,
+                    "unnamedGroupOfVariants",
+                    "whenHaveNoReply"
+                  ),
+                [sty.textunnamedGroupOfVariants_whenHaveReply__aAapoKmMee]:
+                  hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
+                [sty.textwhenHaveNoReply__aAapouOheY]: hasVariant(
+                  $state,
+                  "whenHaveNoReply",
+                  "whenHaveNoReply"
+                ),
+                [sty.textwhenHaveReply__aAapos2LwI]: hasVariant(
+                  $state,
+                  "whenHaveReply",
+                  "whenHaveReply"
+                )
+              }
+            )}
+          >
+            {hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply") ? (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return "مشاهده " + $props.replyCount + " پاسخ ";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            ) : hasVariant($state, "whenHaveReply", "whenHaveReply") ? (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return "مشاهده " + $props.replyCount + " پاسخ ";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return "مشاهده " + $props.replyCount + " پاسخ ";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            )}
+          </div>
+        ) : null}
+        {(
+          hasVariant($state, "whenHaveReply", "whenHaveReply")
+            ? (() => {
+                try {
+                  return $state.loading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return $state.loading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()
+        ) ? (
+          <PlasmicIcon__
+            PlasmicIconType={
+              hasVariant($state, "whenHaveReply", "whenHaveReply")
+                ? Icon115Icon
+                : Icon115Icon
+            }
+            className={classNames(projectcss.all, sty.svg__zzNeW, {
+              [sty.svgwhenHaveReply__zzNeWs2LwI]: hasVariant(
                 $state,
                 "whenHaveReply",
                 "whenHaveReply"
               )
-            }
-          )}
-        >
-          {hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply") ? (
-            <React.Fragment>
-              {(() => {
-                try {
-                  return "مشاهده " + $props.replyCount + " پاسخ ";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          ) : hasVariant($state, "whenHaveReply", "whenHaveReply") ? (
-            <React.Fragment>
-              {(() => {
-                try {
-                  return "مشاهده " + $props.replyCount + " پاسخ ";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              {(() => {
-                try {
-                  return "مشاهده " + $props.replyCount + " پاسخ ";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          )}
-        </div>
+            })}
+            role={"img"}
+          />
+        ) : null}
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__wRzZd, {

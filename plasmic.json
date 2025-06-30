@@ -2157,6 +2157,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicMainPage.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "-rGZlxMT1IH0",
+          "name": "ComingSoon",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicComingSoon.tsx",
+          "importSpec": {
+            "modulePath": "ComingSoon.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicComingSoon.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -3699,6 +3712,16 @@
           "id": "xGc0UtorNcAW",
           "name": "Icon244Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon244.tsx"
+        },
+        {
+          "id": "xRTc-6Ui4t8Y",
+          "name": "Icon245Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon245.tsx"
+        },
+        {
+          "id": "ibkqt9GkPceD",
+          "name": "Icon246Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon246.tsx"
         }
       ],
       "images": [
@@ -4361,6 +4384,16 @@
           "id": "GK_FlH_9Og1p",
           "name": "image 100",
           "filePath": "../public/plasmic/liom_hamyar/images/image100.svg"
+        },
+        {
+          "id": "hKHs1JAuoRcE",
+          "name": "image 101",
+          "filePath": "../public/plasmic/liom_hamyar/images/image101.svg"
+        },
+        {
+          "id": "R6iAhmp2wTRF",
+          "name": "image 102",
+          "filePath": "../public/plasmic/liom_hamyar/images/image102.svg"
         }
       ],
       "indirect": false,

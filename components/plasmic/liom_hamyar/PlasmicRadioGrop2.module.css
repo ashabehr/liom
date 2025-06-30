@@ -8,6 +8,7 @@
   justify-self: flex-start;
   width: auto;
   height: auto;
+  cursor: pointer;
   border-radius: 8px;
   padding: 8px;
 }
@@ -50,6 +51,7 @@
   text-align: center;
   white-space: pre;
   font-family: "Risque";
+  user-select: none;
   min-width: 0;
 }
 .textselected {

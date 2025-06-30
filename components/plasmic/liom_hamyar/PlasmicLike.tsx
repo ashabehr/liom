@@ -80,12 +80,17 @@ createPlasmicElementProxy;
 
 export type PlasmicLike__VariantMembers = {
   islike: "islike";
+  main: "main";
 };
 export type PlasmicLike__VariantsArgs = {
   islike?: SingleBooleanChoiceArg<"islike">;
+  main?: SingleBooleanChoiceArg<"main">;
 };
 type VariantPropType = keyof PlasmicLike__VariantsArgs;
-export const PlasmicLike__VariantProps = new Array<VariantPropType>("islike");
+export const PlasmicLike__VariantProps = new Array<VariantPropType>(
+  "islike",
+  "main"
+);
 
 export type PlasmicLike__ArgsType = {
   onIslikeChange?: (val: any) => void;
@@ -119,6 +124,7 @@ export interface DefaultLikeProps {
   tokenForPostLike?: string;
   shere?: boolean;
   islike?: SingleBooleanChoiceArg<"islike">;
+  main?: SingleBooleanChoiceArg<"main">;
   className?: string;
 }
 
@@ -222,6 +228,12 @@ function PlasmicLike__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "main",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.main
       }
     ],
     [$props, $ctx, $refs]
@@ -248,7 +260,10 @@ function PlasmicLike__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
-        { [sty.rootislike]: hasVariant($state, "islike", "islike") }
+        {
+          [sty.rootislike]: hasVariant($state, "islike", "islike"),
+          [sty.rootmain]: hasVariant($state, "main", "main")
+        }
       )}
     >
       <AntdModal
@@ -632,13 +647,16 @@ function PlasmicLike__RenderFunc(props: {
           </Stack__>
         </Stack__>
       </AntdModal>
-      <div
+      <Stack__
+        as={"div"}
+        hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__waP5W, {
           [sty.freeBoxislike__waP5WM2Mbn]: hasVariant(
             $state,
             "islike",
             "islike"
-          )
+          ),
+          [sty.freeBoxmain__waP5Wn9Zts]: hasVariant($state, "main", "main")
         })}
         onClick={async event => {
           const $steps = {};
@@ -802,7 +820,8 @@ function PlasmicLike__RenderFunc(props: {
             hasVariant($state, "islike", "islike") ? Icon43Icon : Icon237Icon
           }
           className={classNames(projectcss.all, sty.svg__vsNmA, {
-            [sty.svgislike__vsNmAm2Mbn]: hasVariant($state, "islike", "islike")
+            [sty.svgislike__vsNmAm2Mbn]: hasVariant($state, "islike", "islike"),
+            [sty.svgmain__vsNmAn9Zts]: hasVariant($state, "main", "main")
           })}
           role={"img"}
         />
@@ -817,7 +836,8 @@ function PlasmicLike__RenderFunc(props: {
                 $state,
                 "islike",
                 "islike"
-              )
+              ),
+              [sty.textmain__moiNkn9Zts]: hasVariant($state, "main", "main")
             }
           )}
         >
@@ -837,7 +857,7 @@ function PlasmicLike__RenderFunc(props: {
             })()}
           </React.Fragment>
         </div>
-      </div>
+      </Stack__>
     </div>
   ) as React.ReactElement | null;
 }
