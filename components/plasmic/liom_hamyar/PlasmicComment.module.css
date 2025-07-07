@@ -155,7 +155,7 @@
   min-width: 0;
   padding: 0px;
 }
-.uploudeTime:global(.__wab_instance) {
+.uploudeTime__zqho8:global(.__wab_instance) {
   max-width: 100%;
 }
 .freeBox__ewqKl {
@@ -194,6 +194,33 @@
   width: 24px;
   height: 24px;
 }
+.button2:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg___8Jmz {
+  position: relative;
+  object-fit: cover;
+  width: 20px;
+  height: 24px;
+  color: var(--token--AiIiH6B786R);
+}
+.text__bPmhE {
+  color: var(--token-y50Rafqey4Ec);
+}
+.svg___337Zk {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
+  display: none;
+}
 .button:global(.__wab_instance) {
   max-width: 100%;
 }
@@ -208,34 +235,6 @@
   color: var(--token-y50Rafqey4Ec);
 }
 .svg___0FHn {
-  object-fit: cover;
-  max-width: 100%;
-  width: 40px;
-  height: 50px;
-  position: relative;
-  left: auto;
-  top: auto;
-  z-index: 1;
-  color: var(--token-jgohepLVeKvh);
-  right: auto;
-  bottom: auto;
-  display: none;
-}
-.button2:global(.__wab_instance) {
-  max-width: 100%;
-  display: none;
-}
-.svg___8Jmz {
-  position: relative;
-  object-fit: cover;
-  width: 20px;
-  height: 24px;
-  color: var(--token--AiIiH6B786R);
-}
-.text__bPmhE {
-  color: var(--token-y50Rafqey4Ec);
-}
-.svg___337Zk {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -294,23 +293,6 @@
 .comentunnamedGroupOfVariants_whenHaveNoReply {
   margin-bottom: 10px;
 }
-.commentlikebutton:global(.__wab_instance) {
-  max-width: 100%;
-  position: absolute;
-  left: auto;
-  top: auto;
-  z-index: 0;
-  width: auto;
-  height: auto;
-  bottom: -20px;
-  right: 75px;
-}
-.commentlikebuttonshowReply:global(.__wab_instance) {
-  display: none;
-}
-.commentlikebuttonunnamedGroupOfVariants_showReply:global(.__wab_instance) {
-  display: none;
-}
 .freeBox__eZrem {
   display: flex;
   flex-direction: row;
@@ -341,55 +323,95 @@
   margin-left: 5px;
 }
 .freeBoxwhenHaveNoReply__eZremUOheY {
-  display: none;
+  position: absolute;
+  left: 0;
+  top: auto;
+  right: 0;
+  width: auto;
+  bottom: -20px;
+  padding: 0px 8px 0px 0px;
 }
 .freeBoxwhenHaveReply__eZremS2LwI {
-  display: none;
+  position: absolute;
+  left: 0;
+  top: auto;
+  right: 0;
+  bottom: -20px;
+  width: auto;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
 }
-.freeBoxshowReply__eZrem5MJbg {
-  display: flex;
+.freeBoxwhenHaveReply__eZremS2LwI > :global(.__wab_flex-container) {
+  justify-content: flex-start;
+  align-items: center;
 }
-.freeBoxunnamedGroupOfVariants_showReply__eZremKDgzF {
-  display: flex;
+.freeBoxshowReply__eZrem5MJbg > :global(.__wab_flex-container) {
+  justify-content: flex-start;
+  align-items: center;
+}
+.freeBoxunnamedGroupOfVariants_showReply__eZremKDgzF
+  > :global(.__wab_flex-container) {
+  justify-content: flex-start;
+  align-items: center;
 }
 .freeBoxunnamedGroupOfVariants_whenHaveReply__eZremKmMee {
-  display: none;
+  position: absolute;
+  left: 0;
+  top: auto;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  right: 0;
+  bottom: -20px;
+  width: auto;
 }
 .freeBoxunnamedGroupOfVariants_whenHaveNoReply__eZremCt3Kq {
-  display: none;
-}
-.reply:global(.__wab_instance) {
-  left: auto;
+  position: absolute;
+  left: 0;
   top: auto;
-  position: relative;
-  bottom: auto;
-  right: auto;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  right: 0;
+  bottom: -20px;
+  width: auto;
 }
-.replywhenHaveNoReply:global(.__wab_instance) {
-  display: none;
-}
-.replywhenHaveReply:global(.__wab_instance) {
-  display: none;
-}
-.replyshowReply:global(.__wab_instance) {
+.reply3:global(.__wab_instance) {
+  max-width: 100%;
   position: relative;
   left: auto;
   top: auto;
-  bottom: auto;
-  right: auto;
 }
-.replyunnamedGroupOfVariants_showReply:global(.__wab_instance) {
+.reply3whenHaveReply:global(.__wab_instance) {
   position: relative;
   left: auto;
   top: auto;
-  bottom: auto;
-  right: auto;
 }
-.replyunnamedGroupOfVariants_whenHaveReply:global(.__wab_instance) {
-  display: none;
+.reply3showReply:global(.__wab_instance) {
+  position: relative;
+  left: auto;
+  top: auto;
 }
-.replyunnamedGroupOfVariants_whenHaveNoReply:global(.__wab_instance) {
-  display: none;
+.reply3unnamedGroupOfVariants_showReply:global(.__wab_instance) {
+  position: relative;
+  left: auto;
+  top: auto;
+}
+.reply3unnamedGroupOfVariants_whenHaveReply:global(.__wab_instance) {
+  position: relative;
+  left: auto;
+  top: auto;
+}
+.reply3unnamedGroupOfVariants_whenHaveNoReply:global(.__wab_instance) {
+  position: relative;
+  left: auto;
+  top: auto;
+}
+.reply3whenIsAdminTrue:global(.__wab_instance) {
+  position: relative;
+  left: auto;
+  top: auto;
 }
 .commentlikebutton2:global(.__wab_instance) {
   max-width: 100%;
@@ -398,12 +420,6 @@
   top: auto;
   bottom: auto;
   right: auto;
-}
-.commentlikebutton2whenHaveNoReply:global(.__wab_instance) {
-  display: none;
-}
-.commentlikebutton2whenHaveReply:global(.__wab_instance) {
-  display: none;
 }
 .commentlikebutton2showReply:global(.__wab_instance) {
   position: relative;
@@ -418,16 +434,6 @@
   top: auto;
   bottom: auto;
   right: auto;
-}
-.commentlikebutton2unnamedGroupOfVariants_whenHaveReply:global(
-    .__wab_instance
-  ) {
-  display: none;
-}
-.commentlikebutton2unnamedGroupOfVariants_whenHaveNoReply:global(
-    .__wab_instance
-  ) {
-  display: none;
 }
 .freeBox__wjP54 {
   display: flex;
@@ -565,12 +571,8 @@
   min-width: 0;
   padding: 8px;
 }
-.text__yJg1C {
-  width: auto;
-  height: auto;
+.uploudeTime__hfMLu:global(.__wab_instance) {
   max-width: 100%;
-  text-align: center;
-  white-space: pre;
 }
 .freeBox__kMrO {
   display: flex;
@@ -638,20 +640,6 @@
   top: auto;
   bottom: -20px;
   right: 85px;
-}
-.reply3:global(.__wab_instance) {
-  max-width: 100%;
-  position: absolute;
-  left: auto;
-  top: auto;
-  bottom: -20px;
-  right: 10px;
-}
-.reply3showReply:global(.__wab_instance) {
-  display: none;
-}
-.reply3unnamedGroupOfVariants_showReply:global(.__wab_instance) {
-  display: none;
 }
 .freeBox__xZam2 {
   flex-direction: row;

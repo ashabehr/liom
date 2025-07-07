@@ -1023,7 +1023,8 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkMTdiNmJkLTkzZmYtNGYzZS04ZGYzLTQwMDNkOTU2NGJkOCIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzQ2MjU3MDQ1fQ.VGtD4MdU57dGqdh7uxLTL3lCugmBcv_kybVqfb_2dSI"
       },
       {
         path: "paramsObject",

@@ -64,6 +64,7 @@ import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import Post2ForSocialMain from "../../Post2ForSocialMain"; // plasmic-import: eaFD2jwbxRPb/component
 import ReactionBar2ForSocialMain from "../../ReactionBar2ForSocialMain"; // plasmic-import: H6dfyqWexG5G/component
 import Like from "../../Like"; // plasmic-import: ARJf0DiYhPbe/component
+import CommentNum from "../../CommentNum"; // plasmic-import: qNEIB2lcMLwU/component
 import Save from "../../Save"; // plasmic-import: _x22uBJ4ZqC9/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -76,7 +77,6 @@ import sty from "./PlasmicRepeatPost.module.css"; // plasmic-import: O_6FIPF6rDT
 
 import Icon244Icon from "./icons/PlasmicIcon__Icon244"; // plasmic-import: xGc0UtorNcAW/icon
 import Icon246Icon from "./icons/PlasmicIcon__Icon246"; // plasmic-import: ibkqt9GkPceD/icon
-import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: 4NJq6NYKqIPu/icon
 import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: bJ7kVZQK3ovZ/icon
 import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: 2SO3BEHlRKXI/icon
 
@@ -102,6 +102,8 @@ export type PlasmicRepeatPost__ArgsType = {
   onClickShere?: (event: any) => void;
   onMainChange?: (val: any) => void;
   comingSoon?: (event: any) => void;
+  comment?: any;
+  onCommentChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicRepeatPost__ArgsType;
 export const PlasmicRepeatPost__ArgProps = new Array<ArgPropType>(
@@ -109,7 +111,9 @@ export const PlasmicRepeatPost__ArgProps = new Array<ArgPropType>(
   "postToken",
   "onClickShere",
   "onMainChange",
-  "comingSoon"
+  "comingSoon",
+  "comment",
+  "onCommentChange"
 );
 
 export type PlasmicRepeatPost__OverridesType = {
@@ -119,6 +123,7 @@ export type PlasmicRepeatPost__OverridesType = {
   post2ForSocialMain?: Flex__<typeof Post2ForSocialMain>;
   reactionBar2ForSocialMain?: Flex__<typeof ReactionBar2ForSocialMain>;
   like2?: Flex__<typeof Like>;
+  commentNum?: Flex__<typeof CommentNum>;
   save?: Flex__<typeof Save>;
 };
 
@@ -128,6 +133,8 @@ export interface DefaultRepeatPostProps {
   onClickShere?: (event: any) => void;
   onMainChange?: (val: any) => void;
   comingSoon?: (event: any) => void;
+  comment?: any;
+  onCommentChange?: (val: string) => void;
   type?: SingleChoiceArg<"admin">;
   main?: SingleBooleanChoiceArg<"main">;
   className?: string;
@@ -233,6 +240,14 @@ function PlasmicRepeatPost__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "comment",
+        type: "writable",
+        variableType: "object",
+
+        valueProp: "comment",
+        onChangeProp: "onCommentChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -1065,71 +1080,57 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
         />
 
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__nZx9G, {
-            [sty.freeBoxmain__nZx9Gaq7Kr]: hasVariant($state, "main", "main")
+        <CommentNum
+          data-plasmic-name={"commentNum"}
+          data-plasmic-override={overrides.commentNum}
+          active={(() => {
+            try {
+              return $state.comment.active;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()}
+          className={classNames("__wab_instance", sty.commentNum, {
+            [sty.commentNummain]: hasVariant($state, "main", "main")
           })}
-          onClick={async event => {
-            const $steps = {};
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return `/post?post=${$props.postData.post.id}`;
+          main={
+            hasVariant($state, "main", "main")
+              ? true
+              : (() => {
+                  try {
+                    return $state.main;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
                     }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
-          }}
-        >
-          <PlasmicIcon__
-            PlasmicIconType={
-              hasVariant($state, "main", "main") ? Icon150Icon : Icon150Icon
-            }
-            className={classNames(projectcss.all, sty.svg__klwFu, {
-              [sty.svgmain__klwFuaq7Kr]: hasVariant($state, "main", "main")
-            })}
-            role={"img"}
-          />
-
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__m6ZXy,
-              { [sty.textmain__m6ZXYaq7Kr]: hasVariant($state, "main", "main") }
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $props.postData.commentCount;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "432";
+                    throw e;
                   }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </div>
-        </Stack__>
+                })()
+          }
+          number={(() => {
+            try {
+              return $state.comment.number;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+        />
+
         <Stack__
           as={"div"}
           hasGap={true}
@@ -1341,13 +1342,20 @@ const PlasmicDescendants = {
     "post2ForSocialMain",
     "reactionBar2ForSocialMain",
     "like2",
+    "commentNum",
     "save"
   ],
   uploudeTime: ["uploudeTime"],
   timer: ["timer"],
   post2ForSocialMain: ["post2ForSocialMain"],
-  reactionBar2ForSocialMain: ["reactionBar2ForSocialMain", "like2", "save"],
+  reactionBar2ForSocialMain: [
+    "reactionBar2ForSocialMain",
+    "like2",
+    "commentNum",
+    "save"
+  ],
   like2: ["like2"],
+  commentNum: ["commentNum"],
   save: ["save"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1360,6 +1368,7 @@ type NodeDefaultElementType = {
   post2ForSocialMain: typeof Post2ForSocialMain;
   reactionBar2ForSocialMain: typeof ReactionBar2ForSocialMain;
   like2: typeof Like;
+  commentNum: typeof CommentNum;
   save: typeof Save;
 };
 
@@ -1428,6 +1437,7 @@ export const PlasmicRepeatPost = Object.assign(
     post2ForSocialMain: makeNodeComponent("post2ForSocialMain"),
     reactionBar2ForSocialMain: makeNodeComponent("reactionBar2ForSocialMain"),
     like2: makeNodeComponent("like2"),
+    commentNum: makeNodeComponent("commentNum"),
     save: makeNodeComponent("save"),
 
     // Metadata about props expected for PlasmicRepeatPost

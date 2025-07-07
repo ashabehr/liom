@@ -63,8 +63,8 @@ import UploudeTime from "../../UploudeTime"; // plasmic-import: aUO_fJR7ceN4/com
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
-import Commentlikebutton from "../../Commentlikebutton"; // plasmic-import: wOOFf0E7TUt2/component
 import Reply from "../../Reply"; // plasmic-import: LqO8252FTurB/component
+import Commentlikebutton from "../../Commentlikebutton"; // plasmic-import: wOOFf0E7TUt2/component
 import ReplyLikeButton from "../../ReplyLikeButton"; // plasmic-import: DqnrMhkRW1DX/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 
@@ -77,9 +77,9 @@ import sty from "./PlasmicComment.module.css"; // plasmic-import: Q00r5f4C3XYv/c
 
 import Icon170Icon from "./icons/PlasmicIcon__Icon170"; // plasmic-import: dXN8uxxnP9W_/icon
 import Icon146Icon from "./icons/PlasmicIcon__Icon146"; // plasmic-import: oL3Gq5u9-MHL/icon
-import Icon169Icon from "./icons/PlasmicIcon__Icon169"; // plasmic-import: bUQKEz-4nD1u/icon
-import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon251Icon from "./icons/PlasmicIcon__Icon251"; // plasmic-import: OXj7Y-pBlB2X/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon169Icon from "./icons/PlasmicIcon__Icon169"; // plasmic-import: bUQKEz-4nD1u/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon252Icon from "./icons/PlasmicIcon__Icon252"; // plasmic-import: 7qesfxn4TT_Y/icon
 
@@ -135,6 +135,8 @@ export type PlasmicComment__ArgsType = {
   me?: boolean;
   delet?: (event: any) => void;
   edit?: (event: any) => void;
+  like?: boolean;
+  onLikeChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
@@ -161,24 +163,23 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "onClick1",
   "me",
   "delet",
-  "edit"
+  "edit",
+  "like",
+  "onLikeChange"
 );
 
 export type PlasmicComment__OverridesType = {
   root?: Flex__<"div">;
-  uploudeTime?: Flex__<typeof UploudeTime>;
   popover?: Flex__<typeof AntdPopover>;
-  button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
+  button?: Flex__<typeof Button>;
   lineClomp?: Flex__<typeof LineClomp>;
   coment?: Flex__<"div">;
-  commentlikebutton?: Flex__<typeof Commentlikebutton>;
-  reply?: Flex__<typeof Reply>;
+  reply3?: Flex__<typeof Reply>;
   commentlikebutton2?: Flex__<typeof Commentlikebutton>;
   lineClomp2?: Flex__<typeof LineClomp>;
   reply2?: Flex__<typeof Reply>;
   replyLikeButton?: Flex__<typeof ReplyLikeButton>;
-  reply3?: Flex__<typeof Reply>;
   deleteModal?: Flex__<typeof AntdModal>;
   button3?: Flex__<typeof Button>;
   button4?: Flex__<typeof Button>;
@@ -209,6 +210,8 @@ export interface DefaultCommentProps {
   me?: boolean;
   delet?: (event: any) => void;
   edit?: (event: any) => void;
+  like?: boolean;
+  onLikeChange?: (val: string) => void;
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
   whenHaveReply?: SingleBooleanChoiceArg<"whenHaveReply">;
   showReply?: SingleBooleanChoiceArg<"showReply">;
@@ -305,12 +308,6 @@ function PlasmicComment__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "commentlikebutton.variableForLikeCountComment",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "unnamedGroupOfVariants",
         type: "private",
         variableType: "variant",
@@ -346,12 +343,6 @@ function PlasmicComment__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "reply.afterClickUpdateData",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
         path: "reply2[].afterClickUpdateData",
@@ -417,7 +408,7 @@ function PlasmicComment__RenderFunc(props: {
         path: "deleteModal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "button3.color",
@@ -430,6 +421,39 @@ function PlasmicComment__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "commentlikebutton2.islikecomment",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.like;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "like",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "like",
+        onChangeProp: "onLikeChange"
+      },
+      {
+        path: "commentlikebutton2.like",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -468,6 +492,9 @@ function PlasmicComment__RenderFunc(props: {
           [sty.rootshowReply_unnamedGroupOfVariants_whenHaveReply_whenHaveNoReply]:
             hasVariant($state, "whenHaveNoReply", "whenHaveNoReply") &&
             hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply") &&
+            hasVariant($state, "showReply", "showReply"),
+          [sty.rootshowReply_whenHaveReply]:
+            hasVariant($state, "whenHaveReply", "whenHaveReply") &&
             hasVariant($state, "showReply", "showReply"),
           [sty.rootshowReply_whenHaveReply_whenHaveNoReply]:
             hasVariant($state, "whenHaveNoReply", "whenHaveNoReply") &&
@@ -676,9 +703,7 @@ function PlasmicComment__RenderFunc(props: {
         >
           <div className={classNames(projectcss.all, sty.freeBox__wzkeY)}>
             <UploudeTime
-              data-plasmic-name={"uploudeTime"}
-              data-plasmic-override={overrides.uploudeTime}
-              className={classNames("__wab_instance", sty.uploudeTime)}
+              className={classNames("__wab_instance", sty.uploudeTime__zqho8)}
               posttime={(() => {
                 try {
                   return (() => {
@@ -729,9 +754,99 @@ function PlasmicComment__RenderFunc(props: {
             data-plasmic-name={"popover"}
             data-plasmic-override={overrides.popover}
             arrow={true}
-            className={classNames("__wab_instance", sty.popover)}
+            className={classNames("__wab_instance", sty.popover, {
+              [sty.popoverwhenHaveReply]: hasVariant(
+                $state,
+                "whenHaveReply",
+                "whenHaveReply"
+              )
+            })}
             content={
               <React.Fragment>
+                <Button
+                  data-plasmic-name={"button2"}
+                  data-plasmic-override={overrides.button2}
+                  className={classNames("__wab_instance", sty.button2, {
+                    [sty.button2whenHaveReply]: hasVariant(
+                      $state,
+                      "whenHaveReply",
+                      "whenHaveReply"
+                    )
+                  })}
+                  color={generateStateValueProp($state, ["button2", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return ($state.popover.open = false);
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["runEdit"] = true
+                      ? (() => {
+                          const actionArgs = { eventRef: $props["edit"] };
+                          return (({ eventRef, args }) => {
+                            return eventRef?.(...(args ?? []));
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runEdit"] != null &&
+                      typeof $steps["runEdit"] === "object" &&
+                      typeof $steps["runEdit"].then === "function"
+                    ) {
+                      $steps["runEdit"] = await $steps["runEdit"];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  showStartIcon={true}
+                  size={"compact"}
+                  startIcon={
+                    <Icon251Icon
+                      className={classNames(projectcss.all, sty.svg___8Jmz)}
+                      role={"img"}
+                    />
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__bPmhE
+                    )}
+                  >
+                    {"\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0646\u0638\u0631"}
+                  </div>
+                </Button>
                 <Button
                   data-plasmic-name={"button"}
                   data-plasmic-override={overrides.button}
@@ -844,46 +959,6 @@ function PlasmicComment__RenderFunc(props: {
                     )}
                   >
                     {"\u062d\u0630\u0641 \u0646\u0638\u0631"}
-                  </div>
-                </Button>
-                <Button
-                  data-plasmic-name={"button2"}
-                  data-plasmic-override={overrides.button2}
-                  className={classNames("__wab_instance", sty.button2)}
-                  color={generateStateValueProp($state, ["button2", "color"])}
-                  onClick={args.edit}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button2", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  showStartIcon={true}
-                  size={"compact"}
-                  startIcon={
-                    <Icon251Icon
-                      className={classNames(projectcss.all, sty.svg___8Jmz)}
-                      role={"img"}
-                    />
-                  }
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__bPmhE
-                    )}
-                  >
-                    {"\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0646\u0638\u0631"}
                   </div>
                 </Button>
               </React.Fragment>
@@ -1031,91 +1106,6 @@ function PlasmicComment__RenderFunc(props: {
           </div>
         </LineClomp>
       </div>
-      <Commentlikebutton
-        data-plasmic-name={"commentlikebutton"}
-        data-plasmic-override={overrides.commentlikebutton}
-        carrentData={``}
-        className={classNames("__wab_instance", sty.commentlikebutton, {
-          [sty.commentlikebuttonshowReply]: hasVariant(
-            $state,
-            "showReply",
-            "showReply"
-          ),
-          [sty.commentlikebuttonunnamedGroupOfVariants_showReply]: hasVariant(
-            $state,
-            "unnamedGroupOfVariants",
-            "showReply"
-          ),
-          [sty.commentlikebuttonunnamedGroupOfVariants_whenHaveNoReply]:
-            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
-          [sty.commentlikebuttonunnamedGroupOfVariants_whenHaveReply]:
-            hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
-          [sty.commentlikebuttonwhenHaveNoReply]: hasVariant(
-            $state,
-            "whenHaveNoReply",
-            "whenHaveNoReply"
-          ),
-          [sty.commentlikebuttonwhenHaveReply]: hasVariant(
-            $state,
-            "whenHaveReply",
-            "whenHaveReply"
-          )
-        })}
-        coomentLikeBool={(() => {
-          try {
-            return $props.likeComment;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return false;
-            }
-            throw e;
-          }
-        })()}
-        likeCommentCount={(() => {
-          try {
-            return $props.mainCommentLikeCount;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
-          }
-        })()}
-        onVariableForLikeCountCommentChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, [
-            "commentlikebutton",
-            "variableForLikeCountComment"
-          ]).apply(null, eventArgs);
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-        shareForLikeComment={(() => {
-          try {
-            return $props.valuForShereForLikeComment;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return false;
-            }
-            throw e;
-          }
-        })()}
-      />
-
       <Stack__
         as={"div"}
         hasGap={true}
@@ -1143,47 +1133,73 @@ function PlasmicComment__RenderFunc(props: {
             $state,
             "whenHaveReply",
             "whenHaveReply"
+          ),
+          [sty.freeBoxwhenIsAdminTrue__eZremRBgTe]: hasVariant(
+            $state,
+            "whenIsAdminTrue",
+            "whenIsAdminTrue"
           )
         })}
       >
         <Reply
-          data-plasmic-name={"reply"}
-          data-plasmic-override={overrides.reply}
+          data-plasmic-name={"reply3"}
+          data-plasmic-override={overrides.reply3}
           afterClickUpdateData={generateStateValueProp($state, [
-            "reply",
+            "reply3",
             "afterClickUpdateData"
           ])}
-          className={classNames("__wab_instance", sty.reply, {
-            [sty.replyshowReply]: hasVariant($state, "showReply", "showReply"),
-            [sty.replyunnamedGroupOfVariants_showReply]: hasVariant(
+          className={classNames("__wab_instance", sty.reply3, {
+            [sty.reply3showReply]: hasVariant($state, "showReply", "showReply"),
+            [sty.reply3showReply_whenHaveReply]:
+              hasVariant($state, "whenHaveReply", "whenHaveReply") &&
+              hasVariant($state, "showReply", "showReply"),
+            [sty.reply3unnamedGroupOfVariants_showReply]: hasVariant(
               $state,
               "unnamedGroupOfVariants",
               "showReply"
             ),
-            [sty.replyunnamedGroupOfVariants_whenHaveNoReply]: hasVariant(
+            [sty.reply3unnamedGroupOfVariants_whenHaveNoReply]: hasVariant(
               $state,
               "unnamedGroupOfVariants",
               "whenHaveNoReply"
             ),
-            [sty.replyunnamedGroupOfVariants_whenHaveReply]: hasVariant(
+            [sty.reply3unnamedGroupOfVariants_whenHaveReply]: hasVariant(
               $state,
               "unnamedGroupOfVariants",
               "whenHaveReply"
             ),
-            [sty.replywhenHaveNoReply]: hasVariant(
+            [sty.reply3whenHaveNoReply]: hasVariant(
               $state,
               "whenHaveNoReply",
               "whenHaveNoReply"
             ),
-            [sty.replywhenHaveReply]: hasVariant(
+            [sty.reply3whenHaveReply]: hasVariant(
               $state,
               "whenHaveReply",
               "whenHaveReply"
+            ),
+            [sty.reply3whenIsAdminTrue]: hasVariant(
+              $state,
+              "whenIsAdminTrue",
+              "whenIsAdminTrue"
             )
           })}
+          dataUserForCurrent={(() => {
+            try {
+              return $state.variableForDataUser;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
           onAfterClickUpdateDataChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, [
-              "reply",
+              "reply3",
               "afterClickUpdateData"
             ]).apply(null, eventArgs);
 
@@ -1195,6 +1211,7 @@ function PlasmicComment__RenderFunc(props: {
               return;
             }
           }}
+          onClick={args.onClick}
         />
 
         <Commentlikebutton
@@ -1223,6 +1240,14 @@ function PlasmicComment__RenderFunc(props: {
               "whenHaveReply"
             )
           })}
+          coomentLikeBool={
+            hasVariant($state, "showReply", "showReply") ? false : false
+          }
+          islikecomment={generateStateValueProp($state, [
+            "commentlikebutton2",
+            "islikecomment"
+          ])}
+          like={generateStateValueProp($state, ["commentlikebutton2", "like"])}
           likeCommentCount={
             hasVariant($state, "showReply", "showReply")
               ? (() => {
@@ -1252,6 +1277,35 @@ function PlasmicComment__RenderFunc(props: {
                   }
                 })()
           }
+          modalvalueforcommentlike={false}
+          onIslikecommentChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "commentlikebutton2",
+              "islikecomment"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onLikeChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
+              "commentlikebutton2",
+              "like"
+            ]).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
           onVariableForLikeCountCommentChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, [
               "commentlikebutton2",
@@ -1265,7 +1319,97 @@ function PlasmicComment__RenderFunc(props: {
             ) {
               return;
             }
+
+            (async val => {
+              const $steps = {};
+
+              $steps["invokeGlobalAction"] =
+                $state.commentlikebutton2.islikecomment == true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/rest/social/comment/comment/like",
+                          (() => {
+                            try {
+                              return {
+                                commentId: $props.commentId,
+                                type: "",
+                                subType: "",
+                                authorization: $props.tokennnn
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["invokeGlobalAction2"] =
+                $state.commentlikebutton2.islikecomment == false
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/rest/social/comment/comment/like",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                commentId: $props.commentId,
+                                authorization: $props.tokennnn
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
+              ) {
+                $steps["invokeGlobalAction2"] = await $steps[
+                  "invokeGlobalAction2"
+                ];
+              }
+            }).apply(null, eventArgs);
           }}
+          shareForLikeComment={false}
         />
       </Stack__>
       <div
@@ -1443,70 +1587,55 @@ function PlasmicComment__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__z7TFc)}
                   >
-                    <div
+                    <UploudeTime
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__yJg1C
+                        "__wab_instance",
+                        sty.uploudeTime__hfMLu
                       )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (() => {
-                              function pad(n) {
-                                return n.toString().padStart(2, "0");
-                              }
-                              const today = new Date();
-                              const updatedAt = currentItem.reply.updatedAt;
-                              const postTime =
-                                `${updatedAt.year}-${pad(
-                                  updatedAt.month
-                                )}-${pad(updatedAt.day)}T` +
-                                `${pad(updatedAt.hour)}:${pad(
-                                  updatedAt.minute
-                                )}:${pad(updatedAt.second)}`;
-                              const inputDate = new Date(postTime);
-                              const diffInMillis =
-                                today.getTime() - inputDate.getTime();
-                              const diffInMinutes = Math.floor(
-                                diffInMillis / (1000 * 60)
+                      posttime={(() => {
+                        try {
+                          return (() => {
+                            function addTime(original, addHours, addMinutes) {
+                              let date = new Date(
+                                original.year,
+                                original.month - 1,
+                                original.day,
+                                original.hour,
+                                original.minute,
+                                original.second
                               );
-                              const diffInHours = Math.floor(
-                                diffInMillis / (1000 * 3600)
-                              );
-                              const diffInDays = Math.floor(
-                                diffInMillis / (1000 * 3600 * 24)
-                              );
-                              const diffInWeeks = Math.floor(diffInDays / 7);
-                              const diffInMonths = Math.floor(diffInDays / 30);
-                              let result = "";
-                              if (diffInMinutes < 60) {
-                                result = `${diffInMinutes} دیقیه پیش`;
-                              } else if (diffInHours < 24) {
-                                result = `${diffInHours} ساعت پیش`;
-                              } else if (diffInDays < 7) {
-                                result = `${diffInDays}  روز پیش`;
-                              } else if (diffInDays < 30) {
-                                result = `${diffInWeeks}  هفته پیش`;
-                              } else {
-                                result = `${diffInMonths} ماه پیش`;
-                              }
-                              return result;
-                              return currentItem.reply.updatedAt;
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
+                              date.setHours(date.getHours() + addHours);
+                              date.setMinutes(date.getMinutes() + addMinutes);
+                              return {
+                                year: date.getFullYear(),
+                                month: date.getMonth() + 1,
+                                day: date.getDate(),
+                                hour: date.getHours(),
+                                minute: date.getMinutes(),
+                                second: date.getSeconds(),
+                                nanosecond: original.nanosecond,
+                                timeZoneOffsetSeconds:
+                                  original.timeZoneOffsetSeconds
+                              };
                             }
-                            throw e;
+                            const newCreatedAt = addTime(
+                              currentItem.reply.updatedAt,
+                              3,
+                              30
+                            );
+                            return newCreatedAt;
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
                           }
-                        })()}
-                      </React.Fragment>
-                    </div>
+                          throw e;
+                        }
+                      })()}
+                    />
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__kMrO)}
@@ -1526,7 +1655,13 @@ function PlasmicComment__RenderFunc(props: {
                 <LineClomp
                   data-plasmic-name={"lineClomp2"}
                   data-plasmic-override={overrides.lineClomp2}
-                  className={classNames("__wab_instance", sty.lineClomp2)}
+                  className={classNames("__wab_instance", sty.lineClomp2, {
+                    [sty.lineClomp2showReply]: hasVariant(
+                      $state,
+                      "showReply",
+                      "showReply"
+                    )
+                  })}
                   more={true}
                   numberOfLine={4}
                   onLineChange={async (...eventArgs: any) => {
@@ -1583,6 +1718,9 @@ function PlasmicComment__RenderFunc(props: {
                       "showReply",
                       "showReply"
                     ),
+                    [sty.reply2showReply_whenHaveReply]:
+                      hasVariant($state, "whenHaveReply", "whenHaveReply") &&
+                      hasVariant($state, "showReply", "showReply"),
                     [sty.reply2unnamedGroupOfVariants_showReply]: hasVariant(
                       $state,
                       "unnamedGroupOfVariants",
@@ -1610,6 +1748,25 @@ function PlasmicComment__RenderFunc(props: {
                       eventArgs[1]._plasmic_state_init_
                     ) {
                       return;
+                    }
+                  },
+                  onClick: async event => {
+                    const $steps = {};
+
+                    $steps["runOnClick"] = true
+                      ? (() => {
+                          const actionArgs = { eventRef: $props["onClick"] };
+                          return (({ eventRef, args }) => {
+                            return eventRef?.(...(args ?? []));
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runOnClick"] != null &&
+                      typeof $steps["runOnClick"] === "object" &&
+                      typeof $steps["runOnClick"].then === "function"
+                    ) {
+                      $steps["runOnClick"] = await $steps["runOnClick"];
                     }
                   }
                 };
@@ -1641,6 +1798,9 @@ function PlasmicComment__RenderFunc(props: {
                     "showReply",
                     "showReply"
                   ),
+                  [sty.replyLikeButtonshowReply_whenHaveReply]:
+                    hasVariant($state, "whenHaveReply", "whenHaveReply") &&
+                    hasVariant($state, "showReply", "showReply"),
                   [sty.replyLikeButtonunnamedGroupOfVariants_showReply]:
                     hasVariant($state, "unnamedGroupOfVariants", "showReply")
                 })}
@@ -1662,71 +1822,6 @@ function PlasmicComment__RenderFunc(props: {
           );
         })}
       </div>
-      <Reply
-        data-plasmic-name={"reply3"}
-        data-plasmic-override={overrides.reply3}
-        afterClickUpdateData={generateStateValueProp($state, [
-          "reply3",
-          "afterClickUpdateData"
-        ])}
-        className={classNames("__wab_instance", sty.reply3, {
-          [sty.reply3showReply]: hasVariant($state, "showReply", "showReply"),
-          [sty.reply3unnamedGroupOfVariants_showReply]: hasVariant(
-            $state,
-            "unnamedGroupOfVariants",
-            "showReply"
-          ),
-          [sty.reply3unnamedGroupOfVariants_whenHaveNoReply]: hasVariant(
-            $state,
-            "unnamedGroupOfVariants",
-            "whenHaveNoReply"
-          ),
-          [sty.reply3unnamedGroupOfVariants_whenHaveReply]: hasVariant(
-            $state,
-            "unnamedGroupOfVariants",
-            "whenHaveReply"
-          ),
-          [sty.reply3whenHaveNoReply]: hasVariant(
-            $state,
-            "whenHaveNoReply",
-            "whenHaveNoReply"
-          ),
-          [sty.reply3whenHaveReply]: hasVariant(
-            $state,
-            "whenHaveReply",
-            "whenHaveReply"
-          )
-        })}
-        dataUserForCurrent={(() => {
-          try {
-            return $state.variableForDataUser;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
-          }
-        })()}
-        onAfterClickUpdateDataChange={async (...eventArgs: any) => {
-          generateStateOnChangeProp($state, [
-            "reply3",
-            "afterClickUpdateData"
-          ]).apply(null, eventArgs);
-
-          if (
-            eventArgs.length > 1 &&
-            eventArgs[1] &&
-            eventArgs[1]._plasmic_state_init_
-          ) {
-            return;
-          }
-        }}
-        onClick={args.onClick}
-      />
-
       <div
         className={classNames(projectcss.all, sty.freeBox__xZam2, {
           [sty.freeBoxshowReply__xZam25MJbg]: hasVariant(
@@ -2248,6 +2343,41 @@ function PlasmicComment__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
+                  $steps["updateCommentData"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["commentData"]
+                          },
+                          operation: 0
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateCommentData"] != null &&
+                    typeof $steps["updateCommentData"] === "object" &&
+                    typeof $steps["updateCommentData"].then === "function"
+                  ) {
+                    $steps["updateCommentData"] = await $steps[
+                      "updateCommentData"
+                    ];
+                  }
+
                   $steps["runDelet"] = true
                     ? (() => {
                         const actionArgs = { eventRef: $props["delet"] };
@@ -2262,6 +2392,67 @@ function PlasmicComment__RenderFunc(props: {
                     typeof $steps["runDelet"].then === "function"
                   ) {
                     $steps["runDelet"] = await $steps["runDelet"];
+                  }
+
+                  $steps["updateDeleteModalOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["deleteModal", "open"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDeleteModalOpen"] != null &&
+                    typeof $steps["updateDeleteModalOpen"] === "object" &&
+                    typeof $steps["updateDeleteModalOpen"].then === "function"
+                  ) {
+                    $steps["updateDeleteModalOpen"] = await $steps[
+                      "updateDeleteModalOpen"
+                    ];
+                  }
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0631\u0633\u0627\u0644 \u0634\u062f ",
+                            "bottom-center"
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -2357,36 +2548,30 @@ function PlasmicComment__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "uploudeTime",
     "popover",
-    "button",
     "button2",
+    "button",
     "lineClomp",
     "coment",
-    "commentlikebutton",
-    "reply",
+    "reply3",
     "commentlikebutton2",
     "lineClomp2",
     "reply2",
     "replyLikeButton",
-    "reply3",
     "deleteModal",
     "button3",
     "button4"
   ],
-  uploudeTime: ["uploudeTime"],
-  popover: ["popover", "button", "button2"],
-  button: ["button"],
+  popover: ["popover", "button2", "button"],
   button2: ["button2"],
+  button: ["button"],
   lineClomp: ["lineClomp", "coment"],
   coment: ["coment"],
-  commentlikebutton: ["commentlikebutton"],
-  reply: ["reply"],
+  reply3: ["reply3"],
   commentlikebutton2: ["commentlikebutton2"],
   lineClomp2: ["lineClomp2"],
   reply2: ["reply2"],
   replyLikeButton: ["replyLikeButton"],
-  reply3: ["reply3"],
   deleteModal: ["deleteModal", "button3", "button4"],
   button3: ["button3"],
   button4: ["button4"]
@@ -2396,19 +2581,16 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  uploudeTime: typeof UploudeTime;
   popover: typeof AntdPopover;
-  button: typeof Button;
   button2: typeof Button;
+  button: typeof Button;
   lineClomp: typeof LineClomp;
   coment: "div";
-  commentlikebutton: typeof Commentlikebutton;
-  reply: typeof Reply;
+  reply3: typeof Reply;
   commentlikebutton2: typeof Commentlikebutton;
   lineClomp2: typeof LineClomp;
   reply2: typeof Reply;
   replyLikeButton: typeof ReplyLikeButton;
-  reply3: typeof Reply;
   deleteModal: typeof AntdModal;
   button3: typeof Button;
   button4: typeof Button;
@@ -2474,19 +2656,16 @@ export const PlasmicComment = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    uploudeTime: makeNodeComponent("uploudeTime"),
     popover: makeNodeComponent("popover"),
-    button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
+    button: makeNodeComponent("button"),
     lineClomp: makeNodeComponent("lineClomp"),
     coment: makeNodeComponent("coment"),
-    commentlikebutton: makeNodeComponent("commentlikebutton"),
-    reply: makeNodeComponent("reply"),
+    reply3: makeNodeComponent("reply3"),
     commentlikebutton2: makeNodeComponent("commentlikebutton2"),
     lineClomp2: makeNodeComponent("lineClomp2"),
     reply2: makeNodeComponent("reply2"),
     replyLikeButton: makeNodeComponent("replyLikeButton"),
-    reply3: makeNodeComponent("reply3"),
     deleteModal: makeNodeComponent("deleteModal"),
     button3: makeNodeComponent("button3"),
     button4: makeNodeComponent("button4"),

@@ -65,6 +65,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -94,9 +95,9 @@ export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
   button?: Flex__<typeof Button>;
   input?: Flex__<typeof Input>;
-  freeBox?: Flex__<"div">;
   svg?: Flex__<"svg">;
   apiRequest?: Flex__<typeof ApiRequest>;
+  datePickers?: Flex__<typeof DatePickers>;
 };
 
 export interface DefaultTestProps {}
@@ -179,6 +180,12 @@ function PlasmicTest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "datePickers.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -338,10 +345,8 @@ function PlasmicTest__RenderFunc(props: {
 
           <Stack__
             as={"div"}
-            data-plasmic-name={"freeBox"}
-            data-plasmic-override={overrides.freeBox}
             hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox)}
+            className={classNames(projectcss.all, sty.freeBox__qdYpo)}
           >
             <div
               className={classNames(
@@ -428,6 +433,28 @@ function PlasmicTest__RenderFunc(props: {
             })()}
             url={"https://pnldev.com/api/calender"}
           />
+
+          <div className={classNames(projectcss.all, sty.freeBox__aGbj)}>
+            <DatePickers
+              data-plasmic-name={"datePickers"}
+              data-plasmic-override={overrides.datePickers}
+              SelectedDay={10}
+              SelectedMonth={10}
+              SelectedYear={1379}
+              className={classNames("__wab_instance", sty.datePickers)}
+              customYears={[]}
+              onChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "datePickers",
+                  "value"
+                ]).apply(null, eventArgs);
+              }}
+              selectedValues={generateStateValueProp($state, [
+                "datePickers",
+                "value"
+              ])}
+            />
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -435,12 +462,12 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "input", "freeBox", "svg", "apiRequest"],
+  root: ["root", "button", "input", "svg", "apiRequest", "datePickers"],
   button: ["button"],
   input: ["input"],
-  freeBox: ["freeBox", "svg"],
   svg: ["svg"],
-  apiRequest: ["apiRequest"]
+  apiRequest: ["apiRequest"],
+  datePickers: ["datePickers"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -449,9 +476,9 @@ type NodeDefaultElementType = {
   root: "div";
   button: typeof Button;
   input: typeof Input;
-  freeBox: "div";
   svg: "svg";
   apiRequest: typeof ApiRequest;
+  datePickers: typeof DatePickers;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -541,9 +568,9 @@ export const PlasmicTest = Object.assign(
     // Helper components rendering sub-elements
     button: makeNodeComponent("button"),
     input: makeNodeComponent("input"),
-    freeBox: makeNodeComponent("freeBox"),
     svg: makeNodeComponent("svg"),
     apiRequest: makeNodeComponent("apiRequest"),
+    datePickers: makeNodeComponent("datePickers"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

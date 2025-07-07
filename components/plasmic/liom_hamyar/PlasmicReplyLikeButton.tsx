@@ -82,10 +82,14 @@ export const PlasmicReplyLikeButton__VariantProps = new Array<VariantPropType>(
   "islikeforReply"
 );
 
-export type PlasmicReplyLikeButton__ArgsType = { replyLikeCount?: string };
+export type PlasmicReplyLikeButton__ArgsType = {
+  replyLikeCount?: string;
+  onClick?: (event: any) => void;
+};
 type ArgPropType = keyof PlasmicReplyLikeButton__ArgsType;
 export const PlasmicReplyLikeButton__ArgProps = new Array<ArgPropType>(
-  "replyLikeCount"
+  "replyLikeCount",
+  "onClick"
 );
 
 export type PlasmicReplyLikeButton__OverridesType = {
@@ -96,6 +100,7 @@ export type PlasmicReplyLikeButton__OverridesType = {
 
 export interface DefaultReplyLikeButtonProps {
   replyLikeCount?: string;
+  onClick?: (event: any) => void;
   islikeforReply?: SingleBooleanChoiceArg<"islikeforReply">;
   className?: string;
 }
@@ -267,6 +272,24 @@ function PlasmicReplyLikeButton__RenderFunc(props: {
         ) {
           $steps["updateVariableForReplyLike"] = await $steps[
             "updateVariableForReplyLike"
+          ];
+        }
+
+        $steps["updateVariableForReplyLike2"] = true
+          ? (() => {
+              const actionArgs = { eventRef: $props["onClick"] };
+              return (({ eventRef, args }) => {
+                return eventRef?.(...(args ?? []));
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateVariableForReplyLike2"] != null &&
+          typeof $steps["updateVariableForReplyLike2"] === "object" &&
+          typeof $steps["updateVariableForReplyLike2"].then === "function"
+        ) {
+          $steps["updateVariableForReplyLike2"] = await $steps[
+            "updateVariableForReplyLike2"
           ];
         }
       }}

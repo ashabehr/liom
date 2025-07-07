@@ -305,6 +305,11 @@ function PlasmicSocialMain__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "repeatPost[].comment",
+        type: "private",
+        variableType: "object"
       }
     ],
     [$props, $ctx, $refs]
@@ -1593,6 +1598,11 @@ function PlasmicSocialMain__RenderFunc(props: {
                               ];
                             }
                           },
+                          comment: generateStateValueProp($state, [
+                            "repeatPost",
+                            __plasmic_idx_0,
+                            "comment"
+                          ]),
                           key: currentIndex,
                           main: generateStateValueProp($state, [
                             "repeatPost",
@@ -1682,6 +1692,21 @@ function PlasmicSocialMain__RenderFunc(props: {
                               $steps["runCode"] = await $steps["runCode"];
                             }
                           },
+                          onCommentChange: async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "repeatPost",
+                              __plasmic_idx_0,
+                              "comment"
+                            ]).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          },
                           onMainChange: async (...eventArgs: any) => {
                             generateStateOnChangeProp($state, [
                               "repeatPost",
@@ -1746,6 +1771,10 @@ function PlasmicSocialMain__RenderFunc(props: {
                             {
                               name: "repeatPost[].main",
                               initFunc: ({ $props, $state, $queries }) => "main"
+                            },
+                            {
+                              name: "repeatPost[].comment",
+                              initFunc: ({ $props, $state, $queries }) => ({})
                             }
                           ],
                           [__plasmic_idx_0]

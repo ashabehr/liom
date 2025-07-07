@@ -90,6 +90,7 @@ import sty from "./PlasmicPost2.module.css"; // plasmic-import: iNHFQ5RIM3Tb/css
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon184Icon from "./icons/PlasmicIcon__Icon184"; // plasmic-import: qyxzNL8K38N5/icon
 import Icon247Icon from "./icons/PlasmicIcon__Icon247"; // plasmic-import: H5aVrrGZ_wnt/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import Icon227Icon from "./icons/PlasmicIcon__Icon227"; // plasmic-import: HYZYMCyfZITX/icon
 import XIcon2 from "../fragment_icons/icons/PlasmicIcon__X"; // plasmic-import: zb1oqVXdrxPK/icon
 import LogoPwaSvgrepoComSvgIcon from "./icons/PlasmicIcon__LogoPwaSvgrepoComSvg"; // plasmic-import: xd3icqtlIdjI/icon
@@ -376,6 +377,55 @@ function PlasmicPost2__RenderFunc(props: {
       },
       {
         path: "comingSoon.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "repeatPost.comment",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return {
+                active: $state.comments.find(
+                  item => item.user.id == $state.userId
+                )
+                  ? true
+                  : false,
+                number: $state.getInfo.data.result.details.commentCount
+              };
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "userId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "830508"
+      },
+      {
+        path: "comment[].like",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "editComment",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "loadingSend",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -956,6 +1006,10 @@ function PlasmicPost2__RenderFunc(props: {
                       ];
                     }
                   }}
+                  comment={generateStateValueProp($state, [
+                    "repeatPost",
+                    "comment"
+                  ])}
                   main={generateStateValueProp($state, ["repeatPost", "main"])}
                   onClickShere={async event => {
                     const $steps = {};
@@ -994,6 +1048,20 @@ function PlasmicPost2__RenderFunc(props: {
                       $steps["updateComingSoonOpen"] = await $steps[
                         "updateComingSoonOpen"
                       ];
+                    }
+                  }}
+                  onCommentChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "repeatPost",
+                      "comment"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
                     }
                   }}
                   onMainChange={async (...eventArgs: any) => {
@@ -1501,12 +1569,22 @@ function PlasmicPost2__RenderFunc(props: {
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
-                                      return ($state.comments =
-                                        $state.comments.filter(
-                                          item =>
-                                            item.comment.id !=
-                                            currentItem.comment.id
-                                        ));
+                                      return (() => {
+                                        $state.comments =
+                                          $state.comments.filter(
+                                            item =>
+                                              item.comment.id !=
+                                              currentItem.comment.id
+                                          );
+                                        $state.repeatPost.comment.active =
+                                          $state.comments.find(
+                                            item =>
+                                              item.user.id == $state.userId
+                                          )
+                                            ? true
+                                            : false;
+                                        return ($state.repeatPost.comment.number -= 1);
+                                      })();
                                     }
                                   };
                                   return (({ customFunction }) => {
@@ -1522,19 +1600,97 @@ function PlasmicPost2__RenderFunc(props: {
                               $steps["runCode"] = await $steps["runCode"];
                             }
                           },
-                          likeComment: (() => {
-                            try {
-                              return currentItem.isLiked;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return false;
-                              }
-                              throw e;
+                          edit: async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        var comment =
+                                          window.document.getElementById(
+                                            "focus_comment"
+                                          );
+                                        return comment.firstElementChild.focus();
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
                             }
-                          })(),
+
+                            $steps["runCode2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["editComment"]
+                                    },
+                                    operation: 0,
+                                    value: currentItem
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode2"] != null &&
+                              typeof $steps["runCode2"] === "object" &&
+                              typeof $steps["runCode2"].then === "function"
+                            ) {
+                              $steps["runCode2"] = await $steps["runCode2"];
+                            }
+
+                            $steps["runCode3"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        return ($state.textArea.value =
+                                          currentItem.comment.text);
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode3"] != null &&
+                              typeof $steps["runCode3"] === "object" &&
+                              typeof $steps["runCode3"].then === "function"
+                            ) {
+                              $steps["runCode3"] = await $steps["runCode3"];
+                            }
+                          },
+                          like: generateStateValueProp($state, [
+                            "comment",
+                            __plasmic_idx_0,
+                            "like"
+                          ]),
                           mainCommentLikeCount: (() => {
                             try {
                               return currentItem.likeCount;
@@ -1864,6 +2020,21 @@ function PlasmicPost2__RenderFunc(props: {
                               return;
                             }
                           },
+                          onLikeChange: async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "comment",
+                              __plasmic_idx_0,
+                              "like"
+                            ]).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          },
                           replyCount: (() => {
                             try {
                               return currentItem.replyCount;
@@ -1940,6 +2111,24 @@ function PlasmicPost2__RenderFunc(props: {
                                         "PlasmicUndefinedDataError"
                                     ) {
                                       return {};
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                            },
+                            {
+                              name: "comment[].like",
+                              initFunc: ({ $props, $state, $queries }) =>
+                                (() => {
+                                  try {
+                                    return currentItem.isLiked;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return true;
                                     }
                                     throw e;
                                   }
@@ -2071,140 +2260,268 @@ function PlasmicPost2__RenderFunc(props: {
                           })()}
                           triggerOnce={true}
                         >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__pZ5Hb
-                            )}
-                            onClick={async event => {
-                              const $steps = {};
-
-                              $steps["invokeGlobalAction"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      args: [
-                                        "GET",
-                                        "https://n8n.staas.ir/webhook/rest/social/comment/event",
-                                        (() => {
-                                          try {
-                                            return {
-                                              postId: $state.postId,
-                                              commentId: "string",
-                                              text: $state.textArea.value,
-                                              dataId: "",
-                                              anonymous: false,
-                                              type: "",
-                                              subType: "",
-                                              authorization: $state.token
-                                            };
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      ]
-                                    };
-                                    return $globalActions[
-                                      "Fragment.apiRequest"
-                                    ]?.apply(null, [...actionArgs.args]);
-                                  })()
-                                : undefined;
+                          {(() => {
+                            try {
+                              return $state.loadingSend ? 60 : 100;
+                            } catch (e) {
                               if (
-                                $steps["invokeGlobalAction"] != null &&
-                                typeof $steps["invokeGlobalAction"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction"].then ===
-                                  "function"
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                $steps["invokeGlobalAction"] = await $steps[
-                                  "invokeGlobalAction"
-                                ];
+                                return true;
                               }
-
-                              $steps["updateTextAreaValue"] = $steps
-                                .invokeGlobalAction?.data?.success
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["textArea", "value"]
-                                      },
-                                      operation: 0,
-                                      value: ""
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateTextAreaValue"] != null &&
-                                typeof $steps["updateTextAreaValue"] ===
-                                  "object" &&
-                                typeof $steps["updateTextAreaValue"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateTextAreaValue"] = await $steps[
-                                  "updateTextAreaValue"
-                                ];
-                              }
-
-                              $steps["updateTextAreaValue2"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
-                                          return $state.comments.unshift(
-                                            $steps.invokeGlobalAction.data
-                                              .result
-                                          );
-                                        })();
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateTextAreaValue2"] != null &&
-                                typeof $steps["updateTextAreaValue2"] ===
-                                  "object" &&
-                                typeof $steps["updateTextAreaValue2"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateTextAreaValue2"] = await $steps[
-                                  "updateTextAreaValue2"
-                                ];
-                              }
-                            }}
-                          >
-                            <Icon247Icon
+                              throw e;
+                            }
+                          })() ? (
+                            <div
                               className={classNames(
                                 projectcss.all,
-                                sty.svg__nevOy
+                                sty.freeBox__pZ5Hb
                               )}
-                              role={"img"}
-                            />
-                          </div>
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["sendComment"] =
+                                  Object.keys($state.editComment).length == 0 &&
+                                  Object.keys($state.currentUserDataAfterClick)
+                                    .length == 0
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "GET",
+                                            "https://n8n.staas.ir/webhook/rest/social/comment/event",
+                                            (() => {
+                                              try {
+                                                return {
+                                                  postId: $state.postId,
+                                                  commentId: "string",
+                                                  text: $state.textArea.value,
+                                                  dataId: "",
+                                                  anonymous: false,
+                                                  type: "",
+                                                  subType: "",
+                                                  authorization: $state.token
+                                                };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.apiRequest"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
+                                if (
+                                  $steps["sendComment"] != null &&
+                                  typeof $steps["sendComment"] === "object" &&
+                                  typeof $steps["sendComment"].then ===
+                                    "function"
+                                ) {
+                                  $steps["sendComment"] = await $steps[
+                                    "sendComment"
+                                  ];
+                                }
+
+                                $steps["editComment"] =
+                                  Object.keys($state.editComment).length != 0
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "POST",
+                                            "https://n8n.staas.ir/webhook/rest/social/comment/event",
+                                            undefined,
+                                            (() => {
+                                              try {
+                                                return {
+                                                  commentId:
+                                                    $state.editComment.comment
+                                                      .id,
+                                                  text: $state.textArea.value,
+                                                  authorization: $state.token
+                                                };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.apiRequest"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
+                                if (
+                                  $steps["editComment"] != null &&
+                                  typeof $steps["editComment"] === "object" &&
+                                  typeof $steps["editComment"].then ===
+                                    "function"
+                                ) {
+                                  $steps["editComment"] = await $steps[
+                                    "editComment"
+                                  ];
+                                }
+
+                                $steps["send"] =
+                                  $steps.sendComment?.data?.success == true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          customFunction: async () => {
+                                            return (() => {
+                                              $state.comments.unshift(
+                                                $steps.sendComment.data.result
+                                              );
+                                              $state.repeatPost.comment.number += 1;
+                                              return ($state.repeatPost.comment.active =
+                                                true);
+                                            })();
+                                          }
+                                        };
+                                        return (({ customFunction }) => {
+                                          return customFunction();
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                if (
+                                  $steps["send"] != null &&
+                                  typeof $steps["send"] === "object" &&
+                                  typeof $steps["send"].then === "function"
+                                ) {
+                                  $steps["send"] = await $steps["send"];
+                                }
+
+                                $steps["edit"] =
+                                  $steps.editComment?.data?.success == true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          customFunction: async () => {
+                                            return (() => {
+                                              var index =
+                                                $state.comments.findIndex(
+                                                  comment =>
+                                                    comment.comment.id ===
+                                                    $state.editComment.comment
+                                                      .id
+                                                );
+                                              return ($state.comments[index] =
+                                                $steps.editComment.data.result);
+                                            })();
+                                          }
+                                        };
+                                        return (({ customFunction }) => {
+                                          return customFunction();
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                if (
+                                  $steps["edit"] != null &&
+                                  typeof $steps["edit"] === "object" &&
+                                  typeof $steps["edit"].then === "function"
+                                ) {
+                                  $steps["edit"] = await $steps["edit"];
+                                }
+
+                                $steps["updateTextAreaValue3"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["textArea", "value"]
+                                        },
+                                        operation: 0,
+                                        value: ""
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateTextAreaValue3"] != null &&
+                                  typeof $steps["updateTextAreaValue3"] ===
+                                    "object" &&
+                                  typeof $steps["updateTextAreaValue3"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateTextAreaValue3"] = await $steps[
+                                    "updateTextAreaValue3"
+                                  ];
+                                }
+                              }}
+                            >
+                              {(() => {
+                                try {
+                                  return !$state.loadingSend;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <Icon247Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__nevOy
+                                  )}
+                                  role={"img"}
+                                />
+                              ) : null}
+                              {(() => {
+                                try {
+                                  return $state.loadingSend;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <Icon11Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__q5QhQ
+                                  )}
+                                  role={"img"}
+                                />
+                              ) : null}
+                            </div>
+                          ) : null}
                         </Reveal>
                       ) : null}
                       <div
@@ -2221,6 +2538,19 @@ function PlasmicPost2__RenderFunc(props: {
                               "__wab_instance",
                               sty.textArea
                             ),
+                            disabled: (() => {
+                              try {
+                                return $state.loadingSend;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })(),
                             onChange: async (...eventArgs: any) => {
                               generateStateOnChangePropForCodeComponents(
                                 $state,

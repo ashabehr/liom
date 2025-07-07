@@ -2170,6 +2170,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicComingSoon.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "qNEIB2lcMLwU",
+          "name": "CommentNum",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCommentNum.tsx",
+          "importSpec": {
+            "modulePath": "CommentNum.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCommentNum.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -3752,6 +3765,26 @@
           "id": "7qesfxn4TT_Y",
           "name": "Icon252Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon252.tsx"
+        },
+        {
+          "id": "FxMXAb0NFZqU",
+          "name": "Icon253Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon253.tsx"
+        },
+        {
+          "id": "ZcuGer00lAyD",
+          "name": "Icon254Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon254.tsx"
+        },
+        {
+          "id": "hsyqTGrVQ3aD",
+          "name": "Icon255Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon255.tsx"
+        },
+        {
+          "id": "D6IILvVk_H6c",
+          "name": "Icon256Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon256.tsx"
         }
       ],
       "images": [
@@ -6312,6 +6345,6 @@
   "nextjsConfig": {
     "pagesDir": "../src/pages"
   },
-  "cliVersion": "0.1.338",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.338/dist/plasmic.schema.json"
+  "cliVersion": "0.1.340",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.340/dist/plasmic.schema.json"
 }

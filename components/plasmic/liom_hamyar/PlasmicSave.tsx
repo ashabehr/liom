@@ -74,7 +74,7 @@ import CafeBazaarLogoSvgIcon from "./icons/PlasmicIcon__CafeBazaarLogoSvg"; // p
 import BrokenLink2SvgrepoComSvgIcon from "./icons/PlasmicIcon__BrokenLink2SvgrepoComSvg"; // plasmic-import: blnLvMghko66/icon
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import Icon238Icon from "./icons/PlasmicIcon__Icon238"; // plasmic-import: ivH-nmtBzgjN/icon
-import Icon178Icon from "./icons/PlasmicIcon__Icon178"; // plasmic-import: IlRtbQwC4Aqw/icon
+import Icon254Icon from "./icons/PlasmicIcon__Icon254"; // plasmic-import: ZcuGer00lAyD/icon
 
 createPlasmicElementProxy;
 
@@ -616,7 +616,7 @@ function PlasmicSave__RenderFunc(props: {
       >
         <PlasmicIcon__
           PlasmicIconType={
-            hasVariant($state, "click", "click") ? Icon178Icon : Icon238Icon
+            hasVariant($state, "click", "click") ? Icon254Icon : Icon238Icon
           }
           className={classNames(projectcss.all, sty.svg__oSoos, {
             [sty.svgclick__oSoosjqTmi]: hasVariant($state, "click", "click"),

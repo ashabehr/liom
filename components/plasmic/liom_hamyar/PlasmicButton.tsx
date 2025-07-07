@@ -297,6 +297,12 @@ function PlasmicButton__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.loading
+      },
+      {
+        path: "load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -538,6 +544,9 @@ function PlasmicButton__RenderFunc(props: {
             data-plasmic-override={overrides.svg}
             className={classNames(projectcss.all, sty.svg, {
               [sty.svgloading]: hasVariant($state, "loading", "loading"),
+              [sty.svgloading_color_white]:
+                hasVariant($state, "color", "white") &&
+                hasVariant($state, "loading", "loading"),
               [sty.svgloading_size_compact]:
                 hasVariant($state, "loading", "loading") &&
                 hasVariant($state, "size", "compact"),

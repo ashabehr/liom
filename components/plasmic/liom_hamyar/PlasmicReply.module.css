@@ -8,6 +8,7 @@
   max-width: 100%;
   position: relative;
   background: var(--token-R_Rsn0nP9oIv);
+  cursor: pointer;
   border-radius: 50px;
   padding: 8px;
   border: 1px solid var(--token-rGxK1TpZE_rW);
@@ -27,6 +28,8 @@
   padding-right: 0px;
   font-size: 12px;
   color: var(--token-fn6i10-y5r1L);
+  white-space: pre;
+  user-select: none;
   min-width: 0;
 }
 .svg {
