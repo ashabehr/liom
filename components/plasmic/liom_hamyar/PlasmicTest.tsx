@@ -418,19 +418,6 @@ function PlasmicTest__RenderFunc(props: {
                 eventArgs
               );
             }}
-            shouldFetch={(() => {
-              try {
-                return $state.intro;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })()}
             url={"https://pnldev.com/api/calender"}
           />
 

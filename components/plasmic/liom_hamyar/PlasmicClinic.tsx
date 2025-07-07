@@ -6288,7 +6288,6 @@ function PlasmicClinic__RenderFunc(props: {
                       throw e;
                     }
                   })()}
-                  shouldFetch={true}
                   url={"https://n8n.staas.ir/webhook/help/shop"}
                 >
                   <div
@@ -7141,7 +7140,6 @@ function PlasmicClinic__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/help/shop"}
             >
               <div

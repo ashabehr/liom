@@ -588,7 +588,6 @@ function PlasmicDocter__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/help/shop"}
             >
               <div className={classNames(projectcss.all, sty.freeBox__pbocO)}>
@@ -906,7 +905,6 @@ function PlasmicDocter__RenderFunc(props: {
                 throw e;
               }
             })()}
-            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/help/shop"}
           />
 
@@ -1071,7 +1069,6 @@ function PlasmicDocter__RenderFunc(props: {
                         throw e;
                       }
                     })()}
-                    shouldFetch={true}
                     url={"https://n8n.staas.ir/webhook/help/shop"}
                   >
                     <div
@@ -1791,7 +1788,6 @@ function PlasmicDocter__RenderFunc(props: {
                 eventArgs
               );
             }}
-            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/help/getList"}
           >
             <Stack__

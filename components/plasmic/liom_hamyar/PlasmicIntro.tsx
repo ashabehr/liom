@@ -1673,7 +1673,6 @@ function PlasmicIntro__RenderFunc(props: {
                   eventArgs
                 );
               }}
-              shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/hamyar/shop"}
             >
               <div className={classNames(projectcss.all, sty.freeBox__nFtal)}>

@@ -2260,7 +2260,6 @@ function PlasmicChat__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                shouldFetch={true}
                 url={"https://n8n.staas.ir/webhook/help/Question"}
               >
                 <Stack__

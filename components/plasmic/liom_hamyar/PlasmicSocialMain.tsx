@@ -576,19 +576,6 @@ function PlasmicSocialMain__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                shouldFetch={(() => {
-                  try {
-                    return $state.token != "";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()}
                 url={"https://n8n.staas.ir/webhook/rest/social"}
               >
                 <div
@@ -1508,19 +1495,6 @@ function PlasmicSocialMain__RenderFunc(props: {
                     }
                   }).apply(null, eventArgs);
                 }}
-                shouldFetch={(() => {
-                  try {
-                    return $state.token != "";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()}
                 url={"https://n8n.staas.ir/webhook/rest/social"}
               >
                 <Stack__

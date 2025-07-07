@@ -381,7 +381,6 @@ function PlasmicDialog2__RenderFunc(props: {
                 </div>
               }
               method={"GET"}
-              shouldFetch={true}
             >
               <div className={classNames(projectcss.all, sty.freeBox__hEhcz)}>
                 <Stack__

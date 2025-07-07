@@ -4833,69 +4833,34 @@ function PlasmicHamyar__RenderFunc(props: {
                                   sty.text__wz5Ut
                                 )}
                               >
-                                {hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                ) ? (
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return (() => {
-                                          if (
-                                            $state.userdata.userStatus
-                                              .daysToEndPms == 0
-                                          )
-                                            return "تا پایان امروز";
-                                          return (
-                                            $state.userdata.result.userStatus
-                                              .daysToEndPms +
-                                            " روز " +
-                                            "دیگر"
-                                          );
-                                        })();
-                                      } catch (e) {
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (() => {
                                         if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "-";
-                                        }
-                                        throw e;
+                                          $state.userdata.result.userStatus
+                                            .daysToEndPms == 0
+                                        )
+                                          return "تا پایان امروز";
+                                        return (
+                                          $state.userdata.result.userStatus
+                                            .daysToEndPms +
+                                          " روز " +
+                                          "دیگر"
+                                        );
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "-";
                                       }
-                                    })()}
-                                  </React.Fragment>
-                                ) : (
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return (() => {
-                                          if (
-                                            $state.userdata.result.userStatus
-                                              .daysToEndPms == 0
-                                          )
-                                            return "تا پایان امروز";
-                                          return (
-                                            $state.userdata.result.userStatus
-                                              .daysToEndPms +
-                                            " روز " +
-                                            "دیگر"
-                                          );
-                                        })();
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "-";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                )}
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
                               </div>
                             </div>
                           </Stack__>
@@ -4948,73 +4913,36 @@ function PlasmicHamyar__RenderFunc(props: {
                                   sty.text__gUb7
                                 )}
                               >
-                                {hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                ) ? (
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return (() => {
-                                          let future1 = new Date(
-                                            $state.userdata.result.userStatus.pmsStart
-                                          );
-                                          let current_date1 = new Date();
-                                          let delta1 = future1 - current_date1;
-                                          let days_remaining1 = Math.floor(
-                                            delta1 / (1000 * 60 * 60 * 24)
-                                          );
-                                          if (days_remaining1 == 0)
-                                            return "تا پایان امروز";
-                                          return (
-                                            days_remaining1 + " روز " + "دیگر"
-                                          );
-                                        })();
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "-";
-                                        }
-                                        throw e;
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (() => {
+                                        let future1 = new Date(
+                                          $state.userdata.result.userStatus.pmsStart
+                                        );
+                                        let current_date1 = new Date();
+                                        let delta1 = future1 - current_date1;
+                                        let days_remaining1 = Math.floor(
+                                          delta1 / (1000 * 60 * 60 * 24)
+                                        );
+                                        if (days_remaining1 == 0)
+                                          return "تا پایان امروز";
+                                        return (
+                                          days_remaining1 + " روز " + "دیگر"
+                                        );
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "-";
                                       }
-                                    })()}
-                                  </React.Fragment>
-                                ) : (
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return (() => {
-                                          let future1 = new Date(
-                                            $state.userdata.result.userStatus.pmsStart
-                                          );
-                                          let current_date1 = new Date();
-                                          let delta1 = future1 - current_date1;
-                                          let days_remaining1 = Math.floor(
-                                            delta1 / (1000 * 60 * 60 * 24)
-                                          );
-                                          if (days_remaining1 == 0)
-                                            return "تا پایان امروز";
-                                          return (
-                                            days_remaining1 + " روز " + "دیگر"
-                                          );
-                                        })();
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "-";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                )}
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
                               </div>
                             </div>
                           </Stack__>
@@ -16916,7 +16844,6 @@ function PlasmicHamyar__RenderFunc(props: {
                   eventArgs
                 );
               }}
-              shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/hamyar/shop"}
             >
               <div className={classNames(projectcss.all, sty.freeBox___4Mhw0)}>

@@ -1307,7 +1307,6 @@ function PlasmicShop__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                shouldFetch={true}
                 url={"https://n8n.staas.ir/webhook/rest/shop/list"}
               >
                 <section
@@ -5333,7 +5332,6 @@ function PlasmicShop__RenderFunc(props: {
                 eventArgs
               );
             }}
-            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/hamyar/shop"}
           />
 

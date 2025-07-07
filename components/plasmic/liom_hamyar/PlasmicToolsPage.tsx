@@ -733,7 +733,6 @@ function PlasmicToolsPage__RenderFunc(props: {
                 throw e;
               }
             })()}
-            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/userInfo_v2"}
           >
             <div className={classNames(projectcss.all, sty.freeBox___9Tbb)}>
