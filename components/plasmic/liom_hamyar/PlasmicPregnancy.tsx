@@ -8549,11 +8549,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       })()}
                                     >
                                       <LottieWrapper
-                                        animationData={(() => {
-                                          const fixedString =
-                                            currentItem.anim.replace(/'/g, '"');
-                                          return JSON.parse(fixedString);
-                                        })()}
+                                        animationData={
+                                          // const fixedString = currentItem.anim.replace(/'/g, '"');
+                                          // JSON.parse(fixedString)
+                                          ""
+                                        }
                                         className={classNames(
                                           "__wab_instance",
                                           sty.lottie__m0Qu2
