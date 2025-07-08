@@ -2387,8 +2387,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                             })
                               .then(response => response.json())
                               .then(data => {
-                                console.log("tools");
-                                $state.getTools = data;
+                                // console.log("tools");
+                                // $state.getTools = data
                               })
                               .catch(error =>
                                 console.error("Error-tools:", error)
