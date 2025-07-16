@@ -1254,7 +1254,10 @@ function PlasmicLogin__RenderFunc(props: {
                           (() => {
                             try {
                               return {
-                                headers: { Authorization: $state.token }
+                                headers: {
+                                  Authorization: $state.token,
+                                  area: "login"
+                                }
                               };
                             } catch (e) {
                               if (
