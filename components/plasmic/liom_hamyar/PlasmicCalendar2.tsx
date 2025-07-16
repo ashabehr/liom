@@ -2453,7 +2453,10 @@ function PlasmicCalendar2__RenderFunc(props: {
                       "https://n8n.staas.ir/webhook/calendar/rest/user/profile/edit",
                       (() => {
                         try {
-                          return { authorization: $state.token };
+                          return {
+                            authorization: $state.token,
+                            area: "calendar"
+                          };
                         } catch (e) {
                           if (
                             e instanceof TypeError ||

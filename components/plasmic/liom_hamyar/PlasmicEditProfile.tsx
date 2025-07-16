@@ -1132,7 +1132,8 @@ function PlasmicEditProfile__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  authorization: $state.token
+                  authorization: $state.token,
+                  area: "editProfile"
                 };
               } catch (e) {
                 if (

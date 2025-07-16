@@ -894,7 +894,14 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           })()}
                           className={classNames(
                             "__wab_instance",
-                            sty.datePickers
+                            sty.datePickers,
+                            {
+                              [sty.datePickersdark]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
                           )}
                           customYears={[
                             { value: 1403, label: "1403" },

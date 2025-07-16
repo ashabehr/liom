@@ -2712,7 +2712,9 @@ function PlasmicSettingCycle3__RenderFunc(props: {
           <Dialog
             data-plasmic-name={"dialog"}
             data-plasmic-override={overrides.dialog}
-            className={classNames("__wab_instance", sty.dialog)}
+            className={classNames("__wab_instance", sty.dialog, {
+              [sty.dialogdark]: hasVariant($state, "dark", "dark")
+            })}
             onOpendialogChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["dialog", "opendialog"]).apply(
                 null,
@@ -2736,7 +2738,10 @@ function PlasmicSettingCycle3__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__nKr2A
+                sty.text__nKr2A,
+                {
+                  [sty.textdark__nKr2AiCcOl]: hasVariant($state, "dark", "dark")
+                }
               )}
             >
               {
@@ -2745,7 +2750,9 @@ function PlasmicSettingCycle3__RenderFunc(props: {
             </div>
             {(() => {
               const child$Props = {
-                className: classNames("__wab_instance", sty.pickers),
+                className: classNames("__wab_instance", sty.pickers, {
+                  [sty.pickersdark]: hasVariant($state, "dark", "dark")
+                }),
                 data: (() => {
                   try {
                     return (() => {
@@ -3011,7 +3018,9 @@ function PlasmicSettingCycle3__RenderFunc(props: {
             </div>
             {(() => {
               const child$Props = {
-                className: classNames("__wab_instance", sty.pickers2),
+                className: classNames("__wab_instance", sty.pickers2, {
+                  [sty.pickers2dark]: hasVariant($state, "dark", "dark")
+                }),
                 data: (() => {
                   try {
                     return (() => {
@@ -3278,7 +3287,9 @@ function PlasmicSettingCycle3__RenderFunc(props: {
             <Pickers
               data-plasmic-name={"pickers3"}
               data-plasmic-override={overrides.pickers3}
-              className={classNames("__wab_instance", sty.pickers3)}
+              className={classNames("__wab_instance", sty.pickers3, {
+                [sty.pickers3dark]: hasVariant($state, "dark", "dark")
+              })}
               data={
                 hasVariant(globalVariants, "screen", "mobile")
                   ? (() => {

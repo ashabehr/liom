@@ -408,7 +408,7 @@ function PlasmicComment__RenderFunc(props: {
         path: "deleteModal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "button3.color",
