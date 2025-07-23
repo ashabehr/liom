@@ -28062,19 +28062,11 @@ function PlasmicPregnancy__RenderFunc(props: {
               open={generateStateValueProp($state, ["directDialog2", "open"])}
               redirectUrl={(() => {
                 try {
-                  return (() => {
-                    var token =
-                      $ctx.query.token ||
-                      new URLSearchParams(window.location.search).get("token");
-                    if (!token.startsWith("ey")) {
-                      token = token.slice(6, token.length - 3);
-                    }
-                    return `https://tools.liom.app/shopResult?buyId=${
-                      $state.directDialog2.selectShop.id
-                    }&?offCode=&token=${token}&redirectUrl=${encodeURIComponent(
-                      window.location.href
-                    )}`;
-                  })();
+                  return `https://tools.liom.app/shopResult?buyId=${
+                    $state.directDialog2.selectShop.id
+                  }&?offCode=&token=${
+                    $state.token
+                  }&redirectUrl=${encodeURIComponent(window.location.href)}`;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -28087,14 +28079,7 @@ function PlasmicPregnancy__RenderFunc(props: {
               })()}
               token={(() => {
                 try {
-                  return (() => {
-                    var token =
-                      $ctx.query.token ||
-                      new URLSearchParams(window.location.search).get("token");
-                    if (!token.startsWith("ey")) {
-                      return (token = token.slice(6, token.length - 3));
-                    }
-                  })();
+                  return $state.token;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
