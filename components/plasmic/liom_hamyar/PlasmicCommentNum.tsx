@@ -195,24 +195,43 @@ function PlasmicCommentNum__RenderFunc(props: {
       onClick={async event => {
         const $steps = {};
 
-        $steps["runCode"] = true
+        $steps["goToPage"] = true
           ? (() => {
               const actionArgs = {
-                customFunction: async () => {
-                  return undefined;
-                }
+                destination: (() => {
+                  try {
+                    return `/post?post=${$props.postData.post.id}`;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()
               };
-              return (({ customFunction }) => {
-                return customFunction();
+              return (({ destination }) => {
+                if (
+                  typeof destination === "string" &&
+                  destination.startsWith("#")
+                ) {
+                  document
+                    .getElementById(destination.substr(1))
+                    .scrollIntoView({ behavior: "smooth" });
+                } else {
+                  __nextRouter?.push(destination);
+                }
               })?.apply(null, [actionArgs]);
             })()
           : undefined;
         if (
-          $steps["runCode"] != null &&
-          typeof $steps["runCode"] === "object" &&
-          typeof $steps["runCode"].then === "function"
+          $steps["goToPage"] != null &&
+          typeof $steps["goToPage"] === "object" &&
+          typeof $steps["goToPage"].then === "function"
         ) {
-          $steps["runCode"] = await $steps["runCode"];
+          $steps["goToPage"] = await $steps["goToPage"];
         }
       }}
     >

@@ -994,13 +994,6 @@ function PlasmicRepeatPost__RenderFunc(props: {
           )
         })}
       >
-        <div
-          className={classNames(projectcss.all, sty.freeBox___0FhSh, {
-            [sty.freeBoxmain___0FhShaq7Kr]: hasVariant($state, "main", "main")
-          })}
-          onClick={args.comingSoon}
-        />
-
         <Like
           data-plasmic-name={"like2"}
           data-plasmic-override={overrides.like2}
@@ -1118,7 +1111,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
           }
           number={(() => {
             try {
-              return $state.comment.number;
+              return $props.postData.commentCount;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1135,7 +1128,12 @@ function PlasmicRepeatPost__RenderFunc(props: {
           as={"div"}
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__qvCzh, {
-            [sty.freeBoxmain__qvCzHaq7Kr]: hasVariant($state, "main", "main")
+            [sty.freeBoxmain__qvCzHaq7Kr]: hasVariant($state, "main", "main"),
+            [sty.freeBoxtype_admin__qvCzh78CRa]: hasVariant(
+              $state,
+              "type",
+              "admin"
+            )
           })}
           onClick={args.onClickShere}
         >

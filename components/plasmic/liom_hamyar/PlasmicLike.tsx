@@ -742,8 +742,9 @@ function PlasmicLike__RenderFunc(props: {
             ? (() => {
                 const actionArgs = {
                   args: [
-                    undefined,
+                    "POST",
                     "https://n8n.staas.ir/webhook/social/post/like",
+                    undefined,
                     (() => {
                       try {
                         return {
@@ -780,9 +781,8 @@ function PlasmicLike__RenderFunc(props: {
             ? (() => {
                 const actionArgs = {
                   args: [
-                    "POST",
+                    "GET",
                     "https://n8n.staas.ir/webhook/social/post/like",
-                    undefined,
                     (() => {
                       try {
                         return {
@@ -798,7 +798,8 @@ function PlasmicLike__RenderFunc(props: {
                         }
                         throw e;
                       }
-                    })()
+                    })(),
+                    undefined
                   ]
                 };
                 return $globalActions["Fragment.apiRequest"]?.apply(null, [

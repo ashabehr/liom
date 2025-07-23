@@ -62,6 +62,7 @@
   z-index: 1;
   position: relative;
   right: auto;
+  display: none;
 }
 @media (max-width: 640px) {
   .mainHeader:global(.__wab_instance) {
