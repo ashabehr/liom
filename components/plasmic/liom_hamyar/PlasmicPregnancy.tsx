@@ -28044,6 +28044,32 @@ function PlasmicPregnancy__RenderFunc(props: {
                 ) {
                   return;
                 }
+
+                (async val => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return console.log($state.token);
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }).apply(null, eventArgs);
               }}
               onSelectShopChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
