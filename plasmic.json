@@ -2236,6 +2236,32 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSignsComponent.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "njbOGWknOaYk",
+          "name": "GridChoices",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicGridChoices.tsx",
+          "importSpec": {
+            "modulePath": "GridChoices.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicGridChoices.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "gkIHYHT9LpaR",
+          "name": "ShopComponent",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShopComponent.tsx",
+          "importSpec": {
+            "modulePath": "ShopComponent.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShopComponent.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

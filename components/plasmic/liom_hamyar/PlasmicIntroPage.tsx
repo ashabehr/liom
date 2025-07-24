@@ -66,6 +66,8 @@ import { SwiperSlider } from "@/components/SwiperSlider"; // plasmic-import: hd-
 import IntroComponent from "../../IntroComponent"; // plasmic-import: Bw86EHWi2EN9/component
 import SignsComponent from "../../SignsComponent"; // plasmic-import: gsWLWidDp5XD/component
 import HamyarAddComponent from "../../HamyarAddComponent"; // plasmic-import: RArtpE5tE0Da/component
+import ShopComponent from "../../ShopComponent"; // plasmic-import: gkIHYHT9LpaR/component
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -73,6 +75,9 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicIntroPage.module.css"; // plasmic-import: Po-Hnx9Mj1kJ/css
+
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -90,6 +95,9 @@ export type PlasmicIntroPage__OverridesType = {
   swiperSlider?: Flex__<typeof SwiperSlider>;
   signsComponent?: Flex__<typeof SignsComponent>;
   hamyarAddComponent?: Flex__<typeof HamyarAddComponent>;
+  shopComponent?: Flex__<typeof ShopComponent>;
+  button?: Flex__<typeof Button>;
+  button2?: Flex__<typeof Button>;
 };
 
 export interface DefaultIntroPageProps {}
@@ -135,6 +143,30 @@ function PlasmicIntroPage__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -170,7 +202,78 @@ function PlasmicIntroPage__RenderFunc(props: {
             autoplayDelay={3000}
             bulletColor={true ? "var(--antd-colorPrimaryActive)" : undefined}
             className={classNames("__wab_instance", sty.swiperSlider)}
-            loop={true}
+            loop={false}
+            nextButtonSlot={
+              <Button
+                data-plasmic-name={"button2"}
+                data-plasmic-override={overrides.button2}
+                className={classNames("__wab_instance", sty.button2)}
+                color={generateStateValueProp($state, ["button2", "color"])}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                shape={"rounded"}
+                size={"compact"}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__xrMl
+                  )}
+                >
+                  {"\u0642\u0628\u0644\u06cc"}
+                </div>
+              </Button>
+            }
+            prevButtonSlot={
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={generateStateValueProp($state, ["button", "color"])}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                shape={"rounded"}
+                size={"compact"}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__pAlWc
+                  )}
+                >
+                  {"\u0628\u0639\u062f\u06cc"}
+                </div>
+              </Button>
+            }
+            showNavigationButtons={true}
             showPagination={true}
           >
             <div className={classNames(projectcss.all, sty.freeBox__u4DXd)}>
@@ -234,6 +337,19 @@ function PlasmicIntroPage__RenderFunc(props: {
                 data-plasmic-name={"signsComponent"}
                 data-plasmic-override={overrides.signsComponent}
                 className={classNames("__wab_instance", sty.signsComponent)}
+                token={(() => {
+                  try {
+                    return $ctx.query.token;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
               />
             </div>
             <div className={classNames(projectcss.all, sty.freeBox___2Wo28)}>
@@ -241,6 +357,26 @@ function PlasmicIntroPage__RenderFunc(props: {
                 data-plasmic-name={"hamyarAddComponent"}
                 data-plasmic-override={overrides.hamyarAddComponent}
                 className={classNames("__wab_instance", sty.hamyarAddComponent)}
+                token2={(() => {
+                  try {
+                    return $ctx.query.token;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+              />
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__zf5KZ)}>
+              <ShopComponent
+                data-plasmic-name={"shopComponent"}
+                data-plasmic-override={overrides.shopComponent}
+                className={classNames("__wab_instance", sty.shopComponent)}
               />
             </div>
           </SwiperSlider>
@@ -251,10 +387,28 @@ function PlasmicIntroPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "swiperSlider", "signsComponent", "hamyarAddComponent"],
-  swiperSlider: ["swiperSlider", "signsComponent", "hamyarAddComponent"],
+  root: [
+    "root",
+    "swiperSlider",
+    "signsComponent",
+    "hamyarAddComponent",
+    "shopComponent",
+    "button",
+    "button2"
+  ],
+  swiperSlider: [
+    "swiperSlider",
+    "signsComponent",
+    "hamyarAddComponent",
+    "shopComponent",
+    "button",
+    "button2"
+  ],
   signsComponent: ["signsComponent"],
-  hamyarAddComponent: ["hamyarAddComponent"]
+  hamyarAddComponent: ["hamyarAddComponent"],
+  shopComponent: ["shopComponent"],
+  button: ["button"],
+  button2: ["button2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -264,6 +418,9 @@ type NodeDefaultElementType = {
   swiperSlider: typeof SwiperSlider;
   signsComponent: typeof SignsComponent;
   hamyarAddComponent: typeof HamyarAddComponent;
+  shopComponent: typeof ShopComponent;
+  button: typeof Button;
+  button2: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -354,6 +511,9 @@ export const PlasmicIntroPage = Object.assign(
     swiperSlider: makeNodeComponent("swiperSlider"),
     signsComponent: makeNodeComponent("signsComponent"),
     hamyarAddComponent: makeNodeComponent("hamyarAddComponent"),
+    shopComponent: makeNodeComponent("shopComponent"),
+    button: makeNodeComponent("button"),
+    button2: makeNodeComponent("button2"),
 
     // Metadata about props expected for PlasmicIntroPage
     internalVariantProps: PlasmicIntroPage__VariantProps,
