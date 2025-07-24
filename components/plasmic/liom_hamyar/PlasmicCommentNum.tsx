@@ -85,9 +85,12 @@ export const PlasmicCommentNum__VariantProps = new Array<VariantPropType>(
   "active"
 );
 
-export type PlasmicCommentNum__ArgsType = { number?: string };
+export type PlasmicCommentNum__ArgsType = { number?: string; postId?: string };
 type ArgPropType = keyof PlasmicCommentNum__ArgsType;
-export const PlasmicCommentNum__ArgProps = new Array<ArgPropType>("number");
+export const PlasmicCommentNum__ArgProps = new Array<ArgPropType>(
+  "number",
+  "postId"
+);
 
 export type PlasmicCommentNum__OverridesType = {
   root?: Flex__<"div">;
@@ -97,6 +100,7 @@ export type PlasmicCommentNum__OverridesType = {
 
 export interface DefaultCommentNumProps {
   number?: string;
+  postId?: string;
   main?: SingleBooleanChoiceArg<"main">;
   active?: SingleBooleanChoiceArg<"active">;
   className?: string;
@@ -200,7 +204,7 @@ function PlasmicCommentNum__RenderFunc(props: {
               const actionArgs = {
                 destination: (() => {
                   try {
-                    return `/post?post=${$props.postData.post.id}`;
+                    return `/post?post=${$props.postId}`;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

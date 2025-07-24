@@ -2183,6 +2183,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicCommentNum.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "Po-Hnx9Mj1kJ",
+          "name": "IntroPae",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicIntroPae.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/intro-pae.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicIntroPae.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/intro-pae"
         }
       ],
       "icons": [
@@ -4575,6 +4589,18 @@
           "name": "PullToRefresh",
           "displayName": "PullToRefresh",
           "componentImportPath": "@/components/PullToRefresh"
+        },
+        {
+          "id": "hd-bzFw1zcpE",
+          "name": "SwiperSlider",
+          "displayName": "SwiperSlider",
+          "componentImportPath": "@/components/SwiperSlider"
+        },
+        {
+          "id": "wpIQCsQJqUoV",
+          "name": "BackHandler",
+          "displayName": "BackHandler",
+          "componentImportPath": "@/components/BackHandler"
         }
       ],
       "customFunctions": []

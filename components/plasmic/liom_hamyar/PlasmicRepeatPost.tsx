@@ -1122,6 +1122,19 @@ function PlasmicRepeatPost__RenderFunc(props: {
               throw e;
             }
           })()}
+          postId={(() => {
+            try {
+              return $props.postData.post.id;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
         />
 
         <Stack__
