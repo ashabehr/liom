@@ -1752,19 +1752,6 @@ function PlasmicSignsComponent__RenderFunc(props: {
                   data-plasmic-override={overrides.button}
                   className={classNames("__wab_instance", sty.button)}
                   color={generateStateValueProp($state, ["button", "color"])}
-                  isDisabled={(() => {
-                    try {
-                      return $state.loadingBtn;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()}
                   loading={(() => {
                     try {
                       return $state.loadingBtn;
