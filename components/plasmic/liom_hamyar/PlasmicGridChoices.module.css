@@ -5,7 +5,6 @@
   max-width: 100%;
   flex-direction: row;
   position: relative;
-  overflow: auto;
   min-width: 0;
   padding: 8px;
 }
@@ -66,6 +65,16 @@
   margin-left: 8px;
   margin-top: 0px;
 }
+.freeBox___5GQxV {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
 .freeBox__bXdcN {
   display: flex;
   flex-direction: row;
@@ -75,7 +84,6 @@
   height: auto;
   max-width: 100%;
   position: relative;
-  flex-shrink: 0;
   padding: 0px;
 }
 .freeBoxcircl__bXdcNfA7Ca {
