@@ -2186,17 +2186,56 @@
         },
         {
           "id": "Po-Hnx9Mj1kJ",
-          "name": "IntroPae",
+          "name": "IntroPage",
           "type": "managed",
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicIntroPae.tsx",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicIntroPage.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/intro-pae.tsx"
+            "modulePath": "../src/pages/intro-page.tsx"
           },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicIntroPae.module.css",
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicIntroPage.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/intro-pae"
+          "path": "/intro-page"
+        },
+        {
+          "id": "RArtpE5tE0Da",
+          "name": "HamyarAddComponent",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyarAddComponent.tsx",
+          "importSpec": {
+            "modulePath": "HamyarAddComponent.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyarAddComponent.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Bw86EHWi2EN9",
+          "name": "IntroComponent",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicIntroComponent.tsx",
+          "importSpec": {
+            "modulePath": "IntroComponent.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicIntroComponent.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "gsWLWidDp5XD",
+          "name": "SignsComponent",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSignsComponent.tsx",
+          "importSpec": {
+            "modulePath": "SignsComponent.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSignsComponent.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
