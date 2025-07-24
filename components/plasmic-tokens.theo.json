@@ -171,6 +171,16 @@
       }
     },
     {
+      "name": "Basic/Border",
+      "type": "color",
+      "value": "#D1D5DB",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "qvl81LxkOSoe"
+      }
+    },
+    {
       "name": "Basic/Container-Background",
       "type": "color",
       "value": "#FFFFFF",
@@ -588,6 +598,16 @@
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
         "id": "0yRlsfoDOnrZ"
+      }
+    },
+    {
+      "name": "Size-32",
+      "type": "spacing",
+      "value": "2rem",
+      "category": "spacing",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "-R99V_MAPZ9W"
       }
     },
     {

@@ -2262,6 +2262,71 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicShopComponent.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "ByiQVrRGhm2K",
+          "name": "MenuItem",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMenuItem.tsx",
+          "importSpec": {
+            "modulePath": "MenuItem.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMenuItem.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "BPkmXW9CuqkI",
+          "name": "MenuSection",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMenuSection.tsx",
+          "importSpec": {
+            "modulePath": "MenuSection.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMenuSection.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "QMYA2XTV8NAY",
+          "name": "MenuPopover",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMenuPopover.tsx",
+          "importSpec": {
+            "modulePath": "MenuPopover.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMenuPopover.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "bZbA9s6rXlzJ",
+          "name": "Select",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSelect.tsx",
+          "importSpec": {
+            "modulePath": "Select.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSelect.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "R2ZH5EVJ_GMV",
+          "name": "Combobox",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCombobox.tsx",
+          "importSpec": {
+            "modulePath": "Combobox.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCombobox.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
