@@ -21,6 +21,9 @@ import { Textarea, textareaMeta } from "@/fragment/components/textarea";
 import {DatePickers,DatePickersMeta} from "@/components/DatePickers";
 import {Pickers,PickersMeta} from "@/components/Pickers";
 import {PullToRefresh,PullToRefreshMeta} from "@/components/PullToRefresh";
+import {SwiperSlider,SwiperSliderMeta} from "@/components/SwiperSlider";
+import {BackHandler,BackHandlerMeta} from "@/components/BackHandler";
+
 
 
 
@@ -44,3 +47,5 @@ registerComponent(Textarea, textareaMeta);
 registerComponent(DatePickers, DatePickersMeta);
 registerComponent(Pickers, PickersMeta);
 registerComponent(PullToRefresh, PullToRefreshMeta);
+registerComponent(SwiperSlider,SwiperSliderMeta );
+registerComponent(BackHandler,BackHandlerMeta );
