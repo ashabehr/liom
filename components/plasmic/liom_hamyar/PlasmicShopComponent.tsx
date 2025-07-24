@@ -62,6 +62,7 @@ import {
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import Select from "../../Select"; // plasmic-import: bZbA9s6rXlzJ/component
 import MenuItem from "../../MenuItem"; // plasmic-import: ByiQVrRGhm2K/component
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -69,6 +70,9 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicShopComponent.module.css"; // plasmic-import: gkIHYHT9LpaR/css
+
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -85,6 +89,7 @@ export type PlasmicShopComponent__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
   select?: Flex__<typeof Select>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultShopComponentProps {
@@ -163,6 +168,12 @@ function PlasmicShopComponent__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "0"
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -299,7 +310,7 @@ function PlasmicShopComponent__RenderFunc(props: {
               )}
             >
               {
-                "\u062f\u0648\u0633\u062a \u062f\u0627\u0631\u06cc \u0686\u0646\u062f\u062a\u0627 \u067e\u0627\u0645\u06a9 \u062f\u0631 \u0631\u0648\u0632 \u0628\u0631\u0627\u06cc \u0647\u0645\u0633\u0631\u062a \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0647\u061f"
+                "\u062f\u0648\u0633\u062a \u062f\u0627\u0631\u06cc \u0686\u0646\u062f\u062a\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u062f\u0631 \u0631\u0648\u0632 \u0628\u0631\u0627\u06cc \u0647\u0645\u0633\u0631\u062a \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0647\u061f"
               }
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__andOg)}>
@@ -451,7 +462,7 @@ function PlasmicShopComponent__RenderFunc(props: {
                 )}
               >
                 {
-                  "\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646 "
+                  "\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646 :"
                 }
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__akPvk)}>
@@ -529,7 +540,17 @@ function PlasmicShopComponent__RenderFunc(props: {
                         }}
                         style={(() => {
                           try {
-                            return undefined;
+                            return {
+                              "background-color":
+                                $state.itemselected == currentIndex
+                                  ? "#FFFBFF"
+                                  : "transparent",
+                              border:
+                                $state.itemselected == currentIndex
+                                  ? "1px solid #8254C6"
+                                  : "1px solid #D1D5DB",
+                              "border-radius": "8px"
+                            };
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -573,15 +594,130 @@ function PlasmicShopComponent__RenderFunc(props: {
           </div>
         </section>
       </div>
-      <section className={classNames(projectcss.all, sty.section___4Iz1I)} />
+      <section className={classNames(projectcss.all, sty.section___4Iz1I)}>
+        <div className={classNames(projectcss.all, sty.freeBox__y2Bqc)}>
+          <div className={classNames(projectcss.all, sty.freeBox__zso2O)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__guNJc
+              )}
+            >
+              {
+                "\u0633\u0648\u062f \u0634\u0645\u0627 \u0627\u0632 \u0627\u06cc\u0646 \u062e\u0631\u06cc\u062f:"
+              }
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___2He9A
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return (
+                      (
+                        $state.shopList.result.items[$state.itemselected]
+                          .fullPrice -
+                        $state.shopList.result.items[$state.itemselected].price
+                      ).toLocaleString() + "  تومان "
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__ez3Uk)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___525A
+              )}
+            >
+              {"\u0645\u0628\u0644\u063a \u06a9\u0644:"}
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___1L5QW
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return (
+                      $state.shopList.result.items[
+                        $state.itemselected
+                      ].fullPrice.toLocaleString() + "  تومان "
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+          </div>
+          <Button
+            data-plasmic-name={"button"}
+            data-plasmic-override={overrides.button}
+            className={classNames("__wab_instance", sty.button)}
+            color={generateStateValueProp($state, ["button", "color"])}
+            onColorChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button", "color"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__zxUuR
+              )}
+            >
+              {"\u067e\u0631\u062f\u0627\u062e\u062a"}
+            </div>
+          </Button>
+        </div>
+      </section>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideEffect", "select"],
+  root: ["root", "sideEffect", "select", "button"],
   sideEffect: ["sideEffect"],
-  select: ["select"]
+  select: ["select"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -590,6 +726,7 @@ type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
   select: typeof Select;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -654,6 +791,7 @@ export const PlasmicShopComponent = Object.assign(
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
     select: makeNodeComponent("select"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicShopComponent
     internalVariantProps: PlasmicShopComponent__VariantProps,

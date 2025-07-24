@@ -152,10 +152,11 @@
   justify-content: flex-start;
   align-items: center;
   min-width: 0;
-  padding: 8px;
+  padding: 0px 0px 55px;
 }
 .shopComponent:global(.__wab_instance) {
   max-width: 100%;
+  flex-shrink: 0;
 }
 .button:global(.__wab_instance) {
   max-width: 100%;

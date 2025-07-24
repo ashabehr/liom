@@ -3,7 +3,7 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100vh;
   justify-content: flex-start;
   align-items: center;
   min-width: 0;
@@ -89,8 +89,6 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
   min-width: 0;
   padding: 8px;
 }
@@ -103,8 +101,6 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
   min-width: 0;
   padding: 8px;
 }
@@ -156,6 +152,7 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
+  background: none;
   min-width: 0;
   padding: 8px;
 }
@@ -196,4 +193,108 @@
 }
 .section___4Iz1I > * {
   grid-column: 4;
+}
+.freeBox__y2Bqc {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  border-top-width: 1px;
+  border-top-style: solid;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__zso2O {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text__guNJc {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: right;
+  color: var(--token-mjj-ONNCZx4S);
+  min-width: 0;
+}
+.text___2He9A {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: 16px;
+  min-width: 0;
+}
+.freeBox__ez3Uk {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text___525A {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: right;
+  min-width: 0;
+}
+.text___1L5QW {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: 16px;
+  min-width: 0;
+}
+.button:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.svg__oIjbw {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__zxUuR {
+  font-size: 18px;
+  font-weight: 700;
+}
+.svg__jBfWa {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
+  display: none;
 }
