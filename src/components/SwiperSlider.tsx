@@ -17,11 +17,12 @@ type SwiperSliderProps = {
   className?: string;
   prevButtonSlot?: React.ReactNode;
   nextButtonSlot?: React.ReactNode;
+  showNavigationButtons?: boolean; // ✅ NEW prop
 };
 
 export const SwiperSlider = ({
   children,
-  loop = false, // بهتره حلقه رو false بذاری برای منطقی بودن دکمه‌ها
+  loop = false,
   autoplay = true,
   autoplayDelay = 3000,
   showPagination = true,
@@ -30,6 +31,7 @@ export const SwiperSlider = ({
   className,
   prevButtonSlot,
   nextButtonSlot,
+  showNavigationButtons = true,
 }: SwiperSliderProps) => {
   const prevRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLDivElement>(null);
@@ -39,8 +41,8 @@ export const SwiperSlider = ({
 
   return (
     <div className={`relative ${className}`}>
-      {/* دکمه قبلی فقط اگر اسلاید اول نیست */}
-      {activeIndex > 0 && (
+      {/* دکمه قبلی */}
+      {showNavigationButtons && !loop && activeIndex > 0 && (
         <div
           ref={prevRef}
           className="absolute left-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer"
@@ -53,8 +55,8 @@ export const SwiperSlider = ({
         </div>
       )}
 
-      {/* دکمه بعدی فقط اگر اسلاید آخر نیست */}
-      {activeIndex < slides.length - 1 && (
+      {/* دکمه بعدی */}
+      {showNavigationButtons && !loop && activeIndex < slides.length - 1 && (
         <div
           ref={nextRef}
           className="absolute right-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer"
@@ -67,6 +69,33 @@ export const SwiperSlider = ({
         </div>
       )}
 
+      {/* دکمه‌ها در حالت loop فعال همیشه باید نمایش داده بشن */}
+      {showNavigationButtons && loop && (
+        <>
+          <div
+            ref={nextRef}
+            className="absolute left-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer"
+          >
+            {prevButtonSlot || (
+              <button className="bg-black/50 text-white px-3 py-2 rounded-full">
+                ◀
+              </button>
+            )}
+          </div>
+          <div
+            ref={prevRef}
+            className="absolute right-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer"
+          >
+            {nextButtonSlot || (
+              <button className="bg-black/50 text-white px-3 py-2 rounded-full">
+                ▶
+              </button>
+            )}
+          </div>
+        </>
+      )}
+
+      {/* استایل برای بولت‌ها */}
       <style>
         {`
           .swiper-pagination-bullet {
@@ -85,8 +114,8 @@ export const SwiperSlider = ({
         autoplay={autoplay ? { delay: autoplayDelay } : false}
         pagination={showPagination ? { clickable: true } : false}
         navigation={{
-          prevEl: prevRef.current,
           nextEl: nextRef.current,
+          prevEl: prevRef.current,
         }}
         onBeforeInit={(swiper) => {
           if (
@@ -127,14 +156,8 @@ export const SwiperSliderMeta: CodeComponentMeta<SwiperSliderProps> = {
     autoplay: { type: "boolean", defaultValue: true },
     autoplayDelay: { type: "number", defaultValue: 3000 },
     showPagination: { type: "boolean", defaultValue: true },
-    bulletColor: {
-      type: "color",
-      defaultValue: "#888888",
-    },
-    activeBulletColor: {
-      type: "color",
-      defaultValue: "#ffffff",
-    },
+    bulletColor: { type: "color", defaultValue: "#888888" },
+    activeBulletColor: { type: "color", defaultValue: "#ffffff" },
     className: { type: "class" },
     prevButtonSlot: {
       type: "slot",
@@ -145,6 +168,11 @@ export const SwiperSliderMeta: CodeComponentMeta<SwiperSliderProps> = {
       type: "slot",
       hidePlaceholder: true,
       displayName: "Next Button",
+    },
+    showNavigationButtons: {
+      type: "boolean",
+      defaultValue: true,
+      displayName: "Show Navigation Buttons",
     },
   },
 };
