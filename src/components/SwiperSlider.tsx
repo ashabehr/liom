@@ -21,7 +21,7 @@ type SwiperSliderProps = {
 
 export const SwiperSlider = ({
   children,
-  loop = false, // چون حلقه که باشه دکمه‌ها همیشه هستن، بهتر false باشه
+  loop = false, // بهتره حلقه رو false بذاری برای منطقی بودن دکمه‌ها
   autoplay = true,
   autoplayDelay = 3000,
   showPagination = true,
@@ -89,7 +89,10 @@ export const SwiperSlider = ({
           nextEl: nextRef.current,
         }}
         onBeforeInit={(swiper) => {
-          if (typeof swiper.params.navigation !== "boolean") {
+          if (
+            swiper.params.navigation &&
+            typeof swiper.params.navigation !== "boolean"
+          ) {
             swiper.params.navigation.prevEl = prevRef.current;
             swiper.params.navigation.nextEl = nextRef.current;
           }
