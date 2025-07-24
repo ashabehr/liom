@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Select from "../../Select"; // plasmic-import: bZbA9s6rXlzJ/component
 import MenuItem from "../../MenuItem"; // plasmic-import: ByiQVrRGhm2K/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -88,6 +89,8 @@ export const PlasmicShopComponent__ArgProps = new Array<ArgPropType>("token");
 export type PlasmicShopComponent__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
+  img?: Flex__<typeof PlasmicImg__>;
+  lottie?: Flex__<typeof LottieWrapper>;
   select?: Flex__<typeof Select>;
   button?: Flex__<typeof Button>;
 };
@@ -174,6 +177,41 @@ function PlasmicShopComponent__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "shopId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "redirectUrl2",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return `https://tools.liom.app/shopResult?buyId=${
+                $state.shopId
+              }&?offCode=&token=${
+                $props.token
+              }&redirectUrl=${encodeURIComponent(window.location.href)}`;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -301,299 +339,789 @@ function PlasmicShopComponent__RenderFunc(props: {
             }}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox___0HLqo)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__kuHww
-              )}
-            >
-              {
-                "\u062f\u0648\u0633\u062a \u062f\u0627\u0631\u06cc \u0686\u0646\u062f\u062a\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u062f\u0631 \u0631\u0648\u0632 \u0628\u0631\u0627\u06cc \u0647\u0645\u0633\u0631\u062a \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0647\u061f"
-              }
+          <div className={classNames(projectcss.all, sty.freeBox__n3Wkk)}>
+            <div className={classNames(projectcss.all, sty.freeBox__hzFuF)}>
+              <PlasmicImg__
+                data-plasmic-name={"img"}
+                data-plasmic-override={overrides.img}
+                alt={""}
+                className={classNames(sty.img)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"300px"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/liom_hamyar/images/image7.png",
+                  fullWidth: 1302,
+                  fullHeight: 900,
+                  aspectRatio: undefined
+                }}
+              />
+
+              <LottieWrapper
+                data-plasmic-name={"lottie"}
+                data-plasmic-override={overrides.lottie}
+                animationData={{
+                  v: "4.10.1",
+                  fr: 30,
+                  ip: 0,
+                  op: 40,
+                  w: 80,
+                  h: 80,
+                  nm: "Success Checkmark",
+                  ddd: 0,
+                  assets: [],
+                  layers: [
+                    {
+                      ddd: 0,
+                      ind: 1,
+                      ty: 4,
+                      nm: "Check Mark",
+                      sr: 1,
+                      ks: {
+                        o: { a: 0, k: 100, ix: 11 },
+                        r: { a: 0, k: 0, ix: 10 },
+                        p: { a: 0, k: [40, 40, 0], ix: 2 },
+                        a: { a: 0, k: [-1.312, 6, 0], ix: 1 },
+                        s: { a: 0, k: [100, 100, 100], ix: 6 }
+                      },
+                      ao: 0,
+                      shapes: [
+                        {
+                          ty: "gr",
+                          it: [
+                            {
+                              ind: 0,
+                              ty: "sh",
+                              ix: 1,
+                              ks: {
+                                a: 0,
+                                k: {
+                                  i: [
+                                    [0, 0],
+                                    [0, 0],
+                                    [0, 0]
+                                  ],
+                                  o: [
+                                    [0, 0],
+                                    [0, 0],
+                                    [0, 0]
+                                  ],
+                                  v: [
+                                    [-15.75, 8],
+                                    [-8, 16],
+                                    [13.125, -4]
+                                  ],
+                                  c: false
+                                },
+                                ix: 2
+                              },
+                              nm: "Path 1",
+                              mn: "ADBE Vector Shape - Group",
+                              hd: false
+                            },
+                            {
+                              ty: "tm",
+                              s: {
+                                a: 1,
+                                k: [
+                                  {
+                                    i: { x: [0.667], y: [1] },
+                                    o: { x: [0.333], y: [0] },
+                                    n: ["0p667_1_0p333_0"],
+                                    t: 25,
+                                    s: [0],
+                                    e: [100]
+                                  },
+                                  { t: 33 }
+                                ],
+                                ix: 1
+                              },
+                              e: { a: 0, k: 0, ix: 2 },
+                              o: { a: 0, k: 0, ix: 3 },
+                              m: 1,
+                              ix: 2,
+                              nm: "Trim Paths 1",
+                              mn: "ADBE Vector Filter - Trim",
+                              hd: false
+                            },
+                            {
+                              ty: "st",
+                              c: { a: 0, k: [1, 1, 1, 1], ix: 3 },
+                              o: { a: 0, k: 100, ix: 4 },
+                              w: { a: 0, k: 3, ix: 5 },
+                              lc: 2,
+                              lj: 2,
+                              nm: "Stroke 1",
+                              mn: "ADBE Vector Graphic - Stroke",
+                              hd: false
+                            },
+                            {
+                              ty: "tr",
+                              p: { a: 0, k: [0, 0], ix: 2 },
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              o: { a: 0, k: 100, ix: 7 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              nm: "Transform"
+                            }
+                          ],
+                          nm: "Shape 1",
+                          np: 3,
+                          cix: 2,
+                          ix: 1,
+                          mn: "ADBE Vector Group",
+                          hd: false
+                        }
+                      ],
+                      ip: 0,
+                      op: 40,
+                      st: 0,
+                      bm: 0
+                    },
+                    {
+                      ddd: 0,
+                      ind: 2,
+                      ty: 4,
+                      nm: "Circle Flash",
+                      sr: 1,
+                      ks: {
+                        o: {
+                          a: 1,
+                          k: [
+                            {
+                              i: { x: [0.833], y: [0.833] },
+                              o: { x: [0.167], y: [0.167] },
+                              n: ["0p833_0p833_0p167_0p167"],
+                              t: 25,
+                              s: [0],
+                              e: [98]
+                            },
+                            {
+                              i: { x: [0.833], y: [0.833] },
+                              o: { x: [0.167], y: [0.167] },
+                              n: ["0p833_0p833_0p167_0p167"],
+                              t: 30,
+                              s: [98],
+                              e: [0]
+                            },
+                            { t: 38 }
+                          ],
+                          ix: 11
+                        },
+                        r: { a: 0, k: 0, ix: 10 },
+                        p: { a: 0, k: [40, 40, 0], ix: 2 },
+                        a: { a: 0, k: [0, 0, 0], ix: 1 },
+                        s: {
+                          a: 1,
+                          k: [
+                            {
+                              i: { x: [0.667, 0.667, 0.667], y: [1, 1, 1] },
+                              o: { x: [0.333, 0.333, 0.333], y: [0, 0, 0] },
+                              n: [
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0"
+                              ],
+                              t: 25,
+                              s: [0, 0, 100],
+                              e: [100, 100, 100]
+                            },
+                            { t: 30 }
+                          ],
+                          ix: 6
+                        }
+                      },
+                      ao: 0,
+                      shapes: [
+                        {
+                          d: 1,
+                          ty: "el",
+                          s: { a: 0, k: [64, 64], ix: 2 },
+                          p: { a: 0, k: [0, 0], ix: 3 },
+                          nm: "Ellipse Path 1",
+                          mn: "ADBE Vector Shape - Ellipse",
+                          hd: false
+                        },
+                        {
+                          ty: "fl",
+                          c: {
+                            a: 0,
+                            k: [
+                              0.529866635799, 0.961458325386, 0.448091417551, 1
+                            ],
+                            ix: 4
+                          },
+                          o: { a: 0, k: 100, ix: 5 },
+                          r: 1,
+                          nm: "Fill 1",
+                          mn: "ADBE Vector Graphic - Fill",
+                          hd: false
+                        }
+                      ],
+                      ip: 0,
+                      op: 40,
+                      st: 0,
+                      bm: 0
+                    },
+                    {
+                      ddd: 0,
+                      ind: 3,
+                      ty: 4,
+                      nm: "Circle Stroke",
+                      sr: 1,
+                      ks: {
+                        o: { a: 0, k: 100, ix: 11 },
+                        r: { a: 0, k: 0, ix: 10 },
+                        p: { a: 0, k: [39.022, 39.022, 0], ix: 2 },
+                        a: { a: 0, k: [0, 0, 0], ix: 1 },
+                        s: {
+                          a: 1,
+                          k: [
+                            {
+                              i: { x: [0.667, 0.667, 0.667], y: [1, 1, 1] },
+                              o: { x: [0.333, 0.333, 0.333], y: [0, 0, 0] },
+                              n: [
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0"
+                              ],
+                              t: 16,
+                              s: [100, 100, 100],
+                              e: [80, 80, 100]
+                            },
+                            {
+                              i: { x: [0.667, 0.667, 0.667], y: [1, 1, 1] },
+                              o: { x: [0.333, 0.333, 0.333], y: [0, 0, 0] },
+                              n: [
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0"
+                              ],
+                              t: 22,
+                              s: [80, 80, 100],
+                              e: [120, 120, 100]
+                            },
+                            {
+                              i: { x: [0.667, 0.667, 0.667], y: [1, 1, 1] },
+                              o: { x: [0.333, 0.333, 0.333], y: [0, 0, 0] },
+                              n: [
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0"
+                              ],
+                              t: 25,
+                              s: [120, 120, 100],
+                              e: [100, 100, 100]
+                            },
+                            { t: 29 }
+                          ],
+                          ix: 6
+                        }
+                      },
+                      ao: 0,
+                      shapes: [
+                        {
+                          ty: "gr",
+                          it: [
+                            {
+                              d: 1,
+                              ty: "el",
+                              s: { a: 0, k: [60, 60], ix: 2 },
+                              p: { a: 0, k: [0, 0], ix: 3 },
+                              nm: "Ellipse Path 1",
+                              mn: "ADBE Vector Shape - Ellipse",
+                              hd: false
+                            },
+                            {
+                              ty: "tm",
+                              s: {
+                                a: 1,
+                                k: [
+                                  {
+                                    i: { x: [0.667], y: [1] },
+                                    o: { x: [0.333], y: [0] },
+                                    n: ["0p667_1_0p333_0"],
+                                    t: 0,
+                                    s: [0],
+                                    e: [100]
+                                  },
+                                  { t: 16 }
+                                ],
+                                ix: 1
+                              },
+                              e: { a: 0, k: 0, ix: 2 },
+                              o: { a: 0, k: 0, ix: 3 },
+                              m: 1,
+                              ix: 2,
+                              nm: "Trim Paths 1",
+                              mn: "ADBE Vector Filter - Trim",
+                              hd: false
+                            },
+                            {
+                              ty: "st",
+                              c: {
+                                a: 0,
+                                k: [
+                                  0.427450984716, 0.800000011921, 0.35686275363,
+                                  1
+                                ],
+                                ix: 3
+                              },
+                              o: { a: 0, k: 100, ix: 4 },
+                              w: { a: 0, k: 3, ix: 5 },
+                              lc: 2,
+                              lj: 2,
+                              nm: "Stroke 1",
+                              mn: "ADBE Vector Graphic - Stroke",
+                              hd: false
+                            },
+                            {
+                              ty: "tr",
+                              p: { a: 0, k: [0.978, 0.978], ix: 2 },
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              o: { a: 0, k: 100, ix: 7 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              nm: "Transform"
+                            }
+                          ],
+                          nm: "Ellipse 1",
+                          np: 3,
+                          cix: 2,
+                          ix: 1,
+                          mn: "ADBE Vector Group",
+                          hd: false
+                        }
+                      ],
+                      ip: 0,
+                      op: 40,
+                      st: 0,
+                      bm: 0
+                    },
+                    {
+                      ddd: 0,
+                      ind: 4,
+                      ty: 4,
+                      nm: "Circle Green Fill",
+                      sr: 1,
+                      ks: {
+                        o: {
+                          a: 1,
+                          k: [
+                            {
+                              i: { x: [0.833], y: [0.833] },
+                              o: { x: [0.167], y: [0.167] },
+                              n: ["0p833_0p833_0p167_0p167"],
+                              t: 21,
+                              s: [0],
+                              e: [98]
+                            },
+                            { t: 28 }
+                          ],
+                          ix: 11
+                        },
+                        r: { a: 0, k: 0, ix: 10 },
+                        p: { a: 0, k: [40, 40, 0], ix: 2 },
+                        a: { a: 0, k: [0, 0, 0], ix: 1 },
+                        s: {
+                          a: 1,
+                          k: [
+                            {
+                              i: { x: [0.667, 0.667, 0.667], y: [1, 1, 1] },
+                              o: { x: [0.333, 0.333, 0.333], y: [0, 0, 0] },
+                              n: [
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0",
+                                "0p667_1_0p333_0"
+                              ],
+                              t: 21,
+                              s: [0, 0, 100],
+                              e: [100, 100, 100]
+                            },
+                            { t: 28 }
+                          ],
+                          ix: 6
+                        }
+                      },
+                      ao: 0,
+                      shapes: [
+                        {
+                          d: 1,
+                          ty: "el",
+                          s: { a: 0, k: [64, 64], ix: 2 },
+                          p: { a: 0, k: [0, 0], ix: 3 },
+                          nm: "Ellipse Path 1",
+                          mn: "ADBE Vector Shape - Ellipse",
+                          hd: false
+                        },
+                        {
+                          ty: "fl",
+                          c: {
+                            a: 0,
+                            k: [
+                              0.427450984716, 0.800000011921, 0.35686275363, 1
+                            ],
+                            ix: 4
+                          },
+                          o: { a: 0, k: 100, ix: 5 },
+                          r: 1,
+                          nm: "Fill 1",
+                          mn: "ADBE Vector Graphic - Fill",
+                          hd: false
+                        }
+                      ],
+                      ip: 0,
+                      op: 40,
+                      st: 0,
+                      bm: 0
+                    }
+                  ]
+                }}
+                className={classNames("__wab_instance", sty.lottie)}
+              />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__andOg)}>
-              <Select
-                data-plasmic-name={"select"}
-                data-plasmic-override={overrides.select}
-                className={classNames("__wab_instance", sty.select)}
-                description={null}
-                isOpen={generateStateValueProp($state, ["select", "isOpen"])}
-                items={
-                  <React.Fragment>
-                    <MenuItem
-                      label={"   \u06f3 \u067e\u06cc\u0627\u0645\u06a9"}
-                      value={"pms_sms_pack_3"}
-                    />
-
-                    <MenuItem
-                      label={"   \u06f2 \u067e\u06cc\u0627\u0645\u06a9"}
-                      value={"pms_sms_pack_2"}
-                    />
-
-                    <MenuItem
-                      label={"   \u06f1 \u067e\u06cc\u0627\u0645\u06a9 "}
-                      value={"pms_sms_pack_1"}
-                    />
-                  </React.Fragment>
+            <div className={classNames(projectcss.all, sty.freeBox___0HLqo)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__kuHww
+                )}
+              >
+                {
+                  "\u062f\u0648\u0633\u062a \u062f\u0627\u0631\u06cc \u0686\u0646\u062f\u062a\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u062f\u0631 \u0631\u0648\u0632 \u0628\u0631\u0627\u06cc \u0647\u0645\u0633\u0631\u062a \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0647\u061f"
                 }
-                label={null}
-                onChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["select", "value"]).apply(
-                    null,
-                    eventArgs
-                  );
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__andOg)}>
+                <Select
+                  data-plasmic-name={"select"}
+                  data-plasmic-override={overrides.select}
+                  className={classNames("__wab_instance", sty.select)}
+                  description={null}
+                  isOpen={generateStateValueProp($state, ["select", "isOpen"])}
+                  items={
+                    <React.Fragment>
+                      <MenuItem
+                        label={"   \u06f3 \u067e\u06cc\u0627\u0645\u06a9"}
+                        value={"pms_sms_pack_3"}
+                      />
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
+                      <MenuItem
+                        label={"   \u06f2 \u067e\u06cc\u0627\u0645\u06a9"}
+                        value={"pms_sms_pack_2"}
+                      />
+
+                      <MenuItem
+                        label={"   \u06f1 \u067e\u06cc\u0627\u0645\u06a9 "}
+                        value={"pms_sms_pack_1"}
+                      />
+                    </React.Fragment>
                   }
+                  label={null}
+                  onChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "select",
+                      "value"
+                    ]).apply(null, eventArgs);
 
-                  (async val => {
-                    const $steps = {};
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
 
-                    $steps["invokeGlobalAction"] = $state.select.isOpen
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              undefined,
-                              "https://n8n.staas.ir/webhook/get/pmsSms",
-                              (() => {
-                                try {
-                                  return {
-                                    type: $state.select.value,
-                                    authorization: $props.token
+                    (async val => {
+                      const $steps = {};
+
+                      $steps["invokeGlobalAction"] = $state.select.isOpen
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                undefined,
+                                "https://n8n.staas.ir/webhook/get/pmsSms",
+                                (() => {
+                                  try {
+                                    return {
+                                      type: $state.select.value,
+                                      authorization: $props.token
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["updateShopList"] = $state.select.isOpen
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["shopList"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction?.data
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateShopList"] != null &&
+                        typeof $steps["updateShopList"] === "object" &&
+                        typeof $steps["updateShopList"].then === "function"
+                      ) {
+                        $steps["updateShopList"] = await $steps[
+                          "updateShopList"
+                        ];
+                      }
+                    }).apply(null, eventArgs);
+                  }}
+                  onOpenChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "select",
+                      "isOpen"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  placeholder={"   \u06f2 \u067e\u06cc\u0627\u0645\u06a9"}
+                  showLabel={false}
+                  value={generateStateValueProp($state, ["select", "value"])}
+                />
+              </div>
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__k0Rnt)}>
+              <div className={classNames(projectcss.all, sty.freeBox__q7AKi)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__twwCj
+                  )}
+                >
+                  {
+                    "\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646 :"
+                  }
+                </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__akPvk)}
+                >
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return $state.shopList.result.items.length
+                          ? $state.shopList.result.items
+                          : [];
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___9Kgo1
+                        )}
+                        key={currentIndex}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__sdjFw
+                          )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateItemselected"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["itemselected"]
+                                    },
+                                    operation: 0,
+                                    value: currentIndex
                                   };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateItemselected"] != null &&
+                              typeof $steps["updateItemselected"] ===
+                                "object" &&
+                              typeof $steps["updateItemselected"].then ===
+                                "function"
+                            ) {
+                              $steps["updateItemselected"] = await $steps[
+                                "updateItemselected"
+                              ];
+                            }
+
+                            $steps["updateShopId"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["shopId"]
+                                    },
+                                    operation: 0,
+                                    value: currentItem.id
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateShopId"] != null &&
+                              typeof $steps["updateShopId"] === "object" &&
+                              typeof $steps["updateShopId"].then === "function"
+                            ) {
+                              $steps["updateShopId"] = await $steps[
+                                "updateShopId"
+                              ];
+                            }
+                          }}
+                          style={(() => {
+                            try {
+                              return {
+                                "background-color":
+                                  $state.itemselected == currentIndex
+                                    ? "#FFFBFF"
+                                    : "transparent",
+                                border:
+                                  $state.itemselected == currentIndex
+                                    ? "1px solid #8254C6"
+                                    : "1px solid #D1D5DB",
+                                "border-radius": "8px"
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ftdIu
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.text;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return undefined;
+                                    return "";
                                   }
                                   throw e;
                                 }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
-                    }
-
-                    $steps["updateShopList"] = $state.select.isOpen
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["shopList"]
-                            },
-                            operation: 0,
-                            value: $steps.invokeGlobalAction?.data
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateShopList"] != null &&
-                      typeof $steps["updateShopList"] === "object" &&
-                      typeof $steps["updateShopList"].then === "function"
-                    ) {
-                      $steps["updateShopList"] = await $steps["updateShopList"];
-                    }
-                  }).apply(null, eventArgs);
-                }}
-                onOpenChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["select", "isOpen"]).apply(
-                    null,
-                    eventArgs
-                  );
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                placeholder={"   \u06f2 \u067e\u06cc\u0627\u0645\u06a9"}
-                showLabel={false}
-                value={generateStateValueProp($state, ["select", "value"])}
-              />
-            </div>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__k0Rnt)}>
-            <div className={classNames(projectcss.all, sty.freeBox__q7AKi)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__twwCj
-                )}
-              >
-                {
-                  "\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646 :"
-                }
-              </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__akPvk)}
-              >
-                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                  (() => {
-                    try {
-                      return $state.shopList.result.items.length
-                        ? $state.shopList.result.items
-                        : [];
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()
-                ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                  const currentItem = __plasmic_item_0;
-                  const currentIndex = __plasmic_idx_0;
-                  return (
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___9Kgo1
-                      )}
-                      key={currentIndex}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__sdjFw
-                        )}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["updateItemselected"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["itemselected"]
-                                  },
-                                  operation: 0,
-                                  value: currentIndex
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateItemselected"] != null &&
-                            typeof $steps["updateItemselected"] === "object" &&
-                            typeof $steps["updateItemselected"].then ===
-                              "function"
-                          ) {
-                            $steps["updateItemselected"] = await $steps[
-                              "updateItemselected"
-                            ];
-                          }
-                        }}
-                        style={(() => {
-                          try {
-                            return {
-                              "background-color":
-                                $state.itemselected == currentIndex
-                                  ? "#FFFBFF"
-                                  : "transparent",
-                              border:
-                                $state.itemselected == currentIndex
-                                  ? "1px solid #8254C6"
-                                  : "1px solid #D1D5DB",
-                              "border-radius": "8px"
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__ftdIu
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return currentItem.text;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
+                              })()}
+                            </React.Fragment>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </Stack__>
+                    );
+                  })}
+                </Stack__>
+              </div>
             </div>
           </div>
         </section>
@@ -665,7 +1193,7 @@ function PlasmicShopComponent__RenderFunc(props: {
                     return (
                       $state.shopList.result.items[
                         $state.itemselected
-                      ].fullPrice.toLocaleString() + "  تومان "
+                      ].price.toLocaleString() + "  تومان "
                     );
                   } catch (e) {
                     if (
@@ -685,6 +1213,213 @@ function PlasmicShopComponent__RenderFunc(props: {
             data-plasmic-override={overrides.button}
             className={classNames("__wab_instance", sty.button)}
             color={generateStateValueProp($state, ["button", "color"])}
+            loading={(() => {
+              try {
+                return $state.loading;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [];
+                }
+                throw e;
+              }
+            })()}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const url = new URL($state.redirectUrl2);
+                          url.searchParams.set("buyId", $state.shopId);
+                          return ($state.redirectUrl2 = url.toString());
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["updateLoading"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loading"]
+                      },
+                      operation: 0,
+                      value: true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoading"] != null &&
+                typeof $steps["updateLoading"] === "object" &&
+                typeof $steps["updateLoading"].then === "function"
+              ) {
+                $steps["updateLoading"] = await $steps["updateLoading"];
+              }
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/rest/shop/list",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              id: $state.shopId,
+                              offCode: "",
+                              redirectUrl: $state.redirectUrl2,
+                              authorization: $props.token
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["goToPage"] =
+                $steps.invokeGlobalAction?.data?.success == true &&
+                $steps.invokeGlobalAction?.data?.result != false
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return $steps.invokeGlobalAction.data.result;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["goToPage"] != null &&
+                typeof $steps["goToPage"] === "object" &&
+                typeof $steps["goToPage"].then === "function"
+              ) {
+                $steps["goToPage"] = await $steps["goToPage"];
+              }
+
+              $steps["invokeGlobalAction2"] =
+                $steps.invokeGlobalAction?.data?.success == false ||
+                $steps.invokeGlobalAction?.data?.result == false
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "error",
+                          "\u0645\u062a\u0623\u0633\u0641\u0627\u0646\u0647 \u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627\u064b \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
+                          "bottom-center"
+                        ]
+                      };
+                      return $globalActions["Fragment.showToast"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+              if (
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
+              ) {
+                $steps["invokeGlobalAction2"] = await $steps[
+                  "invokeGlobalAction2"
+                ];
+              }
+
+              $steps["updateLoading2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loading"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoading2"] != null &&
+                typeof $steps["updateLoading2"] === "object" &&
+                typeof $steps["updateLoading2"].then === "function"
+              ) {
+                $steps["updateLoading2"] = await $steps["updateLoading2"];
+              }
+            }}
             onColorChange={async (...eventArgs: any) => {
               ((...eventArgs) => {
                 generateStateOnChangeProp($state, ["button", "color"])(
@@ -718,8 +1453,10 @@ function PlasmicShopComponent__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideEffect", "select", "button"],
+  root: ["root", "sideEffect", "img", "lottie", "select", "button"],
   sideEffect: ["sideEffect"],
+  img: ["img"],
+  lottie: ["lottie"],
   select: ["select"],
   button: ["button"]
 } as const;
@@ -729,6 +1466,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
+  img: typeof PlasmicImg__;
+  lottie: typeof LottieWrapper;
   select: typeof Select;
   button: typeof Button;
 };
@@ -794,6 +1533,8 @@ export const PlasmicShopComponent = Object.assign(
   {
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
+    img: makeNodeComponent("img"),
+    lottie: makeNodeComponent("lottie"),
     select: makeNodeComponent("select"),
     button: makeNodeComponent("button"),
 
