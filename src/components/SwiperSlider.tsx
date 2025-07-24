@@ -75,7 +75,7 @@ export const SwiperSlider = ({
 
       {showNavigationButtons && (
         <>
-          {(loop || activeIndex > 0) && (
+          {(loop || activeIndex < slides.length - 1) && (
             <div
               onClick={handleNext}
               className="absolute bottom-4 left-4 z-10 cursor-pointer"
@@ -88,7 +88,7 @@ export const SwiperSlider = ({
             </div>
           )}
 
-          {(loop || activeIndex < slides.length - 1) && (
+          {(loop || activeIndex > 0) && (
             <div
               onClick={handlePrev}
               className="absolute bottom-4 right-4 z-10 cursor-pointer"
