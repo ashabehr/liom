@@ -162,8 +162,8 @@ function PlasmicShopComponent__RenderFunc(props: {
           (() => {
             try {
               return (
-                window.localStorage.getItem("selectPack") || "0-pms_sms_pack_2"
-              ).split("-")[1];
+                window.localStorage.getItem("selectPack") || "pms_sms_pack_2-"
+              ).split("-")[0];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -189,9 +189,9 @@ function PlasmicShopComponent__RenderFunc(props: {
           (() => {
             try {
               return parseInt(
-                (window.localStorage.getItem("selectPack") || "0-").split(
+                (window.localStorage.getItem("selectPack") || "0-0").split(
                   "-"
-                )[0]
+                )[1]
               );
             } catch (e) {
               if (
@@ -20352,8 +20352,8 @@ function PlasmicShopComponent__RenderFunc(props: {
                             try {
                               return (
                                 window.localStorage.getItem("selectPack") ||
-                                "0-pms_sms_pack_2"
-                              ).split("-")[1];
+                                "pms_sms_pack_2-"
+                              ).split("-")[0];
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
