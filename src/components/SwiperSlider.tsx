@@ -1,15 +1,15 @@
 import React, {
   useRef,
   useEffect,
-  useImperativeHandle,
   forwardRef,
+  useImperativeHandle,
 } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { CodeComponentMeta } from "@plasmicapp/host";
 import type { Swiper as SwiperType } from "swiper";
+import { CodeComponentMeta } from "@plasmicapp/host";
 
 type SwiperSliderProps = {
   children?: React.ReactNode;
@@ -23,29 +23,33 @@ type SwiperSliderProps = {
   showNavigationButtons?: boolean;
   prevButtonSlot?: React.ReactNode;
   nextButtonSlot?: React.ReactNode;
-  activeSlideIndex: number; // slide کنترل شده
-  onActiveSlideChange?: (index: number) => void; // وقتی تغییر می‌کند
+
+  // props for Plasmic state
+  activeSlideIndex?: number;
+  onActiveSlideIndexChange?: (index: number) => void;
 };
 
-export const SwiperSlider = forwardRef(({
-  children,
-  loop = true,
-  autoplay = true,
-  autoplayDelay = 3000,
-  showPagination = true,
-  bulletColor = "#888888",
-  activeBulletColor = "#ffffff",
-  className,
-  showNavigationButtons = true,
-  prevButtonSlot,
-  nextButtonSlot,
-  activeSlideIndex,
-  onActiveSlideChange,
-}: SwiperSliderProps, ref) => {
+export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
+  const {
+    children,
+    loop = true,
+    autoplay = true,
+    autoplayDelay = 3000,
+    showPagination = true,
+    bulletColor = "#888888",
+    activeBulletColor = "#ffffff",
+    className,
+    showNavigationButtons = true,
+    prevButtonSlot,
+    nextButtonSlot,
+    activeSlideIndex = 0,
+    onActiveSlideIndexChange,
+  } = props;
+
   const swiperRef = useRef<SwiperType | null>(null);
   const slides = React.Children.toArray(children);
 
-  // اگر activeSlideIndex از parent تغییر کرد
+  // Sync external state with internal swiper instance
   useEffect(() => {
     if (
       swiperRef.current &&
@@ -55,7 +59,7 @@ export const SwiperSlider = forwardRef(({
     }
   }, [activeSlideIndex]);
 
-  // متد دستی برای استفاده با ref
+  // Expose slideTo method
   useImperativeHandle(ref, () => ({
     slideTo: (index: number) => {
       swiperRef.current?.slideToLoop(index);
@@ -97,9 +101,7 @@ export const SwiperSlider = forwardRef(({
           swiper.el.setAttribute("dir", "ltr");
         }}
         onSlideChange={(swiper) => {
-          if (onActiveSlideChange) {
-            onActiveSlideChange(swiper.realIndex);
-          }
+          onActiveSlideIndexChange?.(swiper.realIndex);
         }}
       >
         {slides.map((slide, index) => (
@@ -180,19 +182,22 @@ export const SwiperSliderMeta: CodeComponentMeta<SwiperSliderProps> = {
     },
     activeSlideIndex: {
       type: "number",
-      displayName: "اندیس اسلاید فعال",
-      description: "برای تنظیم اسلاید فعال (۰ به‌عنوان شروع)",
+      displayName: "اسلاید فعال",
+      description: "ایندکس اسلاید فعال (۰-based)",
       defaultValue: 0,
     },
-    onActiveSlideChange: {
+    onActiveSlideIndexChange: {
       type: "eventHandler",
-      displayName: "تغییر اسلاید",
-      argTypes: [
-        {
-          name: "index",
-          type: "number",
-        },
-      ],
+      displayName: "وقتی اسلاید تغییر می‌کند",
+      argTypes: [{ name: "index", type: "number" }],
+    },
+  },
+  states: {
+    activeSlideIndex: {
+      type: "writable",
+      variableType: "number",
+      valueProp: "activeSlideIndex",
+      onChangeProp: "onActiveSlideIndexChange",
     },
   },
 };
