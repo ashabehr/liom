@@ -61,11 +61,17 @@ export const SwiperSlider = ({
       </style>
 
       <Swiper
+        dir="ltr" // مهم: جهت‌دهی لایه‌ی Swiper
         loop={loop}
         autoplay={autoplay ? { delay: autoplayDelay } : false}
         pagination={showPagination ? { clickable: true } : false}
         modules={[Autoplay, Pagination]}
-        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+          // اطمینان از حذف جهت RTL
+          swiper.el.classList.remove("swiper-rtl");
+          swiper.el.setAttribute("dir", "ltr");
+        }}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
       >
         {slides.map((slide, index) => (
@@ -75,9 +81,9 @@ export const SwiperSlider = ({
 
       {showNavigationButtons && (
         <>
-          {(loop || activeIndex < slides.length - 1) && (
+          {(loop || activeIndex > 0) && (
             <div
-              onClick={handleNext}
+              onClick={handlePrev}
               className="absolute bottom-4 left-4 z-10 cursor-pointer"
             >
               {prevButtonSlot || (
@@ -88,9 +94,9 @@ export const SwiperSlider = ({
             </div>
           )}
 
-          {(loop || activeIndex > 0) && (
+          {(loop || activeIndex < slides.length - 1) && (
             <div
-              onClick={handlePrev}
+              onClick={handleNext}
               className="absolute bottom-4 right-4 z-10 cursor-pointer"
             >
               {nextButtonSlot || (
