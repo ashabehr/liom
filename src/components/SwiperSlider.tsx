@@ -1,4 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useImperativeHandle,
+  forwardRef,
+} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -18,9 +23,11 @@ type SwiperSliderProps = {
   showNavigationButtons?: boolean;
   prevButtonSlot?: React.ReactNode;
   nextButtonSlot?: React.ReactNode;
+  activeSlideIndex: number; // slide کنترل شده
+  onActiveSlideChange?: (index: number) => void; // وقتی تغییر می‌کند
 };
 
-export const SwiperSlider = ({
+export const SwiperSlider = forwardRef(({
   children,
   loop = true,
   autoplay = true,
@@ -32,10 +39,28 @@ export const SwiperSlider = ({
   showNavigationButtons = true,
   prevButtonSlot,
   nextButtonSlot,
-}: SwiperSliderProps) => {
+  activeSlideIndex,
+  onActiveSlideChange,
+}: SwiperSliderProps, ref) => {
   const swiperRef = useRef<SwiperType | null>(null);
   const slides = React.Children.toArray(children);
-  const [activeIndex, setActiveIndex] = useState(0);
+
+  // اگر activeSlideIndex از parent تغییر کرد
+  useEffect(() => {
+    if (
+      swiperRef.current &&
+      swiperRef.current.realIndex !== activeSlideIndex
+    ) {
+      swiperRef.current.slideToLoop(activeSlideIndex);
+    }
+  }, [activeSlideIndex]);
+
+  // متد دستی برای استفاده با ref
+  useImperativeHandle(ref, () => ({
+    slideTo: (index: number) => {
+      swiperRef.current?.slideToLoop(index);
+    },
+  }));
 
   const handlePrev = () => {
     swiperRef.current?.slidePrev();
@@ -61,18 +86,21 @@ export const SwiperSlider = ({
       </style>
 
       <Swiper
-        dir="ltr" // مهم: جهت‌دهی لایه‌ی Swiper
+        dir="ltr"
         loop={loop}
         autoplay={autoplay ? { delay: autoplayDelay } : false}
         pagination={showPagination ? { clickable: true } : false}
         modules={[Autoplay, Pagination]}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
-          // اطمینان از حذف جهت RTL
           swiper.el.classList.remove("swiper-rtl");
           swiper.el.setAttribute("dir", "ltr");
         }}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        onSlideChange={(swiper) => {
+          if (onActiveSlideChange) {
+            onActiveSlideChange(swiper.realIndex);
+          }
+        }}
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>{slide}</SwiperSlide>
@@ -81,7 +109,7 @@ export const SwiperSlider = ({
 
       {showNavigationButtons && (
         <>
-          {(loop || activeIndex > 0) && (
+          {(loop || activeSlideIndex > 0) && (
             <div
               onClick={handlePrev}
               className="absolute bottom-4 left-4 z-10 cursor-pointer"
@@ -94,7 +122,7 @@ export const SwiperSlider = ({
             </div>
           )}
 
-          {(loop || activeIndex < slides.length - 1) && (
+          {(loop || activeSlideIndex < slides.length - 1) && (
             <div
               onClick={handleNext}
               className="absolute bottom-4 right-4 z-10 cursor-pointer"
@@ -110,7 +138,7 @@ export const SwiperSlider = ({
       )}
     </div>
   );
-};
+});
 
 export const SwiperSliderMeta: CodeComponentMeta<SwiperSliderProps> = {
   name: "SwiperSlider",
@@ -119,9 +147,9 @@ export const SwiperSliderMeta: CodeComponentMeta<SwiperSliderProps> = {
     children: {
       type: "slot",
       defaultValue: [
-        { type: "text", value: "Slide 1" },
-        { type: "text", value: "Slide 2" },
-        { type: "text", value: "Slide 3" },
+        { type: "text", value: "اسلاید ۱" },
+        { type: "text", value: "اسلاید ۲" },
+        { type: "text", value: "اسلاید ۳" },
       ],
     },
     loop: { type: "boolean", defaultValue: true },
@@ -139,16 +167,32 @@ export const SwiperSliderMeta: CodeComponentMeta<SwiperSliderProps> = {
     className: { type: "class" },
     showNavigationButtons: {
       type: "boolean",
-      displayName: "Show Navigation Buttons",
+      displayName: "نمایش دکمه‌های ناوبری",
       defaultValue: true,
     },
     prevButtonSlot: {
       type: "slot",
-      displayName: "Prev Button",
+      displayName: "دکمه قبلی",
     },
     nextButtonSlot: {
       type: "slot",
-      displayName: "Next Button",
+      displayName: "دکمه بعدی",
+    },
+    activeSlideIndex: {
+      type: "number",
+      displayName: "اندیس اسلاید فعال",
+      description: "برای تنظیم اسلاید فعال (۰ به‌عنوان شروع)",
+      defaultValue: 0,
+    },
+    onActiveSlideChange: {
+      type: "eventHandler",
+      displayName: "تغییر اسلاید",
+      argTypes: [
+        {
+          name: "index",
+          type: "number",
+        },
+      ],
     },
   },
 };
