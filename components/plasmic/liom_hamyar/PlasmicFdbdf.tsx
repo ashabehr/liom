@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { SwiperSlider } from "@/components/SwiperSlider"; // plasmic-import: hd-bzFw1zcpE/codeComponent
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -70,6 +71,9 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFdbdf.module.css"; // plasmic-import: qMJtX7FmnNKl/css
+
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -85,6 +89,7 @@ export const PlasmicFdbdf__ArgProps = new Array<ArgPropType>();
 export type PlasmicFdbdf__OverridesType = {
   root?: Flex__<"div">;
   swiperSlider?: Flex__<typeof SwiperSlider>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultFdbdfProps {}
@@ -130,6 +135,49 @@ function PlasmicFdbdf__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "variable",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "swiperSlider.activeSlideIndex",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.variable;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -161,11 +209,15 @@ function PlasmicFdbdf__RenderFunc(props: {
             data-plasmic-name={"swiperSlider"}
             data-plasmic-override={overrides.swiperSlider}
             activeBulletColor={"#ffffff"}
+            activeSlideIndex={generateStateValueProp($state, [
+              "swiperSlider",
+              "activeSlideIndex"
+            ])}
             autoplay={false}
             autoplayDelay={3000}
             bulletColor={"#888888"}
             className={classNames("__wab_instance", sty.swiperSlider)}
-            loop={true}
+            loop={false}
             nextButtonSlot={
               <div
                 className={classNames(
@@ -177,6 +229,12 @@ function PlasmicFdbdf__RenderFunc(props: {
                 {"\u0628\u0639\u062f\u06cc"}
               </div>
             }
+            onActiveSlideIndexChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "swiperSlider",
+                "activeSlideIndex"
+              ]).apply(null, eventArgs);
+            }}
             prevButtonSlot={
               <div
                 className={classNames(
@@ -219,6 +277,63 @@ function PlasmicFdbdf__RenderFunc(props: {
               {"Slide 3"}
             </div>
           </SwiperSlider>
+          <Button
+            data-plasmic-name={"button"}
+            data-plasmic-override={overrides.button}
+            className={classNames("__wab_instance", sty.button)}
+            color={generateStateValueProp($state, ["button", "color"])}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateSwiperSliderActiveSlideIndex"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["swiperSlider", "activeSlideIndex"]
+                      },
+                      operation: 0,
+                      value: 2
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateSwiperSliderActiveSlideIndex"] != null &&
+                typeof $steps["updateSwiperSliderActiveSlideIndex"] ===
+                  "object" &&
+                typeof $steps["updateSwiperSliderActiveSlideIndex"].then ===
+                  "function"
+              ) {
+                $steps["updateSwiperSliderActiveSlideIndex"] = await $steps[
+                  "updateSwiperSliderActiveSlideIndex"
+                ];
+              }
+            }}
+            onColorChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button", "color"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -226,8 +341,9 @@ function PlasmicFdbdf__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "swiperSlider"],
-  swiperSlider: ["swiperSlider"]
+  root: ["root", "swiperSlider", "button"],
+  swiperSlider: ["swiperSlider"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -235,6 +351,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   swiperSlider: typeof SwiperSlider;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -323,6 +440,7 @@ export const PlasmicFdbdf = Object.assign(
   {
     // Helper components rendering sub-elements
     swiperSlider: makeNodeComponent("swiperSlider"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicFdbdf
     internalVariantProps: PlasmicFdbdf__VariantProps,
