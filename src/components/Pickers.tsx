@@ -1,203 +1,79 @@
-import React, {
-  useRef,
-  useEffect,
-  forwardRef,
-  useImperativeHandle,
-} from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import type { Swiper as SwiperType } from "swiper";
+import React, { useState, useEffect } from 'react';
+import Picker from 'rmc-picker';
 import { CodeComponentMeta } from "@plasmicapp/host";
+import 'rmc-picker/assets/index.css';
 
-type SwiperSliderProps = {
-  children?: React.ReactNode;
-  loop?: boolean;
-  autoplay?: boolean;
-  autoplayDelay?: number;
-  showPagination?: boolean;
-  bulletColor?: string;
-  activeBulletColor?: string;
-  className?: string;
-  showNavigationButtons?: boolean;
-  prevButtonSlot?: React.ReactNode;
-  nextButtonSlot?: React.ReactNode;
+type PickersProps = {
+  data ?: { value: string | number; label: string }[];
+  initialValue?: string | number;
+  onChange?: (value: string | number) => void;
+}
 
-  // props for Plasmic state
-  activeSlideIndex?: number;
-  onActiveSlideIndexChange?: (index: number) => void;
-};
-
-export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
+export const Pickers = (props: PickersProps) => {
   const {
-    children,
-    loop = true,
-    autoplay = true,
-    autoplayDelay = 3000,
-    showPagination = true,
-    bulletColor = "#888888",
-    activeBulletColor = "#ffffff",
-    className,
-    showNavigationButtons = true,
-    prevButtonSlot,
-    nextButtonSlot,
-    activeSlideIndex = 0,
-    onActiveSlideIndexChange,
+    data = [],
+    onChange,
+    initialValue,
   } = props;
+  
+  const [selectedValue, setSelectedValue] = useState<string | number>(initialValue || data[0]?.value);
 
-  const swiperRef = useRef<SwiperType | null>(null);
-  const slides = React.Children.toArray(children);
-
-  // Sync external state with internal swiper instance
+  // Update selectedValue whenever initialValue changes
   useEffect(() => {
-    if (
-      swiperRef.current &&
-      swiperRef.current.realIndex !== activeSlideIndex
-    ) {
-      swiperRef.current.slideToLoop(activeSlideIndex);
+    if (initialValue !== undefined) {
+      setSelectedValue(initialValue);
     }
-  }, [activeSlideIndex]);
+  }, [initialValue]);
 
-  // Expose slideTo method
-  useImperativeHandle(ref, () => ({
-    slideTo: (index: number) => {
-      swiperRef.current?.slideToLoop(index);
-    },
-  }));
-
-  const handlePrev = () => {
-    swiperRef.current?.slidePrev();
-  };
-
-  const handleNext = () => {
-    swiperRef.current?.slideNext();
+  const handleChange = (value: string | number) => {
+    setSelectedValue(value);
+    if (onChange) {
+      onChange(value);
+    }
   };
 
   return (
-    <div className={`relative ${className}`}>
-      <style>
-        {`
-          .swiper-pagination-bullet {
-            background-color: ${bulletColor} !important;
-            opacity: 0.5;
-          }
-          .swiper-pagination-bullet-active {
-            background-color: ${activeBulletColor} !important;
-            opacity: 1;
-          }
-        `}
-      </style>
-
-      <Swiper
-        dir="ltr"
-        loop={loop}
-        autoplay={autoplay ? { delay: autoplayDelay } : false}
-        pagination={showPagination ? { clickable: true } : false}
-        modules={[Autoplay, Pagination]}
-        onSwiper={(swiper) => {
-          swiperRef.current = swiper;
-          swiper.el.classList.remove("swiper-rtl");
-          swiper.el.setAttribute("dir", "ltr");
-        }}
-        onSlideChange={(swiper) => {
-          onActiveSlideIndexChange?.(swiper.realIndex);
-        }}
-      >
-        {slides.map((slide, index) => (
-          <SwiperSlide key={index}>{slide}</SwiperSlide>
-        ))}
-      </Swiper>
-
-      {showNavigationButtons && (
-        <>
-          {(loop || activeSlideIndex > 0) && (
-            <div
-              onClick={handlePrev}
-              className="absolute bottom-4 left-4 z-10 cursor-pointer"
-            >
-              {prevButtonSlot || (
-                <button className="bg-black/50 text-white px-3 py-2 rounded-full">
-                  ◀
-                </button>
-              )}
-            </div>
-          )}
-
-          {(loop || activeSlideIndex < slides.length - 1) && (
-            <div
-              onClick={handleNext}
-              className="absolute bottom-4 right-4 z-10 cursor-pointer"
-            >
-              {nextButtonSlot || (
-                <button className="bg-black/50 text-white px-3 py-2 rounded-full">
-                  ▶
-                </button>
-              )}
-            </div>
-          )}
-        </>
-      )}
-    </div>
+    <Picker selectedValue={selectedValue} onValueChange={handleChange}>
+      {data.map((item) => (
+        <Picker.Item value={item.value} key={item.value}>
+          {item.label}
+        </Picker.Item>
+      ))}
+    </Picker>
   );
-});
+};
 
-export const SwiperSliderMeta: CodeComponentMeta<SwiperSliderProps> = {
-  name: "SwiperSlider",
-  importPath: "@/components/SwiperSlider",
+export const PickersMeta: CodeComponentMeta<PickersProps> = {
+  name: 'Pickers',
+  importPath: '@/components/Pickers',
   props: {
-    children: {
-      type: "slot",
-      defaultValue: [
-        { type: "text", value: "اسلاید ۱" },
-        { type: "text", value: "اسلاید ۲" },
-        { type: "text", value: "اسلاید ۳" },
-      ],
+    data: {
+      type: 'array',
+      defaultValue: [],
+      description: 'List of options for the picker.',
     },
-    loop: { type: "boolean", defaultValue: true },
-    autoplay: { type: "boolean", defaultValue: true },
-    autoplayDelay: { type: "number", defaultValue: 3000 },
-    showPagination: { type: "boolean", defaultValue: true },
-    bulletColor: {
-      type: "color",
-      defaultValue: "#888888",
-    },
-    activeBulletColor: {
-      type: "color",
-      defaultValue: "#ffffff",
-    },
-    className: { type: "class" },
-    showNavigationButtons: {
-      type: "boolean",
-      displayName: "نمایش دکمه‌های ناوبری",
-      defaultValue: true,
-    },
-    prevButtonSlot: {
-      type: "slot",
-      displayName: "دکمه قبلی",
-    },
-    nextButtonSlot: {
-      type: "slot",
-      displayName: "دکمه بعدی",
-    },
-    activeSlideIndex: {
-      type: "number",
-      displayName: "اسلاید فعال",
-      description: "ایندکس اسلاید فعال (۰-based)",
+    initialValue: {
+      type: 'number', 
       defaultValue: 0,
+      description: 'Initial selected value.',
     },
-    onActiveSlideIndexChange: {
-      type: "eventHandler",
-      displayName: "وقتی اسلاید تغییر می‌کند",
-      argTypes: [{ name: "index", type: "number" }],
+    onChange: {
+      type: 'eventHandler',
+      argTypes: [
+        {
+          name: 'value',
+          type: 'number',
+        },
+      ],
+      description: 'Callback when a value is selected.',
     },
   },
   states: {
-    activeSlideIndex: {
-      type: "writable",
-      variableType: "number",
-      valueProp: "activeSlideIndex",
-      onChangeProp: "onActiveSlideIndexChange",
+    value: {
+      type: 'writable',
+      variableType: 'number',
+      valueProp: 'initialValue',
+      onChangeProp: 'onChange',
     },
   },
 };
