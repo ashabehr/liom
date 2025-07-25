@@ -350,3 +350,27 @@
   bottom: auto;
   display: none;
 }
+.freeBox__jf57 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 8px;
+}
+.text__caKw3 {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-SX03PBUzWAqr);
+  font-weight: 700;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  height: 1em;
+  display: none;
+}

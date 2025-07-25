@@ -92,6 +92,7 @@ export type PlasmicShopComponent__OverridesType = {
   lottie?: Flex__<typeof LottieWrapper>;
   select?: Flex__<typeof Select>;
   button?: Flex__<typeof Button>;
+  svg?: Flex__<"svg">;
 };
 
 export interface DefaultShopComponentProps {
@@ -157,7 +158,22 @@ function PlasmicShopComponent__RenderFunc(props: {
         path: "select.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "pms_sms_pack_2"
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (
+                window.localStorage.getItem("selectPack") || "0-pms_sms_pack_2"
+              ).split("-")[1];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "pms_sms_pack_2";
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "shopList",
@@ -169,7 +185,24 @@ function PlasmicShopComponent__RenderFunc(props: {
         path: "itemselected",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "0"
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return parseInt(
+                (window.localStorage.getItem("selectPack") || "0-").split(
+                  "-"
+                )[0]
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "button.color",
@@ -196,12 +229,10 @@ function PlasmicShopComponent__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return `https://tools.liom.app/shopResult?buyId=${
-                $state.shopId
-              }&?offCode=&token=${
-                $props.token
-              }&redirectUrl=${encodeURIComponent(window.location.href)}`;
-              // ""
+              return (
+                // `https://tools.liom.app/shopResult?buyId=${$state.shopId}&?offCode=&token=${$props.token}&redirectUrl=${encodeURIComponent(window.location.href)}`
+                ""
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -20170,144 +20201,181 @@ function PlasmicShopComponent__RenderFunc(props: {
                 }
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__andOg)}>
-                <Select
-                  data-plasmic-name={"select"}
-                  data-plasmic-override={overrides.select}
-                  className={classNames("__wab_instance", sty.select)}
-                  description={null}
-                  isOpen={generateStateValueProp($state, ["select", "isOpen"])}
-                  items={
-                    <React.Fragment>
-                      <MenuItem
-                        label={"   \u06f3 \u067e\u06cc\u0627\u0645\u06a9"}
-                        value={"pms_sms_pack_3"}
-                      />
-
-                      <MenuItem
-                        label={"   \u06f2 \u067e\u06cc\u0627\u0645\u06a9"}
-                        value={"pms_sms_pack_2"}
-                      />
-
-                      <MenuItem
-                        label={"   \u06f1 \u067e\u06cc\u0627\u0645\u06a9 "}
-                        value={"pms_sms_pack_1"}
-                      />
-                    </React.Fragment>
-                  }
-                  label={null}
-                  onChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "select",
-                      "value"
-                    ]).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-
-                    (async val => {
-                      const $steps = {};
-
-                      $steps["invokeGlobalAction"] = $state.select.isOpen
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                undefined,
-                                "https://n8n.staas.ir/webhook/get/pmsSms",
-                                (() => {
-                                  try {
-                                    return {
-                                      type: $state.select.value,
-                                      authorization: $props.token
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-
-                      $steps["updateShopList"] = $state.select.isOpen
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["shopList"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction?.data
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateShopList"] != null &&
-                        typeof $steps["updateShopList"] === "object" &&
-                        typeof $steps["updateShopList"].then === "function"
-                      ) {
-                        $steps["updateShopList"] = await $steps[
-                          "updateShopList"
-                        ];
-                      }
-                    }).apply(null, eventArgs);
-                  }}
-                  onOpenChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
+                {(() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.select),
+                    description: null,
+                    isOpen: generateStateValueProp($state, [
                       "select",
                       "isOpen"
-                    ]).apply(null, eventArgs);
+                    ]),
+                    items: (
+                      <React.Fragment>
+                        <MenuItem
+                          label={"   \u06f3 \u067e\u06cc\u0627\u0645\u06a9"}
+                          value={"pms_sms_pack_3"}
+                        />
 
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  placeholder={"   \u06f2 \u067e\u06cc\u0627\u0645\u06a9"}
-                  showLabel={false}
-                  value={generateStateValueProp($state, ["select", "value"])}
-                />
+                        <MenuItem
+                          label={"   \u06f2 \u067e\u06cc\u0627\u0645\u06a9"}
+                          value={"pms_sms_pack_2"}
+                        />
+
+                        <MenuItem
+                          label={"   \u06f1 \u067e\u06cc\u0627\u0645\u06a9 "}
+                          value={"pms_sms_pack_1"}
+                        />
+                      </React.Fragment>
+                    ),
+                    label: null,
+                    onChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "select",
+                        "value"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+
+                      (async val => {
+                        const $steps = {};
+
+                        $steps["invokeGlobalAction"] = $state.select.isOpen
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  undefined,
+                                  "https://n8n.staas.ir/webhook/get/pmsSms",
+                                  (() => {
+                                    try {
+                                      return {
+                                        type: $state.select.value,
+                                        authorization: $props.token
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+
+                        $steps["updateShopList"] = $state.select.isOpen
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["shopList"]
+                                },
+                                operation: 0,
+                                value: $steps.invokeGlobalAction?.data
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateShopList"] != null &&
+                          typeof $steps["updateShopList"] === "object" &&
+                          typeof $steps["updateShopList"].then === "function"
+                        ) {
+                          $steps["updateShopList"] = await $steps[
+                            "updateShopList"
+                          ];
+                        }
+                      }).apply(null, eventArgs);
+                    },
+                    onOpenChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "select",
+                        "isOpen"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    },
+                    placeholder: ``,
+                    showLabel: false,
+                    value: generateStateValueProp($state, ["select", "value"])
+                  };
+
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "select.value",
+                        initFunc: ({ $props, $state, $queries }) =>
+                          (() => {
+                            try {
+                              return (
+                                window.localStorage.getItem("selectPack") ||
+                                "0-pms_sms_pack_2"
+                              ).split("-")[1];
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "pms_sms_pack_2";
+                              }
+                              throw e;
+                            }
+                          })()
+                      }
+                    ],
+                    []
+                  );
+                  return (
+                    <Select
+                      data-plasmic-name={"select"}
+                      data-plasmic-override={overrides.select}
+                      {...child$Props}
+                    />
+                  );
+                })()}
               </div>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__k0Rnt)}>
@@ -20815,6 +20883,56 @@ function PlasmicShopComponent__RenderFunc(props: {
               {"\u067e\u0631\u062f\u0627\u062e\u062a"}
             </div>
           </Button>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__jf57)}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          window.localStorage.setItem("buyLater", "true");
+                          return window.localStorage.setItem(
+                            "selectPack",
+                            `${$state.select.value}-${$state.itemselected}`
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__caKw3
+              )}
+            >
+              {
+                "\u0628\u0639\u062f\u0627 \u067e\u0631\u062f\u0627\u062e\u062a \u0645\u06cc\u06a9\u0646\u0645 >"
+              }
+            </div>
+            <CheckSvgIcon
+              data-plasmic-name={"svg"}
+              data-plasmic-override={overrides.svg}
+              className={classNames(projectcss.all, sty.svg)}
+              role={"img"}
+            />
+          </div>
         </div>
       </section>
     </div>
@@ -20822,11 +20940,12 @@ function PlasmicShopComponent__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideEffect", "lottie", "select", "button"],
+  root: ["root", "sideEffect", "lottie", "select", "button", "svg"],
   sideEffect: ["sideEffect"],
   lottie: ["lottie"],
   select: ["select"],
-  button: ["button"]
+  button: ["button"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -20837,6 +20956,7 @@ type NodeDefaultElementType = {
   lottie: typeof LottieWrapper;
   select: typeof Select;
   button: typeof Button;
+  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -20903,6 +21023,7 @@ export const PlasmicShopComponent = Object.assign(
     lottie: makeNodeComponent("lottie"),
     select: makeNodeComponent("select"),
     button: makeNodeComponent("button"),
+    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicShopComponent
     internalVariantProps: PlasmicShopComponent__VariantProps,
