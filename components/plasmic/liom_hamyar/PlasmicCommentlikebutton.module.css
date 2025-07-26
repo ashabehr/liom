@@ -58,6 +58,7 @@
   position: relative;
   left: auto;
   top: auto;
+  margin-bottom: 0px;
   flex-shrink: 0;
 }
 .svgislikecomment {

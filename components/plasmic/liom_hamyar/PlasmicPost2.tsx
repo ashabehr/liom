@@ -1478,45 +1478,6 @@ function PlasmicPost2__RenderFunc(props: {
                             __plasmic_idx_0,
                             "commentData"
                           ]),
-                          commentId: (() => {
-                            try {
-                              return currentItem.comment.id;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          commenttime: (() => {
-                            try {
-                              return currentItem.comment.updatedAt;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          dataUserCurrent: (() => {
-                            try {
-                              return currentItem.comment;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
                           delet: async event => {
                             const $steps = {};
 
@@ -1690,87 +1651,9 @@ function PlasmicPost2__RenderFunc(props: {
                             __plasmic_idx_0,
                             "like"
                           ]),
-                          mainCommentLikeCount: (() => {
-                            try {
-                              return currentItem.likeCount;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          mainImag: (() => {
-                            try {
-                              return currentItem.user.image;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          mainName: (() => {
-                            try {
-                              return currentItem.user.name;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          mainText: (() => {
-                            try {
-                              return currentItem.comment.text;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          mainUsername: (() => {
-                            try {
-                              return currentItem.user.username;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
                           me: (() => {
                             try {
                               return currentItem.user.id == "830508";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          modalvalueforcomment: (() => {
-                            try {
-                              return $state.modal.open;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -2019,7 +1902,7 @@ function PlasmicPost2__RenderFunc(props: {
                               return;
                             }
                           },
-                          onLikeChange2: async (...eventArgs: any) => {
+                          onLikeChange: async (...eventArgs: any) => {
                             generateStateOnChangeProp($state, [
                               "comment",
                               __plasmic_idx_0,
@@ -2034,20 +1917,7 @@ function PlasmicPost2__RenderFunc(props: {
                               return;
                             }
                           },
-                          replyCount: (() => {
-                            try {
-                              return currentItem.replyCount;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          tokennnn: (() => {
+                          token: (() => {
                             try {
                               return $state.token;
                             } catch (e) {
@@ -2077,21 +1947,7 @@ function PlasmicPost2__RenderFunc(props: {
                               }
                               throw e;
                             }
-                          })(),
-                          valuForShereForLikeComment: (() => {
-                            try {
-                              return $state.shere;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return false;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          whenHaveNoReply: undefined
+                          })()
                         };
 
                         initializePlasmicStates(
@@ -2127,7 +1983,7 @@ function PlasmicPost2__RenderFunc(props: {
                                       e?.plasmicType ===
                                         "PlasmicUndefinedDataError"
                                     ) {
-                                      return true;
+                                      return false;
                                     }
                                     throw e;
                                   }
