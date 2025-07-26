@@ -213,7 +213,7 @@ function PlasmicPost2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzMDUwOCIsImFwcCI6InNoYXJlIiwibmFtZSI6InNoYXJlIn0.RROB1VkkE_RQnSsUEPG_CpfgVh2yRtVSVLpiHsY62uM"
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U"
       },
       {
         path: "comment[].commentData",
@@ -2019,7 +2019,7 @@ function PlasmicPost2__RenderFunc(props: {
                               return;
                             }
                           },
-                          onLikeChange: async (...eventArgs: any) => {
+                          onLikeChange2: async (...eventArgs: any) => {
                             generateStateOnChangeProp($state, [
                               "comment",
                               __plasmic_idx_0,
@@ -2102,7 +2102,7 @@ function PlasmicPost2__RenderFunc(props: {
                               initFunc: ({ $props, $state, $queries }) =>
                                 (() => {
                                   try {
-                                    return undefined;
+                                    return currentItem;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||

@@ -136,7 +136,7 @@ export type PlasmicComment__ArgsType = {
   delet?: (event: any) => void;
   edit?: (event: any) => void;
   like?: boolean;
-  onLikeChange?: (val: string) => void;
+  onLikeChange2?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
@@ -165,7 +165,7 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "delet",
   "edit",
   "like",
-  "onLikeChange"
+  "onLikeChange2"
 );
 
 export type PlasmicComment__OverridesType = {
@@ -211,7 +211,7 @@ export interface DefaultCommentProps {
   delet?: (event: any) => void;
   edit?: (event: any) => void;
   like?: boolean;
-  onLikeChange?: (val: string) => void;
+  onLikeChange2?: (val: string) => void;
   whenHaveNoReply?: SingleBooleanChoiceArg<"whenHaveNoReply">;
   whenHaveReply?: SingleBooleanChoiceArg<"whenHaveReply">;
   showReply?: SingleBooleanChoiceArg<"showReply">;
@@ -447,7 +447,7 @@ function PlasmicComment__RenderFunc(props: {
         variableType: "boolean",
 
         valueProp: "like",
-        onChangeProp: "onLikeChange"
+        onChangeProp: "onLikeChange2"
       },
       {
         path: "commentlikebutton2.like",
@@ -1329,7 +1329,7 @@ function PlasmicComment__RenderFunc(props: {
               const $steps = {};
 
               $steps["invokeGlobalAction"] =
-                $state.commentlikebutton2.islikecomment == true
+                $state.like != true
                   ? (() => {
                       const actionArgs = {
                         args: [
@@ -1372,7 +1372,7 @@ function PlasmicComment__RenderFunc(props: {
               }
 
               $steps["invokeGlobalAction2"] =
-                $state.commentlikebutton2.islikecomment == false
+                $state.like == true
                   ? (() => {
                       const actionArgs = {
                         args: [
