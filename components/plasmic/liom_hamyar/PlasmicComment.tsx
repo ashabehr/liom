@@ -602,7 +602,12 @@ function PlasmicComment__RenderFunc(props: {
                   e instanceof TypeError ||
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  return undefined;
+                  return {
+                    src: "/plasmic/liom_hamyar/images/imagePlaceholder3.svg",
+                    fullWidth: 118,
+                    fullHeight: 118,
+                    aspectRatio: 1
+                  };
                 }
                 throw e;
               }

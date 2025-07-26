@@ -913,9 +913,6 @@
     margin-bottom: 0px;
   }
 }
-.comment:global(.__wab_instance) {
-  margin-bottom: 0px;
-}
 .section__l5Nnd {
   position: fixed;
   padding-right: 0;
@@ -1010,7 +1007,7 @@
   max-width: 100%;
   left: auto;
   top: auto;
-  z-index: 2;
+  z-index: 4;
   right: auto;
   bottom: auto;
   background: var(--token-R_Rsn0nP9oIv);
@@ -1063,7 +1060,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: var(--token-55cSeNPovQFh);
+  background: none;
   opacity: 1;
   min-width: 0;
   border-radius: 50%;

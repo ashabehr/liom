@@ -208,23 +208,23 @@ function PlasmicUploudeTime__RenderFunc(props: {
                 const diffInMonths = Math.floor(diffInDays / 30);
                 let result = "";
                 if (diffInMinutes < 60) {
-                  result = `${diffInMinutes} دقیقه پیش`;
+                  result = `${diffInMinutes} دقیقه قبل`;
                 } else if (diffInHours < 24) {
-                  result = `${diffInHours} ساعت پیش`;
+                  result = `${diffInHours} ساعت قبل`;
                 } else if (diffInDays < 7) {
-                  result = `${diffInDays} روز پیش`;
+                  result = `${diffInDays} روز قبل`;
                 } else if (diffInDays < 30) {
                   const diffInWeeks = Math.floor(diffInDays / 7);
-                  result = `${diffInWeeks} هفته پیش`;
+                  result = `${diffInWeeks} هفته قبل`;
                 } else if (diffInMonths < 12) {
-                  result = `${diffInMonths} ماه پیش`;
+                  result = `${diffInMonths} ماه قبل`;
                 } else {
                   const years = Math.floor(diffInMonths / 12);
                   const remainingMonths = diffInMonths % 12;
                   if (remainingMonths === 0) {
-                    result = `${years} سال پیش`;
+                    result = `${years} سال قبل`;
                   } else {
-                    result = `${years} سال و ${remainingMonths} ماه پیش`;
+                    result = `${years} سال و ${remainingMonths} ماه قبل`;
                   }
                 }
                 return result;
