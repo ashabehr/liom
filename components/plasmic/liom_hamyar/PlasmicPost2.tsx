@@ -2244,7 +2244,7 @@ function PlasmicPost2__RenderFunc(props: {
                             throw e;
                           }
                         })()}
-                        triggerOnce={true}
+                        triggerOnce={false}
                       >
                         {(() => {
                           try {
