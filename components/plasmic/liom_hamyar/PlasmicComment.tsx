@@ -1084,7 +1084,7 @@ function PlasmicComment__RenderFunc(props: {
               const $steps = {};
 
               $steps["invokeGlobalAction"] =
-                $state.like != true
+                $props.commentData.isLiked != true
                   ? (() => {
                       const actionArgs = {
                         args: [
@@ -1127,7 +1127,7 @@ function PlasmicComment__RenderFunc(props: {
               }
 
               $steps["invokeGlobalAction2"] =
-                $state.like == true
+                $props.commentData.isLiked == true
                   ? (() => {
                       const actionArgs = {
                         args: [
@@ -1188,7 +1188,7 @@ function PlasmicComment__RenderFunc(props: {
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
-              return $props.commentData;
+              return $state.replyData;
             } catch (e) {
               if (
                 e instanceof TypeError ||
