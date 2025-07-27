@@ -328,7 +328,7 @@ function PlasmicComment__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.commentData.isLiked;
+              return $props.commentData.isLiked;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -355,7 +355,7 @@ function PlasmicComment__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.commentData.isLiked;
+              return $props.commentData.isLiked;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -366,6 +366,18 @@ function PlasmicComment__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "replyData",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "myComment",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -403,10 +415,18 @@ function PlasmicComment__RenderFunc(props: {
             "unnamedGroupOfVariants",
             "whenHaveNoReply"
           ),
+          [sty.rootunnamedGroupOfVariants_whenHaveNoReply_whenIsAdminTrue]:
+            hasVariant($state, "whenIsAdminTrue", "whenIsAdminTrue") &&
+            hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
           [sty.rootunnamedGroupOfVariants_whenHaveReply]: hasVariant(
             $state,
             "unnamedGroupOfVariants",
             "whenHaveReply"
+          ),
+          [sty.rootwhenIsAdminTrue]: hasVariant(
+            $state,
+            "whenIsAdminTrue",
+            "whenIsAdminTrue"
           )
         }
       )}
@@ -438,7 +458,7 @@ function PlasmicComment__RenderFunc(props: {
             loading={"lazy"}
             src={(() => {
               try {
-                return $state.commentData.user.image;
+                return $props.commentData.user.image;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -482,7 +502,7 @@ function PlasmicComment__RenderFunc(props: {
               <React.Fragment>
                 {(() => {
                   try {
-                    return $state.commentData.user.name;
+                    return $props.commentData.user.name;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -513,7 +533,7 @@ function PlasmicComment__RenderFunc(props: {
               <React.Fragment>
                 {(() => {
                   try {
-                    return $state.commentData.user.username;
+                    return $props.commentData.user.username;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -535,7 +555,10 @@ function PlasmicComment__RenderFunc(props: {
         >
           <div className={classNames(projectcss.all, sty.freeBox__wzkeY)}>
             <UploudeTime
-              className={classNames("__wab_instance", sty.uploudeTime__zqho8)}
+              className={classNames("__wab_instance", sty.uploudeTime__zqho8, {
+                [sty.uploudeTimeunnamedGroupOfVariants_showReply__zqho8KDgzF]:
+                  hasVariant($state, "unnamedGroupOfVariants", "showReply")
+              })}
               posttime={(() => {
                 try {
                   return (() => {
@@ -562,7 +585,7 @@ function PlasmicComment__RenderFunc(props: {
                       };
                     }
                     const newCreatedAt = addTime(
-                      $state.commentData.comment.createdAt,
+                      $props.commentData.comment.createdAt,
                       3,
                       30
                     );
@@ -890,7 +913,7 @@ function PlasmicComment__RenderFunc(props: {
             <React.Fragment>
               {(() => {
                 try {
-                  return $state.commentData.comment.text;
+                  return $props.commentData.comment.text;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -1003,7 +1026,7 @@ function PlasmicComment__RenderFunc(props: {
           like={generateStateValueProp($state, ["commentlikebutton2", "like"])}
           likeCommentCount={(() => {
             try {
-              return $state.commentData.likeCount;
+              return $props.commentData.likeCount;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1070,7 +1093,7 @@ function PlasmicComment__RenderFunc(props: {
                           (() => {
                             try {
                               return {
-                                commentId: $state.commentData.comment.id,
+                                commentId: $props.commentData.comment.id,
                                 type: "",
                                 subType: "",
                                 authorization: $props.token
@@ -1114,7 +1137,7 @@ function PlasmicComment__RenderFunc(props: {
                           (() => {
                             try {
                               return {
-                                commentId: $state.commentData.comment.id,
+                                commentId: $props.commentData.comment.id,
                                 authorization: $props.token
                               };
                             } catch (e) {
@@ -1165,7 +1188,7 @@ function PlasmicComment__RenderFunc(props: {
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
-              return $state.commentData;
+              return $props.commentData;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1557,7 +1580,7 @@ function PlasmicComment__RenderFunc(props: {
                     (() => {
                       try {
                         return {
-                          commentId: $state.commentData.comment.id,
+                          commentId: $props.commentData.comment.id,
                           size: 10,
                           from: 0,
                           authorization: $props.token
@@ -1592,12 +1615,12 @@ function PlasmicComment__RenderFunc(props: {
             $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
           }
 
-          $steps["updateCommentData"] = true
+          $steps["updateReplyData"] = true
             ? (() => {
                 const actionArgs = {
                   variable: {
                     objRoot: $state,
-                    variablePath: ["commentData"]
+                    variablePath: ["replyData"]
                   },
                   operation: 0,
                   value: $steps.invokeGlobalAction?.data.result
@@ -1614,11 +1637,11 @@ function PlasmicComment__RenderFunc(props: {
               })()
             : undefined;
           if (
-            $steps["updateCommentData"] != null &&
-            typeof $steps["updateCommentData"] === "object" &&
-            typeof $steps["updateCommentData"].then === "function"
+            $steps["updateReplyData"] != null &&
+            typeof $steps["updateReplyData"] === "object" &&
+            typeof $steps["updateReplyData"].then === "function"
           ) {
-            $steps["updateCommentData"] = await $steps["updateCommentData"];
+            $steps["updateReplyData"] = await $steps["updateReplyData"];
           }
 
           $steps["updateCommentData2"] = true
@@ -1697,22 +1720,96 @@ function PlasmicComment__RenderFunc(props: {
               {
                 [sty.textunnamedGroupOfVariants_showReply__aAapokDgzF]:
                   hasVariant($state, "unnamedGroupOfVariants", "showReply"),
+                [sty.textunnamedGroupOfVariants_showReply_whenIsAdminTrue__aAapokDgzFRBgTe]:
+                  hasVariant($state, "whenIsAdminTrue", "whenIsAdminTrue") &&
+                  hasVariant($state, "unnamedGroupOfVariants", "showReply"),
                 [sty.textunnamedGroupOfVariants_whenHaveNoReply__aAapoCt3Kq]:
                   hasVariant(
                     $state,
                     "unnamedGroupOfVariants",
                     "whenHaveNoReply"
                   ),
+                [sty.textunnamedGroupOfVariants_whenHaveNoReply_whenIsAdminTrue__aAapoCt3KqRBgTe]:
+                  hasVariant($state, "whenIsAdminTrue", "whenIsAdminTrue") &&
+                  hasVariant(
+                    $state,
+                    "unnamedGroupOfVariants",
+                    "whenHaveNoReply"
+                  ),
                 [sty.textunnamedGroupOfVariants_whenHaveReply__aAapoKmMee]:
-                  hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply")
+                  hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
+                [sty.textunnamedGroupOfVariants_whenHaveReply_whenIsAdminTrue__aAapoKmMeeRBgTe]:
+                  hasVariant($state, "whenIsAdminTrue", "whenIsAdminTrue") &&
+                  hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
+                [sty.textwhenIsAdminTrue__aAaporBgTe]: hasVariant(
+                  $state,
+                  "whenIsAdminTrue",
+                  "whenIsAdminTrue"
+                )
               }
             )}
           >
-            {hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply") ? (
+            {hasVariant($state, "whenIsAdminTrue", "whenIsAdminTrue") ? (
               <React.Fragment>
                 {(() => {
                   try {
-                    return `مشاهده ${$state.commentData.replyCount} پاسخ`;
+                    return `مشاهده ${$props.commentData.replyCount} پاسخ`;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            ) : hasVariant(
+                $state,
+                "unnamedGroupOfVariants",
+                "whenHaveNoReply"
+              ) ? (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return `مشاهده ${$props.commentData.replyCount} پاسخ`;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            ) : hasVariant(
+                $state,
+                "unnamedGroupOfVariants",
+                "whenHaveReply"
+              ) ? (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return `مشاهده ${$props.commentData.replyCount} پاسخ`;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "\u0645\u0634\u0627\u0647\u062f\u0647 \u06f3 \u067e\u0627\u0633\u062e";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            ) : hasVariant($state, "unnamedGroupOfVariants", "showReply") ? (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return `مشاهده ${$props.commentData.replyCount} پاسخ`;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1728,7 +1825,7 @@ function PlasmicComment__RenderFunc(props: {
               <React.Fragment>
                 {(() => {
                   try {
-                    return `مشاهده ${$state.commentData.replyCount} پاسخ`;
+                    return `مشاهده ${$props.commentData.replyCount} پاسخ`;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1895,12 +1992,12 @@ function PlasmicComment__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["updateCommentData"] = true
+                  $steps["updateMyComment"] = true
                     ? (() => {
                         const actionArgs = {
                           variable: {
                             objRoot: $state,
-                            variablePath: ["commentData"]
+                            variablePath: ["myComment"]
                           },
                           operation: 0
                         };
@@ -1921,13 +2018,11 @@ function PlasmicComment__RenderFunc(props: {
                       })()
                     : undefined;
                   if (
-                    $steps["updateCommentData"] != null &&
-                    typeof $steps["updateCommentData"] === "object" &&
-                    typeof $steps["updateCommentData"].then === "function"
+                    $steps["updateMyComment"] != null &&
+                    typeof $steps["updateMyComment"] === "object" &&
+                    typeof $steps["updateMyComment"].then === "function"
                   ) {
-                    $steps["updateCommentData"] = await $steps[
-                      "updateCommentData"
-                    ];
+                    $steps["updateMyComment"] = await $steps["updateMyComment"];
                   }
 
                   $steps["runDelet"] = true
