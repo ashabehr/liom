@@ -220,7 +220,7 @@ function PlasmicComment__RenderFunc(props: {
         onChangeProp: "onCommentDataChange"
       },
       {
-        path: "commentlikebutton2.variableForLikeCountComment",
+        path: "commentlikebutton2.likeCount",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -1066,10 +1066,10 @@ function PlasmicComment__RenderFunc(props: {
               return;
             }
           }}
-          onVariableForLikeCountCommentChange={async (...eventArgs: any) => {
+          onLikeCountChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, [
               "commentlikebutton2",
-              "variableForLikeCountComment"
+              "likeCount"
             ]).apply(null, eventArgs);
 
             if (

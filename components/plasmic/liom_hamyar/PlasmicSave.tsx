@@ -530,7 +530,7 @@ function PlasmicSave__RenderFunc(props: {
             ];
           }
 
-          $steps["updateBookmarkcount2"] = !$state.isbookMarked
+          $steps["updateBookmarkcount2"] = $state.isbookMarked
             ? (() => {
                 const actionArgs = {
                   args: [
@@ -571,7 +571,7 @@ function PlasmicSave__RenderFunc(props: {
             ];
           }
 
-          $steps["updateBookmarkcount3"] = $state.isbookMarked
+          $steps["updateBookmarkcount3"] = !$state.isbookMarked
             ? (() => {
                 const actionArgs = {
                   args: [

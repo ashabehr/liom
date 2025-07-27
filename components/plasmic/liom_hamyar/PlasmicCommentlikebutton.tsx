@@ -85,7 +85,7 @@ export const PlasmicCommentlikebutton__VariantProps =
 
 export type PlasmicCommentlikebutton__ArgsType = {
   onIslikecommentChange?: (val: any) => void;
-  onVariableForLikeCountCommentChange?: (val: string) => void;
+  onLikeCountChange?: (val: string) => void;
   likeCommentCount?: string;
   coomentLikeBool?: boolean;
   carrentData?: string;
@@ -97,7 +97,7 @@ export type PlasmicCommentlikebutton__ArgsType = {
 type ArgPropType = keyof PlasmicCommentlikebutton__ArgsType;
 export const PlasmicCommentlikebutton__ArgProps = new Array<ArgPropType>(
   "onIslikecommentChange",
-  "onVariableForLikeCountCommentChange",
+  "onLikeCountChange",
   "likeCommentCount",
   "coomentLikeBool",
   "carrentData",
@@ -116,7 +116,7 @@ export type PlasmicCommentlikebutton__OverridesType = {
 
 export interface DefaultCommentlikebuttonProps {
   onIslikecommentChange?: (val: any) => void;
-  onVariableForLikeCountCommentChange?: (val: string) => void;
+  onLikeCountChange?: (val: string) => void;
   likeCommentCount?: string;
   coomentLikeBool?: boolean;
   carrentData?: string;
@@ -184,7 +184,7 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
         onChangeProp: "onIslikecommentChange"
       },
       {
-        path: "variableForLikeCountComment",
+        path: "likeCount",
         type: "readonly",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -202,7 +202,7 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
             }
           })(),
 
-        onChangeProp: "onVariableForLikeCountCommentChange"
+        onChangeProp: "onLikeCountChange"
       },
       {
         path: "like",
@@ -298,14 +298,11 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
                 const actionArgs = {
                   variable: {
                     objRoot: $state,
-                    variablePath: ["variableForLikeCountComment"]
+                    variablePath: ["likeCount"]
                   },
                   operation: 0,
-                  value: (() => {
-                    return ($state.variableForLikeCountComment =
-                      (parseInt($state.variableForLikeCountComment) || 0) +
-                      (!$state.like ? 1 : -1));
-                  })()
+                  value: ($state.likeCount =
+                    (parseInt($state.likeCount) || 0) + (!$state.like ? 1 : -1))
                 };
                 return (({ variable, value, startIndex, deleteCount }) => {
                   if (!variable) {
@@ -349,7 +346,7 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
           <React.Fragment>
             {(() => {
               try {
-                return $state.variableForLikeCountComment;
+                return $state.likeCount;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
