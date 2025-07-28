@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { SwiperSlider } from "@/components/SwiperSlider"; // plasmic-import: hd-bzFw1zcpE/codeComponent
 import IntroComponent from "../../IntroComponent"; // plasmic-import: Bw86EHWi2EN9/component
 import HamyarAddComponent from "../../HamyarAddComponent"; // plasmic-import: RArtpE5tE0Da/component
@@ -94,6 +95,7 @@ export const PlasmicIntroPage__ArgProps = new Array<ArgPropType>();
 export type PlasmicIntroPage__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
+  embedHtml?: Flex__<typeof Embed>;
   swiperSlider?: Flex__<typeof SwiperSlider>;
   hamyarAddComponent?: Flex__<typeof HamyarAddComponent>;
   shopComponent?: Flex__<typeof ShopComponent>;
@@ -545,6 +547,15 @@ function PlasmicIntroPage__RenderFunc(props: {
             }}
           />
 
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              "<script>\n  function setVh() {\n    const vh = window.innerHeight * 0.01;\n    document.documentElement.style.setProperty('--vh', `${vh}px`);\n  }\n\n  setVh();\n  window.addEventListener('resize', setVh);\n</script>"
+            }
+          />
+
           <SwiperSlider
             data-plasmic-name={"swiperSlider"}
             data-plasmic-override={overrides.swiperSlider}
@@ -816,6 +827,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "sideEffect",
+    "embedHtml",
     "swiperSlider",
     "hamyarAddComponent",
     "shopComponent",
@@ -823,6 +835,7 @@ const PlasmicDescendants = {
     "button"
   ],
   sideEffect: ["sideEffect"],
+  embedHtml: ["embedHtml"],
   swiperSlider: [
     "swiperSlider",
     "hamyarAddComponent",
@@ -841,6 +854,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
+  embedHtml: typeof Embed;
   swiperSlider: typeof SwiperSlider;
   hamyarAddComponent: typeof HamyarAddComponent;
   shopComponent: typeof ShopComponent;
@@ -934,6 +948,7 @@ export const PlasmicIntroPage = Object.assign(
   {
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
+    embedHtml: makeNodeComponent("embedHtml"),
     swiperSlider: makeNodeComponent("swiperSlider"),
     hamyarAddComponent: makeNodeComponent("hamyarAddComponent"),
     shopComponent: makeNodeComponent("shopComponent"),
