@@ -257,7 +257,8 @@
   align-items: center;
   border-top-width: 1px;
   border-top-style: solid;
-  padding-bottom: 60px;
+  padding-bottom: 0px;
+  margin-bottom: 5%;
   min-width: 0;
 }
 .freeBox__zso2O {

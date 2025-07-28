@@ -167,6 +167,12 @@ function PlasmicFdbdf__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "swiperSlider.lockSlides",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -217,6 +223,10 @@ function PlasmicFdbdf__RenderFunc(props: {
             autoplayDelay={3000}
             bulletColor={"#888888"}
             className={classNames("__wab_instance", sty.swiperSlider)}
+            lockSlides={generateStateValueProp($state, [
+              "swiperSlider",
+              "lockSlides"
+            ])}
             loop={false}
             nextButtonSlot={
               <div
@@ -233,6 +243,12 @@ function PlasmicFdbdf__RenderFunc(props: {
               generateStateOnChangeProp($state, [
                 "swiperSlider",
                 "activeSlideIndex"
+              ]).apply(null, eventArgs);
+            }}
+            onLockSlidesChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "swiperSlider",
+                "lockSlides"
               ]).apply(null, eventArgs);
             }}
             prevButtonSlot={

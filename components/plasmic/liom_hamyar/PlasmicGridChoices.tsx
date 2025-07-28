@@ -88,7 +88,7 @@ export const PlasmicGridChoices__VariantProps = new Array<VariantPropType>(
 export type PlasmicGridChoices__ArgsType = {
   beforList?: any;
   list?: any;
-  onListChange?: (val: string) => void;
+  onListChange2?: (val: string) => void;
   html?: string;
   shape?: string;
   selectOne?: boolean;
@@ -98,7 +98,7 @@ type ArgPropType = keyof PlasmicGridChoices__ArgsType;
 export const PlasmicGridChoices__ArgProps = new Array<ArgPropType>(
   "beforList",
   "list",
-  "onListChange",
+  "onListChange2",
   "html",
   "shape",
   "selectOne",
@@ -115,7 +115,7 @@ export type PlasmicGridChoices__OverridesType = {
 export interface DefaultGridChoicesProps {
   beforList?: any;
   list?: any;
-  onListChange?: (val: string) => void;
+  onListChange2?: (val: string) => void;
   html?: string;
   shape?: string;
   selectOne?: boolean;
@@ -218,7 +218,7 @@ function PlasmicGridChoices__RenderFunc(props: {
         variableType: "array",
 
         valueProp: "list",
-        onChangeProp: "onListChange"
+        onChangeProp: "onListChange2"
       },
       {
         path: "select",
@@ -430,9 +430,7 @@ function PlasmicGridChoices__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return (() => {
-                                return ($state.list = [currentItem.value]);
-                              })();
+                              return ($state.list = [currentItem.value]);
                             }
                           };
                           return (({ customFunction }) => {
