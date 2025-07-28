@@ -123,19 +123,6 @@
     flex-shrink: 0;
   }
 }
-.freeBox__nte5V {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  max-width: 100%;
-  justify-content: flex-start;
-  align-items: center;
-  min-width: 0;
-}
-.signsComponent:global(.__wab_instance) {
-  max-width: 100%;
-}
 .freeBox___2Wo28 {
   display: flex;
   flex-direction: column;
@@ -147,6 +134,34 @@
   min-width: 0;
 }
 .hamyarAddComponent:global(.__wab_instance) {
+  max-width: 100%;
+}
+.freeBox__nte5V {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+}
+.signsComponent__aScr:global(.__wab_instance) {
+  max-width: 100%;
+}
+.freeBox___52Efx {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+}
+.signsComponent__hAyT5:global(.__wab_instance) {
   max-width: 100%;
 }
 .freeBox__zf5KZ {

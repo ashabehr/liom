@@ -273,7 +273,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFiZjE1OWY1LWI1MTctNGI3OC1hNTllLTZkODhjODk5M2Q5MiIsIm5hbWUiOiJKb2huIERvZSIsImFkbWluIjp0cnVlLCJpYXQiOjE1MTYyMzkwMjJ9.XT-BYbCnJOmNCZwZSFLFKetz2lcy3gwZC9DXg8tlGRk"
       },
       {
         path: "paramsObject",
@@ -355,7 +356,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               onMount={async () => {
                 const $steps = {};
 
-                $steps["getParams"] = true
+                $steps["getParams"] = false
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -382,7 +383,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   $steps["getParams"] = await $steps["getParams"];
                 }
 
-                $steps["clearParams"] = true
+                $steps["clearParams"] = false
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -418,7 +419,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   $steps["clearParams"] = await $steps["clearParams"];
                 }
 
-                $steps["setCookie"] = true
+                $steps["setCookie"] = false
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -458,7 +459,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   $steps["setCookie"] = await $steps["setCookie"];
                 }
 
-                $steps["getCookie"] = true
+                $steps["getCookie"] = false
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -487,6 +488,70 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                 ) {
                   $steps["getCookie"] = await $steps["getCookie"];
                 }
+
+                $steps["getUser"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/users/profile",
+                          undefined,
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                headers: { Authorization: $state.token }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["getUser"] != null &&
+                  typeof $steps["getUser"] === "object" &&
+                  typeof $steps["getUser"].then === "function"
+                ) {
+                  $steps["getUser"] = await $steps["getUser"];
+                }
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            console.log($steps.getUser.data);
+                            $state.paramsObject.status =
+                              $steps.getUser.data.healthStatus;
+                            return ($state.loading = false);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
               }}
             />
 
@@ -506,7 +571,10 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                 try {
                   return {
                     Authorization: $state.token,
-                    sub: "selfHamyarSmsSubStatus"
+                    sub:
+                      $state.paramsObject.status == "pregnancy"
+                        ? "pregnancySelfSmsStatus"
+                        : "selfHamyarSmsSubStatus"
                   };
                 } catch (e) {
                   if (
@@ -542,40 +610,6 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
 
                 (async data => {
                   const $steps = {};
-
-                  $steps["updateLoading"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loading"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateLoading"] != null &&
-                    typeof $steps["updateLoading"] === "object" &&
-                    typeof $steps["updateLoading"].then === "function"
-                  ) {
-                    $steps["updateLoading"] = await $steps["updateLoading"];
-                  }
 
                   $steps["updateState"] = true
                     ? (() => {

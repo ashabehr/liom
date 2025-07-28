@@ -65,8 +65,8 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { SwiperSlider } from "@/components/SwiperSlider"; // plasmic-import: hd-bzFw1zcpE/codeComponent
 import IntroComponent from "../../IntroComponent"; // plasmic-import: Bw86EHWi2EN9/component
-import SignsComponent from "../../SignsComponent"; // plasmic-import: gsWLWidDp5XD/component
 import HamyarAddComponent from "../../HamyarAddComponent"; // plasmic-import: RArtpE5tE0Da/component
+import SignsComponent from "../../SignsComponent"; // plasmic-import: gsWLWidDp5XD/component
 import ShopComponent from "../../ShopComponent"; // plasmic-import: gkIHYHT9LpaR/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
@@ -95,7 +95,6 @@ export type PlasmicIntroPage__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
   swiperSlider?: Flex__<typeof SwiperSlider>;
-  signsComponent?: Flex__<typeof SignsComponent>;
   hamyarAddComponent?: Flex__<typeof HamyarAddComponent>;
   shopComponent?: Flex__<typeof ShopComponent>;
   button2?: Flex__<typeof Button>;
@@ -153,13 +152,13 @@ function PlasmicIntroPage__RenderFunc(props: {
         path: "button.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
         path: "button2.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
         path: "token",
@@ -642,7 +641,13 @@ function PlasmicIntroPage__RenderFunc(props: {
             showNavigationButtons={true}
             showPagination={true}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__u4DXd)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox__u4DXd,
+                "viewPager"
+              )}
+            >
               <IntroComponent
                 className={classNames(
                   "__wab_instance",
@@ -698,26 +703,6 @@ function PlasmicIntroPage__RenderFunc(props: {
                 }
               />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__nte5V)}>
-              <SignsComponent
-                data-plasmic-name={"signsComponent"}
-                data-plasmic-override={overrides.signsComponent}
-                className={classNames("__wab_instance", sty.signsComponent)}
-                token={(() => {
-                  try {
-                    return $state.token;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-              />
-            </div>
             <div className={classNames(projectcss.all, sty.freeBox___2Wo28)}>
               <HamyarAddComponent
                 data-plasmic-name={"hamyarAddComponent"}
@@ -738,7 +723,69 @@ function PlasmicIntroPage__RenderFunc(props: {
                 })()}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__zf5KZ)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox__nte5V,
+                "viewPager"
+              )}
+            >
+              <SignsComponent
+                className={classNames(
+                  "__wab_instance",
+                  sty.signsComponent__aScr
+                )}
+                token={(() => {
+                  try {
+                    return $state.token;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                types={{ list: ["befor"] }}
+              />
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox___52Efx,
+                "viewPager"
+              )}
+            >
+              <SignsComponent
+                className={classNames(
+                  "__wab_instance",
+                  sty.signsComponent__hAyT5
+                )}
+                token={(() => {
+                  try {
+                    return $state.token;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                types={{ list: ["psychological"] }}
+              />
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox__zf5KZ,
+                "viewPager"
+              )}
+            >
               <ShopComponent
                 data-plasmic-name={"shopComponent"}
                 data-plasmic-override={overrides.shopComponent}
@@ -770,7 +817,6 @@ const PlasmicDescendants = {
     "root",
     "sideEffect",
     "swiperSlider",
-    "signsComponent",
     "hamyarAddComponent",
     "shopComponent",
     "button2",
@@ -779,13 +825,11 @@ const PlasmicDescendants = {
   sideEffect: ["sideEffect"],
   swiperSlider: [
     "swiperSlider",
-    "signsComponent",
     "hamyarAddComponent",
     "shopComponent",
     "button2",
     "button"
   ],
-  signsComponent: ["signsComponent"],
   hamyarAddComponent: ["hamyarAddComponent"],
   shopComponent: ["shopComponent"],
   button2: ["button2"],
@@ -798,7 +842,6 @@ type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
   swiperSlider: typeof SwiperSlider;
-  signsComponent: typeof SignsComponent;
   hamyarAddComponent: typeof HamyarAddComponent;
   shopComponent: typeof ShopComponent;
   button2: typeof Button;
@@ -892,7 +935,6 @@ export const PlasmicIntroPage = Object.assign(
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
     swiperSlider: makeNodeComponent("swiperSlider"),
-    signsComponent: makeNodeComponent("signsComponent"),
     hamyarAddComponent: makeNodeComponent("hamyarAddComponent"),
     shopComponent: makeNodeComponent("shopComponent"),
     button2: makeNodeComponent("button2"),
