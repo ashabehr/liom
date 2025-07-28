@@ -94,7 +94,6 @@ export const PlasmicIntroPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicIntroPage__OverridesType = {
   root?: Flex__<"div">;
-  sideEffect?: Flex__<typeof SideEffect>;
   embedHtml?: Flex__<typeof Embed>;
   swiperSlider?: Flex__<typeof SwiperSlider>;
   hamyarAddComponent?: Flex__<typeof HamyarAddComponent>;
@@ -201,6 +200,12 @@ function PlasmicIntroPage__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "signData",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -222,152 +227,299 @@ function PlasmicIntroPage__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
-        <div
-          data-plasmic-name={"root"}
-          data-plasmic-override={overrides.root}
-          data-plasmic-root={true}
-          data-plasmic-for-node={forNode}
-          className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
-            plasmic_plasmic_rich_components_css.plasmic_tokens,
-            sty.root
-          )}
-          style={(() => {
-            try {
-              return { direction: "ltr !important" };
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
+      <div
+        data-plasmic-name={"root"}
+        data-plasmic-override={overrides.root}
+        data-plasmic-root={true}
+        data-plasmic-for-node={forNode}
+        className={classNames(
+          projectcss.all,
+          projectcss.root_reset,
+          projectcss.plasmic_default_styles,
+          projectcss.plasmic_mixins,
+          projectcss.plasmic_tokens,
+          plasmic_antd_5_hostless_css.plasmic_tokens,
+          plasmic_plasmic_rich_components_css.plasmic_tokens,
+          sty.root
+        )}
+        style={(() => {
+          try {
+            return { direction: "ltr !important" };
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
             }
-          })()}
-        >
-          <SideEffect
-            data-plasmic-name={"sideEffect"}
-            data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
-            onMount={async () => {
-              const $steps = {};
+            throw e;
+          }
+        })()}
+      >
+        <SideEffect
+          className={classNames("__wab_instance", sty.sideEffect__gC8Gd)}
+          onMount={async () => {
+            const $steps = {};
 
-              $steps["getParams"] = false
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const queryString = window.location.search;
-                          const urlParams = new URLSearchParams(queryString);
-                          return urlParams.forEach((value, key) => {
-                            $state.paramsObject[key] = value;
-                          });
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["getParams"] != null &&
-                typeof $steps["getParams"] === "object" &&
-                typeof $steps["getParams"].then === "function"
-              ) {
-                $steps["getParams"] = await $steps["getParams"];
-              }
+            $steps["getParams"] = false
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        const queryString = window.location.search;
+                        const urlParams = new URLSearchParams(queryString);
+                        return urlParams.forEach((value, key) => {
+                          $state.paramsObject[key] = value;
+                        });
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["getParams"] != null &&
+              typeof $steps["getParams"] === "object" &&
+              typeof $steps["getParams"].then === "function"
+            ) {
+              $steps["getParams"] = await $steps["getParams"];
+            }
 
-              $steps["clearParams"] = false
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const searchParams = new URLSearchParams(
-                            window.location.search
-                          );
-                          searchParams.delete("token");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
-                          return window.history.replaceState(null, "", newUrl);
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["clearParams"] != null &&
-                typeof $steps["clearParams"] === "object" &&
-                typeof $steps["clearParams"].then === "function"
-              ) {
-                $steps["clearParams"] = await $steps["clearParams"];
-              }
+            $steps["clearParams"] = false
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        const searchParams = new URLSearchParams(
+                          window.location.search
+                        );
+                        searchParams.delete("token");
+                        const newUrl = `${
+                          window.location.pathname
+                        }?${searchParams.toString()}`;
+                        return window.history.replaceState(null, "", newUrl);
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["clearParams"] != null &&
+              typeof $steps["clearParams"] === "object" &&
+              typeof $steps["clearParams"].then === "function"
+            ) {
+              $steps["clearParams"] = await $steps["clearParams"];
+            }
 
-              $steps["setCookie"] = false
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          if (
-                            $state.paramsObject.token !== undefined &&
-                            $state.paramsObject.token.trim() !== ""
-                          ) {
-                            if (!$state.paramsObject.token.startsWith("ey"))
-                              $state.paramsObject.token =
-                                $state.paramsObject.token.slice(6, -3);
-                            var setCookie = (name, value, days) => {
-                              const expires = new Date(
-                                Date.now() + days * 86400000
-                              ).toUTCString();
-                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
-                            };
-                            return setCookie(
-                              "token",
-                              JSON.stringify([$state.paramsObject.token]),
-                              100
-                            );
-                          }
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["setCookie"] != null &&
-                typeof $steps["setCookie"] === "object" &&
-                typeof $steps["setCookie"].then === "function"
-              ) {
-                $steps["setCookie"] = await $steps["setCookie"];
-              }
-
-              $steps["getCookie"] = false
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          var getCookie = name => {
-                            const cookies = document.cookie.split("; ");
-                            for (let cookie of cookies) {
-                              const [key, value] = cookie.split("=");
-                              if (key === name) return JSON.parse(value)[0];
-                            }
-                            return "";
+            $steps["setCookie"] = false
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        if (
+                          $state.paramsObject.token !== undefined &&
+                          $state.paramsObject.token.trim() !== ""
+                        ) {
+                          if (!$state.paramsObject.token.startsWith("ey"))
+                            $state.paramsObject.token =
+                              $state.paramsObject.token.slice(6, -3);
+                          var setCookie = (name, value, days) => {
+                            const expires = new Date(
+                              Date.now() + days * 86400000
+                            ).toUTCString();
+                            document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
                           };
-                          return ($state.token = getCookie("token"));
+                          return setCookie(
+                            "token",
+                            JSON.stringify([$state.paramsObject.token]),
+                            100
+                          );
+                        }
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["setCookie"] != null &&
+              typeof $steps["setCookie"] === "object" &&
+              typeof $steps["setCookie"].then === "function"
+            ) {
+              $steps["setCookie"] = await $steps["setCookie"];
+            }
+
+            $steps["getCookie"] = false
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        var getCookie = name => {
+                          const cookies = document.cookie.split("; ");
+                          for (let cookie of cookies) {
+                            const [key, value] = cookie.split("=");
+                            if (key === name) return JSON.parse(value)[0];
+                          }
+                          return "";
+                        };
+                        return ($state.token = getCookie("token"));
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["getCookie"] != null &&
+              typeof $steps["getCookie"] === "object" &&
+              typeof $steps["getCookie"].then === "function"
+            ) {
+              $steps["getCookie"] = await $steps["getCookie"];
+            }
+
+            $steps["userGuest"] =
+              $state.token == ""
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://api.liom.app/auth/signup/guest",
+                        undefined,
+                        (() => {
+                          try {
+                            return (() => {
+                              function pseudoUUID() {
+                                let timestamp = Date.now().toString(36);
+                                let randomStr = Math.random()
+                                  .toString(36)
+                                  .substr(2, 8);
+                                return timestamp + "-" + randomStr;
+                              }
+                              return {
+                                name: "کاربر مهمان",
+                                gateway: "intro",
+                                country: "98",
+                                isCountryPending: false,
+                                lang: "fa",
+                                version: "",
+                                os: (() => {
+                                  const userAgent = window.navigator.userAgent;
+                                  const platform = window.navigator.userAgent;
+                                  if (/Windows/i.test(platform))
+                                    return "Windows";
+                                  if (/Mac/i.test(platform)) return "macOS";
+                                  if (/Linux/i.test(platform)) return "Linux";
+                                  if (/Android/i.test(userAgent))
+                                    return "Android";
+                                  if (/iPhone|iPad|iPod/i.test(userAgent))
+                                    return "iOS";
+                                  return "Unknown OS";
+                                })(),
+                                osVersion: (() => {
+                                  const userAgent = window.navigator.userAgent;
+                                  if (/Windows NT 10.0/.test(userAgent))
+                                    return "Windows 10";
+                                  if (/Windows NT 6.3/.test(userAgent))
+                                    return "Windows 8.1";
+                                  if (/Windows NT 6.2/.test(userAgent))
+                                    return "Windows 8";
+                                  if (/Windows NT 6.1/.test(userAgent))
+                                    return "Windows 7";
+                                  if (/Mac OS X (\d+[\._]\d+)/.test(userAgent))
+                                    return `macOS ${RegExp.$1.replace(
+                                      "_",
+                                      "."
+                                    )}`;
+                                  if (/Android (\d+(\.\d+)?)/.test(userAgent))
+                                    return `Android ${RegExp.$1}`;
+                                  if (
+                                    /CPU (iPhone )?OS (\d+_\d+)/.test(userAgent)
+                                  )
+                                    return `iOS ${RegExp.$2.replace("_", ".")}`;
+                                  return "Unknown Version";
+                                })(),
+                                sex: $state.gender || "",
+                                additionalData: {
+                                  ip: "132465",
+                                  name: "test1"
+                                },
+                                device: (() => {
+                                  const userAgent = window.navigator.userAgent;
+                                  if (
+                                    /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                      userAgent
+                                    )
+                                  ) {
+                                    return "Mobile";
+                                  } else if (/Tablet|iPad/i.test(userAgent)) {
+                                    return "Tablet";
+                                  } else {
+                                    return "Desktop";
+                                  }
+                                })(),
+                                fcm:
+                                  window.localStorage.getItem("fcmToken") ||
+                                  " ",
+                                uniqueId: pseudoUUID(),
+                                device_type: window.navigator.platform,
+                                postLang: "fa"
+                              };
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+            if (
+              $steps["userGuest"] != null &&
+              typeof $steps["userGuest"] === "object" &&
+              typeof $steps["userGuest"].then === "function"
+            ) {
+              $steps["userGuest"] = await $steps["userGuest"];
+            }
+
+            $steps["setCookie2"] =
+              $steps.userGuest?.data?.success ?? false
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var setCookie = (name, value, days) => {
+                            const expires = new Date(
+                              Date.now() + days * 86400000
+                            ).toUTCString();
+                            document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                          };
+                          setCookie(
+                            "token",
+                            JSON.stringify([
+                              $steps.userGuest.data.result.token
+                            ]),
+                            100
+                          );
+                          return ($state.token =
+                            $steps.userGuest.data.result.token);
                         })();
                       }
                     };
@@ -376,472 +528,441 @@ function PlasmicIntroPage__RenderFunc(props: {
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
-              if (
-                $steps["getCookie"] != null &&
-                typeof $steps["getCookie"] === "object" &&
-                typeof $steps["getCookie"].then === "function"
-              ) {
-                $steps["getCookie"] = await $steps["getCookie"];
-              }
-
-              $steps["userGuest"] =
-                $state.token == ""
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          "POST",
-                          "https://api.liom.app/auth/signup/guest",
-                          undefined,
-                          (() => {
-                            try {
-                              return (() => {
-                                function pseudoUUID() {
-                                  let timestamp = Date.now().toString(36);
-                                  let randomStr = Math.random()
-                                    .toString(36)
-                                    .substr(2, 8);
-                                  return timestamp + "-" + randomStr;
-                                }
-                                return {
-                                  name: "کاربر مهمان",
-                                  gateway: "intro",
-                                  country: "98",
-                                  isCountryPending: false,
-                                  lang: "fa",
-                                  version: "",
-                                  os: (() => {
-                                    const userAgent =
-                                      window.navigator.userAgent;
-                                    const platform = window.navigator.userAgent;
-                                    if (/Windows/i.test(platform))
-                                      return "Windows";
-                                    if (/Mac/i.test(platform)) return "macOS";
-                                    if (/Linux/i.test(platform)) return "Linux";
-                                    if (/Android/i.test(userAgent))
-                                      return "Android";
-                                    if (/iPhone|iPad|iPod/i.test(userAgent))
-                                      return "iOS";
-                                    return "Unknown OS";
-                                  })(),
-                                  osVersion: (() => {
-                                    const userAgent =
-                                      window.navigator.userAgent;
-                                    if (/Windows NT 10.0/.test(userAgent))
-                                      return "Windows 10";
-                                    if (/Windows NT 6.3/.test(userAgent))
-                                      return "Windows 8.1";
-                                    if (/Windows NT 6.2/.test(userAgent))
-                                      return "Windows 8";
-                                    if (/Windows NT 6.1/.test(userAgent))
-                                      return "Windows 7";
-                                    if (
-                                      /Mac OS X (\d+[\._]\d+)/.test(userAgent)
-                                    )
-                                      return `macOS ${RegExp.$1.replace(
-                                        "_",
-                                        "."
-                                      )}`;
-                                    if (/Android (\d+(\.\d+)?)/.test(userAgent))
-                                      return `Android ${RegExp.$1}`;
-                                    if (
-                                      /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                        userAgent
-                                      )
-                                    )
-                                      return `iOS ${RegExp.$2.replace(
-                                        "_",
-                                        "."
-                                      )}`;
-                                    return "Unknown Version";
-                                  })(),
-                                  sex: $state.gender || "",
-                                  additionalData: {
-                                    ip: "132465",
-                                    name: "test1"
-                                  },
-                                  device: (() => {
-                                    const userAgent =
-                                      window.navigator.userAgent;
-                                    if (
-                                      /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                        userAgent
-                                      )
-                                    ) {
-                                      return "Mobile";
-                                    } else if (/Tablet|iPad/i.test(userAgent)) {
-                                      return "Tablet";
-                                    } else {
-                                      return "Desktop";
-                                    }
-                                  })(),
-                                  fcm:
-                                    window.localStorage.getItem("fcmToken") ||
-                                    " ",
-                                  uniqueId: pseudoUUID(),
-                                  device_type: window.navigator.platform,
-                                  postLang: "fa"
-                                };
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
-              if (
-                $steps["userGuest"] != null &&
-                typeof $steps["userGuest"] === "object" &&
-                typeof $steps["userGuest"].then === "function"
-              ) {
-                $steps["userGuest"] = await $steps["userGuest"];
-              }
-
-              $steps["setCookie2"] =
-                $steps.userGuest?.data?.success ?? false
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            var setCookie = (name, value, days) => {
-                              const expires = new Date(
-                                Date.now() + days * 86400000
-                              ).toUTCString();
-                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
-                            };
-                            setCookie(
-                              "token",
-                              JSON.stringify([
-                                $steps.userGuest.data.result.token
-                              ]),
-                              100
-                            );
-                            return ($state.token =
-                              $steps.userGuest.data.result.token);
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["setCookie2"] != null &&
-                typeof $steps["setCookie2"] === "object" &&
-                typeof $steps["setCookie2"].then === "function"
-              ) {
-                $steps["setCookie2"] = await $steps["setCookie2"];
-              }
-            }}
-          />
-
-          <Embed
-            data-plasmic-name={"embedHtml"}
-            data-plasmic-override={overrides.embedHtml}
-            className={classNames("__wab_instance", sty.embedHtml)}
-            code={
-              "<script>\n  function setVh() {\n    const vh = window.innerHeight * 0.01;\n    document.documentElement.style.setProperty('--vh', `${vh}px`);\n    console.log(document.querySelectorAll('.viewPager'));\n    console.log(document.querySelectorAll('.viewPager')[0].offsetHeight);\n  }\n\n  setVh();\n  window.addEventListener('resize', setVh);\n  \n</script>"
+            if (
+              $steps["setCookie2"] != null &&
+              typeof $steps["setCookie2"] === "object" &&
+              typeof $steps["setCookie2"].then === "function"
+            ) {
+              $steps["setCookie2"] = await $steps["setCookie2"];
             }
-          />
+          }}
+        />
 
-          <SwiperSlider
-            data-plasmic-name={"swiperSlider"}
-            data-plasmic-override={overrides.swiperSlider}
-            activeBulletColor={"#5519B0"}
-            activeSlideIndex={generateStateValueProp($state, [
+        <SideEffect
+          className={classNames("__wab_instance", sty.sideEffect___4UX)}
+          onMount={async () => {
+            const $steps = {};
+
+            $steps["invokeGlobalAction"] = true
+              ? (() => {
+                  const actionArgs = {
+                    args: [
+                      undefined,
+                      "https://n8n.staas.ir/webhook/calendar/getSign",
+                      (() => {
+                        try {
+                          return { authorization: $state.token };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                    ]
+                  };
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
+            if (
+              $steps["invokeGlobalAction"] != null &&
+              typeof $steps["invokeGlobalAction"] === "object" &&
+              typeof $steps["invokeGlobalAction"].then === "function"
+            ) {
+              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+            }
+
+            $steps["updateSignData"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["signData"]
+                    },
+                    operation: 0,
+                    value: $steps.invokeGlobalAction.data
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateSignData"] != null &&
+              typeof $steps["updateSignData"] === "object" &&
+              typeof $steps["updateSignData"].then === "function"
+            ) {
+              $steps["updateSignData"] = await $steps["updateSignData"];
+            }
+          }}
+        />
+
+        <Embed
+          data-plasmic-name={"embedHtml"}
+          data-plasmic-override={overrides.embedHtml}
+          className={classNames("__wab_instance", sty.embedHtml)}
+          code={
+            "<script>\n  function setVh() {\n    const vh = window.innerHeight * 0.01;\n    document.documentElement.style.setProperty('--vh', `${vh}px`);\n    console.log(document.querySelectorAll('.viewPager'));\n    console.log(document.querySelectorAll('.viewPager')[0].offsetHeight);\n  }\n\n  setVh();\n  window.addEventListener('resize', setVh);\n  \n</script>"
+          }
+        />
+
+        <SwiperSlider
+          data-plasmic-name={"swiperSlider"}
+          data-plasmic-override={overrides.swiperSlider}
+          activeBulletColor={"#5519B0"}
+          activeSlideIndex={generateStateValueProp($state, [
+            "swiperSlider",
+            "activeSlideIndex"
+          ])}
+          autoplay={false}
+          autoplayDelay={3000}
+          bulletColor={true ? "var(--antd-colorPrimaryActive)" : undefined}
+          className={
+            classNames({ [sty["pcls_9X-ZqRU2eYN8"]]: true }) +
+            " " +
+            classNames("__wab_instance", sty.swiperSlider)
+          }
+          loop={false}
+          nextButtonSlot={
+            <Button
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
+              className={classNames("__wab_instance", sty.button)}
+              color={generateStateValueProp($state, ["button", "color"])}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["invokeGlobalAction"] =
+                  $state.swiperSlider.activeSlideIndex == 5 ||
+                  $state.swiperSlider.activeSlideIndex == 6
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            (() => {
+                              try {
+                                return $state.swiperSlider.activeSlideIndex;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
+              }}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              shape={"rounded"}
+              size={"compact"}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__pAlWc
+                )}
+              >
+                {"\u0628\u0639\u062f\u06cc"}
+              </div>
+            </Button>
+          }
+          onActiveSlideIndexChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, [
               "swiperSlider",
               "activeSlideIndex"
-            ])}
-            autoplay={false}
-            autoplayDelay={3000}
-            bulletColor={true ? "var(--antd-colorPrimaryActive)" : undefined}
-            className={
-              classNames({ [sty["pcls_9X-ZqRU2eYN8"]]: true }) +
-              " " +
-              classNames("__wab_instance", sty.swiperSlider)
-            }
-            loop={false}
-            nextButtonSlot={
-              <Button
-                data-plasmic-name={"button"}
-                data-plasmic-override={overrides.button}
-                className={classNames("__wab_instance", sty.button)}
-                color={generateStateValueProp($state, ["button", "color"])}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
+            ]).apply(null, eventArgs);
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                shape={"rounded"}
-                size={"compact"}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pAlWc
-                  )}
-                >
-                  {"\u0628\u0639\u062f\u06cc"}
-                </div>
-              </Button>
-            }
-            onActiveSlideIndexChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "swiperSlider",
-                "activeSlideIndex"
-              ]).apply(null, eventArgs);
-            }}
-            prevButtonSlot={
-              <Button
-                data-plasmic-name={"button2"}
-                data-plasmic-override={overrides.button2}
-                className={classNames("__wab_instance", sty.button2)}
-                color={generateStateValueProp($state, ["button2", "color"])}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
+            (async index => {
+              const $steps = {};
 
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                shape={"rounded"}
-                size={"compact"}
+              $steps["updateButtonColor"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["button", "color"]
+                      },
+                      operation: 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateButtonColor"] != null &&
+                typeof $steps["updateButtonColor"] === "object" &&
+                typeof $steps["updateButtonColor"].then === "function"
+              ) {
+                $steps["updateButtonColor"] = await $steps["updateButtonColor"];
+              }
+            }).apply(null, eventArgs);
+          }}
+          prevButtonSlot={
+            <Button
+              data-plasmic-name={"button2"}
+              data-plasmic-override={overrides.button2}
+              className={classNames("__wab_instance", sty.button2)}
+              color={generateStateValueProp($state, ["button2", "color"])}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button2", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              shape={"rounded"}
+              size={"compact"}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__xrMl
+                )}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xrMl
-                  )}
-                >
-                  {"\u0642\u0628\u0644\u06cc"}
-                </div>
-              </Button>
-            }
-            showNavigationButtons={true}
-            showPagination={true}
+                {"\u0642\u0628\u0644\u06cc"}
+              </div>
+            </Button>
+          }
+          showNavigationButtons={true}
+          showPagination={true}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__u4DXd,
+              "viewPager"
+            )}
           >
-            <div
+            <IntroComponent
               className={classNames(
-                projectcss.all,
-                sty.freeBox__u4DXd,
-                "viewPager"
+                "__wab_instance",
+                sty.introComponent__mnQGe
               )}
-            >
-              <IntroComponent
-                className={classNames(
-                  "__wab_instance",
-                  sty.introComponent__mnQGe
-                )}
-                text={
-                  "\u0627\u06cc\u0646\u062c\u0627 7 \u0645\u06cc\u0644\u06cc\u0648\u0646 \u062e\u0631\u06cc\u062f\u0627\u0631\u060c \u062a\u062c\u0631\u0628\u0647 \u062e\u0631\u06cc\u062f\u0634\u0627\u0646 \u0631\u0627 \u0628\u0627 \u062c\u0632\u064a\u06cc\u0627\u062a \u0646\u0648\u0634\u062a\u0647 \u0627\u0646\u062f\u060c \u0642\u0628\u0644 \u0627\u0632 \u062e\u0631\u06cc\u062f\u060c \u062f\u06cc\u062f\u06af\u0627\u0647 \u0647\u0627 \u0631\u0627 \u0628\u062e.\u0627\u0646 . \u0622\u06af\u0627\u0647 \u0628\u0627\u0634."
-                }
-                title={
-                  "\u0627\u0633\u0644\u0627\u06cc\u062f \u0627\u0648\u0644"
-                }
-              />
-            </div>
-            <div
+              text={
+                "\u0627\u06cc\u0646\u062c\u0627 7 \u0645\u06cc\u0644\u06cc\u0648\u0646 \u062e\u0631\u06cc\u062f\u0627\u0631\u060c \u062a\u062c\u0631\u0628\u0647 \u062e\u0631\u06cc\u062f\u0634\u0627\u0646 \u0631\u0627 \u0628\u0627 \u062c\u0632\u064a\u06cc\u0627\u062a \u0646\u0648\u0634\u062a\u0647 \u0627\u0646\u062f\u060c \u0642\u0628\u0644 \u0627\u0632 \u062e\u0631\u06cc\u062f\u060c \u062f\u06cc\u062f\u06af\u0627\u0647 \u0647\u0627 \u0631\u0627 \u0628\u062e.\u0627\u0646 . \u0622\u06af\u0627\u0647 \u0628\u0627\u0634."
+              }
+              title={"\u0627\u0633\u0644\u0627\u06cc\u062f \u0627\u0648\u0644"}
+            />
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__jVFuV,
+              "viewPager"
+            )}
+          >
+            <IntroComponent
+              className={classNames("__wab_instance", sty.introComponent__zPgI)}
+              text={
+                "\u0627\u06cc\u0646\u062c\u0627 7 \u0645\u06cc\u0644\u06cc\u0648\u0646 \u062e\u0631\u06cc\u062f\u0627\u0631\u060c \u062a\u062c\u0631\u0628\u0647 \u062e\u0631\u06cc\u062f\u0634\u0627\u0646 \u0631\u0627 \u0628\u0627 \u062c\u0632\u064a\u06cc\u0627\u062a \u0646\u0648\u0634\u062a\u0647 \u0627\u0646\u062f\u060c \u0642\u0628\u0644 \u0627\u0632 \u062e\u0631\u06cc\u062f\u060c \u062f\u06cc\u062f\u06af\u0627\u0647 \u0647\u0627 \u0631\u0627 \u0628\u062e.\u0627\u0646 . \u0622\u06af\u0627\u0647 \u0628\u0627\u0634."
+              }
+              title={"\u0627\u0633\u0644\u0627\u06cc\u062f \u062f\u0648\u0645"}
+            />
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__iCrU,
+              "viewPager"
+            )}
+          >
+            <IntroComponent
               className={classNames(
-                projectcss.all,
-                sty.freeBox__jVFuV,
-                "viewPager"
+                "__wab_instance",
+                sty.introComponent___5PhuJ
               )}
-            >
-              <IntroComponent
-                className={classNames(
-                  "__wab_instance",
-                  sty.introComponent__zPgI
-                )}
-                text={
-                  "\u0627\u06cc\u0646\u062c\u0627 7 \u0645\u06cc\u0644\u06cc\u0648\u0646 \u062e\u0631\u06cc\u062f\u0627\u0631\u060c \u062a\u062c\u0631\u0628\u0647 \u062e\u0631\u06cc\u062f\u0634\u0627\u0646 \u0631\u0627 \u0628\u0627 \u062c\u0632\u064a\u06cc\u0627\u062a \u0646\u0648\u0634\u062a\u0647 \u0627\u0646\u062f\u060c \u0642\u0628\u0644 \u0627\u0632 \u062e\u0631\u06cc\u062f\u060c \u062f\u06cc\u062f\u06af\u0627\u0647 \u0647\u0627 \u0631\u0627 \u0628\u062e.\u0627\u0646 . \u0622\u06af\u0627\u0647 \u0628\u0627\u0634."
-                }
-                title={
-                  "\u0627\u0633\u0644\u0627\u06cc\u062f \u062f\u0648\u0645"
-                }
-              />
-            </div>
-            <div
+              text={
+                "\u0627\u06cc\u0646\u062c\u0627 7 \u0645\u06cc\u0644\u06cc\u0648\u0646 \u062e\u0631\u06cc\u062f\u0627\u0631\u060c \u062a\u062c\u0631\u0628\u0647 \u062e\u0631\u06cc\u062f\u0634\u0627\u0646 \u0631\u0627 \u0628\u0627 \u062c\u0632\u064a\u06cc\u0627\u062a \u0646\u0648\u0634\u062a\u0647 \u0627\u0646\u062f\u060c \u0642\u0628\u0644 \u0627\u0632 \u062e\u0631\u06cc\u062f\u060c \u062f\u06cc\u062f\u06af\u0627\u0647 \u0647\u0627 \u0631\u0627 \u0628\u062e.\u0627\u0646 . \u0622\u06af\u0627\u0647 \u0628\u0627\u0634."
+              }
+              title={"\u0627\u0633\u0644\u0627\u06cc\u062f \u0633\u0648\u0645"}
+            />
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__pPc,
+              "viewPager"
+            )}
+          >
+            <IntroComponent
               className={classNames(
-                projectcss.all,
-                sty.freeBox__iCrU,
-                "viewPager"
+                "__wab_instance",
+                sty.introComponent__ibO44
               )}
-            >
-              <IntroComponent
-                className={classNames(
-                  "__wab_instance",
-                  sty.introComponent___5PhuJ
-                )}
-                text={
-                  "\u0627\u06cc\u0646\u062c\u0627 7 \u0645\u06cc\u0644\u06cc\u0648\u0646 \u062e\u0631\u06cc\u062f\u0627\u0631\u060c \u062a\u062c\u0631\u0628\u0647 \u062e\u0631\u06cc\u062f\u0634\u0627\u0646 \u0631\u0627 \u0628\u0627 \u062c\u0632\u064a\u06cc\u0627\u062a \u0646\u0648\u0634\u062a\u0647 \u0627\u0646\u062f\u060c \u0642\u0628\u0644 \u0627\u0632 \u062e\u0631\u06cc\u062f\u060c \u062f\u06cc\u062f\u06af\u0627\u0647 \u0647\u0627 \u0631\u0627 \u0628\u062e.\u0627\u0646 . \u0622\u06af\u0627\u0647 \u0628\u0627\u0634."
-                }
-                title={
-                  "\u0627\u0633\u0644\u0627\u06cc\u062f \u0633\u0648\u0645"
-                }
-              />
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__pPc,
-                "viewPager"
-              )}
-            >
-              <IntroComponent
-                className={classNames(
-                  "__wab_instance",
-                  sty.introComponent__ibO44
-                )}
-                text={
-                  "\u0627\u06cc\u0646\u062c\u0627 7 \u0645\u06cc\u0644\u06cc\u0648\u0646 \u062e\u0631\u06cc\u062f\u0627\u0631\u060c \u062a\u062c\u0631\u0628\u0647 \u062e\u0631\u06cc\u062f\u0634\u0627\u0646 \u0631\u0627 \u0628\u0627 \u062c\u0632\u064a\u06cc\u0627\u062a \u0646\u0648\u0634\u062a\u0647 \u0627\u0646\u062f\u060c \u0642\u0628\u0644 \u0627\u0632 \u062e\u0631\u06cc\u062f\u060c \u062f\u06cc\u062f\u06af\u0627\u0647 \u0647\u0627 \u0631\u0627 \u0628\u062e.\u0627\u0646 . \u0622\u06af\u0627\u0647 \u0628\u0627\u0634."
-                }
-                title={
-                  "\u0627\u0633\u0644\u0627\u06cc\u062f \u0686\u0647\u0627\u0631\u0645"
-                }
-              />
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox___2Wo28,
-                "viewPager"
-              )}
-            >
-              <HamyarAddComponent
-                data-plasmic-name={"hamyarAddComponent"}
-                data-plasmic-override={overrides.hamyarAddComponent}
-                className={classNames("__wab_instance", sty.hamyarAddComponent)}
-                token2={(() => {
-                  try {
-                    return $state.token;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
+              text={
+                "\u0627\u06cc\u0646\u062c\u0627 7 \u0645\u06cc\u0644\u06cc\u0648\u0646 \u062e\u0631\u06cc\u062f\u0627\u0631\u060c \u062a\u062c\u0631\u0628\u0647 \u062e\u0631\u06cc\u062f\u0634\u0627\u0646 \u0631\u0627 \u0628\u0627 \u062c\u0632\u064a\u06cc\u0627\u062a \u0646\u0648\u0634\u062a\u0647 \u0627\u0646\u062f\u060c \u0642\u0628\u0644 \u0627\u0632 \u062e\u0631\u06cc\u062f\u060c \u062f\u06cc\u062f\u06af\u0627\u0647 \u0647\u0627 \u0631\u0627 \u0628\u062e.\u0627\u0646 . \u0622\u06af\u0627\u0647 \u0628\u0627\u0634."
+              }
+              title={
+                "\u0627\u0633\u0644\u0627\u06cc\u062f \u0686\u0647\u0627\u0631\u0645"
+              }
+            />
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              sty.freeBox___2Wo28,
+              "viewPager"
+            )}
+          >
+            <HamyarAddComponent
+              data-plasmic-name={"hamyarAddComponent"}
+              data-plasmic-override={overrides.hamyarAddComponent}
+              className={classNames("__wab_instance", sty.hamyarAddComponent)}
+              token2={(() => {
+                try {
+                  return $state.token;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
                   }
-                })()}
-              />
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__nte5V,
-                "viewPager"
-              )}
-            >
-              <SignsComponent
-                className={classNames(
-                  "__wab_instance",
-                  sty.signsComponent__aScr
-                )}
-                token={(() => {
-                  try {
-                    return $state.token;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
+                  throw e;
+                }
+              })()}
+            />
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__nte5V,
+              "viewPager"
+            )}
+          >
+            <SignsComponent
+              className={classNames("__wab_instance", sty.signsComponent__aScr)}
+              token={(() => {
+                try {
+                  return $state.token;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
                   }
-                })()}
-                types={{ list: ["befor"] }}
-              />
-            </div>
-            <div
+                  throw e;
+                }
+              })()}
+              types={{ list: ["befor"] }}
+            />
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              sty.freeBox___52Efx,
+              "viewPager"
+            )}
+          >
+            <SignsComponent
               className={classNames(
-                projectcss.all,
-                sty.freeBox___52Efx,
-                "viewPager"
+                "__wab_instance",
+                sty.signsComponent__hAyT5
               )}
-            >
-              <SignsComponent
-                className={classNames(
-                  "__wab_instance",
-                  sty.signsComponent__hAyT5
-                )}
-                token={(() => {
-                  try {
-                    return $state.token;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
+              token={(() => {
+                try {
+                  return $state.token;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
                   }
-                })()}
-                types={{ list: ["psychological"] }}
-              />
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__zf5KZ,
-                "viewPager"
-              )}
-            >
-              <ShopComponent
-                data-plasmic-name={"shopComponent"}
-                data-plasmic-override={overrides.shopComponent}
-                className={classNames("__wab_instance", sty.shopComponent)}
-                token={(() => {
-                  try {
-                    return $state.token;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
+                  throw e;
+                }
+              })()}
+              types={{ list: ["psychological"] }}
+            />
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__zf5KZ,
+              "viewPager"
+            )}
+          >
+            <ShopComponent
+              data-plasmic-name={"shopComponent"}
+              data-plasmic-override={overrides.shopComponent}
+              className={classNames("__wab_instance", sty.shopComponent)}
+              token={(() => {
+                try {
+                  return $state.token;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
                   }
-                })()}
-              />
-            </div>
-          </SwiperSlider>
-        </div>
+                  throw e;
+                }
+              })()}
+            />
+          </div>
+        </SwiperSlider>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
@@ -850,7 +971,6 @@ function PlasmicIntroPage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "sideEffect",
     "embedHtml",
     "swiperSlider",
     "hamyarAddComponent",
@@ -858,7 +978,6 @@ const PlasmicDescendants = {
     "button2",
     "button"
   ],
-  sideEffect: ["sideEffect"],
   embedHtml: ["embedHtml"],
   swiperSlider: [
     "swiperSlider",
@@ -877,7 +996,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  sideEffect: typeof SideEffect;
   embedHtml: typeof Embed;
   swiperSlider: typeof SwiperSlider;
   hamyarAddComponent: typeof HamyarAddComponent;
@@ -971,7 +1089,6 @@ export const PlasmicIntroPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    sideEffect: makeNodeComponent("sideEffect"),
     embedHtml: makeNodeComponent("embedHtml"),
     swiperSlider: makeNodeComponent("swiperSlider"),
     hamyarAddComponent: makeNodeComponent("hamyarAddComponent"),
