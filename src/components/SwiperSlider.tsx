@@ -24,7 +24,11 @@ type SwiperSliderProps = {
   prevButtonSlot?: React.ReactNode;
   nextButtonSlot?: React.ReactNode;
 
-  // props for Plasmic state
+  // قفل کردن اسلاید
+  lockSlides?: boolean;
+  onLockSlidesChange?: (locked: boolean) => void;
+
+  // وضعیت اسلاید فعال
   activeSlideIndex?: number;
   onActiveSlideIndexChange?: (index: number) => void;
 };
@@ -42,6 +46,8 @@ export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
     showNavigationButtons = true,
     prevButtonSlot,
     nextButtonSlot,
+    lockSlides = false,
+    onLockSlidesChange,
     activeSlideIndex = 0,
     onActiveSlideIndexChange,
   } = props;
@@ -49,7 +55,7 @@ export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
   const swiperRef = useRef<SwiperType | null>(null);
   const slides = React.Children.toArray(children);
 
-  // Sync external state with internal swiper instance
+  // sync با index بیرونی
   useEffect(() => {
     if (
       swiperRef.current &&
@@ -59,19 +65,39 @@ export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
     }
   }, [activeSlideIndex]);
 
-  // Expose slideTo method
+  // قفل یا باز کردن drag/direction/autoplay
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.allowSlideNext = !lockSlides;
+      swiperRef.current.allowSlidePrev = !lockSlides;
+
+      if (lockSlides) {
+        swiperRef.current.autoplay?.stop();
+      } else if (autoplay) {
+        swiperRef.current.autoplay?.start();
+      }
+    }
+  }, [lockSlides, autoplay]);
+
+  // expose method slideTo
   useImperativeHandle(ref, () => ({
     slideTo: (index: number) => {
       swiperRef.current?.slideToLoop(index);
     },
   }));
 
+  // دکمه قبلی
   const handlePrev = () => {
-    swiperRef.current?.slidePrev();
+    if (!lockSlides) {
+      swiperRef.current?.slidePrev();
+    }
   };
 
+  // دکمه بعدی
   const handleNext = () => {
-    swiperRef.current?.slideNext();
+    if (!lockSlides) {
+      swiperRef.current?.slideNext();
+    }
   };
 
   return (
@@ -99,6 +125,10 @@ export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
           swiperRef.current = swiper;
           swiper.el.classList.remove("swiper-rtl");
           swiper.el.setAttribute("dir", "ltr");
+
+          // sync قفل به حالت اولیه
+          swiper.allowSlideNext = !lockSlides;
+          swiper.allowSlidePrev = !lockSlides;
         }}
         onSlideChange={(swiper) => {
           onActiveSlideIndexChange?.(swiper.realIndex);
@@ -191,6 +221,16 @@ export const SwiperSliderMeta: CodeComponentMeta<SwiperSliderProps> = {
       displayName: "وقتی اسلاید تغییر می‌کند",
       argTypes: [{ name: "index", type: "number" }],
     },
+    lockSlides: {
+      type: "boolean",
+      displayName: "قفل کردن حرکت اسلاید",
+      defaultValue: false,
+    },
+    onLockSlidesChange: {
+      type: "eventHandler",
+      displayName: "وقتی lockSlides تغییر می‌کند",
+      argTypes: [{ name: "locked", type: "boolean" }],
+    },
   },
   states: {
     activeSlideIndex: {
@@ -198,6 +238,12 @@ export const SwiperSliderMeta: CodeComponentMeta<SwiperSliderProps> = {
       variableType: "number",
       valueProp: "activeSlideIndex",
       onChangeProp: "onActiveSlideIndexChange",
+    },
+    lockSlides: {
+      type: "writable",
+      variableType: "boolean",
+      valueProp: "lockSlides",
+      onChangeProp: "onLockSlidesChange",
     },
   },
 };
