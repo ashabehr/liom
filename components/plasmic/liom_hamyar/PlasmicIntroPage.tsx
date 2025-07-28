@@ -672,7 +672,13 @@ function PlasmicIntroPage__RenderFunc(props: {
                 }
               />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__jVFuV)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox__jVFuV,
+                "viewPager"
+              )}
+            >
               <IntroComponent
                 className={classNames(
                   "__wab_instance",
@@ -686,7 +692,13 @@ function PlasmicIntroPage__RenderFunc(props: {
                 }
               />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__iCrU)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox__iCrU,
+                "viewPager"
+              )}
+            >
               <IntroComponent
                 className={classNames(
                   "__wab_instance",
@@ -700,7 +712,13 @@ function PlasmicIntroPage__RenderFunc(props: {
                 }
               />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__pPc)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox__pPc,
+                "viewPager"
+              )}
+            >
               <IntroComponent
                 className={classNames(
                   "__wab_instance",
@@ -714,7 +732,13 @@ function PlasmicIntroPage__RenderFunc(props: {
                 }
               />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox___2Wo28)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox___2Wo28,
+                "viewPager"
+              )}
+            >
               <HamyarAddComponent
                 data-plasmic-name={"hamyarAddComponent"}
                 data-plasmic-override={overrides.hamyarAddComponent}
