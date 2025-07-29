@@ -171,8 +171,7 @@ function PlasmicSocialMain__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRmNzhiOTU0LWM2YTMtNGRiOS04YmYyLTI3MmE5MGU2ZGRiZCIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzQ0NzAwNjA0fQ.zC2EWB7gRSxxuiwN8qB-XeEsQ2iEYcLAnT5dVX3Icw0"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "getInfo.data",
@@ -734,7 +733,7 @@ function PlasmicSocialMain__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["runCode"] = false
+              $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -760,7 +759,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
 
-              $steps["updateToken2"] = false
+              $steps["updateToken2"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -791,7 +790,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                 $steps["updateToken2"] = await $steps["updateToken2"];
               }
 
-              $steps["updateToken3"] = false
+              $steps["updateToken3"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -831,7 +830,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                 $steps["updateToken3"] = await $steps["updateToken3"];
               }
 
-              $steps["updateToken4"] = false
+              $steps["updateToken4"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -861,18 +860,13 @@ function PlasmicSocialMain__RenderFunc(props: {
                 $steps["updateToken4"] = await $steps["updateToken4"];
               }
 
-              $steps["updateToken5"] = false
+              $steps["updateToken5"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return (() => {
-                          $state.token == ""
-                            ? ($state.shere = true)
-                            : ($state.shere = false);
-                          if ($state.token == "")
-                            return ($state.token =
-                              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzMDUwOCIsImFwcCI6InNoYXJlIiwibmFtZSI6InNoYXJlIn0.RROB1VkkE_RQnSsUEPG_CpfgVh2yRtVSVLpiHsY62uM");
-                        })();
+                        return $state.token == ""
+                          ? ($state.shere = true)
+                          : ($state.shere = false);
                       }
                     };
                     return (({ customFunction }) => {
