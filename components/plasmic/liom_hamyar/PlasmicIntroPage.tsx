@@ -222,7 +222,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data || [];
+              return $props.data.result.before || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -241,7 +241,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data || [];
+              return $props.data.result.before || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1030,6 +1030,40 @@ function PlasmicIntroPage__RenderFunc(props: {
                         "invokeGlobalAction"
                       ];
                     }
+
+                    $steps["invokeGlobalAction2"] = (() => {
+                      if (
+                        $state.swiperSlider.activeSlideIndex == 4 &&
+                        !$state.hamyarAddComponent.goNext
+                      ) {
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    })()
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "error",
+                              "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0647\u0645\u06cc\u0627\u0631 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.",
+                              "bottom-center"
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction2"] != null &&
+                      typeof $steps["invokeGlobalAction2"] === "object" &&
+                      typeof $steps["invokeGlobalAction2"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction2"] = await $steps[
+                        "invokeGlobalAction2"
+                      ];
+                    }
                   }}
                   onColorChange={async (...eventArgs: any) => {
                     ((...eventArgs) => {
@@ -1329,25 +1363,6 @@ function PlasmicIntroPage__RenderFunc(props: {
                       ) {
                         $steps["updateSwiperSliderLockSlides"] = await $steps[
                           "updateSwiperSliderLockSlides"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = { args: [undefined, "fdfdfdf"] };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
                         ];
                       }
                     }).apply(null, eventArgs);

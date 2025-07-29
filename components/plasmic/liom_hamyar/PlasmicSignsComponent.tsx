@@ -195,26 +195,8 @@ function PlasmicSignsComponent__RenderFunc(props: {
         {
           token:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U",
-          types: { list: ["befor"] },
-          loading: false,
-          data: {
-            success: true,
-            result: {
-              userId: "4ddd1fab-100c-49f0-b843-e70bff8add34",
-              createdAt: "2025-07-28T11:23:16.704Z",
-              updatedAt: "2025-07-28T11:23:16.704Z",
-              authorization:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U",
-              before: ["headache", "back_ache"],
-              current: [],
-              psychological: ["depression"],
-              vaginal: [],
-              hereditary: [],
-              venereal: [],
-              womans: [],
-              others: ["stomach_ache"]
-            }
-          }
+          types: { list: [] },
+          loading: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)

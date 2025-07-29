@@ -7,6 +7,7 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
+  padding-bottom: 5%;
   min-width: 0;
 }
 .sideEffect:global(.__wab_instance) {
