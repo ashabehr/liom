@@ -934,7 +934,7 @@ function PlasmicIntroPage__RenderFunc(props: {
             data-plasmic-override={overrides.embedHtml}
             className={classNames("__wab_instance", sty.embedHtml)}
             code={
-              "<script>\n  function setVh() {\n    const vh = window.innerHeight * 0.01;\n    document.documentElement.style.setProperty('--vh', `${vh}px`);\n    console.log(document.querySelectorAll('.viewPager'));\n    console.log(document.querySelectorAll('.viewPager')[0].offsetHeight);\n  }\n\n  setVh();\n  window.addEventListener('resize', setVh);\n  \n</script>"
+              "<script>\n  function setVh() {\n    const vh = window.innerHeight * 0.01;\n    document.documentElement.style.setProperty('--vh', `${vh}px`);\n  }\n\n  setVh();\n  window.addEventListener('resize', setVh);\n  \n</script>"
             }
           />
 

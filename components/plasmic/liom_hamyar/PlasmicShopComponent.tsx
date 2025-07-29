@@ -229,10 +229,11 @@ function PlasmicShopComponent__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (
-                // `https://tools.liom.app/shopResult?buyId=${$state.shopId}&?offCode=&token=${$props.token}&redirectUrl=${encodeURIComponent(window.location.href)}`
-                ""
-              );
+              return `https://tools.liom.app/shopResult?buyId=${
+                $state.shopId
+              }&?offCode=&token=${
+                $props.token
+              }&redirectUrl=${encodeURIComponent(window.location.href)}`;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -243,6 +244,12 @@ function PlasmicShopComponent__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "variable",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -20510,7 +20517,7 @@ function PlasmicShopComponent__RenderFunc(props: {
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return currentItem.percentItem + " %";
+                                      return currentItem.badge;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -20646,7 +20653,9 @@ function PlasmicShopComponent__RenderFunc(props: {
                         return (() => {
                           const url = new URL($state.redirectUrl2);
                           url.searchParams.set("buyId", $state.shopId);
-                          return ($state.redirectUrl2 = url.toString());
+                          $state.redirectUrl2 = url.toString();
+                          console.log($state.redirectUrl2);
+                          return console.log($state.shopId);
                         })();
                       }
                     };

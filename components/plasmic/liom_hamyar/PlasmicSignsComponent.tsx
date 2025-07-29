@@ -738,6 +738,27 @@ function PlasmicSignsComponent__RenderFunc(props: {
         sty.root
       )}
     >
+      <div className={classNames(projectcss.all, sty.freeBox__k2Yae)}>
+        <PlasmicImg__
+          data-plasmic-name={"img"}
+          data-plasmic-override={overrides.img}
+          alt={""}
+          className={classNames(sty.img)}
+          displayHeight={"auto"}
+          displayMaxHeight={"none"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={"300px"}
+          loading={"lazy"}
+          src={{
+            src: "/plasmic/liom_hamyar/images/image7.png",
+            fullWidth: 1302,
+            fullHeight: 900,
+            aspectRatio: undefined
+          }}
+        />
+      </div>
       {(() => {
         try {
           return $props.loading == true;
@@ -828,132 +849,9 @@ function PlasmicSignsComponent__RenderFunc(props: {
                 />
               </Stack__>
             </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__onHzY)}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__jUjEm,
-                  "shimmer"
-                )}
-              />
-
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__yz8EQ)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__aBAp,
-                    "shimmer"
-                  )}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__qgKl7,
-                    "shimmer"
-                  )}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__tBJm8,
-                    "shimmer"
-                  )}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__gsVkp,
-                    "shimmer"
-                  )}
-                />
-              </Stack__>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__gzQs)}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__u3Fg,
-                  "shimmer"
-                )}
-              />
-
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__lk1Lw)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__ycFah,
-                    "shimmer"
-                  )}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox___7WxNq,
-                    "shimmer"
-                  )}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__cdNoe,
-                    "shimmer"
-                  )}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__qTk75,
-                    "shimmer"
-                  )}
-                />
-              </Stack__>
-            </Stack__>
           </Stack__>
         </Stack__>
       ) : null}
-      <div className={classNames(projectcss.all, sty.freeBox__k2Yae)}>
-        <PlasmicImg__
-          data-plasmic-name={"img"}
-          data-plasmic-override={overrides.img}
-          alt={""}
-          className={classNames(sty.img)}
-          displayHeight={"auto"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
-          displayMinWidth={"0"}
-          displayWidth={"300px"}
-          loading={"lazy"}
-          src={{
-            src: "/plasmic/liom_hamyar/images/image7.png",
-            fullWidth: 1302,
-            fullHeight: 900,
-            aspectRatio: undefined
-          }}
-        />
-      </div>
       {(() => {
         try {
           return $props.loading != true;
