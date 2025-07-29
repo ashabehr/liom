@@ -222,7 +222,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.before;
+              return $props.data || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -241,7 +241,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.before;
+              return $props.data || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -260,7 +260,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.psychological || [];
+              return $props.data || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -279,7 +279,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.psychological || [];
+              return $props.data || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -486,6 +486,31 @@ function PlasmicIntroPage__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "signsComponent.signData",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.signData;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "signsComponent2.signData",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -913,7 +938,13 @@ function PlasmicIntroPage__RenderFunc(props: {
             }
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__debOo)}>
+          <div
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__debOo,
+              "viewPager"
+            )}
+          >
             <SwiperSlider
               data-plasmic-name={"swiperSlider"}
               data-plasmic-override={overrides.swiperSlider}
@@ -1057,8 +1088,8 @@ function PlasmicIntroPage__RenderFunc(props: {
 
                   $steps["updateSwiperSliderLockSlides"] = (() => {
                     if (
-                      $state.swiperSlider.activeSlideIndex === 4 &&
-                      $state.hamyarAddComponent.goNext
+                      $state.swiperSlider.activeSlideIndex == 4 &&
+                      !$state.hamyarAddComponent.goNext
                     ) {
                       return true;
                     } else {
@@ -1258,6 +1289,68 @@ function PlasmicIntroPage__RenderFunc(props: {
                     ) {
                       return;
                     }
+
+                    (async val => {
+                      const $steps = {};
+
+                      $steps["updateSwiperSliderLockSlides"] =
+                        $state.swiperSlider.activeSlideIndex == 4
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["swiperSlider", "lockSlides"]
+                                },
+                                operation: 0,
+                                value: !$state.hamyarAddComponent.goNext
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateSwiperSliderLockSlides"] != null &&
+                        typeof $steps["updateSwiperSliderLockSlides"] ===
+                          "object" &&
+                        typeof $steps["updateSwiperSliderLockSlides"].then ===
+                          "function"
+                      ) {
+                        $steps["updateSwiperSliderLockSlides"] = await $steps[
+                          "updateSwiperSliderLockSlides"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = { args: [undefined, "fdfdfdf"] };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+                    }).apply(null, eventArgs);
                   }}
                   token2={(() => {
                     try {
@@ -1295,7 +1388,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.signsComponent)}
                   data={(() => {
                     try {
-                      return $state.signData;
+                      return $state.signData.result.before;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -1366,6 +1459,20 @@ function PlasmicIntroPage__RenderFunc(props: {
                       return;
                     }
                   }}
+                  onSignDataChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "signsComponent",
+                      "signData"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
                   onVaginalListChange={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, [
                       "signsComponent",
@@ -1411,6 +1518,10 @@ function PlasmicIntroPage__RenderFunc(props: {
                   psychologicalList={generateStateValueProp($state, [
                     "signsComponent",
                     "psychologicalList"
+                  ])}
+                  signData={generateStateValueProp($state, [
+                    "signsComponent",
+                    "signData"
                   ])}
                   token={(() => {
                     try {
@@ -1461,7 +1572,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.signsComponent2)}
                   data={(() => {
                     try {
-                      return $state.signData;
+                      return $state.signData.result.psychological;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -1545,6 +1656,20 @@ function PlasmicIntroPage__RenderFunc(props: {
                       return;
                     }
                   }}
+                  onSignDataChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "signsComponent2",
+                      "signData"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
                   onVaginalListChange={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, [
                       "signsComponent2",
@@ -1590,6 +1715,10 @@ function PlasmicIntroPage__RenderFunc(props: {
                   psychologicalList={generateStateValueProp($state, [
                     "signsComponent2",
                     "psychologicalList"
+                  ])}
+                  signData={generateStateValueProp($state, [
+                    "signsComponent2",
+                    "signData"
                   ])}
                   token={(() => {
                     try {
