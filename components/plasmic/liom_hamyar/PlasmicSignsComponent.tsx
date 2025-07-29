@@ -131,6 +131,7 @@ export const PlasmicSignsComponent__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicSignsComponent__OverridesType = {
   root?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
   selectionBox?: Flex__<"div">;
   befor?: Flex__<typeof GridChoices>;
   selectionBox3?: Flex__<"div">;
@@ -932,6 +933,27 @@ function PlasmicSignsComponent__RenderFunc(props: {
           </Stack__>
         </Stack__>
       ) : null}
+      <div className={classNames(projectcss.all, sty.freeBox__k2Yae)}>
+        <PlasmicImg__
+          data-plasmic-name={"img"}
+          data-plasmic-override={overrides.img}
+          alt={""}
+          className={classNames(sty.img)}
+          displayHeight={"auto"}
+          displayMaxHeight={"none"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={"300px"}
+          loading={"lazy"}
+          src={{
+            src: "/plasmic/liom_hamyar/images/image7.png",
+            fullWidth: 1302,
+            fullHeight: 900,
+            aspectRatio: undefined
+          }}
+        />
+      </div>
       {(() => {
         try {
           return $props.loading != true;
@@ -1960,6 +1982,7 @@ function PlasmicSignsComponent__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "img",
     "selectionBox",
     "befor",
     "selectionBox3",
@@ -1976,6 +1999,7 @@ const PlasmicDescendants = {
     "venereal",
     "button"
   ],
+  img: ["img"],
   selectionBox: ["selectionBox", "befor"],
   befor: ["befor"],
   selectionBox3: ["selectionBox3", "psychological"],
@@ -1997,6 +2021,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  img: typeof PlasmicImg__;
   selectionBox: "div";
   befor: typeof GridChoices;
   selectionBox3: "div";
@@ -2074,6 +2099,7 @@ export const PlasmicSignsComponent = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    img: makeNodeComponent("img"),
     selectionBox: makeNodeComponent("selectionBox"),
     befor: makeNodeComponent("befor"),
     selectionBox3: makeNodeComponent("selectionBox3"),
