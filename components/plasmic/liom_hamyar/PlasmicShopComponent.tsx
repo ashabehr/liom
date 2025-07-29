@@ -20697,9 +20697,7 @@ function PlasmicShopComponent__RenderFunc(props: {
                             )}`
                           );
                           url.searchParams.set("buyId", $state.shopId);
-                          $state.redirectUrl2 = url.toString();
-                          console.log($state.redirectUrl2);
-                          return console.log($state.shopId);
+                          return ($state.redirectUrl2 = url.toString());
                         })();
                       }
                     };

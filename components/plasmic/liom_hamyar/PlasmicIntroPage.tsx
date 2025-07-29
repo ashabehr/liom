@@ -222,7 +222,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.before || [];
+              return $state.signData.result.before || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -241,7 +241,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.before || [];
+              return $state.signData.result.before || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -260,7 +260,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data || [];
+              return $state.signData.result.psychological;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -279,7 +279,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data || [];
+              return $state.signData.result.psychological;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -298,7 +298,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.vaginal || [];
+              return $state.signData.result.vaginal;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -317,7 +317,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.vaginal || [];
+              return $state.signData.result.vaginal;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -336,7 +336,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.womans || [];
+              return $state.signData.result.womans;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -355,7 +355,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.womans || [];
+              return $state.signData.result.womans;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -374,7 +374,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.hereditary || [];
+              return $state.signData.result.hereditary;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -393,7 +393,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.hereditary || [];
+              return $state.signData.result.hereditary;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -412,7 +412,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.venereal || [];
+              return $state.signData.result.venereal;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -431,7 +431,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.venereal || [];
+              return $state.signData.result.venereal;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -450,7 +450,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.current || [];
+              return $state.signData.result.current;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -469,7 +469,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.data.result.current || [];
+              return $state.signData.result.current;
             } catch (e) {
               if (
                 e instanceof TypeError ||
