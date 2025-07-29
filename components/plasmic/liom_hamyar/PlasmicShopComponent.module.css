@@ -6,7 +6,7 @@
   height: 100vh;
   justify-content: flex-start;
   align-items: center;
-  padding-bottom: 5%;
+  padding-bottom: 3%;
   min-width: 0;
 }
 .section__r9Pg {
@@ -366,6 +366,7 @@
   width: 100%;
   padding-left: 0;
   padding-right: 0;
+  height: auto;
   min-width: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
@@ -390,7 +391,7 @@
   border-top-width: 1px;
   border-top-style: solid;
   padding-bottom: 0px;
-  margin-bottom: 5%;
+  margin-bottom: 0%;
   min-width: 0;
 }
 .freeBox__zso2O {

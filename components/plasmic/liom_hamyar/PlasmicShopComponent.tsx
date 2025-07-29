@@ -229,11 +229,10 @@ function PlasmicShopComponent__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return `https://tools.liom.app/shopResult?buyId=${
-                $state.shopId
-              }&?offCode=&token=${
-                $props.token
-              }&redirectUrl=${encodeURIComponent(window.location.href)}`;
+              return (
+                // ""`https://tools.liom.app/shopResult?buyId=${$state.shopId}&?offCode=&token=${$props.token}&redirectUrl=${encodeURIComponent(window.location.href)}`
+                ""
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -20646,12 +20645,57 @@ function PlasmicShopComponent__RenderFunc(props: {
             onClick={async event => {
               const $steps = {};
 
+              $steps["updateShopId"] =
+                $state.shopId == ""
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["shopId"]
+                        },
+                        operation: 0,
+                        value:
+                          $state.shopList?.result?.items?.[$state.itemselected]
+                            ?.id ?? ""
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateShopId"] != null &&
+                typeof $steps["updateShopId"] === "object" &&
+                typeof $steps["updateShopId"].then === "function"
+              ) {
+                $steps["updateShopId"] = await $steps["updateShopId"];
+              }
+
               $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          const url = new URL($state.redirectUrl2);
+                          const url = new URL(
+                            `https://tools.liom.app/shopResult?buyId=${
+                              $state.shopId
+                            }&?offCode=&token=${
+                              $props.token
+                            }&redirectUrl=${encodeURIComponent(
+                              window.location.href
+                            )}`
+                          );
                           url.searchParams.set("buyId", $state.shopId);
                           $state.redirectUrl2 = url.toString();
                           console.log($state.redirectUrl2);
