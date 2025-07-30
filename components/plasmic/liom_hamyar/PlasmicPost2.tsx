@@ -218,7 +218,7 @@ function PlasmicPost2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U"
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkMTdiNmJkLTkzZmYtNGYzZS04ZGYzLTQwMDNkOTU2NGJkOCIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzQ2MjU3MDQ1fQ.VGtD4MdU57dGqdh7uxLTL3lCugmBcv_kybVqfb_2dSI"
       },
       {
         path: "comment[].commentData",
@@ -619,7 +619,7 @@ function PlasmicPost2__RenderFunc(props: {
                         return (() => {
                           if ($state.token == "")
                             return ($state.token =
-                              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzMDUwOCIsImFwcCI6InNoYXJlIiwibmFtZSI6InNoYXJlIn0.RROB1VkkE_RQnSsUEPG_CpfgVh2yRtVSVLpiHsY62uM");
+                              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U");
                         })();
                       }
                     };
@@ -2149,45 +2149,6 @@ function PlasmicPost2__RenderFunc(props: {
                             onClick={async event => {
                               const $steps = {};
 
-                              $steps["updateTextAreaValue3"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["textArea", "value"]
-                                      },
-                                      operation: 0,
-                                      value: ""
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateTextAreaValue3"] != null &&
-                                typeof $steps["updateTextAreaValue3"] ===
-                                  "object" &&
-                                typeof $steps["updateTextAreaValue3"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateTextAreaValue3"] = await $steps[
-                                  "updateTextAreaValue3"
-                                ];
-                              }
-
                               $steps["sendComment"] =
                                 Object.keys($state.editComment).length == 0 &&
                                 Object.keys($state.currentUserDataAfterClick)
@@ -2341,6 +2302,45 @@ function PlasmicPost2__RenderFunc(props: {
                                 typeof $steps["edit"].then === "function"
                               ) {
                                 $steps["edit"] = await $steps["edit"];
+                              }
+
+                              $steps["updateTextAreaValue3"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["textArea", "value"]
+                                      },
+                                      operation: 0,
+                                      value: ""
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateTextAreaValue3"] != null &&
+                                typeof $steps["updateTextAreaValue3"] ===
+                                  "object" &&
+                                typeof $steps["updateTextAreaValue3"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateTextAreaValue3"] = await $steps[
+                                  "updateTextAreaValue3"
+                                ];
                               }
                             }}
                             style={(() => {

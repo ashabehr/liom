@@ -37,9 +37,13 @@
   display: grid;
   align-content: flex-start;
   justify-items: center;
-  width: 100%;
+  width: auto;
   background: none;
-  min-width: 0;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  position: fixed;
+  right: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
@@ -690,7 +694,7 @@
   background: none;
   min-width: 0;
   min-height: 0;
-  padding: 16px 0px 70px;
+  padding: 0px 0px 70px;
 }
 @media (max-width: 640px) {
   .freeBox__v5VDg {

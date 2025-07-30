@@ -93,6 +93,7 @@ export type PlasmicCommentlikebutton__ArgsType = {
   shareForLikeComment?: boolean;
   like?: boolean;
   onLikeChange?: (val: string) => void;
+  onClick?: () => void;
 };
 type ArgPropType = keyof PlasmicCommentlikebutton__ArgsType;
 export const PlasmicCommentlikebutton__ArgProps = new Array<ArgPropType>(
@@ -104,7 +105,8 @@ export const PlasmicCommentlikebutton__ArgProps = new Array<ArgPropType>(
   "modalvalueforcommentlike",
   "shareForLikeComment",
   "like",
-  "onLikeChange"
+  "onLikeChange",
+  "onClick"
 );
 
 export type PlasmicCommentlikebutton__OverridesType = {
@@ -124,6 +126,7 @@ export interface DefaultCommentlikebuttonProps {
   shareForLikeComment?: boolean;
   like?: boolean;
   onLikeChange?: (val: string) => void;
+  onClick?: () => void;
   islikecomment?: SingleBooleanChoiceArg<"islikecomment">;
   className?: string;
 }
@@ -326,30 +329,20 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
             ];
           }
 
-          $steps["updateIslikecomment"] = true
+          $steps["runOnClick"] = true
             ? (() => {
-                const actionArgs = {
-                  vgroup: "islikecomment",
-                  operation: 2,
-                  value: "islikecomment"
-                };
-                return (({ vgroup, value }) => {
-                  if (typeof value === "string") {
-                    value = [value];
-                  }
-
-                  const oldValue = $stateGet($state, vgroup);
-                  $stateSet($state, vgroup, !oldValue);
-                  return !oldValue;
+                const actionArgs = { eventRef: $props["onClick"] };
+                return (({ eventRef, args }) => {
+                  return eventRef?.(...(args ?? []));
                 })?.apply(null, [actionArgs]);
               })()
             : undefined;
           if (
-            $steps["updateIslikecomment"] != null &&
-            typeof $steps["updateIslikecomment"] === "object" &&
-            typeof $steps["updateIslikecomment"].then === "function"
+            $steps["runOnClick"] != null &&
+            typeof $steps["runOnClick"] === "object" &&
+            typeof $steps["runOnClick"].then === "function"
           ) {
-            $steps["updateIslikecomment"] = await $steps["updateIslikecomment"];
+            $steps["runOnClick"] = await $steps["runOnClick"];
           }
         }}
       >
