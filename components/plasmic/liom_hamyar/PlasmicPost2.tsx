@@ -61,6 +61,11 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
 
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
@@ -439,6 +444,8 @@ function PlasmicPost2__RenderFunc(props: {
     $queries: {},
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6BytLjmha8VC()
@@ -651,9 +658,7 @@ function PlasmicPost2__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return (() => {
-                                return window.history.back();
-                              })();
+                              return window.history.back();
                             }
                           };
                           return (({ customFunction }) => {
@@ -667,6 +672,27 @@ function PlasmicPost2__RenderFunc(props: {
                       typeof $steps["runCode"].then === "function"
                     ) {
                       $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["refreshData"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            queryInvalidation: ["plasmic_refresh_all"]
+                          };
+                          return (async ({ queryInvalidation }) => {
+                            if (!queryInvalidation) {
+                              return;
+                            }
+                            await plasmicInvalidate(queryInvalidation);
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["refreshData"] != null &&
+                      typeof $steps["refreshData"] === "object" &&
+                      typeof $steps["refreshData"].then === "function"
+                    ) {
+                      $steps["refreshData"] = await $steps["refreshData"];
                     }
                   }}
                   role={"img"}

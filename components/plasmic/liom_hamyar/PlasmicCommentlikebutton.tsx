@@ -325,6 +325,32 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
               "updateVariableForLikeCountComment"
             ];
           }
+
+          $steps["updateIslikecomment"] = true
+            ? (() => {
+                const actionArgs = {
+                  vgroup: "islikecomment",
+                  operation: 2,
+                  value: "islikecomment"
+                };
+                return (({ vgroup, value }) => {
+                  if (typeof value === "string") {
+                    value = [value];
+                  }
+
+                  const oldValue = $stateGet($state, vgroup);
+                  $stateSet($state, vgroup, !oldValue);
+                  return !oldValue;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateIslikecomment"] != null &&
+            typeof $steps["updateIslikecomment"] === "object" &&
+            typeof $steps["updateIslikecomment"].then === "function"
+          ) {
+            $steps["updateIslikecomment"] = await $steps["updateIslikecomment"];
+          }
         }}
       >
         <div

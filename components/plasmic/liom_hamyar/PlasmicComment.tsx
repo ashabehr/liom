@@ -328,7 +328,7 @@ function PlasmicComment__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.commentData.isLiked;
+              return $props.commentData.likeCount;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -355,7 +355,7 @@ function PlasmicComment__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $props.commentData.isLiked;
+              return $props.commentData.likeCount;
             } catch (e) {
               if (
                 e instanceof TypeError ||
