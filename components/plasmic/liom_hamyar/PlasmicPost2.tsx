@@ -1679,7 +1679,7 @@ function PlasmicPost2__RenderFunc(props: {
                           ]),
                           me: (() => {
                             try {
-                              return currentItem.user.id == "830508";
+                              return currentItem.user.id == $state.userId;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -2149,6 +2149,45 @@ function PlasmicPost2__RenderFunc(props: {
                             onClick={async event => {
                               const $steps = {};
 
+                              $steps["updateTextAreaValue3"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["textArea", "value"]
+                                      },
+                                      operation: 0,
+                                      value: ""
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateTextAreaValue3"] != null &&
+                                typeof $steps["updateTextAreaValue3"] ===
+                                  "object" &&
+                                typeof $steps["updateTextAreaValue3"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateTextAreaValue3"] = await $steps[
+                                  "updateTextAreaValue3"
+                                ];
+                              }
+
                               $steps["sendComment"] =
                                 Object.keys($state.editComment).length == 0 &&
                                 Object.keys($state.currentUserDataAfterClick)
@@ -2302,45 +2341,6 @@ function PlasmicPost2__RenderFunc(props: {
                                 typeof $steps["edit"].then === "function"
                               ) {
                                 $steps["edit"] = await $steps["edit"];
-                              }
-
-                              $steps["updateTextAreaValue3"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["textArea", "value"]
-                                      },
-                                      operation: 0,
-                                      value: ""
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateTextAreaValue3"] != null &&
-                                typeof $steps["updateTextAreaValue3"] ===
-                                  "object" &&
-                                typeof $steps["updateTextAreaValue3"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateTextAreaValue3"] = await $steps[
-                                  "updateTextAreaValue3"
-                                ];
                               }
                             }}
                             style={(() => {
