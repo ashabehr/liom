@@ -264,38 +264,6 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
         onClick={async event => {
           const $steps = {};
 
-          $steps["updateIslikecomment2"] = true
-            ? (() => {
-                const actionArgs = {
-                  operation: 4,
-                  variable: {
-                    objRoot: $state,
-                    variablePath: ["like"]
-                  },
-                  value: !$state.islikecomment
-                };
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
-                  }
-                  const { objRoot, variablePath } = variable;
-
-                  const oldValue = $stateGet(objRoot, variablePath);
-                  $stateSet(objRoot, variablePath, !oldValue);
-                  return !oldValue;
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["updateIslikecomment2"] != null &&
-            typeof $steps["updateIslikecomment2"] === "object" &&
-            typeof $steps["updateIslikecomment2"].then === "function"
-          ) {
-            $steps["updateIslikecomment2"] = await $steps[
-              "updateIslikecomment2"
-            ];
-          }
-
           $steps["updateVariableForLikeCountComment"] = true
             ? (() => {
                 const actionArgs = {
@@ -326,6 +294,38 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
           ) {
             $steps["updateVariableForLikeCountComment"] = await $steps[
               "updateVariableForLikeCountComment"
+            ];
+          }
+
+          $steps["updateIslikecomment2"] = true
+            ? (() => {
+                const actionArgs = {
+                  operation: 4,
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["like"]
+                  },
+                  value: !$state.islikecomment
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  const oldValue = $stateGet(objRoot, variablePath);
+                  $stateSet(objRoot, variablePath, !oldValue);
+                  return !oldValue;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateIslikecomment2"] != null &&
+            typeof $steps["updateIslikecomment2"] === "object" &&
+            typeof $steps["updateIslikecomment2"].then === "function"
+          ) {
+            $steps["updateIslikecomment2"] = await $steps[
+              "updateIslikecomment2"
             ];
           }
 

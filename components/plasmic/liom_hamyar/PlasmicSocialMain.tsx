@@ -865,9 +865,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return $state.token == ""
-                          ? ($state.shere = true)
-                          : ($state.shere = false);
+                        return (() => {})();
                       }
                     };
                     return (({ customFunction }) => {
