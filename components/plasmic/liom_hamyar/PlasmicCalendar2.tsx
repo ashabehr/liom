@@ -11945,19 +11945,12 @@ function PlasmicCalendar2__RenderFunc(props: {
               $steps["goToSettingPregnancy2"] = true
                 ? (() => {
                     const actionArgs = {
-                      destination: `/setting-cycle?type=add`
-                    };
-                    return (({ destination }) => {
-                      if (
-                        typeof destination === "string" &&
-                        destination.startsWith("#")
-                      ) {
-                        document
-                          .getElementById(destination.substr(1))
-                          .scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        __nextRouter?.push(destination);
+                      customFunction: async () => {
+                        return window.open(`/setting-cycle?type=add`, "_self");
                       }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
@@ -17048,54 +17041,6 @@ function PlasmicCalendar2__RenderFunc(props: {
                             ];
                           }
 
-                          $steps["goToPage"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  destination: (() => {
-                                    try {
-                                      return `/setting-cycle?type=edit&cycle=${
-                                        $state.userInfo.result.userStatus.cycle
-                                      }&length=${
-                                        $state.userInfo.result.userStatus.length
-                                      }&last_time=${
-                                        $state.userInfo.result.userStatus.periodStart.split(
-                                          "T"
-                                        )[0]
-                                      }`;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                };
-                                return (({ destination }) => {
-                                  if (
-                                    typeof destination === "string" &&
-                                    destination.startsWith("#")
-                                  ) {
-                                    document
-                                      .getElementById(destination.substr(1))
-                                      .scrollIntoView({ behavior: "smooth" });
-                                  } else {
-                                    __nextRouter?.push(destination);
-                                  }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["goToPage"] != null &&
-                            typeof $steps["goToPage"] === "object" &&
-                            typeof $steps["goToPage"].then === "function"
-                          ) {
-                            $steps["goToPage"] = await $steps["goToPage"];
-                          }
-
                           $steps["runCode"] = true
                             ? (() => {
                                 const actionArgs = {
@@ -17122,6 +17067,37 @@ function PlasmicCalendar2__RenderFunc(props: {
                             typeof $steps["runCode"].then === "function"
                           ) {
                             $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["goToPage"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return window.open(
+                                      `/setting-cycle?type=edit&cycle=${
+                                        $state.userInfo.result.userStatus.cycle
+                                      }&length=${
+                                        $state.userInfo.result.userStatus.length
+                                      }&last_time=${
+                                        $state.userInfo.result.userStatus.periodStart.split(
+                                          "T"
+                                        )[0]
+                                      }`,
+                                      "_self"
+                                    );
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["goToPage"] != null &&
+                            typeof $steps["goToPage"] === "object" &&
+                            typeof $steps["goToPage"].then === "function"
+                          ) {
+                            $steps["goToPage"] = await $steps["goToPage"];
                           }
 
                           $steps["invokeGlobalAction"] = true

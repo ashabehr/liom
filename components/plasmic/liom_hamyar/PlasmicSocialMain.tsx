@@ -171,7 +171,8 @@ function PlasmicSocialMain__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRmNzhiOTU0LWM2YTMtNGRiOS04YmYyLTI3MmE5MGU2ZGRiZCIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzQ0NzAwNjA0fQ.zC2EWB7gRSxxuiwN8qB-XeEsQ2iEYcLAnT5dVX3Icw0"
       },
       {
         path: "getInfo.data",
