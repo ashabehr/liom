@@ -71,7 +71,7 @@ export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
     if (!swiperRef.current) return;
 
     swiperRef.current.allowSlideNext = !lockSlides;
-    swiperRef.current.allowSlidePrev = true;
+    // swiperRef.current.allowSlidePrev = true;
 
     if (lockSlides) {
       swiperRef.current.autoplay?.stop();
@@ -137,7 +137,7 @@ export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
           swiper.el.setAttribute("dir", "ltr");
 
           swiper.allowSlideNext = !lockSlides;
-          swiper.allowSlidePrev = true;
+          // swiper.allowSlidePrev = true;
         }}
         onSlideChange={(swiper) => {
           onActiveSlideIndexChange?.(swiper.realIndex);
