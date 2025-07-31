@@ -692,6 +692,28 @@ function PlasmicSocialMain__RenderFunc(props: {
                 ) {
                   $steps["updateToken5"] = await $steps["updateToken5"];
                 }
+
+                $steps["runCode2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return console.log($state.token);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
+                }
               }}
             />
 
@@ -2213,6 +2235,48 @@ function PlasmicSocialMain__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["comingSoon", "open"])}
           />
+
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__bT0Kn
+            )}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateApiGetPost"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["apiGetPost"]
+                      },
+                      operation: 0,
+                      value: true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateApiGetPost"] != null &&
+                typeof $steps["updateApiGetPost"] === "object" &&
+                typeof $steps["updateApiGetPost"].then === "function"
+              ) {
+                $steps["updateApiGetPost"] = await $steps["updateApiGetPost"];
+              }
+            }}
+          >
+            {"Enter some text"}
+          </div>
         </div>
       </div>
     </React.Fragment>

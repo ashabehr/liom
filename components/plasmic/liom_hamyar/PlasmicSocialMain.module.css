@@ -1163,3 +1163,13 @@
 .comingSoon:global(.__wab_instance) {
   max-width: 100%;
 }
+.text__bT0Kn {
+  position: fixed;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  right: auto;
+}
