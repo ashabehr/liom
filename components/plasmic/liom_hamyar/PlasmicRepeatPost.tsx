@@ -104,6 +104,7 @@ export type PlasmicRepeatPost__ArgsType = {
   comingSoon?: (event: any) => void;
   comment?: any;
   onCommentChange?: (val: string) => void;
+  isMainPage?: boolean;
 };
 type ArgPropType = keyof PlasmicRepeatPost__ArgsType;
 export const PlasmicRepeatPost__ArgProps = new Array<ArgPropType>(
@@ -113,7 +114,8 @@ export const PlasmicRepeatPost__ArgProps = new Array<ArgPropType>(
   "onMainChange",
   "comingSoon",
   "comment",
-  "onCommentChange"
+  "onCommentChange",
+  "isMainPage"
 );
 
 export type PlasmicRepeatPost__OverridesType = {
@@ -135,6 +137,7 @@ export interface DefaultRepeatPostProps {
   comingSoon?: (event: any) => void;
   comment?: any;
   onCommentChange?: (val: string) => void;
+  isMainPage?: boolean;
   type?: SingleChoiceArg<"admin">;
   main?: SingleBooleanChoiceArg<"main">;
   className?: string;
@@ -160,7 +163,9 @@ function PlasmicRepeatPost__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          isMainPage: false
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -766,23 +771,24 @@ function PlasmicRepeatPost__RenderFunc(props: {
         onClick={async event => {
           const $steps = {};
 
-          $steps["runCode"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return (() => {
-                      return window.open(
-                        `/post?post=${$props.postData.post.id}`,
-                        "_self"
-                      );
-                    })();
-                  }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
+          $steps["runCode"] =
+            $props.isMainPage == true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        return window.open(
+                          `/post?post=${$props.postData.post.id}`,
+                          "_self"
+                        );
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
           if (
             $steps["runCode"] != null &&
             typeof $steps["runCode"] === "object" &&

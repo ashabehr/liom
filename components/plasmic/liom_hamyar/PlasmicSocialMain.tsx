@@ -943,7 +943,19 @@ function PlasmicSocialMain__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                shouldFetch={true}
+                shouldFetch={(() => {
+                  try {
+                    return $state.apiGetInfo;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })()}
                 url={"https://n8n.staas.ir/webhook/rest/social"}
               >
                 <div
@@ -1844,7 +1856,19 @@ function PlasmicSocialMain__RenderFunc(props: {
                     }
                   }).apply(null, eventArgs);
                 }}
-                shouldFetch={true}
+                shouldFetch={(() => {
+                  try {
+                    return $state.apiGetPost;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })()}
                 url={"https://n8n.staas.ir/webhook/rest/social"}
               >
                 <Stack__
@@ -1927,6 +1951,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                             __plasmic_idx_0,
                             "comment"
                           ]),
+                          isMainPage: true,
                           key: currentIndex,
                           main: generateStateValueProp($state, [
                             "repeatPost",
