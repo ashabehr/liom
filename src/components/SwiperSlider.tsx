@@ -24,11 +24,11 @@ type SwiperSliderProps = {
   prevButtonSlot?: React.ReactNode;
   nextButtonSlot?: React.ReactNode;
 
-  // قفل کردن اسلاید
   lockSlides?: boolean;
   onLockSlidesChange?: (locked: boolean) => void;
 
-  // وضعیت اسلاید فعال
+  disablePaginationClick?: boolean;
+
   activeSlideIndex?: number;
   onActiveSlideIndexChange?: (index: number) => void;
 };
@@ -48,6 +48,7 @@ export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
     nextButtonSlot,
     lockSlides = false,
     onLockSlidesChange,
+    disablePaginationClick = false,
     activeSlideIndex = 0,
     onActiveSlideIndexChange,
   } = props;
@@ -55,7 +56,7 @@ export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
   const swiperRef = useRef<SwiperType | null>(null);
   const slides = React.Children.toArray(children);
 
-  // sync با index بیرونی
+  // Sync with external index
   useEffect(() => {
     if (
       swiperRef.current &&
@@ -65,48 +66,41 @@ export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
     }
   }, [activeSlideIndex]);
 
-  // قفل یا باز کردن drag/direction/autoplay
-useEffect(() => {
-  if (!swiperRef.current) return;
+  // Lock slide, autoplay, and pagination bullet clicks
+  useEffect(() => {
+    if (!swiperRef.current) return;
 
-  // قفل کردن اسلایدها
-  swiperRef.current.allowSlideNext = !lockSlides;
-  // swiperRef.current.allowSlidePrev = !lockSlides;
+    swiperRef.current.allowSlideNext = !lockSlides;
+    swiperRef.current.allowSlidePrev = !lockSlides;
 
-  // کنترل autoplay
-  if (lockSlides) {
-    swiperRef.current.autoplay?.stop();
-  } else if (autoplay) {
-    swiperRef.current.autoplay?.start();
-  }
-
-  // قفل کردن کلیک روی دات‌ها
-  const paginationEl = swiperRef.current.pagination?.el as HTMLElement;
-  if (paginationEl) {
     if (lockSlides) {
-      paginationEl.classList.add("no-pointer-events");
-    } else {
-      paginationEl.classList.remove("no-pointer-events");
+      swiperRef.current.autoplay?.stop();
+    } else if (autoplay) {
+      swiperRef.current.autoplay?.start();
     }
-  }
-}, [lockSlides, autoplay]);
 
+    const paginationEl = swiperRef.current.pagination?.el as HTMLElement;
+    if (paginationEl) {
+      if (disablePaginationClick) {
+        paginationEl.classList.add("no-pointer-events");
+      } else {
+        paginationEl.classList.remove("no-pointer-events");
+      }
+    }
+  }, [lockSlides, autoplay, disablePaginationClick]);
 
-  // expose method slideTo
   useImperativeHandle(ref, () => ({
     slideTo: (index: number) => {
       swiperRef.current?.slideToLoop(index);
     },
   }));
 
-  // دکمه قبلی
   const handlePrev = () => {
     if (!lockSlides) {
       swiperRef.current?.slidePrev();
     }
   };
 
-  // دکمه بعدی
   const handleNext = () => {
     if (!lockSlides) {
       swiperRef.current?.slideNext();
@@ -125,6 +119,9 @@ useEffect(() => {
             background-color: ${activeBulletColor} !important;
             opacity: 1;
           }
+          .no-pointer-events {
+            pointer-events: none;
+          }
         `}
       </style>
 
@@ -139,7 +136,6 @@ useEffect(() => {
           swiper.el.classList.remove("swiper-rtl");
           swiper.el.setAttribute("dir", "ltr");
 
-          // sync قفل به حالت اولیه
           swiper.allowSlideNext = !lockSlides;
           swiper.allowSlidePrev = !lockSlides;
         }}
@@ -192,9 +188,9 @@ export const SwiperSliderMeta: CodeComponentMeta<SwiperSliderProps> = {
     children: {
       type: "slot",
       defaultValue: [
-        { type: "text", value: "اسلاید ۱" },
-        { type: "text", value: "اسلاید ۲" },
-        { type: "text", value: "اسلاید ۳" },
+        { type: "text", value: "Slide 1" },
+        { type: "text", value: "Slide 2" },
+        { type: "text", value: "Slide 3" },
       ],
     },
     loop: { type: "boolean", defaultValue: true },
@@ -212,37 +208,43 @@ export const SwiperSliderMeta: CodeComponentMeta<SwiperSliderProps> = {
     className: { type: "class" },
     showNavigationButtons: {
       type: "boolean",
-      displayName: "نمایش دکمه‌های ناوبری",
+      displayName: "Show Navigation Buttons",
       defaultValue: true,
     },
     prevButtonSlot: {
       type: "slot",
-      displayName: "دکمه قبلی",
+      displayName: "Previous Button",
     },
     nextButtonSlot: {
       type: "slot",
-      displayName: "دکمه بعدی",
+      displayName: "Next Button",
     },
     activeSlideIndex: {
       type: "number",
-      displayName: "اسلاید فعال",
-      description: "ایندکس اسلاید فعال (۰-based)",
+      displayName: "Active Slide Index",
+      description: "0-based index of the current slide",
       defaultValue: 0,
     },
     onActiveSlideIndexChange: {
       type: "eventHandler",
-      displayName: "وقتی اسلاید تغییر می‌کند",
+      displayName: "On Slide Change",
       argTypes: [{ name: "index", type: "number" }],
     },
     lockSlides: {
       type: "boolean",
-      displayName: "قفل کردن حرکت اسلاید",
+      displayName: "Lock Slide Movement",
       defaultValue: false,
     },
     onLockSlidesChange: {
       type: "eventHandler",
-      displayName: "وقتی lockSlides تغییر می‌کند",
+      displayName: "On LockSlides Change",
       argTypes: [{ name: "locked", type: "boolean" }],
+    },
+    disablePaginationClick: {
+      type: "boolean",
+      displayName: "Disable Pagination Click",
+      description: "Prevents users from clicking on pagination bullets",
+      defaultValue: false,
     },
   },
   states: {
