@@ -71,7 +71,7 @@ export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
     if (!swiperRef.current) return;
 
     swiperRef.current.allowSlideNext = !lockSlides;
-    swiperRef.current.allowSlidePrev = !lockSlides;
+    swiperRef.current.allowSlidePrev = true;
 
     if (lockSlides) {
       swiperRef.current.autoplay?.stop();
