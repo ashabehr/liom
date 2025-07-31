@@ -1041,8 +1041,40 @@ function PlasmicComment__RenderFunc(props: {
           onClick={async () => {
             const $steps = {};
 
+            $steps["updateCommentDataIsLiked"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["commentData", "isLiked"]
+                    },
+                    operation: 4,
+                    value: !$props.commentData.isLiked
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    const oldValue = $stateGet(objRoot, variablePath);
+                    $stateSet(objRoot, variablePath, !oldValue);
+                    return !oldValue;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateCommentDataIsLiked"] != null &&
+              typeof $steps["updateCommentDataIsLiked"] === "object" &&
+              typeof $steps["updateCommentDataIsLiked"].then === "function"
+            ) {
+              $steps["updateCommentDataIsLiked"] = await $steps[
+                "updateCommentDataIsLiked"
+              ];
+            }
+
             $steps["invokeGlobalAction"] =
-              $props.commentData.isLiked != true
+              $props.commentData.isLiked == true
                 ? (() => {
                     const actionArgs = {
                       args: [
@@ -1083,7 +1115,7 @@ function PlasmicComment__RenderFunc(props: {
             }
 
             $steps["invokeGlobalAction2"] =
-              $props.commentData.isLiked == true
+              $props.commentData.isLiked != true
                 ? (() => {
                     const actionArgs = {
                       args: [
@@ -1164,91 +1196,6 @@ function PlasmicComment__RenderFunc(props: {
             ) {
               return;
             }
-
-            (async val => {
-              const $steps = {};
-
-              $steps["invokeGlobalAction"] = false
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        undefined,
-                        "https://n8n.staas.ir/webhook/rest/social/comment/comment/like",
-                        (() => {
-                          try {
-                            return {
-                              commentId: $props.commentData.comment.id,
-                              type: "",
-                              subType: "",
-                              authorization: $props.token
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
-              ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
-              }
-
-              $steps["invokeGlobalAction2"] = false
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        "POST",
-                        "https://n8n.staas.ir/webhook/rest/social/comment/comment/like",
-                        undefined,
-                        (() => {
-                          try {
-                            return {
-                              commentId: $props.commentData.comment.id,
-                              authorization: $props.token
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction2"] != null &&
-                typeof $steps["invokeGlobalAction2"] === "object" &&
-                typeof $steps["invokeGlobalAction2"].then === "function"
-              ) {
-                $steps["invokeGlobalAction2"] = await $steps[
-                  "invokeGlobalAction2"
-                ];
-              }
-            }).apply(null, eventArgs);
           }}
           shareForLikeComment={false}
         />
