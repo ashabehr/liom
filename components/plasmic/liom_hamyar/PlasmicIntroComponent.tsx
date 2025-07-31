@@ -87,6 +87,7 @@ export const PlasmicIntroComponent__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicIntroComponent__OverridesType = {
   root?: Flex__<"div">;
+  section?: Flex__<"section">;
   img?: Flex__<typeof PlasmicImg__>;
 };
 
@@ -117,7 +118,10 @@ function PlasmicIntroComponent__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          title: "aaaaa",
+          text: "a"
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -155,83 +159,90 @@ function PlasmicIntroComponent__RenderFunc(props: {
         sty.root
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__jLmE)}>
-        <div className={classNames(projectcss.all, sty.freeBox__sX5)}>
-          <PlasmicImg__
-            data-plasmic-name={"img"}
-            data-plasmic-override={overrides.img}
-            alt={""}
-            className={classNames(sty.img)}
-            displayHeight={"auto"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={"300px"}
-            loading={"lazy"}
-            src={{
-              src: "/plasmic/liom_hamyar/images/image7.png",
-              fullWidth: 1302,
-              fullHeight: 900,
-              aspectRatio: undefined
-            }}
-          />
-        </div>
-        <div className={classNames(projectcss.all, sty.freeBox__pqIQ)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__jutxo
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $props.title;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "titleeeeeeeeeeeeeeeeeeee";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
+      <section
+        data-plasmic-name={"section"}
+        data-plasmic-override={overrides.section}
+        className={classNames(projectcss.all, sty.section)}
+      >
+        <div className={classNames(projectcss.all, sty.freeBox__jLmE)}>
+          <div className={classNames(projectcss.all, sty.freeBox__sX5)}>
+            <PlasmicImg__
+              data-plasmic-name={"img"}
+              data-plasmic-override={overrides.img}
+              alt={""}
+              className={classNames(sty.img)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"300px"}
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image7.png",
+                fullWidth: 1302,
+                fullHeight: 900,
+                aspectRatio: undefined
+              }}
+            />
           </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__ymWG
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $props.text;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "desccccccccccccc\ndesccccccccccccc\ndescccccccccccc\ndesccccccccccccc\ndescccccccccccccdesccccccccccccc\ndesccccccccccccc\ndescccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndescccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndescccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndescccccccccccc\ndesccccccccccccc\ndesccccccccccccc\n";
+          <div className={classNames(projectcss.all, sty.freeBox__pqIQ)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__jutxo
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.title;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "titleeeeeeeeeeeeeeeeeeee";
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
+                })()}
+              </React.Fragment>
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__ymWG
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.text;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "desccccccccccccc\ndesccccccccccccc\ndescccccccccccc\ndesccccccccccccc\ndescccccccccccccdesccccccccccccc\ndesccccccccccccc\ndescccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndescccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndescccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndesccccccccccccc\ndescccccccccccc\ndesccccccccccccc\ndesccccccccccccc\n";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img"],
+  root: ["root", "section", "img"],
+  section: ["section", "img"],
   img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -239,6 +250,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  section: "section";
   img: typeof PlasmicImg__;
 };
 
@@ -302,6 +314,7 @@ export const PlasmicIntroComponent = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    section: makeNodeComponent("section"),
     img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicIntroComponent

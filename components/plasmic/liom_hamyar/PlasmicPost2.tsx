@@ -70,6 +70,7 @@ import {
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import RepeatPost from "../../RepeatPost"; // plasmic-import: O_6FIPF6rDTy/component
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
@@ -93,6 +94,9 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicPost2.module.css"; // plasmic-import: iNHFQ5RIM3Tb/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon184Icon from "./icons/PlasmicIcon__Icon184"; // plasmic-import: qyxzNL8K38N5/icon
 import Icon247Icon from "./icons/PlasmicIcon__Icon247"; // plasmic-import: H5aVrrGZ_wnt/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
@@ -102,6 +106,8 @@ import LogoPwaSvgrepoComSvgIcon from "./icons/PlasmicIcon__LogoPwaSvgrepoComSvg"
 import IconSvgIcon from "./icons/PlasmicIcon__IconSvg"; // plasmic-import: -XPXy44VZe9n/icon
 import CafeBazaarLogoSvgIcon from "./icons/PlasmicIcon__CafeBazaarLogoSvg"; // plasmic-import: W_GsLw69YDUh/icon
 import BrokenLink2SvgrepoComSvgIcon from "./icons/PlasmicIcon__BrokenLink2SvgrepoComSvg"; // plasmic-import: blnLvMghko66/icon
+
+import __lib_copyToClipboard from "copy-to-clipboard";
 
 createPlasmicElementProxy;
 
@@ -120,6 +126,7 @@ export type PlasmicPost2__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   getInfo?: Flex__<typeof ApiRequest>;
   loding?: Flex__<"div">;
+  button?: Flex__<typeof Button>;
   repeatPost?: Flex__<typeof RepeatPost>;
   popover?: Flex__<typeof AntdPopover>;
   radioGrop?: Flex__<typeof RadioGrop>;
@@ -136,7 +143,9 @@ export type PlasmicPost2__OverridesType = {
 
 export interface DefaultPost2Props {}
 
-const $$ = {};
+const $$ = {
+  copyToClipboard: __lib_copyToClipboard
+};
 
 function useNextRouter() {
   try {
@@ -434,6 +443,12 @@ function PlasmicPost2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -727,7 +742,79 @@ function PlasmicPost2__RenderFunc(props: {
               }
             })()}
             className={classNames("__wab_instance", sty.getInfo)}
-            errorDisplay={null}
+            errorDisplay={
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__yfD96)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___9C8B5
+                  )}
+                >
+                  {
+                    "\u062e\u0637\u0627 \u062f\u0631 \u0627\u062a\u0635\u0627\u0644 \u0628\u0647 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a"
+                  }
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__anWs0
+                  )}
+                >
+                  {
+                    "\u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u0648 \u0642\u0635\u0639 \u0628\u0648\u062f\u0646 vpn\u0645\u0637\u0645\u0626\u0646 \u0634\u062f\u0647 \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f"
+                  }
+                </div>
+                <Button
+                  data-plasmic-name={"button"}
+                  data-plasmic-override={overrides.button}
+                  className={classNames("__wab_instance", sty.button)}
+                  color={generateStateValueProp($state, ["button", "color"])}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  shape={"rounded"}
+                  size={"minimal"}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__boqh)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__xzH2D
+                      )}
+                    >
+                      {"\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"}
+                    </div>
+                    <Icon144Icon
+                      className={classNames(projectcss.all, sty.svg__l9MsU)}
+                      role={"img"}
+                    />
+                  </Stack__>
+                </Button>
+              </Stack__>
+            }
             loadingDisplay={
               <Stack__
                 as={"div"}
@@ -1039,7 +1126,7 @@ function PlasmicPost2__RenderFunc(props: {
                   onClickShere={async event => {
                     const $steps = {};
 
-                    $steps["updateComingSoonOpen"] = true
+                    $steps["updateComingSoonOpen"] = false
                       ? (() => {
                           const actionArgs = {
                             variable: {
@@ -1072,6 +1159,85 @@ function PlasmicPost2__RenderFunc(props: {
                     ) {
                       $steps["updateComingSoonOpen"] = await $steps[
                         "updateComingSoonOpen"
+                      ];
+                    }
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                let url = `https://apps.liom.app/post?post=${currentItem.post.id}&shere=true`;
+                                if (
+                                  typeof navigator !== "undefined" &&
+                                  typeof navigator.share === "function"
+                                ) {
+                                  return navigator.share({
+                                    title: "لیوم | تقویم قاعدگی",
+                                    url: url
+                                  });
+                                } else {
+                                  $$.copyToClipboard(url);
+                                  return alert(
+                                    "مرورگر شما از قابلیت اشتراک‌گذاری پشتیبانی نمی‌کند.لینک پست در کلیپ‌بورد کپی شد."
+                                  );
+                                }
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "POST",
+                              "https://n8n.staas.ir/webhook/post/share",
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    postId: $state.postId,
+                                    type: "",
+                                    authorization: $state.token
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
                       ];
                     }
                   }}
@@ -3307,6 +3473,7 @@ const PlasmicDescendants = {
     "headerLiom",
     "getInfo",
     "loding",
+    "button",
     "repeatPost",
     "popover",
     "radioGrop",
@@ -3325,6 +3492,7 @@ const PlasmicDescendants = {
   getInfo: [
     "getInfo",
     "loding",
+    "button",
     "repeatPost",
     "popover",
     "radioGrop",
@@ -3335,6 +3503,7 @@ const PlasmicDescendants = {
     "lineClomp2"
   ],
   loding: ["loding"],
+  button: ["button"],
   repeatPost: ["repeatPost"],
   popover: ["popover", "radioGrop"],
   radioGrop: ["radioGrop"],
@@ -3357,6 +3526,7 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   getInfo: typeof ApiRequest;
   loding: "div";
+  button: typeof Button;
   repeatPost: typeof RepeatPost;
   popover: typeof AntdPopover;
   radioGrop: typeof RadioGrop;
@@ -3460,6 +3630,7 @@ export const PlasmicPost2 = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     getInfo: makeNodeComponent("getInfo"),
     loding: makeNodeComponent("loding"),
+    button: makeNodeComponent("button"),
     repeatPost: makeNodeComponent("repeatPost"),
     popover: makeNodeComponent("popover"),
     radioGrop: makeNodeComponent("radioGrop"),

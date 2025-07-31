@@ -63,9 +63,10 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
-import RadioGrop2 from "../../RadioGrop2"; // plasmic-import: S5lwX58ZN_a3/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import RadioGrop2 from "../../RadioGrop2"; // plasmic-import: S5lwX58ZN_a3/component
 import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
@@ -87,6 +88,9 @@ import Icon222Icon from "./icons/PlasmicIcon__Icon222"; // plasmic-import: 9jhVY
 import Icon223Icon from "./icons/PlasmicIcon__Icon223"; // plasmic-import: 0ISCKAZ1VQ2U/icon
 import Icon179Icon from "./icons/PlasmicIcon__Icon179"; // plasmic-import: qlPLXoOalpf5/icon
 import Icon218Icon from "./icons/PlasmicIcon__Icon218"; // plasmic-import: efUVKFegcS0a/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon239Icon from "./icons/PlasmicIcon__Icon239"; // plasmic-import: aS735Bmxge2K/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
@@ -106,14 +110,16 @@ export type PlasmicSocialMain__OverridesType = {
   root?: Flex__<"div">;
   section?: Flex__<"section">;
   mainHeader?: Flex__<typeof MainHeader>;
+  sideEffect?: Flex__<typeof SideEffect>;
   getInfo?: Flex__<typeof ApiRequest>;
+  button?: Flex__<typeof Button>;
   groupBy?: Flex__<"div">;
   radioGrop2?: Flex__<typeof RadioGrop2>;
-  sideEffect?: Flex__<typeof SideEffect>;
   story?: Flex__<"div">;
   timer?: Flex__<typeof Timer>;
   postPostesInfo?: Flex__<typeof ApiRequest>;
   dialog?: Flex__<typeof Dialog>;
+  button2?: Flex__<typeof Button>;
   repeatPost?: Flex__<typeof RepeatPost>;
   comingSoon?: Flex__<typeof ComingSoon>;
 };
@@ -310,6 +316,18 @@ function PlasmicSocialMain__RenderFunc(props: {
         path: "repeatPost[].comment",
         type: "private",
         variableType: "object"
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -479,21 +497,253 @@ function PlasmicSocialMain__RenderFunc(props: {
                 </div>
               </Stack__>
             </MainHeader>
+            <SideEffect
+              data-plasmic-name={"sideEffect"}
+              data-plasmic-override={overrides.sideEffect}
+              className={classNames("__wab_instance", sty.sideEffect)}
+              onMount={async () => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            const queryString = window.location.search;
+                            const urlParams = new URLSearchParams(queryString);
+                            return urlParams.forEach((value, key) => {
+                              $state.paramsObject[key] = value;
+                            });
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["updateToken2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            const searchParams = new URLSearchParams(
+                              window.location.search
+                            );
+                            searchParams.delete("token");
+                            searchParams.delete("userId");
+                            searchParams.delete("user_id");
+                            const newUrl = `${
+                              window.location.pathname
+                            }?${searchParams.toString()}`;
+                            return window.history.replaceState(
+                              null,
+                              "",
+                              newUrl
+                            );
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateToken2"] != null &&
+                  typeof $steps["updateToken2"] === "object" &&
+                  typeof $steps["updateToken2"].then === "function"
+                ) {
+                  $steps["updateToken2"] = await $steps["updateToken2"];
+                }
+
+                $steps["updateToken3"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            if (
+                              $state.paramsObject.token !== undefined &&
+                              $state.paramsObject.token?.trim() !== ""
+                            ) {
+                              if (!$state.paramsObject.token.startsWith("ey"))
+                                $state.paramsObject.token =
+                                  $state.paramsObject.token.slice(6, -3);
+                              var setCookie = (name, value, days) => {
+                                const expires = new Date(
+                                  Date.now() + days * 86400000
+                                ).toUTCString();
+                                document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                              };
+                              return setCookie(
+                                "token",
+                                JSON.stringify([$state.paramsObject.token]),
+                                100
+                              );
+                            }
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateToken3"] != null &&
+                  typeof $steps["updateToken3"] === "object" &&
+                  typeof $steps["updateToken3"].then === "function"
+                ) {
+                  $steps["updateToken3"] = await $steps["updateToken3"];
+                }
+
+                $steps["updateToken4"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            var getCookie = name => {
+                              const cookies = document.cookie.split("; ");
+                              for (let cookie of cookies) {
+                                const [key, value] = cookie.split("=");
+                                if (key === name) return JSON.parse(value)[0];
+                              }
+                              return "";
+                            };
+                            return ($state.token = getCookie("token"));
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateToken4"] != null &&
+                  typeof $steps["updateToken4"] === "object" &&
+                  typeof $steps["updateToken4"].then === "function"
+                ) {
+                  $steps["updateToken4"] = await $steps["updateToken4"];
+                }
+
+                $steps["updateToken5"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {})();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateToken5"] != null &&
+                  typeof $steps["updateToken5"] === "object" &&
+                  typeof $steps["updateToken5"].then === "function"
+                ) {
+                  $steps["updateToken5"] = await $steps["updateToken5"];
+                }
+              }}
+            />
+
             <div className={classNames(projectcss.all, sty.freeBox__rlMlo)}>
               <ApiRequest
                 data-plasmic-name={"getInfo"}
                 data-plasmic-override={overrides.getInfo}
                 className={classNames("__wab_instance", sty.getInfo)}
                 errorDisplay={
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__fr80O
-                    )}
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__iaMkg)}
                   >
-                    {"Error fetching data"}
-                  </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__fr80O
+                      )}
+                    >
+                      {
+                        "\u062e\u0637\u0627 \u062f\u0631 \u0627\u062a\u0635\u0627\u0644 \u0628\u0647 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__f5Ahv
+                      )}
+                    >
+                      {
+                        "\u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u0648 \u0642\u0635\u0639 \u0628\u0648\u062f\u0646 vpn\u0645\u0637\u0645\u0626\u0646 \u0634\u062f\u0647 \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f"
+                      }
+                    </div>
+                    <Button
+                      data-plasmic-name={"button"}
+                      data-plasmic-override={overrides.button}
+                      className={classNames("__wab_instance", sty.button)}
+                      color={generateStateValueProp($state, [
+                        "button",
+                        "color"
+                      ])}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      shape={"rounded"}
+                      size={"minimal"}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__tZs47
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___05Too
+                          )}
+                        >
+                          {"\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"}
+                        </div>
+                        <Icon144Icon
+                          className={classNames(
+                            projectcss.all,
+                            sty.svg___7LuRm
+                          )}
+                          role={"img"}
+                        />
+                      </Stack__>
+                    </Button>
+                  </Stack__>
                 }
                 loadingDisplay={
                   <Stack__
@@ -727,162 +977,6 @@ function PlasmicSocialMain__RenderFunc(props: {
               </ApiRequest>
             </div>
           </section>
-          <SideEffect
-            data-plasmic-name={"sideEffect"}
-            data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
-            onMount={async () => {
-              const $steps = {};
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const queryString = window.location.search;
-                          const urlParams = new URLSearchParams(queryString);
-                          return urlParams.forEach((value, key) => {
-                            $state.paramsObject[key] = value;
-                          });
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-
-              $steps["updateToken2"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const searchParams = new URLSearchParams(
-                            window.location.search
-                          );
-                          searchParams.delete("token");
-                          searchParams.delete("userId");
-                          searchParams.delete("user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
-                          return window.history.replaceState(null, "", newUrl);
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateToken2"] != null &&
-                typeof $steps["updateToken2"] === "object" &&
-                typeof $steps["updateToken2"].then === "function"
-              ) {
-                $steps["updateToken2"] = await $steps["updateToken2"];
-              }
-
-              $steps["updateToken3"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          if (
-                            $state.paramsObject.token !== undefined &&
-                            $state.paramsObject.token?.trim() !== ""
-                          ) {
-                            if (!$state.paramsObject.token.startsWith("ey"))
-                              $state.paramsObject.token =
-                                $state.paramsObject.token.slice(6, -3);
-                            var setCookie = (name, value, days) => {
-                              const expires = new Date(
-                                Date.now() + days * 86400000
-                              ).toUTCString();
-                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
-                            };
-                            return setCookie(
-                              "token",
-                              JSON.stringify([$state.paramsObject.token]),
-                              100
-                            );
-                          }
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateToken3"] != null &&
-                typeof $steps["updateToken3"] === "object" &&
-                typeof $steps["updateToken3"].then === "function"
-              ) {
-                $steps["updateToken3"] = await $steps["updateToken3"];
-              }
-
-              $steps["updateToken4"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          var getCookie = name => {
-                            const cookies = document.cookie.split("; ");
-                            for (let cookie of cookies) {
-                              const [key, value] = cookie.split("=");
-                              if (key === name) return JSON.parse(value)[0];
-                            }
-                            return "";
-                          };
-                          return ($state.token = getCookie("token"));
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateToken4"] != null &&
-                typeof $steps["updateToken4"] === "object" &&
-                typeof $steps["updateToken4"].then === "function"
-              ) {
-                $steps["updateToken4"] = await $steps["updateToken4"];
-              }
-
-              $steps["updateToken5"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {})();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateToken5"] != null &&
-                typeof $steps["updateToken5"] === "object" &&
-                typeof $steps["updateToken5"].then === "function"
-              ) {
-                $steps["updateToken5"] = await $steps["updateToken5"];
-              }
-            }}
-          />
-
           <div className={classNames(projectcss.all, sty.freeBox___2BKpP)}>
             <Stack__
               as={"div"}
@@ -1159,15 +1253,84 @@ function PlasmicSocialMain__RenderFunc(props: {
                 })()}
                 className={classNames("__wab_instance", sty.postPostesInfo)}
                 errorDisplay={
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___1RoEo
-                    )}
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___0UiGs)}
                   >
-                    {"Error fetching data"}
-                  </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__yTgQp
+                      )}
+                    >
+                      {
+                        "\u062e\u0637\u0627 \u062f\u0631 \u0627\u062a\u0635\u0627\u0644 \u0628\u0647 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__eaJDl
+                      )}
+                    >
+                      {
+                        "\u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u0648 \u0642\u0635\u0639 \u0628\u0648\u062f\u0646 vpn\u0645\u0637\u0645\u0626\u0646 \u0634\u062f\u0647 \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f"
+                      }
+                    </div>
+                    <Button
+                      data-plasmic-name={"button2"}
+                      data-plasmic-override={overrides.button2}
+                      className={classNames("__wab_instance", sty.button2)}
+                      color={generateStateValueProp($state, [
+                        "button2",
+                        "color"
+                      ])}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button2",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      shape={"rounded"}
+                      size={"minimal"}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___4QAyr
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__bxL8M
+                          )}
+                        >
+                          {"\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"}
+                        </div>
+                        <Icon144Icon
+                          className={classNames(projectcss.all, sty.svg__zoF4W)}
+                          role={"img"}
+                        />
+                      </Stack__>
+                    </Button>
+                  </Stack__>
                 }
                 loadingDisplay={
                   <div
@@ -1579,6 +1742,42 @@ function PlasmicSocialMain__RenderFunc(props: {
                           onClickShere: async event => {
                             const $steps = {};
 
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        let url = `https://apps.liom.app/post?post=${currentItem.post.id}&shere=true`;
+                                        if (
+                                          typeof navigator !== "undefined" &&
+                                          typeof navigator.share === "function"
+                                        ) {
+                                          return navigator.share({
+                                            title: "لیوم | تقویم قاعدگی",
+                                            url: url
+                                          });
+                                        } else {
+                                          $$.copyToClipboard(url);
+                                          return alert(
+                                            "مرورگر شما از قابلیت اشتراک‌گذاری پشتیبانی نمی‌کند.لینک در کلیپ‌بورد کپی شد. حالا می‌توانید آن را در برنامه‌های دیگر به اشتراک بگذارید."
+                                          );
+                                        }
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+
                             $steps["invokeGlobalAction"] = false
                               ? (() => {
                                   const actionArgs = {
@@ -1621,42 +1820,6 @@ function PlasmicSocialMain__RenderFunc(props: {
                               $steps["invokeGlobalAction"] = await $steps[
                                 "invokeGlobalAction"
                               ];
-                            }
-
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        let url = `/post?post=${currentItem.post.id}&shere=true`;
-                                        if (
-                                          typeof navigator !== "undefined" &&
-                                          typeof navigator.share === "function"
-                                        ) {
-                                          return navigator.share({
-                                            title: "لیوم | تقویم قاعدگی",
-                                            url: url
-                                          });
-                                        } else {
-                                          $$.copyToClipboard(url);
-                                          return alert(
-                                            "مرورگر شما از قابلیت اشتراک‌گذاری پشتیبانی نمی‌کند.لینک در کلیپ‌بورد کپی شد. حالا می‌توانید آن را در برنامه‌های دیگر به اشتراک بگذارید."
-                                          );
-                                        }
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
                             }
                           },
                           onCommentChange: async (...eventArgs: any) => {
@@ -1805,27 +1968,39 @@ const PlasmicDescendants = {
     "root",
     "section",
     "mainHeader",
+    "sideEffect",
     "getInfo",
+    "button",
     "groupBy",
     "radioGrop2",
-    "sideEffect",
     "story",
     "timer",
     "postPostesInfo",
     "dialog",
+    "button2",
     "repeatPost",
     "comingSoon"
   ],
-  section: ["section", "mainHeader", "getInfo", "groupBy", "radioGrop2"],
+  section: [
+    "section",
+    "mainHeader",
+    "sideEffect",
+    "getInfo",
+    "button",
+    "groupBy",
+    "radioGrop2"
+  ],
   mainHeader: ["mainHeader"],
-  getInfo: ["getInfo", "groupBy", "radioGrop2"],
+  sideEffect: ["sideEffect"],
+  getInfo: ["getInfo", "button", "groupBy", "radioGrop2"],
+  button: ["button"],
   groupBy: ["groupBy", "radioGrop2"],
   radioGrop2: ["radioGrop2"],
-  sideEffect: ["sideEffect"],
   story: ["story"],
   timer: ["timer"],
-  postPostesInfo: ["postPostesInfo", "dialog", "repeatPost"],
+  postPostesInfo: ["postPostesInfo", "dialog", "button2", "repeatPost"],
   dialog: ["dialog"],
+  button2: ["button2"],
   repeatPost: ["repeatPost"],
   comingSoon: ["comingSoon"]
 } as const;
@@ -1836,14 +2011,16 @@ type NodeDefaultElementType = {
   root: "div";
   section: "section";
   mainHeader: typeof MainHeader;
+  sideEffect: typeof SideEffect;
   getInfo: typeof ApiRequest;
+  button: typeof Button;
   groupBy: "div";
   radioGrop2: typeof RadioGrop2;
-  sideEffect: typeof SideEffect;
   story: "div";
   timer: typeof Timer;
   postPostesInfo: typeof ApiRequest;
   dialog: typeof Dialog;
+  button2: typeof Button;
   repeatPost: typeof RepeatPost;
   comingSoon: typeof ComingSoon;
 };
@@ -1935,14 +2112,16 @@ export const PlasmicSocialMain = Object.assign(
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
     mainHeader: makeNodeComponent("mainHeader"),
+    sideEffect: makeNodeComponent("sideEffect"),
     getInfo: makeNodeComponent("getInfo"),
+    button: makeNodeComponent("button"),
     groupBy: makeNodeComponent("groupBy"),
     radioGrop2: makeNodeComponent("radioGrop2"),
-    sideEffect: makeNodeComponent("sideEffect"),
     story: makeNodeComponent("story"),
     timer: makeNodeComponent("timer"),
     postPostesInfo: makeNodeComponent("postPostesInfo"),
     dialog: makeNodeComponent("dialog"),
+    button2: makeNodeComponent("button2"),
     repeatPost: makeNodeComponent("repeatPost"),
     comingSoon: makeNodeComponent("comingSoon"),
 
