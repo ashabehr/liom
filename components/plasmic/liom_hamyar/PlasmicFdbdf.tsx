@@ -223,6 +223,7 @@ function PlasmicFdbdf__RenderFunc(props: {
             autoplayDelay={3000}
             bulletColor={"#888888"}
             className={classNames("__wab_instance", sty.swiperSlider)}
+            disablePaginationClick={false}
             lockSlides={generateStateValueProp($state, [
               "swiperSlider",
               "lockSlides"

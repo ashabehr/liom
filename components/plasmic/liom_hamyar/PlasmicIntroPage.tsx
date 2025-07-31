@@ -961,155 +961,158 @@ function PlasmicIntroPage__RenderFunc(props: {
                 " " +
                 classNames("__wab_instance", sty.swiperSlider)
               }
+              disablePaginationClick={true}
               lockSlides={generateStateValueProp($state, [
                 "swiperSlider",
                 "lockSlides"
               ])}
               loop={false}
               nextButtonSlot={
-                <Button
-                  data-plasmic-name={"button"}
-                  data-plasmic-override={overrides.button}
-                  className={classNames("__wab_instance", sty.button)}
-                  color={generateStateValueProp($state, ["button", "color"])}
-                  onClick={async event => {
-                    const $steps = {};
+                <div className={classNames(projectcss.all, sty.freeBox__v3H2Y)}>
+                  <Button
+                    data-plasmic-name={"button"}
+                    data-plasmic-override={overrides.button}
+                    className={classNames("__wab_instance", sty.button)}
+                    color={generateStateValueProp($state, ["button", "color"])}
+                    onClick={async event => {
+                      const $steps = {};
 
-                    $steps["invokeGlobalAction"] =
-                      $state.swiperSlider.activeSlideIndex == 5 ||
-                      $state.swiperSlider.activeSlideIndex == 6
+                      $steps["invokeGlobalAction"] =
+                        $state.swiperSlider.activeSlideIndex == 5 ||
+                        $state.swiperSlider.activeSlideIndex == 6
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/calendar/getSign",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        authorization: $state.token,
+                                        before: $state.signsComponent.beforList,
+                                        current:
+                                          $state.signsComponent.befurList,
+                                        psychological:
+                                          $state.signsComponent2
+                                            .psychologicalList,
+                                        vaginal:
+                                          $state.signsComponent.vaginalList,
+                                        hereditary:
+                                          $state.signsComponent.hereditaryList,
+                                        venereal:
+                                          $state.signsComponent.venerealList,
+                                        womans: $state.signsComponent.womanList,
+                                        others: ["stomach_ache"]
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction2"] = (() => {
+                        if (
+                          $state.swiperSlider.activeSlideIndex == 4 &&
+                          !$state.hamyarAddComponent.goNext
+                        ) {
+                          return true;
+                        } else {
+                          return false;
+                        }
+                      })()
                         ? (() => {
                             const actionArgs = {
                               args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/calendar/getSign",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      authorization: $state.token,
-                                      before: $state.signsComponent.beforList,
-                                      current: $state.signsComponent.befurList,
-                                      psychological:
-                                        $state.signsComponent2
-                                          .psychologicalList,
-                                      vaginal:
-                                        $state.signsComponent.vaginalList,
-                                      hereditary:
-                                        $state.signsComponent.hereditaryList,
-                                      venereal:
-                                        $state.signsComponent.venerealList,
-                                      womans: $state.signsComponent.womanList,
-                                      others: ["stomach_ache"]
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
+                                "error",
+                                "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0647\u0645\u06cc\u0627\u0631 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.",
+                                "bottom-center"
                               ]
                             };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
+                            return $globalActions["Fragment.showToast"]?.apply(
                               null,
                               [...actionArgs.args]
                             );
                           })()
                         : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
-                    }
-
-                    $steps["invokeGlobalAction2"] = (() => {
                       if (
-                        $state.swiperSlider.activeSlideIndex == 4 &&
-                        !$state.hamyarAddComponent.goNext
+                        $steps["invokeGlobalAction2"] != null &&
+                        typeof $steps["invokeGlobalAction2"] === "object" &&
+                        typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        return true;
-                      } else {
-                        return false;
+                        $steps["invokeGlobalAction2"] = await $steps[
+                          "invokeGlobalAction2"
+                        ];
                       }
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "error",
-                              "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0647\u0645\u06cc\u0627\u0631 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.",
-                              "bottom-center"
-                            ]
-                          };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction2"] != null &&
-                      typeof $steps["invokeGlobalAction2"] === "object" &&
-                      typeof $steps["invokeGlobalAction2"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
-                    }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
 
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  shape={"rounded"}
-                  size={"compact"}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__pAlWc
-                    )}
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    shape={"rounded"}
+                    size={"compact"}
                   >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $state.swiperSlider.activeSlideIndex == 5 ||
-                            $state.swiperSlider.activeSlideIndex == 6
-                            ? "ذخیره و ادامه"
-                            : "ادامه";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0628\u0639\u062f\u06cc";
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pAlWc
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.swiperSlider.activeSlideIndex == 5 ||
+                              $state.swiperSlider.activeSlideIndex == 6
+                              ? "ذخیره و ادامه"
+                              : "ادامه";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0628\u0639\u062f\u06cc";
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                </Button>
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Button>
+                </div>
               }
               onActiveSlideIndexChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
@@ -1175,39 +1178,41 @@ function PlasmicIntroPage__RenderFunc(props: {
                 ]).apply(null, eventArgs);
               }}
               prevButtonSlot={
-                <Button
-                  data-plasmic-name={"button2"}
-                  data-plasmic-override={overrides.button2}
-                  className={classNames("__wab_instance", sty.button2)}
-                  color={generateStateValueProp($state, ["button2", "color"])}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button2", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
+                <div className={classNames(projectcss.all, sty.freeBox__v5Mo)}>
+                  <Button
+                    data-plasmic-name={"button2"}
+                    data-plasmic-override={overrides.button2}
+                    className={classNames("__wab_instance", sty.button2)}
+                    color={generateStateValueProp($state, ["button2", "color"])}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button2", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
 
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  shape={"rounded"}
-                  size={"compact"}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__xrMl
-                    )}
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    shape={"rounded"}
+                    size={"compact"}
                   >
-                    {"\u0642\u0628\u0644\u06cc"}
-                  </div>
-                </Button>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__xrMl
+                      )}
+                    >
+                      {"\u0642\u0628\u0644\u06cc"}
+                    </div>
+                  </Button>
+                </div>
               }
               showNavigationButtons={true}
               showPagination={true}

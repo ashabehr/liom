@@ -328,6 +328,44 @@ function PlasmicSocialMain__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiGetInfo",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.token != "";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "apiGetPost",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.token != "";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -667,6 +705,45 @@ function PlasmicSocialMain__RenderFunc(props: {
                     as={"div"}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox__iaMkg)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateApiGetInfo"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["apiGetInfo"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateApiGetInfo"] != null &&
+                        typeof $steps["updateApiGetInfo"] === "object" &&
+                        typeof $steps["updateApiGetInfo"].then === "function"
+                      ) {
+                        $steps["updateApiGetInfo"] = await $steps[
+                          "updateApiGetInfo"
+                        ];
+                      }
+                    }}
                   >
                     <div
                       className={classNames(
@@ -810,6 +887,46 @@ function PlasmicSocialMain__RenderFunc(props: {
                     null,
                     eventArgs
                   );
+
+                  (async data => {
+                    const $steps = {};
+
+                    $steps["updateApiGetInfo"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["apiGetInfo"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateApiGetInfo"] != null &&
+                      typeof $steps["updateApiGetInfo"] === "object" &&
+                      typeof $steps["updateApiGetInfo"].then === "function"
+                    ) {
+                      $steps["updateApiGetInfo"] = await $steps[
+                        "updateApiGetInfo"
+                      ];
+                    }
+                  }).apply(null, eventArgs);
                 }}
                 params={(() => {
                   try {
@@ -826,6 +943,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                shouldFetch={true}
                 url={"https://n8n.staas.ir/webhook/rest/social"}
               >
                 <div
@@ -1257,6 +1375,45 @@ function PlasmicSocialMain__RenderFunc(props: {
                     as={"div"}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox___0UiGs)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateApiGetPost"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["apiGetPost"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateApiGetPost"] != null &&
+                        typeof $steps["updateApiGetPost"] === "object" &&
+                        typeof $steps["updateApiGetPost"].then === "function"
+                      ) {
+                        $steps["updateApiGetPost"] = await $steps[
+                          "updateApiGetPost"
+                        ];
+                      }
+                    }}
                   >
                     <div
                       className={classNames(
@@ -1649,8 +1806,45 @@ function PlasmicSocialMain__RenderFunc(props: {
                         "updatePostsData"
                       ];
                     }
+
+                    $steps["updateApiGetPost"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["apiGetPost"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateApiGetPost"] != null &&
+                      typeof $steps["updateApiGetPost"] === "object" &&
+                      typeof $steps["updateApiGetPost"].then === "function"
+                    ) {
+                      $steps["updateApiGetPost"] = await $steps[
+                        "updateApiGetPost"
+                      ];
+                    }
                   }).apply(null, eventArgs);
                 }}
+                shouldFetch={true}
                 url={"https://n8n.staas.ir/webhook/rest/social"}
               >
                 <Stack__

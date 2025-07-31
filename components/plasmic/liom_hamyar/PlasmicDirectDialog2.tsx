@@ -539,6 +539,7 @@ function PlasmicDirectDialog2__RenderFunc(props: {
               eventArgs
             );
           }}
+          shouldFetch={true}
           url={"https://n8n.staas.ir/webhook/rest/shop/list"}
         >
           <div className={classNames(projectcss.all, sty.freeBox__ck6Kf)}>

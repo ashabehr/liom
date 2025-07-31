@@ -481,6 +481,7 @@ function PlasmicDocters__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/help/shop"}
             >
               <div
@@ -1495,6 +1496,7 @@ function PlasmicDocters__RenderFunc(props: {
                 throw e;
               }
             })()}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/help/getList"}
           >
             <Stack__

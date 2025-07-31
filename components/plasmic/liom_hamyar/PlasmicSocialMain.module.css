@@ -1023,6 +1023,7 @@
   height: auto;
   max-width: 100%;
   font-size: 15px;
+  text-align: center;
   min-width: 0;
 }
 .button2:global(.__wab_instance) {

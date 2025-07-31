@@ -449,6 +449,25 @@ function PlasmicPost2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiGetInfo",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.token != "";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -747,6 +766,45 @@ function PlasmicPost2__RenderFunc(props: {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__yfD96)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateApiGetInfo"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["apiGetInfo"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateApiGetInfo"] != null &&
+                    typeof $steps["updateApiGetInfo"] === "object" &&
+                    typeof $steps["updateApiGetInfo"].then === "function"
+                  ) {
+                    $steps["updateApiGetInfo"] = await $steps[
+                      "updateApiGetInfo"
+                    ];
+                  }
+                }}
               >
                 <div
                   className={classNames(
@@ -1052,10 +1110,8 @@ function PlasmicPost2__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
-                          return (() => {
-                            return (window.audioLink =
-                              $state.getInfo.data.result.details.post.action);
-                          })();
+                          return (window.audioLink =
+                            $state.getInfo.data.result.details.post.action);
                         }
                       };
                       return (({ customFunction }) => {
@@ -1070,8 +1126,55 @@ function PlasmicPost2__RenderFunc(props: {
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
                 }
+
+                $steps["updateApiGetInfo"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["apiGetInfo"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateApiGetInfo"] != null &&
+                  typeof $steps["updateApiGetInfo"] === "object" &&
+                  typeof $steps["updateApiGetInfo"].then === "function"
+                ) {
+                  $steps["updateApiGetInfo"] = await $steps["updateApiGetInfo"];
+                }
               }).apply(null, eventArgs);
             }}
+            shouldFetch={(() => {
+              try {
+                return $state.apiGetInfo;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
             url={"https://n8n.staas.ir/webhook/rest/social"}
           >
             <div className={classNames(projectcss.all, sty.freeBox__v5VDg)}>

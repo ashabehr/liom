@@ -418,6 +418,7 @@ function PlasmicTest__RenderFunc(props: {
                 eventArgs
               );
             }}
+            shouldFetch={true}
             url={"https://pnldev.com/api/calender"}
           />
 
