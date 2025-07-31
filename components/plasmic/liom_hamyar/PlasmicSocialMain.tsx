@@ -999,6 +999,43 @@ function PlasmicSocialMain__RenderFunc(props: {
                           onClick={async event => {
                             const $steps = {};
 
+                            $steps["updateApiGetPost"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["apiGetPost"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateApiGetPost"] != null &&
+                              typeof $steps["updateApiGetPost"] === "object" &&
+                              typeof $steps["updateApiGetPost"].then ===
+                                "function"
+                            ) {
+                              $steps["updateApiGetPost"] = await $steps[
+                                "updateApiGetPost"
+                              ];
+                            }
+
                             $steps["updateChoiceType"] = true
                               ? (() => {
                                   const actionArgs = {
