@@ -66,18 +66,31 @@ export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
   }, [activeSlideIndex]);
 
   // قفل یا باز کردن drag/direction/autoplay
-  useEffect(() => {
-    if (swiperRef.current) {
-      swiperRef.current.allowSlideNext = !lockSlides;
-      swiperRef.current.allowSlidePrev = !lockSlides;
+useEffect(() => {
+  if (!swiperRef.current) return;
 
-      if (lockSlides) {
-        swiperRef.current.autoplay?.stop();
-      } else if (autoplay) {
-        swiperRef.current.autoplay?.start();
-      }
+  // قفل کردن اسلایدها
+  swiperRef.current.allowSlideNext = !lockSlides;
+  // swiperRef.current.allowSlidePrev = !lockSlides;
+
+  // کنترل autoplay
+  if (lockSlides) {
+    swiperRef.current.autoplay?.stop();
+  } else if (autoplay) {
+    swiperRef.current.autoplay?.start();
+  }
+
+  // قفل کردن کلیک روی دات‌ها
+  const paginationEl = swiperRef.current.pagination?.el as HTMLElement;
+  if (paginationEl) {
+    if (lockSlides) {
+      paginationEl.classList.add("no-pointer-events");
+    } else {
+      paginationEl.classList.remove("no-pointer-events");
     }
-  }, [lockSlides, autoplay]);
+  }
+}, [lockSlides, autoplay]);
+
 
   // expose method slideTo
   useImperativeHandle(ref, () => ({
