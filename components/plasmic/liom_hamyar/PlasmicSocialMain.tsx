@@ -1325,13 +1325,15 @@ function PlasmicSocialMain__RenderFunc(props: {
                             const newData =
                               $steps.invokeGlobalAction.data.result.list;
                             if (!newData || newData.length == 0) {
-                              return ($state.hasmore = false);
+                              $state.hasmore = false;
                             } else {
                               $state.scrolid =
                                 $steps.invokeGlobalAction.data.result.scrollId;
-                              return ($state.postsData.result.list =
-                                $state.postsData.result.list.concat(newData));
+                              $state.postsData.result.list =
+                                $state.postsData.result.list.concat(newData);
                             }
+                            console.log(`hasmore:${$state.hasmore}`);
+                            return console.log(`loading:${$state.isloding}`);
                           })();
                         }
                       };
