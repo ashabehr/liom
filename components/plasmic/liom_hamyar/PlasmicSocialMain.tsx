@@ -1327,6 +1327,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                             if (!newData || newData.length == 0) {
                               return ($state.hasmore = false);
                             } else {
+                              $state.scrolid =
+                                $steps.invokeGlobalAction.data.result.scrollId;
                               return ($state.postsData.result.list =
                                 $state.postsData.result.list.concat(newData));
                             }
@@ -2170,6 +2172,56 @@ function PlasmicSocialMain__RenderFunc(props: {
                 </div>
               </ApiRequest>
             </div>
+            {(() => {
+              try {
+                return $state.isloding;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__auH1R)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__y2Kzj
+                  )}
+                >
+                  {
+                    "\u062f\u0631 \u062d\u0627\u0644 \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc ..."
+                  }
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__npUnX,
+                    "line-container"
+                  )}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__gwA31,
+                      "line line-1"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox___8KPg,
+                      "line line-2"
+                    )}
+                  />
+                </div>
+              </div>
+            ) : null}
           </div>
           <ComingSoon
             data-plasmic-name={"comingSoon"}
