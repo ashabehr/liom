@@ -1315,8 +1315,8 @@ function PlasmicSocialMain__RenderFunc(props: {
               }
 
               $steps["runCode2"] =
-                $steps.invokeGlobalAction.data.success == false ||
-                $steps.invokeGlobalAction.data.success == true
+                $steps.invokeGlobalAction?.data?.success == false ||
+                $steps.invokeGlobalAction?.data?.success == true
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
