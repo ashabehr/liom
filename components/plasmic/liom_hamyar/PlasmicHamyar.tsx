@@ -1602,10 +1602,7 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (
-                !window.localStorage.getItem("telegram") &&
-                $state.paramsObject.r == "8z1hf8"
-              );
+              return !window.localStorage.getItem("telegram");
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -19722,10 +19719,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   initFunc: ({ $props, $state, $queries }) =>
                     (() => {
                       try {
-                        return (
-                          !window.localStorage.getItem("telegram") &&
-                          $state.paramsObject.r == "8z1hf8"
-                        );
+                        return !window.localStorage.getItem("telegram");
                       } catch (e) {
                         if (
                           e instanceof TypeError ||

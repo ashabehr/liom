@@ -366,6 +366,12 @@ function PlasmicSocialMain__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1238,6 +1244,35 @@ function PlasmicSocialMain__RenderFunc(props: {
             onTick={async () => {
               const $steps = {};
 
+              $steps["updateVariable"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loading"]
+                      },
+                      operation: 0,
+                      value: true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateVariable"] != null &&
+                typeof $steps["updateVariable"] === "object" &&
+                typeof $steps["updateVariable"].then === "function"
+              ) {
+                $steps["updateVariable"] = await $steps["updateVariable"];
+              }
+
               $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
@@ -1269,7 +1304,7 @@ function PlasmicSocialMain__RenderFunc(props: {
               }
 
               $steps["invokeGlobalAction"] =
-                $state.isloding || !$state.hasmore
+                ($state.isloding || !$state.hasmore) && !$state.loading
                   ? (() => {
                       const actionArgs = {
                         args: [
@@ -1348,6 +1383,35 @@ function PlasmicSocialMain__RenderFunc(props: {
                 typeof $steps["runCode2"].then === "function"
               ) {
                 $steps["runCode2"] = await $steps["runCode2"];
+              }
+
+              $steps["updateLoading"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loading"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoading"] != null &&
+                typeof $steps["updateLoading"] === "object" &&
+                typeof $steps["updateLoading"].then === "function"
+              ) {
+                $steps["updateLoading"] = await $steps["updateLoading"];
               }
             }}
             runWhileEditing={false}
