@@ -94,6 +94,7 @@ export const PlasmicIntroPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicIntroPage__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   embedHtml?: Flex__<typeof Embed>;
   swiperSlider?: Flex__<typeof SwiperSlider>;
   hamyarAddComponent?: Flex__<typeof HamyarAddComponent>;
@@ -167,8 +168,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "paramsObject",
@@ -601,11 +601,13 @@ function PlasmicIntroPage__RenderFunc(props: {
           })()}
         >
           <SideEffect
-            className={classNames("__wab_instance", sty.sideEffect__gC8Gd)}
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
             onMount={async () => {
               const $steps = {};
 
-              $steps["getParams"] = false
+              $steps["getParams"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -631,7 +633,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 $steps["getParams"] = await $steps["getParams"];
               }
 
-              $steps["clearParams"] = false
+              $steps["clearParams"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -660,7 +662,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 $steps["clearParams"] = await $steps["clearParams"];
               }
 
-              $steps["setCookie"] = false
+              $steps["setCookie"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -700,7 +702,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 $steps["setCookie"] = await $steps["setCookie"];
               }
 
-              $steps["getCookie"] = false
+              $steps["getCookie"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -890,15 +892,8 @@ function PlasmicIntroPage__RenderFunc(props: {
               ) {
                 $steps["setCookie2"] = await $steps["setCookie2"];
               }
-            }}
-          />
 
-          <SideEffect
-            className={classNames("__wab_instance", sty.sideEffect___4UX)}
-            onMount={async () => {
-              const $steps = {};
-
-              $steps["invokeGlobalAction"] = true
+              $steps["getSign"] = true
                 ? (() => {
                     const actionArgs = {
                       args: [
@@ -925,13 +920,11 @@ function PlasmicIntroPage__RenderFunc(props: {
                   })()
                 : undefined;
               if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
+                $steps["getSign"] != null &&
+                typeof $steps["getSign"] === "object" &&
+                typeof $steps["getSign"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["getSign"] = await $steps["getSign"];
               }
 
               $steps["updateSignData"] = true
@@ -942,7 +935,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                         variablePath: ["signData"]
                       },
                       operation: 0,
-                      value: $steps.invokeGlobalAction.data
+                      value: $steps.getSign.data
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -1113,6 +1106,34 @@ function PlasmicIntroPage__RenderFunc(props: {
                       ) {
                         $steps["invokeGlobalAction"] = await $steps[
                           "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction2"] =
+                        $state.swiperSlider.activeSlideIndex == 4 &&
+                        $state.hamyarAddComponent.goNext == false &&
+                        $state.hamyarAddComponent.name == "" &&
+                        $state.hamyarAddComponent.number == ""
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "error",
+                                  "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0627 \u0628\u0647 \u062f\u0631\u0633\u062a\u06cc \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                                  "bottom-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction2"] != null &&
+                        typeof $steps["invokeGlobalAction2"] === "object" &&
+                        typeof $steps["invokeGlobalAction2"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction2"] = await $steps[
+                          "invokeGlobalAction2"
                         ];
                       }
 
@@ -2262,6 +2283,7 @@ function PlasmicIntroPage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "embedHtml",
     "swiperSlider",
     "hamyarAddComponent",
@@ -2271,6 +2293,7 @@ const PlasmicDescendants = {
     "button2",
     "button"
   ],
+  sideEffect: ["sideEffect"],
   embedHtml: ["embedHtml"],
   swiperSlider: [
     "swiperSlider",
@@ -2293,6 +2316,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   embedHtml: typeof Embed;
   swiperSlider: typeof SwiperSlider;
   hamyarAddComponent: typeof HamyarAddComponent;
@@ -2388,6 +2412,7 @@ export const PlasmicIntroPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     embedHtml: makeNodeComponent("embedHtml"),
     swiperSlider: makeNodeComponent("swiperSlider"),
     hamyarAddComponent: makeNodeComponent("hamyarAddComponent"),
