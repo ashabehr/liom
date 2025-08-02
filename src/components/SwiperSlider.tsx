@@ -103,6 +103,7 @@ export const SwiperSlider = forwardRef((props: SwiperSliderProps, ref) => {
 
   const handleNext = () => {
     if (!lockSlides) {
+    console.log("next");
       swiperRef.current?.slideNext();
     }
   };
