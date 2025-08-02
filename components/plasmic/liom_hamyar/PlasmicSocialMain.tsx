@@ -672,48 +672,6 @@ function PlasmicSocialMain__RenderFunc(props: {
                 ) {
                   $steps["updateToken4"] = await $steps["updateToken4"];
                 }
-
-                $steps["updateToken5"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {})();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateToken5"] != null &&
-                  typeof $steps["updateToken5"] === "object" &&
-                  typeof $steps["updateToken5"].then === "function"
-                ) {
-                  $steps["updateToken5"] = await $steps["updateToken5"];
-                }
-
-                $steps["runCode2"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            return console.log($state.token);
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode2"] != null &&
-                  typeof $steps["runCode2"] === "object" &&
-                  typeof $steps["runCode2"].then === "function"
-                ) {
-                  $steps["runCode2"] = await $steps["runCode2"];
-                }
               }}
             />
 
@@ -1304,7 +1262,7 @@ function PlasmicSocialMain__RenderFunc(props: {
               }
 
               $steps["invokeGlobalAction"] =
-                ($state.isloding || !$state.hasmore) && !$state.loading
+                ($state.isloding || !$state.hasmore) && $state.loading
                   ? (() => {
                       const actionArgs = {
                         args: [

@@ -19778,7 +19778,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["runCode"] = true
+                    $steps["runCode"] = $state.userdata.result.man.hamyarStatus
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
@@ -19805,6 +19805,44 @@ function PlasmicHamyar__RenderFunc(props: {
                       typeof $steps["runCode"].then === "function"
                     ) {
                       $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["updateDialogOpendialog"] = !$state.userdata.result
+                      .man.hamyarStatus
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dialog", "opendialog"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDialogOpendialog"] != null &&
+                      typeof $steps["updateDialogOpendialog"] === "object" &&
+                      typeof $steps["updateDialogOpendialog"].then ===
+                        "function"
+                    ) {
+                      $steps["updateDialogOpendialog"] = await $steps[
+                        "updateDialogOpendialog"
+                      ];
                     }
 
                     $steps["updateTelegramOpendialog"] = true
