@@ -382,9 +382,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
                 )
               })}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__r2Im9, {
                   [sty.freeBoxtype_admin__r2Im978CRa]: hasVariant(
                     $state,
@@ -497,7 +495,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
                     }}
                   />
                 ) : null}
-              </Stack__>
+              </div>
               <div
                 className={classNames(
                   projectcss.all,
@@ -610,11 +608,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__q8Zsa)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__q8Zsa)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -729,7 +723,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.svg__a5VF9)}
                     role={"img"}
                   />
-                </Stack__>
+                </div>
               ) : null}
               {(() => {
                 try {
@@ -744,16 +738,12 @@ function PlasmicRepeatPost__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__vUu5R)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__vUu5R)}>
                   <Icon246Icon
                     className={classNames(projectcss.all, sty.svg__wxyqe)}
                     role={"img"}
                   />
-                </Stack__>
+                </div>
               ) : null}
             </div>
           </div>
@@ -1129,9 +1119,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
         />
 
-        <Stack__
-          as={"div"}
-          hasGap={true}
+        <div
           className={classNames(projectcss.all, sty.freeBox__qvCzh, {
             [sty.freeBoxmain__qvCzHaq7Kr]: hasVariant($state, "main", "main"),
             [sty.freeBoxtype_admin__qvCzh78CRa]: hasVariant(
@@ -1173,7 +1161,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
-        </Stack__>
+        </div>
         <Save
           data-plasmic-name={"save"}
           data-plasmic-override={overrides.save}
@@ -1251,9 +1239,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
           })()}
         />
 
-        <Stack__
-          as={"div"}
-          hasGap={true}
+        <div
           className={classNames(projectcss.all, sty.freeBox__pCtk6, {
             [sty.freeBoxmain__pCtk6Aq7Kr]: hasVariant($state, "main", "main")
           })}
@@ -1331,7 +1317,7 @@ function PlasmicRepeatPost__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
-        </Stack__>
+        </div>
       </ReactionBar2ForSocialMain>
     </div>
   ) as React.ReactElement | null;

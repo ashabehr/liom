@@ -193,13 +193,11 @@ function PlasmicUseful__RenderFunc(props: {
   });
 
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -212,11 +210,9 @@ function PlasmicUseful__RenderFunc(props: {
       )}
       onClick={args.onClick}
     >
-      <Stack__
-        as={"div"}
+      <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        hasGap={true}
         className={classNames(projectcss.all, sty.freeBox)}
       >
         <div
@@ -260,7 +256,7 @@ function PlasmicUseful__RenderFunc(props: {
             </React.Fragment>
           )}
         </div>
-      </Stack__>
+      </div>
       <div
         className={classNames(
           projectcss.all,
@@ -284,7 +280,7 @@ function PlasmicUseful__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 

@@ -2,52 +2,23 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: auto;
   max-width: 100%;
   background: var(--token-R_Rsn0nP9oIv);
   box-shadow: 0px 2px 5px 2px #00000033;
+  row-gap: 10px;
   min-width: 0;
   border-radius: 16px;
   padding: 12px;
 }
-.root > :global(.__wab_flex-container) {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  margin-top: calc(0px - 10px);
-  height: calc(100% + 10px);
-}
-.root > :global(.__wab_flex-container) > *,
-.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.root > :global(.__wab_flex-container) > picture > img,
-.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-top: 10px;
-}
 .rootunnamedGroupOfVariants__1 {
   background: #d2e0ff;
   box-shadow: 0px 2px 5px 2px #00000033;
-}
-.rootunnamedGroupOfVariants__1 > :global(.__wab_flex-container) {
-  margin-left: calc(0px - 0px);
-  width: calc(100% + 0px);
-  margin-top: calc(0px - 8px);
-  height: calc(100% + 8px);
-}
-.rootunnamedGroupOfVariants__1 > :global(.__wab_flex-container) > *,
-.rootunnamedGroupOfVariants__1
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > *,
-.rootunnamedGroupOfVariants__1 > :global(.__wab_flex-container) > picture > img,
-.rootunnamedGroupOfVariants__1
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 0px;
-  margin-top: 8px;
+  row-gap: 8px;
+  column-gap: 0px;
 }
 .rootunnamedGroupOfVariants__2 {
   background: var(--token-OcmIk9oDogWZ);
@@ -63,36 +34,14 @@
 }
 .rootunnamedGroupOfVariants__6 {
   background: #d2e0ff;
-}
-.rootunnamedGroupOfVariants__6 > :global(.__wab_flex-container) {
-  margin-left: calc(0px - 0px);
-  width: calc(100% + 0px);
-  margin-top: calc(0px - 8px);
-  height: calc(100% + 8px);
-}
-.rootunnamedGroupOfVariants__6 > :global(.__wab_flex-container) > *,
-.rootunnamedGroupOfVariants__6
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > *,
-.rootunnamedGroupOfVariants__6 > :global(.__wab_flex-container) > picture > img,
-.rootunnamedGroupOfVariants__6
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 0px;
-  margin-top: 8px;
+  row-gap: 8px;
+  column-gap: 0px;
 }
 .rootunnamedGroupOfVariants__7 {
   height: 100%;
   width: 100%;
   justify-self: flex-start;
   background: #e7d7ff;
-  min-width: 0;
-  min-height: 0;
-}
-.rootunnamedGroupOfVariants__7 > :global(.__wab_flex-container) {
   min-width: 0;
   min-height: 0;
 }

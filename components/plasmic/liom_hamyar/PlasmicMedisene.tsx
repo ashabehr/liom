@@ -168,13 +168,11 @@ function PlasmicMedisene__RenderFunc(props: {
   });
 
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -248,11 +246,7 @@ function PlasmicMedisene__RenderFunc(props: {
               })()}
             />
 
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___9Bdgo)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox___9Bdgo)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -271,9 +265,7 @@ function PlasmicMedisene__RenderFunc(props: {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
                 return (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__h4YpV)}
                     key={currentIndex}
                   >
@@ -304,15 +296,15 @@ function PlasmicMedisene__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
-                  </Stack__>
+                  </div>
                 );
               })}
-            </Stack__>
+            </div>
           </React.Fragment>
         ),
         value: args.children
       })}
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 

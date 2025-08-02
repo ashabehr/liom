@@ -662,9 +662,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                       width={"250"}
                     />
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__i2S2Z)}
                   >
                     <div
@@ -691,7 +689,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                         }}
                       />
                     </div>
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__wwPwF)}
                   >
@@ -818,17 +816,13 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                           </React.Fragment>
                         </div>
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__orysH
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__oV5Xj
@@ -875,10 +869,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                               }}
                             />
                           </div>
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        </div>
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__urD9W
@@ -924,8 +916,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                               }}
                             />
                           </div>
-                        </Stack__>
-                      </Stack__>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1679,9 +1671,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                             />
                           </div>
                         </LineClomp>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__pnzMs
@@ -1752,7 +1742,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                               </React.Fragment>
                             </React.Fragment>
                           </div>
-                        </Stack__>
+                        </div>
                       </div>
                     </AntdSingleCollapse>
                   );
@@ -1832,9 +1822,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                     expandIconPosition: "end",
                     ghost: true,
                     label2: (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__yJiOw
@@ -1860,7 +1848,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                             </span>
                           </React.Fragment>
                         </div>
-                      </Stack__>
+                      </div>
                     ),
                     onChange: async (...eventArgs: any) => {
                       generateStateOnChangePropForCodeComponents(
@@ -2498,9 +2486,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                             preview={true}
                           />
                         ) : null}
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__eNwLc
@@ -2576,7 +2562,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                               </React.Fragment>
                             </React.Fragment>
                           </div>
-                        </Stack__>
+                        </div>
                       </div>
                     </AntdSingleCollapse>
                   );

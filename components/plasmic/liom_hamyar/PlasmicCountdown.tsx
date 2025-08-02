@@ -215,11 +215,9 @@ function PlasmicCountdown__RenderFunc(props: {
         }
       )}
     >
-      <Stack__
-        as={"div"}
+      <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        hasGap={true}
         className={classNames(projectcss.all, sty.freeBox, {
           [sty.freeBoxcolor_green]: hasVariant($state, "color", "green"),
           [sty.freeBoxdate_moanth]: hasVariant($state, "date", "moanth"),
@@ -563,7 +561,7 @@ function PlasmicCountdown__RenderFunc(props: {
             </div>
           }
         />
-      </Stack__>
+      </div>
       <Timer
         data-plasmic-name={"timer"}
         data-plasmic-override={overrides.timer}

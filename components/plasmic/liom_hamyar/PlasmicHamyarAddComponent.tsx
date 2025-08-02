@@ -88,12 +88,24 @@ export const PlasmicHamyarAddComponent__VariantProps =
   new Array<VariantPropType>();
 
 export type PlasmicHamyarAddComponent__ArgsType = {
+  number?: string;
+  onNumberChange?: (val: string) => void;
+  name?: string;
+  onNameChange?: (val: string) => void;
+  relation?: string;
+  onRelationChange?: (val: string) => void;
   token2?: string;
   goNext?: boolean;
   onGoNextChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicHamyarAddComponent__ArgsType;
 export const PlasmicHamyarAddComponent__ArgProps = new Array<ArgPropType>(
+  "number",
+  "onNumberChange",
+  "name",
+  "onNameChange",
+  "relation",
+  "onRelationChange",
   "token2",
   "goNext",
   "onGoNextChange"
@@ -113,6 +125,12 @@ export type PlasmicHamyarAddComponent__OverridesType = {
 };
 
 export interface DefaultHamyarAddComponentProps {
+  number?: string;
+  onNumberChange?: (val: string) => void;
+  name?: string;
+  onNameChange?: (val: string) => void;
+  relation?: string;
+  onRelationChange?: (val: string) => void;
   token2?: string;
   goNext?: boolean;
   onGoNextChange?: (val: string) => void;
@@ -183,9 +201,11 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
       },
       {
         path: "number",
-        type: "private",
+        type: "writable",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+
+        valueProp: "number",
+        onChangeProp: "onNumberChange"
       },
       {
         path: "textInput2.value",
@@ -209,15 +229,19 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
       },
       {
         path: "name",
-        type: "private",
+        type: "writable",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+
+        valueProp: "name",
+        onChangeProp: "onNameChange"
       },
       {
         path: "relation",
-        type: "private",
+        type: "writable",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "husband"
+
+        valueProp: "relation",
+        onChangeProp: "onRelationChange"
       },
       {
         path: "type",
@@ -489,11 +513,7 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
             />
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__l1SbY)}>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__p68Yo)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__p68Yo)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -505,11 +525,7 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
                   "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
                 }
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__lnTt5)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__lnTt5)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -689,17 +705,9 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
                     }
                   />
                 </div>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__riMmE)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox___1PJL)}
-                >
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__riMmE)}>
+                <div className={classNames(projectcss.all, sty.freeBox___1PJL)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -859,8 +867,8 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
                       }
                     />
                   </div>
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
               <div className={classNames(projectcss.all, sty.freeBox__e91Ag)}>
                 <Button
                   data-plasmic-name={"button3"}
@@ -1273,7 +1281,7 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
                   </div>
                 </Button>
               </div>
-            </Stack__>
+            </div>
           </div>
         </div>
       </section>

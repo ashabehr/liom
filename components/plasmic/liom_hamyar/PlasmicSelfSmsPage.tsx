@@ -767,9 +767,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox___2D3Xa
@@ -811,7 +809,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           "\u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
                         }
                       </div>
-                    </Stack__>
+                    </div>
                   ) : null}
                   {(() => {
                     try {
@@ -1655,9 +1653,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           }
                         })()}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__fyj3R
@@ -1681,7 +1677,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a."
                             }
                           </div>
-                        </Stack__>
+                        </div>
                         <div
                           className={classNames(
                             projectcss.all,
@@ -36748,11 +36744,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                 data-plasmic-override={overrides.headerLiom}
                 className={classNames("__wab_instance", sty.headerLiom)}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__bNved)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__bNved)}>
                   <XIcon
                     data-plasmic-name={"svg"}
                     data-plasmic-override={overrides.svg}
@@ -36796,7 +36788,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       "\u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0628\u0647 \u062e\u0648\u062f\u062a"
                     }
                   </div>
-                </Stack__>
+                </div>
               </HeaderLiom>
             </section>
           ) : null}

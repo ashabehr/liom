@@ -1430,9 +1430,7 @@ function PlasmicLogin2__RenderFunc(props: {
             effect={"fade"}
             triggerOnce={true}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__p1N, {
                 [sty.freeBoxloginPage_emailCode__p1NvJ04U]: hasVariant(
                   $state,
@@ -1517,9 +1515,7 @@ function PlasmicLogin2__RenderFunc(props: {
               >
                 {"\u0644\u06cc\u0648\u0645 | Liom"}
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__gXzIe, {
                   [sty.freeBoxloginPage_emailCode__gXzIevJ04U]: hasVariant(
                     $state,
@@ -1991,7 +1987,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     role={"img"}
                   />
                 </LoginBox>
-              </Stack__>
+              </div>
               <div
                 className={classNames(
                   projectcss.all,
@@ -2077,7 +2073,7 @@ function PlasmicLogin2__RenderFunc(props: {
                   "\u0648\u0631\u0648\u062f \u0628\u0647 \u0635\u0648\u0631\u062a \u0645\u0647\u0645\u0627\u0646 >"
                 }
               </div>
-            </Stack__>
+            </div>
           </Reveal>
           {(
             hasVariant($state, "loginPage", "selectstatus")
@@ -2144,9 +2140,7 @@ function PlasmicLogin2__RenderFunc(props: {
               effect={"fade"}
               triggerOnce={true}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__tFMmt, {
                   [sty.freeBoxloginPage_emailCode__tFMmtvJ04U]: hasVariant(
                     $state,
@@ -2304,9 +2298,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     role={"img"}
                   />
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__vQbU, {
                     [sty.freeBoxloginPage_emailCode__vQbUvJ04U]: hasVariant(
                       $state,
@@ -2900,7 +2892,7 @@ function PlasmicLogin2__RenderFunc(props: {
                       }
                     />
                   </div>
-                </Stack__>
+                </div>
                 <section
                   className={classNames(projectcss.all, sty.section___5J3Kq, {
                     [sty.sectionloginPage_mobile___5J3KqQo7Uf]: hasVariant(
@@ -3502,7 +3494,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     </div>
                   </Button>
                 </section>
-              </Stack__>
+              </div>
             </Reveal>
           ) : null}
           {(
@@ -3570,9 +3562,7 @@ function PlasmicLogin2__RenderFunc(props: {
               effect={"fade"}
               triggerOnce={true}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__rqp8, {
                   [sty.freeBoxloginPage_emailCode__rqp8VJ04U]: hasVariant(
                     $state,
@@ -3733,9 +3723,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     role={"img"}
                   />
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__nM0E, {
                     [sty.freeBoxloginPage_emailCode__nM0EvJ04U]: hasVariant(
                       $state,
@@ -4156,10 +4144,8 @@ function PlasmicLogin2__RenderFunc(props: {
                       }
                     />
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox___0D0OL, {
                     [sty.freeBoxloginPage_emailCode___0D0OLvJ04U]: hasVariant(
                       $state,
@@ -4598,7 +4584,7 @@ function PlasmicLogin2__RenderFunc(props: {
                       }
                     />
                   </div>
-                </Stack__>
+                </div>
                 <section
                   className={classNames(projectcss.all, sty.section__dZui7, {
                     [sty.sectionloginPage_userNameLogin__dZui7CqmoW]:
@@ -5400,7 +5386,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     ? "\u0627\u06af\u0631 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u0646\u062f\u0627\u0631\u06cc \u0628\u0631\u0627\u06cc \u062b\u0628\u062a \u0646\u0627\u0645 \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 >"
                     : "Enter some text"}
                 </div>
-              </Stack__>
+              </div>
             </Reveal>
           ) : null}
           {(
@@ -5468,9 +5454,7 @@ function PlasmicLogin2__RenderFunc(props: {
               effect={"fade"}
               triggerOnce={true}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__yrtfK, {
                   [sty.freeBoxloginPage_emailCode__yrtfKvJ04U]: hasVariant(
                     $state,
@@ -5628,9 +5612,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     role={"img"}
                   />
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__jQgMw, {
                     [sty.freeBoxloginPage_emailCode__jQgMWvJ04U]: hasVariant(
                       $state,
@@ -6048,10 +6030,8 @@ function PlasmicLogin2__RenderFunc(props: {
                       }
                     />
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__hZylU, {
                     [sty.freeBoxloginPage_emailCode__hZylUvJ04U]: hasVariant(
                       $state,
@@ -6505,10 +6485,8 @@ function PlasmicLogin2__RenderFunc(props: {
                       }
                     />
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__cpAB, {
                     [sty.freeBoxloginPage_emailCode__cpABvJ04U]: hasVariant(
                       $state,
@@ -6953,7 +6931,7 @@ function PlasmicLogin2__RenderFunc(props: {
                       }
                     />
                   </div>
-                </Stack__>
+                </div>
                 <section
                   className={classNames(projectcss.all, sty.section___4Ej1Z, {
                     [sty.sectionloginPage_userNameSingup___4Ej1ZWgpgO]:
@@ -7562,7 +7540,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     ? "\u0627\u06af\u0631 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u0646\u062f\u0627\u0631\u06cc \u0628\u0631\u0627\u06cc \u062b\u0628\u062a \u0646\u0627\u0645 \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 >"
                     : "Enter some text"}
                 </div>
-              </Stack__>
+              </div>
             </Reveal>
           ) : null}
           {(
@@ -7630,9 +7608,7 @@ function PlasmicLogin2__RenderFunc(props: {
               effect={"fade"}
               triggerOnce={true}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__dxPae, {
                   [sty.freeBoxloginPage_emailCode__dxPaevJ04U]: hasVariant(
                     $state,
@@ -7757,9 +7733,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     role={"img"}
                   />
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__nrB3M, {
                     [sty.freeBoxloginPage_emailCode__nrB3MvJ04U]: hasVariant(
                       $state,
@@ -8300,10 +8274,8 @@ function PlasmicLogin2__RenderFunc(props: {
                       }
                     />
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox___0ORBi, {
                     [sty.freeBoxloginPage_emailCode___0ORBivJ04U]: hasVariant(
                       $state,
@@ -8396,9 +8368,7 @@ function PlasmicLogin2__RenderFunc(props: {
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : "Enter some text"}
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(
                       projectcss.all,
                       sty.freeBox___83HwR,
@@ -8578,11 +8548,9 @@ function PlasmicLogin2__RenderFunc(props: {
                         </RadioGrop>
                       );
                     })}
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                  </div>
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__kM48K, {
                     [sty.freeBoxloginPage_emailCode__kM48KvJ04U]: hasVariant(
                       $state,
@@ -9102,7 +9070,7 @@ function PlasmicLogin2__RenderFunc(props: {
                       }
                     />
                   </div>
-                </Stack__>
+                </div>
                 <section
                   className={classNames(projectcss.all, sty.section__uyeyS, {
                     [sty.sectionloginPage_name__uyeySiBCzw]: hasVariant(
@@ -10409,7 +10377,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     </div>
                   </div>
                 </section>
-              </Stack__>
+              </div>
             </Reveal>
           ) : null}
           {(
@@ -10477,9 +10445,7 @@ function PlasmicLogin2__RenderFunc(props: {
               effect={"fade"}
               triggerOnce={true}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__bZbFu, {
                   [sty.freeBoxloginPage_emailCode__bZbFUvJ04U]: hasVariant(
                     $state,
@@ -10607,9 +10573,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     role={"img"}
                   />
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__nsasJ, {
                     [sty.freeBoxloginPage_emailCode__nsasJvJ04U]: hasVariant(
                       $state,
@@ -11150,9 +11114,7 @@ function PlasmicLogin2__RenderFunc(props: {
                       }
                     />
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___7V98R, {
                       [sty.freeBoxloginPage_selectstatus___7V98RXdmLv]:
                         hasVariant($state, "loginPage", "selectstatus")
@@ -11267,9 +11229,7 @@ function PlasmicLogin2__RenderFunc(props: {
                             }
                           })()}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__taVk,
@@ -11283,9 +11243,7 @@ function PlasmicLogin2__RenderFunc(props: {
                               }
                             )}
                           >
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
                                 sty.freeBox__aBq,
@@ -11440,7 +11398,7 @@ function PlasmicLogin2__RenderFunc(props: {
                                   "Enter some text"
                                 )}
                               </div>
-                            </Stack__>
+                            </div>
                             <div
                               className={classNames(
                                 projectcss.all,
@@ -11481,12 +11439,12 @@ function PlasmicLogin2__RenderFunc(props: {
                                 "Enter some text"
                               )}
                             </div>
-                          </Stack__>
+                          </div>
                         </RadioGrop>
                       );
                     })}
-                  </Stack__>
-                </Stack__>
+                  </div>
+                </div>
                 <section
                   className={classNames(projectcss.all, sty.section__c4K1Q, {
                     [sty.sectionloginPage_selectstatus__c4K1QXdmLv]: hasVariant(
@@ -12833,7 +12791,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     </Button>
                   </div>
                 </section>
-              </Stack__>
+              </div>
             </Reveal>
           ) : null}
           {(
@@ -12903,9 +12861,7 @@ function PlasmicLogin2__RenderFunc(props: {
               effect={"fade"}
               triggerOnce={true}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__vkdyZ, {
                   [sty.freeBoxloginPage_emailCode__vkdyZvJ04U]: hasVariant(
                     $state,
@@ -13063,9 +13019,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     role={"img"}
                   />
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__mFafX, {
                     [sty.freeBoxloginPage_emailCode__mFafXvJ04U]: hasVariant(
                       $state,
@@ -13763,9 +13717,7 @@ function PlasmicLogin2__RenderFunc(props: {
                         })()
                       : true
                   ) ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__eovjP,
@@ -13913,7 +13865,7 @@ function PlasmicLogin2__RenderFunc(props: {
                         }}
                         runWhileEditing={false}
                       />
-                    </Stack__>
+                    </div>
                   ) : null}
                   {(
                     hasVariant($state, "loginPage", "emailCode")
@@ -13946,9 +13898,7 @@ function PlasmicLogin2__RenderFunc(props: {
                         })()
                       : true
                   ) ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__cvZ3O,
@@ -14171,9 +14121,9 @@ function PlasmicLogin2__RenderFunc(props: {
                           ? "\u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u062c\u062f\u062f \u06a9\u062f"
                           : "Enter some text"}
                       </div>
-                    </Stack__>
+                    </div>
                   ) : null}
-                </Stack__>
+                </div>
                 <section
                   className={classNames(projectcss.all, sty.section__z4TTa, {
                     [sty.sectionloginPage_mobileCode__z4TTaWwadS]: hasVariant(
@@ -15066,7 +15016,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     </Button>
                   </div>
                 </section>
-              </Stack__>
+              </div>
             </Reveal>
           ) : null}
           {(
@@ -15136,9 +15086,7 @@ function PlasmicLogin2__RenderFunc(props: {
               effect={"fade"}
               triggerOnce={true}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__aX2Jk, {
                   [sty.freeBoxloginPage_emailCode__aX2JkvJ04U]: hasVariant(
                     $state,
@@ -15302,9 +15250,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     role={"img"}
                   />
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__xtV7E, {
                     [sty.freeBoxloginPage_emailCode__xtV7EvJ04U]: hasVariant(
                       $state,
@@ -16046,9 +15992,7 @@ function PlasmicLogin2__RenderFunc(props: {
                         })()
                       : true
                   ) ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__y28W, {
                         [sty.freeBoxloginPage_emailCode__y28WvJ04U]: hasVariant(
                           $state,
@@ -16195,7 +16139,7 @@ function PlasmicLogin2__RenderFunc(props: {
                         }}
                         runWhileEditing={false}
                       />
-                    </Stack__>
+                    </div>
                   ) : null}
                   {(
                     hasVariant($state, "loginPage", "emailCode")
@@ -16228,9 +16172,7 @@ function PlasmicLogin2__RenderFunc(props: {
                         })()
                       : true
                   ) ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__pjNn9,
@@ -16387,9 +16329,9 @@ function PlasmicLogin2__RenderFunc(props: {
                           ? "\u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u062c\u062f\u062f \u06a9\u062f"
                           : "Enter some text"}
                       </div>
-                    </Stack__>
+                    </div>
                   ) : null}
-                </Stack__>
+                </div>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__fuQLb, {
                     [sty.freeBoxloginPage_emailCode__fuQLbvJ04U]: hasVariant(
@@ -17108,7 +17050,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     </div>
                   </Button>
                 </div>
-              </Stack__>
+              </div>
             </Reveal>
           ) : null}
           {(
@@ -17176,9 +17118,7 @@ function PlasmicLogin2__RenderFunc(props: {
               effect={"fade"}
               triggerOnce={true}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__yK1CL, {
                   [sty.freeBoxloginPage_emailCode__yK1CLvJ04U]: hasVariant(
                     $state,
@@ -17336,9 +17276,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     role={"img"}
                   />
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__duJqx, {
                     [sty.freeBoxloginPage_emailCode__duJqxvJ04U]: hasVariant(
                       $state,
@@ -17880,7 +17818,7 @@ function PlasmicLogin2__RenderFunc(props: {
                       }
                     />
                   </div>
-                </Stack__>
+                </div>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__appb2, {
                     [sty.freeBoxloginPage_emailCode__appb2VJ04U]: hasVariant(
@@ -18404,7 +18342,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     </div>
                   </Button>
                 </div>
-              </Stack__>
+              </div>
             </Reveal>
           ) : null}
           <AntdModal
@@ -18617,11 +18555,9 @@ function PlasmicLogin2__RenderFunc(props: {
                 ? true
                 : false
             ) ? (
-              <Stack__
-                as={"div"}
+              <div
                 data-plasmic-name={"top"}
                 data-plasmic-override={overrides.top}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.top, {
                   [sty.toploginPage_name]: hasVariant(
                     $state,
@@ -18715,7 +18651,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a"
                     : "Dr. Bellamy Nich\u2026"}
                 </div>
-              </Stack__>
+              </div>
             ) : null}
           </AntdModal>
           {(
@@ -18784,9 +18720,7 @@ function PlasmicLogin2__RenderFunc(props: {
                 }}
               />
 
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__x5MlB, {
                   [sty.freeBoxloginPage_mobile__x5MlBQo7Uf]: hasVariant(
                     $state,
@@ -18816,7 +18750,7 @@ function PlasmicLogin2__RenderFunc(props: {
                     "\u0644\u0637\u0641\u0627 \u0635\u0628\u0631 \u06a9\u0646\u06cc\u062f..."
                   }
                 </div>
-              </Stack__>
+              </div>
             </div>
           ) : null}
           {(

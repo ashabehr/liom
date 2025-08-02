@@ -433,9 +433,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                 }
               }}
               slot={
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___4Bgn1)}
                 >
                   <div
@@ -470,14 +468,10 @@ function PlasmicSocialMain__RenderFunc(props: {
                       role={"img"}
                     />
                   </div>
-                </Stack__>
+                </div>
               }
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___55IIv)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox___55IIv)}>
                 <Icon185Icon
                   className={classNames(projectcss.all, sty.svg__hiXWo)}
                   onClick={async event => {
@@ -533,7 +527,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                     "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647"
                   }
                 </div>
-              </Stack__>
+              </div>
             </MainHeader>
             <SideEffect
               data-plasmic-name={"sideEffect"}
@@ -723,9 +717,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                 data-plasmic-override={overrides.getInfo}
                 className={classNames("__wab_instance", sty.getInfo)}
                 errorDisplay={
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__iaMkg)}
                     onClick={async event => {
                       const $steps = {};
@@ -816,9 +808,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                       shape={"rounded"}
                       size={"minimal"}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__tZs47
@@ -840,14 +830,12 @@ function PlasmicSocialMain__RenderFunc(props: {
                           )}
                           role={"img"}
                         />
-                      </Stack__>
+                      </div>
                     </Button>
-                  </Stack__>
+                  </div>
                 }
                 loadingDisplay={
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___3YbSf)}
                   >
                     <div
@@ -889,7 +877,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                         "shimmer"
                       )}
                     />
-                  </Stack__>
+                  </div>
                 }
                 method={"GET"}
                 onError={async (...eventArgs: any) => {
@@ -985,9 +973,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                   data-plasmic-override={overrides.groupBy}
                   className={classNames(projectcss.all, sty.groupBy)}
                 >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__leuuy)}
                   >
                     {(_par =>
@@ -1161,17 +1147,15 @@ function PlasmicSocialMain__RenderFunc(props: {
                         />
                       );
                     })}
-                  </Stack__>
+                  </div>
                 </div>
               </ApiRequest>
             </div>
           </section>
           <div className={classNames(projectcss.all, sty.freeBox___2BKpP)}>
-            <Stack__
-              as={"div"}
+            <div
               data-plasmic-name={"story"}
               data-plasmic-override={overrides.story}
-              hasGap={true}
               className={classNames(projectcss.all, sty.story)}
               style={(() => {
                 try {
@@ -1243,7 +1227,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                   />
                 );
               })}
-            </Stack__>
+            </div>
           </div>
           <Timer
             data-plasmic-name={"timer"}
@@ -1442,9 +1426,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                 })()}
                 className={classNames("__wab_instance", sty.postPostesInfo)}
                 errorDisplay={
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___0UiGs)}
                     onClick={async event => {
                       const $steps = {};
@@ -1535,9 +1517,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                       shape={"rounded"}
                       size={"minimal"}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___4QAyr
@@ -1556,9 +1536,9 @@ function PlasmicSocialMain__RenderFunc(props: {
                           className={classNames(projectcss.all, sty.svg__zoF4W)}
                           role={"img"}
                         />
-                      </Stack__>
+                      </div>
                     </Button>
-                  </Stack__>
+                  </div>
                 }
                 loadingDisplay={
                   <div
@@ -1643,17 +1623,13 @@ function PlasmicSocialMain__RenderFunc(props: {
                               </div>
                             </div>
                           </div>
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__e5Zfv
                             )}
                           >
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
                                 sty.freeBox__kpIw
@@ -1690,7 +1666,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                                   "shimmer"
                                 )}
                               />
-                            </Stack__>
+                            </div>
                             <div
                               className={classNames(
                                 projectcss.all,
@@ -1814,7 +1790,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                                 );
                               })()}
                             </div>
-                          </Stack__>
+                          </div>
                         </div>
                       );
                     })}
@@ -1930,14 +1906,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                 })()}
                 url={"https://n8n.staas.ir/webhook/rest/social"}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__rjNb)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                <div className={classNames(projectcss.all, sty.freeBox__rjNb)}>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__g1Xj8)}
                   >
                     {(_par =>
@@ -2196,8 +2166,8 @@ function PlasmicSocialMain__RenderFunc(props: {
                         );
                       })();
                     })}
-                  </Stack__>
-                </Stack__>
+                  </div>
+                </div>
               </ApiRequest>
             </div>
           </div>
@@ -2235,48 +2205,6 @@ function PlasmicSocialMain__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["comingSoon", "open"])}
           />
-
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__bT0Kn
-            )}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["updateApiGetPost"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["apiGetPost"]
-                      },
-                      operation: 0,
-                      value: true
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateApiGetPost"] != null &&
-                typeof $steps["updateApiGetPost"] === "object" &&
-                typeof $steps["updateApiGetPost"].then === "function"
-              ) {
-                $steps["updateApiGetPost"] = await $steps["updateApiGetPost"];
-              }
-            }}
-          >
-            {"Enter some text"}
-          </div>
         </div>
       </div>
     </React.Fragment>

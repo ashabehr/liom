@@ -343,11 +343,7 @@ function PlasmicTest__RenderFunc(props: {
             value={generateStateValueProp($state, ["input", "value"])}
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__qdYpo)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__qdYpo)}>
             <div
               className={classNames(
                 projectcss.all,
@@ -372,7 +368,7 @@ function PlasmicTest__RenderFunc(props: {
               className={classNames(projectcss.all, sty.svg)}
               role={"img"}
             />
-          </Stack__>
+          </div>
           <ApiRequest
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}

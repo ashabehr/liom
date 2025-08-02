@@ -326,11 +326,7 @@ function PlasmicLike__RenderFunc(props: {
         }}
         open={generateStateValueProp($state, ["modal", "open"])}
         title={
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__hTf1M)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__hTf1M)}>
             <PlasmicImg__
               data-plasmic-name={"img"}
               data-plasmic-override={overrides.img}
@@ -362,23 +358,13 @@ function PlasmicLike__RenderFunc(props: {
                 "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u062e\u0648\u0627\u06cc \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc \u0628\u0627\u06cc\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0631\u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc.\r\n\u0647\u0631\u06a9\u062f\u0648\u0645 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0647\u0627\u06cc \u0632\u06cc\u0631 \u06a9\u0647 \u0628\u0627\u0647\u0627\u0634 \u0631\u0627\u062d\u062a \u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u06a9\u0646 \u0648 \u0628\u0639\u062f \u0628\u0647 \u062c\u0645\u0639 \u062f\u062e\u062a\u0631\u0648\u0646\u0647 \u06cc \u0645\u0627\u0627\u0636\u0627\u0641\u0647 \u0634\u0648\ud83d\ude0d"
               }
             </div>
-          </Stack__>
+          </div>
         }
         trigger={null}
       >
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox___7TaIm)}
-        >
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__wsyyi)}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
+        <div className={classNames(projectcss.all, sty.freeBox___7TaIm)}>
+          <div className={classNames(projectcss.all, sty.freeBox__wsyyi)}>
+            <div
               className={classNames(projectcss.all, sty.freeBox__quPu8)}
               onClick={async event => {
                 const $steps = {};
@@ -439,10 +425,8 @@ function PlasmicLike__RenderFunc(props: {
                   "\u0648\u0631\u0648\u062f \u0628\u0647 \u0646\u0633\u062e\u0647 \u0648\u0628"
                 }
               </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            </div>
+            <div
               className={classNames(projectcss.all, sty.freeBox___3Lzms)}
               onClick={async event => {
                 const $steps = {};
@@ -505,16 +489,10 @@ function PlasmicLike__RenderFunc(props: {
                   "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u06cc\u06a9\u062a "
                 }
               </div>
-            </Stack__>
-          </Stack__>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__oKkBn)}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            </div>
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__oKkBn)}>
+            <div
               className={classNames(projectcss.all, sty.freeBox___4Mph)}
               onClick={async event => {
                 const $steps = {};
@@ -577,10 +555,8 @@ function PlasmicLike__RenderFunc(props: {
                   "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u06a9\u0627\u0641\u0647 \u0628\u0627\u0632\u0627\u0631"
                 }
               </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            </div>
+            <div
               className={classNames(projectcss.all, sty.freeBox__ntd6W)}
               onClick={async event => {
                 const $steps = {};
@@ -643,13 +619,11 @@ function PlasmicLike__RenderFunc(props: {
                   "\u062f\u0627\u0646\u0644\u0648\u062f \u0628\u0627 \u0644\u06cc\u0646\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645 "
                 }
               </div>
-            </Stack__>
-          </Stack__>
-        </Stack__>
+            </div>
+          </div>
+        </div>
       </AntdModal>
-      <Stack__
-        as={"div"}
-        hasGap={true}
+      <div
         className={classNames(projectcss.all, sty.freeBox__waP5W, {
           [sty.freeBoxislike__waP5WM2Mbn]: hasVariant(
             $state,
@@ -858,7 +832,7 @@ function PlasmicLike__RenderFunc(props: {
             })()}
           </React.Fragment>
         </div>
-      </Stack__>
+      </div>
     </div>
   ) as React.ReactElement | null;
 }

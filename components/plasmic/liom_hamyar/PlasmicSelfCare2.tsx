@@ -776,11 +776,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__jCz3N)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__jCz3N)}>
           <div className={classNames(projectcss.all, sty.freeBox__pWe4J)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
@@ -802,9 +798,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
               const currentItem = __plasmic_item_0;
               const currentIndex = __plasmic_idx_0;
               return (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__mYyWb)}
                   key={currentIndex}
                   onClick={async event => {
@@ -1169,7 +1163,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
                       </Button>
                     );
                   })()}
-                </Stack__>
+                </div>
               );
             })}
           </div>
@@ -1197,11 +1191,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
               code={"<hr></hr>"}
             />
           ) : null}
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__kupC8)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__kupC8)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -1222,9 +1212,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
               const currentItem = __plasmic_item_0;
               const currentIndex = __plasmic_idx_0;
               return (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__mk0Aj)}
                   key={currentIndex}
                   onClick={async event => {
@@ -1424,14 +1412,10 @@ function PlasmicSelfCare2__RenderFunc(props: {
                       })()}
                     />
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___1B2I3)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__phkLk)}
                     >
                       <div
@@ -1515,7 +1499,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
                           />
                         </div>
                       ) : null}
-                    </Stack__>
+                    </div>
                     <LineClomp
                       data-plasmic-name={"lineClomp2"}
                       data-plasmic-override={overrides.lineClomp2}
@@ -1561,16 +1545,16 @@ function PlasmicSelfCare2__RenderFunc(props: {
                         </React.Fragment>
                       </div>
                     </LineClomp>
-                  </Stack__>
+                  </div>
                   <ChevronLeftIcon
                     className={classNames(projectcss.all, sty.svg__x9K4M)}
                     role={"img"}
                   />
-                </Stack__>
+                </div>
               );
             })}
-          </Stack__>
-        </Stack__>
+          </div>
+        </div>
       ) : null}
       {(() => {
         try {
@@ -1585,9 +1569,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <Stack__
-          as={"div"}
-          hasGap={true}
+        <div
           className={classNames(projectcss.all, sty.freeBox__i7LEc)}
           style={(() => {
             try {
@@ -1606,11 +1588,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
             }
           })()}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__nFIuU)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__nFIuU)}>
             <div
               className={classNames(
                 projectcss.all,
@@ -1626,7 +1604,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
                 "shimmer"
               )}
             />
-          </Stack__>
+          </div>
           <div
             className={classNames(
               projectcss.all,
@@ -1658,7 +1636,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
               "shimmer"
             )}
           />
-        </Stack__>
+        </div>
       ) : null}
       <Load
         data-plasmic-name={"load"}

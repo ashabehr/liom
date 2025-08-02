@@ -159,11 +159,7 @@ function PlasmicHeaderLiom__RenderFunc(props: {
     >
       {renderPlasmicSlot({
         defaultContents: (
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__gpOb)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__gpOb)}>
             <XIcon
               className={classNames(projectcss.all, sty.svg__rLTdt)}
               onClick={async event => {
@@ -205,22 +201,20 @@ function PlasmicHeaderLiom__RenderFunc(props: {
                 "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647"
               }
             </div>
-          </Stack__>
+          </div>
         ),
         value: args.children
       })}
-      <Stack__
-        as={"div"}
+      <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        hasGap={true}
         className={classNames(projectcss.all, sty.freeBox)}
       >
         {renderPlasmicSlot({
           defaultContents: null,
           value: args.slot
         })}
-      </Stack__>
+      </div>
       <Embed
         data-plasmic-name={"serviceWorker"}
         data-plasmic-override={overrides.serviceWorker}

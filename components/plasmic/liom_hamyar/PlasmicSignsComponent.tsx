@@ -64,8 +64,6 @@ import Choices from "../../Choices"; // plasmic-import: kqjrVA4cMqR_/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
-import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -718,10 +716,6 @@ function PlasmicSignsComponent__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6BytLjmha8VC()
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -779,16 +773,8 @@ function PlasmicSignsComponent__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__gHgbf)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__fkfkm)}
-              >
+            <div className={classNames(projectcss.all, sty.freeBox__gHgbf)}>
+              <div className={classNames(projectcss.all, sty.freeBox__fkfkm)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -805,11 +791,7 @@ function PlasmicSignsComponent__RenderFunc(props: {
                   )}
                 />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__p3Zri)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__p3Zri)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -818,9 +800,7 @@ function PlasmicSignsComponent__RenderFunc(props: {
                     )}
                   />
 
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___5BtB)}
                   >
                     <div
@@ -854,10 +834,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
                         "shimmer"
                       )}
                     />
-                  </Stack__>
-                </Stack__>
-              </Stack__>
-            </Stack__>
+                  </div>
+                </div>
+              </div>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -872,11 +852,7 @@ function PlasmicSignsComponent__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__mu65V)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__mu65V)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -912,11 +888,9 @@ function PlasmicSignsComponent__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"selectionBox"}
                   data-plasmic-override={overrides.selectionBox}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.selectionBox)}
                 >
                   <div
@@ -1019,7 +993,7 @@ function PlasmicSignsComponent__RenderFunc(props: {
                       "selectOne"
                     ])}
                   />
-                </Stack__>
+                </div>
               ) : null}
               {(() => {
                 try {
@@ -1034,11 +1008,9 @@ function PlasmicSignsComponent__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"selectionBox3"}
                   data-plasmic-override={overrides.selectionBox3}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.selectionBox3)}
                 >
                   <div
@@ -1142,13 +1114,11 @@ function PlasmicSignsComponent__RenderFunc(props: {
                       "selectOne"
                     ])}
                   />
-                </Stack__>
+                </div>
               ) : null}
-              <Stack__
-                as={"div"}
+              <div
                 data-plasmic-name={"selectionBox2"}
                 data-plasmic-override={overrides.selectionBox2}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.selectionBox2)}
               >
                 <div
@@ -1229,12 +1199,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
                     "selectOne"
                   ])}
                 />
-              </Stack__>
-              <Stack__
-                as={"div"}
+              </div>
+              <div
                 data-plasmic-name={"selectionBox4"}
                 data-plasmic-override={overrides.selectionBox4}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.selectionBox4)}
               >
                 <div
@@ -1337,12 +1305,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
                     "selectOne"
                   ])}
                 />
-              </Stack__>
-              <Stack__
-                as={"div"}
+              </div>
+              <div
                 data-plasmic-name={"selectionBox5"}
                 data-plasmic-override={overrides.selectionBox5}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.selectionBox5)}
               >
                 <div
@@ -1445,12 +1411,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
                     "selectOne"
                   ])}
                 />
-              </Stack__>
-              <Stack__
-                as={"div"}
+              </div>
+              <div
                 data-plasmic-name={"selectionBox6"}
                 data-plasmic-override={overrides.selectionBox6}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.selectionBox6)}
               >
                 <div
@@ -1553,12 +1517,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
                     "selectOne"
                   ])}
                 />
-              </Stack__>
-              <Stack__
-                as={"div"}
+              </div>
+              <div
                 data-plasmic-name={"selectionBox7"}
                 data-plasmic-override={overrides.selectionBox7}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.selectionBox7)}
               >
                 <div
@@ -1661,7 +1623,7 @@ function PlasmicSignsComponent__RenderFunc(props: {
                     "selectOne"
                   ])}
                 />
-              </Stack__>
+              </div>
               <Button
                 data-plasmic-name={"button"}
                 data-plasmic-override={overrides.button}
@@ -1909,7 +1871,7 @@ function PlasmicSignsComponent__RenderFunc(props: {
                   }
                 </div>
               </Button>
-            </Stack__>
+            </div>
           ) : null}
         </div>
       </section>

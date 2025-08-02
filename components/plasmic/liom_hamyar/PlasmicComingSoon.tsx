@@ -64,8 +64,6 @@ import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
-import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -303,10 +301,6 @@ function PlasmicComingSoon__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6BytLjmha8VC()
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -398,11 +392,7 @@ function PlasmicComingSoon__RenderFunc(props: {
             effect={"fade"}
             triggerOnce={true}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__wAyR1)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__wAyR1)}>
               <div className={classNames(projectcss.all, sty.freeBox__gsh6W)}>
                 <LottieWrapper
                   data-plasmic-name={"lottie"}
@@ -1785,7 +1775,7 @@ function PlasmicComingSoon__RenderFunc(props: {
               >
                 {"\u0645\u062a\u0648\u062c\u0647 \u0634\u062f\u0645"}
               </Button>
-            </Stack__>
+            </div>
           </Reveal>
         ) : null}
       </Dialog3>

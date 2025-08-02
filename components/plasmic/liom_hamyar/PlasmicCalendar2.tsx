@@ -2777,11 +2777,7 @@ function PlasmicCalendar2__RenderFunc(props: {
         }}
         opendialog={generateStateValueProp($state, ["dialog3", "opendialog"])}
       >
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__yGyWm)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__yGyWm)}>
           <LottieWrapper
             animationData={{
               nm: "Warning",
@@ -3609,7 +3605,7 @@ function PlasmicCalendar2__RenderFunc(props: {
           >
             {"\u062a\u0627\u06cc\u06cc\u062f"}
           </Button>
-        </Stack__>
+        </div>
       </Dialog>
       <Dialog
         data-plasmic-name={"edit"}
@@ -3631,11 +3627,7 @@ function PlasmicCalendar2__RenderFunc(props: {
         }}
         opendialog={generateStateValueProp($state, ["edit", "opendialog"])}
       >
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__abdQp)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__abdQp)}>
           {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
             (() => {
               try {
@@ -3654,9 +3646,7 @@ function PlasmicCalendar2__RenderFunc(props: {
             const currentItem = __plasmic_item_0;
             const currentIndex = __plasmic_idx_0;
             return (
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__oTaUr)}
                 key={currentIndex}
               >
@@ -3845,10 +3835,10 @@ function PlasmicCalendar2__RenderFunc(props: {
                     );
                   })()}
                 </div>
-              </Stack__>
+              </div>
             );
           })}
-        </Stack__>
+        </div>
       </Dialog>
       <Dialog
         data-plasmic-name={"wrong"}
@@ -3870,11 +3860,7 @@ function PlasmicCalendar2__RenderFunc(props: {
         }}
         opendialog={generateStateValueProp($state, ["wrong", "opendialog"])}
       >
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox___4RAzb)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox___4RAzb)}>
           <div
             className={classNames(
               projectcss.all,
@@ -3886,7 +3872,7 @@ function PlasmicCalendar2__RenderFunc(props: {
               "\u0645\u0627 \u062d\u062f\u0633 \u0645\u06cc\u0632\u0646\u06cc\u0645 \u06a9\u0647 \u0627\u06cc\u0646 \u0627\u0634\u062a\u0628\u0627\u0647 \u062f\u0631 \u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0627\u0631\u06cc\u062e \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0627\u0632 \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0642\u0628\u0644\u06cc \u0628\u0648\u062f\u0647 \u0627\u0633\u062a. \u0627\u06cc\u0646\u0628\u0627\u0631 \u0645\u06cc\u062a\u0648\u0646\u06cc \u0628\u0647\u0645 \u0628\u06af\u06cc \u06a9\u0647 \u062f\u0631 \u0686\u0647 \u0631\u0648\u0632\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc\u062a \u062a\u0645\u0627\u0645 \u0634\u062f\u061f"
             }
           </div>
-        </Stack__>
+        </div>
       </Dialog>
       <AntdModal
         data-plasmic-name={"warning"}
@@ -3912,11 +3898,7 @@ function PlasmicCalendar2__RenderFunc(props: {
         }}
         open={generateStateValueProp($state, ["warning", "open"])}
         title={
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__n8Jdw)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__n8Jdw)}>
             <Icon140Icon
               className={classNames(projectcss.all, sty.svg__a0KvY)}
               role={"img"}
@@ -3933,16 +3915,12 @@ function PlasmicCalendar2__RenderFunc(props: {
                 "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0642\u0627\u0639\u062f\u06af\u06cc"
               }
             </div>
-          </Stack__>
+          </div>
         }
         trigger={null}
         wrapClassName={classNames({ [sty["pcls_V36SCIrChHUv"]]: true })}
       >
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__luJJj)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__luJJj)}>
           <div
             className={classNames(
               projectcss.all,
@@ -3954,11 +3932,7 @@ function PlasmicCalendar2__RenderFunc(props: {
               "\u0637\u0628\u0642 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u06cc \u06a9\u0647 \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u06cc \u062a\u0648 \u0648\u0627\u0631\u062f \u062f\u0648\u0631\u0647 \u06cc \u0642\u0631\u0645\u0632 \u0634\u062f\u06cc \u0648 \u062e\u0648\u0646 \u0631\u06cc\u0632\u06cc \u062f\u0627\u0631\u06cc \u0628\u0627 \u062a\u0627\u06cc\u06cc\u062f \u0627\u06cc\u0646 \u062f\u06cc\u0627\u0644\u0648\u06af \u06cc\u0639\u0646\u06cc \u067e\u0631\u06cc\u0648\u062f\u06cc\u062a \u0628\u0627 \u062a\u0627\u062e\u06cc\u0631 \u0645\u0648\u0627\u062c\u0647 \u0634\u062f\u0647"
             }
           </div>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__lRzP)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__lRzP)}>
             <div className={classNames(projectcss.all, sty.freeBox__eFztl)}>
               <Button
                 data-plasmic-name={"button20"}
@@ -4115,8 +4089,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                 })()}
               </React.Fragment>
             </Button>
-          </Stack__>
-        </Stack__>
+          </div>
+        </div>
       </AntdModal>
       <DirectDialog2
         data-plasmic-name={"directDialog"}
@@ -4277,9 +4251,7 @@ function PlasmicCalendar2__RenderFunc(props: {
               }
             })()
       ) ? (
-        <Stack__
-          as={"div"}
-          hasGap={true}
+        <div
           className={classNames(projectcss.all, sty.freeBox__v0Dkh, {
             [sty.freeBoxlackOfCourseInformation__v0Dkhrn2DH]: hasVariant(
               $state,
@@ -12050,7 +12022,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                 : "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u062a\u0642\u0648\u06cc\u0645 \u067e\u0631\u06cc\u0648\u062f\u06cc"}
             </div>
           </Button>
-        </Stack__>
+        </div>
       ) : null}
       {(
         hasVariant($state, "lackOfCourseInformation", "lackOfCourseInformation")
@@ -12100,9 +12072,7 @@ function PlasmicCalendar2__RenderFunc(props: {
             )
           })}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          <div
             className={classNames(projectcss.all, sty.freeBox__g5Cl, {
               [sty.freeBoxlackOfCourseInformation__g5ClRn2DH]: hasVariant(
                 $state,
@@ -12111,9 +12081,7 @@ function PlasmicCalendar2__RenderFunc(props: {
               )
             })}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__dbCke, {
                 [sty.freeBoxlackOfCourseInformation__dbCkern2DH]: hasVariant(
                   $state,
@@ -12212,9 +12180,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                     "textsycle"
                   ])}
                 >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__yBtGd)}
                   >
                     <LineClomp
@@ -16738,9 +16704,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__rXaxo)}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__opsWf
@@ -16804,7 +16768,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                      </Stack__>
+                      </div>
                     </div>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__y8HNy)}
@@ -17214,12 +17178,10 @@ function PlasmicCalendar2__RenderFunc(props: {
                         </div>
                       </Button>
                     </div>
-                  </Stack__>
+                  </div>
                 </Cyclebox2>
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__kgenV, {
                   [sty.freeBoxlackOfCourseInformation__kgenVrn2DH]: hasVariant(
                     $state,
@@ -17257,14 +17219,10 @@ function PlasmicCalendar2__RenderFunc(props: {
                         }
                       })()
                 ) ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__i7RV)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__l3VWf)}
                     >
                       <Embed
@@ -17368,7 +17326,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                           </React.Fragment>
                         </div>
                       </LineClomp>
-                    </Stack__>
+                    </div>
                     <LineClomp
                       data-plasmic-name={"lineClomp4"}
                       data-plasmic-override={overrides.lineClomp4}
@@ -17636,16 +17594,10 @@ function PlasmicCalendar2__RenderFunc(props: {
                         </div>
                       </Button>
                     </div>
-                  </Stack__>
+                  </div>
                 ) : null}
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__b54YX)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                <div className={classNames(projectcss.all, sty.freeBox__b54YX)}>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___7YFvs)}
                   >
                     <PlasmicIcon__
@@ -17705,10 +17657,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                         />
                       )}
                     </div>
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  </div>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___5FzA)}
                   >
                     {(() => {
@@ -17724,9 +17674,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___4CJ
@@ -17769,7 +17717,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                      </Stack__>
+                      </div>
                     ) : null}
                     <div
                       className={classNames(projectcss.all, sty.freeBox__c6Nwn)}
@@ -17788,9 +17736,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__wy62R
@@ -17833,12 +17779,10 @@ function PlasmicCalendar2__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                      </Stack__>
+                      </div>
                     ) : null}
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  </div>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__vityU)}
                   >
                     {(() => {
@@ -17854,9 +17798,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___1MM2Q
@@ -17911,7 +17853,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                             </div>
                           );
                         })}
-                      </Stack__>
+                      </div>
                     ) : null}
                     {(() => {
                       try {
@@ -25898,15 +25840,11 @@ function PlasmicCalendar2__RenderFunc(props: {
                         )}
                       />
                     ) : null}
-                  </Stack__>
-                </Stack__>
-              </Stack__>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__uyDe)}
-            >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__uyDe)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -25925,9 +25863,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
                 return (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___5JqEn)}
                     key={currentIndex}
                     onClick={async event => {
@@ -26058,14 +25994,12 @@ function PlasmicCalendar2__RenderFunc(props: {
                         />
                       )}
                     </div>
-                  </Stack__>
+                  </div>
                 );
               })}
-            </Stack__>
+            </div>
             <div className={classNames(projectcss.all, sty.freeBox__wQva)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__mxv2L, {
                   [sty.freeBoxlackOfCourseInformation__mxv2LRn2DH]: hasVariant(
                     $state,
@@ -26128,9 +26062,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                     expandIconPosition: "end",
                     ghost: true,
                     label2: (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__cfK77
@@ -26224,7 +26156,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </PercentageBox>
-                      </Stack__>
+                      </div>
                     ),
                     onChange: async (...eventArgs: any) => {
                       generateStateOnChangePropForCodeComponents(
@@ -26365,9 +26297,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                 throw e;
                               }
                             })() ? (
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__qDY7
@@ -45807,7 +45737,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                   )}
                                   preview={true}
                                 />
-                              </Stack__>
+                              </div>
                             ) : null}
                             {(() => {
                               try {
@@ -45824,9 +45754,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                 throw e;
                               }
                             })() ? (
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__fe4Q
@@ -51990,7 +51918,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                   )}
                                   preview={true}
                                 />
-                              </Stack__>
+                              </div>
                             ) : null}
                             {(_par =>
                               !_par ? [] : Array.isArray(_par) ? _par : [_par])(
@@ -52014,9 +51942,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                               const currentItem = __plasmic_item_0;
                               const currentIndex = __plasmic_idx_0;
                               return (
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__aadVm
@@ -52194,7 +52120,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                       </Button>
                                     );
                                   })()}
-                                </Stack__>
+                                </div>
                               );
                             })}
                             {(_par =>
@@ -52219,9 +52145,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                               const currentItem = __plasmic_item_0;
                               const currentIndex = __plasmic_idx_0;
                               return (
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__f5U5H
@@ -52416,9 +52340,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                       throw e;
                                     }
                                   })() ? (
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
+                                    <div
                                       className={classNames(
                                         projectcss.all,
                                         sty.freeBox__cItac
@@ -52512,9 +52434,9 @@ function PlasmicCalendar2__RenderFunc(props: {
                                           "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9"
                                         }
                                       </div>
-                                    </Stack__>
+                                    </div>
                                   ) : null}
-                                </Stack__>
+                                </div>
                               );
                             })}
                           </div>
@@ -52532,11 +52454,9 @@ function PlasmicCalendar2__RenderFunc(props: {
                             throw e;
                           }
                         })() ? (
-                          <Stack__
-                            as={"div"}
+                          <div
                             data-plasmic-name={"advicesLoading"}
                             data-plasmic-override={overrides.advicesLoading}
-                            hasGap={true}
                             className={classNames(
                               projectcss.all,
                               sty.advicesLoading
@@ -52562,9 +52482,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                               const currentItem = __plasmic_item_0;
                               const currentIndex = __plasmic_idx_0;
                               return (
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__tbNfo,
@@ -52574,18 +52492,16 @@ function PlasmicCalendar2__RenderFunc(props: {
                                 />
                               );
                             })}
-                          </Stack__>
+                          </div>
                         ) : null}
                       </div>
                     </AntdSingleCollapse>
                   );
                 })()}
-              </Stack__>
+              </div>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__yaasB)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__yibS9, {
                   [sty.freeBoxlackOfCourseInformation__yibS9Rn2DH]: hasVariant(
                     $state,
@@ -52651,9 +52567,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                     expandIconPosition: "end",
                     ghost: true,
                     label2: (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__rnNfv
@@ -52670,7 +52584,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                             "\u062f\u0648\u0631\u0647 \u0628\u0639\u062f\u06cc \u0634\u0645\u0627"
                           }
                         </div>
-                      </Stack__>
+                      </div>
                     ),
                     onChange: async (...eventArgs: any) => {
                       generateStateOnChangePropForCodeComponents(
@@ -52776,17 +52690,13 @@ function PlasmicCalendar2__RenderFunc(props: {
                       >
                         {""}
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___3Levv
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__xbfQb
@@ -52866,10 +52776,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                               </React.Fragment>
                             </div>
                           </div>
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        </div>
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__mMw0
@@ -52949,10 +52857,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                               </React.Fragment>
                             </div>
                           </div>
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        </div>
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox___0REI
@@ -53032,20 +52938,18 @@ function PlasmicCalendar2__RenderFunc(props: {
                               </React.Fragment>
                             </div>
                           </div>
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        </div>
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__aDeOw
                           )}
                         />
-                      </Stack__>
+                      </div>
                     </AntdSingleCollapse>
                   );
                 })()}
-              </Stack__>
+              </div>
             </div>
             {(
               hasVariant(globalVariants, "screen", "mobile")
@@ -53087,9 +52991,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                   })()
             ) ? (
               <div className={classNames(projectcss.all, sty.freeBox__gdG0U)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__uTUhe, {
                     [sty.freeBoxlackOfCourseInformation__uTUheRn2DH]:
                       hasVariant(
@@ -53156,9 +53058,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                       expandIconPosition: "end",
                       ghost: true,
                       label2: (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__rEcUc
@@ -53254,7 +53154,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                               </React.Fragment>
                             </div>
                           </PercentageBox>
-                        </Stack__>
+                        </div>
                       ),
                       onChange: async (...eventArgs: any) => {
                         generateStateOnChangePropForCodeComponents(
@@ -53360,9 +53260,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                         >
                           {""}
                         </div>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__qdMwt
@@ -53393,9 +53291,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                   }
                                 })()
                           ) ? (
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
                                 sty.freeBox__u10XT,
@@ -53433,9 +53329,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                   })()}
                                 </React.Fragment>
                               </div>
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__z4PE
@@ -53805,8 +53699,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                                 >
                                   {"Enter some text"}
                                 </div>
-                              </Stack__>
-                            </Stack__>
+                              </div>
+                            </div>
                           ) : null}
                           {(
                             hasVariant(
@@ -53851,9 +53745,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                   }
                                 })()
                           ) ? (
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
                                 sty.freeBox__vsgvE,
@@ -53913,9 +53805,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                                     })()
                                   : true
                               ) ? (
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__vxSSl
@@ -54334,15 +54224,15 @@ function PlasmicCalendar2__RenderFunc(props: {
                                   >
                                     {"Enter some text"}
                                   </div>
-                                </Stack__>
+                                </div>
                               ) : null}
-                            </Stack__>
+                            </div>
                           ) : null}
-                        </Stack__>
+                        </div>
                       </AntdSingleCollapse>
                     );
                   })()}
-                </Stack__>
+                </div>
               </div>
             ) : null}
             <AntdModal
@@ -54377,11 +54267,7 @@ function PlasmicCalendar2__RenderFunc(props: {
               }
               trigger={null}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__eIazs)}
-              />
+              <div className={classNames(projectcss.all, sty.freeBox__eIazs)} />
             </AntdModal>
             <AntdModal
               data-plasmic-name={"modal2"}
@@ -54456,11 +54342,7 @@ function PlasmicCalendar2__RenderFunc(props: {
               }
               trigger={null}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__rZqyK)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__rZqyK)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -54484,7 +54366,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 </div>
-              </Stack__>
+              </div>
             </AntdModal>
             <AntdModal
               data-plasmic-name={"modal3"}
@@ -54544,11 +54426,7 @@ function PlasmicCalendar2__RenderFunc(props: {
               }
               trigger={null}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___2D7H)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox___2D7H)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -54577,7 +54455,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 </div>
-              </Stack__>
+              </div>
             </AntdModal>
             <div
               className={classNames(projectcss.all, sty.freeBox__w2Lt6, {
@@ -54625,9 +54503,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                       }
                     })()
               ) ? (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__hKqfX, {
                     [sty.freeBoxlackOfCourseInformation__hKqfXrn2DH]:
                       hasVariant(
@@ -54669,11 +54545,9 @@ function PlasmicCalendar2__RenderFunc(props: {
                         )
                     })}
                   >
-                    <Stack__
-                      as={"ol"}
+                    <ol
                       data-plasmic-name={"ol"}
                       data-plasmic-override={overrides.ol}
-                      hasGap={true}
                       className={classNames(
                         projectcss.all,
                         projectcss.ol,
@@ -54900,12 +54774,12 @@ function PlasmicCalendar2__RenderFunc(props: {
                           }}
                         />
                       </li>
-                    </Stack__>
+                    </ol>
                   </div>
-                </Stack__>
+                </div>
               ) : null}
             </div>
-          </Stack__>
+          </div>
           <AntdTooltip
             data-plasmic-name={"tooltip"}
             data-plasmic-override={overrides.tooltip}
@@ -54982,9 +54856,7 @@ function PlasmicCalendar2__RenderFunc(props: {
             )
           })}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          <div
             className={classNames(projectcss.all, sty.freeBox__fSsyQ, {
               [sty.freeBoxlackOfCourseInformation__fSsyQrn2DH]: hasVariant(
                 $state,
@@ -54993,9 +54865,7 @@ function PlasmicCalendar2__RenderFunc(props: {
               )
             })}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox___8YG3, {
                 [sty.freeBoxlackOfCourseInformation___8YG3Rn2DH]: hasVariant(
                   $state,
@@ -55012,14 +54882,8 @@ function PlasmicCalendar2__RenderFunc(props: {
                 )}
               />
 
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__goKj)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+              <div className={classNames(projectcss.all, sty.freeBox__goKj)}>
+                <div
                   className={classNames(
                     projectcss.all,
                     sty.freeBox___5UpZw,
@@ -55027,21 +54891,17 @@ function PlasmicCalendar2__RenderFunc(props: {
                   )}
                 />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(
                     projectcss.all,
                     sty.freeBox__zG4QG,
                     "shimmer"
                   )}
                 />
-              </Stack__>
-            </Stack__>
+              </div>
+            </div>
             <div className={classNames(projectcss.all, sty.freeBox__zoaik)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(
                   projectcss.all,
                   sty.freeBox__sxMll,
@@ -55058,9 +54918,7 @@ function PlasmicCalendar2__RenderFunc(props: {
               />
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__wGx0K)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(
                   projectcss.all,
                   sty.freeBox__edCyt,
@@ -55077,9 +54935,7 @@ function PlasmicCalendar2__RenderFunc(props: {
               />
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__qC7Q)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(
                   projectcss.all,
                   sty.freeBox___6MfTc,
@@ -55095,7 +54951,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                 )}
               />
             </div>
-          </Stack__>
+          </div>
         </div>
       ) : null}
       {(() => {
@@ -55111,11 +54967,7 @@ function PlasmicCalendar2__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__uGcO4)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__uGcO4)}>
           <div className={classNames(projectcss.all, sty.freeBox__iqW6)}>
             <div
               className={classNames(
@@ -55200,7 +55052,7 @@ function PlasmicCalendar2__RenderFunc(props: {
               }
             </div>
           </Button>
-        </Stack__>
+        </div>
       ) : null}
     </div>
   ) as React.ReactElement | null;

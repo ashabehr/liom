@@ -460,11 +460,9 @@ function PlasmicQuestionnaire__RenderFunc(props: {
             }
           />
 
-          <Stack__
-            as={"div"}
+          <div
             data-plasmic-name={"top3"}
             data-plasmic-override={overrides.top3}
-            hasGap={true}
             className={classNames(projectcss.all, sty.top3)}
           >
             <ChevronRightIcon
@@ -508,23 +506,15 @@ function PlasmicQuestionnaire__RenderFunc(props: {
             >
               {"\u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"}
             </div>
-          </Stack__>
+          </div>
           <ApiRequest
             data-plasmic-name={"apiRequest2"}
             data-plasmic-override={overrides.apiRequest2}
             className={classNames("__wab_instance", sty.apiRequest2)}
             errorDisplay={null}
             loadingDisplay={
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__xkAyc)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__hahJj)}
-                >
+              <div className={classNames(projectcss.all, sty.freeBox__xkAyc)}>
+                <div className={classNames(projectcss.all, sty.freeBox__hahJj)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -540,12 +530,8 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                       "shimmer"
                     )}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__cjo21)}
-                >
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__cjo21)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -561,12 +547,8 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                       "shimmer"
                     )}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__hVuSn)}
-                >
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__hVuSn)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -582,12 +564,8 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                       "shimmer"
                     )}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__qjvaa)}
-                >
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__qjvaa)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -603,12 +581,8 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                       "shimmer"
                     )}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__vcSt7)}
-                >
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__vcSt7)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -624,8 +598,8 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                       "shimmer"
                     )}
                   />
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
             }
             method={"GET"}
             onError={async (...eventArgs: any) => {
@@ -667,11 +641,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
             shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/help/Question"}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___9AwXk)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox___9AwXk)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -1071,9 +1041,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                 data-plasmic-override={overrides.section}
                 className={classNames(projectcss.all, sty.section)}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___9Qi7N)}
                 >
                   <Button
@@ -1451,9 +1419,9 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                   >
                     {"\u0627\u0646\u0635\u0631\u0627\u0641"}
                   </Button>
-                </Stack__>
+                </div>
               </section>
-            </Stack__>
+            </div>
             <div className={classNames(projectcss.all, sty.freeBox__pknRw)} />
           </ApiRequest>
         </div>

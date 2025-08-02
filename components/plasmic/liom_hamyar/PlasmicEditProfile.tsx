@@ -843,28 +843,22 @@ function PlasmicEditProfile__RenderFunc(props: {
             className={classNames("__wab_instance", sty.getInfo)}
             errorDisplay={null}
             loadingDisplay={
-              <Stack__
-                as={"div"}
+              <div
                 data-plasmic-name={"verticalIdentity2"}
                 data-plasmic-override={overrides.verticalIdentity2}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.verticalIdentity2)}
               >
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"verticalForNameInput2"}
                   data-plasmic-override={overrides.verticalForNameInput2}
-                  hasGap={true}
                   className={classNames(
                     projectcss.all,
                     sty.verticalForNameInput2
                   )}
                 >
-                  <Stack__
-                    as={"div"}
+                  <div
                     data-plasmic-name={"verticalForNameInput3"}
                     data-plasmic-override={overrides.verticalForNameInput3}
-                    hasGap={true}
                     className={classNames(
                       projectcss.all,
                       sty.verticalForNameInput3,
@@ -872,33 +866,27 @@ function PlasmicEditProfile__RenderFunc(props: {
                     )}
                   />
 
-                  <Stack__
-                    as={"div"}
+                  <div
                     data-plasmic-name={"verticalForNameInput4"}
                     data-plasmic-override={overrides.verticalForNameInput4}
-                    hasGap={true}
                     className={classNames(
                       projectcss.all,
                       sty.verticalForNameInput4,
                       "shimmer"
                     )}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"verticalForNameInput5"}
                   data-plasmic-override={overrides.verticalForNameInput5}
-                  hasGap={true}
                   className={classNames(
                     projectcss.all,
                     sty.verticalForNameInput5
                   )}
                 >
-                  <Stack__
-                    as={"div"}
+                  <div
                     data-plasmic-name={"verticalForNameInput6"}
                     data-plasmic-override={overrides.verticalForNameInput6}
-                    hasGap={true}
                     className={classNames(
                       projectcss.all,
                       sty.verticalForNameInput6,
@@ -906,33 +894,27 @@ function PlasmicEditProfile__RenderFunc(props: {
                     )}
                   />
 
-                  <Stack__
-                    as={"div"}
+                  <div
                     data-plasmic-name={"verticalForNameInput7"}
                     data-plasmic-override={overrides.verticalForNameInput7}
-                    hasGap={true}
                     className={classNames(
                       projectcss.all,
                       sty.verticalForNameInput7,
                       "shimmer"
                     )}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"verticalForNameInput8"}
                   data-plasmic-override={overrides.verticalForNameInput8}
-                  hasGap={true}
                   className={classNames(
                     projectcss.all,
                     sty.verticalForNameInput8
                   )}
                 >
-                  <Stack__
-                    as={"div"}
+                  <div
                     data-plasmic-name={"verticalForNameInput9"}
                     data-plasmic-override={overrides.verticalForNameInput9}
-                    hasGap={true}
                     className={classNames(
                       projectcss.all,
                       sty.verticalForNameInput9,
@@ -940,16 +922,12 @@ function PlasmicEditProfile__RenderFunc(props: {
                     )}
                   />
 
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__rORo)}
                   >
-                    <Stack__
-                      as={"div"}
+                    <div
                       data-plasmic-name={"verticalForNameInput10"}
                       data-plasmic-override={overrides.verticalForNameInput10}
-                      hasGap={true}
                       className={classNames(
                         projectcss.all,
                         sty.verticalForNameInput10,
@@ -957,34 +935,28 @@ function PlasmicEditProfile__RenderFunc(props: {
                       )}
                     />
 
-                    <Stack__
-                      as={"div"}
+                    <div
                       data-plasmic-name={"verticalForNameInput11"}
                       data-plasmic-override={overrides.verticalForNameInput11}
-                      hasGap={true}
                       className={classNames(
                         projectcss.all,
                         sty.verticalForNameInput11,
                         "shimmer"
                       )}
                     />
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                  </div>
+                </div>
+                <div
                   data-plasmic-name={"verticalForNameInput12"}
                   data-plasmic-override={overrides.verticalForNameInput12}
-                  hasGap={true}
                   className={classNames(
                     projectcss.all,
                     sty.verticalForNameInput12
                   )}
                 >
-                  <Stack__
-                    as={"div"}
+                  <div
                     data-plasmic-name={"verticalForNameInput13"}
                     data-plasmic-override={overrides.verticalForNameInput13}
-                    hasGap={true}
                     className={classNames(
                       projectcss.all,
                       sty.verticalForNameInput13,
@@ -992,16 +964,12 @@ function PlasmicEditProfile__RenderFunc(props: {
                     )}
                   />
 
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__vywJf)}
                   >
-                    <Stack__
-                      as={"div"}
+                    <div
                       data-plasmic-name={"verticalForNameInput14"}
                       data-plasmic-override={overrides.verticalForNameInput14}
-                      hasGap={true}
                       className={classNames(
                         projectcss.all,
                         sty.verticalForNameInput14,
@@ -1009,34 +977,28 @@ function PlasmicEditProfile__RenderFunc(props: {
                       )}
                     />
 
-                    <Stack__
-                      as={"div"}
+                    <div
                       data-plasmic-name={"verticalForNameInput15"}
                       data-plasmic-override={overrides.verticalForNameInput15}
-                      hasGap={true}
                       className={classNames(
                         projectcss.all,
                         sty.verticalForNameInput15,
                         "shimmer"
                       )}
                     />
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                  </div>
+                </div>
+                <div
                   data-plasmic-name={"verticalForNameInput16"}
                   data-plasmic-override={overrides.verticalForNameInput16}
-                  hasGap={true}
                   className={classNames(
                     projectcss.all,
                     sty.verticalForNameInput16
                   )}
                 >
-                  <Stack__
-                    as={"div"}
+                  <div
                     data-plasmic-name={"verticalForNameInput17"}
                     data-plasmic-override={overrides.verticalForNameInput17}
-                    hasGap={true}
                     className={classNames(
                       projectcss.all,
                       sty.verticalForNameInput17,
@@ -1044,16 +1006,12 @@ function PlasmicEditProfile__RenderFunc(props: {
                     )}
                   />
 
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__sK8Op)}
                   >
-                    <Stack__
-                      as={"div"}
+                    <div
                       data-plasmic-name={"verticalForNameInput18"}
                       data-plasmic-override={overrides.verticalForNameInput18}
-                      hasGap={true}
                       className={classNames(
                         projectcss.all,
                         sty.verticalForNameInput18,
@@ -1061,34 +1019,28 @@ function PlasmicEditProfile__RenderFunc(props: {
                       )}
                     />
 
-                    <Stack__
-                      as={"div"}
+                    <div
                       data-plasmic-name={"verticalForNameInput19"}
                       data-plasmic-override={overrides.verticalForNameInput19}
-                      hasGap={true}
                       className={classNames(
                         projectcss.all,
                         sty.verticalForNameInput19,
                         "shimmer"
                       )}
                     />
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                  </div>
+                </div>
+                <div
                   data-plasmic-name={"verticalForNameInput20"}
                   data-plasmic-override={overrides.verticalForNameInput20}
-                  hasGap={true}
                   className={classNames(
                     projectcss.all,
                     sty.verticalForNameInput20
                   )}
                 >
-                  <Stack__
-                    as={"div"}
+                  <div
                     data-plasmic-name={"verticalForNameInput21"}
                     data-plasmic-override={overrides.verticalForNameInput21}
-                    hasGap={true}
                     className={classNames(
                       projectcss.all,
                       sty.verticalForNameInput21,
@@ -1096,19 +1048,17 @@ function PlasmicEditProfile__RenderFunc(props: {
                     )}
                   />
 
-                  <Stack__
-                    as={"div"}
+                  <div
                     data-plasmic-name={"verticalForNameInput22"}
                     data-plasmic-override={overrides.verticalForNameInput22}
-                    hasGap={true}
                     className={classNames(
                       projectcss.all,
                       sty.verticalForNameInput22,
                       "shimmer"
                     )}
                   />
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
             }
             method={"GET"}
             onError={async (...eventArgs: any) => {
@@ -1151,18 +1101,14 @@ function PlasmicEditProfile__RenderFunc(props: {
             shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/calendar/rest/user/profile/edit"}
           >
-            <Stack__
-              as={"div"}
+            <div
               data-plasmic-name={"verticalIdentity"}
               data-plasmic-override={overrides.verticalIdentity}
-              hasGap={true}
               className={classNames(projectcss.all, sty.verticalIdentity)}
             >
-              <Stack__
-                as={"div"}
+              <div
                 data-plasmic-name={"verticalForNameInput"}
                 data-plasmic-override={overrides.verticalForNameInput}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.verticalForNameInput)}
               >
                 <div
@@ -1345,12 +1291,10 @@ function PlasmicEditProfile__RenderFunc(props: {
                     generateStateValueProp($state, ["nameInput", "value"]) ?? ""
                   }
                 />
-              </Stack__>
-              <Stack__
-                as={"div"}
+              </div>
+              <div
                 data-plasmic-name={"verticalForDateInput"}
                 data-plasmic-override={overrides.verticalForDateInput}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.verticalForDateInput)}
               >
                 <div
@@ -1435,12 +1379,10 @@ function PlasmicEditProfile__RenderFunc(props: {
                     role={"img"}
                   />
                 </div>
-              </Stack__>
-              <Stack__
-                as={"div"}
+              </div>
+              <div
                 data-plasmic-name={"verticalForSelection"}
                 data-plasmic-override={overrides.verticalForSelection}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.verticalForSelection)}
               >
                 <div
@@ -1452,11 +1394,9 @@ function PlasmicEditProfile__RenderFunc(props: {
                 >
                   {"\u0634\u063a\u0644"}
                 </div>
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"horizontalForButton"}
                   data-plasmic-override={overrides.horizontalForButton}
-                  hasGap={true}
                   className={classNames(
                     projectcss.all,
                     sty.horizontalForButton
@@ -1587,7 +1527,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                       />
                     );
                   })}
-                </Stack__>
+                </div>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -1597,11 +1537,9 @@ function PlasmicEditProfile__RenderFunc(props: {
                 >
                   {"\u0648\u0636\u0639\u06cc\u062a \u062a\u0627\u0647\u0644"}
                 </div>
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"horizontalForButton2"}
                   data-plasmic-override={overrides.horizontalForButton2}
-                  hasGap={true}
                   className={classNames(
                     projectcss.all,
                     sty.horizontalForButton2
@@ -1706,7 +1644,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                       />
                     );
                   })}
-                </Stack__>
+                </div>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -1716,11 +1654,9 @@ function PlasmicEditProfile__RenderFunc(props: {
                 >
                   {"\u062a\u062d\u0635\u06cc\u0644\u0627\u062a "}
                 </div>
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"horizontalForButton3"}
                   data-plasmic-override={overrides.horizontalForButton3}
-                  hasGap={true}
                   className={classNames(
                     projectcss.all,
                     sty.horizontalForButton3
@@ -1832,8 +1768,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                       />
                     );
                   })}
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
               <div
                 data-plasmic-name={"verticalForProbabilityOfGettingPregnant"}
                 data-plasmic-override={
@@ -1845,9 +1781,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                 )}
               >
                 <div className={classNames(projectcss.all, sty.freeBox__dYr8N)}>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__nFiv)}
                   >
                     <Icon67Icon
@@ -1935,7 +1869,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                         }).apply(null, eventArgs);
                       }}
                     />
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__kqKzh)}
                   >
@@ -1953,11 +1887,9 @@ function PlasmicEditProfile__RenderFunc(props: {
                   </div>
                 </div>
               </div>
-              <Stack__
-                as={"div"}
+              <div
                 data-plasmic-name={"verticalForMenstrualCycle"}
                 data-plasmic-override={overrides.verticalForMenstrualCycle}
-                hasGap={true}
                 className={classNames(
                   projectcss.all,
                   sty.verticalForMenstrualCycle
@@ -1974,11 +1906,9 @@ function PlasmicEditProfile__RenderFunc(props: {
                     "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
                   }
                 </div>
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"numberOfDaysOfBleeding2"}
                   data-plasmic-override={overrides.numberOfDaysOfBleeding2}
-                  hasGap={true}
                   className={classNames(
                     projectcss.all,
                     sty.numberOfDaysOfBleeding2
@@ -2175,12 +2105,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                       }
                     />
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__rribl)}
-                >
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__rribl)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -2377,12 +2303,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                       "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632  \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a.(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u06cc\u062a (\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc)  \u0631\u0648 \u0647\u0645  \u062c\u0633\u0627\u0628 \u06a9\u0646\u06cc."
                     }
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__xSZgy)}
-                >
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__xSZgy)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -2572,20 +2494,14 @@ function PlasmicEditProfile__RenderFunc(props: {
                       }
                     />
                   </div>
-                </Stack__>
-              </Stack__>
-              <Stack__
-                as={"div"}
+                </div>
+              </div>
+              <div
                 data-plasmic-name={"heightAndWeight"}
                 data-plasmic-override={overrides.heightAndWeight}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.heightAndWeight)}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__kzzDw)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__kzzDw)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -2666,12 +2582,10 @@ function PlasmicEditProfile__RenderFunc(props: {
                       role={"img"}
                     />
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"weight"}
                   data-plasmic-override={overrides.weight}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.weight)}
                 >
                   <div
@@ -2756,8 +2670,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                       role={"img"}
                     />
                   </div>
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
               <section
                 className={classNames(projectcss.all, sty.section__kGaIk)}
               >
@@ -3066,7 +2980,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                   </Button>
                 </div>
               </section>
-            </Stack__>
+            </div>
           </ApiRequest>
           <section className={classNames(projectcss.all, sty.section__bl29K)}>
             <HeaderLiom
@@ -3074,11 +2988,7 @@ function PlasmicEditProfile__RenderFunc(props: {
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__oE1R)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__oE1R)}>
                 <XIcon
                   className={classNames(projectcss.all, sty.svg__oTw7R)}
                   onClick={async event => {
@@ -3120,7 +3030,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                     "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u067e\u0631\u0648\u0641\u0627\u06cc\u0644"
                   }
                 </div>
-              </Stack__>
+              </div>
             </HeaderLiom>
           </section>
           <Dialog
@@ -3407,11 +3317,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                   ])}
                 />
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___9UVl)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox___9UVl)}>
                 <Button
                   data-plasmic-name={"button3"}
                   data-plasmic-override={overrides.button3}
@@ -3580,7 +3486,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                     {"\u0628\u0631\u06af\u0634\u062a"}
                   </div>
                 </div>
-              </Stack__>
+              </div>
             </div>
           </Dialog>
           <Dialog

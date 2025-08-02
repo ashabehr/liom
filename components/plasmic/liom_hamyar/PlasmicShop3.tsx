@@ -2336,11 +2336,7 @@ function PlasmicShop3__RenderFunc(props: {
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__ns88N)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__ns88N)}>
                 <XIcon
                   className={classNames(projectcss.all, sty.svg__kSyBz)}
                   onClick={async event => {
@@ -2370,7 +2366,7 @@ function PlasmicShop3__RenderFunc(props: {
                   }}
                   role={"img"}
                 />
-              </Stack__>
+              </div>
             </HeaderLiom>
           </section>
           <div className={classNames(projectcss.all, sty.freeBox__b0Uss)}>
@@ -2551,9 +2547,7 @@ function PlasmicShop3__RenderFunc(props: {
                 className={classNames("__wab_instance", sty.getData)}
                 errorDisplay={null}
                 loadingDisplay={
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__zXjOs)}
                   >
                     <div
@@ -2571,7 +2565,7 @@ function PlasmicShop3__RenderFunc(props: {
                         "shimmer"
                       )}
                     />
-                  </Stack__>
+                  </div>
                 }
                 method={"GET"}
                 onError={async (...eventArgs: any) => {
@@ -2621,9 +2615,7 @@ function PlasmicShop3__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__zu3Tt)}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__e7HYj
@@ -2636,9 +2628,7 @@ function PlasmicShop3__RenderFunc(props: {
                             sty.freeBox___8Bcy6
                           )}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__grhd
@@ -2715,9 +2705,7 @@ function PlasmicShop3__RenderFunc(props: {
                                     sty.freeBox__xmVmt
                                   )}
                                 >
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
+                                  <div
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox__t2IZn
@@ -2743,10 +2731,8 @@ function PlasmicShop3__RenderFunc(props: {
                                     >
                                       {"\u0645\u0628\u0644\u063a \u06a9\u0644:"}
                                     </div>
-                                  </Stack__>
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
+                                  </div>
+                                  <div
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox__poeps
@@ -2761,9 +2747,7 @@ function PlasmicShop3__RenderFunc(props: {
                                     >
                                       {"124000 \u062a\u0648\u0645\u0627\u0646"}
                                     </div>
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
+                                    <div
                                       className={classNames(
                                         projectcss.all,
                                         sty.freeBox__jXmMs
@@ -2809,14 +2793,12 @@ function PlasmicShop3__RenderFunc(props: {
                                           </div>
                                         </div>
                                       ) : null}
-                                    </Stack__>
-                                  </Stack__>
+                                    </div>
+                                  </div>
                                 </div>
                               ) : null}
                             </div>
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
                                 sty.freeBox__kcmhY
@@ -3628,7 +3610,7 @@ function PlasmicShop3__RenderFunc(props: {
                                   }
                                 </div>
                               </Button>
-                            </Stack__>
+                            </div>
                             <p
                               data-plasmic-name={"p"}
                               data-plasmic-override={overrides.p}
@@ -3687,9 +3669,9 @@ function PlasmicShop3__RenderFunc(props: {
                                 "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
                               }
                             </p>
-                          </Stack__>
+                          </div>
                         </div>
-                      </Stack__>
+                      </div>
                     </div>
                     <Dialog
                       data-plasmic-name={"dialog2"}
@@ -3714,17 +3696,13 @@ function PlasmicShop3__RenderFunc(props: {
                         "opendialog"
                       ])}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__zqnFu
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__yPk79
@@ -4089,10 +4067,8 @@ function PlasmicShop3__RenderFunc(props: {
                               );
                             })();
                           })}
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        </div>
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__buB2T
@@ -4481,7 +4457,7 @@ function PlasmicShop3__RenderFunc(props: {
                               }
                             </div>
                           </Button>
-                        </Stack__>
+                        </div>
                         {(() => {
                           try {
                             return $state.discount;
@@ -4495,9 +4471,7 @@ function PlasmicShop3__RenderFunc(props: {
                             throw e;
                           }
                         })() ? (
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__svFfa
@@ -4694,20 +4668,14 @@ function PlasmicShop3__RenderFunc(props: {
                                 {"\u062a\u0627\u06cc\u06cc\u062f"}
                               </div>
                             </Button>
-                          </Stack__>
+                          </div>
                         ) : null}
-                      </Stack__>
+                      </div>
                     </Dialog>
                   </div>
                 </section>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__x9FSv)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                <div className={classNames(projectcss.all, sty.freeBox__x9FSv)}>
+                  <div
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__fjQe,
@@ -4724,8 +4692,8 @@ function PlasmicShop3__RenderFunc(props: {
                         role={"img"}
                       />
                     </div>
-                  </Stack__>
-                </Stack__>
+                  </div>
+                </div>
               </ApiRequest>
             </Reveal>
           ) : null}
@@ -4825,11 +4793,7 @@ function PlasmicShop3__RenderFunc(props: {
               effect={"fade"}
               triggerOnce={true}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___2OwFh)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox___2OwFh)}>
                 {(() => {
                   try {
                     return $state.allowanceUser.length > 0;
@@ -4843,9 +4807,7 @@ function PlasmicShop3__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__uzFfG)}
                   >
                     <div
@@ -4984,13 +4946,9 @@ function PlasmicShop3__RenderFunc(props: {
                         </div>
                       );
                     })}
-                  </Stack__>
+                  </div>
                 ) : null}
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__dWVld)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__dWVld)}>
                   <Icon215Icon
                     className={classNames(projectcss.all, sty.svg__xqOxW)}
                     onClick={async event => {
@@ -5046,8 +5004,8 @@ function PlasmicShop3__RenderFunc(props: {
                       "\u0627\u0641\u0632\u0648\u062f\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
                     }
                   </div>
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
             </Reveal>
           ) : null}
           <AntdModal
@@ -5087,11 +5045,7 @@ function PlasmicShop3__RenderFunc(props: {
             }
             trigger={null}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___94C60)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox___94C60)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -5184,7 +5138,7 @@ function PlasmicShop3__RenderFunc(props: {
                   {"\u0628\u0627\u0634\u0647"}
                 </div>
               </Button>
-            </Stack__>
+            </div>
           </AntdModal>
         </div>
       </div>

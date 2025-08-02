@@ -61,8 +61,6 @@ import {
 
 import { AntdSwitch } from "@plasmicpkgs/antd5/skinny/registerSwitch";
 
-import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -233,10 +231,6 @@ function PlasmicInformationBox__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6BytLjmha8VC()
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -254,9 +248,7 @@ function PlasmicInformationBox__RenderFunc(props: {
         sty.root
       )}
     >
-      <Stack__
-        as={"div"}
-        hasGap={true}
+      <div
         className={classNames(projectcss.all, sty.freeBox__ej0Pr)}
         style={(() => {
           try {
@@ -335,11 +327,7 @@ function PlasmicInformationBox__RenderFunc(props: {
             }}
           />
         </div>
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__yshm8)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__yshm8)}>
           {(() => {
             try {
               return $props.btn1?.text != "";
@@ -353,9 +341,7 @@ function PlasmicInformationBox__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__vHEq)}
               onClick={args.onClickBtn1}
               style={(() => {
@@ -494,7 +480,7 @@ function PlasmicInformationBox__RenderFunc(props: {
                   }}
                 />
               ) : null}
-            </Stack__>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -509,9 +495,7 @@ function PlasmicInformationBox__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__dzSt5)}
               onClick={args.onClickBtn2}
               style={(() => {
@@ -649,10 +633,10 @@ function PlasmicInformationBox__RenderFunc(props: {
                   }}
                 />
               ) : null}
-            </Stack__>
+            </div>
           ) : null}
-        </Stack__>
-      </Stack__>
+        </div>
+      </div>
     </div>
   ) as React.ReactElement | null;
 }

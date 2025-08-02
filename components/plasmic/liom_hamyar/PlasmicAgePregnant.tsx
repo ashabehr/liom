@@ -1229,9 +1229,7 @@ function PlasmicAgePregnant__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__yuOqA)}
                   >
                     <div
@@ -1407,7 +1405,7 @@ function PlasmicAgePregnant__RenderFunc(props: {
                         }
                       </div>
                     </div>
-                  </Stack__>
+                  </div>
                   {(() => {
                     try {
                       return $state.typeInterDate == "dateOfBirth";
@@ -1421,9 +1419,7 @@ function PlasmicAgePregnant__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__atV2T)}
                     >
                       <div
@@ -1589,7 +1585,7 @@ function PlasmicAgePregnant__RenderFunc(props: {
                           );
                         })()}
                       </div>
-                    </Stack__>
+                    </div>
                   ) : null}
                   <div
                     className={classNames(projectcss.all, sty.freeBox__wcung, {
@@ -1641,9 +1637,7 @@ function PlasmicAgePregnant__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__c4PA2)}
                     >
                       <div
@@ -1808,7 +1802,7 @@ function PlasmicAgePregnant__RenderFunc(props: {
                           );
                         })()}
                       </div>
-                    </Stack__>
+                    </div>
                   ) : null}
                 </div>
               </div>

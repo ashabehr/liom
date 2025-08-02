@@ -172,7 +172,20 @@ function PlasmicFdbdf__RenderFunc(props: {
         path: "swiperSlider.lockSlides",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.swiperSlider.activeSlideIndex == 1;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -223,7 +236,7 @@ function PlasmicFdbdf__RenderFunc(props: {
             autoplayDelay={3000}
             bulletColor={"#888888"}
             className={classNames("__wab_instance", sty.swiperSlider)}
-            disablePaginationClick={false}
+            disablePaginationClick={true}
             lockSlides={generateStateValueProp($state, [
               "swiperSlider",
               "lockSlides"

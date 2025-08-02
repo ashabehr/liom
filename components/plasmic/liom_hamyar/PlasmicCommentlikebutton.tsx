@@ -249,11 +249,9 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
         }
       )}
     >
-      <Stack__
-        as={"div"}
+      <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        hasGap={true}
         className={classNames(projectcss.all, sty.freeBox, {
           [sty.freeBoxislikecomment]: hasVariant(
             $state,
@@ -395,7 +393,7 @@ function PlasmicCommentlikebutton__RenderFunc(props: {
           })}
           role={"img"}
         />
-      </Stack__>
+      </div>
     </div>
   ) as React.ReactElement | null;
 }

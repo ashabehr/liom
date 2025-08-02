@@ -648,9 +648,7 @@ function PlasmicBioritm__RenderFunc(props: {
             }
             errorDisplay={null}
             loadingDisplay={
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__j01Rg, {
                   [sty.freeBoxferstTimepage__j01RgSTpN]: hasVariant(
                     $state,
@@ -861,9 +859,7 @@ function PlasmicBioritm__RenderFunc(props: {
                       ])}
                     />
 
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__x3X0T,
@@ -1213,10 +1209,10 @@ function PlasmicBioritm__RenderFunc(props: {
                           {"\u0627\u0646\u062a\u062e\u0627\u0628"}
                         </div>
                       </Button>
-                    </Stack__>
+                    </div>
                   </div>
                 </SlideinModal>
-              </Stack__>
+              </div>
             }
             method={"POST"}
             onError={async (...eventArgs: any) => {
@@ -1298,9 +1294,7 @@ function PlasmicBioritm__RenderFunc(props: {
             shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/hamyar/biorhythm"}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__l2VNg, {
                 [sty.freeBoxferstTimepage__l2VNgSTpN]: hasVariant(
                   $state,
@@ -1553,9 +1547,7 @@ function PlasmicBioritm__RenderFunc(props: {
                       </div>
                     ) : null}
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__eeRlb, {
                       [sty.freeBoxferstTimepage__eeRlbSTpN]: hasVariant(
                         $state,
@@ -1918,10 +1910,8 @@ function PlasmicBioritm__RenderFunc(props: {
                         type={"circle"}
                       />
                     </div>
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  </div>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__zqEyN, {
                       [sty.freeBoxferstTimepage__zqEyNSTpN]: hasVariant(
                         $state,
@@ -1994,10 +1984,8 @@ function PlasmicBioritm__RenderFunc(props: {
                         </React.Fragment>
                       )}
                     </div>
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  </div>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__q8Qw)}
                   >
                     <Button
@@ -2188,7 +2176,7 @@ function PlasmicBioritm__RenderFunc(props: {
                         "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc"
                       }
                     </Button>
-                  </Stack__>
+                  </div>
                 </div>
                 <div
                   className={classNames(projectcss.all, sty.freeBox___1VjHr, {
@@ -2212,9 +2200,7 @@ function PlasmicBioritm__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__wNkZj)}
                       onClick={async event => {
                         const $steps = {};
@@ -2343,7 +2329,7 @@ function PlasmicBioritm__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
-                    </Stack__>
+                    </div>
                   ) : null}
                 </div>
               </div>
@@ -2360,9 +2346,7 @@ function PlasmicBioritm__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__nvPud, {
                     [sty.freeBoxferstTimepage__nvPudSTpN]: hasVariant(
                       $state,
@@ -2401,9 +2385,7 @@ function PlasmicBioritm__RenderFunc(props: {
                       }
                     })()
               ) ? (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___25XeE, {
                     [sty.freeBoxferstTimepage___25XeESTpN]: hasVariant(
                       $state,
@@ -2435,14 +2417,10 @@ function PlasmicBioritm__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__dNZkX)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__ptoE6,
@@ -2567,10 +2545,8 @@ function PlasmicBioritm__RenderFunc(props: {
                           type={"line"}
                         />
                       </div>
-                    </Stack__>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    </div>
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__ym8Im,
@@ -2681,10 +2657,8 @@ function PlasmicBioritm__RenderFunc(props: {
                           type={"line"}
                         />
                       </div>
-                    </Stack__>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    </div>
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__qEiJv,
@@ -2815,9 +2789,9 @@ function PlasmicBioritm__RenderFunc(props: {
                           type={"line"}
                         />
                       </div>
-                    </Stack__>
-                  </Stack__>
-                </Stack__>
+                    </div>
+                  </div>
+                </div>
               ) : null}
               <div
                 className={classNames(projectcss.all, sty.freeBox__dx6At, {
@@ -2862,11 +2836,9 @@ function PlasmicBioritm__RenderFunc(props: {
                           }
                         })()
                   ) ? (
-                    <Stack__
-                      as={"ul"}
+                    <ul
                       data-plasmic-name={"ul"}
                       data-plasmic-override={overrides.ul}
-                      hasGap={true}
                       className={classNames(
                         projectcss.all,
                         projectcss.ul,
@@ -2951,7 +2923,7 @@ function PlasmicBioritm__RenderFunc(props: {
                           </li>
                         );
                       })}
-                    </Stack__>
+                    </ul>
                   ) : null}
                   {(() => {
                     try {
@@ -5556,11 +5528,7 @@ function PlasmicBioritm__RenderFunc(props: {
                   }
                 }}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__qqw6C)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__qqw6C)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -5581,7 +5549,7 @@ function PlasmicBioritm__RenderFunc(props: {
                       "\u0634\u062f\u0647 \u06af\u0627\u0647\u06cc \u0627\u0648\u0642\u0627\u062a \u0628\u0627 \u062e\u0648\u062f\u062a \u0628\u06af\u06cc \u0627\u0644\u0627\u0646 \u00bb \u062d\u0648\u0635\u0644\u0647 \u0647\u06cc\u0686 \u06a9\u0627\u0631\u06cc \u0631\u0648 \u0646\u062f\u0627\u0631\u0645 \u061b \u06cc\u0627 \u0627\u0645\u0631\u0648\u0632 \u0631\u0648\u06cc \u0645\u0646 \u0646\u06cc\u0633\u062a . \u00bb \u0627\u06cc\u0646\u0637\u0648\u0631 \u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0631\u0633\u0647 \u06a9\u0647 \u062f\u0631 \u0628\u0639\u0636\u06cc \u0634\u0631\u0627\u06cc\u0637 \u060c \u0642\u062f\u0631\u062a \u062c\u0633\u0645\u06cc \u0630\u0647\u0646\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633\u06cc \u060c \u0645\u0627 \u0628\u0627 \u0647\u0645 . \u0647\u0645\u0627\u0647\u0646\u06af \u0646\u06cc\u0633\u062a\u0646 \u06a9\u0647 \u0647\u0645\u0647 \u0627\u06cc\u0646\u0647\u0627 \u0628\u0647 \u0633\u06cc\u06a9\u0644\u0647\u0627\u06cc \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0628\u0631\u0645\u06cc\u06af\u0631\u062f\u0647.\n\u062f\u0631 \u0648\u0627\u0642\u0639 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0646\u0628\u0636 \u062d\u064a\u0627\u062a \u06cc\u0627 \u0632\u06cc\u0633\u062a \u060c \u0622\u0647\u0646\u06af \u0639\u0644\u0645 \u0648 \u062f\u0627\u0646\u0634\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0628\u0647 \u0648\u0627\u0633\u0637\u0647 \u0627\u0648\u0646 \u0631\u06cc\u062a\u0645\u0647\u0627\u06cc \u0628\u062f\u0646 \u0627\u0646\u0633\u0627\u0646 \u0634\u0646\u0627\u062e\u062a\u0647 \u0645\u06cc\u0634\u0647 \u0628\u0631\u0627\u0633\u0627\u0633 \u0646\u0638\u0631\u064a\u0647 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0633\u0637\u0648\u062d \u0645\u062e\u062a\u0644\u0641\u06cc \u0627\u0632 \u0627\u0646\u0631\u0698\u06cc \u0627\u0632 \u0647\u0645\u0627\u0646 \u0627\u0628\u062a\u062f\u0627\u06cc \u062a\u0648\u0644\u062f \u062f\u0631 \u0627\u0646\u0633\u0627\u0646 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u0647 \u062f\u0631 \u0648\u0627\u0642\u0639 \u0634\u0631\u0648\u0639 \u0648 \u067e\u0627\u06cc\u0627\u0646 \u0647\u0631 \u0686\u0631\u062e\u0647 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f \u0641\u0631\u062f \u062a\u0639\u06cc\u06cc\u0646 \u0645\u06cc\u0634\u0647 \u0627\u06cc\u0646 \u0627\u0646\u0631\u0698\u06cc \u062f\u0631 \u06cc\u06a9 \u0628\u0627\u0632\u0647 \u0632\u0645\u0627\u0646\u06cc \u0645\u0634\u062e\u0635 \u06a9\u0645 \u0648 \u0632\u06cc\u0627\u062f \u0645\u06cc\u0634\u0647 \u0648 \u0631\u0648\u06cc \u0631\u0641\u062a\u0627\u0631 \u0648 \u062d\u0627\u0644\u0627\u062a \u0627\u0646\u0633\u0627\u0646 \u062a\u0623\u062b\u06cc\u0631 \u0645\u06cc\u0630\u0627\u0631\u0647. \n\n1- \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc ( Physical ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0647\u0631 \u06f2\u06f3 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u0627\u062a\u0641\u0627\u0642 \u0645\u06cc\u0627\u0641\u062a\u062f \u0632\u0645\u0627\u0646\u06cc \u06a9\u0647 \u062f\u0631 \u0627\u0648\u062c \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631\u06cc \u0627\u0639\u062a\u0645\u0627\u062f \u0628\u0647 \u0646\u0641\u0633 \u060c \u0627\u0646\u0631\u0698\u06cc \u0648 ... \u062f\u0627\u0631\u06cc\u062f . \u0627\u06cc\u0646 \u062f\u0631 \u062d\u0627\u0644\u06cc \u0627\u0633\u062a \u06a9\u0647 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0628\u06cc\u0634\u062a\u0631 \u062a\u062d\u062a \u062a\u0623\u062b\u06cc\u0631 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627 \u0642\u0631\u0627\u0631 \u0645\u06cc \u06af\u06cc\u0631\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0627\u0633\u062a \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n\n\u06f2- \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc ( Emotional ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u06f2\u06f8 \u0631\u0648\u0632\u0647 \u0627\u0633\u062a \u0648\u0642\u062a\u06cc \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0627\u062d\u0633\u0627\u0633 \u0645\u06cc\u06a9\u0646\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631 \u0634\u0627\u062f \u0648 \u0628\u0627\u0637\u0631\u0627\u0648\u062a \u0647\u0633\u062a\u06cc\u062f . \u062f\u0631 \u0645\u0642\u0627\u0628\u0644 \u0622\u0646 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u062a\u062d\u0631\u06cc\u06a9 \u067e\u0630\u06cc\u0631\u06cc \u0628\u0627\u0644\u0627\u06cc\u06cc \u062f\u0627\u0631\u06cc\u062f \u061b \u0627\u062d\u062a\u0645\u0627\u0644\u0627 \u0647\u0645\u0627\u0646 \u0631\u0648\u0632\u0647\u0627\u06cc\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0645\u062b\u0644\u0627 \u0645\u06cc\u06af\u0648\u06cc\u06cc\u062f \u062d\u0648\u0635\u0644\u0647 \u0646\u062f\u0627\u0631\u0645 \u0648\u0644\u0645 \u06a9\u0646\u06cc\u062f \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631\u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0631\u0648\u062d\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n \n\u06f3- \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc ( Intellectual ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0631\u0627 \u0647\u0631 \u0663\u0663 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u062a\u062c\u0631\u0628\u0647 \u0645\u06cc.\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u062f\u0631\u062a \u062a\u0635\u0645\u06cc\u0645 \u06af\u06cc\u0631\u06cc \u062e\u0648\u0628\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0645\u06cc \u062a\u0648\u0627\u0646\u06cc\u062f \u0645\u0633\u0627\u0626\u0644 \u0648 \u0645\u0634\u06a9\u0644\u0627\u062a \u0631\u0627 \u062d\u0644 \u0648 \u0645\u062f\u06cc\u0631\u06cc\u062a .\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0641\u0648\u0644 \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u062a\u0645\u0631\u06a9\u0632 \u0628\u0633\u06cc\u0627\u0631 \u06a9\u0645\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u062d\u062a\u06cc \u0634\u0627\u06cc\u062f \u062a\u0648\u0627\u0646 \u0627\u0646\u062c\u0627\u0645 \u062f\u0627\u062f\u0646 \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0642\u0628\u0644\u0627 \u062f\u0627\u0634\u062a\u06cc\u062f \u0631\u0627 \u0646\u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0630\u0647\u0646\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc. \n"
                     }
                   </div>
-                </Stack__>
+                </div>
               </SlideinModal>
               <SlideinModal
                 data-plasmic-name={"slideinModal2"}
@@ -5691,9 +5659,7 @@ function PlasmicBioritm__RenderFunc(props: {
                     ])}
                   />
 
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___6AxPh, {
                       [sty.freeBoxferstTimepage___6AxPhSTpN]: hasVariant(
                         $state,
@@ -6034,13 +6000,11 @@ function PlasmicBioritm__RenderFunc(props: {
                         {"\u0627\u0646\u062a\u062e\u0627\u0628"}
                       </div>
                     </Button>
-                  </Stack__>
+                  </div>
                 </div>
               </SlideinModal>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            </div>
+            <div
               className={classNames(projectcss.all, sty.freeBox__pa75, {
                 [sty.freeBoxferstTimepage__pa75STpN]: hasVariant(
                   $state,
@@ -6218,7 +6182,7 @@ function PlasmicBioritm__RenderFunc(props: {
                   }
                 </div>
               </Button>
-            </Stack__>
+            </div>
           </ApiRequest>
           <section
             className={classNames(projectcss.all, sty.section__qdZn, {
@@ -6252,11 +6216,7 @@ function PlasmicBioritm__RenderFunc(props: {
                 "opendialog"
               ])}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___65Ki)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox___65Ki)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -6277,7 +6237,7 @@ function PlasmicBioritm__RenderFunc(props: {
                     "\u0634\u062f\u0647 \u06af\u0627\u0647\u06cc \u0627\u0648\u0642\u0627\u062a \u0628\u0627 \u062e\u0648\u062f\u062a \u0628\u06af\u06cc \u0627\u0644\u0627\u0646 \u00bb \u062d\u0648\u0635\u0644\u0647 \u0647\u06cc\u0686 \u06a9\u0627\u0631\u06cc \u0631\u0648 \u0646\u062f\u0627\u0631\u0645 \u061b \u06cc\u0627 \u0627\u0645\u0631\u0648\u0632 \u0631\u0648\u06cc \u0645\u0646 \u0646\u06cc\u0633\u062a . \u00bb \u0627\u06cc\u0646\u0637\u0648\u0631 \u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0631\u0633\u0647 \u06a9\u0647 \u062f\u0631 \u0628\u0639\u0636\u06cc \u0634\u0631\u0627\u06cc\u0637 \u060c \u0642\u062f\u0631\u062a \u062c\u0633\u0645\u06cc \u0630\u0647\u0646\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633\u06cc \u060c \u0645\u0627 \u0628\u0627 \u0647\u0645 . \u0647\u0645\u0627\u0647\u0646\u06af \u0646\u06cc\u0633\u062a\u0646 \u06a9\u0647 \u0647\u0645\u0647 \u0627\u06cc\u0646\u0647\u0627 \u0628\u0647 \u0633\u06cc\u06a9\u0644\u0647\u0627\u06cc \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0628\u0631\u0645\u06cc\u06af\u0631\u062f\u0647.\n\u062f\u0631 \u0648\u0627\u0642\u0639 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0646\u0628\u0636 \u062d\u064a\u0627\u062a \u06cc\u0627 \u0632\u06cc\u0633\u062a \u060c \u0622\u0647\u0646\u06af \u0639\u0644\u0645 \u0648 \u062f\u0627\u0646\u0634\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0628\u0647 \u0648\u0627\u0633\u0637\u0647 \u0627\u0648\u0646 \u0631\u06cc\u062a\u0645\u0647\u0627\u06cc \u0628\u062f\u0646 \u0627\u0646\u0633\u0627\u0646 \u0634\u0646\u0627\u062e\u062a\u0647 \u0645\u06cc\u0634\u0647 \u0628\u0631\u0627\u0633\u0627\u0633 \u0646\u0638\u0631\u064a\u0647 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0633\u0637\u0648\u062d \u0645\u062e\u062a\u0644\u0641\u06cc \u0627\u0632 \u0627\u0646\u0631\u0698\u06cc \u0627\u0632 \u0647\u0645\u0627\u0646 \u0627\u0628\u062a\u062f\u0627\u06cc \u062a\u0648\u0644\u062f \u062f\u0631 \u0627\u0646\u0633\u0627\u0646 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u0647 \u062f\u0631 \u0648\u0627\u0642\u0639 \u0634\u0631\u0648\u0639 \u0648 \u067e\u0627\u06cc\u0627\u0646 \u0647\u0631 \u0686\u0631\u062e\u0647 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f \u0641\u0631\u062f \u062a\u0639\u06cc\u06cc\u0646 \u0645\u06cc\u0634\u0647 \u0627\u06cc\u0646 \u0627\u0646\u0631\u0698\u06cc \u062f\u0631 \u06cc\u06a9 \u0628\u0627\u0632\u0647 \u0632\u0645\u0627\u0646\u06cc \u0645\u0634\u062e\u0635 \u06a9\u0645 \u0648 \u0632\u06cc\u0627\u062f \u0645\u06cc\u0634\u0647 \u0648 \u0631\u0648\u06cc \u0631\u0641\u062a\u0627\u0631 \u0648 \u062d\u0627\u0644\u0627\u062a \u0627\u0646\u0633\u0627\u0646 \u062a\u0623\u062b\u06cc\u0631 \u0645\u06cc\u0630\u0627\u0631\u0647. \n\n1- \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc ( Physical ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0647\u0631 \u06f2\u06f3 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u0627\u062a\u0641\u0627\u0642 \u0645\u06cc\u0627\u0641\u062a\u062f \u0632\u0645\u0627\u0646\u06cc \u06a9\u0647 \u062f\u0631 \u0627\u0648\u062c \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631\u06cc \u0627\u0639\u062a\u0645\u0627\u062f \u0628\u0647 \u0646\u0641\u0633 \u060c \u0627\u0646\u0631\u0698\u06cc \u0648 ... \u062f\u0627\u0631\u06cc\u062f . \u0627\u06cc\u0646 \u062f\u0631 \u062d\u0627\u0644\u06cc \u0627\u0633\u062a \u06a9\u0647 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0628\u06cc\u0634\u062a\u0631 \u062a\u062d\u062a \u062a\u0623\u062b\u06cc\u0631 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627 \u0642\u0631\u0627\u0631 \u0645\u06cc \u06af\u06cc\u0631\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0627\u0633\u062a \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n\n\u06f2- \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc ( Emotional ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u06f2\u06f8 \u0631\u0648\u0632\u0647 \u0627\u0633\u062a \u0648\u0642\u062a\u06cc \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0627\u062d\u0633\u0627\u0633 \u0645\u06cc\u06a9\u0646\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631 \u0634\u0627\u062f \u0648 \u0628\u0627\u0637\u0631\u0627\u0648\u062a \u0647\u0633\u062a\u06cc\u062f . \u062f\u0631 \u0645\u0642\u0627\u0628\u0644 \u0622\u0646 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u062a\u062d\u0631\u06cc\u06a9 \u067e\u0630\u06cc\u0631\u06cc \u0628\u0627\u0644\u0627\u06cc\u06cc \u062f\u0627\u0631\u06cc\u062f \u061b \u0627\u062d\u062a\u0645\u0627\u0644\u0627 \u0647\u0645\u0627\u0646 \u0631\u0648\u0632\u0647\u0627\u06cc\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0645\u062b\u0644\u0627 \u0645\u06cc\u06af\u0648\u06cc\u06cc\u062f \u062d\u0648\u0635\u0644\u0647 \u0646\u062f\u0627\u0631\u0645 \u0648\u0644\u0645 \u06a9\u0646\u06cc\u062f \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631\u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0631\u0648\u062d\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n \n\u06f3- \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc ( Intellectual ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0631\u0627 \u0647\u0631 \u0663\u0663 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u062a\u062c\u0631\u0628\u0647 \u0645\u06cc.\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u062f\u0631\u062a \u062a\u0635\u0645\u06cc\u0645 \u06af\u06cc\u0631\u06cc \u062e\u0648\u0628\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0645\u06cc \u062a\u0648\u0627\u0646\u06cc\u062f \u0645\u0633\u0627\u0626\u0644 \u0648 \u0645\u0634\u06a9\u0644\u0627\u062a \u0631\u0627 \u062d\u0644 \u0648 \u0645\u062f\u06cc\u0631\u06cc\u062a .\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0641\u0648\u0644 \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u062a\u0645\u0631\u06a9\u0632 \u0628\u0633\u06cc\u0627\u0631 \u06a9\u0645\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u062d\u062a\u06cc \u0634\u0627\u06cc\u062f \u062a\u0648\u0627\u0646 \u0627\u0646\u062c\u0627\u0645 \u062f\u0627\u062f\u0646 \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0642\u0628\u0644\u0627 \u062f\u0627\u0634\u062a\u06cc\u062f \u0631\u0627 \u0646\u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0630\u0647\u0646\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc. \n"
                   }
                 </div>
-              </Stack__>
+              </div>
             </Dialog>
           </section>
           <section
@@ -6394,9 +6354,7 @@ function PlasmicBioritm__RenderFunc(props: {
                   ])}
                 />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__cmxW3, {
                     [sty.freeBoxferstTimepage__cmxW3STpN]: hasVariant(
                       $state,
@@ -6773,7 +6731,7 @@ function PlasmicBioritm__RenderFunc(props: {
                       {"\u0628\u0631\u06af\u0634\u062a"}
                     </div>
                   </Button>
-                </Stack__>
+                </div>
               </div>
             </Dialog>
           </section>
@@ -6784,11 +6742,7 @@ function PlasmicBioritm__RenderFunc(props: {
           />
 
           <section className={classNames(projectcss.all, sty.section__tYaP)}>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__nexdh)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__nexdh)}>
               <div
                 className={classNames(projectcss.all, sty.freeBox__y2Vrr)}
                 onClick={async event => {
@@ -7011,7 +6965,7 @@ function PlasmicBioritm__RenderFunc(props: {
                   {"\u06a9\u0644\u06cc\u0646\u06cc\u06a9"}
                 </div>
               </div>
-            </Stack__>
+            </div>
           </section>
           <section className={classNames(projectcss.all, sty.section__bGtQp)}>
             <HeaderLiom
@@ -7019,11 +6973,7 @@ function PlasmicBioritm__RenderFunc(props: {
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__iTCgi)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__iTCgi)}>
                 <XIcon
                   className={classNames(projectcss.all, sty.svg___025Ao)}
                   onClick={async event => {
@@ -7063,7 +7013,7 @@ function PlasmicBioritm__RenderFunc(props: {
                 >
                   {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
                 </div>
-              </Stack__>
+              </div>
             </HeaderLiom>
           </section>
           <SideEffect

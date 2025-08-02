@@ -65,8 +65,6 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
-import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -166,10 +164,6 @@ function PlasmicContactUs__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6BytLjmha8VC()
-  });
-
   return (
     <React.Fragment>
       <Head></Head>
@@ -207,11 +201,7 @@ function PlasmicContactUs__RenderFunc(props: {
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__t6Qk)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__t6Qk)}>
                 <XIcon
                   className={classNames(projectcss.all, sty.svg__klDkm)}
                   onClick={async event => {
@@ -253,19 +243,11 @@ function PlasmicContactUs__RenderFunc(props: {
                     "\u062a\u0645\u0627\u0633 \u0628\u0627 \u0645\u0627 \u0648 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc"
                   }
                 </div>
-              </Stack__>
+              </div>
             </HeaderLiom>
           </section>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox___7F3Rc)}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__krcTl)}
-            >
+          <div className={classNames(projectcss.all, sty.freeBox___7F3Rc)}>
+            <div className={classNames(projectcss.all, sty.freeBox__krcTl)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -286,12 +268,8 @@ function PlasmicContactUs__RenderFunc(props: {
                   "\u0645\u0627 \u062f\u0631 \u0644\u06cc\u0648\u0645 \u0647\u0645\u06cc\u0634\u0647 \u0622\u0645\u0627\u062f\u0647 \u0634\u0646\u06cc\u062f\u0646 \u0646\u0638\u0631\u0627\u062a\u060c \u067e\u06cc\u0634\u0646\u0647\u0627\u062f\u0627\u062a \u0648 \u067e\u0627\u0633\u062e \u0628\u0647 \u0633\u0648\u0627\u0644\u0627\u062a \u0634\u0645\u0627 \u0647\u0633\u062a\u06cc\u0645 \u062a\u06cc\u0645 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u0645\u0627 \u062a\u0644\u0627\u0634 \u0645\u06cc\u06a9\u0646\u062f \u062a\u0627 \u0628\u0647\u062a\u0631\u06cc\u0646 \u062a\u062c\u0631\u0628\u0647 \u0631\u0627 \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0641\u0631\u0627\u0647\u0645 \u06a9\u0646\u062f \u0648 \u062f\u0631 \u0647\u0631 \u0645\u0631\u062d\u0644\u0647 \u06a9\u0646\u0627\u0631 \u0634\u0645\u0627 \u0628\u0627\u0634\u062f.\r\n\r\n\u0627\u06af\u0631 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0631\u0627\u0647\u0646\u0645\u0627\u06cc\u06cc \u062f\u0627\u0631\u06cc\u062f \u06cc\u0627 \u0633\u0648\u0627\u0644\u06cc \u062f\u0627\u0631\u06cc\u062f \u0645\u06cc\u062a\u0648\u0627\u0646\u06cc\u062f \u0627\u0632 \u0637\u0631\u06cc\u0642 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u06cc\u0627 \u0634\u0628\u06a9\u0647 \u0647\u0627\u06cc \u0627\u062c\u062a\u0645\u0627\u0639\u06cc \u0628\u0627 \u0645\u0627 \u062f\u0631 \u062a\u0645\u0627\u0633 \u0628\u0627\u0634\u06cc\u062f. \u0646\u0638\u0631\u0627\u062a \u0627\u0631\u0632\u0634\u0645\u0646\u062f \u0634\u0645\u0627 \u0628\u0647 \u0645\u0627 \u06a9\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u062f \u062a\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0627 \u0647\u0631 \u0631\u0648\u0632 \u0628\u0647\u062a\u0631 \u0627\u0632 \u0642\u0628\u0644 \u06a9\u0646\u06cc\u0645\r"
                 }
               </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__qQp7O)}
-            >
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__qQp7O)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -303,14 +281,8 @@ function PlasmicContactUs__RenderFunc(props: {
                   "\u0644\u06cc\u0648\u0645 \u0631\u0648 \u062f\u0631 \u0634\u0628\u06a9\u0647 \u0647\u0627\u06cc \u0627\u062c\u062a\u0645\u0627\u0639\u06cc \u062f\u0646\u0628\u0627\u0644 \u06a9\u0646"
                 }
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___5ISeg)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+              <div className={classNames(projectcss.all, sty.freeBox___5ISeg)}>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__qGoQs)}
                   onClick={async event => {
                     const $steps = {};
@@ -371,10 +343,8 @@ function PlasmicContactUs__RenderFunc(props: {
                       "\u0627\u06cc\u0646\u0633\u062a\u0627\u06af\u0631\u0627\u0645"
                     }
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__yb4Pn)}
                   onClick={async event => {
                     const $steps = {};
@@ -424,14 +394,10 @@ function PlasmicContactUs__RenderFunc(props: {
                   >
                     {"\u062a\u0644\u06af\u0631\u0627\u0645"}
                   </div>
-                </Stack__>
-              </Stack__>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___2VhUw)}
-            >
+                </div>
+              </div>
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox___2VhUw)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -443,11 +409,7 @@ function PlasmicContactUs__RenderFunc(props: {
                   "\u0631\u0627\u0647 \u0647\u0627\u06cc \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0645\u0627"
                 }
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__yuhan)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__yuhan)}>
                 <Button
                   data-plasmic-name={"button5"}
                   data-plasmic-override={overrides.button5}
@@ -581,9 +543,9 @@ function PlasmicContactUs__RenderFunc(props: {
                     {"\u067e\u06cc\u0627\u0645 \u062f\u0631 \u0628\u0644\u0647"}
                   </div>
                 </Button>
-              </Stack__>
-            </Stack__>
-          </Stack__>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </React.Fragment>

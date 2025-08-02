@@ -1255,11 +1255,7 @@ function PlasmicSignsPage__RenderFunc(props: {
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___8BcOt)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox___8BcOt)}>
                 <XIcon
                   className={classNames(projectcss.all, sty.svg___0UnPu)}
                   onClick={async event => {
@@ -1301,7 +1297,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                     "\u0646\u0634\u0627\u0646\u0647 \u0647\u0627\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc"
                   }
                 </div>
-              </Stack__>
+              </div>
             </HeaderLiom>
           </section>
           <AntdModal
@@ -1344,16 +1340,8 @@ function PlasmicSignsPage__RenderFunc(props: {
             trigger={null}
             wrapClassName={classNames({ [sty["pcls_JlfQaey1dPY0"]]: true })}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__qu0To)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__oryU9)}
-              >
+            <div className={classNames(projectcss.all, sty.freeBox__qu0To)}>
+              <div className={classNames(projectcss.all, sty.freeBox__oryU9)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -1531,7 +1519,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                     }
                   />
                 </div>
-              </Stack__>
+              </div>
               <div className={classNames(projectcss.all, sty.freeBox__oi5JZ)}>
                 <Button
                   data-plasmic-name={"button2"}
@@ -1655,7 +1643,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                   </div>
                 </Button>
               </div>
-            </Stack__>
+            </div>
           </AntdModal>
           <AntdModal
             data-plasmic-name={"name2"}
@@ -1697,16 +1685,8 @@ function PlasmicSignsPage__RenderFunc(props: {
             trigger={null}
             wrapClassName={classNames({ [sty["pcls_YeBO-M7kBn8Q"]]: true })}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__y9Y5V)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__qvNlc)}
-              >
+            <div className={classNames(projectcss.all, sty.freeBox__y9Y5V)}>
+              <div className={classNames(projectcss.all, sty.freeBox__qvNlc)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -1858,12 +1838,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                     }
                   />
                 </div>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__ct3Gn)}
-              >
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__ct3Gn)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -1875,11 +1851,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                     "\u0686\u0647 \u0646\u0633\u0628\u062a\u06cc \u0628\u0627\u0647\u0645 \u062f\u0627\u0631\u06cc\u062f\u061f"
                   }
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__gIp7X)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__gIp7X)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -2054,8 +2026,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                       </RadioGrop>
                     );
                   })}
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
               <div className={classNames(projectcss.all, sty.freeBox__o9Wqd)}>
                 <Button
                   data-plasmic-name={"button3"}
@@ -2479,7 +2451,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                   </div>
                 </Button>
               </div>
-            </Stack__>
+            </div>
           </AntdModal>
           <AntdModal
             data-plasmic-name={"sms"}
@@ -2533,16 +2505,8 @@ function PlasmicSignsPage__RenderFunc(props: {
             trigger={null}
             wrapClassName={classNames({ [sty["pcls_t1MKwQ2yalEK"]]: true })}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___2JAat)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___3Zed0)}
-              >
+            <div className={classNames(projectcss.all, sty.freeBox___2JAat)}>
+              <div className={classNames(projectcss.all, sty.freeBox___3Zed0)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -2566,12 +2530,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 </div>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__hr2Zb)}
-              >
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__hr2Zb)}>
                 <Button
                   data-plasmic-name={"button4"}
                   data-plasmic-override={overrides.button4}
@@ -2782,8 +2742,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                     }
                   </div>
                 </Button>
-              </Stack__>
-            </Stack__>
+              </div>
+            </div>
           </AntdModal>
           <AntdModal
             data-plasmic-name={"remove"}
@@ -2835,11 +2795,7 @@ function PlasmicSignsPage__RenderFunc(props: {
             trigger={null}
             wrapClassName={classNames({ [sty["pcls_NidDut_xRTGH"]]: true })}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__nKVlH)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__nKVlH)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -2851,11 +2807,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                   "\u0628\u0627 \u062d\u0630\u0641 \u0647\u0645\u06cc\u0627\u0631\u060c \u062f\u06cc\u06af\u0647 \u067e\u06cc\u0627\u0645\u06a9\u06cc \u0628\u0631\u0627\u0634 \u0627\u0631\u0633\u0627\u0644 \u0646\u0645\u06cc\u0634\u0647. \u0627\u0632 \u0627\u0646\u062c\u0627\u0645 \u0627\u06cc\u0646\u06a9\u0627\u0631 \u0645\u0637\u0645\u0626\u0646\u06cc \u061f"
                 }
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__nx3Qz)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__nx3Qz)}>
                 <Button
                   data-plasmic-name={"removeBtn"}
                   data-plasmic-override={overrides.removeBtn}
@@ -3182,8 +3134,8 @@ function PlasmicSignsPage__RenderFunc(props: {
                     {"\u0641\u0639\u0644\u0627 \u0646\u0647"}
                   </div>
                 </Button>
-              </Stack__>
-            </Stack__>
+              </div>
+            </div>
           </AntdModal>
           <ApiRequest
             data-plasmic-name={"getSign"}
@@ -3191,16 +3143,8 @@ function PlasmicSignsPage__RenderFunc(props: {
             className={classNames("__wab_instance", sty.getSign)}
             errorDisplay={null}
             loadingDisplay={
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__uepml)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__jmVgt)}
-                >
+              <div className={classNames(projectcss.all, sty.freeBox__uepml)}>
+                <div className={classNames(projectcss.all, sty.freeBox__jmVgt)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -3217,9 +3161,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                     )}
                   />
 
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__jPm69)}
                   >
                     <div
@@ -3230,9 +3172,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                       )}
                     />
 
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__fee2D)}
                     >
                       <div
@@ -3266,11 +3206,9 @@ function PlasmicSignsPage__RenderFunc(props: {
                           "shimmer"
                         )}
                       />
-                    </Stack__>
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                    </div>
+                  </div>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__feKFp)}
                   >
                     <div
@@ -3281,9 +3219,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                       )}
                     />
 
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__r8FCs)}
                     >
                       <div
@@ -3317,11 +3253,9 @@ function PlasmicSignsPage__RenderFunc(props: {
                           "shimmer"
                         )}
                       />
-                    </Stack__>
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                    </div>
+                  </div>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___1Vm2J)}
                   >
                     <div
@@ -3332,9 +3266,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                       )}
                     />
 
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__skeav)}
                     >
                       <div
@@ -3368,10 +3300,10 @@ function PlasmicSignsPage__RenderFunc(props: {
                           "shimmer"
                         )}
                       />
-                    </Stack__>
-                  </Stack__>
-                </Stack__>
-              </Stack__>
+                    </div>
+                  </div>
+                </div>
+              </div>
             }
             method={"GET"}
             onError={async (...eventArgs: any) => {
@@ -3423,11 +3355,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__pomKc)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__pomKc)}>
                 <div className={classNames(projectcss.all, sty.freeBox__zU9PX)}>
                   <div
                     className={classNames(
@@ -3452,11 +3380,9 @@ function PlasmicSignsPage__RenderFunc(props: {
                     }
                   </div>
                 </div>
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"selectionBox"}
                   data-plasmic-override={overrides.selectionBox}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.selectionBox)}
                 >
                   <div
@@ -3538,12 +3464,10 @@ function PlasmicSignsPage__RenderFunc(props: {
                       "selectOne"
                     ])}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"selectionBox2"}
                   data-plasmic-override={overrides.selectionBox2}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.selectionBox2)}
                 >
                   <div
@@ -3625,12 +3549,10 @@ function PlasmicSignsPage__RenderFunc(props: {
                       "selectOne"
                     ])}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"selectionBox3"}
                   data-plasmic-override={overrides.selectionBox3}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.selectionBox3)}
                 >
                   <div
@@ -3736,12 +3658,10 @@ function PlasmicSignsPage__RenderFunc(props: {
                       "selectOne"
                     ])}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"selectionBox4"}
                   data-plasmic-override={overrides.selectionBox4}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.selectionBox4)}
                 >
                   <div
@@ -3844,12 +3764,10 @@ function PlasmicSignsPage__RenderFunc(props: {
                       "selectOne"
                     ])}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"selectionBox5"}
                   data-plasmic-override={overrides.selectionBox5}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.selectionBox5)}
                 >
                   <div
@@ -3952,12 +3870,10 @@ function PlasmicSignsPage__RenderFunc(props: {
                       "selectOne"
                     ])}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"selectionBox6"}
                   data-plasmic-override={overrides.selectionBox6}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.selectionBox6)}
                 >
                   <div
@@ -4063,12 +3979,10 @@ function PlasmicSignsPage__RenderFunc(props: {
                       "selectOne"
                     ])}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"selectionBox7"}
                   data-plasmic-override={overrides.selectionBox7}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.selectionBox7)}
                 >
                   <div
@@ -4171,7 +4085,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                       "selectOne"
                     ])}
                   />
-                </Stack__>
+                </div>
                 <section
                   className={classNames(projectcss.all, sty.section__nkbVb)}
                 >
@@ -4470,7 +4384,7 @@ function PlasmicSignsPage__RenderFunc(props: {
                     </Button>
                   </div>
                 </section>
-              </Stack__>
+              </div>
             ) : null}
           </ApiRequest>
         </div>

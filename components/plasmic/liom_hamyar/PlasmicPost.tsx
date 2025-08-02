@@ -234,11 +234,7 @@ function PlasmicPost__RenderFunc(props: {
         }
       )}
     >
-      <Stack__
-        as={"div"}
-        hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox__tjGb4)}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__tjGb4)}>
         <LineClomp
           data-plasmic-name={"lineClompTitle"}
           data-plasmic-override={overrides.lineClompTitle}
@@ -612,7 +608,7 @@ function PlasmicPost__RenderFunc(props: {
             </React.Fragment>
           </div>
         </div>
-      </Stack__>
+      </div>
     </div>
   ) as React.ReactElement | null;
 }

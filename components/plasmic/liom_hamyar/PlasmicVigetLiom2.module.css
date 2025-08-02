@@ -4,26 +4,15 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
   background: var(--token-R_Rsn0nP9oIv);
   box-shadow: 0px 4px 16px 0px #00000014;
   position: relative;
+  row-gap: 0px;
   min-width: 0;
   border-radius: 8px;
   padding: 0px;
-}
-.root > :global(.__wab_flex-container) {
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  min-width: 0;
-  margin-top: calc(0px - 0px);
-  height: calc(100% + 0px);
-}
-.root > :global(.__wab_flex-container) > *,
-.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.root > :global(.__wab_flex-container) > picture > img,
-.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-top: 0px;
 }
 .text__osPjb {
   position: relative;

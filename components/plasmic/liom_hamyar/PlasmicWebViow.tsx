@@ -207,11 +207,7 @@ function PlasmicWebViow__RenderFunc(props: {
                 data-plasmic-override={overrides.headerLiom}
                 className={classNames("__wab_instance", sty.headerLiom)}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__p3Ttu)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__p3Ttu)}>
                   <XIcon
                     data-plasmic-name={"svg"}
                     data-plasmic-override={overrides.svg}
@@ -257,7 +253,7 @@ function PlasmicWebViow__RenderFunc(props: {
                       "\u062f\u0631 \u062d\u0627\u0644 \u0627\u062a\u0635\u0627\u0644 ..."
                     }
                   </div>
-                </Stack__>
+                </div>
               </HeaderLiom>
             </section>
           ) : null}

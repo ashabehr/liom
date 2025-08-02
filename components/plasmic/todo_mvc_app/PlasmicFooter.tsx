@@ -263,11 +263,7 @@ function PlasmicFooter__RenderFunc(props: {
           </div>
         </div>
       ) : null}
-      <Stack__
-        as={"div"}
-        hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox__vn1Aa)}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__vn1Aa)}>
         <ToggleButton
           className={classNames("__wab_instance", sty.toggleButton__yyTOt)}
           onClick={async () => {
@@ -388,7 +384,7 @@ function PlasmicFooter__RenderFunc(props: {
         >
           {"Active"}
         </ToggleButton>
-      </Stack__>
+      </div>
       {(hasVariant($state, "state", "hasCompleted") ? true : false) ? (
         <div
           className={classNames(

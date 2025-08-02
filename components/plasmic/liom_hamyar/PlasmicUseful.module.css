@@ -1,6 +1,8 @@
 .root {
   display: inline-flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   width: auto;
   height: auto;
   max-width: 100%;
@@ -10,24 +12,12 @@
   transition-duration: 1s;
   box-shadow: none;
   justify-self: flex-start;
+  row-gap: 4px;
   -webkit-transition-property: all;
   -webkit-transition-duration: 1s;
   border-radius: 8px;
   padding: 14px;
   border: 1px solid #00c371;
-}
-.root > :global(.__wab_flex-container) {
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  margin-top: calc(0px - 4px);
-  height: calc(100% + 4px);
-}
-.root > :global(.__wab_flex-container) > *,
-.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.root > :global(.__wab_flex-container) > picture > img,
-.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-top: 4px;
 }
 @media (max-width: 640px) {
   .root {
@@ -42,6 +32,8 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -50,12 +42,6 @@
   min-width: 0;
   padding: 0px;
 }
-.freeBox > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-}
 @media (max-width: 640px) {
   .freeBox {
     position: relative;
@@ -63,28 +49,9 @@
     left: auto;
     z-index: 1;
     width: auto;
+    column-gap: 4px;
+    row-gap: 0px;
     padding: 0px;
-  }
-}
-@media (max-width: 640px) {
-  .freeBox > :global(.__wab_flex-container) {
-    margin-left: calc(0px - 4px);
-    width: calc(100% + 4px);
-    margin-top: calc(0px - 0px);
-    height: calc(100% + 0px);
-  }
-}
-@media (max-width: 640px) {
-  .freeBox > :global(.__wab_flex-container) > *,
-  .freeBox > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-  .freeBox > :global(.__wab_flex-container) > picture > img,
-  .freeBox
-    > :global(.__wab_flex-container)
-    > :global(.__wab_slot)
-    > picture
-    > img {
-    margin-left: 4px;
-    margin-top: 0px;
   }
 }
 .text__xjkag {

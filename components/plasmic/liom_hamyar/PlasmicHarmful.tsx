@@ -59,8 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -202,18 +200,12 @@ function PlasmicHarmful__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6BytLjmha8VC()
-  });
-
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -226,11 +218,9 @@ function PlasmicHarmful__RenderFunc(props: {
       )}
       onClick={args.onClick}
     >
-      <Stack__
-        as={"div"}
+      <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        hasGap={true}
         className={classNames(projectcss.all, sty.freeBox)}
       >
         <div
@@ -256,7 +246,7 @@ function PlasmicHarmful__RenderFunc(props: {
             })()}
           </React.Fragment>
         </div>
-      </Stack__>
+      </div>
       <div
         className={classNames(
           projectcss.all,
@@ -280,7 +270,7 @@ function PlasmicHarmful__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 

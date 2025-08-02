@@ -2996,9 +2996,7 @@ function PlasmicNotification__RenderFunc(props: {
           {(
             hasVariant($state, "notification", "notification") ? true : false
           ) ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox___8LpCi, {
                 [sty.freeBoxnotification___8LpCifbnFk]: hasVariant(
                   $state,
@@ -3725,7 +3723,7 @@ function PlasmicNotification__RenderFunc(props: {
                   );
                 })();
               })}
-            </Stack__>
+            </div>
           ) : null}
           <ApiRequest
             data-plasmic-name={"apiRequest"}

@@ -203,19 +203,15 @@ function PlasmicNoname__RenderFunc(props: {
             sty.root
           )}
         >
-          <Stack__
-            as={"div"}
+          <div
             data-plasmic-name={"halamanUtama"}
             data-plasmic-override={overrides.halamanUtama}
-            hasGap={true}
             className={classNames(projectcss.all, sty.halamanUtama)}
           >
             <div className={classNames(projectcss.all, sty.freeBox__aVeVu)}>
-              <Stack__
-                as={"div"}
+              <div
                 data-plasmic-name={"group35"}
                 data-plasmic-override={overrides.group35}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.group35)}
               >
                 <div
@@ -228,9 +224,7 @@ function PlasmicNoname__RenderFunc(props: {
                   {"\u0630\u06a9\u0631 \u0647\u0627\u06cc \u0645\u0646"}
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__kX1T7)}>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__tBcMg)}
                   >
                     <div
@@ -255,7 +249,7 @@ function PlasmicNoname__RenderFunc(props: {
                         ? "\u0646\u0627\u0645 \u0645\u0627\u062f\u0631 :\u0641\u0627\u0637\u0645\u0647"
                         : "\u0646\u0627\u0645 \u0645\u0627\u062f\u0631 :\u0641\u0627\u0637\u0645\u0647"}
                     </div>
-                  </Stack__>
+                  </div>
                   <Button
                     data-plasmic-name={"button"}
                     data-plasmic-override={overrides.button}
@@ -341,7 +335,7 @@ function PlasmicNoname__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                 </LineClomp>
-              </Stack__>
+              </div>
               <div
                 data-plasmic-name={
                   "pngtreeRamadanIllustrationMuslimFamilyPraying74668381"
@@ -411,7 +405,7 @@ function PlasmicNoname__RenderFunc(props: {
                 }
               })()}
             />
-          </Stack__>
+          </div>
         </div>
       </div>
     </React.Fragment>

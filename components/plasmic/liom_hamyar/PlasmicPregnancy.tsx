@@ -1281,9 +1281,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__sY11Y)}
                   id={"reloadButton"}
                   onClick={async event => {
@@ -1348,7 +1346,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                       "\u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f \u0635\u0641\u062d\u0647"
                     }
                   </Button>
-                </Stack__>
+                </div>
               ) : null}
               <SideEffect
                 className={classNames("__wab_instance", sty.sideEffect__kRrSb)}
@@ -2811,9 +2809,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             "\u0637\u0628\u0642 \u0645\u062d\u0633\u0627\u0628\u0627\u062a \u0645\u0627 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646 \u0634\u0645\u0627 \u0631\u0633\u06cc\u062f\u0647 \u0627\u06af\u0631 \u0647\u0646\u0648\u0632 \u0632\u0627\u06cc\u0645\u0627\u0646 \u0646\u06a9\u0631\u062f\u06cc \u0628\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646\u062a\u0648 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u06a9\u0646 ."
                           }
                         </div>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__bQe
@@ -3001,7 +2997,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               }
                             </div>
                           </div>
-                        </Stack__>
+                        </div>
                       </div>
                     ) : null}
                   </div>
@@ -3185,9 +3181,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               }
                             }}
                           >
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
                                 sty.freeBox__tB5TF
@@ -3259,7 +3253,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   })()}
                                 </React.Fragment>
                               </div>
-                            </Stack__>
+                            </div>
                             <LottieWrapper
                               animationData={{
                                 nm: "Comp 2",
@@ -6131,9 +6125,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 }
                               }}
                             >
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__ggFd2
@@ -6167,7 +6159,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     aspectRatio: 1
                                   }}
                                 />
-                              </Stack__>
+                              </div>
                               <div
                                 className={classNames(
                                   projectcss.all,
@@ -7479,9 +7471,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           sty.freeBox__rEBo7
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__saGSs
@@ -7508,9 +7498,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             const currentItem = __plasmic_item_0;
                             const currentIndex = __plasmic_idx_0;
                             return (
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__e1C3T
@@ -7983,9 +7971,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   }
                                 }}
                               >
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__div06
@@ -8138,11 +8124,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       />
                                     )}
                                   </div>
-                                </Stack__>
-                              </Stack__>
+                                </div>
+                              </div>
                             );
                           })}
-                        </Stack__>
+                        </div>
                       </div>
                       {(() => {
                         try {
@@ -8181,9 +8167,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               throw e;
                             }
                           })() ? (
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
                                 sty.freeBox__aZklw
@@ -8215,9 +8199,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 const currentItem = __plasmic_item_0;
                                 const currentIndex = __plasmic_idx_0;
                                 return (
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
+                                  <div
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox__clKXu
@@ -8522,9 +8504,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       }
                                     }}
                                   >
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
+                                    <div
                                       className={classNames(
                                         projectcss.all,
                                         sty.freeBox__gfXvm
@@ -8707,11 +8687,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           />
                                         )}
                                       </div>
-                                    </Stack__>
-                                  </Stack__>
+                                    </div>
+                                  </div>
                                 );
                               })}
-                            </Stack__>
+                            </div>
                           ) : null}
                         </div>
                       ) : null}
@@ -8721,9 +8701,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           sty.freeBox__rmMJz
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__uoDCb
@@ -8750,9 +8728,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             const currentItem = __plasmic_item_0;
                             const currentIndex = __plasmic_idx_0;
                             return (
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__zkQj
@@ -9032,7 +9008,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               />
                             );
                           })}
-                        </Stack__>
+                        </div>
                       </div>
                       <div
                         className={classNames(
@@ -9884,9 +9860,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       preview={true}
                                     />
                                   ) : null}
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
+                                  <div
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox__jGbTn
@@ -9919,9 +9893,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         const currentItem = __plasmic_item_0;
                                         const currentIndex = __plasmic_idx_0;
                                         return (
-                                          <Stack__
-                                            as={"div"}
-                                            hasGap={true}
+                                          <div
                                             className={classNames(
                                               projectcss.all,
                                               sty.freeBox__i2CeO
@@ -10527,9 +10499,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 throw e;
                                               }
                                             })() ? (
-                                              <Stack__
-                                                as={"div"}
-                                                hasGap={true}
+                                              <div
                                                 className={classNames(
                                                   projectcss.all,
                                                   sty.freeBox__gKrun
@@ -10810,7 +10780,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     </Button>
                                                   );
                                                 })()}
-                                              </Stack__>
+                                              </div>
                                             ) : null}
                                             {(() => {
                                               try {
@@ -10848,9 +10818,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                 throw e;
                                               }
                                             })() ? (
-                                              <Stack__
-                                                as={"div"}
-                                                hasGap={true}
+                                              <div
                                                 className={classNames(
                                                   projectcss.all,
                                                   sty.freeBox__u8TzQ
@@ -10964,13 +10932,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     )}
                                                   />
                                                 ) : null}
-                                              </Stack__>
+                                              </div>
                                             ) : null}
-                                          </Stack__>
+                                          </div>
                                         );
                                       }
                                     )}
-                                  </Stack__>
+                                  </div>
                                 </div>
                               </AntdSingleCollapse>
                             );
@@ -10996,9 +10964,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             sty.freeBox___78XbE
                           )}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox___8CryU
@@ -11504,7 +11470,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
-                          </Stack__>
+                          </div>
                         </div>
                       ) : null}
                       <div
@@ -11749,9 +11715,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             }
                           }}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__ev9TG
@@ -11821,7 +11785,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             >
                               {"\u0645\u0634\u0627\u0647\u062f\u0647"}
                             </div>
-                          </Stack__>
+                          </div>
                         </div>
                       </div>
                       <div
@@ -11836,9 +11800,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             sty.freeBox__a7SOc
                           )}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__brt1W,
@@ -12196,7 +12158,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             >
                               {"Enter some text"}
                             </div>
-                          </Stack__>
+                          </div>
                         </div>
                         <div
                           className={classNames(
@@ -12825,9 +12787,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             throw e;
                           }
                         })() ? (
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__ekpIz
@@ -12873,7 +12833,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 }
                               </div>
                             </div>
-                          </Stack__>
+                          </div>
                         ) : null}
                         {(() => {
                           try {
@@ -13033,9 +12993,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   throw e;
                                 }
                               })() ? (
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__jFCl
@@ -13109,7 +13067,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       </React.Fragment>
                                     </div>
                                   </div>
-                                </Stack__>
+                                </div>
                               ) : null}
                               {(() => {
                                 try {
@@ -13178,9 +13136,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       ? "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u062a\u0648\u0646\u06cc\u0645 \u0647\u0645\u0633\u0631\u062a \u0631\u0648 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062a\u0648 \u0648 \u0641\u0632\u0631\u0646\u062f\u062a \u0645\u0637\u0644\u0639 \u06a9\u0646\u06cc\u0645\ud83d\ude09"
                                       : "\u0628\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u062a\u0648\u0646\u06cc\u0645 \u0647\u0645\u0633\u0631\u062a \u0631\u0648 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062a\u0648 \u0648 \u0641\u0632\u0631\u0646\u062f\u062a \u0645\u0637\u0644\u0639 \u06a9\u0646\u06cc\u0645"}
                                   </div>
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
+                                  <div
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox___7Rejf
@@ -13247,7 +13203,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         }
                                       }}
                                     />
-                                  </Stack__>
+                                  </div>
                                 </div>
                               ) : null}
                             </div>
@@ -13437,9 +13393,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             }
                           }}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__z3Ie
@@ -13465,7 +13419,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             >
                               {"\u0634\u0631\u0648\u0639 \u062a\u0633\u062a"}
                             </div>
-                          </Stack__>
+                          </div>
                         </div>
                       </div>
                       <div
@@ -13562,9 +13516,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               sty.freeBox___0MD4N
                             )}
                           >
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
                                 sty.freeBox__w0EG9
@@ -13608,7 +13560,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   </React.Fragment>
                                 </div>
                               </div>
-                            </Stack__>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -17637,9 +17589,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 )}
                               />
 
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__nolUj
@@ -17761,7 +17711,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     </React.Fragment>
                                   </div>
                                 </div>
-                              </Stack__>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -18065,9 +18015,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 expandIconPosition: "end",
                                 ghost: true,
                                 label2: (
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
+                                  <div
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox__jZ6H7
@@ -18165,7 +18113,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         </React.Fragment>
                                       </div>
                                     ) : null}
-                                  </Stack__>
+                                  </div>
                                 ),
                                 onChange: async (...eventArgs: any) => {
                                   generateStateOnChangePropForCodeComponents(
@@ -18336,9 +18284,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                             const currentIndex =
                                               __plasmic_idx_0;
                                             return (
-                                              <Stack__
-                                                as={"div"}
-                                                hasGap={true}
+                                              <div
                                                 className={classNames(
                                                   projectcss.all,
                                                   sty.freeBox__yYOhA,
@@ -18932,7 +18878,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     role={"img"}
                                                   />
                                                 </div>
-                                              </Stack__>
+                                              </div>
                                             );
                                           }
                                         )}
@@ -19745,17 +19691,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 expandIconPosition: "end",
                                 ghost: true,
                                 label2: (
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
+                                  <div
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox__pWfZv
                                     )}
                                   >
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
+                                    <div
                                       className={classNames(
                                         projectcss.all,
                                         sty.freeBox__oXlwb
@@ -19833,7 +19775,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           </React.Fragment>
                                         )}
                                       </div>
-                                    </Stack__>
+                                    </div>
                                     {(() => {
                                       try {
                                         return $state.collapseMedicine2.open;
@@ -19875,7 +19817,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         </React.Fragment>
                                       </div>
                                     ) : null}
-                                  </Stack__>
+                                  </div>
                                 ),
                                 onChange: async (...eventArgs: any) => {
                                   generateStateOnChangePropForCodeComponents(
@@ -21389,17 +21331,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 expandIconPosition: "end",
                                 ghost: true,
                                 label2: (
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
+                                  <div
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox___4BiI4
                                     )}
                                   >
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
+                                    <div
                                       className={classNames(
                                         projectcss.all,
                                         sty.freeBox__eUnyJ
@@ -21466,7 +21404,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           </React.Fragment>
                                         )}
                                       </div>
-                                    </Stack__>
+                                    </div>
                                     {(() => {
                                       try {
                                         return $state.collapseTest.open;
@@ -21508,7 +21446,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         </React.Fragment>
                                       </div>
                                     ) : null}
-                                  </Stack__>
+                                  </div>
                                 ),
                                 onChange: async (...eventArgs: any) => {
                                   generateStateOnChangePropForCodeComponents(
@@ -22986,9 +22924,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               expandIconPosition: "end",
                               ghost: true,
                               label2: (
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__sLph
@@ -23082,7 +23018,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       </React.Fragment>
                                     </div>
                                   ) : null}
-                                </Stack__>
+                                </div>
                               ),
                               onChange: async (...eventArgs: any) => {
                                 generateStateOnChangePropForCodeComponents(
@@ -25131,9 +25067,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           sty.freeBox__wO0Ah
                                         )}
                                       >
-                                        <Stack__
-                                          as={"div"}
-                                          hasGap={true}
+                                        <div
                                           className={classNames(
                                             projectcss.all,
                                             sty.freeBox__oy1Vw
@@ -25284,9 +25218,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                               throw e;
                                             }
                                           })() ? (
-                                            <Stack__
-                                              as={"div"}
-                                              hasGap={true}
+                                            <div
                                               className={classNames(
                                                 projectcss.all,
                                                 sty.freeBox__xpUu7
@@ -25363,9 +25295,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   }
                                                 }}
                                               />
-                                            </Stack__>
+                                            </div>
                                           ) : null}
-                                        </Stack__>
+                                        </div>
                                       </div>
                                     </div>
                                   ) : null}
@@ -26682,14 +26614,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                     })()
               ) ? (
                 <div className={classNames(projectcss.all, sty.freeBox__vg0Ol)}>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__x2Cgb)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__sc9Ny)}
                     >
                       <div
@@ -26700,17 +26628,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                         )}
                       />
 
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__q91Xe
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__smSdh,
@@ -26718,23 +26642,19 @@ function PlasmicPregnancy__RenderFunc(props: {
                           )}
                         />
 
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__lhaUs,
                             "shimmer"
                           )}
                         />
-                      </Stack__>
-                    </Stack__>
+                      </div>
+                    </div>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__sD1KZ)}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___9NwF,
@@ -26745,9 +26665,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__yuyQ)}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__yy3Uh,
@@ -26761,9 +26679,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         sty.freeBox___5Vjzd
                       )}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__lCEw,
@@ -26774,9 +26690,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__f4M9B)}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___8IqoB,
@@ -26787,9 +26701,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__ks1R)}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__aYuCo,
@@ -26797,7 +26709,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         )}
                       />
                     </div>
-                  </Stack__>
+                  </div>
                 </div>
               ) : null}
               {(() => {
@@ -27468,9 +27380,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     }
                   }}
                 >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__nA11A)}
                   >
                     <Icon225Icon
@@ -28023,7 +27933,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         </span>
                       </React.Fragment>
                     </div>
-                  </Stack__>
+                  </div>
                 </div>
               ) : null}
             </div>
@@ -28189,11 +28099,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     "\u0637\u0628\u0642 \u0645\u062d\u0633\u0627\u0628\u0627\u062a \u0645\u0627 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646 \u0634\u0645\u0627 \u0631\u0633\u06cc\u062f\u0647 \u0627\u06af\u0631 \u0647\u0646\u0648\u0632 \u0632\u0627\u06cc\u0645\u0627\u0646 \u0646\u06a9\u0631\u062f\u06cc \u0628\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646\u062a\u0648 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u06a9\u0646 "
                   }
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__d8Him)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__d8Him)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox___2LYap)}
                   >
@@ -28224,7 +28130,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                       }
                     </div>
                   </div>
-                </Stack__>
+                </div>
               </div>
             ) : null}
           </SlideinModal>

@@ -43,6 +43,7 @@
     "chart.js": "^4.4.6",
     "clsx": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",
+    "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
     "jalaali-js": "^1.2.7",
     "jalali-moment": "^3.3.11",

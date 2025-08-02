@@ -1732,9 +1732,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
               </div>
             ) : null}
             <div className={classNames(projectcss.all, sty.freeBox___6MBpL)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__sdIjp, {
                   [sty.freeBoxdark__sdIjpICcOl]: hasVariant(
                     $state,
@@ -1761,11 +1759,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     '\u0628\u0631\u0627\u06cc \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc "\u062a\u0642\u0648\u06cc\u0645 \u067e\u0631\u06cc\u0648\u062f" \u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0632\u06cc\u0631 \u0631\u0627 \u067e\u0631 \u06a9\u0646\u06cc\u062f.'
                   }
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__jdv7O)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__jdv7O)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -1890,12 +1884,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                       );
                     })()}
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__mGkQ)}
-                >
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__mGkQ)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -2037,12 +2027,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                       '\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a. ( \u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u06a9\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u062a "\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"  \u0631\u0648\u0647\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0646\u06cc)'
                     }
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__mpnNl)}
-                >
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__mpnNl)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -2205,7 +2191,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                       );
                     })()}
                   </div>
-                </Stack__>
+                </div>
                 {(() => {
                   try {
                     return $state.nex;
@@ -2219,9 +2205,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__hJhYb)}
                   >
                     <div
@@ -2388,9 +2372,9 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         );
                       })()}
                     </div>
-                  </Stack__>
+                  </div>
                 ) : null}
-              </Stack__>
+              </div>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__cGkK)}>
               <section
@@ -2825,11 +2809,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 />
               );
             })()}
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__iThE)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__iThE)}>
               <Button
                 data-plasmic-name={"button2"}
                 data-plasmic-override={overrides.button2}
@@ -2980,7 +2960,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                   {"\u0628\u0633\u062a\u0646"}
                 </div>
               </div>
-            </Stack__>
+            </div>
           </Dialog>
           <Dialog
             data-plasmic-name={"dialog2"}
@@ -3093,11 +3073,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 />
               );
             })()}
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__woCmI)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__woCmI)}>
               <Button
                 data-plasmic-name={"button4"}
                 data-plasmic-override={overrides.button4}
@@ -3248,7 +3224,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                   {"\u0628\u0633\u062a\u0646"}
                 </div>
               </div>
-            </Stack__>
+            </div>
           </Dialog>
           <Dialog
             data-plasmic-name={"dialog3"}
@@ -3331,11 +3307,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
               }}
             />
 
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__dm7V1)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__dm7V1)}>
               <Button
                 data-plasmic-name={"button5"}
                 data-plasmic-override={overrides.button5}
@@ -3606,7 +3578,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                   {"\u0628\u0633\u062a\u0646"}
                 </div>
               </div>
-            </Stack__>
+            </div>
           </Dialog>
           <Dialog
             data-plasmic-name={"dialog4"}

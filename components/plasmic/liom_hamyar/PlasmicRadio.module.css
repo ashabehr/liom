@@ -11,8 +11,8 @@
   font-size: var(--token-LMEbRDTg0Iix);
   line-height: var(--token-MZ4KWwVSoShs);
   width: 100%;
-  min-width: 0;
   column-gap: var(--token-ZvaN7zB_BbvY);
+  min-width: 0;
 }
 .ariaRadio[data-disabled]:global(.__wab_instance) {
   cursor: not-allowed;

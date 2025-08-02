@@ -384,9 +384,7 @@ function PlasmicDialog3__RenderFunc(props: {
               shouldFetch={true}
             >
               <div className={classNames(projectcss.all, sty.freeBox__gr10)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___8Eju3)}
                   dir={"rtl"}
                 >
@@ -418,10 +416,8 @@ function PlasmicDialog3__RenderFunc(props: {
                       </div>
                     </h5>
                   </DialogTitle>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox___0A2L)}
                   dir={"rtl"}
                 >
@@ -437,9 +433,7 @@ function PlasmicDialog3__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__ql8C)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__g6EOs)}
                     >
                       <div
@@ -528,9 +522,7 @@ function PlasmicDialog3__RenderFunc(props: {
                           "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
                         }
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__qbo3J
@@ -594,7 +586,7 @@ function PlasmicDialog3__RenderFunc(props: {
                             {"\u062a\u0627\u06cc\u06cc\u062f"}
                           </div>
                         </Button>
-                      </Stack__>
+                      </div>
                       <Button
                         className={classNames(
                           "__wab_instance",
@@ -646,9 +638,9 @@ function PlasmicDialog3__RenderFunc(props: {
                           "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
                         }
                       </p>
-                    </Stack__>
+                    </div>
                   </div>
-                </Stack__>
+                </div>
               </div>
             </ApiRequest>
           ),

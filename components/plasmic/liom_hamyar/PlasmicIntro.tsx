@@ -682,9 +682,7 @@ function PlasmicIntro__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(
                 projectcss.all,
                 sty.freeBox__laGek,
@@ -798,7 +796,7 @@ function PlasmicIntro__RenderFunc(props: {
                   />
                 )}
               </div>
-            </Stack__>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -813,9 +811,7 @@ function PlasmicIntro__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(
                 projectcss.all,
                 sty.freeBox__iCvx9,
@@ -889,7 +885,7 @@ function PlasmicIntro__RenderFunc(props: {
                   }}
                 />
               </div>
-            </Stack__>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -904,9 +900,7 @@ function PlasmicIntro__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(
                 projectcss.all,
                 sty.freeBox__mGssn,
@@ -1002,11 +996,7 @@ function PlasmicIntro__RenderFunc(props: {
                   />
                 )}
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__nGlzo)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__nGlzo)}>
                 {(() => {
                   try {
                     return $state.userinfo.man.hamyarStatus == false;
@@ -1242,19 +1232,15 @@ function PlasmicIntro__RenderFunc(props: {
                     }
                   </div>
                 </Button>
-              </Stack__>
-            </Stack__>
+              </div>
+            </div>
           ) : null}
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
             className={classNames(projectcss.all, sty.section)}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__rmy4S)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__rmy4S)}>
               {(() => {
                 try {
                   return $state.slid != "slid3";
@@ -1346,11 +1332,7 @@ function PlasmicIntro__RenderFunc(props: {
                   </div>
                 </Button>
               ) : null}
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__twHqb)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__twHqb)}>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__oUZm)}
                   style={
@@ -1491,7 +1473,7 @@ function PlasmicIntro__RenderFunc(props: {
                         })()
                   }
                 />
-              </Stack__>
+              </div>
               {(() => {
                 try {
                   return $state.slid != "slid3";
@@ -1575,7 +1557,7 @@ function PlasmicIntro__RenderFunc(props: {
                   </div>
                 </Button>
               ) : null}
-            </Stack__>
+            </div>
           </section>
           <Dialog
             data-plasmic-name={"dialog"}
@@ -1677,9 +1659,7 @@ function PlasmicIntro__RenderFunc(props: {
               url={"https://n8n.staas.ir/webhook/hamyar/shop"}
             >
               <div className={classNames(projectcss.all, sty.freeBox__nFtal)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__bA6GH)}
                   dir={"rtl"}
                 >
@@ -1714,10 +1694,8 @@ function PlasmicIntro__RenderFunc(props: {
                       </div>
                     </h5>
                   </DialogTitle>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__vpMn)}
                   dir={"rtl"}
                 >
@@ -1749,9 +1727,7 @@ function PlasmicIntro__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__u5XtQ)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__hB3Iq)}
                     >
                       <div
@@ -1823,9 +1799,7 @@ function PlasmicIntro__RenderFunc(props: {
                             sty.freeBox__plloH
                           )}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox___0Vvmp
@@ -1885,7 +1859,7 @@ function PlasmicIntro__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
-                          </Stack__>
+                          </div>
                           {(() => {
                             try {
                               return $state.shop.data.result.find(
@@ -2017,9 +1991,7 @@ function PlasmicIntro__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__cUNv
@@ -2290,7 +2262,7 @@ function PlasmicIntro__RenderFunc(props: {
                               {"\u062a\u0627\u06cc\u06cc\u062f"}
                             </div>
                           </Button>
-                        </Stack__>
+                        </div>
                       ) : null}
                       <Button
                         data-plasmic-name={"button2"}
@@ -2752,9 +2724,9 @@ function PlasmicIntro__RenderFunc(props: {
                           "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
                         }
                       </p>
-                    </Stack__>
+                    </div>
                   </div>
-                </Stack__>
+                </div>
               </div>
               <Dialog
                 data-plasmic-name={"dialog2"}
@@ -2779,11 +2751,7 @@ function PlasmicIntro__RenderFunc(props: {
                   "opendialog"
                 ])}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__jtkZ)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__jtkZ)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -3350,7 +3318,7 @@ function PlasmicIntro__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                   </Button>
-                </Stack__>
+                </div>
               </Dialog>
             </ApiRequest>
           </Dialog>

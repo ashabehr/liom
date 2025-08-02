@@ -586,9 +586,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                 <div
                   className={classNames(projectcss.all, sty.freeBox___278K2)}
                 >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__pgG7I)}
                   >
                     <div
@@ -606,10 +604,8 @@ function PlasmicToolsPage__RenderFunc(props: {
                         "shimmer"
                       )}
                     />
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  </div>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__firv3)}
                   >
                     {(_par =>
@@ -672,9 +668,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                               const currentItem = __plasmic_item_1;
                               const currentIndex = __plasmic_idx_1;
                               return (
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__l8Ctr
@@ -688,14 +682,14 @@ function PlasmicToolsPage__RenderFunc(props: {
                                       "shimmer"
                                     )}
                                   />
-                                </Stack__>
+                                </div>
                               );
                             })}
                           </div>
                         </div>
                       );
                     })}
-                  </Stack__>
+                  </div>
                 </div>
               </div>
             }
@@ -738,11 +732,7 @@ function PlasmicToolsPage__RenderFunc(props: {
           >
             <div className={classNames(projectcss.all, sty.freeBox___9Tbb)}>
               <div className={classNames(projectcss.all, sty.freeBox__tqSx)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__zyKgI)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__zyKgI)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -835,12 +825,8 @@ function PlasmicToolsPage__RenderFunc(props: {
                       />
                     );
                   })}
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__mc3U5)}
-                >
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__mc3U5)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -922,9 +908,7 @@ function PlasmicToolsPage__RenderFunc(props: {
                             const currentItem = __plasmic_item_1;
                             const currentIndex = __plasmic_idx_1;
                             return (
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__xWbfQ
@@ -1173,14 +1157,14 @@ function PlasmicToolsPage__RenderFunc(props: {
                                     })()}
                                   </React.Fragment>
                                 </div>
-                              </Stack__>
+                              </div>
                             );
                           })}
                         </div>
                       </div>
                     );
                   })}
-                </Stack__>
+                </div>
               </div>
             </div>
           </ApiRequest>

@@ -244,9 +244,7 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
         }
       )}
     >
-      <Stack__
-        as={"div"}
-        hasGap={true}
+      <div
         className={classNames(projectcss.all, sty.freeBox__o3Uw0, {
           [sty.freeBoxpostType_audio__o3Uw03CTnO]: hasVariant(
             $state,
@@ -628,7 +626,7 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
             </React.Fragment>
           </div>
         </div>
-      </Stack__>
+      </div>
     </div>
   ) as React.ReactElement | null;
 }

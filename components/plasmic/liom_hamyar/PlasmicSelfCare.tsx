@@ -464,11 +464,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                   }
                 })()}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__pPUj)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__pPUj)}>
                   <Icon185Icon
                     className={classNames(projectcss.all, sty.svg__ijX4Q)}
                     onClick={async event => {
@@ -525,7 +521,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                       "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f"
                     }
                   </div>
-                </Stack__>
+                </div>
               </MainHeader>
             </section>
           ) : null}
@@ -1009,9 +1005,7 @@ function PlasmicSelfCare__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox___3HIjn)}
               style={(() => {
                 try {
@@ -1053,9 +1047,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                   const currentItem = __plasmic_item_0;
                   const currentIndex = __plasmic_idx_0;
                   return (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__hUnhv)}
                       key={currentIndex}
                       onClick={async event => {
@@ -1424,7 +1416,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                           </Button>
                         );
                       })()}
-                    </Stack__>
+                    </div>
                   );
                 })}
               </div>
@@ -1454,11 +1446,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                   code={"<hr></hr>"}
                 />
               ) : null}
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__dl9Wb)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__dl9Wb)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -1479,9 +1467,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                   const currentItem = __plasmic_item_0;
                   const currentIndex = __plasmic_idx_0;
                   return (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__kRZv)}
                       key={currentIndex}
                       onClick={async event => {
@@ -1688,17 +1674,13 @@ function PlasmicSelfCare__RenderFunc(props: {
                           })()}
                         />
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__yVvg
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__eMdHf
@@ -1786,7 +1768,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                               />
                             </div>
                           ) : null}
-                        </Stack__>
+                        </div>
                         <LineClomp
                           data-plasmic-name={"lineClomp2"}
                           data-plasmic-override={overrides.lineClomp2}
@@ -1836,16 +1818,16 @@ function PlasmicSelfCare__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </LineClomp>
-                      </Stack__>
+                      </div>
                       <ChevronLeftIcon
                         className={classNames(projectcss.all, sty.svg___1Z4Vp)}
                         role={"img"}
                       />
-                    </Stack__>
+                    </div>
                   );
                 })}
-              </Stack__>
-            </Stack__>
+              </div>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -1860,9 +1842,7 @@ function PlasmicSelfCare__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__tSqzz)}
               style={(() => {
                 try {
@@ -1881,11 +1861,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                 }
               })()}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__nksFe)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__nksFe)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -1901,7 +1877,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                     "shimmer"
                   )}
                 />
-              </Stack__>
+              </div>
               <div
                 className={classNames(
                   projectcss.all,
@@ -1933,7 +1909,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                   "shimmer"
                 )}
               />
-            </Stack__>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -1953,9 +1929,7 @@ function PlasmicSelfCare__RenderFunc(props: {
           })() ? (
             <section className={classNames(projectcss.all, sty.section__pS3H)}>
               <div className={classNames(projectcss.all, sty.freeBox__yzrXx)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___4NQg7)}
                 >
                   {(() => {
@@ -2217,7 +2191,7 @@ function PlasmicSelfCare__RenderFunc(props: {
                       }
                     </div>
                   </div>
-                </Stack__>
+                </div>
               </div>
             </section>
           ) : null}

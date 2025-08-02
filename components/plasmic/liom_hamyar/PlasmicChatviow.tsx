@@ -376,11 +376,7 @@ function PlasmicChatviow__RenderFunc(props: {
             data-plasmic-override={overrides.section}
             className={classNames(projectcss.all, sty.section)}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__pEej)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__pEej)}>
               <ChevronRightIcon
                 data-plasmic-name={"svg"}
                 data-plasmic-override={overrides.svg}
@@ -660,7 +656,7 @@ function PlasmicChatviow__RenderFunc(props: {
                   ])}
                 />
               ) : null}
-            </Stack__>
+            </div>
           </section>
           <ApiRequest
             data-plasmic-name={"chat"}
@@ -678,11 +674,7 @@ function PlasmicChatviow__RenderFunc(props: {
               </div>
             }
             loadingDisplay={
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__b6V4U)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__b6V4U)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -756,7 +748,7 @@ function PlasmicChatviow__RenderFunc(props: {
                     />
                   );
                 })}
-              </Stack__>
+              </div>
             }
             method={"GET"}
             onError={async (...eventArgs: any) => {
@@ -793,11 +785,7 @@ function PlasmicChatviow__RenderFunc(props: {
             shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/help/getListHelp"}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__mFpKq)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__mFpKq)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -913,9 +901,7 @@ function PlasmicChatviow__RenderFunc(props: {
                       }
                     />
 
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox___6Pu99
@@ -1065,17 +1051,13 @@ function PlasmicChatviow__RenderFunc(props: {
                           </div>
                         </div>
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__nda1B
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__dinoB
@@ -1130,9 +1112,9 @@ function PlasmicChatviow__RenderFunc(props: {
                               </React.Fragment>
                             </div>
                           </LineClomp>
-                        </Stack__>
-                      </Stack__>
-                    </Stack__>
+                        </div>
+                      </div>
+                    </div>
                     <div
                       className={classNames(
                         projectcss.all,
@@ -1257,7 +1239,7 @@ function PlasmicChatviow__RenderFunc(props: {
                   </div>
                 </div>
               ) : null}
-            </Stack__>
+            </div>
           </ApiRequest>
         </div>
       </div>

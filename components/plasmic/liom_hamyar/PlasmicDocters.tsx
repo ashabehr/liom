@@ -772,9 +772,7 @@ function PlasmicDocters__RenderFunc(props: {
             }
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          <div
             className={classNames(projectcss.all, sty.freeBox__n1Vp4, {
               [sty.freeBox_1_chatviow__n1Vp4V0Ufv]: hasVariant(
                 $state,
@@ -1129,10 +1127,8 @@ function PlasmicDocters__RenderFunc(props: {
             >
               {"\u0648\u06cc\u0632\u06cc\u062a \u0647\u0627\u06cc \u0645\u0646"}
             </Button>
-          </Stack__>
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          </div>
+          <div
             className={classNames(projectcss.all, sty.freeBox__t9Fw0, {
               [sty.freeBox_1_chatviow__t9Fw0V0Ufv]: hasVariant(
                 $state,
@@ -1375,7 +1371,7 @@ function PlasmicDocters__RenderFunc(props: {
                 ])}
               />
             ) : null}
-          </Stack__>
+          </div>
           <ApiRequest
             data-plasmic-name={"docterList"}
             data-plasmic-override={overrides.docterList}
@@ -1392,9 +1388,7 @@ function PlasmicDocters__RenderFunc(props: {
               </div>
             }
             loadingDisplay={
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__qBmP, {
                   [sty.freeBox_1_chatviow__qBmPv0Ufv]: hasVariant(
                     $state,
@@ -1431,11 +1425,9 @@ function PlasmicDocters__RenderFunc(props: {
                   const currentItem = __plasmic_item_0;
                   const currentIndex = __plasmic_idx_0;
                   return (
-                    <Stack__
-                      as={"div"}
+                    <div
                       data-plasmic-name={"card7"}
                       data-plasmic-override={overrides.card7}
-                      hasGap={true}
                       className={classNames(
                         projectcss.all,
                         sty.card7,
@@ -1457,7 +1449,7 @@ function PlasmicDocters__RenderFunc(props: {
                     />
                   );
                 })}
-              </Stack__>
+              </div>
             }
             method={"GET"}
             onError={async (...eventArgs: any) => {
@@ -1499,9 +1491,7 @@ function PlasmicDocters__RenderFunc(props: {
             shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/help/getList"}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__e9Nlk, {
                 [sty.freeBox_1_chatviow__e9NlkV0Ufv]: hasVariant(
                   $state,
@@ -1538,11 +1528,9 @@ function PlasmicDocters__RenderFunc(props: {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
                 return (
-                  <Stack__
-                    as={"div"}
+                  <div
                     data-plasmic-name={"card8"}
                     data-plasmic-override={overrides.card8}
-                    hasGap={true}
                     className={classNames(projectcss.all, sty.card8, {
                       [sty.card8_1_docter]: hasVariant($state, "_1", "docter"),
                       [sty.card8_1_docters]: hasVariant($state, "_1", "docters")
@@ -1690,9 +1678,7 @@ function PlasmicDocters__RenderFunc(props: {
                       }
                     />
 
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__ly2AB,
@@ -1825,7 +1811,7 @@ function PlasmicDocters__RenderFunc(props: {
                           </React.Fragment>
                         )}
                       </div>
-                    </Stack__>
+                    </div>
                     <div
                       className={classNames(
                         projectcss.all,
@@ -2021,10 +2007,10 @@ function PlasmicDocters__RenderFunc(props: {
                           : "\u0627\u0645\u062a\u06cc\u0627\u0632 \u067e\u0632\u0634\u06a9"}
                       </div>
                     </div>
-                  </Stack__>
+                  </div>
                 );
               })}
-            </Stack__>
+            </div>
           </ApiRequest>
         </div>
       </div>

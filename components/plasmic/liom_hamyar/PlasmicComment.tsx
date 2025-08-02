@@ -476,9 +476,7 @@ function PlasmicComment__RenderFunc(props: {
             })()}
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          <div
             className={classNames(projectcss.all, sty.freeBox__fjoUh, {
               [sty.freeBoxunnamedGroupOfVariants_whenHaveReply__fjoUhKmMee]:
                 hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply")
@@ -546,13 +544,9 @@ function PlasmicComment__RenderFunc(props: {
                 })()}
               </React.Fragment>
             </div>
-          </Stack__>
+          </div>
         </div>
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__fSs)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__fSs)}>
           <div className={classNames(projectcss.all, sty.freeBox__wzkeY)}>
             <UploudeTime
               className={classNames("__wab_instance", sty.uploudeTime__zqho8, {
@@ -853,7 +847,7 @@ function PlasmicComment__RenderFunc(props: {
               />
             ) : null}
           </AntdPopover>
-        </Stack__>
+        </div>
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__bb4BN, {
@@ -928,9 +922,7 @@ function PlasmicComment__RenderFunc(props: {
           </div>
         </LineClomp>
       </div>
-      <Stack__
-        as={"div"}
-        hasGap={true}
+      <div
         className={classNames(projectcss.all, sty.freeBox__eZrem, {
           [sty.freeBoxunnamedGroupOfVariants_showReply__eZremKDgzF]: hasVariant(
             $state,
@@ -1199,7 +1191,7 @@ function PlasmicComment__RenderFunc(props: {
           }}
           shareForLikeComment={false}
         />
-      </Stack__>
+      </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__wjP54, {
           [sty.freeBoxunnamedGroupOfVariants_showReply__wjP54KDgzF]: hasVariant(
@@ -1967,11 +1959,7 @@ function PlasmicComment__RenderFunc(props: {
         }}
         open={generateStateValueProp($state, ["deleteModal", "open"])}
         title={
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__pn8Ry)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__pn8Ry)}>
             <Icon252Icon
               className={classNames(projectcss.all, sty.svg__fcV5X)}
               role={"img"}
@@ -1986,15 +1974,11 @@ function PlasmicComment__RenderFunc(props: {
             >
               {"\u062d\u0630\u0641 \u0646\u0638\u0631"}
             </div>
-          </Stack__>
+          </div>
         }
         trigger={null}
       >
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__tf9Il)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__tf9Il)}>
           <div
             className={classNames(
               projectcss.all,
@@ -2006,11 +1990,7 @@ function PlasmicComment__RenderFunc(props: {
               "\u0627\u0632 \u062d\u0630\u0641 \u06a9\u0631\u062f\u0646 \u06a9\u0627\u0645\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0626\u0646 \u0647\u0633\u062a\u06cc\u062f\u061f"
             }
           </div>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__fHwKv)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__fHwKv)}>
             <div className={classNames(projectcss.all, sty.freeBox___3Wjb2)}>
               <Button
                 data-plasmic-name={"button3"}
@@ -2213,8 +2193,8 @@ function PlasmicComment__RenderFunc(props: {
             >
               {"\u0641\u0639\u0644\u0627 \u0646\u0647"}
             </Button>
-          </Stack__>
-        </Stack__>
+          </div>
+        </div>
       </AntdModal>
     </div>
   ) as React.ReactElement | null;

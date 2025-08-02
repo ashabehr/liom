@@ -208,22 +208,14 @@ function PlasmicNoname3__RenderFunc(props: {
             sty.root
           )}
         >
-          <Stack__
-            as={"div"}
+          <div
             data-plasmic-name={"halamanUtama"}
             data-plasmic-override={overrides.halamanUtama}
-            hasGap={true}
             className={classNames(projectcss.all, sty.halamanUtama)}
           >
             <div className={classNames(projectcss.all, sty.freeBox__ggEJ)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__mcPtg)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+              <div className={classNames(projectcss.all, sty.freeBox__mcPtg)}>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__crqnW)}
                   onClick={async event => {
                     const $steps = {};
@@ -281,7 +273,7 @@ function PlasmicNoname3__RenderFunc(props: {
                   >
                     {"\u0630\u06a9\u0631 \u0647\u0627\u06cc \u0645\u0646"}
                   </div>
-                </Stack__>
+                </div>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -357,7 +349,7 @@ function PlasmicNoname3__RenderFunc(props: {
                     "\u0645\u062d\u0627\u0633\u0628\u0647 \u0648 \u062f\u0631\u06cc\u0627\u0641\u062a \u0630\u06a9\u0631"
                   }
                 </Button>
-              </Stack__>
+              </div>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__dzZGh)}
@@ -389,16 +381,8 @@ function PlasmicNoname3__RenderFunc(props: {
             >
               {"\u0627\u0628\u0632\u0627\u0631 \u0647\u0627"}
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__vu1Qr)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__wGn1)}
-              >
+            <div className={classNames(projectcss.all, sty.freeBox__vu1Qr)}>
+              <div className={classNames(projectcss.all, sty.freeBox__wGn1)}>
                 <div
                   className={classNames(projectcss.all, sty.freeBox___1A3Gl)}
                 >
@@ -452,12 +436,8 @@ function PlasmicNoname3__RenderFunc(props: {
                     />
                   </div>
                 </div>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__rithk)}
-              >
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__rithk)}>
                 <div className={classNames(projectcss.all, sty.freeBox__cvRP)}>
                   <div
                     className={classNames(
@@ -480,9 +460,9 @@ function PlasmicNoname3__RenderFunc(props: {
                     {"\u0627\u0646\u0631\u0698\u06cc \u0646\u0627\u0645"}
                   </div>
                 </div>
-              </Stack__>
-            </Stack__>
-          </Stack__>
+              </div>
+            </div>
+          </div>
           <Dialog
             data-plasmic-name={"info"}
             data-plasmic-override={overrides.info}

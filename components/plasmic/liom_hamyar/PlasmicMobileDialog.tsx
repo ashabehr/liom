@@ -468,16 +468,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
             effect={"fade"}
             triggerOnce={true}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___8Et9V)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___9Upw)}
-              >
+            <div className={classNames(projectcss.all, sty.freeBox___8Et9V)}>
+              <div className={classNames(projectcss.all, sty.freeBox___9Upw)}>
                 <Icon157Icon
                   className={classNames(projectcss.all, sty.svg___4TkLy)}
                   role={"img"}
@@ -506,12 +498,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 </div>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__d9Fmj)}
-              >
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__d9Fmj)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -631,7 +619,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                     }
                   />
                 </div>
-              </Stack__>
+              </div>
               <section
                 className={classNames(projectcss.all, sty.section___6JIru)}
               >
@@ -1022,7 +1010,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                   </div>
                 </Button>
               </section>
-            </Stack__>
+            </div>
           </Reveal>
         ) : null}
         {(() => {
@@ -1045,16 +1033,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
             effect={"fade"}
             triggerOnce={true}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__mqb6)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__tNvUu)}
-              >
+            <div className={classNames(projectcss.all, sty.freeBox__mqb6)}>
+              <div className={classNames(projectcss.all, sty.freeBox__tNvUu)}>
                 <div className={classNames(projectcss.all, sty.freeBox__d7Hkr)}>
                   <div
                     className={classNames(
@@ -1248,9 +1228,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__ogvCb)}
                   >
                     <div
@@ -1332,7 +1310,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                       }}
                       runWhileEditing={false}
                     />
-                  </Stack__>
+                  </div>
                 ) : null}
                 {(() => {
                   try {
@@ -1347,9 +1325,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__cf3KY)}
                   >
                     <Button
@@ -1672,9 +1648,9 @@ function PlasmicMobileDialog__RenderFunc(props: {
                         }
                       </div>
                     </Button>
-                  </Stack__>
+                  </div>
                 ) : null}
-              </Stack__>
+              </div>
               <section
                 className={classNames(projectcss.all, sty.section___3Xn7C)}
               >
@@ -2035,7 +2011,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                   </Button>
                 </div>
               </section>
-            </Stack__>
+            </div>
           </Reveal>
         ) : null}
       </Dialog3>

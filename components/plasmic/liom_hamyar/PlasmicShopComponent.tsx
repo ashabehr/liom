@@ -20263,11 +20263,7 @@ function PlasmicShopComponent__RenderFunc(props: {
                     "\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646 :"
                   }
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__akPvk)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__akPvk)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -20438,17 +20434,13 @@ function PlasmicShopComponent__RenderFunc(props: {
                                 </React.Fragment>
                               </div>
                             </div>
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
                                 sty.freeBox__te8Y
                               )}
                             >
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__hxIuZ
@@ -20505,7 +20497,7 @@ function PlasmicShopComponent__RenderFunc(props: {
                                     })()}
                                   </React.Fragment>
                                 </div>
-                              </Stack__>
+                              </div>
                               <div
                                 className={classNames(
                                   projectcss.all,
@@ -20530,13 +20522,13 @@ function PlasmicShopComponent__RenderFunc(props: {
                                   })()}
                                 </React.Fragment>
                               </div>
-                            </Stack__>
+                            </div>
                           </div>
                         </div>
                       </div>
                     );
                   })}
-                </Stack__>
+                </div>
               </div>
             </div>
           </div>

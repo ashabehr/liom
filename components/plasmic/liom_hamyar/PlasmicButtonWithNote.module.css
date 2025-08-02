@@ -4,27 +4,13 @@
   width: auto;
   height: auto;
   max-width: 100%;
+  justify-content: center;
+  align-items: center;
   position: relative;
   justify-self: flex-start;
   background: none;
+  row-gap: 0px;
   padding: 0px;
-}
-.butWithNote > :global(.__wab_flex-container) {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: calc(0px - 0px);
-  height: calc(100% + 0px);
-}
-.butWithNote > :global(.__wab_flex-container) > *,
-.butWithNote > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.butWithNote > :global(.__wab_flex-container) > picture > img,
-.butWithNote
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-top: 0px;
 }
 .butBox {
   display: flex;

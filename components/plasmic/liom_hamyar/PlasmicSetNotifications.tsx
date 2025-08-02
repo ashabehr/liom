@@ -379,11 +379,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__lk0Po)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__lk0Po)}>
                 <XIcon
                   className={classNames(projectcss.all, sty.svg___38SB)}
                   onClick={async event => {
@@ -437,7 +433,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 </div>
-              </Stack__>
+              </div>
             </HeaderLiom>
           </section>
           <SideEffect
@@ -514,11 +510,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
             }}
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__kx2XM)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__kx2XM)}>
             {(() => {
               try {
                 return $state.subItems.subItems.self_care.length > 0;
@@ -532,11 +524,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___3X5Jg)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox___3X5Jg)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -577,9 +565,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                   const currentItem = __plasmic_item_0;
                   const currentIndex = __plasmic_idx_0;
                   return (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox___287Jm
@@ -725,17 +711,13 @@ function PlasmicSetNotifications__RenderFunc(props: {
                           })()}
                         />
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__hPoPr
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__cpri5
@@ -823,7 +805,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                               />
                             </div>
                           ) : null}
-                        </Stack__>
+                        </div>
                         <div
                           className={classNames(
                             projectcss.all,
@@ -847,12 +829,12 @@ function PlasmicSetNotifications__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                      </Stack__>
+                      </div>
                       <ChevronLeftIcon
                         className={classNames(projectcss.all, sty.svg__zVZh)}
                         role={"img"}
                       />
-                    </Stack__>
+                    </div>
                   );
                 })}
                 {(
@@ -879,19 +861,11 @@ function PlasmicSetNotifications__RenderFunc(props: {
                     code={"<hr></hr>"}
                   />
                 ) : null}
-              </Stack__>
+              </div>
             ) : null}
-          </Stack__>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__uhkhD)}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__zgUi9)}
-            >
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__uhkhD)}>
+            <div className={classNames(projectcss.all, sty.freeBox__zgUi9)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -907,7 +881,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                   "shimmer"
                 )}
               />
-            </Stack__>
+            </div>
             <div
               className={classNames(
                 projectcss.all,
@@ -939,12 +913,8 @@ function PlasmicSetNotifications__RenderFunc(props: {
                 "shimmer"
               )}
             />
-          </Stack__>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__g33Cp)}
-          >
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__g33Cp)}>
             <div className={classNames(projectcss.all, sty.freeBox__wxpon)}>
               <div
                 className={classNames(
@@ -1031,7 +1001,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                 }
               </div>
             </Button>
-          </Stack__>
+          </div>
           <DirectDialog2
             data-plasmic-name={"directDialog2"}
             data-plasmic-override={overrides.directDialog2}

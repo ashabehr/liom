@@ -16,26 +16,12 @@
   background: var(--token-R_Rsn0nP9oIv);
   box-shadow: none;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 3px;
   border-radius: 50%;
   padding: 8px;
   border: 1px solid var(--token-rGxK1TpZE_rW);
-}
-.freeBox > :global(.__wab_flex-container) {
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-left: calc(0px - 3px);
-  width: calc(100% + 3px);
-}
-.freeBox > :global(.__wab_flex-container) > *,
-.freeBox > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox > :global(.__wab_flex-container) > picture > img,
-.freeBox
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 3px;
 }
 .text {
   position: relative;

@@ -745,17 +745,13 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__wjIxG
                           )}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__kRjRh
@@ -805,10 +801,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                 }}
                               />
                             </div>
-                          </Stack__>
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          </div>
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__ygSxx
@@ -858,8 +852,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                 }}
                               />
                             </div>
-                          </Stack__>
-                        </Stack__>
+                          </div>
+                        </div>
                       ) : null}
                       {(() => {
                         try {
@@ -1652,9 +1646,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__jxVCa)}
                   >
                     <div
@@ -1912,7 +1904,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         }
                       </div>
                     </div>
-                  </Stack__>
+                  </div>
                   {(() => {
                     try {
                       return $state.typeInterDate == "dateOfBirth";
@@ -1926,9 +1918,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__b8Ran)}
                     >
                       <div
@@ -2094,7 +2084,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           );
                         })()}
                       </div>
-                    </Stack__>
+                    </div>
                   ) : null}
                   <div
                     className={classNames(projectcss.all, sty.freeBox__t0Jql, {
@@ -2146,9 +2136,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__buwcy)}
                     >
                       <div
@@ -2313,7 +2301,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           );
                         })()}
                       </div>
-                    </Stack__>
+                    </div>
                   ) : null}
                   {(() => {
                     try {
@@ -2328,9 +2316,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__otCka)}
                       onClick={async event => {
                         const $steps = {};
@@ -2391,17 +2377,13 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           "\u0647\u0641\u062a\u0647 \u0648 \u0631\u0648\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646:"
                         }
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__mfAv5
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__zg24T
@@ -2432,10 +2414,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               <React.Fragment>{$state.week}</React.Fragment>
                             </div>
                           </div>
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        </div>
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__jLonn
@@ -2466,9 +2446,9 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               <React.Fragment>{$state.day}</React.Fragment>
                             </div>
                           </div>
-                        </Stack__>
-                      </Stack__>
-                    </Stack__>
+                        </div>
+                      </div>
+                    </div>
                   ) : null}
                 </div>
               </div>

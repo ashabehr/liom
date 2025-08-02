@@ -672,19 +672,15 @@ function PlasmicPost2__RenderFunc(props: {
             }}
           />
 
-          <section className={classNames(projectcss.all, sty.section__fKamc)}>
+          <section className={classNames(projectcss.all, sty.section__wNehk)}>
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__yo8US)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__cBlY)}>
                 <XIcon
-                  className={classNames(projectcss.all, sty.svg__mbGr3)}
+                  className={classNames(projectcss.all, sty.svg__hxDu)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -731,7 +727,7 @@ function PlasmicPost2__RenderFunc(props: {
                   }}
                   role={"img"}
                 />
-              </Stack__>
+              </div>
             </HeaderLiom>
           </section>
           <ApiRequest
@@ -762,9 +758,7 @@ function PlasmicPost2__RenderFunc(props: {
             })()}
             className={classNames("__wab_instance", sty.getInfo)}
             errorDisplay={
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__yfD96)}
                 onClick={async event => {
                   const $steps = {};
@@ -851,9 +845,7 @@ function PlasmicPost2__RenderFunc(props: {
                   shape={"rounded"}
                   size={"minimal"}
                 >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__boqh)}
                   >
                     <div
@@ -869,26 +861,18 @@ function PlasmicPost2__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.svg__l9MsU)}
                       role={"img"}
                     />
-                  </Stack__>
+                  </div>
                 </Button>
-              </Stack__>
+              </div>
             }
             loadingDisplay={
-              <Stack__
-                as={"div"}
+              <div
                 data-plasmic-name={"loding"}
                 data-plasmic-override={overrides.loding}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.loding)}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__hCsIg)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                <div className={classNames(projectcss.all, sty.freeBox__hCsIg)}>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___8XFxp)}
                   >
                     <div
@@ -906,7 +890,7 @@ function PlasmicPost2__RenderFunc(props: {
                         "shimmer"
                       )}
                     />
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -931,9 +915,7 @@ function PlasmicPost2__RenderFunc(props: {
                     )}
                   />
 
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__bhVEl)}
                   >
                     <div
@@ -943,7 +925,7 @@ function PlasmicPost2__RenderFunc(props: {
                         "shimmer"
                       )}
                     />
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -952,9 +934,7 @@ function PlasmicPost2__RenderFunc(props: {
                     )}
                   />
 
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__u5QeB)}
                   >
                     <div
@@ -980,16 +960,10 @@ function PlasmicPost2__RenderFunc(props: {
                         "shimmer"
                       )}
                     />
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__jjf5Y)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__jjf5Y)}>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__vUhY)}
                   >
                     <div
@@ -1007,7 +981,7 @@ function PlasmicPost2__RenderFunc(props: {
                         "shimmer"
                       )}
                     />
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -1031,15 +1005,9 @@ function PlasmicPost2__RenderFunc(props: {
                       "shimmer"
                     )}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__qgoIj)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__qgoIj)}>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__wo1OL)}
                   >
                     <div
@@ -1057,7 +1025,7 @@ function PlasmicPost2__RenderFunc(props: {
                         "shimmer"
                       )}
                     />
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -1081,8 +1049,8 @@ function PlasmicPost2__RenderFunc(props: {
                       "shimmer"
                     )}
                   />
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
             }
             method={"PUT"}
             onError={async (...eventArgs: any) => {
@@ -1405,14 +1373,10 @@ function PlasmicPost2__RenderFunc(props: {
                     })()}
                   />
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___6AbeA)}
                 >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__xagh6)}
                     onClick={async event => {
                       const $steps = {};
@@ -1750,13 +1714,9 @@ function PlasmicPost2__RenderFunc(props: {
                         </div>
                       </div>
                     </AntdPopover>
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__sB24Y)}
-                >
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__sB24Y)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -2397,9 +2357,7 @@ function PlasmicPost2__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__dnSli
@@ -2795,9 +2753,7 @@ function PlasmicPost2__RenderFunc(props: {
                             throw e;
                           }
                         })() ? (
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__wpwh6
@@ -2965,12 +2921,12 @@ function PlasmicPost2__RenderFunc(props: {
                               }}
                               role={"img"}
                             />
-                          </Stack__>
+                          </div>
                         ) : null}
-                      </Stack__>
+                      </div>
                     ) : null}
                   </section>
-                </Stack__>
+                </div>
               </div>
             </section>
           </ApiRequest>
@@ -3184,11 +3140,7 @@ function PlasmicPost2__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["modal", "open"])}
             title={
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__mbv2C)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__mbv2C)}>
                 <PlasmicImg__
                   data-plasmic-name={"img"}
                   data-plasmic-override={overrides.img}
@@ -3220,26 +3172,16 @@ function PlasmicPost2__RenderFunc(props: {
                     "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u062e\u0648\u0627\u06cc \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc \u0628\u0627\u06cc\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0631\u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc.\r\n\u0647\u0631\u06a9\u062f\u0648\u0645 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0647\u0627\u06cc \u0632\u06cc\u0631 \u06a9\u0647 \u0628\u0627\u0647\u0627\u0634 \u0631\u0627\u062d\u062a \u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u06a9\u0646 \u0648 \u0628\u0639\u062f \u0628\u0647 \u062c\u0645\u0639 \u062f\u062e\u062a\u0631\u0648\u0646\u0647 \u06cc \u0645\u0627\u0627\u0636\u0627\u0641\u0647 \u0634\u0648\ud83d\ude0d"
                   }
                 </div>
-              </Stack__>
+              </div>
             }
             trigger={null}
             width={
               hasVariant(globalVariants, "screen", "mobile") ? `` : undefined
             }
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__jgZby)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__sW6A9)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+            <div className={classNames(projectcss.all, sty.freeBox__jgZby)}>
+              <div className={classNames(projectcss.all, sty.freeBox__sW6A9)}>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__nYEgS)}
                   onClick={async event => {
                     const $steps = {};
@@ -3302,10 +3244,8 @@ function PlasmicPost2__RenderFunc(props: {
                       "\u0648\u0631\u0648\u062f \u0628\u0647 \u0646\u0633\u062e\u0647 \u0648\u0628"
                     }
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__eBzU7)}
                   onClick={async event => {
                     const $steps = {};
@@ -3368,16 +3308,10 @@ function PlasmicPost2__RenderFunc(props: {
                       "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u06cc\u06a9\u062a "
                     }
                   </div>
-                </Stack__>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__gtFi5)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__gtFi5)}>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__c7CHa)}
                   onClick={async event => {
                     const $steps = {};
@@ -3440,10 +3374,8 @@ function PlasmicPost2__RenderFunc(props: {
                       "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u06a9\u0627\u0641\u0647 \u0628\u0627\u0632\u0627\u0631"
                     }
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox___1VkT5)}
                   onClick={async event => {
                     const $steps = {};
@@ -3490,9 +3422,7 @@ function PlasmicPost2__RenderFunc(props: {
                     }
                   }}
                 >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__kVpCl)}
                   >
                     <BrokenLink2SvgrepoComSvgIcon
@@ -3511,10 +3441,10 @@ function PlasmicPost2__RenderFunc(props: {
                         "\u062f\u0627\u0646\u0644\u0648\u062f \u0628\u0627 \u0644\u06cc\u0646\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645 "
                       }
                     </div>
-                  </Stack__>
-                </Stack__>
-              </Stack__>
-            </Stack__>
+                  </div>
+                </div>
+              </div>
+            </div>
           </AntdModal>
           {(() => {
             try {

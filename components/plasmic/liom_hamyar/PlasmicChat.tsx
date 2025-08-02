@@ -917,11 +917,9 @@ function PlasmicChat__RenderFunc(props: {
             data-plasmic-override={overrides.chat}
             className={classNames(projectcss.all, sty.chat)}
           >
-            <Stack__
-              as={"div"}
+            <div
               data-plasmic-name={"top"}
               data-plasmic-override={overrides.top}
-              hasGap={true}
               className={classNames(projectcss.all, sty.top)}
             >
               <ChevronRightIcon
@@ -1125,12 +1123,8 @@ function PlasmicChat__RenderFunc(props: {
                   {"\u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"}
                 </div>
               </Button>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__tujJc)}
-            >
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__tujJc)}>
               <Reveal
                 className={classNames("__wab_instance", sty.reveal__jSuX)}
                 direction={"up"}
@@ -1379,9 +1373,7 @@ function PlasmicChat__RenderFunc(props: {
                               })()}
                             </React.Fragment>
                           </div>
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__gH4I
@@ -1431,7 +1423,7 @@ function PlasmicChat__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
-                          </Stack__>
+                          </div>
                         </React.Fragment>
                       ),
                       you: (() => {
@@ -1482,12 +1474,10 @@ function PlasmicChat__RenderFunc(props: {
                   })();
                 })}
               </Reveal>
-            </Stack__>
-            <Stack__
-              as={"div"}
+            </div>
+            <div
               data-plasmic-name={"bottomInput"}
               data-plasmic-override={overrides.bottomInput}
-              hasGap={true}
               className={classNames(projectcss.all, sty.bottomInput)}
               style={(() => {
                 try {
@@ -2113,7 +2103,7 @@ function PlasmicChat__RenderFunc(props: {
                   </React.Fragment>
                 </div>
               ) : null}
-            </Stack__>
+            </div>
           </div>
           <AntdModal
             data-plasmic-name={"modal"}
@@ -2150,11 +2140,9 @@ function PlasmicChat__RenderFunc(props: {
             trigger={null}
             width={"100vw"}
           >
-            <Stack__
-              as={"div"}
+            <div
               data-plasmic-name={"top2"}
               data-plasmic-override={overrides.top2}
-              hasGap={true}
               className={classNames(projectcss.all, sty.top2)}
             >
               <ChevronRightIcon
@@ -2208,7 +2196,7 @@ function PlasmicChat__RenderFunc(props: {
               >
                 {"\u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"}
               </div>
-            </Stack__>
+            </div>
             <div className={classNames(projectcss.all, sty.freeBox__wenK)}>
               <ApiRequest
                 data-plasmic-name={"apiRequest"}
@@ -2263,11 +2251,7 @@ function PlasmicChat__RenderFunc(props: {
                 shouldFetch={true}
                 url={"https://n8n.staas.ir/webhook/help/Question"}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__yntRu)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__yntRu)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -2675,9 +2659,7 @@ function PlasmicChat__RenderFunc(props: {
                       </Question>
                     );
                   })}
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___03PYq)}
                   >
                     <Button
@@ -3077,11 +3059,11 @@ function PlasmicChat__RenderFunc(props: {
                     >
                       {"\u0627\u0646\u0635\u0631\u0627\u0641"}
                     </Button>
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__mnG0B)}
                   />
-                </Stack__>
+                </div>
               </ApiRequest>
             </div>
           </AntdModal>
@@ -3131,16 +3113,8 @@ function PlasmicChat__RenderFunc(props: {
             }
             trigger={null}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__eAcJ0)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__nCxz4)}
-              >
+            <div className={classNames(projectcss.all, sty.freeBox__eAcJ0)}>
+              <div className={classNames(projectcss.all, sty.freeBox__nCxz4)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -3217,7 +3191,7 @@ function PlasmicChat__RenderFunc(props: {
                     />
                   );
                 })}
-              </Stack__>
+              </div>
               <Button
                 data-plasmic-name={"button4"}
                 data-plasmic-override={overrides.button4}
@@ -3432,7 +3406,7 @@ function PlasmicChat__RenderFunc(props: {
                   {"\u062b\u0628\u062a \u0627\u0645\u062a\u06cc\u0627\u0632"}
                 </div>
               </Button>
-            </Stack__>
+            </div>
           </AntdModal>
           <Embed
             data-plasmic-name={"favicon"}

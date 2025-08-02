@@ -183,11 +183,9 @@ function PlasmicAddToHome__RenderFunc(props: {
             sty.root
           )}
         >
-          <Stack__
-            as={"div"}
+          <div
             data-plasmic-name={"frame9432"}
             data-plasmic-override={overrides.frame9432}
-            hasGap={true}
             className={classNames(projectcss.all, sty.frame9432)}
           >
             <LogoIcon
@@ -206,11 +204,7 @@ function PlasmicAddToHome__RenderFunc(props: {
                 "\u0648\u0628 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645 \u0631\u0627 \u0628\u0647 \u0635\u0641\u062d\u0647 \u0627\u0635\u0644\u06cc \u06af\u0648\u0634\u06cc\u062a\u0627\u0646 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u06cc\u062f."
               }
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__g0Wjk)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__g0Wjk)}>
               <div className={classNames(projectcss.all, sty.freeBox___8U1Uf)}>
                 <div
                   className={classNames(
@@ -339,8 +333,8 @@ function PlasmicAddToHome__RenderFunc(props: {
                   {"\u0645\u062a\u0648\u062c\u0647 \u0634\u062f\u0645"}
                 </div>
               </Button>
-            </Stack__>
-          </Stack__>
+            </div>
+          </div>
           <div
             data-plasmic-name={"rectangle126"}
             data-plasmic-override={overrides.rectangle126}

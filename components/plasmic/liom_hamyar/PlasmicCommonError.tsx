@@ -190,16 +190,8 @@ function PlasmicCommonError__RenderFunc(props: {
             sty.root
           )}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox___5UHuW)}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__pzAMj)}
-            >
+          <div className={classNames(projectcss.all, sty.freeBox___5UHuW)}>
+            <div className={classNames(projectcss.all, sty.freeBox__pzAMj)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -245,12 +237,8 @@ function PlasmicCommonError__RenderFunc(props: {
                   }}
                 />
               </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__beUdC)}
-            >
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__beUdC)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -293,12 +281,8 @@ function PlasmicCommonError__RenderFunc(props: {
                   }}
                 />
               </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__n1IM)}
-            >
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__n1IM)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -310,11 +294,7 @@ function PlasmicCommonError__RenderFunc(props: {
                   "\u0627\u06af\u0647 \u0647\u06cc\u0686 \u06a9\u062f\u0648\u0645 \u0627\u0632 \u0631\u0648\u0634 \u0647\u0627\u06cc \u0628\u0627\u0644\u0627 \u062c\u0648\u0627\u0628 \u0646\u062f\u0627\u062f \u0644\u0637\u0641\u0627 \u0628\u0647 \u0645\u0627 \u067e\u06cc\u0627\u0645 \u0628\u062f\u0647:"
                 }
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__fdoH)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__fdoH)}>
                 <Button
                   data-plasmic-name={"button5"}
                   data-plasmic-override={overrides.button5}
@@ -440,10 +420,10 @@ function PlasmicCommonError__RenderFunc(props: {
                     {"\u067e\u06cc\u0627\u0645 \u062f\u0631 \u0628\u0644\u0647"}
                   </div>
                 </Button>
-              </Stack__>
-            </Stack__>
+              </div>
+            </div>
             <div className={classNames(projectcss.all, sty.freeBox__w61Hb)} />
-          </Stack__>
+          </div>
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
@@ -454,11 +434,7 @@ function PlasmicCommonError__RenderFunc(props: {
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___7RbSj)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox___7RbSj)}>
                 <XIcon
                   data-plasmic-name={"svg"}
                   data-plasmic-override={overrides.svg}
@@ -502,7 +478,7 @@ function PlasmicCommonError__RenderFunc(props: {
                     "\u062e\u0637\u0627\u200c\u0647\u0627\u06cc \u0645\u062a\u062f\u0627\u0648\u0644 \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9"
                   }
                 </div>
-              </Stack__>
+              </div>
             </HeaderLiom>
           </section>
         </div>

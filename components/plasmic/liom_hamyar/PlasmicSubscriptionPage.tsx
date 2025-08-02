@@ -770,11 +770,7 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                   }}
                 />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__lsVs3)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__lsVs3)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -798,11 +794,9 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </div>
-                  <Stack__
-                    as={"ul"}
+                  <ul
                     data-plasmic-name={"ul"}
                     data-plasmic-override={overrides.ul}
-                    hasGap={true}
                     className={classNames(
                       projectcss.all,
                       projectcss.ul,
@@ -887,8 +881,8 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                         </div>
                       </div>
                     </li>
-                  </Stack__>
-                </Stack__>
+                  </ul>
+                </div>
               </div>
               <div
                 className={classNames(
@@ -1120,9 +1114,7 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                   }
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__rGQuL)}>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__aoYM)}
                   >
                     {(_par =>
@@ -1144,9 +1136,7 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                       const currentItem = __plasmic_item_0;
                       const currentIndex = __plasmic_idx_0;
                       return (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__hanz5
@@ -1225,10 +1215,10 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                               })()}
                             </React.Fragment>
                           </div>
-                        </Stack__>
+                        </div>
                       );
                     })}
-                  </Stack__>
+                  </div>
                 </div>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__vhMS)}>
@@ -1379,18 +1369,14 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
             >
               <div className={classNames(projectcss.all, sty.freeBox__dCnsH)}>
                 <div className={classNames(projectcss.all, sty.freeBox__r6Q7A)}>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__n8Atl)}
                     dir={"rtl"}
                   >
                     <div
                       className={classNames(projectcss.all, sty.freeBox__aazGu)}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__sGe0N
@@ -1469,9 +1455,7 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                             </div>
                           </div>
                         </div>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__zefUp
@@ -1609,10 +1593,8 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                               {"\u062a\u0627\u06cc\u06cc\u062f"}
                             </div>
                           </Button>
-                        </Stack__>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        </div>
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__yGpT8
@@ -1716,7 +1698,7 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                               }
                             </div>
                           </Button>
-                        </Stack__>
+                        </div>
                         <p
                           data-plasmic-name={"p"}
                           data-plasmic-override={overrides.p}
@@ -1731,9 +1713,9 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                             "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
                           }
                         </p>
-                      </Stack__>
+                      </div>
                     </div>
-                  </Stack__>
+                  </div>
                 </div>
                 <Dialog3
                   data-plasmic-name={"dialog2"}
@@ -1758,14 +1740,10 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                     "opendialog"
                   ])}
                 >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__qVTsM)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__aa13D)}
                     >
                       {(_par =>
@@ -2042,10 +2020,8 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                           );
                         })();
                       })}
-                    </Stack__>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    </div>
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__bwtIn)}
                     >
                       <Button
@@ -2138,10 +2114,8 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                           }
                         </div>
                       </Button>
-                    </Stack__>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    </div>
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__wmnFb)}
                     >
                       <div
@@ -2266,8 +2240,8 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                           {"\u062a\u0627\u06cc\u06cc\u062f"}
                         </div>
                       </Button>
-                    </Stack__>
-                  </Stack__>
+                    </div>
+                  </div>
                 </Dialog3>
               </div>
             </section>

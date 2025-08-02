@@ -161,7 +161,7 @@ function PlasmicIntroPage__RenderFunc(props: {
         path: "button2.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
       },
       {
         path: "token",
@@ -511,6 +511,36 @@ function PlasmicIntroPage__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "hamyarAddComponent.relation",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "husband"
+      },
+      {
+        path: "hamyarAddComponent.name",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "hamyarAddComponent.number",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "message",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "errorr",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1033,38 +1063,320 @@ function PlasmicIntroPage__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["invokeGlobalAction2"] = (() => {
-                        if (
-                          $state.swiperSlider.activeSlideIndex == 4 &&
-                          !$state.hamyarAddComponent.goNext
-                        ) {
-                          return true;
-                        } else {
-                          return false;
-                        }
-                      })()
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "error",
-                                "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0647\u0645\u06cc\u0627\u0631 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.",
-                                "bottom-center"
-                              ]
-                            };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
+                      $steps["invokeGlobalAction3"] =
+                        $state.swiperSlider.activeSlideIndex == 4 &&
+                        $state.hamyarAddComponent.goNext == false &&
+                        $state.hamyarAddComponent.name != "" &&
+                        $state.hamyarAddComponent.number != ""
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "PUT",
+                                  "https://n8n.staas.ir/webhook/rest/user/hamyar/add",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        authorization: $state.token,
+                                        mobile:
+                                          $state.hamyarAddComponent.number,
+                                        name: $state.hamyarAddComponent.name,
+                                        type: "hamyar",
+                                        relation:
+                                          $state.hamyarAddComponent.relation
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
                       if (
-                        $steps["invokeGlobalAction2"] != null &&
-                        typeof $steps["invokeGlobalAction2"] === "object" &&
-                        typeof $steps["invokeGlobalAction2"].then === "function"
+                        $steps["invokeGlobalAction3"] != null &&
+                        typeof $steps["invokeGlobalAction3"] === "object" &&
+                        typeof $steps["invokeGlobalAction3"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
+                        $steps["invokeGlobalAction3"] = await $steps[
+                          "invokeGlobalAction3"
                         ];
+                      }
+
+                      $steps["invokeGlobalAction4"] =
+                        $steps.invokeGlobalAction3?.data?.success == true &&
+                        $state.swiperSlider.activeSlideIndex == 4 &&
+                        $state.hamyarAddComponent.goNext == false
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  undefined,
+                                  "\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u062b\u0628\u062a \u0634\u062f.",
+                                  "bottom-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction4"] != null &&
+                        typeof $steps["invokeGlobalAction4"] === "object" &&
+                        typeof $steps["invokeGlobalAction4"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction4"] = await $steps[
+                          "invokeGlobalAction4"
+                        ];
+                      }
+
+                      $steps["updateMessage"] =
+                        $steps.invokeGlobalAction3?.data?.success == true &&
+                        $state.swiperSlider.activeSlideIndex == 4 &&
+                        $state.hamyarAddComponent.goNext == false
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["message"]
+                                },
+                                operation: 0,
+                                value: $steps.invokeGlobalAction3.data.result
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateMessage"] != null &&
+                        typeof $steps["updateMessage"] === "object" &&
+                        typeof $steps["updateMessage"].then === "function"
+                      ) {
+                        $steps["updateMessage"] = await $steps["updateMessage"];
+                      }
+
+                      $steps["updateErrorr"] =
+                        $steps.invokeGlobalAction3?.data?.success == false &&
+                        $state.swiperSlider.activeSlideIndex == 4 &&
+                        $state.hamyarAddComponent.goNext == false
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["errorr"]
+                                },
+                                operation: 0,
+                                value: $steps.invokeGlobalAction3.data.error
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateErrorr"] != null &&
+                        typeof $steps["updateErrorr"] === "object" &&
+                        typeof $steps["updateErrorr"].then === "function"
+                      ) {
+                        $steps["updateErrorr"] = await $steps["updateErrorr"];
+                      }
+
+                      $steps["invokeGlobalAction5"] =
+                        $steps.invokeGlobalAction3?.data?.success == false &&
+                        $state.swiperSlider.activeSlideIndex == 4 &&
+                        $state.hamyarAddComponent.goNext == false
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "error",
+                                  (() => {
+                                    try {
+                                      return $state.errorr.message;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  "bottom-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction5"] != null &&
+                        typeof $steps["invokeGlobalAction5"] === "object" &&
+                        typeof $steps["invokeGlobalAction5"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction5"] = await $steps[
+                          "invokeGlobalAction5"
+                        ];
+                      }
+
+                      $steps["updateHamyarAddComponentGoNext"] =
+                        ($state.swiperSlider.activeSlideIndex == 4 &&
+                          $steps.invokeGlobalAction3?.data?.success == true) ||
+                        ($steps.invokeGlobalAction3?.data?.error.code ==
+                          1220138 &&
+                          $state.hamyarAddComponent.goNext == false)
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["hamyarAddComponent", "goNext"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateHamyarAddComponentGoNext"] != null &&
+                        typeof $steps["updateHamyarAddComponentGoNext"] ===
+                          "object" &&
+                        typeof $steps["updateHamyarAddComponentGoNext"].then ===
+                          "function"
+                      ) {
+                        $steps["updateHamyarAddComponentGoNext"] = await $steps[
+                          "updateHamyarAddComponentGoNext"
+                        ];
+                      }
+
+                      $steps["updateSwiperSliderLockSlides"] =
+                        $state.swiperSlider.activeSlideIndex == 4 &&
+                        $state.hamyarAddComponent.goNext == true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["swiperSlider", "lockSlides"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateSwiperSliderLockSlides"] != null &&
+                        typeof $steps["updateSwiperSliderLockSlides"] ===
+                          "object" &&
+                        typeof $steps["updateSwiperSliderLockSlides"].then ===
+                          "function"
+                      ) {
+                        $steps["updateSwiperSliderLockSlides"] = await $steps[
+                          "updateSwiperSliderLockSlides"
+                        ];
+                      }
+
+                      $steps["updateSwiperSliderActiveSlideIndex"] =
+                        $state.swiperSlider.activeSlideIndex == 4 &&
+                        $state.hamyarAddComponent.goNext == true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: [
+                                    "swiperSlider",
+                                    "activeSlideIndex"
+                                  ]
+                                },
+                                operation: 0,
+                                value: 5
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateSwiperSliderActiveSlideIndex"] != null &&
+                        typeof $steps["updateSwiperSliderActiveSlideIndex"] ===
+                          "object" &&
+                        typeof $steps["updateSwiperSliderActiveSlideIndex"]
+                          .then === "function"
+                      ) {
+                        $steps["updateSwiperSliderActiveSlideIndex"] =
+                          await $steps["updateSwiperSliderActiveSlideIndex"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -1098,6 +1410,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                             return $state.swiperSlider.activeSlideIndex == 5 ||
                               $state.swiperSlider.activeSlideIndex == 6
                               ? "ذخیره و ادامه"
+                              : $state.swiperSlider.activeSlideIndex == 4
+                              ? "ذخیره و ادامه"
                               : "ادامه";
                           } catch (e) {
                             if (
@@ -1123,16 +1437,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 (async index => {
                   const $steps = {};
 
-                  $steps["updateSwiperSliderLockSlides"] = (() => {
-                    if (
-                      $state.swiperSlider.activeSlideIndex == 4 &&
-                      !$state.hamyarAddComponent.goNext
-                    ) {
-                      return true;
-                    } else {
-                      return false;
-                    }
-                  })()
+                  $steps["updateSwiperSliderLockSlides"] = true
                     ? (() => {
                         const actionArgs = {
                           variable: {
@@ -1140,7 +1445,16 @@ function PlasmicIntroPage__RenderFunc(props: {
                             variablePath: ["swiperSlider", "lockSlides"]
                           },
                           operation: 0,
-                          value: true
+                          value: (() => {
+                            if (
+                              $state.swiperSlider.activeSlideIndex == 4 &&
+                              !$state.hamyarAddComponent.goNext
+                            ) {
+                              return true;
+                            } else {
+                              return false;
+                            }
+                          })()
                         };
                         return (({
                           variable,
@@ -1315,6 +1629,14 @@ function PlasmicIntroPage__RenderFunc(props: {
                     "hamyarAddComponent",
                     "goNext"
                   ])}
+                  name={generateStateValueProp($state, [
+                    "hamyarAddComponent",
+                    "name"
+                  ])}
+                  number={generateStateValueProp($state, [
+                    "hamyarAddComponent",
+                    "number"
+                  ])}
                   onGoNextChange={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, [
                       "hamyarAddComponent",
@@ -1372,6 +1694,52 @@ function PlasmicIntroPage__RenderFunc(props: {
                       }
                     }).apply(null, eventArgs);
                   }}
+                  onNameChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "hamyarAddComponent",
+                      "name"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onNumberChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "hamyarAddComponent",
+                      "number"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onRelationChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "hamyarAddComponent",
+                      "relation"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  relation={generateStateValueProp($state, [
+                    "hamyarAddComponent",
+                    "relation"
+                  ])}
                   token2={(() => {
                     try {
                       return $state.token;

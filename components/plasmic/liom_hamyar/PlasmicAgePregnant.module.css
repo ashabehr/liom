@@ -301,30 +301,15 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
   margin-top: 8px;
+  column-gap: 8px;
   min-width: 0;
   padding: 8px;
-}
-.freeBox__yuOqA > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  min-width: 0;
-  margin-left: calc(0px - 8px);
-  width: calc(100% + 8px);
-}
-.freeBox__yuOqA > :global(.__wab_flex-container) > *,
-.freeBox__yuOqA > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__yuOqA > :global(.__wab_flex-container) > picture > img,
-.freeBox__yuOqA
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 8px;
 }
 .freeBox___7BmYn {
   display: flex;
@@ -404,28 +389,13 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-top: 16px;
-  margin-bottom: 4px;
-  min-width: 0;
-  padding: 0px 16px;
-}
-.freeBox__atV2T > :global(.__wab_flex-container) {
-  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  margin-top: 16px;
+  margin-bottom: 4px;
+  row-gap: 8px;
   min-width: 0;
-  margin-top: calc(0px - 8px);
-  height: calc(100% + 8px);
-}
-.freeBox__atV2T > :global(.__wab_flex-container) > *,
-.freeBox__atV2T > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__atV2T > :global(.__wab_flex-container) > picture > img,
-.freeBox__atV2T
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-top: 8px;
+  padding: 0px 16px;
 }
 .text__hZqRx {
   width: 100%;
@@ -503,28 +473,13 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-top: 16px;
-  margin-bottom: 0px;
-  min-width: 0;
-  padding: 0px 16px;
-}
-.freeBox__c4PA2 > :global(.__wab_flex-container) {
-  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  margin-top: 16px;
+  margin-bottom: 0px;
+  row-gap: 8px;
   min-width: 0;
-  margin-top: calc(0px - 8px);
-  height: calc(100% + 8px);
-}
-.freeBox__c4PA2 > :global(.__wab_flex-container) > *,
-.freeBox__c4PA2 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__c4PA2 > :global(.__wab_flex-container) > picture > img,
-.freeBox__c4PA2
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-top: 8px;
+  padding: 0px 16px;
 }
 .text__pZrDs {
   width: 100%;

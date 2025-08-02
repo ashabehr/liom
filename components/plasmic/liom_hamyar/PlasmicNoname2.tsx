@@ -291,11 +291,9 @@ function PlasmicNoname2__RenderFunc(props: {
             sty.root
           )}
         >
-          <Stack__
-            as={"div"}
+          <div
             data-plasmic-name={"halamanUtama"}
             data-plasmic-override={overrides.halamanUtama}
-            hasGap={true}
             className={classNames(projectcss.all, sty.halamanUtama)}
           >
             <Icon132Icon
@@ -735,7 +733,7 @@ function PlasmicNoname2__RenderFunc(props: {
                 }
               </div>
             </div>
-          </Stack__>
+          </div>
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}

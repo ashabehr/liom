@@ -215,11 +215,7 @@ function PlasmicFooterMain__RenderFunc(props: {
       )}
     >
       <div className={classNames(projectcss.all, sty.freeBox__ijEra)}>
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__vbOad)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__vbOad)}>
           <div
             className={classNames(projectcss.all, sty.freeBox__s1U6A, {
               [sty.freeBoxfooter2_calendar__s1U6A6MXal]: hasVariant(
@@ -444,7 +440,7 @@ function PlasmicFooterMain__RenderFunc(props: {
               }
             </div>
           </div>
-        </Stack__>
+        </div>
       </div>
     </section>
   ) as React.ReactElement | null;

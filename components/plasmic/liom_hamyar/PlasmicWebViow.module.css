@@ -61,27 +61,13 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
   width: auto;
   height: 35px;
   max-width: 100%;
+  column-gap: 12px;
   padding: 0px 0px 0px 8px;
-}
-.freeBox__p3Ttu > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  margin-left: calc(0px - 12px);
-  width: calc(100% + 12px);
-}
-.freeBox__p3Ttu > :global(.__wab_flex-container) > *,
-.freeBox__p3Ttu > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__p3Ttu > :global(.__wab_flex-container) > picture > img,
-.freeBox__p3Ttu
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 12px;
 }
 .svg {
   object-fit: cover;

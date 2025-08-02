@@ -202,13 +202,11 @@ function PlasmicMassage__RenderFunc(props: {
   });
 
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"group2"}
       data-plasmic-override={overrides.group2}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -265,9 +263,7 @@ function PlasmicMassage__RenderFunc(props: {
                       "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"
                     }
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__dt3N)}
                   >
                     <Seen
@@ -304,7 +300,7 @@ function PlasmicMassage__RenderFunc(props: {
                     >
                       {"10:13"}
                     </div>
-                  </Stack__>
+                  </div>
                 </React.Fragment>
               ),
               value: args.rectangle6
@@ -422,7 +418,7 @@ function PlasmicMassage__RenderFunc(props: {
           </div>
         ) : null}
       </Button>
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 
