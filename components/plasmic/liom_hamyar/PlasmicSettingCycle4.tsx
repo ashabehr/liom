@@ -246,7 +246,7 @@ function PlasmicSettingCycle4__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if ($props.userStatus.periodStart.split("T")[0]) {
+                if (!$props.userStatus.periodStart) {
                   return { date: "" };
                 }
                 var a = $props.userStatus.periodStart.split("T")[0].split("-");
@@ -750,10 +750,12 @@ function PlasmicSettingCycle4__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if (!$ctx.query.last_time) {
+                if (!$props.userStatus.periodStart) {
                   return 100;
                 }
-                const date = new Date($ctx.query.last_time);
+                const date = new Date(
+                  $props.userStatus.periodStart.split("T")[0]
+                );
                 const date2 = new Date();
                 const differenceInMilliseconds = date - date2;
                 const differenceInDays = Math.floor(
@@ -781,10 +783,12 @@ function PlasmicSettingCycle4__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if (!$ctx.query.last_time) {
+                if (!$props.userStatus.periodStart) {
                   return 100;
                 }
-                const date = new Date($ctx.query.last_time);
+                const date = new Date(
+                  $props.userStatus.periodStart.split("T")[0]
+                );
                 const date2 = new Date();
                 const differenceInMilliseconds = date - date2;
                 const differenceInDays = Math.floor(

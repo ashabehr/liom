@@ -3576,7 +3576,18 @@ function PlasmicHamyar__RenderFunc(props: {
                                   dangerouslySetInnerHTML={{
                                     __html: (() => {
                                       try {
-                                        return "ارسال یادآوری";
+                                        return (() => {
+                                          if (
+                                            !(
+                                              $state.userdata.result.user
+                                                .husbandSmsSubStatus ||
+                                              $state.userdata.result.user
+                                                .motherSmsSubStatus
+                                            )
+                                          )
+                                            return "ارسال یادآوری";
+                                          else return "ارسال توصیه";
+                                        })();
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -3660,18 +3671,38 @@ function PlasmicHamyar__RenderFunc(props: {
                                     dangerouslySetInnerHTML={{
                                       __html: (() => {
                                         try {
-                                          return (
-                                            `علاوه بر تغییرات <b>چرخه قاعدگیش،</b> توصیه‌هایی می‌فرستم که <b>بدونی چیکار کنی</b>. ` +
-                                            `<b>` +
-                                            (function () {
-                                              var name = $state.name;
-                                              return name.length > 10
-                                                ? name.substring(0, 10) + "..."
-                                                : name;
-                                            })() +
-                                            `</b>` +
-                                            ` هم <b>پیامک می‌گیره</b> تا حواسش به <b>رابطه‌تون</b> باشه و <b>خودش رو کنترل کنه</b>. اینطوری <b>رابطه شادتری دارید</b>.`
-                                          );
+                                          return (() => {
+                                            if (
+                                              !(
+                                                $state.userdata.result.user
+                                                  .husbandSmsSubStatus ||
+                                                $state.userdata.result.user
+                                                  .motherSmsSubStatus
+                                              )
+                                            )
+                                              return (
+                                                `علاوه بر تغییرات <b>چرخه قاعدگیش،</b> توصیه‌هایی می‌فرستم که <b>بدونی چیکار کنی</b>. ` +
+                                                `<b>` +
+                                                (function () {
+                                                  var name = $state.name;
+                                                  return name.length > 10
+                                                    ? name.substring(0, 10) +
+                                                        "..."
+                                                    : name;
+                                                })() +
+                                                `</b>` +
+                                                ` هم <b>پیامک می‌گیره</b> تا حواسش به <b>رابطه‌تون</b> باشه و <b>خودش رو کنترل کنه</b>. اینطوری <b>رابطه شادتری دارید</b>.`
+                                              );
+                                            else
+                                              return `
+<div style="color: green;">
+  <b>{{ $state.name }}</b> اشتراک یادآوری رو فعال کرده.
+</div>
+<p>
+  اگه می‌خوای برای همیارت هم توصیه‌هایی بفرستم که حواسش به رابطه‌تون باشه و رفتارشو کنترل کنه، اشتراک توصیه فعال کن.
+</p>
+`;
+                                          })();
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -3794,9 +3825,34 @@ function PlasmicHamyar__RenderFunc(props: {
                                         : undefined
                                     )}
                                   >
-                                    {
-                                      "\u0647\u0645\u06cc\u0646 \u062d\u0627\u0644\u0627  \u06cc\u0627\u062f\u0622\u0648\u0631 \u0641\u0639\u0627\u0644 \u06a9\u0646"
-                                    }
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return (() => {
+                                            if (
+                                              !(
+                                                $state.userdata.result.user
+                                                  .husbandSmsSubStatus ||
+                                                $state.userdata.result.user
+                                                  .motherSmsSubStatus
+                                              )
+                                            )
+                                              return "همین حالا  یادآور فعال کن";
+                                            else
+                                              return "همین حالا  توصیه فعال کن";
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "\u0647\u0645\u06cc\u0646 \u062d\u0627\u0644\u0627  \u06cc\u0627\u062f\u0622\u0648\u0631 \u0641\u0639\u0627\u0644 \u06a9\u0646";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
                                   </div>
                                 </Button>
                               </div>
