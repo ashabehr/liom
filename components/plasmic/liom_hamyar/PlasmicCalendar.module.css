@@ -3592,14 +3592,12 @@
   align-items: center;
   justify-content: center;
   width: 60%;
-  height: 100%;
+  height: 350px;
   max-width: 100%;
   background: none;
-  margin-top: 10px;
-  margin-bottom: 10px;
   row-gap: 16px;
-  min-height: 0;
   border-radius: var(--token-VmvIyNmCXbhh);
+  margin: 0px;
 }
 @media (max-width: 640px) {
   .freeBox__osriy {

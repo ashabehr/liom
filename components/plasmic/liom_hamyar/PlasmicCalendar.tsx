@@ -1683,6 +1683,29 @@ function PlasmicCalendar__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
+              $steps["runCode4"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          $state.loadingpage = true;
+                          return ($state.userInfo = {});
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode4"] != null &&
+                typeof $steps["runCode4"] === "object" &&
+                typeof $steps["runCode4"].then === "function"
+              ) {
+                $steps["runCode4"] = await $steps["runCode4"];
+              }
+
               $steps["params"] = true
                 ? (() => {
                     const actionArgs = {
