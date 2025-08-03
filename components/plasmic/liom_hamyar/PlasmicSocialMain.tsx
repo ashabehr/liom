@@ -1961,243 +1961,312 @@ function PlasmicSocialMain__RenderFunc(props: {
                     ).map((__plasmic_item_0, __plasmic_idx_0) => {
                       const currentItem = __plasmic_item_0;
                       const currentIndex = __plasmic_idx_0;
-                      return (() => {
-                        const child$Props = {
-                          className: classNames(
-                            "__wab_instance",
-                            sty.repeatPost
-                          ),
-                          comingSoon: async event => {
-                            const $steps = {};
-
-                            $steps["updateComingSoonOpen"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["comingSoon", "open"]
-                                    },
-                                    operation: 0,
-                                    value: true
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateComingSoonOpen"] != null &&
-                              typeof $steps["updateComingSoonOpen"] ===
-                                "object" &&
-                              typeof $steps["updateComingSoonOpen"].then ===
-                                "function"
-                            ) {
-                              $steps["updateComingSoonOpen"] = await $steps[
-                                "updateComingSoonOpen"
-                              ];
-                            }
-                          },
-                          comment: generateStateValueProp($state, [
-                            "repeatPost",
-                            __plasmic_idx_0,
-                            "comment"
-                          ]),
-                          isMainPage: true,
-                          key: currentIndex,
-                          main: generateStateValueProp($state, [
-                            "repeatPost",
-                            __plasmic_idx_0,
-                            "main"
-                          ]),
-                          onClickShere: async event => {
-                            const $steps = {};
-
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        let url = `https://apps.liom.app/post?post=${currentItem.post.id}&shere=true`;
-                                        if (
-                                          typeof navigator !== "undefined" &&
-                                          typeof navigator.share === "function"
-                                        ) {
-                                          return navigator.share({
-                                            title: "لیوم | تقویم قاعدگی",
-                                            url: url
-                                          });
-                                        } else {
-                                          $$.copyToClipboard(url);
-                                          return alert(
-                                            "مرورگر شما از قابلیت اشتراک‌گذاری پشتیبانی نمی‌کند.لینک در کلیپ‌بورد کپی شد. حالا می‌توانید آن را در برنامه‌های دیگر به اشتراک بگذارید."
-                                          );
-                                        }
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-
-                            $steps["invokeGlobalAction"] = false
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      "POST",
-                                      "https://n8n.staas.ir/webhook/post/share",
-                                      undefined,
-                                      (() => {
-                                        try {
-                                          return {
-                                            postId: currentItem.post.id,
-                                            type: "",
-                                            authorization: $state.token
-                                          };
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "Fragment.apiRequest"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["invokeGlobalAction"] != null &&
-                              typeof $steps["invokeGlobalAction"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction"].then ===
-                                "function"
-                            ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
-                            }
-                          },
-                          onCommentChange: async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
-                              "repeatPost",
-                              __plasmic_idx_0,
-                              "comment"
-                            ]).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          },
-                          onMainChange: async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
-                              "repeatPost",
-                              __plasmic_idx_0,
-                              "main"
-                            ]).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          },
-                          postData: (() => {
+                      return (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__vFt1A
+                          )}
+                          key={currentIndex}
+                        >
+                          {(() => {
                             try {
-                              return currentItem;
+                              return currentItem == null;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return undefined;
+                                return false;
                               }
                               throw e;
                             }
-                          })(),
-                          postToken: (() => {
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__t8VN2,
+                                "shimmer"
+                              )}
+                            />
+                          ) : null}
+                          {(() => {
                             try {
-                              return $state.token;
+                              return currentItem != null;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          type: (() => {
-                            try {
-                              return currentItem.user.superAdmin == true
-                                ? "admin"
-                                : "";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "admin";
+                                return false;
                               }
                               throw e;
                             }
                           })()
-                        };
+                            ? (() => {
+                                const child$Props = {
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.repeatPost
+                                  ),
+                                  comingSoon: async event => {
+                                    const $steps = {};
 
-                        initializePlasmicStates(
-                          $state,
-                          [
-                            {
-                              name: "repeatPost[].main",
-                              initFunc: ({ $props, $state, $queries }) => "main"
-                            },
-                            {
-                              name: "repeatPost[].comment",
-                              initFunc: ({ $props, $state, $queries }) => ({})
-                            }
-                          ],
-                          [__plasmic_idx_0]
-                        );
-                        return (
-                          <RepeatPost
-                            data-plasmic-name={"repeatPost"}
-                            data-plasmic-override={overrides.repeatPost}
-                            {...child$Props}
-                          />
-                        );
-                      })();
+                                    $steps["updateComingSoonOpen"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: [
+                                                "comingSoon",
+                                                "open"
+                                              ]
+                                            },
+                                            operation: 0,
+                                            value: true
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateComingSoonOpen"] != null &&
+                                      typeof $steps["updateComingSoonOpen"] ===
+                                        "object" &&
+                                      typeof $steps["updateComingSoonOpen"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateComingSoonOpen"] =
+                                        await $steps["updateComingSoonOpen"];
+                                    }
+                                  },
+                                  comment: generateStateValueProp($state, [
+                                    "repeatPost",
+                                    __plasmic_idx_0,
+                                    "comment"
+                                  ]),
+                                  isMainPage: true,
+                                  main: generateStateValueProp($state, [
+                                    "repeatPost",
+                                    __plasmic_idx_0,
+                                    "main"
+                                  ]),
+                                  onClickShere: async event => {
+                                    const $steps = {};
+
+                                    $steps["runCode"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            customFunction: async () => {
+                                              return (() => {
+                                                let url = `https://apps.liom.app/post?post=${currentItem.post.id}&shere=true`;
+                                                if (
+                                                  typeof navigator !==
+                                                    "undefined" &&
+                                                  typeof navigator.share ===
+                                                    "function"
+                                                ) {
+                                                  return navigator.share({
+                                                    title:
+                                                      "لیوم | تقویم قاعدگی",
+                                                    url: url
+                                                  });
+                                                } else {
+                                                  $$.copyToClipboard(url);
+                                                  return alert(
+                                                    "مرورگر شما از قابلیت اشتراک‌گذاری پشتیبانی نمی‌کند.لینک در کلیپ‌بورد کپی شد. حالا می‌توانید آن را در برنامه‌های دیگر به اشتراک بگذارید."
+                                                  );
+                                                }
+                                              })();
+                                            }
+                                          };
+                                          return (({ customFunction }) => {
+                                            return customFunction();
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["runCode"] != null &&
+                                      typeof $steps["runCode"] === "object" &&
+                                      typeof $steps["runCode"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["runCode"] = await $steps[
+                                        "runCode"
+                                      ];
+                                    }
+
+                                    $steps["invokeGlobalAction"] = false
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              "POST",
+                                              "https://n8n.staas.ir/webhook/post/share",
+                                              undefined,
+                                              (() => {
+                                                try {
+                                                  return {
+                                                    postId: currentItem.post.id,
+                                                    type: "",
+                                                    authorization: $state.token
+                                                  };
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.apiRequest"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["invokeGlobalAction"] != null &&
+                                      typeof $steps["invokeGlobalAction"] ===
+                                        "object" &&
+                                      typeof $steps["invokeGlobalAction"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["invokeGlobalAction"] =
+                                        await $steps["invokeGlobalAction"];
+                                    }
+                                  },
+                                  onCommentChange: async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    generateStateOnChangeProp($state, [
+                                      "repeatPost",
+                                      __plasmic_idx_0,
+                                      "comment"
+                                    ]).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  },
+                                  onMainChange: async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "repeatPost",
+                                      __plasmic_idx_0,
+                                      "main"
+                                    ]).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  },
+                                  postData: (() => {
+                                    try {
+                                      return currentItem;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  postToken: (() => {
+                                    try {
+                                      return $state.token;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  type: (() => {
+                                    try {
+                                      return currentItem.user.superAdmin == true
+                                        ? "admin"
+                                        : "";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "admin";
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                };
+
+                                initializePlasmicStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "repeatPost[].main",
+                                      initFunc: ({
+                                        $props,
+                                        $state,
+                                        $queries
+                                      }) => "main"
+                                    },
+                                    {
+                                      name: "repeatPost[].comment",
+                                      initFunc: ({
+                                        $props,
+                                        $state,
+                                        $queries
+                                      }) => ({})
+                                    }
+                                  ],
+                                  [__plasmic_idx_0]
+                                );
+                                return (
+                                  <RepeatPost
+                                    data-plasmic-name={"repeatPost"}
+                                    data-plasmic-override={overrides.repeatPost}
+                                    {...child$Props}
+                                  />
+                                );
+                              })()
+                            : null}
+                        </div>
+                      );
                     })}
                   </div>
                 </div>
