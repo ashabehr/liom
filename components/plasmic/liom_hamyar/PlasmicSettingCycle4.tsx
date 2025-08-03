@@ -96,12 +96,14 @@ export type PlasmicSettingCycle4__ArgsType = {
   onBack?: (event: any) => void;
   editTime?: string;
   onEditTimeChange?: (val: string) => void;
+  userStatus?: any;
 };
 type ArgPropType = keyof PlasmicSettingCycle4__ArgsType;
 export const PlasmicSettingCycle4__ArgProps = new Array<ArgPropType>(
   "onBack",
   "editTime",
-  "onEditTimeChange"
+  "onEditTimeChange",
+  "userStatus"
 );
 
 export type PlasmicSettingCycle4__OverridesType = {
@@ -132,6 +134,7 @@ export interface DefaultSettingCycle4Props {
   onBack?: (event: any) => void;
   editTime?: string;
   onEditTimeChange?: (val: string) => void;
+  userStatus?: any;
   dark?: SingleBooleanChoiceArg<"dark">;
   className?: string;
 }
@@ -241,10 +244,10 @@ function PlasmicSettingCycle4__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if (!$ctx.query.last_time) {
+                if ($props.userStatus.periodStart.split("T")[0]) {
                   return { date: "" };
                 }
-                var a = $ctx.query.last_time.split("-");
+                var a = $props.userStatus.periodStart.split("T")[0].split("-");
                 return {
                   gy: parseInt(a[0]),
                   gm: parseInt(a[1]),
@@ -269,7 +272,7 @@ function PlasmicSettingCycle4__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return parseInt($ctx.query.length || 0);
+              return parseInt($props.userStatus.length || 0);
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -288,7 +291,7 @@ function PlasmicSettingCycle4__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return parseInt($ctx.query.cycle || 0);
+              return parseInt($props.userStatus.cycle || 0);
             } catch (e) {
               if (
                 e instanceof TypeError ||

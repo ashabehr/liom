@@ -114,12 +114,16 @@ export const PlasmicCalendar2__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicCalendar2__ArgsType = {
+  userInfo?: any;
+  onUserInfoChange?: (val: string) => void;
   setting?: () => void;
   editTime?: string;
   onEditTimeChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicCalendar2__ArgsType;
 export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
+  "userInfo",
+  "onUserInfoChange",
   "setting",
   "editTime",
   "onEditTimeChange"
@@ -169,6 +173,8 @@ export type PlasmicCalendar2__OverridesType = {
 };
 
 export interface DefaultCalendar2Props {
+  userInfo?: any;
+  onUserInfoChange?: (val: string) => void;
   setting?: () => void;
   editTime?: string;
   onEditTimeChange?: (val: string) => void;
@@ -1547,9 +1553,11 @@ function PlasmicCalendar2__RenderFunc(props: {
       },
       {
         path: "userInfo",
-        type: "private",
+        type: "writable",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+
+        valueProp: "userInfo",
+        onChangeProp: "onUserInfoChange"
       },
       {
         path: "status",

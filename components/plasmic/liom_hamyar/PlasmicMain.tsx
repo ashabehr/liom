@@ -240,6 +240,12 @@ function PlasmicMain__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "mainPage.userInfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -308,6 +314,20 @@ function PlasmicMain__RenderFunc(props: {
                   return;
                 }
               }}
+              onUserInfoChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainPage",
+                  "userInfo"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               page={(() => {
                 try {
                   return $state.footerMain.type;
@@ -350,6 +370,10 @@ function PlasmicMain__RenderFunc(props: {
                   $steps["updateSetting"] = await $steps["updateSetting"];
                 }
               }}
+              userInfo={generateStateValueProp($state, [
+                "mainPage",
+                "userInfo"
+              ])}
             />
 
             <section className={classNames(projectcss.all, sty.section__n8IXm)}>
@@ -558,7 +582,8 @@ function PlasmicMain__RenderFunc(props: {
             className={classNames("__wab_instance", sty.reveal, {
               [sty.revealsetting]: hasVariant($state, "setting", "setting")
             })}
-            damping={0.3}
+            damping={0.2}
+            effect={"fade"}
             triggerOnce={true}
           >
             <SettingCycle4
@@ -618,6 +643,19 @@ function PlasmicMain__RenderFunc(props: {
                   return;
                 }
               }}
+              userStatus={(() => {
+                try {
+                  return $state.mainPage.userInfo.result.userStatus;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             />
           </Reveal>
         </div>

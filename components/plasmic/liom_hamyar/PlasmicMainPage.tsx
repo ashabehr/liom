@@ -85,12 +85,16 @@ export type PlasmicMainPage__ArgsType = {
   setting?: () => void;
   editTime?: string;
   onEditTimeChange?: (val: string) => void;
+  userInfo?: any;
+  onUserInfoChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicMainPage__ArgsType;
 export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
   "setting",
   "editTime",
-  "onEditTimeChange"
+  "onEditTimeChange",
+  "userInfo",
+  "onUserInfoChange"
 );
 
 export type PlasmicMainPage__OverridesType = {
@@ -103,6 +107,8 @@ export interface DefaultMainPageProps {
   setting?: () => void;
   editTime?: string;
   onEditTimeChange?: (val: string) => void;
+  userInfo?: any;
+  onUserInfoChange?: (val: string) => void;
   page?: SingleChoiceArg<"calendar" | "self">;
   className?: string;
 }
@@ -182,6 +188,20 @@ function PlasmicMainPage__RenderFunc(props: {
 
         valueProp: "editTime",
         onChangeProp: "onEditTimeChange"
+      },
+      {
+        path: "calendar2.userInfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "userInfo",
+        type: "writable",
+        variableType: "object",
+
+        valueProp: "userInfo",
+        onChangeProp: "onUserInfoChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -223,7 +243,7 @@ function PlasmicMainPage__RenderFunc(props: {
           ),
           [sty.revealpage_self__j5OzL9LaN]: hasVariant($state, "page", "self")
         })}
-        damping={0.3}
+        damping={0.2}
         effect={hasVariant($state, "page", "calendar") ? "fade" : "fade"}
         triggerOnce={true}
       >
@@ -253,7 +273,55 @@ function PlasmicMainPage__RenderFunc(props: {
               return;
             }
           }}
+          onUserInfoChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["calendar2", "userInfo"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+
+            (async val => {
+              const $steps = {};
+
+              $steps["updateUserInfo"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["userInfo"]
+                      },
+                      operation: 0,
+                      value: $state.calendar2.userInfo
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateUserInfo"] != null &&
+                typeof $steps["updateUserInfo"] === "object" &&
+                typeof $steps["updateUserInfo"].then === "function"
+              ) {
+                $steps["updateUserInfo"] = await $steps["updateUserInfo"];
+              }
+            }).apply(null, eventArgs);
+          }}
           setting={args.setting}
+          userInfo={generateStateValueProp($state, ["calendar2", "userInfo"])}
         />
       </Reveal>
       <Reveal
@@ -265,7 +333,7 @@ function PlasmicMainPage__RenderFunc(props: {
           ),
           [sty.revealpage_self___7EWm4L9LaN]: hasVariant($state, "page", "self")
         })}
-        damping={0.3}
+        damping={0.2}
         effect={"fade"}
         triggerOnce={true}
       >
