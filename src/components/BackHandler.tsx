@@ -13,25 +13,15 @@ export const BackHandler = ({ onBack, active = true }: BackHandlerProps) => {
     if (typeof window === "undefined" || !active) return;
 
     const handlePopState = (e: PopStateEvent) => {
-      console.log("[BackHandler] popstate triggered", e.state);
-
       if (e.state?.isCustom) {
-        console.log("[BackHandler] onBack called");
-        onBack?.();
+        onBack?.() ?? console.log("onBack not provided");
         window.history.pushState({ isCustom: true }, "");
-      } else {
-        console.log("[BackHandler] not a custom popstate", e.state);
       }
     };
 
     if (!hasPushedRef.current) {
-      console.log("[BackHandler] pushing 2 custom states");
-      // Push two entries to create a real back point
-      window.history.pushState({ isCustom: false }, "");
       window.history.pushState({ isCustom: true }, "");
       hasPushedRef.current = true;
-    } else {
-      console.log("[BackHandler] already initialized");
     }
 
     window.addEventListener("popstate", handlePopState);
