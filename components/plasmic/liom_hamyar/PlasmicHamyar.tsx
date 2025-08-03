@@ -3561,7 +3561,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                           )
                                         )
                                           return "ارسال یادآوری";
-                                        else return "ارسال توصیه";
+                                        else return "اشتراک ویژه";
                                       })();
                                     } catch (e) {
                                       if (
@@ -3776,7 +3776,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                             )
                                               return "همین حالا  یادآور فعال کن";
                                             else
-                                              return "همین حالا  توصیه فعال کن";
+                                              return "همین حالا اشتراک ویژه فعال کن";
                                           })();
                                         } catch (e) {
                                           if (
