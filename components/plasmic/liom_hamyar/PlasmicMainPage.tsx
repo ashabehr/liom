@@ -81,9 +81,17 @@ export type PlasmicMainPage__VariantsArgs = {
 type VariantPropType = keyof PlasmicMainPage__VariantsArgs;
 export const PlasmicMainPage__VariantProps = new Array<VariantPropType>("page");
 
-export type PlasmicMainPage__ArgsType = { setting?: () => void };
+export type PlasmicMainPage__ArgsType = {
+  setting?: () => void;
+  editTime?: string;
+  onEditTimeChange?: (val: string) => void;
+};
 type ArgPropType = keyof PlasmicMainPage__ArgsType;
-export const PlasmicMainPage__ArgProps = new Array<ArgPropType>("setting");
+export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
+  "setting",
+  "editTime",
+  "onEditTimeChange"
+);
 
 export type PlasmicMainPage__OverridesType = {
   root?: Flex__<"div">;
@@ -93,6 +101,8 @@ export type PlasmicMainPage__OverridesType = {
 
 export interface DefaultMainPageProps {
   setting?: () => void;
+  editTime?: string;
+  onEditTimeChange?: (val: string) => void;
   page?: SingleChoiceArg<"calendar" | "self">;
   className?: string;
 }
@@ -145,6 +155,33 @@ function PlasmicMainPage__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.page
+      },
+      {
+        path: "calendar2.editTime",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.editTime;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "editTime",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "editTime",
+        onChangeProp: "onEditTimeChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -201,6 +238,21 @@ function PlasmicMainPage__RenderFunc(props: {
             ),
             [sty.calendar2page_self]: hasVariant($state, "page", "self")
           })}
+          editTime={generateStateValueProp($state, ["calendar2", "editTime"])}
+          onEditTimeChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["calendar2", "editTime"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
           setting={args.setting}
         />
       </Reveal>

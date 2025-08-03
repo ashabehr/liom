@@ -113,9 +113,17 @@ export const PlasmicCalendar2__VariantProps = new Array<VariantPropType>(
   "lackOfCourseInformation"
 );
 
-export type PlasmicCalendar2__ArgsType = { setting?: () => void };
+export type PlasmicCalendar2__ArgsType = {
+  setting?: () => void;
+  editTime?: string;
+  onEditTimeChange?: (val: string) => void;
+};
 type ArgPropType = keyof PlasmicCalendar2__ArgsType;
-export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>("setting");
+export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
+  "setting",
+  "editTime",
+  "onEditTimeChange"
+);
 
 export type PlasmicCalendar2__OverridesType = {
   root?: Flex__<"div">;
@@ -162,6 +170,8 @@ export type PlasmicCalendar2__OverridesType = {
 
 export interface DefaultCalendar2Props {
   setting?: () => void;
+  editTime?: string;
+  onEditTimeChange?: (val: string) => void;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   className?: string;
 }
@@ -1564,6 +1574,14 @@ function PlasmicCalendar2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "editTime",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "editTime",
+        onChangeProp: "onEditTimeChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -1610,7 +1628,11 @@ function PlasmicCalendar2__RenderFunc(props: {
         className={classNames("__wab_instance", sty.sideEffect__mTks4)}
         deps={(() => {
           try {
-            return [$state.variable];
+            return (() => {
+              {
+                return $state.editTime;
+              }
+            })();
           } catch (e) {
             if (
               e instanceof TypeError ||

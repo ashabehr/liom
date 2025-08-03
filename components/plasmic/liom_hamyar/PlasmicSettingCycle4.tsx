@@ -92,9 +92,17 @@ export const PlasmicSettingCycle4__VariantProps = new Array<VariantPropType>(
   "dark"
 );
 
-export type PlasmicSettingCycle4__ArgsType = { onBack?: (event: any) => void };
+export type PlasmicSettingCycle4__ArgsType = {
+  onBack?: (event: any) => void;
+  editTime?: string;
+  onEditTimeChange?: (val: string) => void;
+};
 type ArgPropType = keyof PlasmicSettingCycle4__ArgsType;
-export const PlasmicSettingCycle4__ArgProps = new Array<ArgPropType>("onBack");
+export const PlasmicSettingCycle4__ArgProps = new Array<ArgPropType>(
+  "onBack",
+  "editTime",
+  "onEditTimeChange"
+);
 
 export type PlasmicSettingCycle4__OverridesType = {
   root?: Flex__<"div">;
@@ -122,6 +130,8 @@ export type PlasmicSettingCycle4__OverridesType = {
 
 export interface DefaultSettingCycle4Props {
   onBack?: (event: any) => void;
+  editTime?: string;
+  onEditTimeChange?: (val: string) => void;
   dark?: SingleBooleanChoiceArg<"dark">;
   className?: string;
 }
@@ -788,6 +798,14 @@ function PlasmicSettingCycle4__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "editTime",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "editTime",
+        onChangeProp: "onEditTimeChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -2536,27 +2554,58 @@ function PlasmicSettingCycle4__RenderFunc(props: {
                     ];
                   }
 
-                  $steps["runCode"] =
+                  $steps["updateEditTime"] =
                     $steps.add?.data?.success || $steps.edit?.data?.success
                       ? (() => {
                           const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return window.history.back();
-                              })();
-                            }
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["editTime"]
+                            },
+                            operation: 0,
+                            value: new Date().toLocaleString("fa-IR", {
+                              timeZone: "Asia/Tehran"
+                            })
                           };
-                          return (({ customFunction }) => {
-                            return customFunction();
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                   if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
+                    $steps["updateEditTime"] != null &&
+                    typeof $steps["updateEditTime"] === "object" &&
+                    typeof $steps["updateEditTime"].then === "function"
                   ) {
-                    $steps["runCode"] = await $steps["runCode"];
+                    $steps["updateEditTime"] = await $steps["updateEditTime"];
+                  }
+
+                  $steps["runOnBack"] =
+                    $steps.add?.data?.success || $steps.edit?.data?.success
+                      ? (() => {
+                          const actionArgs = { eventRef: $props["onBack"] };
+                          return (({ eventRef, args }) => {
+                            return eventRef?.(...(args ?? []));
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["runOnBack"] != null &&
+                    typeof $steps["runOnBack"] === "object" &&
+                    typeof $steps["runOnBack"].then === "function"
+                  ) {
+                    $steps["runOnBack"] = await $steps["runOnBack"];
                   }
 
                   $steps["updateLoadbtn2"] = true

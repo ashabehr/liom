@@ -114,7 +114,6 @@ export type PlasmicPost2ForSocialMain__OverridesType = {
   root?: Flex__<"div">;
   lineClompTitle?: Flex__<typeof LineClomp>;
   lineClompText?: Flex__<typeof LineClomp>;
-  image3?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
   htmlVideo?: Flex__<typeof Video>;
   audioPlayer?: Flex__<typeof AudioPlayer>;
@@ -158,7 +157,7 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
       Object.assign(
         {
           image2:
-            "https://storage.c2.liara.space/liom/2025-03/post/2025-03-28-38fa0b71-308d-49f8-87e0-290a8573a25c.mp4\n"
+            "https://s3.ir-thr-at1.arvanstorage.ir/lioms3/2025-08/post/2025-08-01-c6e64c86-1c6c-48d0-8ff6-a98788a603d4.jpg"
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -255,6 +254,21 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
             $state,
             "postType",
             "file"
+          ),
+          [sty.freeBoxpostType_image__o3Uw0Madp0]: hasVariant(
+            $state,
+            "postType",
+            "image"
+          ),
+          [sty.freeBoxpostType_jastText__o3Uw0DFbbf]: hasVariant(
+            $state,
+            "postType",
+            "jastText"
+          ),
+          [sty.freeBoxpostType_video__o3Uw0S56Wc]: hasVariant(
+            $state,
+            "postType",
+            "video"
           )
         })}
       >
@@ -383,52 +397,46 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
             </React.Fragment>
           </div>
         </LineClomp>
-        <div
-          data-plasmic-name={"image3"}
-          data-plasmic-override={overrides.image3}
-          className={classNames(projectcss.all, sty.image3, {
-            [sty.image3postType_audio]: hasVariant($state, "postType", "audio"),
-            [sty.image3postType_file]: hasVariant($state, "postType", "file"),
-            [sty.image3postType_image]: hasVariant($state, "postType", "image"),
-            [sty.image3postType_jastText]: hasVariant(
+        <PlasmicImg__
+          data-plasmic-name={"img"}
+          data-plasmic-override={overrides.img}
+          alt={""}
+          className={classNames(sty.img, {
+            [sty.imgpostType_audio]: hasVariant($state, "postType", "audio"),
+            [sty.imgpostType_file]: hasVariant($state, "postType", "file"),
+            [sty.imgpostType_image]: hasVariant($state, "postType", "image"),
+            [sty.imgpostType_jastText]: hasVariant(
               $state,
               "postType",
               "jastText"
             ),
-            [sty.image3postType_video]: hasVariant($state, "postType", "video")
+            [sty.imgpostType_video]: hasVariant($state, "postType", "video")
           })}
-        >
-          <PlasmicImg__
-            data-plasmic-name={"img"}
-            data-plasmic-override={overrides.img}
-            alt={""}
-            className={classNames(sty.img, {
-              [sty.imgpostType_audio]: hasVariant($state, "postType", "audio"),
-              [sty.imgpostType_image]: hasVariant($state, "postType", "image"),
-              [sty.imgpostType_video]: hasVariant($state, "postType", "video")
-            })}
-            displayHeight={"auto"}
-            displayMaxHeight={"50%"}
-            displayMaxWidth={"50%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={"auto"}
-            loading={"lazy"}
-            src={(() => {
-              try {
-                return $props.image2;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
+          displayHeight={"auto"}
+          displayMaxHeight={"80%"}
+          displayMaxWidth={"80%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={
+            hasVariant($state, "postType", "image") ? "100%" : "auto"
+          }
+          loading={"lazy"}
+          src={(() => {
+            try {
+              return $props.image2;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
               }
-            })()}
-          />
-        </div>
+              throw e;
+            }
+          })()}
+          width={``}
+        />
+
         <div
           className={classNames(projectcss.all, sty.freeBox__t44Wv, {
             [sty.freeBoxpostType_audio__t44Wv3CTnO]: hasVariant(
@@ -636,14 +644,12 @@ const PlasmicDescendants = {
     "root",
     "lineClompTitle",
     "lineClompText",
-    "image3",
     "img",
     "htmlVideo",
     "audioPlayer"
   ],
   lineClompTitle: ["lineClompTitle"],
   lineClompText: ["lineClompText"],
-  image3: ["image3", "img"],
   img: ["img"],
   htmlVideo: ["htmlVideo"],
   audioPlayer: ["audioPlayer"]
@@ -655,7 +661,6 @@ type NodeDefaultElementType = {
   root: "div";
   lineClompTitle: typeof LineClomp;
   lineClompText: typeof LineClomp;
-  image3: "div";
   img: typeof PlasmicImg__;
   htmlVideo: typeof Video;
   audioPlayer: typeof AudioPlayer;
@@ -723,7 +728,6 @@ export const PlasmicPost2ForSocialMain = Object.assign(
     // Helper components rendering sub-elements
     lineClompTitle: makeNodeComponent("lineClompTitle"),
     lineClompText: makeNodeComponent("lineClompText"),
-    image3: makeNodeComponent("image3"),
     img: makeNodeComponent("img"),
     htmlVideo: makeNodeComponent("htmlVideo"),
     audioPlayer: makeNodeComponent("audioPlayer"),

@@ -215,6 +215,31 @@ function PlasmicMain__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.setting
+      },
+      {
+        path: "settingCycle4.editTime",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "mainPage.editTime",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.settingCycle4.editTime;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -265,6 +290,24 @@ function PlasmicMain__RenderFunc(props: {
               data-plasmic-name={"mainPage"}
               data-plasmic-override={overrides.mainPage}
               className={classNames("__wab_instance", sty.mainPage)}
+              editTime={generateStateValueProp($state, [
+                "mainPage",
+                "editTime"
+              ])}
+              onEditTimeChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "mainPage",
+                  "editTime"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               page={(() => {
                 try {
                   return $state.footerMain.type;
@@ -528,6 +571,10 @@ function PlasmicMain__RenderFunc(props: {
                   "setting"
                 )
               })}
+              editTime={generateStateValueProp($state, [
+                "settingCycle4",
+                "editTime"
+              ])}
               onBack={async event => {
                 const $steps = {};
 
@@ -555,6 +602,20 @@ function PlasmicMain__RenderFunc(props: {
                   typeof $steps["updateSetting"].then === "function"
                 ) {
                   $steps["updateSetting"] = await $steps["updateSetting"];
+                }
+              }}
+              onEditTimeChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "settingCycle4",
+                  "editTime"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
                 }
               }}
             />
