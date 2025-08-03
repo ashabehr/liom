@@ -65,6 +65,8 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import MainPage from "../../MainPage"; // plasmic-import: mwylH28Efyne/component
 import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
 import FooterMain from "../../FooterMain"; // plasmic-import: ev8_tr4YKTDz/component
+import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
+import SettingCycle4 from "../../SettingCycle4"; // plasmic-import: C5hqeG28n8GP/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -77,10 +79,14 @@ import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHd
 
 createPlasmicElementProxy;
 
-export type PlasmicMain__VariantMembers = {};
-export type PlasmicMain__VariantsArgs = {};
+export type PlasmicMain__VariantMembers = {
+  setting: "setting";
+};
+export type PlasmicMain__VariantsArgs = {
+  setting?: SingleBooleanChoiceArg<"setting">;
+};
 type VariantPropType = keyof PlasmicMain__VariantsArgs;
-export const PlasmicMain__VariantProps = new Array<VariantPropType>();
+export const PlasmicMain__VariantProps = new Array<VariantPropType>("setting");
 
 export type PlasmicMain__ArgsType = {};
 type ArgPropType = keyof PlasmicMain__ArgsType;
@@ -88,12 +94,15 @@ export const PlasmicMain__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicMain__OverridesType = {
   root?: Flex__<"div">;
+  main?: Flex__<"div">;
   mainPage?: Flex__<typeof MainPage>;
   mainHeader?: Flex__<typeof MainHeader>;
   freeBox?: Flex__<"div">;
   svg?: Flex__<"svg">;
   text?: Flex__<"div">;
   footerMain?: Flex__<typeof FooterMain>;
+  reveal?: Flex__<typeof Reveal>;
+  settingCycle4?: Flex__<typeof SettingCycle4>;
 };
 
 export interface DefaultMainProps {}
@@ -200,6 +209,12 @@ function PlasmicMain__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "setting",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.setting
       }
     ],
     [$props, $ctx, $refs]
@@ -235,178 +250,75 @@ function PlasmicMain__RenderFunc(props: {
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
-            sty.root
+            sty.root,
+            { [sty.rootsetting]: hasVariant($state, "setting", "setting") }
           )}
         >
-          <MainPage
-            data-plasmic-name={"mainPage"}
-            data-plasmic-override={overrides.mainPage}
-            className={classNames("__wab_instance", sty.mainPage)}
-            page={(() => {
-              try {
-                return $state.footerMain.type;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return [];
+          <div
+            data-plasmic-name={"main"}
+            data-plasmic-override={overrides.main}
+            className={classNames(projectcss.all, sty.main, {
+              [sty.mainsetting]: hasVariant($state, "setting", "setting")
+            })}
+          >
+            <MainPage
+              data-plasmic-name={"mainPage"}
+              data-plasmic-override={overrides.mainPage}
+              className={classNames("__wab_instance", sty.mainPage)}
+              page={(() => {
+                try {
+                  return $state.footerMain.type;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()}
-          />
+              })()}
+              setting={async () => {
+                const $steps = {};
 
-          <section className={classNames(projectcss.all, sty.section__n8IXm)}>
-            <MainHeader
-              data-plasmic-name={"mainHeader"}
-              data-plasmic-override={overrides.mainHeader}
-              className={classNames("__wab_instance", sty.mainHeader)}
-              dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
-              onDopenChange2={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "mainHeader",
-                  "dopen"
-                ]).apply(null, eventArgs);
+                $steps["updateSetting"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "setting",
+                        operation: 2,
+                        value: "setting"
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
 
+                        const oldValue = $stateGet($state, vgroup);
+                        $stateSet($state, vgroup, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
                 if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
+                  $steps["updateSetting"] != null &&
+                  typeof $steps["updateSetting"] === "object" &&
+                  typeof $steps["updateSetting"].then === "function"
                 ) {
-                  return;
+                  $steps["updateSetting"] = await $steps["updateSetting"];
                 }
               }}
-              token={(() => {
-                try {
-                  return localStorage.getItem("token");
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              userinfo={(() => {
-                try {
-                  return JSON.parse(window.localStorage.getItem("userinfo"))
-                    .user;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return {};
-                  }
-                  throw e;
-                }
-              })()}
-            >
-              <div
-                data-plasmic-name={"freeBox"}
-                data-plasmic-override={overrides.freeBox}
-                className={classNames(projectcss.all, sty.freeBox)}
-              >
-                <Icon185Icon
-                  data-plasmic-name={"svg"}
-                  data-plasmic-override={overrides.svg}
-                  className={classNames(projectcss.all, sty.svg)}
-                  onClick={async event => {
-                    const $steps = {};
+            />
 
-                    $steps["updateMainHeaderDopen"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["mainHeader", "dopen"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateMainHeaderDopen"] != null &&
-                      typeof $steps["updateMainHeaderDopen"] === "object" &&
-                      typeof $steps["updateMainHeaderDopen"].then === "function"
-                    ) {
-                      $steps["updateMainHeaderDopen"] = await $steps[
-                        "updateMainHeaderDopen"
-                      ];
-                    }
-                  }}
-                  role={"img"}
-                />
-
-                <div
-                  data-plasmic-name={"text"}
-                  data-plasmic-override={overrides.text}
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text
-                  )}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return $state.page.find(
-                          item => item.name == $state.footerMain.type
-                        ).namefa;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647";
-                        }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </div>
-              </div>
-            </MainHeader>
-          </section>
-          <section className={classNames(projectcss.all, sty.section__vtIx7)}>
-            {(() => {
-              const child$Props = {
-                className: classNames("__wab_instance", sty.footerMain),
-                footer2: (() => {
-                  try {
-                    return $state.footerMain.type;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "calendar";
-                    }
-                    throw e;
-                  }
-                })(),
-                onTypeChange: async (...eventArgs: any) => {
+            <section className={classNames(projectcss.all, sty.section__n8IXm)}>
+              <MainHeader
+                data-plasmic-name={"mainHeader"}
+                data-plasmic-override={overrides.mainHeader}
+                className={classNames("__wab_instance", sty.mainHeader)}
+                dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
+                onDopenChange2={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
-                    "footerMain",
-                    "type"
+                    "mainHeader",
+                    "dopen"
                   ]).apply(null, eventArgs);
 
                   if (
@@ -416,45 +328,237 @@ function PlasmicMain__RenderFunc(props: {
                   ) {
                     return;
                   }
-                },
-                type: generateStateValueProp($state, ["footerMain", "type"])
-              };
+                }}
+                token={(() => {
+                  try {
+                    return localStorage.getItem("token");
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                userinfo={(() => {
+                  try {
+                    return JSON.parse(window.localStorage.getItem("userinfo"))
+                      .user;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return {};
+                    }
+                    throw e;
+                  }
+                })()}
+              >
+                <div
+                  data-plasmic-name={"freeBox"}
+                  data-plasmic-override={overrides.freeBox}
+                  className={classNames(projectcss.all, sty.freeBox)}
+                >
+                  <Icon185Icon
+                    data-plasmic-name={"svg"}
+                    data-plasmic-override={overrides.svg}
+                    className={classNames(projectcss.all, sty.svg)}
+                    onClick={async event => {
+                      const $steps = {};
 
-              initializePlasmicStates(
-                $state,
-                [
-                  {
-                    name: "footerMain.type",
-                    initFunc: ({ $props, $state, $queries }) =>
-                      (() => {
+                      $steps["updateMainHeaderDopen"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["mainHeader", "dopen"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateMainHeaderDopen"] != null &&
+                        typeof $steps["updateMainHeaderDopen"] === "object" &&
+                        typeof $steps["updateMainHeaderDopen"].then ===
+                          "function"
+                      ) {
+                        $steps["updateMainHeaderDopen"] = await $steps[
+                          "updateMainHeaderDopen"
+                        ];
+                      }
+                    }}
+                    role={"img"}
+                  />
+
+                  <div
+                    data-plasmic-name={"text"}
+                    data-plasmic-override={overrides.text}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
                         try {
-                          return (
-                            window.sessionStorage.getItem("footer") ||
-                            "calendar"
-                          );
+                          return $state.page.find(
+                            item => item.name == $state.footerMain.type
+                          ).namefa;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return undefined;
+                            return "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647";
                           }
                           throw e;
                         }
-                      })()
-                  }
-                ],
-                []
-              );
-              return (
-                <FooterMain
-                  data-plasmic-name={"footerMain"}
-                  data-plasmic-override={overrides.footerMain}
-                  {...child$Props}
-                />
-              );
-            })()}
-          </section>
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </div>
+              </MainHeader>
+            </section>
+            <section className={classNames(projectcss.all, sty.section__vtIx7)}>
+              {(() => {
+                const child$Props = {
+                  className: classNames("__wab_instance", sty.footerMain),
+                  footer2: (() => {
+                    try {
+                      return $state.footerMain.type;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "calendar";
+                      }
+                      throw e;
+                    }
+                  })(),
+                  onTypeChange: async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "footerMain",
+                      "type"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  },
+                  type: generateStateValueProp($state, ["footerMain", "type"])
+                };
+
+                initializePlasmicStates(
+                  $state,
+                  [
+                    {
+                      name: "footerMain.type",
+                      initFunc: ({ $props, $state, $queries }) =>
+                        (() => {
+                          try {
+                            return (
+                              window.sessionStorage.getItem("footer") ||
+                              "calendar"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                    }
+                  ],
+                  []
+                );
+                return (
+                  <FooterMain
+                    data-plasmic-name={"footerMain"}
+                    data-plasmic-override={overrides.footerMain}
+                    {...child$Props}
+                  />
+                );
+              })()}
+            </section>
+          </div>
+          <Reveal
+            data-plasmic-name={"reveal"}
+            data-plasmic-override={overrides.reveal}
+            className={classNames("__wab_instance", sty.reveal, {
+              [sty.revealsetting]: hasVariant($state, "setting", "setting")
+            })}
+            damping={0.3}
+            triggerOnce={true}
+          >
+            <SettingCycle4
+              data-plasmic-name={"settingCycle4"}
+              data-plasmic-override={overrides.settingCycle4}
+              className={classNames("__wab_instance", sty.settingCycle4, {
+                [sty.settingCycle4setting]: hasVariant(
+                  $state,
+                  "setting",
+                  "setting"
+                )
+              })}
+              onBack={async event => {
+                const $steps = {};
+
+                $steps["updateSetting"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "setting",
+                        operation: 2,
+                        value: "setting"
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        const oldValue = $stateGet($state, vgroup);
+                        $stateSet($state, vgroup, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateSetting"] != null &&
+                  typeof $steps["updateSetting"] === "object" &&
+                  typeof $steps["updateSetting"].then === "function"
+                ) {
+                  $steps["updateSetting"] = await $steps["updateSetting"];
+                }
+              }}
+            />
+          </Reveal>
         </div>
       </div>
     </React.Fragment>
@@ -464,6 +568,18 @@ function PlasmicMain__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "main",
+    "mainPage",
+    "mainHeader",
+    "freeBox",
+    "svg",
+    "text",
+    "footerMain",
+    "reveal",
+    "settingCycle4"
+  ],
+  main: [
+    "main",
     "mainPage",
     "mainHeader",
     "freeBox",
@@ -476,19 +592,24 @@ const PlasmicDescendants = {
   freeBox: ["freeBox", "svg", "text"],
   svg: ["svg"],
   text: ["text"],
-  footerMain: ["footerMain"]
+  footerMain: ["footerMain"],
+  reveal: ["reveal", "settingCycle4"],
+  settingCycle4: ["settingCycle4"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  main: "div";
   mainPage: typeof MainPage;
   mainHeader: typeof MainHeader;
   freeBox: "div";
   svg: "svg";
   text: "div";
   footerMain: typeof FooterMain;
+  reveal: typeof Reveal;
+  settingCycle4: typeof SettingCycle4;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -576,12 +697,15 @@ export const PlasmicMain = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    main: makeNodeComponent("main"),
     mainPage: makeNodeComponent("mainPage"),
     mainHeader: makeNodeComponent("mainHeader"),
     freeBox: makeNodeComponent("freeBox"),
     svg: makeNodeComponent("svg"),
     text: makeNodeComponent("text"),
     footerMain: makeNodeComponent("footerMain"),
+    reveal: makeNodeComponent("reveal"),
+    settingCycle4: makeNodeComponent("settingCycle4"),
 
     // Metadata about props expected for PlasmicMain
     internalVariantProps: PlasmicMain__VariantProps,

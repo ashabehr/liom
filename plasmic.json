@@ -2341,6 +2341,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/fdbdf"
+        },
+        {
+          "id": "C5hqeG28n8GP",
+          "name": "SettingCycle4",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSettingCycle4.tsx",
+          "importSpec": {
+            "modulePath": "SettingCycle4.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSettingCycle4.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

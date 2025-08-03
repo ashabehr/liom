@@ -239,6 +239,7 @@ function PlasmicTask__RenderFunc(props: {
                         opId: "342ec85c-bc89-4af7-8b92-b1244d0086c5",
                         userArgs: {
                           conditions: [$props.task.id],
+
                           variables: [!$props.task.done]
                         },
                         cacheKey: null,
@@ -385,6 +386,7 @@ function PlasmicTask__RenderFunc(props: {
                           opId: "6fad910c-3cd1-4a28-acd1-d3477dc97e34",
                           userArgs: {
                             conditions: [$props.task.id],
+
                             variables: [$state.textbox.value]
                           },
                           cacheKey: null,
@@ -465,6 +467,7 @@ function PlasmicTask__RenderFunc(props: {
                         opId: "fdbedbce-391e-447f-80d6-ebc8d6cfbf2b",
                         userArgs: {
                           variables: [$state.textbox.value],
+
                           conditions: [$props.task.id]
                         },
                         cacheKey: null,

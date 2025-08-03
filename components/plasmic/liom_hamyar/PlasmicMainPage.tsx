@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import Calendar2 from "../../Calendar2"; // plasmic-import: g_La9K58nhrs/component
 import SelfCare2 from "../../SelfCare2"; // plasmic-import: q5NYbKztjYXR/component
 
@@ -80,9 +81,9 @@ export type PlasmicMainPage__VariantsArgs = {
 type VariantPropType = keyof PlasmicMainPage__VariantsArgs;
 export const PlasmicMainPage__VariantProps = new Array<VariantPropType>("page");
 
-export type PlasmicMainPage__ArgsType = {};
+export type PlasmicMainPage__ArgsType = { setting?: () => void };
 type ArgPropType = keyof PlasmicMainPage__ArgsType;
-export const PlasmicMainPage__ArgProps = new Array<ArgPropType>();
+export const PlasmicMainPage__ArgProps = new Array<ArgPropType>("setting");
 
 export type PlasmicMainPage__OverridesType = {
   root?: Flex__<"div">;
@@ -91,6 +92,7 @@ export type PlasmicMainPage__OverridesType = {
 };
 
 export interface DefaultMainPageProps {
+  setting?: () => void;
   page?: SingleChoiceArg<"calendar" | "self">;
   className?: string;
 }
@@ -169,26 +171,65 @@ function PlasmicMainPage__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
-        { [sty.rootpage_calendar]: hasVariant($state, "page", "calendar") }
+        {
+          [sty.rootpage_calendar]: hasVariant($state, "page", "calendar"),
+          [sty.rootpage_self]: hasVariant($state, "page", "self")
+        }
       )}
     >
-      <Calendar2
-        data-plasmic-name={"calendar2"}
-        data-plasmic-override={overrides.calendar2}
-        className={classNames("__wab_instance", sty.calendar2, {
-          [sty.calendar2page_calendar]: hasVariant($state, "page", "calendar"),
-          [sty.calendar2page_self]: hasVariant($state, "page", "self")
+      <Reveal
+        className={classNames("__wab_instance", sty.reveal__j5Oz, {
+          [sty.revealpage_calendar__j5OzWAq1O]: hasVariant(
+            $state,
+            "page",
+            "calendar"
+          ),
+          [sty.revealpage_self__j5OzL9LaN]: hasVariant($state, "page", "self")
         })}
-      />
-
-      <SelfCare2
-        data-plasmic-name={"selfCare2"}
-        data-plasmic-override={overrides.selfCare2}
-        className={classNames("__wab_instance", sty.selfCare2, {
-          [sty.selfCare2page_calendar]: hasVariant($state, "page", "calendar"),
-          [sty.selfCare2page_self]: hasVariant($state, "page", "self")
+        damping={0.3}
+        effect={hasVariant($state, "page", "calendar") ? "fade" : "fade"}
+        triggerOnce={true}
+      >
+        <Calendar2
+          data-plasmic-name={"calendar2"}
+          data-plasmic-override={overrides.calendar2}
+          className={classNames("__wab_instance", sty.calendar2, {
+            [sty.calendar2page_calendar]: hasVariant(
+              $state,
+              "page",
+              "calendar"
+            ),
+            [sty.calendar2page_self]: hasVariant($state, "page", "self")
+          })}
+          setting={args.setting}
+        />
+      </Reveal>
+      <Reveal
+        className={classNames("__wab_instance", sty.reveal___7EWm4, {
+          [sty.revealpage_calendar___7EWm4WAq1O]: hasVariant(
+            $state,
+            "page",
+            "calendar"
+          ),
+          [sty.revealpage_self___7EWm4L9LaN]: hasVariant($state, "page", "self")
         })}
-      />
+        damping={0.3}
+        effect={"fade"}
+        triggerOnce={true}
+      >
+        <SelfCare2
+          data-plasmic-name={"selfCare2"}
+          data-plasmic-override={overrides.selfCare2}
+          className={classNames("__wab_instance", sty.selfCare2, {
+            [sty.selfCare2page_calendar]: hasVariant(
+              $state,
+              "page",
+              "calendar"
+            ),
+            [sty.selfCare2page_self]: hasVariant($state, "page", "self")
+          })}
+        />
+      </Reveal>
     </div>
   ) as React.ReactElement | null;
 }

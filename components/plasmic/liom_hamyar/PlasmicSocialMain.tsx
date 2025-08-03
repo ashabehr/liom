@@ -1241,7 +1241,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                             window.document.documentElement;
                           const { innerHeight } = window;
                           const isNearBottom =
-                            scrollTop + innerHeight >= scrollHeight - 50;
+                            scrollTop + innerHeight >= scrollHeight - 150;
                           if (isNearBottom) {
                             $state.isloding = true;
                           }

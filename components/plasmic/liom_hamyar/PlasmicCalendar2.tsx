@@ -113,9 +113,9 @@ export const PlasmicCalendar2__VariantProps = new Array<VariantPropType>(
   "lackOfCourseInformation"
 );
 
-export type PlasmicCalendar2__ArgsType = {};
+export type PlasmicCalendar2__ArgsType = { setting?: () => void };
 type ArgPropType = keyof PlasmicCalendar2__ArgsType;
-export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>();
+export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>("setting");
 
 export type PlasmicCalendar2__OverridesType = {
   root?: Flex__<"div">;
@@ -161,6 +161,7 @@ export type PlasmicCalendar2__OverridesType = {
 };
 
 export interface DefaultCalendar2Props {
+  setting?: () => void;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   className?: string;
 }
@@ -11916,13 +11917,9 @@ function PlasmicCalendar2__RenderFunc(props: {
 
               $steps["goToSettingPregnancy2"] = true
                 ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return window.open(`/setting-cycle?type=add`, "_self");
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
+                    const actionArgs = { eventRef: $props["setting"] };
+                    return (({ eventRef, args }) => {
+                      return eventRef?.(...(args ?? []));
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
@@ -17033,35 +17030,22 @@ function PlasmicCalendar2__RenderFunc(props: {
                             $steps["runCode"] = await $steps["runCode"];
                           }
 
-                          $steps["goToPage"] = true
+                          $steps["runSetting"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  customFunction: async () => {
-                                    return window.open(
-                                      `/setting-cycle?type=edit&cycle=${
-                                        $state.userInfo.result.userStatus.cycle
-                                      }&length=${
-                                        $state.userInfo.result.userStatus.length
-                                      }&last_time=${
-                                        $state.userInfo.result.userStatus.periodStart.split(
-                                          "T"
-                                        )[0]
-                                      }`,
-                                      "_self"
-                                    );
-                                  }
+                                  eventRef: $props["setting"]
                                 };
-                                return (({ customFunction }) => {
-                                  return customFunction();
+                                return (({ eventRef, args }) => {
+                                  return eventRef?.(...(args ?? []));
                                 })?.apply(null, [actionArgs]);
                               })()
                             : undefined;
                           if (
-                            $steps["goToPage"] != null &&
-                            typeof $steps["goToPage"] === "object" &&
-                            typeof $steps["goToPage"].then === "function"
+                            $steps["runSetting"] != null &&
+                            typeof $steps["runSetting"] === "object" &&
+                            typeof $steps["runSetting"].then === "function"
                           ) {
-                            $steps["goToPage"] = await $steps["goToPage"];
+                            $steps["runSetting"] = await $steps["runSetting"];
                           }
 
                           $steps["invokeGlobalAction"] = true
