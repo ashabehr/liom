@@ -10,47 +10,32 @@ export const BackHandler = ({ onBack, active = true }: BackHandlerProps) => {
   const hasPushedRef = useRef(false);
 
   useEffect(() => {
-    console.log("BackHandler useEffect called");
-    console.log("active:", active);
-
-    if (typeof window === "undefined") {
-      console.log("window is undefined, exiting effect");
-      return;
-    }
-    if (!active) {
-      console.log("active is false, exiting effect");
-      return;
-    }
+    if (typeof window === "undefined" || !active) return;
 
     const handlePopState = (e: PopStateEvent) => {
-      console.log("popstate triggered", e);
+      console.log("[BackHandler] popstate triggered", e.state);
+
       if (e.state?.isCustom) {
-        console.log("Custom popstate detected");
-        if (onBack) {
-          console.log("Calling onBack");
-          onBack();
-        } else {
-          console.log("onBack not provided");
-        }
+        console.log("[BackHandler] onBack called");
+        onBack?.();
         window.history.pushState({ isCustom: true }, "");
       } else {
-        console.log("Not a custom state:", e.state);
+        console.log("[BackHandler] not a custom popstate", e.state);
       }
     };
 
     if (!hasPushedRef.current) {
-      console.log("Pushing initial custom state to history");
+      console.log("[BackHandler] pushing 2 custom states");
+      // Push two entries to create a real back point
+      window.history.pushState({ isCustom: false }, "");
       window.history.pushState({ isCustom: true }, "");
       hasPushedRef.current = true;
     } else {
-      console.log("Already pushed custom state, skipping");
+      console.log("[BackHandler] already initialized");
     }
 
     window.addEventListener("popstate", handlePopState);
-    console.log("popstate listener added");
-
     return () => {
-      console.log("Cleaning up popstate listener");
       window.removeEventListener("popstate", handlePopState);
     };
   }, [onBack, active]);
