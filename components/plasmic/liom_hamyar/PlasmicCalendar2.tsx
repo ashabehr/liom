@@ -1299,7 +1299,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                   viowBox: "0 0 32 32",
                   color: "#FFDAD6",
                   bigTitle: "clinic",
-                  btnText: "َشروع گفتگو",
+                  btnText: "شروع گفتگو",
                   title: "پزشک هوشمند",
                   text: "سوالات پزشکی خودتون رو از پزشک هوشمند لیوم بپرسید",
                   action: "#chatBot"

@@ -3546,62 +3546,36 @@ function PlasmicHamyar__RenderFunc(props: {
                                 sty.text__nYZk9
                               )}
                             >
-                              {hasVariant(
-                                globalVariants,
-                                "screen",
-                                "mobile"
-                              ) ? (
-                                <div
-                                  className={projectcss.__wab_expr_html_text}
-                                  dangerouslySetInnerHTML={{
-                                    __html: (() => {
-                                      try {
-                                        return "ارسال یادآوری";
-                                      } catch (e) {
+                              <div
+                                className={projectcss.__wab_expr_html_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: (() => {
+                                    try {
+                                      return (() => {
                                         if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  }}
-                                />
-                              ) : (
-                                <div
-                                  className={projectcss.__wab_expr_html_text}
-                                  dangerouslySetInnerHTML={{
-                                    __html: (() => {
-                                      try {
-                                        return (() => {
-                                          if (
-                                            !(
-                                              $state.userdata.result.user
-                                                .husbandSmsSubStatus ||
-                                              $state.userdata.result.user
-                                                .motherSmsSubStatus
-                                            )
+                                          !(
+                                            $state.userdata.result.user
+                                              .husbandSmsSubStatus ||
+                                            $state.userdata.result.user
+                                              .motherSmsSubStatus
                                           )
-                                            return "ارسال یادآوری";
-                                          else return "ارسال توصیه";
-                                        })();
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
-                                        }
-                                        throw e;
+                                        )
+                                          return "ارسال یادآوری";
+                                        else return "ارسال توصیه";
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
                                       }
-                                    })()
-                                  }}
-                                />
-                              )}
+                                      throw e;
+                                    }
+                                  })()
+                                }}
+                              />
                             </div>
                           </div>
                           {(() => {
@@ -3630,93 +3604,56 @@ function PlasmicHamyar__RenderFunc(props: {
                                   sty.text__uZrM0
                                 )}
                               >
-                                {hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                ) ? (
-                                  <div
-                                    className={projectcss.__wab_expr_html_text}
-                                    dangerouslySetInnerHTML={{
-                                      __html: (() => {
-                                        try {
-                                          return (
-                                            `علاوه بر تغییرات <b>چرخه قاعدگیش،</b> توصیه‌هایی می‌فرستم که <b>بدونی چیکار کنی</b>. ` +
-                                            `<b>` +
-                                            (function () {
-                                              var name = $state.name;
-                                              return name.length > 10
-                                                ? name.substring(0, 10) + "..."
-                                                : name;
-                                            })() +
-                                            `</b>` +
-                                            ` هم <b>پیامک می‌گیره</b> تا حواسش به <b>رابطه‌تون</b> باشه و <b>خودش رو کنترل کنه</b>. اینطوری <b>رابطه شادتری دارید</b>.`
-                                          );
-                                        } catch (e) {
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return (() => {
                                           if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u06a9\u0647 <b>\u0631\u0627\u062d\u062a\u200c\u062a\u0631 <b/>\u0628\u062a\u0648\u0646\u06cc \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0648 \u0645\u0631\u0627\u0642\u0628\u0634 \u0628\u0627\u0634\u06cc. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0628\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631 \u0645\u06cc\u0627\u06cc\u062f \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u0646.";
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    }}
-                                  />
-                                ) : (
-                                  <div
-                                    className={projectcss.__wab_expr_html_text}
-                                    dangerouslySetInnerHTML={{
-                                      __html: (() => {
-                                        try {
-                                          return (() => {
-                                            if (
-                                              !(
-                                                $state.userdata.result.user
-                                                  .husbandSmsSubStatus ||
-                                                $state.userdata.result.user
-                                                  .motherSmsSubStatus
-                                              )
+                                            !(
+                                              $state.userdata.result.user
+                                                .husbandSmsSubStatus ||
+                                              $state.userdata.result.user
+                                                .motherSmsSubStatus
                                             )
-                                              return (
-                                                `علاوه بر تغییرات <b>چرخه قاعدگیش،</b> توصیه‌هایی می‌فرستم که <b>بدونی چیکار کنی</b>. ` +
-                                                `<b>` +
-                                                (function () {
-                                                  var name = $state.name;
-                                                  return name.length > 10
-                                                    ? name.substring(0, 10) +
-                                                        "..."
-                                                    : name;
-                                                })() +
-                                                `</b>` +
-                                                ` هم <b>پیامک می‌گیره</b> تا حواسش به <b>رابطه‌تون</b> باشه و <b>خودش رو کنترل کنه</b>. اینطوری <b>رابطه شادتری دارید</b>.`
-                                              );
-                                            else
-                                              return `
+                                          )
+                                            return (
+                                              `علاوه بر تغییرات <b>چرخه قاعدگیش،</b> توصیه‌هایی می‌فرستم که <b>بدونی چیکار کنی</b>. ` +
+                                              `<b>` +
+                                              (function () {
+                                                var name = $state.name;
+                                                return name.length > 10
+                                                  ? name.substring(0, 10) +
+                                                      "..."
+                                                  : name;
+                                              })() +
+                                              `</b>` +
+                                              ` هم <b>پیامک می‌گیره</b> تا حواسش به <b>رابطه‌تون</b> باشه و <b>خودش رو کنترل کنه</b>. اینطوری <b>رابطه شادتری دارید</b>.`
+                                            );
+                                          else
+                                            return `
 <div style="color: green;">
-  <b>{{ $state.name }}</b> اشتراک یادآوری رو فعال کرده.
+  <b>${$state.name}</b> اشتراک یادآوری رو فعال کرده.
 </div>
 <p>
   اگه می‌خوای برای همیارت هم توصیه‌هایی بفرستم که حواسش به رابطه‌تون باشه و رفتارشو کنترل کنه، اشتراک توصیه فعال کن.
 </p>
 `;
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u06a9\u0647 <b>\u0631\u0627\u062d\u062a\u200c\u062a\u0631 <b/>\u0628\u062a\u0648\u0646\u06cc \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0648 \u0645\u0631\u0627\u0642\u0628\u0634 \u0628\u0627\u0634\u06cc. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0628\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631 \u0645\u06cc\u0627\u06cc\u062f \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u0646.";
-                                          }
-                                          throw e;
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u06a9\u0647 <b>\u0631\u0627\u062d\u062a\u200c\u062a\u0631 <b/>\u0628\u062a\u0648\u0646\u06cc \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0648 \u0645\u0631\u0627\u0642\u0628\u0634 \u0628\u0627\u0634\u06cc. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0628\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631 \u0645\u06cc\u0627\u06cc\u062f \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u0646.";
                                         }
-                                      })()
-                                    }}
-                                  />
-                                )}
+                                        throw e;
+                                      }
+                                    })()
+                                  }}
+                                />
                               </div>
                               <div
                                 className={classNames(
