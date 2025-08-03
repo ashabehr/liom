@@ -66,6 +66,7 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
+import { BackHandler } from "@/components/BackHandler"; // plasmic-import: wpIQCsQJqUoV/codeComponent
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -128,6 +129,7 @@ export type PlasmicSettingCycle4__OverridesType = {
   dialog4?: Flex__<typeof Dialog>;
   pickers4?: Flex__<typeof Pickers>;
   button6?: Flex__<typeof Button>;
+  backHandler?: Flex__<typeof BackHandler>;
 };
 
 export interface DefaultSettingCycle4Props {
@@ -3729,6 +3731,31 @@ function PlasmicSettingCycle4__RenderFunc(props: {
           </div>
         </div>
       </Dialog>
+      <BackHandler
+        data-plasmic-name={"backHandler"}
+        data-plasmic-override={overrides.backHandler}
+        active={true}
+        className={classNames("__wab_instance", sty.backHandler)}
+        onBack={async () => {
+          const $steps = {};
+
+          $steps["runOnBack"] = true
+            ? (() => {
+                const actionArgs = { eventRef: $props["onBack"] };
+                return (({ eventRef, args }) => {
+                  return eventRef?.(...(args ?? []));
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runOnBack"] != null &&
+            typeof $steps["runOnBack"] === "object" &&
+            typeof $steps["runOnBack"].then === "function"
+          ) {
+            $steps["runOnBack"] = await $steps["runOnBack"];
+          }
+        }}
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -3755,7 +3782,8 @@ const PlasmicDescendants = {
     "button5",
     "dialog4",
     "pickers4",
-    "button6"
+    "button6",
+    "backHandler"
   ],
   embedHtml: ["embedHtml"],
   sideEffect: ["sideEffect"],
@@ -3776,7 +3804,8 @@ const PlasmicDescendants = {
   button5: ["button5"],
   dialog4: ["dialog4", "pickers4", "button6"],
   pickers4: ["pickers4"],
-  button6: ["button6"]
+  button6: ["button6"],
+  backHandler: ["backHandler"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3803,6 +3832,7 @@ type NodeDefaultElementType = {
   dialog4: typeof Dialog;
   pickers4: typeof Pickers;
   button6: typeof Button;
+  backHandler: typeof BackHandler;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3885,6 +3915,7 @@ export const PlasmicSettingCycle4 = Object.assign(
     dialog4: makeNodeComponent("dialog4"),
     pickers4: makeNodeComponent("pickers4"),
     button6: makeNodeComponent("button6"),
+    backHandler: makeNodeComponent("backHandler"),
 
     // Metadata about props expected for PlasmicSettingCycle4
     internalVariantProps: PlasmicSettingCycle4__VariantProps,
