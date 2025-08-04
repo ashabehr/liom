@@ -2001,7 +2001,9 @@ function PlasmicSocialMain__RenderFunc(props: {
                         >
                           {(() => {
                             try {
-                              return currentItem == null;
+                              return (
+                                currentItem == null || $state.showRealPosts
+                              );
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -2022,7 +2024,9 @@ function PlasmicSocialMain__RenderFunc(props: {
                           ) : null}
                           {(() => {
                             try {
-                              return currentItem != null;
+                              return (
+                                currentItem != null || $state.showRealPosts
+                              );
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||

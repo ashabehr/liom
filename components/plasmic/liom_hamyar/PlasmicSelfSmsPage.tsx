@@ -714,7 +714,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
 
             {(() => {
               try {
-                return $state.getSub.loading && $state.loading;
+                return $state.getSub.loading || $state.loading;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -738,7 +738,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                 ? true
                 : (() => {
                     try {
-                      return !($state.getSub.loading && $state.loading);
+                      return !$state.getSub.loading || !$state.loading;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||

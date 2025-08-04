@@ -453,6 +453,7 @@
   max-width: 100%;
   margin-right: 8px;
   margin-left: 8px;
+  display: none;
 }
 .svg__tfJEh {
   position: relative;
@@ -491,7 +492,6 @@
   max-width: 100%;
   margin-right: 8px;
   margin-left: 8px;
-  display: none;
 }
 .svg__o6XTw {
   position: relative;
