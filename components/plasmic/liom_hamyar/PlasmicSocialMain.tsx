@@ -1967,7 +1967,7 @@ function PlasmicSocialMain__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                url={"https://n8n.staas.ir/webhook-test/rest/social"}
+                url={"https://n8n.staas.ir/webhook/rest/social"}
               >
                 <div className={classNames(projectcss.all, sty.freeBox__rjNb)}>
                   <div
