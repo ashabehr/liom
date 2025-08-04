@@ -3,44 +3,44 @@
 import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../../components/plasmic/todo_mvc_app/PlasmicGlobalContextsProvider";
-import { UnnamedGlobalGroupOfVariants4Context } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
-import { UnnamedGlobalGroupOfVariants5Context } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
-import { PlasmicSocial } from "../../components/plasmic/liom_hamyar/PlasmicSocial";
+import { UnnamedGlobalGroupOfVariants4ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
+import { UnnamedGlobalGroupOfVariants5ContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5";
+import { PlasmicShopItem } from "../../components/plasmic/liom_hamyar/PlasmicShopItem";
 import { useRouter } from "next/router";
 
-function Social() {
-  // Use PlasmicSocial to render this component as it was
+function ShopItem() {
+  // Use PlasmicShopItem to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicSocial are:
+  // Props you can pass into PlasmicShopItem are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicSocial is wrapped by your project's global
+  // By default, PlasmicShopItem is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
 
   return (
-    <UnnamedGlobalGroupOfVariants5Context.Provider value={undefined}>
-      <UnnamedGlobalGroupOfVariants4Context.Provider value={undefined}>
+    <UnnamedGlobalGroupOfVariants5ContextProvider value={undefined}>
+      <UnnamedGlobalGroupOfVariants4ContextProvider value={undefined}>
         <GlobalContextsProvider>
           <PageParamsProvider__
             route={useRouter()?.pathname}
             params={useRouter()?.query}
             query={useRouter()?.query}
           >
-            <PlasmicSocial />
+            <PlasmicShopItem />
           </PageParamsProvider__>
         </GlobalContextsProvider>
-      </UnnamedGlobalGroupOfVariants4Context.Provider>
-    </UnnamedGlobalGroupOfVariants5Context.Provider>
+      </UnnamedGlobalGroupOfVariants4ContextProvider>
+    </UnnamedGlobalGroupOfVariants5ContextProvider>
   );
 }
 
-export default Social;
+export default ShopItem;

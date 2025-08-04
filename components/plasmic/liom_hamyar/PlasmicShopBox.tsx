@@ -112,6 +112,7 @@ export type PlasmicShopBox__OverridesType = {
   input4?: Flex__<typeof AntdInput>;
   button12?: Flex__<typeof Button>;
   button8?: Flex__<typeof Button>;
+  button10?: Flex__<typeof Button>;
   p?: Flex__<"p">;
   dialog2?: Flex__<typeof Dialog3>;
   subscription3?: Flex__<typeof Subscription3>;
@@ -313,6 +314,12 @@ function PlasmicShopBox__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "button10.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -868,6 +875,102 @@ function PlasmicShopBox__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                if (
+                                  typeof window !== "undefined" &&
+                                  window.FlutterChannel &&
+                                  typeof window.FlutterChannel.postMessage ===
+                                    "function"
+                                )
+                                  return window.FlutterChannel.postMessage(
+                                    `#customSubscription-${$props.type}`
+                                  );
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button8", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__v8Rac
+                    )}
+                  >
+                    {"\u067e\u0631\u062f\u0627\u062e\u062a"}
+                  </div>
+                </Button>
+                <Button
+                  data-plasmic-name={"button10"}
+                  data-plasmic-override={overrides.button10}
+                  className={classNames("__wab_instance", sty.button10)}
+                  color={generateStateValueProp($state, ["button10", "color"])}
+                  endIcon={
+                    <Icon12Icon
+                      className={classNames(projectcss.all, sty.svg___2HxUt)}
+                      role={"img"}
+                    />
+                  }
+                  isDisabled={(() => {
+                    try {
+                      return $state.loading;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()}
+                  loading={(() => {
+                    try {
+                      return $state.loading;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()}
+                  onClick={async event => {
+                    const $steps = {};
+
                     $steps["updateLoading3"] = true
                       ? (() => {
                           const actionArgs = {
@@ -1081,7 +1184,7 @@ function PlasmicShopBox__RenderFunc(props: {
                   }}
                   onColorChange={async (...eventArgs: any) => {
                     ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button8", "color"])(
+                      generateStateOnChangeProp($state, ["button10", "color"])(
                         eventArgs[0]
                       );
                     }).apply(null, eventArgs);
@@ -1099,80 +1202,66 @@ function PlasmicShopBox__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__v8Rac
+                      sty.text__y32I5
                     )}
                   >
                     {"\u067e\u0631\u062f\u0627\u062e\u062a"}
                   </div>
                 </Button>
-                {(() => {
-                  try {
-                    return $state.shopDialog.data.result.shopList.length > 1;
-                  } catch (e) {
+                <p
+                  data-plasmic-name={"p"}
+                  data-plasmic-override={overrides.p}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.p,
+                    projectcss.__wab_text,
+                    sty.p
+                  )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDialog2Opendialog"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dialog2", "opendialog"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                     if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
+                      $steps["updateDialog2Opendialog"] != null &&
+                      typeof $steps["updateDialog2Opendialog"] === "object" &&
+                      typeof $steps["updateDialog2Opendialog"].then ===
+                        "function"
                     ) {
-                      return true;
+                      $steps["updateDialog2Opendialog"] = await $steps[
+                        "updateDialog2Opendialog"
+                      ];
                     }
-                    throw e;
+                  }}
+                >
+                  {
+                    "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
                   }
-                })() ? (
-                  <p
-                    data-plasmic-name={"p"}
-                    data-plasmic-override={overrides.p}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.p,
-                      projectcss.__wab_text,
-                      sty.p
-                    )}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateDialog2Opendialog"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["dialog2", "opendialog"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateDialog2Opendialog"] != null &&
-                        typeof $steps["updateDialog2Opendialog"] === "object" &&
-                        typeof $steps["updateDialog2Opendialog"].then ===
-                          "function"
-                      ) {
-                        $steps["updateDialog2Opendialog"] = await $steps[
-                          "updateDialog2Opendialog"
-                        ];
-                      }
-                    }}
-                  >
-                    {
-                      "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
-                    }
-                  </p>
-                ) : null}
+                </p>
               </div>
             </div>
           </div>
@@ -1794,6 +1883,7 @@ const PlasmicDescendants = {
     "input4",
     "button12",
     "button8",
+    "button10",
     "p",
     "dialog2",
     "subscription3",
@@ -1805,6 +1895,7 @@ const PlasmicDescendants = {
     "input4",
     "button12",
     "button8",
+    "button10",
     "p",
     "dialog2",
     "subscription3",
@@ -1814,6 +1905,7 @@ const PlasmicDescendants = {
   input4: ["input4"],
   button12: ["button12"],
   button8: ["button8"],
+  button10: ["button10"],
   p: ["p"],
   dialog2: ["dialog2", "subscription3", "button9"],
   subscription3: ["subscription3"],
@@ -1829,6 +1921,7 @@ type NodeDefaultElementType = {
   input4: typeof AntdInput;
   button12: typeof Button;
   button8: typeof Button;
+  button10: typeof Button;
   p: "p";
   dialog2: typeof Dialog3;
   subscription3: typeof Subscription3;
@@ -1900,6 +1993,7 @@ export const PlasmicShopBox = Object.assign(
     input4: makeNodeComponent("input4"),
     button12: makeNodeComponent("button12"),
     button8: makeNodeComponent("button8"),
+    button10: makeNodeComponent("button10"),
     p: makeNodeComponent("p"),
     dialog2: makeNodeComponent("dialog2"),
     subscription3: makeNodeComponent("subscription3"),

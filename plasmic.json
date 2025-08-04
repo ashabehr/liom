@@ -1755,20 +1755,6 @@
           "path": "/web-viow"
         },
         {
-          "id": "tYS7qTEXu2fL",
-          "name": "Social",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSocial.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/new-page.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSocial.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/new-page"
-        },
-        {
           "id": "dIQxBnzf8Ez0",
           "name": "SocialMain",
           "type": "managed",
@@ -2362,7 +2348,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNewPage.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/new-page-2.tsx"
+            "modulePath": "../src/pages/shop-item.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicNewPage.module.css",
           "scheme": "blackbox",
@@ -2381,6 +2367,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicShopBox.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "tYS7qTEXu2fL",
+          "name": "ShopItem",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShopItem.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/new-page.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShopItem.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-page"
         }
       ],
       "icons": [

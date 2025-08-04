@@ -273,8 +273,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFiZjE1OWY1LWI1MTctNGI3OC1hNTllLTZkODhjODk5M2Q5MiIsIm5hbWUiOiJKb2huIERvZSIsImFkbWluIjp0cnVlLCJpYXQiOjE1MTYyMzkwMjJ9.XT-BYbCnJOmNCZwZSFLFKetz2lcy3gwZC9DXg8tlGRk"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "paramsObject",
@@ -356,7 +355,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               onMount={async () => {
                 const $steps = {};
 
-                $steps["getParams"] = false
+                $steps["getParams"] = true
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -383,7 +382,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   $steps["getParams"] = await $steps["getParams"];
                 }
 
-                $steps["clearParams"] = false
+                $steps["clearParams"] = true
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -419,7 +418,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   $steps["clearParams"] = await $steps["clearParams"];
                 }
 
-                $steps["setCookie"] = false
+                $steps["setCookie"] = true
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -459,7 +458,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   $steps["setCookie"] = await $steps["setCookie"];
                 }
 
-                $steps["getCookie"] = false
+                $steps["getCookie"] = true
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -533,7 +532,6 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            console.log($steps.getUser.data);
                             $state.paramsObject.status =
                               $steps.getUser.data.healthStatus;
                             return ($state.loading = false);
@@ -740,7 +738,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                 ? true
                 : (() => {
                     try {
-                      return !$state.getSub.loading || !$state.loading;
+                      return !($state.getSub.loading && $state.loading);
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
