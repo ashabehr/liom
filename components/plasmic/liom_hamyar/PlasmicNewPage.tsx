@@ -374,7 +374,9 @@ function PlasmicNewPage__RenderFunc(props: {
                 type={"vaginal_infection_test_sub"}
                 userId={(() => {
                   try {
-                    return $state.paramsObject.userId;
+                    return (
+                      $state.paramsObject.userId || $state.paramsObject.user_id
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -689,7 +691,9 @@ function PlasmicNewPage__RenderFunc(props: {
                         (() => {
                           try {
                             return {
-                              userId: $state.paramsObject.userId,
+                              userId:
+                                $state.paramsObject.userId ||
+                                $state.paramsObject.user_id,
                               pageName: "shop-item",
                               action: "loadePage",
                               extraData: {}

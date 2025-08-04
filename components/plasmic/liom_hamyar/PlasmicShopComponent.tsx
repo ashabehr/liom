@@ -20115,6 +20115,42 @@ function PlasmicShopComponent__RenderFunc(props: {
                       (async val => {
                         const $steps = {};
 
+                        $steps["updateLoading"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loading"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoading"] != null &&
+                          typeof $steps["updateLoading"] === "object" &&
+                          typeof $steps["updateLoading"].then === "function"
+                        ) {
+                          $steps["updateLoading"] = await $steps[
+                            "updateLoading"
+                          ];
+                        }
+
                         $steps["invokeGlobalAction"] = $state.select.isOpen
                           ? (() => {
                               const actionArgs = {
@@ -20216,6 +20252,42 @@ function PlasmicShopComponent__RenderFunc(props: {
                         ) {
                           $steps["runCode"] = await $steps["runCode"];
                         }
+
+                        $steps["updateLoading2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loading"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoading2"] != null &&
+                          typeof $steps["updateLoading2"] === "object" &&
+                          typeof $steps["updateLoading2"].then === "function"
+                        ) {
+                          $steps["updateLoading2"] = await $steps[
+                            "updateLoading2"
+                          ];
+                        }
                       }).apply(null, eventArgs);
                     },
                     onOpenChange: async (...eventArgs: any) => {
@@ -20286,227 +20358,245 @@ function PlasmicShopComponent__RenderFunc(props: {
                     "\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646 :"
                   }
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__akPvk)}>
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $state.shopList.result.items.length
-                          ? $state.shopList.result.items
-                          : [];
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
+                {(() => {
+                  try {
+                    return $state.loading;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__akPvk)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.shopList.result.items.length
+                            ? $state.shopList.result.items
+                            : [];
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___9Kgo1
-                        )}
-                        key={currentIndex}
-                      >
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__sdjFw
+                            sty.freeBox___9Kgo1
                           )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["updateItemselected"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["itemselected"]
-                                    },
-                                    operation: 0,
-                                    value: currentIndex
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateItemselected"] != null &&
-                              typeof $steps["updateItemselected"] ===
-                                "object" &&
-                              typeof $steps["updateItemselected"].then ===
-                                "function"
-                            ) {
-                              $steps["updateItemselected"] = await $steps[
-                                "updateItemselected"
-                              ];
-                            }
-
-                            $steps["updateShopId"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["shopId"]
-                                    },
-                                    operation: 0,
-                                    value: currentItem.id
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateShopId"] != null &&
-                              typeof $steps["updateShopId"] === "object" &&
-                              typeof $steps["updateShopId"].then === "function"
-                            ) {
-                              $steps["updateShopId"] = await $steps[
-                                "updateShopId"
-                              ];
-                            }
-                          }}
-                          style={(() => {
-                            try {
-                              return {
-                                "background-color":
-                                  $state.itemselected == currentIndex
-                                    ? "#FFFBFF"
-                                    : "transparent",
-                                border:
-                                  $state.itemselected == currentIndex
-                                    ? "1px solid #8254C6"
-                                    : "1px solid #D1D5DB",
-                                "border-radius": "8px"
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
+                          key={currentIndex}
                         >
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__vYpW
+                              sty.freeBox__sdjFw,
+                              "shimmer"
                             )}
                           >
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__pQeox
+                                sty.freeBox__vYpW
                               )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__ftdIu
-                                )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return currentItem.text;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "";
+                            />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return !$state.loading;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__poo6F)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.shopList.result.items.length
+                            ? $state.shopList.result.items
+                            : [];
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__sowFe
+                          )}
+                          key={currentIndex}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__priiF
+                            )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["updateItemselected"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["itemselected"]
+                                      },
+                                      operation: 0,
+                                      value: currentIndex
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
                                       }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                            </div>
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateItemselected"] != null &&
+                                typeof $steps["updateItemselected"] ===
+                                  "object" &&
+                                typeof $steps["updateItemselected"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateItemselected"] = await $steps[
+                                  "updateItemselected"
+                                ];
+                              }
+
+                              $steps["updateShopId"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["shopId"]
+                                      },
+                                      operation: 0,
+                                      value: currentItem.id
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateShopId"] != null &&
+                                typeof $steps["updateShopId"] === "object" &&
+                                typeof $steps["updateShopId"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateShopId"] = await $steps[
+                                  "updateShopId"
+                                ];
+                              }
+                            }}
+                            style={(() => {
+                              try {
+                                return {
+                                  "background-color":
+                                    $state.itemselected == currentIndex
+                                      ? "#FFFBFF"
+                                      : "transparent",
+                                  border:
+                                    $state.itemselected == currentIndex
+                                      ? "1px solid #8254C6"
+                                      : "1px solid #D1D5DB",
+                                  "border-radius": "8px"
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                          >
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__te8Y
+                                sty.freeBox__xjxTn
                               )}
                             >
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__hxIuZ
+                                  sty.freeBox___1Lxj3
                                 )}
                               >
                                 <div
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__iiXoC
+                                    sty.text___0QjlW
                                   )}
                                 >
                                   <React.Fragment>
                                     {(() => {
                                       try {
-                                        return currentItem.fullPrice.toLocaleString();
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__szr2A
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return (
-                                          currentItem.price.toLocaleString() +
-                                          " تومان"
-                                        );
+                                        return currentItem.text;
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -20524,34 +20614,121 @@ function PlasmicShopComponent__RenderFunc(props: {
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__z1S1S
+                                  sty.freeBox__rWcd
                                 )}
                               >
-                                <React.Fragment>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__fJtKj
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__q4DnT
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return currentItem.fullPrice.toLocaleString();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__fP4Uc
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return (
+                                            currentItem.price.toLocaleString() +
+                                            " تومان"
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__qh8Le
+                                  )}
+                                >
                                   {(() => {
                                     try {
-                                      return currentItem.badge;
+                                      return (currentItem.badge ?? "") != "";
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
                                         e?.plasmicType ===
                                           "PlasmicUndefinedDataError"
                                       ) {
-                                        return "";
+                                        return true;
                                       }
                                       throw e;
                                     }
-                                  })()}
-                                </React.Fragment>
+                                  })() ? (
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__ceUXe
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return currentItem.badge;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                  ) : null}
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                </div>
+                      );
+                    })}
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
@@ -20571,34 +20748,75 @@ function PlasmicShopComponent__RenderFunc(props: {
                 "\u0633\u0648\u062f \u0634\u0645\u0627 \u0627\u0632 \u0627\u06cc\u0646 \u062e\u0631\u06cc\u062f:"
               }
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___2He9A
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return (
-                      (
-                        $state.shopList.result.items[$state.itemselected]
-                          .fullPrice -
-                        $state.shopList.result.items[$state.itemselected].price
-                      ).toLocaleString() + "  تومان "
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
+            <div className={classNames(projectcss.all, sty.freeBox___3Qln)}>
+              {(() => {
+                try {
+                  return !$state.loading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
                   }
-                })()}
-              </React.Fragment>
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___2He9A
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (
+                          (
+                            $state.shopList.result.items[$state.itemselected]
+                              .fullPrice -
+                            $state.shopList.result.items[$state.itemselected]
+                              .price
+                          ).toLocaleString() + "  تومان "
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              ) : null}
+              {(() => {
+                try {
+                  return $state.loading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__h6Zvi,
+                    "shimmer"
+                  )}
+                >
+                  {""}
+                </div>
+              ) : null}
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__ez3Uk)}>
@@ -20611,32 +20829,72 @@ function PlasmicShopComponent__RenderFunc(props: {
             >
               {"\u0645\u0628\u0644\u063a \u06a9\u0644:"}
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___1L5QW
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return (
-                      $state.shopList.result.items[
-                        $state.itemselected
-                      ].price.toLocaleString() + "  تومان "
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
+            <div className={classNames(projectcss.all, sty.freeBox__yx5Zl)}>
+              {(() => {
+                try {
+                  return !$state.loading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
                   }
-                })()}
-              </React.Fragment>
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___1L5QW
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (
+                          $state.shopList.result.items[
+                            $state.itemselected
+                          ].price.toLocaleString() + "  تومان "
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              ) : null}
+              {(() => {
+                try {
+                  return $state.loading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__mgMx3,
+                    "shimmer"
+                  )}
+                >
+                  {""}
+                </div>
+              ) : null}
             </div>
           </div>
           <Button

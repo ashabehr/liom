@@ -1121,52 +1121,62 @@ function PlasmicIntroPage__RenderFunc(props: {
                         $steps["updateLoading"] = await $steps["updateLoading"];
                       }
 
-                      $steps["invokeGlobalAction"] =
-                        $state.swiperSlider.activeSlideIndex == 5 ||
-                        $state.swiperSlider.activeSlideIndex == 6
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/calendar/getSign",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        authorization: $state.token,
-                                        before: $state.signsComponent.beforList,
-                                        current:
-                                          $state.signsComponent.befurList,
-                                        psychological:
-                                          $state.signsComponent2
-                                            .psychologicalList,
-                                        vaginal:
-                                          $state.signsComponent.vaginalList,
-                                        hereditary:
-                                          $state.signsComponent.hereditaryList,
-                                        venereal:
-                                          $state.signsComponent.venerealList,
-                                        womans: $state.signsComponent.womanList,
-                                        others: ["stomach_ache"]
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
+                      $steps["invokeGlobalAction"] = (() => {
+                        if (
+                          $state.swiperSlider.activeSlideIndex == 5 &&
+                          $state.signsComponent.beforList.length > 0
+                        )
+                          return true;
+                        else if (
+                          $state.swiperSlider.activeSlideIndex == 6 &&
+                          $state.signsComponent2.psychologicalList.length > 0
+                        )
+                          return true;
+                        else return false;
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/calendar/getSign",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      authorization: $state.token,
+                                      before: $state.signsComponent.beforList,
+                                      current: $state.signsComponent.befurList,
+                                      psychological:
+                                        $state.signsComponent2
+                                          .psychologicalList,
+                                      vaginal:
+                                        $state.signsComponent.vaginalList,
+                                      hereditary:
+                                        $state.signsComponent.hereditaryList,
+                                      venereal:
+                                        $state.signsComponent.venerealList,
+                                      womans: $state.signsComponent.womanList,
+                                      others: ["stomach_ache"]
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
                                     }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
                       if (
                         $steps["invokeGlobalAction"] != null &&
                         typeof $steps["invokeGlobalAction"] === "object" &&
