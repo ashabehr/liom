@@ -118,7 +118,7 @@ export type PlasmicCalendar2__ArgsType = {
   onUserInfoChange?: (val: string) => void;
   setting?: () => void;
   editTime?: string;
-  onEditTimeChange?: (val: string) => void;
+  onEditTimeChange2?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicCalendar2__ArgsType;
 export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
@@ -126,7 +126,7 @@ export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
   "onUserInfoChange",
   "setting",
   "editTime",
-  "onEditTimeChange"
+  "onEditTimeChange2"
 );
 
 export type PlasmicCalendar2__OverridesType = {
@@ -177,7 +177,7 @@ export interface DefaultCalendar2Props {
   onUserInfoChange?: (val: string) => void;
   setting?: () => void;
   editTime?: string;
-  onEditTimeChange?: (val: string) => void;
+  onEditTimeChange2?: (val: string) => void;
   lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
   className?: string;
 }
@@ -1589,7 +1589,7 @@ function PlasmicCalendar2__RenderFunc(props: {
         variableType: "text",
 
         valueProp: "editTime",
-        onChangeProp: "onEditTimeChange"
+        onChangeProp: "onEditTimeChange2"
       }
     ],
     [$props, $ctx, $refs]
@@ -1638,7 +1638,7 @@ function PlasmicCalendar2__RenderFunc(props: {
           try {
             return (() => {
               {
-                return $state.editTime;
+                return $props.editTime;
               }
             })();
           } catch (e) {
@@ -1653,6 +1653,31 @@ function PlasmicCalendar2__RenderFunc(props: {
         })()}
         onMount={async () => {
           const $steps = {};
+
+          $steps["runCode4"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      $state.loadingpage = true;
+                      $state.userInfo = {};
+                      console.log($state.editTime);
+                      return console.log($props.editTime);
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode4"] != null &&
+            typeof $steps["runCode4"] === "object" &&
+            typeof $steps["runCode4"].then === "function"
+          ) {
+            $steps["runCode4"] = await $steps["runCode4"];
+          }
 
           $steps["params"] = true
             ? (() => {

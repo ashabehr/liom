@@ -259,7 +259,7 @@ function PlasmicMainPage__RenderFunc(props: {
             [sty.calendar2page_self]: hasVariant($state, "page", "self")
           })}
           editTime={generateStateValueProp($state, ["calendar2", "editTime"])}
-          onEditTimeChange={async (...eventArgs: any) => {
+          onEditTimeChange2={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["calendar2", "editTime"]).apply(
               null,
               eventArgs

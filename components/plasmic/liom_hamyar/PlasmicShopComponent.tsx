@@ -82,9 +82,21 @@ export type PlasmicShopComponent__VariantsArgs = {};
 type VariantPropType = keyof PlasmicShopComponent__VariantsArgs;
 export const PlasmicShopComponent__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicShopComponent__ArgsType = { token?: string };
+export type PlasmicShopComponent__ArgsType = {
+  token?: string;
+  shopList?: any;
+  onShopListChange?: (val: string) => void;
+  packValue?: string;
+  onPackValueChange?: (val: string) => void;
+};
 type ArgPropType = keyof PlasmicShopComponent__ArgsType;
-export const PlasmicShopComponent__ArgProps = new Array<ArgPropType>("token");
+export const PlasmicShopComponent__ArgProps = new Array<ArgPropType>(
+  "token",
+  "shopList",
+  "onShopListChange",
+  "packValue",
+  "onPackValueChange"
+);
 
 export type PlasmicShopComponent__OverridesType = {
   root?: Flex__<"div">;
@@ -97,6 +109,10 @@ export type PlasmicShopComponent__OverridesType = {
 
 export interface DefaultShopComponentProps {
   token?: string;
+  shopList?: any;
+  onShopListChange?: (val: string) => void;
+  packValue?: string;
+  onPackValueChange?: (val: string) => void;
   className?: string;
 }
 
@@ -177,9 +193,11 @@ function PlasmicShopComponent__RenderFunc(props: {
       },
       {
         path: "shopList",
-        type: "private",
+        type: "writable",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+
+        valueProp: "shopList",
+        onChangeProp: "onShopListChange"
       },
       {
         path: "itemselected",
@@ -249,6 +267,14 @@ function PlasmicShopComponent__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "packValue",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "packValue",
+        onChangeProp: "onPackValueChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -285,41 +311,33 @@ function PlasmicShopComponent__RenderFunc(props: {
           onMount={async () => {
             const $steps = {};
 
-            $steps["invokeGlobalAction"] = true
+            $steps["updatePackValue"] = true
               ? (() => {
                   const actionArgs = {
-                    args: [
-                      undefined,
-                      "https://n8n.staas.ir/webhook/get/pmsSms",
-                      (() => {
-                        try {
-                          return {
-                            type: $state.select.value,
-                            authorization: $props.token
-                          };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()
-                    ]
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["packValue"]
+                    },
+                    operation: 0,
+                    value: $state.select.value
                   };
-                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                    ...actionArgs.args
-                  ]);
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
                 })()
               : undefined;
             if (
-              $steps["invokeGlobalAction"] != null &&
-              typeof $steps["invokeGlobalAction"] === "object" &&
-              typeof $steps["invokeGlobalAction"].then === "function"
+              $steps["updatePackValue"] != null &&
+              typeof $steps["updatePackValue"] === "object" &&
+              typeof $steps["updatePackValue"].then === "function"
             ) {
-              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+              $steps["updatePackValue"] = await $steps["updatePackValue"];
             }
 
             $steps["updateShopList"] = true
@@ -330,7 +348,7 @@ function PlasmicShopComponent__RenderFunc(props: {
                       variablePath: ["shopList"]
                     },
                     operation: 0,
-                    value: $steps.invokeGlobalAction.data
+                    value: $steps.updatePackValue.data
                   };
                   return (({ variable, value, startIndex, deleteCount }) => {
                     if (!variable) {
@@ -349,26 +367,6 @@ function PlasmicShopComponent__RenderFunc(props: {
               typeof $steps["updateShopList"].then === "function"
             ) {
               $steps["updateShopList"] = await $steps["updateShopList"];
-            }
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return console.log($state.shopList);
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
             }
           }}
         />

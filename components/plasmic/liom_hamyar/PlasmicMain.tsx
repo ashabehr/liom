@@ -642,6 +642,46 @@ function PlasmicMain__RenderFunc(props: {
                 ) {
                   return;
                 }
+
+                (async val => {
+                  const $steps = {};
+
+                  $steps["updateMainPageEditTime"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["mainPage", "editTime"]
+                          },
+                          operation: 0,
+                          value: $state.settingCycle4.editTime
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateMainPageEditTime"] != null &&
+                    typeof $steps["updateMainPageEditTime"] === "object" &&
+                    typeof $steps["updateMainPageEditTime"].then === "function"
+                  ) {
+                    $steps["updateMainPageEditTime"] = await $steps[
+                      "updateMainPageEditTime"
+                    ];
+                  }
+                }).apply(null, eventArgs);
               }}
               userStatus={(() => {
                 try {

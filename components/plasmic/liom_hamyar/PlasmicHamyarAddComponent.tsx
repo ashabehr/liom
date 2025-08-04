@@ -59,11 +59,9 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
-import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -76,8 +74,6 @@ import sty from "./PlasmicHamyarAddComponent.module.css"; // plasmic-import: RAr
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: rjflJ2D4OoXB/icon
-import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -113,7 +109,6 @@ export const PlasmicHamyarAddComponent__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicHamyarAddComponent__OverridesType = {
   root?: Flex__<"div">;
-  sideEffect?: Flex__<typeof SideEffect>;
   section?: Flex__<"section">;
   img?: Flex__<typeof PlasmicImg__>;
   textInput?: Flex__<typeof TextInput>;
@@ -121,7 +116,6 @@ export type PlasmicHamyarAddComponent__OverridesType = {
   antdInput?: Flex__<typeof Input>;
   textInput2?: Flex__<typeof TextInput>;
   antdInput2?: Flex__<typeof Input>;
-  button3?: Flex__<typeof Button>;
 };
 
 export interface DefaultHamyarAddComponentProps {
@@ -179,8 +173,6 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const $globalActions = useGlobalActions?.();
-
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -222,12 +214,6 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
       },
       {
-        path: "button3.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "name",
         type: "writable",
         variableType: "text",
@@ -265,82 +251,10 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
           })()
       },
       {
-        path: "masseg",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
-      },
-      {
-        path: "errror",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
-      },
-      {
-        path: "popoverOpen",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [false, false]
-      },
-      {
-        path: "removeItem",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
-      },
-      {
-        path: "loadingBtn",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "v",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "errorMassege",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "v2",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "paramsObject",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
-      },
-      {
         path: "userinfo",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
-      },
-      {
-        path: "info",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
-      },
-      {
-        path: "loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
-      },
-      {
-        path: "shopType",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
         path: "goNext",
@@ -381,110 +295,6 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
         sty.root
       )}
     >
-      <SideEffect
-        data-plasmic-name={"sideEffect"}
-        data-plasmic-override={overrides.sideEffect}
-        className={classNames("__wab_instance", sty.sideEffect)}
-        onMount={async () => {
-          const $steps = {};
-
-          $steps["info"] = true
-            ? (() => {
-                const actionArgs = {
-                  args: [
-                    undefined,
-                    "https://n8n.staas.ir/webhook/rest/user/hamyar/info",
-                    (() => {
-                      try {
-                        return {
-                          authorization: $props.token2,
-                          type: "hamyar"
-                        };
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()
-                  ]
-                };
-                return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                  ...actionArgs.args
-                ]);
-              })()
-            : undefined;
-          if (
-            $steps["info"] != null &&
-            typeof $steps["info"] === "object" &&
-            typeof $steps["info"].then === "function"
-          ) {
-            $steps["info"] = await $steps["info"];
-          }
-
-          $steps["updateInfo"] = $steps.info?.data
-            ? (() => {
-                const actionArgs = {
-                  variable: {
-                    objRoot: $state,
-                    variablePath: ["info"]
-                  },
-                  operation: 0,
-                  value: $steps.info.data
-                };
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
-                  }
-                  const { objRoot, variablePath } = variable;
-
-                  $stateSet(objRoot, variablePath, value);
-                  return value;
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["updateInfo"] != null &&
-            typeof $steps["updateInfo"] === "object" &&
-            typeof $steps["updateInfo"].then === "function"
-          ) {
-            $steps["updateInfo"] = await $steps["updateInfo"];
-          }
-
-          $steps["updateLoading"] = true
-            ? (() => {
-                const actionArgs = {
-                  variable: {
-                    objRoot: $state,
-                    variablePath: ["loading"]
-                  },
-                  operation: 0,
-                  value: false
-                };
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
-                  }
-                  const { objRoot, variablePath } = variable;
-
-                  $stateSet(objRoot, variablePath, value);
-                  return value;
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["updateLoading"] != null &&
-            typeof $steps["updateLoading"] === "object" &&
-            typeof $steps["updateLoading"].then === "function"
-          ) {
-            $steps["updateLoading"] = await $steps["updateLoading"];
-          }
-        }}
-      />
-
       <section
         data-plasmic-name={"section"}
         data-plasmic-override={overrides.section}
@@ -869,418 +679,6 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
                   </div>
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__e91Ag)}>
-                <Button
-                  data-plasmic-name={"button3"}
-                  data-plasmic-override={overrides.button3}
-                  className={classNames("__wab_instance", sty.button3)}
-                  color={generateStateValueProp($state, ["button3", "color"])}
-                  isDisabled={(() => {
-                    try {
-                      return (
-                        $state.name.length == 0 ||
-                        $state.relation.length == 0 ||
-                        $state.loadingBtn
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()}
-                  loading={(() => {
-                    try {
-                      return $state.loadingBtn;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateLoadingBtn2"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["loadingBtn"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateLoadingBtn2"] != null &&
-                      typeof $steps["updateLoadingBtn2"] === "object" &&
-                      typeof $steps["updateLoadingBtn2"].then === "function"
-                    ) {
-                      $steps["updateLoadingBtn2"] = await $steps[
-                        "updateLoadingBtn2"
-                      ];
-                    }
-
-                    $steps["invokeGlobalAction"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "PUT",
-                              "https://n8n.staas.ir/webhook/rest/user/hamyar/add",
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    authorization: $props.token2,
-                                    mobile: $state.number,
-                                    name: $state.name,
-                                    type: $state.type,
-                                    relation: $state.relation
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
-                    }
-
-                    $steps["invokeGlobalAction2"] =
-                      $steps.invokeGlobalAction?.data?.success == true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "success",
-                                "\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u062b\u0628\u062a \u0634\u062f.",
-                                "bottom-center"
-                              ]
-                            };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                    if (
-                      $steps["invokeGlobalAction2"] != null &&
-                      typeof $steps["invokeGlobalAction2"] === "object" &&
-                      typeof $steps["invokeGlobalAction2"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
-                    }
-
-                    $steps["updateMasseg"] =
-                      $steps.invokeGlobalAction?.data?.success == true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["masseg"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction.data.result
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                    if (
-                      $steps["updateMasseg"] != null &&
-                      typeof $steps["updateMasseg"] === "object" &&
-                      typeof $steps["updateMasseg"].then === "function"
-                    ) {
-                      $steps["updateMasseg"] = await $steps["updateMasseg"];
-                    }
-
-                    $steps["updateErrror"] =
-                      $steps.invokeGlobalAction?.data?.success == false
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["errror"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction.data.error
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                    if (
-                      $steps["updateErrror"] != null &&
-                      typeof $steps["updateErrror"] === "object" &&
-                      typeof $steps["updateErrror"].then === "function"
-                    ) {
-                      $steps["updateErrror"] = await $steps["updateErrror"];
-                    }
-
-                    $steps["invokeGlobalAction3"] =
-                      $steps.invokeGlobalAction?.data?.success == false
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "error",
-                                (() => {
-                                  try {
-                                    return $state.errror.message;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })(),
-                                "bottom-center",
-                                10000
-                              ]
-                            };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                    if (
-                      $steps["invokeGlobalAction3"] != null &&
-                      typeof $steps["invokeGlobalAction3"] === "object" &&
-                      typeof $steps["invokeGlobalAction3"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction3"] = await $steps[
-                        "invokeGlobalAction3"
-                      ];
-                    }
-
-                    $steps["updateV"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["v"]
-                            },
-                            operation: 0,
-                            value: $state.v + "s"
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateV"] != null &&
-                      typeof $steps["updateV"] === "object" &&
-                      typeof $steps["updateV"].then === "function"
-                    ) {
-                      $steps["updateV"] = await $steps["updateV"];
-                    }
-
-                    $steps["updateLoadingBtn"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["loadingBtn"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateLoadingBtn"] != null &&
-                      typeof $steps["updateLoadingBtn"] === "object" &&
-                      typeof $steps["updateLoadingBtn"].then === "function"
-                    ) {
-                      $steps["updateLoadingBtn"] = await $steps[
-                        "updateLoadingBtn"
-                      ];
-                    }
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                $state.antdInput.value = "";
-                                return ($state.antdInput2.value = "");
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-
-                    $steps["updateGoNext"] =
-                      $steps.invokeGlobalAction?.data?.success == true ||
-                      $steps.invokeGlobalAction?.data?.error.code == 1220138
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["goNext"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                    if (
-                      $steps["updateGoNext"] != null &&
-                      typeof $steps["updateGoNext"] === "object" &&
-                      typeof $steps["updateGoNext"].then === "function"
-                    ) {
-                      $steps["updateGoNext"] = await $steps["updateGoNext"];
-                    }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button3", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___6T3GO
-                    )}
-                  >
-                    {"\u062a\u0627\u06cc\u06cc\u062f"}
-                  </div>
-                </Button>
-              </div>
             </div>
           </div>
         </div>
@@ -1292,17 +690,14 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "sideEffect",
     "section",
     "img",
     "textInput",
     "svg",
     "antdInput",
     "textInput2",
-    "antdInput2",
-    "button3"
+    "antdInput2"
   ],
-  sideEffect: ["sideEffect"],
   section: [
     "section",
     "img",
@@ -1310,23 +705,20 @@ const PlasmicDescendants = {
     "svg",
     "antdInput",
     "textInput2",
-    "antdInput2",
-    "button3"
+    "antdInput2"
   ],
   img: ["img"],
   textInput: ["textInput", "svg", "antdInput"],
   svg: ["svg"],
   antdInput: ["antdInput"],
   textInput2: ["textInput2", "antdInput2"],
-  antdInput2: ["antdInput2"],
-  button3: ["button3"]
+  antdInput2: ["antdInput2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  sideEffect: typeof SideEffect;
   section: "section";
   img: typeof PlasmicImg__;
   textInput: typeof TextInput;
@@ -1334,7 +726,6 @@ type NodeDefaultElementType = {
   antdInput: typeof Input;
   textInput2: typeof TextInput;
   antdInput2: typeof Input;
-  button3: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1397,7 +788,6 @@ export const PlasmicHamyarAddComponent = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    sideEffect: makeNodeComponent("sideEffect"),
     section: makeNodeComponent("section"),
     img: makeNodeComponent("img"),
     textInput: makeNodeComponent("textInput"),
@@ -1405,7 +795,6 @@ export const PlasmicHamyarAddComponent = Object.assign(
     antdInput: makeNodeComponent("antdInput"),
     textInput2: makeNodeComponent("textInput2"),
     antdInput2: makeNodeComponent("antdInput2"),
-    button3: makeNodeComponent("button3"),
 
     // Metadata about props expected for PlasmicHamyarAddComponent
     internalVariantProps: PlasmicHamyarAddComponent__VariantProps,

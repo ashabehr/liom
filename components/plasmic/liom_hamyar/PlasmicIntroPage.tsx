@@ -168,7 +168,8 @@ function PlasmicIntroPage__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkMTdiNmJkLTkzZmYtNGYzZS04ZGYzLTQwMDNkOTU2NGJkOCIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzQ2MjU3MDQ1fQ.VGtD4MdU57dGqdh7uxLTL3lCugmBcv_kybVqfb_2dSI"
       },
       {
         path: "paramsObject",
@@ -547,6 +548,18 @@ function PlasmicIntroPage__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "shopComponent.packValue",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+      },
+      {
+        path: "shopComponent.shopList",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -954,6 +967,74 @@ function PlasmicIntroPage__RenderFunc(props: {
                 typeof $steps["updateSignData"].then === "function"
               ) {
                 $steps["updateSignData"] = await $steps["updateSignData"];
+              }
+
+              $steps["getShopList"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/get/pmsSms",
+                        (() => {
+                          try {
+                            return {
+                              type: $state.shopComponent.packValue,
+                              authorization: $state.token
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["getShopList"] != null &&
+                typeof $steps["getShopList"] === "object" &&
+                typeof $steps["getShopList"].then === "function"
+              ) {
+                $steps["getShopList"] = await $steps["getShopList"];
+              }
+
+              $steps["updateShopComponentShopList"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["shopComponent", "shopList"]
+                      },
+                      operation: 0,
+                      value: $steps.getShopList.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateShopComponentShopList"] != null &&
+                typeof $steps["updateShopComponentShopList"] === "object" &&
+                typeof $steps["updateShopComponentShopList"].then === "function"
+              ) {
+                $steps["updateShopComponentShopList"] = await $steps[
+                  "updateShopComponentShopList"
+                ];
               }
             }}
           />
@@ -2257,6 +2338,42 @@ function PlasmicIntroPage__RenderFunc(props: {
                   data-plasmic-name={"shopComponent"}
                   data-plasmic-override={overrides.shopComponent}
                   className={classNames("__wab_instance", sty.shopComponent)}
+                  onPackValueChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "shopComponent",
+                      "packValue"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onShopListChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "shopComponent",
+                      "shopList"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  packValue={generateStateValueProp($state, [
+                    "shopComponent",
+                    "packValue"
+                  ])}
+                  shopList={generateStateValueProp($state, [
+                    "shopComponent",
+                    "shopList"
+                  ])}
                   token={(() => {
                     try {
                       return $state.token;
