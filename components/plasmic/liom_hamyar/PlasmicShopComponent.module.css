@@ -11,7 +11,7 @@
 }
 @media (max-width: 640px) {
   .root {
-    padding-bottom: 12%;
+    padding-bottom: 15%;
   }
 }
 .section__r9Pg {
@@ -340,6 +340,11 @@
 }
 .section___4Iz1I > * {
   grid-column: 4;
+}
+@media (max-width: 640px) {
+  .section___4Iz1I > * {
+    grid-column: 4;
+  }
 }
 .freeBox__y2Bqc {
   display: flex;

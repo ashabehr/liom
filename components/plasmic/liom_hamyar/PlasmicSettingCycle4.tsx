@@ -96,14 +96,14 @@ export const PlasmicSettingCycle4__VariantProps = new Array<VariantPropType>(
 export type PlasmicSettingCycle4__ArgsType = {
   onBack?: (event: any) => void;
   editTime?: string;
-  onEditTimeChange?: (val: string) => void;
+  onEditTimeChange2?: (val: string) => void;
   userStatus?: any;
 };
 type ArgPropType = keyof PlasmicSettingCycle4__ArgsType;
 export const PlasmicSettingCycle4__ArgProps = new Array<ArgPropType>(
   "onBack",
   "editTime",
-  "onEditTimeChange",
+  "onEditTimeChange2",
   "userStatus"
 );
 
@@ -135,7 +135,7 @@ export type PlasmicSettingCycle4__OverridesType = {
 export interface DefaultSettingCycle4Props {
   onBack?: (event: any) => void;
   editTime?: string;
-  onEditTimeChange?: (val: string) => void;
+  onEditTimeChange2?: (val: string) => void;
   userStatus?: any;
   dark?: SingleBooleanChoiceArg<"dark">;
   className?: string;
@@ -814,7 +814,7 @@ function PlasmicSettingCycle4__RenderFunc(props: {
         variableType: "text",
 
         valueProp: "editTime",
-        onChangeProp: "onEditTimeChange"
+        onChangeProp: "onEditTimeChange2"
       }
     ],
     [$props, $ctx, $refs]

@@ -220,7 +220,7 @@ function PlasmicMain__RenderFunc(props: {
         path: "settingCycle4.editTime",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) => "kjlkjkj"
       },
       {
         path: "mainPage.editTime",
@@ -629,7 +629,7 @@ function PlasmicMain__RenderFunc(props: {
                   $steps["updateSetting"] = await $steps["updateSetting"];
                 }
               }}
-              onEditTimeChange={async (...eventArgs: any) => {
+              onEditTimeChange2={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "settingCycle4",
                   "editTime"
@@ -679,6 +679,42 @@ function PlasmicMain__RenderFunc(props: {
                   ) {
                     $steps["updateMainPageEditTime"] = await $steps[
                       "updateMainPageEditTime"
+                    ];
+                  }
+
+                  $steps["updateMainHeaderDopen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["mainHeader", "dopen"]
+                          },
+                          operation: 0,
+                          value: console.log($state.settingCycle4.editTime)
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateMainHeaderDopen"] != null &&
+                    typeof $steps["updateMainHeaderDopen"] === "object" &&
+                    typeof $steps["updateMainHeaderDopen"].then === "function"
+                  ) {
+                    $steps["updateMainHeaderDopen"] = await $steps[
+                      "updateMainHeaderDopen"
                     ];
                   }
                 }).apply(null, eventArgs);

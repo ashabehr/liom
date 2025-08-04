@@ -878,16 +878,8 @@ function PlasmicRepeatPost__RenderFunc(props: {
           postType={(() => {
             try {
               return (
-                $props.postData.attachments[0]?.type ||
-                ($props.postData.post.actionText === "بازکردن تصویر"
-                  ? "image"
-                  : $props.postData.post.actionText === "بازکردن صدا"
-                  ? "audio"
-                  : $props.postData.post.actionText === "نمایش ویدیو"
-                  ? "video"
-                  : $props.postData.post.actionText === "دانلود لوگو"
-                  ? "file"
-                  : "jastText")
+                // $props.postData.attachments[0]?.type || ($props.postData.post.actionText === "بازکردن تصویر" ? "image" : $props.postData.post.actionText === "بازکردن صدا" ? "audio" : $props.postData.post.actionText === "نمایش ویدیو" ? "video" : $props.postData.post.actionText === "دانلود لوگو" ? "file" : "jastText")
+                "jastText"
               );
             } catch (e) {
               if (
