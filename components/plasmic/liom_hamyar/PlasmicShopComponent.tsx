@@ -20156,7 +20156,7 @@ function PlasmicShopComponent__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["updateShopList"] = $state.select.isOpen
+                        $steps["updateShopList"] = true
                           ? (() => {
                               const actionArgs = {
                                 variable: {
@@ -20190,6 +20190,31 @@ function PlasmicShopComponent__RenderFunc(props: {
                           $steps["updateShopList"] = await $steps[
                             "updateShopList"
                           ];
+                        }
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    console.log($state.shopList);
+                                    return console.log(
+                                      $steps.invokeGlobalAction?.data
+                                    );
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
                         }
                       }).apply(null, eventArgs);
                     },

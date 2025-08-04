@@ -620,7 +620,7 @@ function PlasmicIntroPage__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["getParams"] = true
+              $steps["getParams"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -646,7 +646,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 $steps["getParams"] = await $steps["getParams"];
               }
 
-              $steps["clearParams"] = true
+              $steps["clearParams"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -675,7 +675,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 $steps["clearParams"] = await $steps["clearParams"];
               }
 
-              $steps["setCookie"] = true
+              $steps["setCookie"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -715,7 +715,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 $steps["setCookie"] = await $steps["setCookie"];
               }
 
-              $steps["getCookie"] = true
+              $steps["getCookie"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -745,122 +745,110 @@ function PlasmicIntroPage__RenderFunc(props: {
                 $steps["getCookie"] = await $steps["getCookie"];
               }
 
-              $steps["userGuest"] =
-                $state.token == ""
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          "POST",
-                          "https://api.liom.app/auth/signup/guest",
-                          undefined,
-                          (() => {
-                            try {
-                              return (() => {
-                                function pseudoUUID() {
-                                  let timestamp = Date.now().toString(36);
-                                  let randomStr = Math.random()
-                                    .toString(36)
-                                    .substr(2, 8);
-                                  return timestamp + "-" + randomStr;
-                                }
-                                return {
-                                  name: "کاربر مهمان",
-                                  gateway: "intro",
-                                  country: "98",
-                                  isCountryPending: false,
-                                  lang: "fa",
-                                  version: "",
-                                  os: (() => {
-                                    const userAgent =
-                                      window.navigator.userAgent;
-                                    const platform = window.navigator.userAgent;
-                                    if (/Windows/i.test(platform))
-                                      return "Windows";
-                                    if (/Mac/i.test(platform)) return "macOS";
-                                    if (/Linux/i.test(platform)) return "Linux";
-                                    if (/Android/i.test(userAgent))
-                                      return "Android";
-                                    if (/iPhone|iPad|iPod/i.test(userAgent))
-                                      return "iOS";
-                                    return "Unknown OS";
-                                  })(),
-                                  osVersion: (() => {
-                                    const userAgent =
-                                      window.navigator.userAgent;
-                                    if (/Windows NT 10.0/.test(userAgent))
-                                      return "Windows 10";
-                                    if (/Windows NT 6.3/.test(userAgent))
-                                      return "Windows 8.1";
-                                    if (/Windows NT 6.2/.test(userAgent))
-                                      return "Windows 8";
-                                    if (/Windows NT 6.1/.test(userAgent))
-                                      return "Windows 7";
-                                    if (
-                                      /Mac OS X (\d+[\._]\d+)/.test(userAgent)
-                                    )
-                                      return `macOS ${RegExp.$1.replace(
-                                        "_",
-                                        "."
-                                      )}`;
-                                    if (/Android (\d+(\.\d+)?)/.test(userAgent))
-                                      return `Android ${RegExp.$1}`;
-                                    if (
-                                      /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                        userAgent
-                                      )
-                                    )
-                                      return `iOS ${RegExp.$2.replace(
-                                        "_",
-                                        "."
-                                      )}`;
-                                    return "Unknown Version";
-                                  })(),
-                                  sex: $state.gender || "",
-                                  additionalData: {
-                                    ip: "132465",
-                                    name: "test1"
-                                  },
-                                  device: (() => {
-                                    const userAgent =
-                                      window.navigator.userAgent;
-                                    if (
-                                      /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                        userAgent
-                                      )
-                                    ) {
-                                      return "Mobile";
-                                    } else if (/Tablet|iPad/i.test(userAgent)) {
-                                      return "Tablet";
-                                    } else {
-                                      return "Desktop";
-                                    }
-                                  })(),
-                                  fcm:
-                                    window.localStorage.getItem("fcmToken") ||
-                                    " ",
-                                  uniqueId: pseudoUUID(),
-                                  device_type: window.navigator.platform,
-                                  postLang: "fa"
-                                };
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
+              $steps["userGuest"] = false
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://api.liom.app/auth/signup/guest",
+                        undefined,
+                        (() => {
+                          try {
+                            return (() => {
+                              function pseudoUUID() {
+                                let timestamp = Date.now().toString(36);
+                                let randomStr = Math.random()
+                                  .toString(36)
+                                  .substr(2, 8);
+                                return timestamp + "-" + randomStr;
                               }
-                              throw e;
+                              return {
+                                name: "کاربر مهمان",
+                                gateway: "intro",
+                                country: "98",
+                                isCountryPending: false,
+                                lang: "fa",
+                                version: "",
+                                os: (() => {
+                                  const userAgent = window.navigator.userAgent;
+                                  const platform = window.navigator.userAgent;
+                                  if (/Windows/i.test(platform))
+                                    return "Windows";
+                                  if (/Mac/i.test(platform)) return "macOS";
+                                  if (/Linux/i.test(platform)) return "Linux";
+                                  if (/Android/i.test(userAgent))
+                                    return "Android";
+                                  if (/iPhone|iPad|iPod/i.test(userAgent))
+                                    return "iOS";
+                                  return "Unknown OS";
+                                })(),
+                                osVersion: (() => {
+                                  const userAgent = window.navigator.userAgent;
+                                  if (/Windows NT 10.0/.test(userAgent))
+                                    return "Windows 10";
+                                  if (/Windows NT 6.3/.test(userAgent))
+                                    return "Windows 8.1";
+                                  if (/Windows NT 6.2/.test(userAgent))
+                                    return "Windows 8";
+                                  if (/Windows NT 6.1/.test(userAgent))
+                                    return "Windows 7";
+                                  if (/Mac OS X (\d+[\._]\d+)/.test(userAgent))
+                                    return `macOS ${RegExp.$1.replace(
+                                      "_",
+                                      "."
+                                    )}`;
+                                  if (/Android (\d+(\.\d+)?)/.test(userAgent))
+                                    return `Android ${RegExp.$1}`;
+                                  if (
+                                    /CPU (iPhone )?OS (\d+_\d+)/.test(userAgent)
+                                  )
+                                    return `iOS ${RegExp.$2.replace("_", ".")}`;
+                                  return "Unknown Version";
+                                })(),
+                                sex: $state.gender || "",
+                                additionalData: {
+                                  ip: "132465",
+                                  name: "test1"
+                                },
+                                device: (() => {
+                                  const userAgent = window.navigator.userAgent;
+                                  if (
+                                    /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                      userAgent
+                                    )
+                                  ) {
+                                    return "Mobile";
+                                  } else if (/Tablet|iPad/i.test(userAgent)) {
+                                    return "Tablet";
+                                  } else {
+                                    return "Desktop";
+                                  }
+                                })(),
+                                fcm:
+                                  window.localStorage.getItem("fcmToken") ||
+                                  " ",
+                                uniqueId: pseudoUUID(),
+                                device_type: window.navigator.platform,
+                                postLang: "fa"
+                              };
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
                             }
-                          })()
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
               if (
                 $steps["userGuest"] != null &&
                 typeof $steps["userGuest"] === "object" &&
@@ -869,35 +857,34 @@ function PlasmicIntroPage__RenderFunc(props: {
                 $steps["userGuest"] = await $steps["userGuest"];
               }
 
-              $steps["setCookie2"] =
-                $steps.userGuest?.data?.success ?? false
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            var setCookie = (name, value, days) => {
-                              const expires = new Date(
-                                Date.now() + days * 86400000
-                              ).toUTCString();
-                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
-                            };
-                            setCookie(
-                              "token",
-                              JSON.stringify([
-                                $steps.userGuest.data.result.token
-                              ]),
-                              100
-                            );
-                            return ($state.token =
-                              $steps.userGuest.data.result.token);
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
+              $steps["setCookie2"] = false
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var setCookie = (name, value, days) => {
+                            const expires = new Date(
+                              Date.now() + days * 86400000
+                            ).toUTCString();
+                            document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                          };
+                          setCookie(
+                            "token",
+                            JSON.stringify([
+                              $steps.userGuest.data.result.token
+                            ]),
+                            100
+                          );
+                          return ($state.token =
+                            $steps.userGuest.data.result.token);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
               if (
                 $steps["setCookie2"] != null &&
                 typeof $steps["setCookie2"] === "object" &&
