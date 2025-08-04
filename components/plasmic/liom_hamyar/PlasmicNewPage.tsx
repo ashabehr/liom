@@ -372,6 +372,19 @@ function PlasmicNewPage__RenderFunc(props: {
                   }
                 })()}
                 type={"vaginal_infection_test_sub"}
+                userId={(() => {
+                  try {
+                    return $state.paramsObject.userId;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
               />
             ) : null}
             {(() => {
@@ -661,6 +674,57 @@ function PlasmicNewPage__RenderFunc(props: {
               ) {
                 $steps["invokeGlobalAction2"] = await $steps[
                   "invokeGlobalAction2"
+                ];
+              }
+
+              $steps["invokeGlobalAction3"] = (
+                $state.paramsObject.status ? false : true
+              )
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://api.liom.app/service/log",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              userId: $state.paramsObject.userId,
+                              pageName: "shop-item",
+                              action: "loadePage",
+                              extraData: {}
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        {
+                          headers: {
+                            "Content-Type": "application/json",
+                            Authorization:
+                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                          }
+                        }
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction3"] != null &&
+                typeof $steps["invokeGlobalAction3"] === "object" &&
+                typeof $steps["invokeGlobalAction3"].then === "function"
+              ) {
+                $steps["invokeGlobalAction3"] = await $steps[
+                  "invokeGlobalAction3"
                 ];
               }
             }}

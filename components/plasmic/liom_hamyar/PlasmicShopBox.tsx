@@ -93,6 +93,7 @@ export type PlasmicShopBox__ArgsType = {
   onSelectShopChange?: (val: string) => void;
   open?: boolean;
   onOpenChange?: (val: string) => void;
+  userId?: string;
 };
 type ArgPropType = keyof PlasmicShopBox__ArgsType;
 export const PlasmicShopBox__ArgProps = new Array<ArgPropType>(
@@ -102,7 +103,8 @@ export const PlasmicShopBox__ArgProps = new Array<ArgPropType>(
   "redirectUrl",
   "onSelectShopChange",
   "open",
-  "onOpenChange"
+  "onOpenChange",
+  "userId"
 );
 
 export type PlasmicShopBox__OverridesType = {
@@ -127,6 +129,7 @@ export interface DefaultShopBoxProps {
   onSelectShopChange?: (val: string) => void;
   open?: boolean;
   onOpenChange?: (val: string) => void;
+  userId?: string;
   className?: string;
 }
 
@@ -1192,6 +1195,55 @@ function PlasmicShopBox__RenderFunc(props: {
                       typeof $steps["updateLoading2"].then === "function"
                     ) {
                       $steps["updateLoading2"] = await $steps["updateLoading2"];
+                    }
+
+                    $steps["updateLoading4"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "POST",
+                              "https://api.liom.app/service/log",
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    userId: $props.userId,
+                                    pageName: "shop-item",
+                                    action: "shop",
+                                    extraData: {}
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              {
+                                headers: {
+                                  "Content-Type": "application/json",
+                                  Authorization:
+                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                }
+                              }
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoading4"] != null &&
+                      typeof $steps["updateLoading4"] === "object" &&
+                      typeof $steps["updateLoading4"].then === "function"
+                    ) {
+                      $steps["updateLoading4"] = await $steps["updateLoading4"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
