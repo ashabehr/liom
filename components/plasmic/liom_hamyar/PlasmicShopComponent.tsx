@@ -20736,89 +20736,106 @@ function PlasmicShopComponent__RenderFunc(props: {
       </section>
       <section className={classNames(projectcss.all, sty.section___4Iz1I)}>
         <div className={classNames(projectcss.all, sty.freeBox__y2Bqc)}>
-          <div className={classNames(projectcss.all, sty.freeBox__zso2O)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__guNJc
-              )}
-            >
-              {
-                "\u0633\u0648\u062f \u0634\u0645\u0627 \u0627\u0632 \u0627\u06cc\u0646 \u062e\u0631\u06cc\u062f:"
+          {(() => {
+            try {
+              return (
+                ($state.shopList?.result?.items?.[$state.itemselected]
+                  .fullPrice ?? 0) != 0
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
               }
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox___3Qln)}>
-              {(() => {
-                try {
-                  return !$state.loading;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return false;
-                  }
-                  throw e;
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__zso2O)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__guNJc
+                )}
+              >
+                {
+                  "\u0633\u0648\u062f \u0634\u0645\u0627 \u0627\u0632 \u0627\u06cc\u0646 \u062e\u0631\u06cc\u062f:"
                 }
-              })() ? (
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___2He9A
-                  )}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return (
-                          (
-                            $state.shopList.result.items[$state.itemselected]
-                              .fullPrice -
-                            $state.shopList.result.items[$state.itemselected]
-                              .price
-                          ).toLocaleString() + "  تومان "
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "";
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox___3Qln)}>
+                {(() => {
+                  try {
+                    return !$state.loading;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___2He9A
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            (
+                              $state.shopList.result.items[$state.itemselected]
+                                .fullPrice -
+                              $state.shopList.result.items[$state.itemselected]
+                                .price
+                            ).toLocaleString() + "  تومان "
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </div>
-              ) : null}
-              {(() => {
-                try {
-                  return $state.loading;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return false;
+                      })()}
+                    </React.Fragment>
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.loading;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })() ? (
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__h6Zvi,
-                    "shimmer"
-                  )}
-                >
-                  {""}
-                </div>
-              ) : null}
+                })() ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__h6Zvi,
+                      "shimmer"
+                    )}
+                  >
+                    {""}
+                  </div>
+                ) : null}
+              </div>
             </div>
-          </div>
+          ) : null}
           <div className={classNames(projectcss.all, sty.freeBox__ez3Uk)}>
             <div
               className={classNames(
