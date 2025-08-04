@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import ShopBox from "../../ShopBox"; // plasmic-import: 3zHG5W2BDVZ9/component
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -71,6 +72,9 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicNewPage.module.css"; // plasmic-import: EyzHeiLL2pPI/css
+
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -87,6 +91,7 @@ export type PlasmicNewPage__OverridesType = {
   root?: Flex__<"div">;
   freeBox?: Flex__<"div">;
   shopBox?: Flex__<typeof ShopBox>;
+  button?: Flex__<typeof Button>;
   sideEffect?: Flex__<typeof SideEffect>;
 };
 
@@ -130,6 +135,8 @@ function PlasmicNewPage__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -203,6 +210,18 @@ function PlasmicNewPage__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "shop",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -292,54 +311,143 @@ function PlasmicNewPage__RenderFunc(props: {
                 })()}
               </React.Fragment>
             </div>
-            <ShopBox
-              data-plasmic-name={"shopBox"}
-              data-plasmic-override={overrides.shopBox}
-              className={classNames("__wab_instance", sty.shopBox)}
-              onOpenChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["shopBox", "open"]).apply(
-                  null,
-                  eventArgs
-                );
-
+            {(() => {
+              try {
+                return !$state.shop;
+              } catch (e) {
                 if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  return;
+                  return true;
                 }
-              }}
-              onSelectShopChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "shopBox",
-                  "selectShop"
-                ]).apply(null, eventArgs);
+                throw e;
+              }
+            })() ? (
+              <ShopBox
+                data-plasmic-name={"shopBox"}
+                data-plasmic-override={overrides.shopBox}
+                className={classNames("__wab_instance", sty.shopBox)}
+                onOpenChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["shopBox", "open"]).apply(
+                    null,
+                    eventArgs
+                  );
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-              open={generateStateValueProp($state, ["shopBox", "open"])}
-              token={(() => {
-                try {
-                  return $state.token;
-                } catch (e) {
                   if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
                   ) {
-                    return undefined;
+                    return;
                   }
-                  throw e;
+                }}
+                onSelectShopChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "shopBox",
+                    "selectShop"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                open={generateStateValueProp($state, ["shopBox", "open"])}
+                redirectUrl={"https://apps.liom.app/shop-item/"}
+                token={(() => {
+                  try {
+                    return $state.token;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                type={"vaginal_infection_test_sub"}
+              />
+            ) : null}
+            {(() => {
+              try {
+                return $state.shop;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
                 }
-              })()}
-              type={"vaginal_infection_test_sub"}
-            />
+                throw e;
+              }
+            })() ? (
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={generateStateValueProp($state, ["button", "color"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return location.replace(
+                                `https://tools.liom.app/self-test/?app=liom&inApp=true&type=VaginalHealthCheck&origin=liomSelfCare&token=${$state.token}`
+                              );
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__xj7Re
+                  )}
+                >
+                  {
+                    "\u0648\u0631\u0648\u062f \u0628\u0647 \u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"
+                  }
+                </div>
+              </Button>
+            ) : null}
           </div>
           <SideEffect
             data-plasmic-name={"sideEffect"}
@@ -474,6 +582,87 @@ function PlasmicNewPage__RenderFunc(props: {
               ) {
                 $steps["getCookie"] = await $steps["getCookie"];
               }
+
+              $steps["updateShop"] = (
+                $state.paramsObject?.status ? true : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["shop"]
+                      },
+                      operation: 0,
+                      value: $state.paramsObject.status == "true"
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateShop"] != null &&
+                typeof $steps["updateShop"] === "object" &&
+                typeof $steps["updateShop"].then === "function"
+              ) {
+                $steps["updateShop"] = await $steps["updateShop"];
+              }
+
+              $steps["invokeGlobalAction"] =
+                $state.paramsObject.status == "true"
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "\u062e\u0631\u06cc\u062f \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0646\u062c\u0627\u0645 \u0634\u062f.",
+                          "bottom-center"
+                        ]
+                      };
+                      return $globalActions["Fragment.showToast"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["invokeGlobalAction2"] =
+                $state.paramsObject.status == "false"
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "error",
+                          "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u062e\u0631\u06cc\u062f \u0634\u0645\u0627 \u0646\u0627\u0645\u0648\u0641\u0642 \u0628\u0648\u062f ",
+                          "bottom-center"
+                        ]
+                      };
+                      return $globalActions["Fragment.showToast"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+              if (
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
+              ) {
+                $steps["invokeGlobalAction2"] = await $steps[
+                  "invokeGlobalAction2"
+                ];
+              }
             }}
           />
         </div>
@@ -483,9 +672,10 @@ function PlasmicNewPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "shopBox", "sideEffect"],
-  freeBox: ["freeBox", "shopBox"],
+  root: ["root", "freeBox", "shopBox", "button", "sideEffect"],
+  freeBox: ["freeBox", "shopBox", "button"],
   shopBox: ["shopBox"],
+  button: ["button"],
   sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -495,6 +685,7 @@ type NodeDefaultElementType = {
   root: "div";
   freeBox: "div";
   shopBox: typeof ShopBox;
+  button: typeof Button;
   sideEffect: typeof SideEffect;
 };
 
@@ -585,6 +776,7 @@ export const PlasmicNewPage = Object.assign(
     // Helper components rendering sub-elements
     freeBox: makeNodeComponent("freeBox"),
     shopBox: makeNodeComponent("shopBox"),
+    button: makeNodeComponent("button"),
     sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicNewPage

@@ -78,6 +78,35 @@
   right: auto;
   bottom: auto;
 }
+.button:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.svg___00RBx {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__xj7Re {
+  font-weight: 700;
+  font-size: var(--token-LMEbRDTg0Iix);
+}
+.svg__l9ZCa {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
+  display: none;
+}
 .sideEffect:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;

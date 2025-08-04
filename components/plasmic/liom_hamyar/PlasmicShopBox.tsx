@@ -433,7 +433,19 @@ function PlasmicShopBox__RenderFunc(props: {
             eventArgs
           );
         }}
-        shouldFetch={true}
+        shouldFetch={(() => {
+          try {
+            return $props.token != "" && $props.token != null;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
+          }
+        })()}
         url={"https://n8n.staas.ir/webhook/rest/shop/list"}
       >
         <div className={classNames(projectcss.all, sty.freeBox___00VDq)}>
