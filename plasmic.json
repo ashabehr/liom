@@ -2381,6 +2381,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/new-page"
+        },
+        {
+          "id": "j5Bxjp_OzbsB",
+          "name": "SocialMain2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSocialMain2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/social-main-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSocialMain2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/social-main-2"
         }
       ],
       "icons": [
