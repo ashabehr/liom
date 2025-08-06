@@ -390,12 +390,6 @@ function PlasmicPost2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "userId",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "830508"
-      },
-      {
         path: "comment[].like",
         type: "private",
         variableType: "boolean"
@@ -452,7 +446,7 @@ function PlasmicPost2__RenderFunc(props: {
             try {
               return {
                 active: $state.comments.find(
-                  item => item.user.id == $state.userId
+                  item => item.user.id == $state.user.id
                 )
                   ? true
                   : false,
@@ -468,6 +462,12 @@ function PlasmicPost2__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "user",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -668,6 +668,138 @@ function PlasmicPost2__RenderFunc(props: {
                 typeof $steps["runCode"].then === "function"
               ) {
                 $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["updateTextAreaValue"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["textArea", "value"]
+                      },
+                      operation: 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTextAreaValue"] != null &&
+                typeof $steps["updateTextAreaValue"] === "object" &&
+                typeof $steps["updateTextAreaValue"].then === "function"
+              ) {
+                $steps["updateTextAreaValue"] = await $steps[
+                  "updateTextAreaValue"
+                ];
+              }
+
+              $steps["userInfo"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/get/userInfo",
+                        (() => {
+                          try {
+                            return { token: $state.token };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["userInfo"] != null &&
+                typeof $steps["userInfo"] === "object" &&
+                typeof $steps["userInfo"].then === "function"
+              ) {
+                $steps["userInfo"] = await $steps["userInfo"];
+              }
+
+              $steps["setInfo"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["user"]
+                      },
+                      operation: 0,
+                      value: $steps.userInfo?.data?.result?.user ?? {}
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["setInfo"] != null &&
+                typeof $steps["setInfo"] === "object" &&
+                typeof $steps["setInfo"].then === "function"
+              ) {
+                $steps["setInfo"] = await $steps["setInfo"];
+              }
+
+              $steps["logOpen"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/social/log",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              userId: $state.user.id,
+                              pageName: "socialPostPage",
+                              action: "openPage"
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["logOpen"] != null &&
+                typeof $steps["logOpen"] === "object" &&
+                typeof $steps["logOpen"].then === "function"
+              ) {
+                $steps["logOpen"] = await $steps["logOpen"];
               }
             }}
           />
@@ -1279,6 +1411,49 @@ function PlasmicPost2__RenderFunc(props: {
                           "invokeGlobalAction"
                         ];
                       }
+
+                      $steps["invokeGlobalAction2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/social/log",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      userId: $state.user.id,
+                                      pageName: "socialPostPage",
+                                      action: "sharePost"
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction2"] != null &&
+                        typeof $steps["invokeGlobalAction2"] === "object" &&
+                        typeof $steps["invokeGlobalAction2"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction2"] = await $steps[
+                          "invokeGlobalAction2"
+                        ];
+                      }
                     }}
                     onCommentChange={async (...eventArgs: any) => {
                       generateStateOnChangeProp($state, [
@@ -1777,7 +1952,7 @@ function PlasmicPost2__RenderFunc(props: {
                                           $state.repeatPost2.comment.active =
                                             $state.comments.find(
                                               item =>
-                                                item.user.id == $state.userId
+                                                item.user.id == $state.user.id
                                             )
                                               ? true
                                               : false;
@@ -1892,7 +2067,7 @@ function PlasmicPost2__RenderFunc(props: {
                             ]),
                             me: (() => {
                               try {
-                                return currentItem.user.id == $state.userId;
+                                return currentItem.user.id == $state.user.id;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||

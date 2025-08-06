@@ -509,18 +509,8 @@
 .embedHtml:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-  padding-top: 16px;
-  padding-right: 0px;
-  padding-left: 0px;
   width: 100%;
   min-width: 0;
-}
-@media (max-width: 640px) {
-  .embedHtml:global(.__wab_instance) {
-    width: 100%;
-    min-width: 0;
-    padding: 16px 0px 0px;
-  }
 }
 .freeBox__ogvCb {
   display: flex;

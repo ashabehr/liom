@@ -378,6 +378,12 @@ function PlasmicSocialMain__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "user",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -677,6 +683,115 @@ function PlasmicSocialMain__RenderFunc(props: {
                   typeof $steps["updateToken4"].then === "function"
                 ) {
                   $steps["updateToken4"] = await $steps["updateToken4"];
+                }
+
+                $steps["userInfo"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/get/userInfo",
+                          (() => {
+                            try {
+                              return { token: $state.token };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["userInfo"] != null &&
+                  typeof $steps["userInfo"] === "object" &&
+                  typeof $steps["userInfo"].then === "function"
+                ) {
+                  $steps["userInfo"] = await $steps["userInfo"];
+                }
+
+                $steps["setInfo"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["user"]
+                        },
+                        operation: 0,
+                        value: $steps.userInfo?.data?.result?.user ?? {}
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["setInfo"] != null &&
+                  typeof $steps["setInfo"] === "object" &&
+                  typeof $steps["setInfo"].then === "function"
+                ) {
+                  $steps["setInfo"] = await $steps["setInfo"];
+                }
+
+                $steps["logOpen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/social/log",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                userId: $state.user.id,
+                                pageName: "socialMainPage",
+                                action: "openPage"
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["logOpen"] != null &&
+                  typeof $steps["logOpen"] === "object" &&
+                  typeof $steps["logOpen"].then === "function"
+                ) {
+                  $steps["logOpen"] = await $steps["logOpen"];
                 }
               }}
             />
@@ -1084,6 +1199,50 @@ function PlasmicSocialMain__RenderFunc(props: {
                             ) {
                               $steps["updateFaType"] = await $steps[
                                 "updateFaType"
+                              ];
+                            }
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://n8n.staas.ir/webhook/social/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            userId: $state.user.id,
+                                            pageName: "socialMainPage",
+                                            action: `clickTab-${currentItem.type}`
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
                               ];
                             }
                           }}
@@ -1998,6 +2157,53 @@ function PlasmicSocialMain__RenderFunc(props: {
                             sty.freeBox__vFt1A
                           )}
                           key={currentIndex}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://n8n.staas.ir/webhook/social/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            userId: $state.user.id,
+                                            pageName: "socialMainPage",
+                                            action: `clickPost`
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
+                            }
+                          }}
                         >
                           {(() => {
                             const child$Props = {
@@ -2142,6 +2348,50 @@ function PlasmicSocialMain__RenderFunc(props: {
                                     "invokeGlobalAction"
                                   ];
                                 }
+
+                                $steps["invokeGlobalAction2"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "POST",
+                                          "https://n8n.staas.ir/webhook/social/log",
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return {
+                                                userId: $state.user.id,
+                                                pageName: "socialMainPage",
+                                                action: "sharePost"
+                                              };
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["invokeGlobalAction2"] != null &&
+                                  typeof $steps["invokeGlobalAction2"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction2"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction2"] = await $steps[
+                                    "invokeGlobalAction2"
+                                  ];
+                                }
                               },
                               onCommentChange: async (...eventArgs: any) => {
                                 generateStateOnChangeProp($state, [
@@ -2213,6 +2463,20 @@ function PlasmicSocialMain__RenderFunc(props: {
                                       "PlasmicUndefinedDataError"
                                   ) {
                                     return "admin";
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              user: (() => {
+                                try {
+                                  return $state.user;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
                                   }
                                   throw e;
                                 }

@@ -99,6 +99,8 @@ export type PlasmicLike__ArgsType = {
   postIdForLike?: string;
   tokenForPostLike?: string;
   shere?: boolean;
+  user?: any;
+  isMain?: boolean;
 };
 type ArgPropType = keyof PlasmicLike__ArgsType;
 export const PlasmicLike__ArgProps = new Array<ArgPropType>(
@@ -107,7 +109,9 @@ export const PlasmicLike__ArgProps = new Array<ArgPropType>(
   "islikePost",
   "postIdForLike",
   "tokenForPostLike",
-  "shere"
+  "shere",
+  "user",
+  "isMain"
 );
 
 export type PlasmicLike__OverridesType = {
@@ -123,6 +127,8 @@ export interface DefaultLikeProps {
   postIdForLike?: string;
   tokenForPostLike?: string;
   shere?: boolean;
+  user?: any;
+  isMain?: boolean;
   islike?: SingleBooleanChoiceArg<"islike">;
   main?: SingleBooleanChoiceArg<"main">;
   className?: string;
@@ -151,7 +157,8 @@ function PlasmicLike__RenderFunc(props: {
         {
           likeCountForBar: "100",
           islikePost: false,
-          shere: false
+          shere: false,
+          isMain: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -787,6 +794,49 @@ function PlasmicLike__RenderFunc(props: {
             typeof $steps["invokeGlobalAction2"].then === "function"
           ) {
             $steps["invokeGlobalAction2"] = await $steps["invokeGlobalAction2"];
+          }
+
+          $steps["invokeGlobalAction3"] = true
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    "POST",
+                    "https://n8n.staas.ir/webhook/social/log",
+                    undefined,
+                    (() => {
+                      try {
+                        return {
+                          userId: $props.user.id,
+                          pageName: $props.isMain
+                            ? "socialMainPage"
+                            : "socialPostPage",
+                          action: $state.isLikeForBar
+                            ? "likePost"
+                            : "unlikePost"
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  ]
+                };
+                return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["invokeGlobalAction3"] != null &&
+            typeof $steps["invokeGlobalAction3"] === "object" &&
+            typeof $steps["invokeGlobalAction3"].then === "function"
+          ) {
+            $steps["invokeGlobalAction3"] = await $steps["invokeGlobalAction3"];
           }
         }}
       >

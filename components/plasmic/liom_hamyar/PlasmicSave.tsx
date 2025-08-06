@@ -98,6 +98,8 @@ export type PlasmicSave__ArgsType = {
   postIdBookmark?: string;
   isBooookMarked?: boolean;
   bookMarkPropsShere?: boolean;
+  user?: any;
+  isMain?: boolean;
 };
 type ArgPropType = keyof PlasmicSave__ArgsType;
 export const PlasmicSave__ArgProps = new Array<ArgPropType>(
@@ -105,7 +107,9 @@ export const PlasmicSave__ArgProps = new Array<ArgPropType>(
   "tokenbookmark",
   "postIdBookmark",
   "isBooookMarked",
-  "bookMarkPropsShere"
+  "bookMarkPropsShere",
+  "user",
+  "isMain"
 );
 
 export type PlasmicSave__OverridesType = {
@@ -120,6 +124,8 @@ export interface DefaultSaveProps {
   postIdBookmark?: string;
   isBooookMarked?: boolean;
   bookMarkPropsShere?: boolean;
+  user?: any;
+  isMain?: boolean;
   click?: SingleBooleanChoiceArg<"click">;
   main?: SingleBooleanChoiceArg<"main">;
   className?: string;
@@ -147,7 +153,8 @@ function PlasmicSave__RenderFunc(props: {
       Object.assign(
         {
           isBooookMarked: false,
-          bookMarkPropsShere: false
+          bookMarkPropsShere: false,
+          isMain: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -577,6 +584,49 @@ function PlasmicSave__RenderFunc(props: {
             $steps["updateBookmarkcount3"] = await $steps[
               "updateBookmarkcount3"
             ];
+          }
+
+          $steps["invokeGlobalAction"] = true
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    "POST",
+                    "https://n8n.staas.ir/webhook/social/log",
+                    undefined,
+                    (() => {
+                      try {
+                        return {
+                          userId: $props.user.id,
+                          pageName: $props.isMain
+                            ? "socialMainPage"
+                            : "socialPostPage",
+                          action: $state.isbookMarked
+                            ? `bookmarkPost`
+                            : `unbookmarkPost`
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  ]
+                };
+                return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["invokeGlobalAction"] != null &&
+            typeof $steps["invokeGlobalAction"] === "object" &&
+            typeof $steps["invokeGlobalAction"].then === "function"
+          ) {
+            $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
           }
         }}
       >

@@ -978,6 +978,19 @@ function PlasmicRepeatPost2__RenderFunc(props: {
           className={classNames("__wab_instance", sty.like2, {
             [sty.like2main]: hasVariant($state, "main", "main")
           })}
+          isMain={(() => {
+            try {
+              return $props.isMainPage;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()}
           islike={generateStateValueProp($state, ["like2", "islike"])}
           likeCountForBar={(() => {
             try {
@@ -1039,6 +1052,19 @@ function PlasmicRepeatPost2__RenderFunc(props: {
           tokenForPostLike={(() => {
             try {
               return $props.postToken;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          user={(() => {
+            try {
+              return $props.user;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1186,6 +1212,19 @@ function PlasmicRepeatPost2__RenderFunc(props: {
               throw e;
             }
           })()}
+          isMain={(() => {
+            try {
+              return $props.isMainPage;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()}
           main={
             hasVariant($state, "main", "main")
               ? (() => {
@@ -1219,6 +1258,19 @@ function PlasmicRepeatPost2__RenderFunc(props: {
           tokenbookmark={(() => {
             try {
               return $props.postToken;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          user={(() => {
+            try {
+              return $props.user;
             } catch (e) {
               if (
                 e instanceof TypeError ||
