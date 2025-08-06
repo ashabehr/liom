@@ -1961,7 +1961,7 @@ function PlasmicSocialMain2__RenderFunc(props: {
                       (() => {
                         try {
                           return (() => {
-                            return Array.from({ length: 30 }, (_, i) => i + 1);
+                            return Array.from({ length: 100 }, (_, i) => i + 1);
                           })();
                         } catch (e) {
                           if (
@@ -1981,10 +1981,35 @@ function PlasmicSocialMain2__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__h5Z8B,
-                            "shimmer"
+                            ``
                           )}
                           key={currentIndex}
-                        />
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___7RxpU
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </div>
                       );
                     })}
                   </div>
