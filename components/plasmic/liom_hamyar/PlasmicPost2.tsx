@@ -2201,45 +2201,6 @@ function PlasmicPost2__RenderFunc(props: {
                                     "updateCurrentUserDataAfterClick"
                                   ];
                               }
-
-                              $steps["updateComingSoonOpen"] = false
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["comingSoon", "open"]
-                                      },
-                                      operation: 0,
-                                      value: true
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateComingSoonOpen"] != null &&
-                                typeof $steps["updateComingSoonOpen"] ===
-                                  "object" &&
-                                typeof $steps["updateComingSoonOpen"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateComingSoonOpen"] = await $steps[
-                                  "updateComingSoonOpen"
-                                ];
-                              }
                             },
                             onClick1: async event => {
                               const $steps = {};
@@ -2753,6 +2714,98 @@ function PlasmicPost2__RenderFunc(props: {
                                 ) {
                                   $steps["updateTextAreaValue3"] = await $steps[
                                     "updateTextAreaValue3"
+                                  ];
+                                }
+
+                                $steps["invokeGlobalAction"] =
+                                  $steps.sendComment?.data?.success == true &&
+                                  $state.textArea.value?.length > 0
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "POST",
+                                            "https://n8n.staas.ir/webhook/social/log",
+                                            undefined,
+                                            (() => {
+                                              try {
+                                                return {
+                                                  userId: $state.user.id,
+                                                  pageName: "socialPostPage",
+                                                  action: "sendComment"
+                                                };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.apiRequest"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
+                                if (
+                                  $steps["invokeGlobalAction"] != null &&
+                                  typeof $steps["invokeGlobalAction"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction"] = await $steps[
+                                    "invokeGlobalAction"
+                                  ];
+                                }
+
+                                $steps["invokeGlobalAction2"] =
+                                  $steps.editComment?.data?.success == true &&
+                                  $state.textArea.value?.length > 0
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "POST",
+                                            "https://n8n.staas.ir/webhook/social/log",
+                                            undefined,
+                                            (() => {
+                                              try {
+                                                return {
+                                                  userId: $state.user.id,
+                                                  pageName: "socialPostPage",
+                                                  action: "editComment"
+                                                };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.apiRequest"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
+                                if (
+                                  $steps["invokeGlobalAction2"] != null &&
+                                  typeof $steps["invokeGlobalAction2"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction2"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction2"] = await $steps[
+                                    "invokeGlobalAction2"
                                   ];
                                 }
                               }}

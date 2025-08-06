@@ -112,6 +112,7 @@ export type PlasmicComment__ArgsType = {
   edit?: (event: any) => void;
   like?: boolean;
   onLikeChange?: (val: string) => void;
+  user?: any;
 };
 type ArgPropType = keyof PlasmicComment__ArgsType;
 export const PlasmicComment__ArgProps = new Array<ArgPropType>(
@@ -124,7 +125,8 @@ export const PlasmicComment__ArgProps = new Array<ArgPropType>(
   "delet",
   "edit",
   "like",
-  "onLikeChange"
+  "onLikeChange",
+  "user"
 );
 
 export type PlasmicComment__OverridesType = {
@@ -155,6 +157,7 @@ export interface DefaultCommentProps {
   edit?: (event: any) => void;
   like?: boolean;
   onLikeChange?: (val: string) => void;
+  user?: any;
   unnamedGroupOfVariants?: SingleChoiceArg<
     "showReply" | "whenHaveReply" | "whenHaveNoReply"
   >;
@@ -1147,32 +1150,45 @@ function PlasmicComment__RenderFunc(props: {
               ];
             }
 
-            $steps["updateCommentData"] = true
+            $steps["invokeGlobalAction3"] = true
               ? (() => {
                   const actionArgs = {
-                    variable: {
-                      objRoot: $state,
-                      variablePath: ["commentData"]
-                    },
-                    operation: 0
+                    args: [
+                      "POST",
+                      "https://n8n.staas.ir/webhook/social/log",
+                      undefined,
+                      (() => {
+                        try {
+                          return {
+                            userId: $props.user.id,
+                            pageName: "socialPostPage",
+                            action: "likeCommentPost"
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                    ]
                   };
-                  return (({ variable, value, startIndex, deleteCount }) => {
-                    if (!variable) {
-                      return;
-                    }
-                    const { objRoot, variablePath } = variable;
-
-                    $stateSet(objRoot, variablePath, value);
-                    return value;
-                  })?.apply(null, [actionArgs]);
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
                 })()
               : undefined;
             if (
-              $steps["updateCommentData"] != null &&
-              typeof $steps["updateCommentData"] === "object" &&
-              typeof $steps["updateCommentData"].then === "function"
+              $steps["invokeGlobalAction3"] != null &&
+              typeof $steps["invokeGlobalAction3"] === "object" &&
+              typeof $steps["invokeGlobalAction3"].then === "function"
             ) {
-              $steps["updateCommentData"] = await $steps["updateCommentData"];
+              $steps["invokeGlobalAction3"] = await $steps[
+                "invokeGlobalAction3"
+              ];
             }
           }}
           onIslikecommentChange={async (...eventArgs: any) => {
