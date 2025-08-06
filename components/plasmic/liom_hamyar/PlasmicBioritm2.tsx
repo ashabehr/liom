@@ -467,7 +467,7 @@ function PlasmicBioritm2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "ferstTimepage", "ferstTimepage") ? false : false
+          hasVariant($state, "ferstTimepage", "ferstTimepage") ? false : true
       },
       {
         path: "dialog2.opendialog",

@@ -1146,6 +1146,34 @@ function PlasmicComment__RenderFunc(props: {
                 "invokeGlobalAction2"
               ];
             }
+
+            $steps["updateCommentData"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["commentData"]
+                    },
+                    operation: 0
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateCommentData"] != null &&
+              typeof $steps["updateCommentData"] === "object" &&
+              typeof $steps["updateCommentData"].then === "function"
+            ) {
+              $steps["updateCommentData"] = await $steps["updateCommentData"];
+            }
           }}
           onIslikecommentChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, [

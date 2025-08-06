@@ -105,6 +105,7 @@ export type PlasmicRepeatPost2__ArgsType = {
   comment?: any;
   onCommentChange?: (val: string) => void;
   isMainPage?: boolean;
+  user?: any;
 };
 type ArgPropType = keyof PlasmicRepeatPost2__ArgsType;
 export const PlasmicRepeatPost2__ArgProps = new Array<ArgPropType>(
@@ -115,7 +116,8 @@ export const PlasmicRepeatPost2__ArgProps = new Array<ArgPropType>(
   "comingSoon",
   "comment",
   "onCommentChange",
-  "isMainPage"
+  "isMainPage",
+  "user"
 );
 
 export type PlasmicRepeatPost2__OverridesType = {
@@ -138,6 +140,7 @@ export interface DefaultRepeatPost2Props {
   comment?: any;
   onCommentChange?: (val: string) => void;
   isMainPage?: boolean;
+  user?: any;
   type?: SingleChoiceArg<"admin">;
   main?: SingleBooleanChoiceArg<"main">;
   className?: string;

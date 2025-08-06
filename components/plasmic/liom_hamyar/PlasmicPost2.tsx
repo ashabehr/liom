@@ -1509,6 +1509,19 @@ function PlasmicPost2__RenderFunc(props: {
                         throw e;
                       }
                     })()}
+                    user={(() => {
+                      try {
+                        return $state.user;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
                   />
                 </div>
                 <div

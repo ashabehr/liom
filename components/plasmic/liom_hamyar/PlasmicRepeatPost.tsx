@@ -188,6 +188,8 @@ function PlasmicRepeatPost__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -827,12 +829,10 @@ function PlasmicRepeatPost__RenderFunc(props: {
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
-                      return (() => {
-                        return window.open(
-                          `/post?post=${$props.postData.post.id}`,
-                          "_self"
-                        );
-                      })();
+                      return window.open(
+                        `/post?post=${$props.postData.post.id}`,
+                        "_self"
+                      );
                     }
                   };
                   return (({ customFunction }) => {
@@ -846,6 +846,45 @@ function PlasmicRepeatPost__RenderFunc(props: {
             typeof $steps["runCode"].then === "function"
           ) {
             $steps["runCode"] = await $steps["runCode"];
+          }
+
+          $steps["invokeGlobalAction"] = true
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    "POST",
+                    "https://n8n.staas.ir/webhook/social/log",
+                    undefined,
+                    (() => {
+                      try {
+                        return {
+                          userId: $state.user.id,
+                          pageName: "socialMainPage",
+                          action: "clickPost"
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  ]
+                };
+                return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["invokeGlobalAction"] != null &&
+            typeof $steps["invokeGlobalAction"] === "object" &&
+            typeof $steps["invokeGlobalAction"].then === "function"
+          ) {
+            $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
           }
         }}
       >
@@ -961,6 +1000,19 @@ function PlasmicRepeatPost__RenderFunc(props: {
           className={classNames("__wab_instance", sty.like2, {
             [sty.like2main]: hasVariant($state, "main", "main")
           })}
+          isMain={(() => {
+            try {
+              return $props.isMainPage;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()}
           islike={generateStateValueProp($state, ["like2", "islike"])}
           likeCountForBar={(() => {
             try {
@@ -1022,6 +1074,19 @@ function PlasmicRepeatPost__RenderFunc(props: {
           tokenForPostLike={(() => {
             try {
               return $props.postToken;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          user={(() => {
+            try {
+              return $props.user;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1173,6 +1238,19 @@ function PlasmicRepeatPost__RenderFunc(props: {
               throw e;
             }
           })()}
+          isMain={(() => {
+            try {
+              return $props.isMainPage;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()}
           main={
             hasVariant($state, "main", "main")
               ? (() => {
@@ -1206,6 +1284,19 @@ function PlasmicRepeatPost__RenderFunc(props: {
           tokenbookmark={(() => {
             try {
               return $props.postToken;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          user={(() => {
+            try {
+              return $props.user;
             } catch (e) {
               if (
                 e instanceof TypeError ||
