@@ -1162,7 +1162,9 @@ function PlasmicComment__RenderFunc(props: {
                           return {
                             userId: $props.user.id,
                             pageName: "socialPostPage",
-                            action: "likeCommentPost"
+                            action: $props.commentData.isLiked
+                              ? "likeCommentPost"
+                              : "unlikeCommentPost"
                           };
                         } catch (e) {
                           if (
