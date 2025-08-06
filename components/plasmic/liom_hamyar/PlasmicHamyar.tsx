@@ -14978,22 +14978,35 @@ function PlasmicHamyar__RenderFunc(props: {
             }}
           />
 
-          {(() => {
-            try {
-              return (
-                Object.keys($state.userdata).length == 0 && !$state.loadingPage
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__sVmd2)}>
+          {(
+            hasVariant($state, "noPartner", "noPartner")
+              ? true
+              : (() => {
+                  try {
+                    return (
+                      Object.keys($state.userdata).length == 0 &&
+                      !$state.loadingPage
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+          ) ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__sVmd2, {
+                [sty.freeBoxnoPartner__sVmd2C7PeD]: hasVariant(
+                  $state,
+                  "noPartner",
+                  "noPartner"
+                )
+              })}
+            >
               <div className={classNames(projectcss.all, sty.freeBox___286PB)}>
                 <div
                   className={classNames(
@@ -15099,7 +15112,13 @@ function PlasmicHamyar__RenderFunc(props: {
             <section
               data-plasmic-name={"section"}
               data-plasmic-override={overrides.section}
-              className={classNames(projectcss.all, sty.section)}
+              className={classNames(projectcss.all, sty.section, {
+                [sty.sectionnoPartner]: hasVariant(
+                  $state,
+                  "noPartner",
+                  "noPartner"
+                )
+              })}
             >
               <div className={classNames(projectcss.all, sty.freeBox__s6DdH)}>
                 <div

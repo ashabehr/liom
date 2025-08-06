@@ -4785,6 +4785,9 @@
   min-width: 0;
   padding: 8px;
 }
+.freeBoxnoPartner__sVmd2C7PeD {
+  display: none;
+}
 .freeBox___286PB {
   display: flex;
   flex-direction: column;
@@ -4873,6 +4876,9 @@
   .section > * {
     grid-column: 4;
   }
+}
+.sectionnoPartner > * {
+  grid-column: 4;
 }
 .freeBox__s6DdH {
   display: flex;
