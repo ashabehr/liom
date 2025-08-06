@@ -71,7 +71,7 @@ import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
-import RepeatPost from "../../RepeatPost"; // plasmic-import: O_6FIPF6rDTy/component
+import RepeatPost2 from "../../RepeatPost2"; // plasmic-import: GCktZfOzFzbJ/component
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
 import Comment from "../../Comment"; // plasmic-import: Q00r5f4C3XYv/component
@@ -127,7 +127,7 @@ export type PlasmicPost2__OverridesType = {
   getInfo?: Flex__<typeof ApiRequest>;
   loding?: Flex__<"div">;
   button?: Flex__<typeof Button>;
-  repeatPost?: Flex__<typeof RepeatPost>;
+  repeatPost2?: Flex__<typeof RepeatPost2>;
   popover?: Flex__<typeof AntdPopover>;
   radioGrop?: Flex__<typeof RadioGrop>;
   comment?: Flex__<typeof Comment>;
@@ -378,12 +378,6 @@ function PlasmicPost2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "repeatPost.main",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "comingSoon.selectShop",
         type: "private",
         variableType: "object",
@@ -394,32 +388,6 @@ function PlasmicPost2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "repeatPost.comment",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return {
-                active: $state.comments.find(
-                  item => item.user.id == $state.userId
-                )
-                  ? true
-                  : false,
-                number: $state.getInfo.data.result.details.commentCount
-              };
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return {};
-              }
-              throw e;
-            }
-          })()
       },
       {
         path: "userId",
@@ -464,6 +432,38 @@ function PlasmicPost2__RenderFunc(props: {
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
                 return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "repeatPost2.main",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "repeatPost2.comment",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return {
+                active: $state.comments.find(
+                  item => item.user.id == $state.userId
+                )
+                  ? true
+                  : false,
+                number: $state.getInfo.data.result.details.commentCount
+              };
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
               }
               throw e;
             }
@@ -1148,10 +1148,10 @@ function PlasmicPost2__RenderFunc(props: {
             <section className={classNames(projectcss.all, sty.section__gIiNr)}>
               <div className={classNames(projectcss.all, sty.freeBox__v5VDg)}>
                 <div className={classNames(projectcss.all, sty.freeBox__f0Ap)}>
-                  <RepeatPost
-                    data-plasmic-name={"repeatPost"}
-                    data-plasmic-override={overrides.repeatPost}
-                    className={classNames("__wab_instance", sty.repeatPost)}
+                  <RepeatPost2
+                    data-plasmic-name={"repeatPost2"}
+                    data-plasmic-override={overrides.repeatPost2}
+                    className={classNames("__wab_instance", sty.repeatPost2)}
                     comingSoon={async event => {
                       const $steps = {};
 
@@ -1191,52 +1191,15 @@ function PlasmicPost2__RenderFunc(props: {
                       }
                     }}
                     comment={generateStateValueProp($state, [
-                      "repeatPost",
+                      "repeatPost2",
                       "comment"
                     ])}
                     main={generateStateValueProp($state, [
-                      "repeatPost",
+                      "repeatPost2",
                       "main"
                     ])}
                     onClickShere={async event => {
                       const $steps = {};
-
-                      $steps["updateComingSoonOpen"] = false
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["comingSoon", "open"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateComingSoonOpen"] != null &&
-                        typeof $steps["updateComingSoonOpen"] === "object" &&
-                        typeof $steps["updateComingSoonOpen"].then ===
-                          "function"
-                      ) {
-                        $steps["updateComingSoonOpen"] = await $steps[
-                          "updateComingSoonOpen"
-                        ];
-                      }
 
                       $steps["runCode"] = true
                         ? (() => {
@@ -1319,7 +1282,7 @@ function PlasmicPost2__RenderFunc(props: {
                     }}
                     onCommentChange={async (...eventArgs: any) => {
                       generateStateOnChangeProp($state, [
-                        "repeatPost",
+                        "repeatPost2",
                         "comment"
                       ]).apply(null, eventArgs);
 
@@ -1333,7 +1296,7 @@ function PlasmicPost2__RenderFunc(props: {
                     }}
                     onMainChange={async (...eventArgs: any) => {
                       generateStateOnChangeProp($state, [
-                        "repeatPost",
+                        "repeatPost2",
                         "main"
                       ]).apply(null, eventArgs);
 
@@ -1811,14 +1774,14 @@ function PlasmicPost2__RenderFunc(props: {
                                                 item.comment.id !=
                                                 currentItem.comment.id
                                             );
-                                          $state.repeatPost.comment.active =
+                                          $state.repeatPost2.comment.active =
                                             $state.comments.find(
                                               item =>
                                                 item.user.id == $state.userId
                                             )
                                               ? true
                                               : false;
-                                          return ($state.repeatPost.comment.number -= 1);
+                                          return ($state.repeatPost2.comment.number -= 1);
                                         })();
                                       }
                                     };
@@ -2515,8 +2478,8 @@ function PlasmicPost2__RenderFunc(props: {
                                               $state.comments.unshift(
                                                 $steps.sendComment.data.result
                                               );
-                                              $state.repeatPost.comment.number += 1;
-                                              return ($state.repeatPost.comment.active =
+                                              $state.repeatPost2.comment.number += 1;
+                                              return ($state.repeatPost2.comment.active =
                                                 true);
                                             })();
                                           }
@@ -3548,7 +3511,7 @@ const PlasmicDescendants = {
     "getInfo",
     "loding",
     "button",
-    "repeatPost",
+    "repeatPost2",
     "popover",
     "radioGrop",
     "comment",
@@ -3567,7 +3530,7 @@ const PlasmicDescendants = {
     "getInfo",
     "loding",
     "button",
-    "repeatPost",
+    "repeatPost2",
     "popover",
     "radioGrop",
     "comment",
@@ -3578,7 +3541,7 @@ const PlasmicDescendants = {
   ],
   loding: ["loding"],
   button: ["button"],
-  repeatPost: ["repeatPost"],
+  repeatPost2: ["repeatPost2"],
   popover: ["popover", "radioGrop"],
   radioGrop: ["radioGrop"],
   comment: ["comment"],
@@ -3601,7 +3564,7 @@ type NodeDefaultElementType = {
   getInfo: typeof ApiRequest;
   loding: "div";
   button: typeof Button;
-  repeatPost: typeof RepeatPost;
+  repeatPost2: typeof RepeatPost2;
   popover: typeof AntdPopover;
   radioGrop: typeof RadioGrop;
   comment: typeof Comment;
@@ -3705,7 +3668,7 @@ export const PlasmicPost2 = Object.assign(
     getInfo: makeNodeComponent("getInfo"),
     loding: makeNodeComponent("loding"),
     button: makeNodeComponent("button"),
-    repeatPost: makeNodeComponent("repeatPost"),
+    repeatPost2: makeNodeComponent("repeatPost2"),
     popover: makeNodeComponent("popover"),
     radioGrop: makeNodeComponent("radioGrop"),
     comment: makeNodeComponent("comment"),

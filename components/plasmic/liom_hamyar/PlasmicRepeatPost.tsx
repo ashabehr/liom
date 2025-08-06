@@ -61,6 +61,7 @@ import {
 
 import UploudeTime from "../../UploudeTime"; // plasmic-import: aUO_fJR7ceN4/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import ReactionBar2ForSocialMain from "../../ReactionBar2ForSocialMain"; // plasmic-import: H6dfyqWexG5G/component
 import Like from "../../Like"; // plasmic-import: ARJf0DiYhPbe/component
 import CommentNum from "../../CommentNum"; // plasmic-import: qNEIB2lcMLwU/component
@@ -121,6 +122,8 @@ export type PlasmicRepeatPost__OverridesType = {
   root?: Flex__<"div">;
   uploudeTime?: Flex__<typeof UploudeTime>;
   timer?: Flex__<typeof Timer>;
+  lineClompTitle?: Flex__<typeof LineClomp>;
+  lineClompText?: Flex__<typeof LineClomp>;
   reactionBar2ForSocialMain?: Flex__<typeof ReactionBar2ForSocialMain>;
   like2?: Flex__<typeof Like>;
   commentNum?: Flex__<typeof CommentNum>;
@@ -251,6 +254,18 @@ function PlasmicRepeatPost__RenderFunc(props: {
 
         valueProp: "comment",
         onChangeProp: "onCommentChange"
+      },
+      {
+        path: "lineClompTitle.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "lineClompText.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -279,6 +294,48 @@ function PlasmicRepeatPost__RenderFunc(props: {
         sty.root,
         { [sty.roottype_admin]: hasVariant($state, "type", "admin") }
       )}
+      onClick={async event => {
+        const $steps = {};
+
+        $steps["goToPage"] = true
+          ? (() => {
+              const actionArgs = {
+                destination: (() => {
+                  try {
+                    return undefined;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()
+              };
+              return (({ destination }) => {
+                if (
+                  typeof destination === "string" &&
+                  destination.startsWith("#")
+                ) {
+                  document
+                    .getElementById(destination.substr(1))
+                    .scrollIntoView({ behavior: "smooth" });
+                } else {
+                  __nextRouter?.push(destination);
+                }
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["goToPage"] != null &&
+          typeof $steps["goToPage"] === "object" &&
+          typeof $steps["goToPage"].then === "function"
+        ) {
+          $steps["goToPage"] = await $steps["goToPage"];
+        }
+      }}
       style={
         hasVariant($state, "type", "admin")
           ? (() => {
@@ -754,7 +811,10 @@ function PlasmicRepeatPost__RenderFunc(props: {
             $state,
             "type",
             "admin"
-          )
+          ),
+          [sty.freeBoxtype_admin_main__vsEl278CRaAq7Kr]:
+            hasVariant($state, "main", "main") &&
+            hasVariant($state, "type", "admin")
         })}
         onClick={async event => {
           const $steps = {};
@@ -785,8 +845,97 @@ function PlasmicRepeatPost__RenderFunc(props: {
             $steps["runCode"] = await $steps["runCode"];
           }
         }}
-      />
+      >
+        <LineClomp
+          data-plasmic-name={"lineClompTitle"}
+          data-plasmic-override={overrides.lineClompTitle}
+          className={classNames("__wab_instance", sty.lineClompTitle)}
+          numberOfLine={1}
+          onLineChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["lineClompTitle", "line"]).apply(
+              null,
+              eventArgs
+            );
 
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__fBe5J
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.postData.post.title;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+        </LineClomp>
+        <LineClomp
+          data-plasmic-name={"lineClompText"}
+          data-plasmic-override={overrides.lineClompText}
+          className={classNames("__wab_instance", sty.lineClompText)}
+          more={true}
+          numberOfLine={4}
+          onLineChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["lineClompText", "line"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__uNu9O
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.postData.post.text;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "text";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+        </LineClomp>
+      </div>
       <ReactionBar2ForSocialMain
         data-plasmic-name={"reactionBar2ForSocialMain"}
         data-plasmic-override={overrides.reactionBar2ForSocialMain}
@@ -1155,6 +1304,8 @@ const PlasmicDescendants = {
     "root",
     "uploudeTime",
     "timer",
+    "lineClompTitle",
+    "lineClompText",
     "reactionBar2ForSocialMain",
     "like2",
     "commentNum",
@@ -1162,6 +1313,8 @@ const PlasmicDescendants = {
   ],
   uploudeTime: ["uploudeTime"],
   timer: ["timer"],
+  lineClompTitle: ["lineClompTitle"],
+  lineClompText: ["lineClompText"],
   reactionBar2ForSocialMain: [
     "reactionBar2ForSocialMain",
     "like2",
@@ -1179,6 +1332,8 @@ type NodeDefaultElementType = {
   root: "div";
   uploudeTime: typeof UploudeTime;
   timer: typeof Timer;
+  lineClompTitle: typeof LineClomp;
+  lineClompText: typeof LineClomp;
   reactionBar2ForSocialMain: typeof ReactionBar2ForSocialMain;
   like2: typeof Like;
   commentNum: typeof CommentNum;
@@ -1247,6 +1402,8 @@ export const PlasmicRepeatPost = Object.assign(
     // Helper components rendering sub-elements
     uploudeTime: makeNodeComponent("uploudeTime"),
     timer: makeNodeComponent("timer"),
+    lineClompTitle: makeNodeComponent("lineClompTitle"),
+    lineClompText: makeNodeComponent("lineClompText"),
     reactionBar2ForSocialMain: makeNodeComponent("reactionBar2ForSocialMain"),
     like2: makeNodeComponent("like2"),
     commentNum: makeNodeComponent("commentNum"),

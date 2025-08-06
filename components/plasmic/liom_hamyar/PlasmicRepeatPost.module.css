@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background: var(--token-R_Rsn0nP9oIv);
   position: relative;
@@ -10,7 +10,6 @@
   width: 100%;
   height: auto;
   box-shadow: 0px 4px 8px 0px #431c1c0d;
-  min-height: 250px;
   min-width: 0;
   border-radius: 8px;
   padding: 0px;
@@ -289,13 +288,49 @@
   width: 100%;
   min-width: 0;
   min-height: 0;
-  padding: 0px;
+  padding: 0px 8px;
 }
 .freeBoxmain__vsEl2Aq7Kr {
-  padding: 0px;
+  padding: 0px 8px;
+}
+.lineClompTitle:global(.__wab_instance) {
+  max-width: 100%;
+}
+.text__fBe5J {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: right;
+  white-space: pre;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .text__fBe5J {
+    color: var(--token-ODBUExjR6VEF);
+    font-size: 16px;
+  }
+}
+.lineClompText:global(.__wab_instance) {
+  max-width: 100%;
+}
+.text__uNu9O {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--token-ODBUExjR6VEF);
+  position: relative;
+  min-width: 0;
+  padding: 0px 16px;
 }
 .reactionBar2ForSocialMain:global(.__wab_instance) {
   max-width: 100%;
+  margin-top: 8px;
 }
 .like2:global(.__wab_instance) {
   position: relative;
