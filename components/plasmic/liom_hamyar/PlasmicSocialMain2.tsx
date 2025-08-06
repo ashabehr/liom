@@ -70,6 +70,7 @@ import RadioGrop2 from "../../RadioGrop2"; // plasmic-import: S5lwX58ZN_a3/compo
 import Story from "../../Story"; // plasmic-import: SYaNz6kkwV8r/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
+import RepeatPost from "../../RepeatPost"; // plasmic-import: O_6FIPF6rDTy/component
 import ComingSoon from "../../ComingSoon"; // plasmic-import: -rGZlxMT1IH0/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -119,6 +120,7 @@ export type PlasmicSocialMain2__OverridesType = {
   postPostesInfo?: Flex__<typeof ApiRequest>;
   dialog?: Flex__<typeof Dialog>;
   button2?: Flex__<typeof Button>;
+  repeatPost?: Flex__<typeof RepeatPost>;
   comingSoon?: Flex__<typeof ComingSoon>;
 };
 
@@ -366,6 +368,16 @@ function PlasmicSocialMain2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "repeatPost[].main",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "repeatPost[].comment",
+        type: "private",
+        variableType: "object"
       }
     ],
     [$props, $ctx, $refs]
@@ -1961,7 +1973,7 @@ function PlasmicSocialMain2__RenderFunc(props: {
                       (() => {
                         try {
                           return (() => {
-                            return Array.from({ length: 100 }, (_, i) => i + 1);
+                            return Array.from({ length: 200 }, (_, i) => i + 1);
                           })();
                         } catch (e) {
                           if (
@@ -2009,6 +2021,112 @@ function PlasmicSocialMain2__RenderFunc(props: {
                               })()}
                             </React.Fragment>
                           </div>
+                          {(() => {
+                            const child$Props = {
+                              className: classNames(
+                                "__wab_instance",
+                                sty.repeatPost
+                              ),
+                              comment: generateStateValueProp($state, [
+                                "repeatPost",
+                                __plasmic_idx_0,
+                                "comment"
+                              ]),
+                              isMainPage: true,
+                              main: generateStateValueProp($state, [
+                                "repeatPost",
+                                __plasmic_idx_0,
+                                "main"
+                              ]),
+                              onCommentChange: async (...eventArgs: any) => {
+                                generateStateOnChangeProp($state, [
+                                  "repeatPost",
+                                  __plasmic_idx_0,
+                                  "comment"
+                                ]).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              },
+                              onMainChange: async (...eventArgs: any) => {
+                                generateStateOnChangeProp($state, [
+                                  "repeatPost",
+                                  __plasmic_idx_0,
+                                  "main"
+                                ]).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              },
+                              postData: (() => {
+                                try {
+                                  return currentItem;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              type: (() => {
+                                try {
+                                  return currentItem.user.superAdmin == true
+                                    ? "admin"
+                                    : "";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "admin";
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+
+                            initializePlasmicStates(
+                              $state,
+                              [
+                                {
+                                  name: "repeatPost[].main",
+                                  initFunc: ({ $props, $state, $queries }) =>
+                                    "main"
+                                },
+                                {
+                                  name: "repeatPost[].comment",
+                                  initFunc: ({
+                                    $props,
+                                    $state,
+                                    $queries
+                                  }) => ({})
+                                }
+                              ],
+                              [__plasmic_idx_0]
+                            );
+                            return (
+                              <RepeatPost
+                                data-plasmic-name={"repeatPost"}
+                                data-plasmic-override={overrides.repeatPost}
+                                {...child$Props}
+                              />
+                            );
+                          })()}
                         </div>
                       );
                     })}
@@ -2122,6 +2240,7 @@ const PlasmicDescendants = {
     "postPostesInfo",
     "dialog",
     "button2",
+    "repeatPost",
     "comingSoon"
   ],
   section: [
@@ -2141,9 +2260,10 @@ const PlasmicDescendants = {
   radioGrop2: ["radioGrop2"],
   story: ["story"],
   timer: ["timer"],
-  postPostesInfo: ["postPostesInfo", "dialog", "button2"],
+  postPostesInfo: ["postPostesInfo", "dialog", "button2", "repeatPost"],
   dialog: ["dialog"],
   button2: ["button2"],
+  repeatPost: ["repeatPost"],
   comingSoon: ["comingSoon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -2163,6 +2283,7 @@ type NodeDefaultElementType = {
   postPostesInfo: typeof ApiRequest;
   dialog: typeof Dialog;
   button2: typeof Button;
+  repeatPost: typeof RepeatPost;
   comingSoon: typeof ComingSoon;
 };
 
@@ -2263,6 +2384,7 @@ export const PlasmicSocialMain2 = Object.assign(
     postPostesInfo: makeNodeComponent("postPostesInfo"),
     dialog: makeNodeComponent("dialog"),
     button2: makeNodeComponent("button2"),
+    repeatPost: makeNodeComponent("repeatPost"),
     comingSoon: makeNodeComponent("comingSoon"),
 
     // Metadata about props expected for PlasmicSocialMain2

@@ -2395,6 +2395,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/social-main-2"
+        },
+        {
+          "id": "GCktZfOzFzbJ",
+          "name": "RepeatPost2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicRepeatPost2.tsx",
+          "importSpec": {
+            "modulePath": "RepeatPost2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicRepeatPost2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

@@ -985,6 +985,10 @@
   text-align: center;
   min-width: 0;
 }
+.repeatPost:global(.__wab_instance) {
+  width: 100%;
+  min-width: 0;
+}
 .freeBox___9LzA {
   display: flex;
   flex-direction: column;
