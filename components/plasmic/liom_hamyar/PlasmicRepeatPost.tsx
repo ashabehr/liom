@@ -977,6 +977,80 @@ function PlasmicRepeatPost__RenderFunc(props: {
             </React.Fragment>
           </div>
         </LineClomp>
+        {(() => {
+          try {
+            return (() => {
+              var text =
+                $props.postData.attachments[0]?.type ||
+                $props.postData.post.actionText;
+              text =
+                text == "image"
+                  ? "مشاهده عکس"
+                  : text == "video"
+                  ? "مشاهده ویدیو"
+                  : text == "file"
+                  ? "دانلود"
+                  : text == "audio"
+                  ? "بازکردن صدا"
+                  : text == "justText"
+                  ? ""
+                  : text;
+              if (text == "") return false;
+              else return true;
+            })();
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return false;
+            }
+            throw e;
+          }
+        })() ? (
+          <div className={classNames(projectcss.all, sty.freeBox___4KlbH)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__xdcsC
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return (() => {
+                      var text =
+                        $props.postData.attachments[0]?.type ||
+                        $props.postData.post.actionText;
+                      text =
+                        text == "image"
+                          ? "مشاهده عکس"
+                          : text == "video"
+                          ? "مشاهده ویدیو"
+                          : text == "file"
+                          ? "دانلود"
+                          : text == "audio"
+                          ? "بازکردن صدا"
+                          : text == "justText"
+                          ? ""
+                          : text;
+                      return text;
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+          </div>
+        ) : null}
       </div>
       <ReactionBar2ForSocialMain
         data-plasmic-name={"reactionBar2ForSocialMain"}
