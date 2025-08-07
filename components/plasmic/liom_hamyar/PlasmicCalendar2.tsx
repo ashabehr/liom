@@ -1661,7 +1661,53 @@ function PlasmicCalendar2__RenderFunc(props: {
                     return (() => {
                       $state.loadingpage = true;
                       $state.userInfo = {};
-                      return ($state.lackOfCourseInformation = false);
+                      $state.lackOfCourseInformation = false;
+                      try {
+                        $state.advace = JSON.parse(
+                          window.sessionStorage.getItem("advice")
+                        );
+                      } catch (e) {
+                        console.error("خطا در parsing advice:", e);
+                        $state.advace = null;
+                      }
+                      console.log("advace:", $state.advace);
+                      try {
+                        $state.sing = JSON.parse(
+                          window.sessionStorage.getItem("sing")
+                        );
+                      } catch (e) {
+                        console.error("خطا در parsing sing:", e);
+                        $state.sing = null;
+                      }
+                      console.log("sing:", $state.sing);
+                      try {
+                        $state.day = JSON.parse(
+                          window.sessionStorage.getItem("day")
+                        );
+                      } catch (e) {
+                        console.error("خطا در parsing day:", e);
+                        $state.day = null;
+                      }
+                      console.log("day:", $state.day);
+                      let user;
+                      try {
+                        user = JSON.parse(
+                          window.localStorage.getItem("userinfo")
+                        );
+                      } catch (e) {
+                        console.error("خطا در parsing userinfo:", e);
+                        user = null;
+                      }
+                      console.log("user:", user);
+                      $state.userInfo = {
+                        success: true,
+                        result: user
+                      };
+                      console.log("userInfo:", $state.userInfo);
+                      $state.status =
+                        $state.userInfo.result?.userStatus?.periodStatus ||
+                        null;
+                      return console.log("status:", $state.status);
                     })();
                   }
                 };
