@@ -1678,44 +1678,45 @@ function PlasmicCalendar2__RenderFunc(props: {
             $steps["runCode4"] = await $steps["runCode4"];
           }
 
-          $steps["runCode2"] =
-            window.sessionStorage.getItem("cash") == "true"
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        $state.advace = JSON.parse(
-                          window.sessionStorage.getItem("advice")
-                        );
-                        console.log("advace:", $state.advace);
-                        $state.sing = JSON.parse(
-                          window.sessionStorage.getItem("sing")
-                        );
-                        console.log("sing:", $state.sing);
-                        $state.day = JSON.parse(
-                          window.sessionStorage.getItem("day")
-                        );
-                        console.log("day:", $state.day);
-                        var user = JSON.parse(
-                          window.localStorage.getItem("userinfo")
-                        );
-                        console.log("user:", user);
-                        $state.userInfo = {
-                          success: true,
-                          result: user
-                        };
-                        console.log("userInfo:", $state.userInfo);
-                        $state.status =
-                          $state.userInfo.result?.userStatus?.periodStatus;
-                        return console.log("status:", $state.status);
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
+          $steps["runCode2"] = (
+            window.sessionStorage.getItem("cash") ? true : false
+          )
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      $state.advace = JSON.parse(
+                        window.sessionStorage.getItem("advice")
+                      );
+                      console.log("advace:", $state.advace);
+                      $state.sing = JSON.parse(
+                        window.sessionStorage.getItem("sing")
+                      );
+                      console.log("sing:", $state.sing);
+                      $state.day = JSON.parse(
+                        window.sessionStorage.getItem("day")
+                      );
+                      console.log("day:", $state.day);
+                      var user = JSON.parse(
+                        window.localStorage.getItem("userinfo")
+                      );
+                      console.log("user:", user);
+                      $state.userInfo = {
+                        success: true,
+                        result: user
+                      };
+                      console.log("userInfo:", $state.userInfo);
+                      $state.status =
+                        $state.userInfo.result?.userStatus?.periodStatus;
+                      return console.log("status:", $state.status);
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
           if (
             $steps["runCode2"] != null &&
             typeof $steps["runCode2"] === "object" &&
