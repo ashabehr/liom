@@ -1688,11 +1688,7 @@ function PlasmicLogin__RenderFunc(props: {
                                   `&scope=openid` +
                                   `&kc_idp_hint=google` +
                                   `&state=${encodedState}`;
-                                return window.open(
-                                  googleLoginUrl,
-                                  "_blank",
-                                  "width=500,height=600"
-                                );
+                                return window.open(googleLoginUrl, "_self");
                               })();
                             }
                           };

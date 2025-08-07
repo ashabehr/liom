@@ -1994,57 +1994,6 @@ function PlasmicCalendar2__RenderFunc(props: {
             ];
           }
 
-          $steps["updateIndextool"] = $steps.userinfo?.data?.result?.userStatus
-            ?.periodStatus
-            ? (() => {
-                const actionArgs = {
-                  variable: {
-                    objRoot: $state,
-                    variablePath: ["indextool"]
-                  },
-                  operation: 0,
-                  value: (() => {
-                    var allowanceUser = JSON.parse(
-                      window.localStorage.getItem("allowanceUser")
-                    );
-                    allowanceUser = allowanceUser.find(
-                      item =>
-                        item.type == "hamyarSub" ||
-                        item.type == "self_hamyar_sms"
-                    );
-                    if (
-                      $steps.userinfo?.data.result?.userStatus?.periodStatus ==
-                      "blood"
-                    ) {
-                      if (allowanceUser) return -1;
-                      else return 0;
-                    } else if (
-                      $steps.userinfo?.data.result?.calender[0]?.isNormal ==
-                      false
-                    )
-                      return 2;
-                    else return 1;
-                  })()
-                };
-                return (({ variable, value, startIndex, deleteCount }) => {
-                  if (!variable) {
-                    return;
-                  }
-                  const { objRoot, variablePath } = variable;
-
-                  $stateSet(objRoot, variablePath, value);
-                  return value;
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["updateIndextool"] != null &&
-            typeof $steps["updateIndextool"] === "object" &&
-            typeof $steps["updateIndextool"].then === "function"
-          ) {
-            $steps["updateIndextool"] = await $steps["updateIndextool"];
-          }
-
           $steps["goToExpired"] = (
             $steps.userinfo?.data?.success == false
               ? $steps.userinfo?.data.success
@@ -2471,6 +2420,63 @@ function PlasmicCalendar2__RenderFunc(props: {
             typeof $steps["runCode3"].then === "function"
           ) {
             $steps["runCode3"] = await $steps["runCode3"];
+          }
+
+          $steps["updateIndextool"] = $steps.userinfo?.data?.result?.userStatus
+            ?.periodStatus
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["indextool"]
+                  },
+                  operation: 0,
+                  value: (() => {
+                    let allowanceUser;
+                    try {
+                      allowanceUser =
+                        JSON.parse(
+                          window.localStorage.getItem("allowanceUser")
+                        ) || [];
+                      if (!Array.isArray(allowanceUser)) allowanceUser = [];
+                    } catch (e) {
+                      allowanceUser = [];
+                    }
+                    const selectedUser = allowanceUser.find(
+                      item =>
+                        item.type === "hamyarSub" ||
+                        item.type === "self_hamyar_sms"
+                    );
+                    const periodStatus =
+                      $steps.userinfo?.data?.result?.userStatus?.periodStatus;
+                    const isNormal =
+                      $steps.userinfo?.data?.result?.calender?.[0]?.isNormal;
+                    if (periodStatus === "blood") {
+                      return selectedUser ? -1 : 0;
+                    } else if (isNormal === false) {
+                      return 2;
+                    } else {
+                      return 1;
+                    }
+                  })()
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateIndextool"] != null &&
+            typeof $steps["updateIndextool"] === "object" &&
+            typeof $steps["updateIndextool"].then === "function"
+          ) {
+            $steps["updateIndextool"] = await $steps["updateIndextool"];
           }
 
           $steps["store"] = (
