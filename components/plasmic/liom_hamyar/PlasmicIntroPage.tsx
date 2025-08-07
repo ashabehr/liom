@@ -1731,6 +1731,9 @@ function PlasmicIntroPage__RenderFunc(props: {
                     "__wab_instance",
                     sty.introComponent__mnQGe
                   )}
+                  image={
+                    "https://s3.ir-thr-at1.arvanstorage.ir/lioms3/2025-08/2025-08-07-c35ca3cb-67d2-453a-a1f4-d3a62432371e.svg"
+                  }
                   text={
                     "\u062a\u0648\u06cc \u0631\u0648\u0632\u0627\u06cc\u06cc \u06a9\u0647 \u062d\u0627\u0644\u062a \u062e\u0648\u0628 \u0646\u06cc\u0633\u062a\u060c \u06cc\u0647 \u067e\u0627\u0631\u062a\u0646\u0631 \u0622\u06af\u0627\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u062d\u0627\u0644 \u062f\u0648\u062a\u0627\u062a\u0648\u0646\u0648 \u0628\u0647\u062a\u0631 \u06a9\u0646\u0647."
                   }
