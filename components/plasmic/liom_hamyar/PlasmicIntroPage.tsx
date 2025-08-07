@@ -1731,9 +1731,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                     "__wab_instance",
                     sty.introComponent__mnQGe
                   )}
-                  image={
-                    "https://s3.ir-thr-at1.arvanstorage.ir/lioms3/2025-08/2025-08-07-c35ca3cb-67d2-453a-a1f4-d3a62432371e.svg"
-                  }
+                  image={"https://apps.liom.app/love3-2.svg"}
                   text={
                     "\u062a\u0648\u06cc \u0631\u0648\u0632\u0627\u06cc\u06cc \u06a9\u0647 \u062d\u0627\u0644\u062a \u062e\u0648\u0628 \u0646\u06cc\u0633\u062a\u060c \u06cc\u0647 \u067e\u0627\u0631\u062a\u0646\u0631 \u0622\u06af\u0627\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u062d\u0627\u0644 \u062f\u0648\u062a\u0627\u062a\u0648\u0646\u0648 \u0628\u0647\u062a\u0631 \u06a9\u0646\u0647."
                   }
@@ -1754,6 +1752,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                     "__wab_instance",
                     sty.introComponent___5PhuJ
                   )}
+                  image={"https://apps.liom.app/love4-2.svg"}
                   text={
                     "\u0646\u0647 \u06a9\u0627\u062f\u0648\u060c \u0646\u0647 \u0633\u0648\u0631\u067e\u0631\u0627\u06cc\u0632.\u0627\u06af\u0647 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062d\u0627\u0644\u062a \u0628\u0627\u0634\u0647\u060c \u062e\u0648\u062f\u0634 \u0628\u0647\u062a\u0631\u06cc\u0646 \u06a9\u0627\u062f\u0648\u0639\u0647."
                   }
@@ -1761,16 +1760,6 @@ function PlasmicIntroPage__RenderFunc(props: {
                     " \u06af\u0627\u0647\u06cc \u0641\u0642\u0637 \u062a\u0648\u062c\u0647 \u06a9\u0627\u0641\u06cc\u0647\u060c \u0646\u0647 \u0647\u062f\u06cc\u0647."
                   }
                 />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__sOHwb
-                  )}
-                >
-                  {"too"}
-                </div>
               </div>
               <div
                 className={classNames(
@@ -1784,6 +1773,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                     "__wab_instance",
                     sty.introComponent__ibO44
                   )}
+                  image={"https://apps.liom.app/love1-2.svg"}
                   text={
                     "\u06af\u0627\u0647\u06cc \u0641\u0642\u0637 \u06cc\u0647 \u062c\u0645\u0644\u0647\u200c\u06cc \u0633\u0627\u062f\u0647\u060c \u06cc\u0627 \u06cc\u0647 \u062d\u0631\u06a9\u062a \u06a9\u0648\u0686\u06cc\u06a9\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u062d\u0627\u0644\u062a\u0648 \u0627\u0632 \u0627\u06cc\u0646\u200c\u0631\u0648 \u0628\u0647 \u0627\u0648\u0646\u200c\u0631\u0648 \u06a9\u0646\u0647\u2026 "
                   }
@@ -1804,6 +1794,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                     "__wab_instance",
                     sty.introComponent__zPgI
                   )}
+                  image={"https://apps.liom.app/love2-2.svg"}
                   text={
                     "\u0646\u06af\u0631\u0627\u0646 \u0646\u0628\u0627\u0634\u060c \u0645\u0627 \u0628\u0647\u0634 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645."
                   }

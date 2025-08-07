@@ -59,8 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -144,10 +142,6 @@ function PlasmicIntroComponent__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6BytLjmha8VC()
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -182,18 +176,26 @@ function PlasmicIntroComponent__RenderFunc(props: {
               displayMaxWidth={"100%"}
               displayMinHeight={"0"}
               displayMinWidth={"0"}
-              displayWidth={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? "250px"
-                  : "300px"
-              }
+              displayWidth={"300px"}
               loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_hamyar/images/love12Svg.svg",
-                fullWidth: 146.75,
-                fullHeight: 212.49,
-                aspectRatio: 0.690621
-              }}
+              src={(() => {
+                try {
+                  return $props.image;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return {
+                      src: "/plasmic/liom_hamyar/images/love12Svg.svg",
+                      fullWidth: 146.75,
+                      fullHeight: 212.49,
+                      aspectRatio: 0.690621
+                    };
+                  }
+                  throw e;
+                }
+              })()}
             />
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__pqIQ)}>
