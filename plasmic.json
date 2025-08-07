@@ -2408,6 +2408,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicRepeatPost2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "b9qrgB2b1TrW",
+          "name": "SubItemsComponnet",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSubItemsComponnet.tsx",
+          "importSpec": {
+            "modulePath": "SubItemsComponnet.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSubItemsComponnet.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -4687,6 +4700,11 @@
           "id": "qyRgVY-WKhRg",
           "name": "image 103",
           "filePath": "../public/plasmic/liom_hamyar/images/image103.svg"
+        },
+        {
+          "id": "Sczspx-bOruk",
+          "name": "hamyarIntro1.png",
+          "filePath": "../public/plasmic/liom_hamyar/images/hamyarIntro1Png.png"
         }
       ],
       "indirect": false,

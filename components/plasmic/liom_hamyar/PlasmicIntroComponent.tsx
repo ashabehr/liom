@@ -179,9 +179,9 @@ function PlasmicIntroComponent__RenderFunc(props: {
               displayWidth={"300px"}
               loading={"lazy"}
               src={{
-                src: "/plasmic/liom_hamyar/images/image7.png",
-                fullWidth: 1302,
-                fullHeight: 900,
+                src: "/plasmic/liom_hamyar/images/hamyarIntro1Png.png",
+                fullWidth: 244,
+                fullHeight: 261,
                 aspectRatio: undefined
               }}
             />

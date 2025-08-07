@@ -1732,30 +1732,10 @@ function PlasmicIntroPage__RenderFunc(props: {
                     sty.introComponent__mnQGe
                   )}
                   text={
-                    "\u0627\u06cc\u0646\u062c\u0627 7 \u0645\u06cc\u0644\u06cc\u0648\u0646 \u062e\u0631\u06cc\u062f\u0627\u0631\u060c \u062a\u062c\u0631\u0628\u0647 \u062e\u0631\u06cc\u062f\u0634\u0627\u0646 \u0631\u0627 \u0628\u0627 \u062c\u0632\u064a\u06cc\u0627\u062a \u0646\u0648\u0634\u062a\u0647 \u0627\u0646\u062f\u060c \u0642\u0628\u0644 \u0627\u0632 \u062e\u0631\u06cc\u062f\u060c \u062f\u06cc\u062f\u06af\u0627\u0647 \u0647\u0627 \u0631\u0627 \u0628\u062e.\u0627\u0646 . \u0622\u06af\u0627\u0647 \u0628\u0627\u0634."
+                    "\u062a\u0648\u06cc \u0631\u0648\u0632\u0627\u06cc\u06cc \u06a9\u0647 \u062d\u0627\u0644\u062a \u062e\u0648\u0628 \u0646\u06cc\u0633\u062a\u060c \u06cc\u0647 \u067e\u0627\u0631\u062a\u0646\u0631 \u0622\u06af\u0627\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u062d\u0627\u0644 \u062f\u0648\u062a\u0627\u062a\u0648\u0646\u0648 \u0628\u0647\u062a\u0631 \u06a9\u0646\u0647."
                   }
                   title={
-                    "\u0627\u0633\u0644\u0627\u06cc\u062f \u0627\u0648\u0644"
-                  }
-                />
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__jVFuV,
-                  "viewPager"
-                )}
-              >
-                <IntroComponent
-                  className={classNames(
-                    "__wab_instance",
-                    sty.introComponent__zPgI
-                  )}
-                  text={
-                    "\u0627\u06cc\u0646\u062c\u0627 7 \u0645\u06cc\u0644\u06cc\u0648\u0646 \u062e\u0631\u06cc\u062f\u0627\u0631\u060c \u062a\u062c\u0631\u0628\u0647 \u062e\u0631\u06cc\u062f\u0634\u0627\u0646 \u0631\u0627 \u0628\u0627 \u062c\u0632\u064a\u06cc\u0627\u062a \u0646\u0648\u0634\u062a\u0647 \u0627\u0646\u062f\u060c \u0642\u0628\u0644 \u0627\u0632 \u062e\u0631\u06cc\u062f\u060c \u062f\u06cc\u062f\u06af\u0627\u0647 \u0647\u0627 \u0631\u0627 \u0628\u062e.\u0627\u0646 . \u0622\u06af\u0627\u0647 \u0628\u0627\u0634."
-                  }
-                  title={
-                    "\u0627\u0633\u0644\u0627\u06cc\u062f \u062f\u0648\u0645"
+                    "\u0622\u06af\u0627\u0647\u06cc\u0650 \u067e\u0627\u0631\u062a\u0646\u0631\u060c \u062d\u0627\u0644 \u062f\u0648\u062a\u0627\u062a\u0648\u0646\u0648 \u0628\u0647\u062a\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0647."
                   }
                 />
               </div>
@@ -1772,12 +1752,22 @@ function PlasmicIntroPage__RenderFunc(props: {
                     sty.introComponent___5PhuJ
                   )}
                   text={
-                    "\u0627\u06cc\u0646\u062c\u0627 7 \u0645\u06cc\u0644\u06cc\u0648\u0646 \u062e\u0631\u06cc\u062f\u0627\u0631\u060c \u062a\u062c\u0631\u0628\u0647 \u062e\u0631\u06cc\u062f\u0634\u0627\u0646 \u0631\u0627 \u0628\u0627 \u062c\u0632\u064a\u06cc\u0627\u062a \u0646\u0648\u0634\u062a\u0647 \u0627\u0646\u062f\u060c \u0642\u0628\u0644 \u0627\u0632 \u062e\u0631\u06cc\u062f\u060c \u062f\u06cc\u062f\u06af\u0627\u0647 \u0647\u0627 \u0631\u0627 \u0628\u062e.\u0627\u0646 . \u0622\u06af\u0627\u0647 \u0628\u0627\u0634."
+                    "\u0646\u0647 \u06a9\u0627\u062f\u0648\u060c \u0646\u0647 \u0633\u0648\u0631\u067e\u0631\u0627\u06cc\u0632.\u0627\u06af\u0647 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062d\u0627\u0644\u062a \u0628\u0627\u0634\u0647\u060c \u062e\u0648\u062f\u0634 \u0628\u0647\u062a\u0631\u06cc\u0646 \u06a9\u0627\u062f\u0648\u0639\u0647."
                   }
                   title={
-                    "\u0627\u0633\u0644\u0627\u06cc\u062f \u0633\u0648\u0645"
+                    " \u06af\u0627\u0647\u06cc \u0641\u0642\u0637 \u062a\u0648\u062c\u0647 \u06a9\u0627\u0641\u06cc\u0647\u060c \u0646\u0647 \u0647\u062f\u06cc\u0647."
                   }
                 />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__sOHwb
+                  )}
+                >
+                  {"too"}
+                </div>
               </div>
               <div
                 className={classNames(
@@ -1792,10 +1782,30 @@ function PlasmicIntroPage__RenderFunc(props: {
                     sty.introComponent__ibO44
                   )}
                   text={
-                    "\u0627\u06cc\u0646\u062c\u0627 7 \u0645\u06cc\u0644\u06cc\u0648\u0646 \u062e\u0631\u06cc\u062f\u0627\u0631\u060c \u062a\u062c\u0631\u0628\u0647 \u062e\u0631\u06cc\u062f\u0634\u0627\u0646 \u0631\u0627 \u0628\u0627 \u062c\u0632\u064a\u06cc\u0627\u062a \u0646\u0648\u0634\u062a\u0647 \u0627\u0646\u062f\u060c \u0642\u0628\u0644 \u0627\u0632 \u062e\u0631\u06cc\u062f\u060c \u062f\u06cc\u062f\u06af\u0627\u0647 \u0647\u0627 \u0631\u0627 \u0628\u062e.\u0627\u0646 . \u0622\u06af\u0627\u0647 \u0628\u0627\u0634."
+                    "\u06af\u0627\u0647\u06cc \u0641\u0642\u0637 \u06cc\u0647 \u062c\u0645\u0644\u0647\u200c\u06cc \u0633\u0627\u062f\u0647\u060c \u06cc\u0627 \u06cc\u0647 \u062d\u0631\u06a9\u062a \u06a9\u0648\u0686\u06cc\u06a9\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u062d\u0627\u0644\u062a\u0648 \u0627\u0632 \u0627\u06cc\u0646\u200c\u0631\u0648 \u0628\u0647 \u0627\u0648\u0646\u200c\u0631\u0648 \u06a9\u0646\u0647\u2026 "
                   }
                   title={
-                    "\u0627\u0633\u0644\u0627\u06cc\u062f \u0686\u0647\u0627\u0631\u0645"
+                    "\u062d\u0631\u0641 \u062f\u0631\u0633\u062a\u060c \u06a9\u0627\u0631 \u062f\u0631\u0633\u062a"
+                  }
+                />
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__jVFuV,
+                  "viewPager"
+                )}
+              >
+                <IntroComponent
+                  className={classNames(
+                    "__wab_instance",
+                    sty.introComponent__zPgI
+                  )}
+                  text={
+                    "\u0646\u06af\u0631\u0627\u0646 \u0646\u0628\u0627\u0634\u060c \u0645\u0627 \u0628\u0647\u0634 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645."
+                  }
+                  title={
+                    " \u0646\u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u062d\u0627\u0644\u062a\u0648 \u0628\u0631\u0627\u0634 \u062a\u0648\u0636\u06cc\u062d \u0628\u062f\u06cc\u061f"
                   }
                 />
               </div>
