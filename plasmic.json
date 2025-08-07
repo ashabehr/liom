@@ -1604,7 +1604,7 @@
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicAddToHome.module.css",
           "scheme": "blackbox",
-          "componentType": "page",
+          "componentType": "component",
           "path": "/add-to-home"
         },
         {

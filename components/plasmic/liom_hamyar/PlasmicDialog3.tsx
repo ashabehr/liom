@@ -66,7 +66,6 @@ import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-impor
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { DialogClose } from "@plasmicpkgs/radix-ui";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -83,7 +82,6 @@ import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
-import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
 
@@ -108,7 +106,6 @@ export type PlasmicDialog3__OverridesType = {
   dialog3?: Flex__<typeof Dialog>;
   button3?: Flex__<typeof Button>;
   dialogContent?: Flex__<typeof DialogContent>;
-  dialogClose?: Flex__<typeof DialogClose>;
 };
 
 export interface DefaultDialog3Props {
@@ -646,26 +643,15 @@ function PlasmicDialog3__RenderFunc(props: {
           ),
           value: args.children
         })}
-        <DialogClose
-          data-plasmic-name={"dialogClose"}
-          data-plasmic-override={overrides.dialogClose}
-          className={classNames("__wab_instance", sty.dialogClose)}
-        >
-          <XIcon
-            className={classNames(projectcss.all, sty.svg__jg1Uj)}
-            role={"img"}
-          />
-        </DialogClose>
       </DialogContent>
     </Dialog>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  dialog3: ["dialog3", "button3", "dialogContent", "dialogClose"],
+  dialog3: ["dialog3", "button3", "dialogContent"],
   button3: ["button3"],
-  dialogContent: ["dialogContent", "dialogClose"],
-  dialogClose: ["dialogClose"]
+  dialogContent: ["dialogContent"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -674,7 +660,6 @@ type NodeDefaultElementType = {
   dialog3: typeof Dialog;
   button3: typeof Button;
   dialogContent: typeof DialogContent;
-  dialogClose: typeof DialogClose;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -739,7 +724,6 @@ export const PlasmicDialog3 = Object.assign(
     // Helper components rendering sub-elements
     button3: makeNodeComponent("button3"),
     dialogContent: makeNodeComponent("dialogContent"),
-    dialogClose: makeNodeComponent("dialogClose"),
 
     // Metadata about props expected for PlasmicDialog3
     internalVariantProps: PlasmicDialog3__VariantProps,

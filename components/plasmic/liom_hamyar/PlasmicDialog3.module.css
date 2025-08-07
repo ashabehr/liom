@@ -562,23 +562,3 @@
   font-family: "Roboto", sans-serif;
   display: none;
 }
-.dialogClose:global(.__wab_instance) {
-  position: absolute;
-  top: 16px;
-  opacity: 0.7;
-  object-fit: cover;
-  width: auto;
-  left: 16px;
-  border-radius: 999px;
-}
-@media (max-width: 640px) {
-  .dialogClose:global(.__wab_instance) {
-    display: none;
-  }
-}
-.svg__jg1Uj {
-  object-fit: cover;
-  max-width: 100%;
-  cursor: pointer;
-  height: 1em;
-}

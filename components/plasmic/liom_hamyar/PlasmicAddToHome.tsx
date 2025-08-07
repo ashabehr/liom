@@ -58,9 +58,6 @@ import {
   useDataEnv,
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
-import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
-
-import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
@@ -84,9 +81,9 @@ export type PlasmicAddToHome__VariantsArgs = {};
 type VariantPropType = keyof PlasmicAddToHome__VariantsArgs;
 export const PlasmicAddToHome__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicAddToHome__ArgsType = {};
+export type PlasmicAddToHome__ArgsType = { addToHome?: () => void };
 type ArgPropType = keyof PlasmicAddToHome__ArgsType;
-export const PlasmicAddToHome__ArgProps = new Array<ArgPropType>();
+export const PlasmicAddToHome__ArgProps = new Array<ArgPropType>("addToHome");
 
 export type PlasmicAddToHome__OverridesType = {
   root?: Flex__<"div">;
@@ -95,7 +92,10 @@ export type PlasmicAddToHome__OverridesType = {
   rectangle126?: Flex__<"div">;
 };
 
-export interface DefaultAddToHomeProps {}
+export interface DefaultAddToHomeProps {
+  addToHome?: () => void;
+  className?: string;
+}
 
 const $$ = {};
 
@@ -157,39 +157,58 @@ function PlasmicAddToHome__RenderFunc(props: {
   });
 
   return (
-    <React.Fragment>
-      <Head></Head>
+    <div
+      data-plasmic-name={"root"}
+      data-plasmic-override={overrides.root}
+      data-plasmic-root={true}
+      data-plasmic-for-node={forNode}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_mixins,
+        projectcss.plasmic_tokens,
+        plasmic_antd_5_hostless_css.plasmic_tokens,
+        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        sty.root
+      )}
+    >
+      <div
+        data-plasmic-name={"frame9432"}
+        data-plasmic-override={overrides.frame9432}
+        className={classNames(projectcss.all, sty.frame9432)}
+      >
+        <LogoIcon
+          className={classNames(projectcss.all, sty.svg___8AIWe)}
+          role={"img"}
+        />
 
-      <style>{`
-        body {
-          margin: 0;
-        }
-      `}</style>
-
-      <div className={projectcss.plasmic_page_wrapper}>
         <div
-          data-plasmic-name={"root"}
-          data-plasmic-override={overrides.root}
-          data-plasmic-root={true}
-          data-plasmic-for-node={forNode}
           className={classNames(
             projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
-            plasmic_plasmic_rich_components_css.plasmic_tokens,
-            sty.root
+            projectcss.__wab_text,
+            sty.text___6Eu45
           )}
         >
-          <div
-            data-plasmic-name={"frame9432"}
-            data-plasmic-override={overrides.frame9432}
-            className={classNames(projectcss.all, sty.frame9432)}
-          >
-            <LogoIcon
-              className={classNames(projectcss.all, sty.svg___8AIWe)}
+          {
+            "\u0648\u0628 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645 \u0631\u0627 \u0628\u0647 \u0635\u0641\u062d\u0647 \u0627\u0635\u0644\u06cc \u06af\u0648\u0634\u06cc\u062a\u0627\u0646 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u06cc\u062f."
+          }
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__g0Wjk)}>
+          <div className={classNames(projectcss.all, sty.freeBox___8U1Uf)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__oRcPu
+              )}
+            >
+              {
+                "1. \u062f\u0631 \u0646\u0648\u0627\u0631  \u067e\u0627\u06cc\u06cc\u0646 \u062f\u06a9\u0645\u0647 "
+              }
+            </div>
+            <Icon197Icon
+              className={classNames(projectcss.all, sty.svg__gh100)}
               role={"img"}
             />
 
@@ -197,152 +216,134 @@ function PlasmicAddToHome__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text___6Eu45
+                sty.text__dIoIf
               )}
             >
               {
-                "\u0648\u0628 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645 \u0631\u0627 \u0628\u0647 \u0635\u0641\u062d\u0647 \u0627\u0635\u0644\u06cc \u06af\u0648\u0634\u06cc\u062a\u0627\u0646 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u06cc\u062f."
+                ' "Share" \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.'
               }
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__g0Wjk)}>
-              <div className={classNames(projectcss.all, sty.freeBox___8U1Uf)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__oRcPu
-                  )}
-                >
-                  {
-                    "1. \u062f\u0631 \u0646\u0648\u0627\u0631  \u067e\u0627\u06cc\u06cc\u0646 \u062f\u06a9\u0645\u0647 "
-                  }
-                </div>
-                <Icon197Icon
-                  className={classNames(projectcss.all, sty.svg__gh100)}
-                  role={"img"}
-                />
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__fJ2Za)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__hk76
+              )}
+            >
+              {
+                "2. \u062f\u0631 \u0645\u0646\u0648 \u0628\u0627\u0632 \u0634\u062f\u0647 \u060c\u06af\u0632\u06cc\u0646\u0647, "
+              }
+            </div>
+            <Icon198Icon
+              className={classNames(projectcss.all, sty.svg__jKuM)}
+              role={"img"}
+            />
 
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__dIoIf
-                  )}
-                >
-                  {
-                    ' "Share" \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.'
-                  }
-                </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__fJ2Za)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__hk76
-                  )}
-                >
-                  {
-                    "2. \u062f\u0631 \u0645\u0646\u0648 \u0628\u0627\u0632 \u0634\u062f\u0647 \u060c\u06af\u0632\u06cc\u0646\u0647, "
-                  }
-                </div>
-                <Icon198Icon
-                  className={classNames(projectcss.all, sty.svg__jKuM)}
-                  role={"img"}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__cw76C
-                  )}
-                >
-                  {
-                    ' "Add to home screen"  \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.'
-                  }
-                </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__hLmnp)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__uzQyt
-                  )}
-                >
-                  {
-                    '3. \u062f\u0631 \u0645\u0631\u062d\u0644\u0647 \u0628\u0639\u062f "Add" \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.'
-                  }
-                </div>
-              </div>
-              <Button
-                data-plasmic-name={"button"}
-                data-plasmic-override={overrides.button}
-                className={classNames("__wab_instance", sty.button)}
-                color={generateStateValueProp($state, ["button", "color"])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              localStorage.setItem("addHome", "true");
-                              return console.log("hi");
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___0TBp0
-                  )}
-                >
-                  {"\u0645\u062a\u0648\u062c\u0647 \u0634\u062f\u0645"}
-                </div>
-              </Button>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__cw76C
+              )}
+            >
+              {
+                ' "Add to home screen"  \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.'
+              }
             </div>
           </div>
-          <div
-            data-plasmic-name={"rectangle126"}
-            data-plasmic-override={overrides.rectangle126}
-            className={classNames(projectcss.all, sty.rectangle126)}
-          />
+          <div className={classNames(projectcss.all, sty.freeBox__hLmnp)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__uzQyt
+              )}
+            >
+              {
+                '3. \u062f\u0631 \u0645\u0631\u062d\u0644\u0647 \u0628\u0639\u062f "Add" \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.'
+              }
+            </div>
+          </div>
+          <Button
+            data-plasmic-name={"button"}
+            data-plasmic-override={overrides.button}
+            className={classNames("__wab_instance", sty.button)}
+            color={generateStateValueProp($state, ["button", "color"])}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return localStorage.setItem("addHome", "true");
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["runAddToHome"] = true
+                ? (() => {
+                    const actionArgs = { eventRef: $props["addToHome"] };
+                    return (({ eventRef, args }) => {
+                      return eventRef?.(...(args ?? []));
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runAddToHome"] != null &&
+                typeof $steps["runAddToHome"] === "object" &&
+                typeof $steps["runAddToHome"].then === "function"
+              ) {
+                $steps["runAddToHome"] = await $steps["runAddToHome"];
+              }
+            }}
+            onColorChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button", "color"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___0TBp0
+              )}
+            >
+              {"\u0645\u062a\u0648\u062c\u0647 \u0634\u062f\u0645"}
+            </div>
+          </Button>
         </div>
       </div>
-    </React.Fragment>
+      <div
+        data-plasmic-name={"rectangle126"}
+        data-plasmic-override={overrides.rectangle126}
+        className={classNames(projectcss.all, sty.rectangle126)}
+      />
+    </div>
   ) as React.ReactElement | null;
 }
 
@@ -417,34 +418,9 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
   return func;
 }
 
-function withUsePlasmicAuth<P extends object>(
-  WrappedComponent: React.ComponentType<P>
-) {
-  const WithUsePlasmicAuthComponent: React.FC<P> = props => {
-    const dataSourceCtx = usePlasmicDataSourceContext() ?? {};
-    const { isUserLoading, user, token } = plasmicAuth.usePlasmicAuth({
-      appId: "suVPi77vb6vv9K5rYJwyxC"
-    });
-
-    return (
-      <PlasmicDataSourceContextProvider__
-        value={{
-          ...dataSourceCtx,
-          isUserLoading,
-          userAuthToken: token,
-          user
-        }}
-      >
-        <WrappedComponent {...props} />
-      </PlasmicDataSourceContextProvider__>
-    );
-  };
-  return WithUsePlasmicAuthComponent;
-}
-
 export const PlasmicAddToHome = Object.assign(
   // Top-level PlasmicAddToHome renders the root element
-  withUsePlasmicAuth(makeNodeComponent("root")),
+  makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
     frame9432: makeNodeComponent("frame9432"),
@@ -453,15 +429,7 @@ export const PlasmicAddToHome = Object.assign(
 
     // Metadata about props expected for PlasmicAddToHome
     internalVariantProps: PlasmicAddToHome__VariantProps,
-    internalArgProps: PlasmicAddToHome__ArgProps,
-
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    internalArgProps: PlasmicAddToHome__ArgProps
   }
 );
 

@@ -74,7 +74,7 @@ import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/compone
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
-import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
+import AddToHome from "../../../src/pages/add-to-home"; // plasmic-import: XwX6W3jU5LyW/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -180,7 +180,7 @@ export type PlasmicLogin__OverridesType = {
   button5?: Flex__<typeof Button>;
   rules?: Flex__<typeof AntdModal>;
   top?: Flex__<"div">;
-  iframe?: Flex__<typeof Iframe>;
+  addToHome?: Flex__<typeof AddToHome>;
 };
 
 export interface DefaultLoginProps {}
@@ -813,7 +813,20 @@ function PlasmicLogin__RenderFunc(props: {
         path: "addHome",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return localStorage.getItem("addHome") ? true : false;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -973,7 +986,8 @@ function PlasmicLogin__RenderFunc(props: {
                       customFunction: async () => {
                         return (() => {
                           if (window.history.length == 1)
-                            return localStorage.setItem("addHome", "true");
+                            localStorage.setItem("addHome", "true");
+                          return ($state.addHome = false);
                         })();
                       }
                     };
@@ -1000,8 +1014,7 @@ function PlasmicLogin__RenderFunc(props: {
                           urlParams.forEach((value, key) => {
                             $state.paramsObject[key] = value;
                           });
-                          console.log($state.paramsObject);
-                          const redirectUrl = $state.paramsObject.redirect_url;
+                          const redirectUrl = $state.paramsObject?.redirect_url;
                           let isValid = false;
                           if (redirectUrl && redirectUrl != "") {
                             try {
@@ -1045,7 +1058,7 @@ function PlasmicLogin__RenderFunc(props: {
               }
 
               $steps["updateType"] =
-                $state.paramsObject.isLogin == "false"
+                $state.paramsObject?.isLogin == "false"
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -1080,34 +1093,23 @@ function PlasmicLogin__RenderFunc(props: {
               }
 
               $steps["runCode2"] =
-                $state.paramsObject.isLogin == "true" ||
-                $state.paramsObject.sex == "female"
+                $state.paramsObject.isLogin == "true"
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            var loginuserinfo = {
-                              success: true,
-                              result: {
-                                token: $state.paramsObject.token,
-                                userId: $state.paramsObject.userId,
-                                maleUrl:
-                                  $state.paramsObject.sex == "male"
-                                    ? "https://apps.liom.app/hamyar"
-                                    : ""
-                              }
-                            };
                             var setCookie = (name, value, days) => {
                               const expires = new Date(
                                 Date.now() + days * 86400000
                               ).toUTCString();
                               document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
                             };
-                            return setCookie(
+                            setCookie(
                               "token",
                               JSON.stringify([$state.paramsObject.token]),
                               100
                             );
+                            return ($state.token = $state.paramsObject.token);
                           })();
                         }
                       };
@@ -1122,6 +1124,52 @@ function PlasmicLogin__RenderFunc(props: {
                 typeof $steps["runCode2"].then === "function"
               ) {
                 $steps["runCode2"] = await $steps["runCode2"];
+              }
+
+              $steps["updateLoginData"] =
+                $state.paramsObject.token != null &&
+                $state.paramsObject.isLogin == "false"
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["loginData"]
+                        },
+                        operation: 0,
+                        value: {
+                          success: true,
+                          result: {
+                            token: $state.paramsObject.token,
+                            userId: $state.paramsObject.userId,
+                            maleUrl:
+                              $state.paramsObject.sex == "male"
+                                ? "https://apps.liom.app/hamyar"
+                                : ""
+                          }
+                        }
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateLoginData"] != null &&
+                typeof $steps["updateLoginData"] === "object" &&
+                typeof $steps["updateLoginData"].then === "function"
+              ) {
+                $steps["updateLoginData"] = await $steps["updateLoginData"];
               }
 
               $steps["updateLoginPage"] =
@@ -1291,10 +1339,7 @@ function PlasmicLogin__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return (() => {
-                          console.log($steps.urlToken.data.url);
-                          return window.open($steps.urlToken.data.url, "_self");
-                        })();
+                        return window.open($steps.urlToken.data.url, "_self");
                       }
                     };
                     return (({ customFunction }) => {
@@ -1616,60 +1661,59 @@ function PlasmicLogin__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToPage"] = true
+                    $steps["runCode2"] = true
                       ? (() => {
                           const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return (() => {
-                                  if (
-                                    !$ctx.query.redirect_url ||
-                                    $ctx.query.redirect_url.trim() === ""
-                                  )
-                                    return `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=google&state=https://apps.liom.app/login/`;
-                                  else
-                                    return `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=google&state=https://apps.liom.app/login/?redirect_url=${$ctx.query.redirect_url}`;
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
+                            customFunction: async () => {
+                              return (() => {
+                                var googleLoginUrl = "";
+                                const redirectUrl =
+                                  $ctx.query.redirect_url?.trim() || "";
+                                const stateUrl =
+                                  redirectUrl === ""
+                                    ? "https://apps.liom.app/login/"
+                                    : `https://apps.liom.app/login/?redirect_url=${encodeURIComponent(
+                                        redirectUrl
+                                      )}`;
+                                const encodedState =
+                                  encodeURIComponent(stateUrl);
+                                const encodedRedirectUri = encodeURIComponent(
+                                  "https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445"
+                                );
+                                googleLoginUrl =
+                                  `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth` +
+                                  `?client_id=liom` +
+                                  `&response_type=code` +
+                                  `&redirect_uri=${encodedRedirectUri}` +
+                                  `&scope=openid` +
+                                  `&kc_idp_hint=google` +
+                                  `&state=${encodedState}`;
+                                return window.open(
+                                  googleLoginUrl,
+                                  "_blank",
+                                  "width=500,height=600"
+                                );
+                              })();
                             }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
+                      $steps["runCode2"] != null &&
+                      typeof $steps["runCode2"] === "object" &&
+                      typeof $steps["runCode2"].then === "function"
                     ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
+                      $steps["runCode2"] = await $steps["runCode2"];
                     }
 
                     $steps["runCode"] = true
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return (() => {
-                                return requestPermission();
-                              })();
+                              return requestPermission();
                             }
                           };
                           return (({ customFunction }) => {
@@ -2570,7 +2614,11 @@ function PlasmicLogin__RenderFunc(props: {
                             }).apply(null, eventArgs);
                           },
                           placeholder: "9123456789",
-                          size: "large",
+                          size:
+                            hasVariant($state, "loginPage", "mobile") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? "large"
+                              : "large",
                           type: hasVariant(
                             $state,
                             "loginPage",
@@ -12752,7 +12800,7 @@ function PlasmicLogin__RenderFunc(props: {
                                             "https://apps.liom.app/pregnancy/";
                                         else
                                           var baseUrl =
-                                            "https://apps.liom.app/calendar/";
+                                            "https://apps.liom.app/main/";
                                         var separator = baseUrl.includes("?")
                                           ? "&token="
                                           : "?token=";
@@ -13742,7 +13790,12 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       )}
                       code={
-                        '<div class="otp-wrapper">\r\n  <input type="text" maxlength="1" id="digit1" class="otp-input"\r\n         onkeyup="handleInput(this, 0, \'digit2\')" />\r\n\r\n  <input type="text" maxlength="1" id="digit2" class="otp-input"\r\n         onkeyup="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')" />\r\n\r\n  <input type="text" maxlength="1" id="digit3" class="otp-input"\r\n         onkeyup="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')" />\r\n\r\n  <input type="text" maxlength="1" id="digit4" class="otp-input"\r\n         onkeyup="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')" />\r\n</div>\r\n\r\n<script>\r\n  window.inputValues = ["", "", "", ""];\r\n  window.codeCompleted = false;\r\n\r\n  function handleInput(current, index, nextFieldId) {\r\n    const value = current.value;\r\n\r\n    // \u0641\u0642\u0637 \u0639\u062f\u062f\r\n    if (!/^[0-9]$/.test(value)) {\r\n      current.value = \'\';\r\n      window.inputValues[index] = \'\';\r\n    } else {\r\n      window.inputValues[index] = value;\r\n    }\r\n\r\n    // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc\r\n    if (value.length === 1 && nextFieldId) {\r\n      document.getElementById(nextFieldId).focus();\r\n    }\r\n\r\n    // \u0627\u06af\u0647 \u06cc\u06a9\u06cc \u0627\u0632 \u0641\u06cc\u0644\u062f\u0647\u0627 \u062e\u0627\u0644\u06cc \u0628\u0634\u0647 \u2192 \u0627\u062c\u0627\u0632\u0647 \u0628\u062f\u0647 \u062f\u0648\u0628\u0627\u0631\u0647 log \u0628\u0634\u0647\r\n    if (window.inputValues.some(val => val === "")) {\r\n      window.codeCompleted = false;\r\n    }\r\n\r\n    // \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u0647\u0645\u0647 \u067e\u0631 \u0628\u0648\u062f\u0646 \u0648 \u0642\u0628\u0644\u0627\u064b log \u0646\u0634\u062f\u0647:\r\n    if (window.inputValues.every(val => val !== "") && !window.codeCompleted) {\r\n      console.log("ok");\r\n      document.querySelector(\'#codeButten button\').click();\r\n      window.codeCompleted = true;\r\n    }\r\n  }\r\n\r\n  function moveToPrev(event, prevFieldId) {\r\n    if (event.key === "Backspace" && !event.target.value) {\r\n      document.getElementById(prevFieldId).focus();\r\n    }\r\n  }\r\n</script>\r\n'
+                        hasVariant($state, "loginPage", "mobileCode") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? '<div class="otp-wrapper">\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit1" class="otp-input"\r\n         onkeyup="handleInput(this, 0, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit2" class="otp-input"\r\n         onkeyup="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit3" class="otp-input"\r\n         onkeyup="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit4" class="otp-input"\r\n         onkeyup="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')" />\r\n</div>\r\n\r\n\r\n<script>\r\n  window.inputValues = ["", "", "", ""];\r\n  window.codeCompleted = false;\r\n\r\n  function handleInput(current, index, nextFieldId) {\r\n    const value = current.value;\r\n\r\n    // \u0641\u0642\u0637 \u0639\u062f\u062f\r\n    if (!/^[0-9]$/.test(value)) {\r\n      current.value = \'\';\r\n      window.inputValues[index] = \'\';\r\n    } else {\r\n      window.inputValues[index] = value;\r\n    }\r\n\r\n    // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc\r\n    if (value.length === 1 && nextFieldId) {\r\n      document.getElementById(nextFieldId).focus();\r\n    }\r\n\r\n    // \u0627\u06af\u0647 \u06cc\u06a9\u06cc \u0627\u0632 \u0641\u06cc\u0644\u062f\u0647\u0627 \u062e\u0627\u0644\u06cc \u0628\u0634\u0647 \u2192 \u0627\u062c\u0627\u0632\u0647 \u0628\u062f\u0647 \u062f\u0648\u0628\u0627\u0631\u0647 log \u0628\u0634\u0647\r\n    if (window.inputValues.some(val => val === "")) {\r\n      window.codeCompleted = false;\r\n    }\r\n\r\n    // \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u0647\u0645\u0647 \u067e\u0631 \u0628\u0648\u062f\u0646 \u0648 \u0642\u0628\u0644\u0627\u064b log \u0646\u0634\u062f\u0647:\r\n    if (window.inputValues.every(val => val !== "") && !window.codeCompleted) {\r\n      console.log("ok");\r\n      document.querySelector(\'#codeButten button\').click();\r\n      window.codeCompleted = true;\r\n    }\r\n  }\r\n\r\n  function moveToPrev(event, prevFieldId) {\r\n    if (event.key === "Backspace" && !event.target.value) {\r\n      document.getElementById(prevFieldId).focus();\r\n    }\r\n  }\r\n</script>\r\n'
+                          : hasVariant(globalVariants, "screen", "mobile")
+                          ? '<div class="otp-wrapper">\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit1" class="otp-input"\r\n         onkeyup="handleInput(this, 0, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit2" class="otp-input"\r\n         onkeyup="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit3" class="otp-input"\r\n         onkeyup="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit4" class="otp-input"\r\n         onkeyup="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')" />\r\n</div>\r\n\r\n\r\n<script>\r\n  window.inputValues = ["", "", "", ""];\r\n  window.codeCompleted = false;\r\n\r\n  function handleInput(current, index, nextFieldId) {\r\n    const value = current.value;\r\n\r\n    // \u0641\u0642\u0637 \u0639\u062f\u062f\r\n    if (!/^[0-9]$/.test(value)) {\r\n      current.value = \'\';\r\n      window.inputValues[index] = \'\';\r\n    } else {\r\n      window.inputValues[index] = value;\r\n    }\r\n\r\n    // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc\r\n    if (value.length === 1 && nextFieldId) {\r\n      document.getElementById(nextFieldId).focus();\r\n    }\r\n\r\n    // \u0627\u06af\u0647 \u06cc\u06a9\u06cc \u0627\u0632 \u0641\u06cc\u0644\u062f\u0647\u0627 \u062e\u0627\u0644\u06cc \u0628\u0634\u0647 \u2192 \u0627\u062c\u0627\u0632\u0647 \u0628\u062f\u0647 \u062f\u0648\u0628\u0627\u0631\u0647 log \u0628\u0634\u0647\r\n    if (window.inputValues.some(val => val === "")) {\r\n      window.codeCompleted = false;\r\n    }\r\n\r\n    // \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u0647\u0645\u0647 \u067e\u0631 \u0628\u0648\u062f\u0646 \u0648 \u0642\u0628\u0644\u0627\u064b log \u0646\u0634\u062f\u0647:\r\n    if (window.inputValues.every(val => val !== "") && !window.codeCompleted) {\r\n      console.log("ok");\r\n      document.querySelector(\'#codeButten button\').click();\r\n      window.codeCompleted = true;\r\n    }\r\n  }\r\n\r\n  function moveToPrev(event, prevFieldId) {\r\n    if (event.key === "Backspace" && !event.target.value) {\r\n      document.getElementById(prevFieldId).focus();\r\n    }\r\n  }\r\n</script>\r\n'
+                          : '<div class="otp-wrapper">\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit1" class="otp-input"\r\n         onkeyup="handleInput(this, 0, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit2" class="otp-input"\r\n         onkeyup="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit3" class="otp-input"\r\n         onkeyup="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')" />\r\n\r\n  <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="digit4" class="otp-input"\r\n         onkeyup="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')" />\r\n</div>\r\n\r\n<script>\r\n  window.inputValues = ["", "", "", ""];\r\n  window.codeCompleted = false;\r\n\r\n  function handleInput(current, index, nextFieldId) {\r\n    const value = current.value;\r\n\r\n    // \u0641\u0642\u0637 \u0639\u062f\u062f\r\n    if (!/^[0-9]$/.test(value)) {\r\n      current.value = \'\';\r\n      window.inputValues[index] = \'\';\r\n    } else {\r\n      window.inputValues[index] = value;\r\n    }\r\n\r\n    // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc\r\n    if (value.length === 1 && nextFieldId) {\r\n      document.getElementById(nextFieldId).focus();\r\n    }\r\n\r\n    // \u0627\u06af\u0647 \u06cc\u06a9\u06cc \u0627\u0632 \u0641\u06cc\u0644\u062f\u0647\u0627 \u062e\u0627\u0644\u06cc \u0628\u0634\u0647 \u2192 \u0627\u062c\u0627\u0632\u0647 \u0628\u062f\u0647 \u062f\u0648\u0628\u0627\u0631\u0647 log \u0628\u0634\u0647\r\n    if (window.inputValues.some(val => val === "")) {\r\n      window.codeCompleted = false;\r\n    }\r\n\r\n    // \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u0647\u0645\u0647 \u067e\u0631 \u0628\u0648\u062f\u0646 \u0648 \u0642\u0628\u0644\u0627\u064b log \u0646\u0634\u062f\u0647:\r\n    if (window.inputValues.every(val => val !== "") && !window.codeCompleted) {\r\n      console.log("ok");\r\n      document.querySelector(\'#codeButten button\').click();\r\n      window.codeCompleted = true;\r\n    }\r\n  }\r\n\r\n  function moveToPrev(event, prevFieldId) {\r\n    if (event.key === "Backspace" && !event.target.value) {\r\n      document.getElementById(prevFieldId).focus();\r\n    }\r\n  }\r\n</script>\r\n'
                       }
                     />
                   </div>
@@ -18771,100 +18824,86 @@ function PlasmicLogin__RenderFunc(props: {
               </div>
             </div>
           ) : null}
-          {(
-            hasVariant(globalVariants, "screen", "mobile")
-              ? (() => {
-                  try {
-                    return (() => {
-                      return (
-                        !localStorage.getItem("addHome") &&
-                        /iPhone|iPod/.test(window.navigator.userAgent)
-                      );
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-              : (() => {
-                  try {
-                    return (() => {
-                      return (
-                        !localStorage.getItem("addHome") &&
-                        /iPhone|iPod/.test(window.navigator.userAgent)
-                      );
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-          ) ? (
-            <Iframe
-              data-plasmic-name={"iframe"}
-              data-plasmic-override={overrides.iframe}
-              className={classNames("__wab_instance", sty.iframe)}
-              preview={true}
-              src={"/add-to-home/"}
-              srcDoc={"<div><h3>Heading</h3><p>Example text...</p></div>"}
-              useHtml={false}
-            />
-          ) : null}
-          <Timer
-            className={classNames("__wab_instance", sty.timer__alA4K, {
-              [sty.timerloginPage_mobileCode__alA4Km2GXn]: hasVariant(
-                $state,
-                "loginPage",
-                "mobileCode"
-              )
-            })}
-            intervalSeconds={1}
-            isRunning={true}
-            onTick={async () => {
-              const $steps = {};
-
-              $steps["updateAddHome"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["addHome"]
-                      },
-                      operation: 0,
-                      value: localStorage.getItem("addHome") ? false : true
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+          {(() => {
+            try {
+              return (() => {
+                return (
+                  !$state.addHome &&
+                  /iPhone|iPod/.test(window.navigator.userAgent)
+                );
+              })();
+            } catch (e) {
               if (
-                $steps["updateAddHome"] != null &&
-                typeof $steps["updateAddHome"] === "object" &&
-                typeof $steps["updateAddHome"].then === "function"
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                $steps["updateAddHome"] = await $steps["updateAddHome"];
+                return true;
               }
-            }}
-            runWhileEditing={false}
-          />
+              throw e;
+            }
+          })() ? (
+            <Reveal
+              className={classNames("__wab_instance", sty.reveal__bdaGa, {
+                [sty.revealloginPage_mobile__bdaGa6MmOa]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobile"
+                )
+              })}
+              effect={"fade"}
+              reverse={false}
+              triggerOnce={true}
+            >
+              <AddToHome
+                data-plasmic-name={"addToHome"}
+                data-plasmic-override={overrides.addToHome}
+                addToHome={async () => {
+                  const $steps = {};
 
+                  $steps["updateAddHome"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["addHome"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateAddHome"] != null &&
+                    typeof $steps["updateAddHome"] === "object" &&
+                    typeof $steps["updateAddHome"].then === "function"
+                  ) {
+                    $steps["updateAddHome"] = await $steps["updateAddHome"];
+                  }
+                }}
+                className={classNames("__wab_instance", sty.addToHome, {
+                  [sty.addToHomeloginPage_mobile]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobile"
+                  )
+                })}
+              />
+            </Reveal>
+          ) : null}
           {(hasVariant($state, "loginPage", "name") ? true : false) ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__sfpx4, {
@@ -19036,7 +19075,7 @@ const PlasmicDescendants = {
     "button5",
     "rules",
     "top",
-    "iframe"
+    "addToHome"
   ],
   favicon: ["favicon"],
   sideEffect: ["sideEffect"],
@@ -19080,7 +19119,7 @@ const PlasmicDescendants = {
   button5: ["button5"],
   rules: ["rules", "top"],
   top: ["top"],
-  iframe: ["iframe"]
+  addToHome: ["addToHome"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -19129,7 +19168,7 @@ type NodeDefaultElementType = {
   button5: typeof Button;
   rules: typeof AntdModal;
   top: "div";
-  iframe: typeof Iframe;
+  addToHome: typeof AddToHome;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -19259,7 +19298,7 @@ export const PlasmicLogin = Object.assign(
     button5: makeNodeComponent("button5"),
     rules: makeNodeComponent("rules"),
     top: makeNodeComponent("top"),
-    iframe: makeNodeComponent("iframe"),
+    addToHome: makeNodeComponent("addToHome"),
 
     // Metadata about props expected for PlasmicLogin
     internalVariantProps: PlasmicLogin__VariantProps,
