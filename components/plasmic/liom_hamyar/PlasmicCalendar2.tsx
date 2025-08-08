@@ -131,6 +131,7 @@ export const PlasmicCalendar2__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicCalendar2__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   favicon?: Flex__<typeof Embed>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   dialog3?: Flex__<typeof Dialog>;
@@ -1633,7 +1634,9 @@ function PlasmicCalendar2__RenderFunc(props: {
       }}
     >
       <SideEffect
-        className={classNames("__wab_instance", sty.sideEffect__mTks4)}
+        data-plasmic-name={"sideEffect"}
+        data-plasmic-override={overrides.sideEffect}
+        className={classNames("__wab_instance", sty.sideEffect)}
         deps={(() => {
           try {
             return (() => {
@@ -2598,33 +2601,8 @@ function PlasmicCalendar2__RenderFunc(props: {
           ) {
             $steps["store"] = await $steps["store"];
           }
-        }}
-      />
 
-      <Embed
-        data-plasmic-name={"favicon"}
-        data-plasmic-override={overrides.favicon}
-        className={classNames("__wab_instance", sty.favicon)}
-        code={
-          hasVariant(globalVariants, "screen", "mobile")
-            ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
-            : "<script>\r\n(function() {\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc favicon\r\n    var faviconLink = document.querySelector(\"link[rel='icon']\");\r\n    if (!faviconLink) {\r\n        faviconLink = document.createElement('link');\r\n        faviconLink.rel = 'icon';\r\n        document.head.appendChild(faviconLink);\r\n    }\r\n    faviconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc apple-touch-icon\r\n    var appleTouchIconLink = document.querySelector(\"link[rel='apple-touch-icon']\");\r\n    if (!appleTouchIconLink) {\r\n        appleTouchIconLink = document.createElement('link');\r\n        appleTouchIconLink.rel = 'apple-touch-icon';\r\n        document.head.appendChild(appleTouchIconLink);\r\n    }\r\n    appleTouchIconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n\r\nwindow.onpopstate = function(event) {\r\n    // \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0639\u0645\u0644\u06a9\u0631\u062f \u067e\u06cc\u0634\u200c\u0641\u0631\u0636 \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a\r\n    history.pushState(null, null, location.href);\r\n};\r\n\r\nhistory.pushState(null, null, location.href); // \u0627\u0636\u0627\u0641\u0647 \u06a9\u0631\u062f\u0646 \u06cc\u06a9 \u062d\u0627\u0644\u062a \u0627\u0648\u0644\u06cc\u0647\r\n</script>"
-        }
-      />
-
-      <Embed
-        className={classNames("__wab_instance", sty.embedHtml__tfHV)}
-        code={
-          "<!-- Hotjar Tracking Code for Site 5171830 (name missing) -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5171830,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/ua-parser-js/dist/ua-parser.min.js\"></script>\r\n\r\n"
-        }
-      />
-
-      <SideEffect
-        className={classNames("__wab_instance", sty.sideEffect___6UeG)}
-        onMount={async () => {
-          const $steps = {};
-
-          $steps["invokeGlobalAction2"] = true
+          $steps["invokeGlobalAction"] = true
             ? (() => {
                 const actionArgs = {
                   args: [
@@ -2634,12 +2612,7 @@ function PlasmicCalendar2__RenderFunc(props: {
                     (() => {
                       try {
                         return {
-                          userId:
-                            new URLSearchParams(window.location.search).get(
-                              "userId"
-                            ) ||
-                            JSON.parse(window.localStorage.getItem("userinfo"))
-                              .user.id,
+                          userId: $state.userInfo?.result?.user.id,
                           pageName: "calendar",
                           action: "loadePage",
                           extraData: {}
@@ -2669,13 +2642,31 @@ function PlasmicCalendar2__RenderFunc(props: {
               })()
             : undefined;
           if (
-            $steps["invokeGlobalAction2"] != null &&
-            typeof $steps["invokeGlobalAction2"] === "object" &&
-            typeof $steps["invokeGlobalAction2"].then === "function"
+            $steps["invokeGlobalAction"] != null &&
+            typeof $steps["invokeGlobalAction"] === "object" &&
+            typeof $steps["invokeGlobalAction"].then === "function"
           ) {
-            $steps["invokeGlobalAction2"] = await $steps["invokeGlobalAction2"];
+            $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
           }
         }}
+      />
+
+      <Embed
+        data-plasmic-name={"favicon"}
+        data-plasmic-override={overrides.favicon}
+        className={classNames("__wab_instance", sty.favicon)}
+        code={
+          hasVariant(globalVariants, "screen", "mobile")
+            ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+            : "<script>\r\n(function() {\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc favicon\r\n    var faviconLink = document.querySelector(\"link[rel='icon']\");\r\n    if (!faviconLink) {\r\n        faviconLink = document.createElement('link');\r\n        faviconLink.rel = 'icon';\r\n        document.head.appendChild(faviconLink);\r\n    }\r\n    faviconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n\r\n    // \u0627\u06cc\u062c\u0627\u062f \u06cc\u0627 \u0628\u0647\u200c\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc apple-touch-icon\r\n    var appleTouchIconLink = document.querySelector(\"link[rel='apple-touch-icon']\");\r\n    if (!appleTouchIconLink) {\r\n        appleTouchIconLink = document.createElement('link');\r\n        appleTouchIconLink.rel = 'apple-touch-icon';\r\n        document.head.appendChild(appleTouchIconLink);\r\n    }\r\n    appleTouchIconLink.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n\r\nwindow.onpopstate = function(event) {\r\n    // \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0639\u0645\u0644\u06a9\u0631\u062f \u067e\u06cc\u0634\u200c\u0641\u0631\u0636 \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a\r\n    history.pushState(null, null, location.href);\r\n};\r\n\r\nhistory.pushState(null, null, location.href); // \u0627\u0636\u0627\u0641\u0647 \u06a9\u0631\u062f\u0646 \u06cc\u06a9 \u062d\u0627\u0644\u062a \u0627\u0648\u0644\u06cc\u0647\r\n</script>"
+        }
+      />
+
+      <Embed
+        className={classNames("__wab_instance", sty.embedHtml__tfHV)}
+        code={
+          "<!-- Hotjar Tracking Code for Site 5171830 (name missing) -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5171830,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/ua-parser-js/dist/ua-parser.min.js\"></script>\r\n\r\n"
+        }
       />
 
       <PullToRefresh
@@ -55025,6 +55016,7 @@ function PlasmicCalendar2__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "favicon",
     "pullToRefresh",
     "dialog3",
@@ -55065,6 +55057,7 @@ const PlasmicDescendants = {
     "loading",
     "button"
   ],
+  sideEffect: ["sideEffect"],
   favicon: ["favicon"],
   pullToRefresh: ["pullToRefresh"],
   dialog3: ["dialog3", "button13"],
@@ -55143,6 +55136,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   favicon: typeof Embed;
   pullToRefresh: typeof PullToRefresh;
   dialog3: typeof Dialog;
@@ -55244,6 +55238,7 @@ export const PlasmicCalendar2 = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     favicon: makeNodeComponent("favicon"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     dialog3: makeNodeComponent("dialog3"),

@@ -27,7 +27,8 @@
   .root {
     justify-items: center;
     align-content: flex-start;
-    padding-top: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 }
 @media (max-width: 640px) {
@@ -43,7 +44,7 @@
     grid-column: 4;
   }
 }
-.sideEffect__mTks4:global(.__wab_instance) {
+.sideEffect:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
@@ -52,10 +53,6 @@
   object-fit: cover;
 }
 .embedHtml__tfHV:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.sideEffect___6UeG:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
