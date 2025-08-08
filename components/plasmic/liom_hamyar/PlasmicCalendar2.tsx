@@ -1727,21 +1727,23 @@ function PlasmicCalendar2__RenderFunc(props: {
                         result: user
                       };
                       console.log("userInfo:", $state.userInfo);
+                      $state.name = $state.userInfo.result?.user?.name || null;
+                      console.log("name:", $state.name);
                       $state.status =
                         $state.userInfo.result?.userStatus?.periodStatus ||
                         null;
                       console.log("status:", $state.status);
-                      return setTimeout(() => {
-                        if (user) {
-                          $state.userInfo = {
-                            success: true,
-                            result: user
-                          };
-                          console.log("userInfo:", $state.userInfo);
-                          $state.status = user.userStatus?.periodStatus || null;
-                          console.log("status:", $state.status);
-                        }
-                      }, 50);
+                      if (user) {
+                        $state.userInfo = {
+                          success: true,
+                          result: user
+                        };
+                        console.log("userInfo:", $state.userInfo);
+                        $state.name = user.user?.name || null;
+                        console.log("name:", $state.name);
+                        $state.status = user.userStatus?.periodStatus || null;
+                        return console.log("status:", $state.status);
+                      }
                     })();
                   }
                 };
@@ -1890,9 +1892,7 @@ function PlasmicCalendar2__RenderFunc(props: {
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
-                      return (() => {
-                        return (window.location = "/login");
-                      })();
+                      return (window.location = "/login");
                     }
                   };
                   return (({ customFunction }) => {
