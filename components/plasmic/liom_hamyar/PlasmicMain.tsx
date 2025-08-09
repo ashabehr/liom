@@ -67,6 +67,7 @@ import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/compo
 import FooterMain from "../../FooterMain"; // plasmic-import: ev8_tr4YKTDz/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import SettingCycle4 from "../../SettingCycle4"; // plasmic-import: C5hqeG28n8GP/component
+import { BackHandler } from "@/components/BackHandler"; // plasmic-import: wpIQCsQJqUoV/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -103,6 +104,7 @@ export type PlasmicMain__OverridesType = {
   footerMain?: Flex__<typeof FooterMain>;
   reveal?: Flex__<typeof Reveal>;
   settingCycle4?: Flex__<typeof SettingCycle4>;
+  backHandler?: Flex__<typeof BackHandler>;
 };
 
 export interface DefaultMainProps {}
@@ -733,6 +735,48 @@ function PlasmicMain__RenderFunc(props: {
                 }
               })()}
             />
+
+            <BackHandler
+              data-plasmic-name={"backHandler"}
+              data-plasmic-override={overrides.backHandler}
+              active={hasVariant($state, "setting", "setting") ? true : false}
+              className={classNames("__wab_instance", sty.backHandler, {
+                [sty.backHandlersetting]: hasVariant(
+                  $state,
+                  "setting",
+                  "setting"
+                )
+              })}
+              onBack={async () => {
+                const $steps = {};
+
+                $steps["updateSetting"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "setting",
+                        operation: 2,
+                        value: "setting"
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        const oldValue = $stateGet($state, vgroup);
+                        $stateSet($state, vgroup, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateSetting"] != null &&
+                  typeof $steps["updateSetting"] === "object" &&
+                  typeof $steps["updateSetting"].then === "function"
+                ) {
+                  $steps["updateSetting"] = await $steps["updateSetting"];
+                }
+              }}
+            />
           </Reveal>
         </div>
       </div>
@@ -751,7 +795,8 @@ const PlasmicDescendants = {
     "text",
     "footerMain",
     "reveal",
-    "settingCycle4"
+    "settingCycle4",
+    "backHandler"
   ],
   main: [
     "main",
@@ -768,8 +813,9 @@ const PlasmicDescendants = {
   svg: ["svg"],
   text: ["text"],
   footerMain: ["footerMain"],
-  reveal: ["reveal", "settingCycle4"],
-  settingCycle4: ["settingCycle4"]
+  reveal: ["reveal", "settingCycle4", "backHandler"],
+  settingCycle4: ["settingCycle4"],
+  backHandler: ["backHandler"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -785,6 +831,7 @@ type NodeDefaultElementType = {
   footerMain: typeof FooterMain;
   reveal: typeof Reveal;
   settingCycle4: typeof SettingCycle4;
+  backHandler: typeof BackHandler;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -881,6 +928,7 @@ export const PlasmicMain = Object.assign(
     footerMain: makeNodeComponent("footerMain"),
     reveal: makeNodeComponent("reveal"),
     settingCycle4: makeNodeComponent("settingCycle4"),
+    backHandler: makeNodeComponent("backHandler"),
 
     // Metadata about props expected for PlasmicMain
     internalVariantProps: PlasmicMain__VariantProps,
