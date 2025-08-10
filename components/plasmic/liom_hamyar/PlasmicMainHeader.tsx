@@ -98,6 +98,7 @@ export type PlasmicMainHeader__ArgsType = {
   token?: string;
   dopen?: boolean;
   onDopenChange2?: (val: string) => void;
+  openEdit?: () => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
@@ -107,6 +108,7 @@ export const PlasmicMainHeader__ArgProps = new Array<ArgPropType>(
   "token",
   "dopen",
   "onDopenChange2",
+  "openEdit",
   "children",
   "slot"
 );
@@ -125,6 +127,7 @@ export interface DefaultMainHeaderProps {
   token?: string;
   dopen?: boolean;
   onDopenChange2?: (val: string) => void;
+  openEdit?: () => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   className?: string;
@@ -449,27 +452,22 @@ function PlasmicMainHeader__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["runCode"] = true
+                    $steps["invokeGlobalAction2"] = true
                       ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return window.open(
-                                `/edit-profile?token=${$props.token}`,
-                                "_self"
-                              );
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
+                          const actionArgs = { eventRef: $props["openEdit"] };
+                          return (({ eventRef, args }) => {
+                            return eventRef?.(...(args ?? []));
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
+                      $steps["invokeGlobalAction2"] != null &&
+                      typeof $steps["invokeGlobalAction2"] === "object" &&
+                      typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["runCode"] = await $steps["runCode"];
+                      $steps["invokeGlobalAction2"] = await $steps[
+                        "invokeGlobalAction2"
+                      ];
                     }
 
                     $steps["invokeGlobalAction"] = true

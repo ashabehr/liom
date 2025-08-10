@@ -87,6 +87,8 @@ export type PlasmicMainPage__ArgsType = {
   onEditTimeChange?: (val: string) => void;
   userInfo?: any;
   onUserInfoChange?: (val: string) => void;
+  token?: string;
+  onTokenChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicMainPage__ArgsType;
 export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
@@ -94,7 +96,9 @@ export const PlasmicMainPage__ArgProps = new Array<ArgPropType>(
   "editTime",
   "onEditTimeChange",
   "userInfo",
-  "onUserInfoChange"
+  "onUserInfoChange",
+  "token",
+  "onTokenChange"
 );
 
 export type PlasmicMainPage__OverridesType = {
@@ -109,6 +113,8 @@ export interface DefaultMainPageProps {
   onEditTimeChange?: (val: string) => void;
   userInfo?: any;
   onUserInfoChange?: (val: string) => void;
+  token?: string;
+  onTokenChange?: (val: string) => void;
   page?: SingleChoiceArg<"calendar" | "self">;
   className?: string;
 }
@@ -202,6 +208,26 @@ function PlasmicMainPage__RenderFunc(props: {
 
         valueProp: "userInfo",
         onChangeProp: "onUserInfoChange"
+      },
+      {
+        path: "selfCare2.subItems",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "calendar2.token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "token",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "token",
+        onChangeProp: "onTokenChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -299,6 +325,53 @@ function PlasmicMainPage__RenderFunc(props: {
               }
             }).apply(null, eventArgs);
           }}
+          onTokenChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["calendar2", "token"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+
+            (async val => {
+              const $steps = {};
+
+              $steps["updateToken"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["token"]
+                      },
+                      operation: 0,
+                      value: $state.calendar2.token
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateToken"] != null &&
+                typeof $steps["updateToken"] === "object" &&
+                typeof $steps["updateToken"].then === "function"
+              ) {
+                $steps["updateToken"] = await $steps["updateToken"];
+              }
+            }).apply(null, eventArgs);
+          }}
           onUserInfoChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["calendar2", "userInfo"]).apply(
               null,
@@ -347,6 +420,7 @@ function PlasmicMainPage__RenderFunc(props: {
             }).apply(null, eventArgs);
           }}
           setting={args.setting}
+          token={generateStateValueProp($state, ["calendar2", "token"])}
           userInfo={generateStateValueProp($state, ["calendar2", "userInfo"])}
         />
       </Reveal>
@@ -374,6 +448,21 @@ function PlasmicMainPage__RenderFunc(props: {
             ),
             [sty.selfCare2page_self]: hasVariant($state, "page", "self")
           })}
+          onSubItemsChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["selfCare2", "subItems"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          subItems={generateStateValueProp($state, ["selfCare2", "subItems"])}
         />
       </Reveal>
     </div>

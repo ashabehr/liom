@@ -67,6 +67,8 @@ import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/compo
 import FooterMain from "../../FooterMain"; // plasmic-import: ev8_tr4YKTDz/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import SettingCycle4 from "../../SettingCycle4"; // plasmic-import: C5hqeG28n8GP/component
+import SubItemsComponnet from "../../SubItemsComponnet"; // plasmic-import: b9qrgB2b1TrW/component
+import EditProfile2 from "../../EditProfile2"; // plasmic-import: BZ95kklWU6Jb/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -81,12 +83,20 @@ createPlasmicElementProxy;
 
 export type PlasmicMain__VariantMembers = {
   setting: "setting";
+  subItem: "subItem";
+  edit: "edit";
 };
 export type PlasmicMain__VariantsArgs = {
   setting?: SingleBooleanChoiceArg<"setting">;
+  subItem?: SingleBooleanChoiceArg<"subItem">;
+  edit?: SingleBooleanChoiceArg<"edit">;
 };
 type VariantPropType = keyof PlasmicMain__VariantsArgs;
-export const PlasmicMain__VariantProps = new Array<VariantPropType>("setting");
+export const PlasmicMain__VariantProps = new Array<VariantPropType>(
+  "setting",
+  "subItem",
+  "edit"
+);
 
 export type PlasmicMain__ArgsType = {};
 type ArgPropType = keyof PlasmicMain__ArgsType;
@@ -101,8 +111,9 @@ export type PlasmicMain__OverridesType = {
   svg?: Flex__<"svg">;
   text?: Flex__<"div">;
   footerMain?: Flex__<typeof FooterMain>;
-  reveal?: Flex__<typeof Reveal>;
   settingCycle4?: Flex__<typeof SettingCycle4>;
+  subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
+  editProfile2?: Flex__<typeof EditProfile2>;
 };
 
 export interface DefaultMainProps {}
@@ -246,6 +257,45 @@ function PlasmicMain__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "subItem",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.subItem
+      },
+      {
+        path: "edit",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.edit
+      },
+      {
+        path: "editProfile2.token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "edit", "edit")
+            ? (() => {
+                try {
+                  return $state.mainPage.token;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : ``
+      },
+      {
+        path: "mainPage.token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -282,20 +332,29 @@ function PlasmicMain__RenderFunc(props: {
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             sty.root,
-            { [sty.rootsetting]: hasVariant($state, "setting", "setting") }
+            {
+              [sty.rootedit]: hasVariant($state, "edit", "edit"),
+              [sty.rootsetting]: hasVariant($state, "setting", "setting"),
+              [sty.rootsubItem]: hasVariant($state, "subItem", "subItem")
+            }
           )}
         >
           <div
             data-plasmic-name={"main"}
             data-plasmic-override={overrides.main}
             className={classNames(projectcss.all, sty.main, {
-              [sty.mainsetting]: hasVariant($state, "setting", "setting")
+              [sty.mainedit]: hasVariant($state, "edit", "edit"),
+              [sty.mainsetting]: hasVariant($state, "setting", "setting"),
+              [sty.mainsubItem]: hasVariant($state, "subItem", "subItem")
             })}
           >
             <MainPage
               data-plasmic-name={"mainPage"}
               data-plasmic-override={overrides.mainPage}
-              className={classNames("__wab_instance", sty.mainPage)}
+              className={classNames("__wab_instance", sty.mainPage, {
+                [sty.mainPageedit]: hasVariant($state, "edit", "edit"),
+                [sty.mainPagesubItem]: hasVariant($state, "subItem", "subItem")
+              })}
               editTime={generateStateValueProp($state, [
                 "mainPage",
                 "editTime"
@@ -305,6 +364,20 @@ function PlasmicMain__RenderFunc(props: {
                   "mainPage",
                   "editTime"
                 ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onTokenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["mainPage", "token"]).apply(
+                  null,
+                  eventArgs
+                );
 
                 if (
                   eventArgs.length > 1 &&
@@ -370,6 +443,7 @@ function PlasmicMain__RenderFunc(props: {
                   $steps["updateSetting"] = await $steps["updateSetting"];
                 }
               }}
+              token={generateStateValueProp($state, ["mainPage", "token"])}
               userInfo={generateStateValueProp($state, [
                 "mainPage",
                 "userInfo"
@@ -394,6 +468,31 @@ function PlasmicMain__RenderFunc(props: {
                     eventArgs[1]._plasmic_state_init_
                   ) {
                     return;
+                  }
+                }}
+                openEdit={async () => {
+                  const $steps = {};
+
+                  $steps["updateEdit"] = true
+                    ? (() => {
+                        const actionArgs = { vgroup: "edit", operation: 2 };
+                        return (({ vgroup, value }) => {
+                          if (typeof value === "string") {
+                            value = [value];
+                          }
+
+                          const oldValue = $stateGet($state, vgroup);
+                          $stateSet($state, vgroup, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateEdit"] != null &&
+                    typeof $steps["updateEdit"] === "object" &&
+                    typeof $steps["updateEdit"].then === "function"
+                  ) {
+                    $steps["updateEdit"] = await $steps["updateEdit"];
                   }
                 }}
                 token={(() => {
@@ -577,10 +676,17 @@ function PlasmicMain__RenderFunc(props: {
             </section>
           </div>
           <Reveal
-            data-plasmic-name={"reveal"}
-            data-plasmic-override={overrides.reveal}
-            className={classNames("__wab_instance", sty.reveal, {
-              [sty.revealsetting]: hasVariant($state, "setting", "setting")
+            className={classNames("__wab_instance", sty.reveal__xy1Bv, {
+              [sty.revealsetting__xy1BvH13CE]: hasVariant(
+                $state,
+                "setting",
+                "setting"
+              ),
+              [sty.revealsubItem__xy1BvaUdim]: hasVariant(
+                $state,
+                "subItem",
+                "subItem"
+              )
             })}
             damping={0.2}
             effect={"fade"}
@@ -747,6 +853,108 @@ function PlasmicMain__RenderFunc(props: {
               })()}
             />
           </Reveal>
+          <Reveal
+            className={classNames("__wab_instance", sty.reveal__xsDwA, {
+              [sty.revealsetting__xsDwAh13CE]: hasVariant(
+                $state,
+                "setting",
+                "setting"
+              ),
+              [sty.revealsubItem__xsDwAaUdim]: hasVariant(
+                $state,
+                "subItem",
+                "subItem"
+              )
+            })}
+            damping={0.2}
+            effect={"fade"}
+            triggerOnce={true}
+          >
+            <SubItemsComponnet
+              data-plasmic-name={"subItemsComponnet"}
+              data-plasmic-override={overrides.subItemsComponnet}
+              className={classNames("__wab_instance", sty.subItemsComponnet)}
+            />
+          </Reveal>
+          <Reveal
+            className={classNames("__wab_instance", sty.reveal__dIf5, {
+              [sty.revealedit__dIf50J1ZH]: hasVariant($state, "edit", "edit"),
+              [sty.revealsetting__dIf5H13CE]: hasVariant(
+                $state,
+                "setting",
+                "setting"
+              ),
+              [sty.revealsubItem__dIf5AUdim]: hasVariant(
+                $state,
+                "subItem",
+                "subItem"
+              )
+            })}
+            damping={0.2}
+            effect={"fade"}
+            triggerOnce={true}
+          >
+            <EditProfile2
+              data-plasmic-name={"editProfile2"}
+              data-plasmic-override={overrides.editProfile2}
+              active={(() => {
+                try {
+                  return $state.edit == true;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()}
+              back={async () => {
+                const $steps = {};
+
+                $steps["updateEdit"] = true
+                  ? (() => {
+                      const actionArgs = { vgroup: "edit", operation: 2 };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        const oldValue = $stateGet($state, vgroup);
+                        $stateSet($state, vgroup, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateEdit"] != null &&
+                  typeof $steps["updateEdit"] === "object" &&
+                  typeof $steps["updateEdit"].then === "function"
+                ) {
+                  $steps["updateEdit"] = await $steps["updateEdit"];
+                }
+              }}
+              className={classNames("__wab_instance", sty.editProfile2, {
+                [sty.editProfile2edit]: hasVariant($state, "edit", "edit")
+              })}
+              onTokenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "editProfile2",
+                  "token"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              token={generateStateValueProp($state, ["editProfile2", "token"])}
+            />
+          </Reveal>
         </div>
       </div>
     </React.Fragment>
@@ -763,8 +971,9 @@ const PlasmicDescendants = {
     "svg",
     "text",
     "footerMain",
-    "reveal",
-    "settingCycle4"
+    "settingCycle4",
+    "subItemsComponnet",
+    "editProfile2"
   ],
   main: [
     "main",
@@ -781,8 +990,9 @@ const PlasmicDescendants = {
   svg: ["svg"],
   text: ["text"],
   footerMain: ["footerMain"],
-  reveal: ["reveal", "settingCycle4"],
-  settingCycle4: ["settingCycle4"]
+  settingCycle4: ["settingCycle4"],
+  subItemsComponnet: ["subItemsComponnet"],
+  editProfile2: ["editProfile2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -796,8 +1006,9 @@ type NodeDefaultElementType = {
   svg: "svg";
   text: "div";
   footerMain: typeof FooterMain;
-  reveal: typeof Reveal;
   settingCycle4: typeof SettingCycle4;
+  subItemsComponnet: typeof SubItemsComponnet;
+  editProfile2: typeof EditProfile2;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -892,8 +1103,9 @@ export const PlasmicMain = Object.assign(
     svg: makeNodeComponent("svg"),
     text: makeNodeComponent("text"),
     footerMain: makeNodeComponent("footerMain"),
-    reveal: makeNodeComponent("reveal"),
     settingCycle4: makeNodeComponent("settingCycle4"),
+    subItemsComponnet: makeNodeComponent("subItemsComponnet"),
+    editProfile2: makeNodeComponent("editProfile2"),
 
     // Metadata about props expected for PlasmicMain
     internalVariantProps: PlasmicMain__VariantProps,

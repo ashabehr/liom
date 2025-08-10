@@ -86,9 +86,15 @@ export type PlasmicSelfCare2__VariantsArgs = {};
 type VariantPropType = keyof PlasmicSelfCare2__VariantsArgs;
 export const PlasmicSelfCare2__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicSelfCare2__ArgsType = {};
+export type PlasmicSelfCare2__ArgsType = {
+  subItems?: any;
+  onSubItemsChange?: (val: string) => void;
+};
 type ArgPropType = keyof PlasmicSelfCare2__ArgsType;
-export const PlasmicSelfCare2__ArgProps = new Array<ArgPropType>();
+export const PlasmicSelfCare2__ArgProps = new Array<ArgPropType>(
+  "subItems",
+  "onSubItemsChange"
+);
 
 export type PlasmicSelfCare2__OverridesType = {
   root?: Flex__<"div">;
@@ -102,6 +108,8 @@ export type PlasmicSelfCare2__OverridesType = {
 };
 
 export interface DefaultSelfCare2Props {
+  subItems?: any;
+  onSubItemsChange?: (val: string) => void;
   className?: string;
 }
 
@@ -296,6 +304,14 @@ function PlasmicSelfCare2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "subItems",
+        type: "writable",
+        variableType: "object",
+
+        valueProp: "subItems",
+        onChangeProp: "onSubItemsChange"
       }
     ],
     [$props, $ctx, $refs]
