@@ -61,11 +61,13 @@ import {
 
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
+import { BackHandler } from "@/components/BackHandler"; // plasmic-import: wpIQCsQJqUoV/codeComponent
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -76,6 +78,7 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSettingCycle4.module.css"; // plasmic-import: C5hqeG28n8GP/css
 
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
@@ -97,20 +100,23 @@ export type PlasmicSettingCycle4__ArgsType = {
   editTime?: string;
   onEditTimeChange2?: (val: string) => void;
   userStatus?: any;
+  active?: boolean;
 };
 type ArgPropType = keyof PlasmicSettingCycle4__ArgsType;
 export const PlasmicSettingCycle4__ArgProps = new Array<ArgPropType>(
   "onBack",
   "editTime",
   "onEditTimeChange2",
-  "userStatus"
+  "userStatus",
+  "active"
 );
 
 export type PlasmicSettingCycle4__OverridesType = {
   root?: Flex__<"div">;
   embedHtml?: Flex__<typeof Embed>;
   sideEffect?: Flex__<typeof SideEffect>;
-  img?: Flex__<typeof PlasmicImg__>;
+  headerLiom?: Flex__<typeof HeaderLiom>;
+  svg?: Flex__<"svg">;
   dateOfBirthBox?: Flex__<typeof AntdInput>;
   lastTimeBox?: Flex__<typeof AntdInput>;
   lastTimeBox3?: Flex__<typeof AntdInput>;
@@ -128,6 +134,7 @@ export type PlasmicSettingCycle4__OverridesType = {
   dialog4?: Flex__<typeof Dialog>;
   pickers4?: Flex__<typeof Pickers>;
   button6?: Flex__<typeof Button>;
+  backHandler?: Flex__<typeof BackHandler>;
 };
 
 export interface DefaultSettingCycle4Props {
@@ -135,6 +142,7 @@ export interface DefaultSettingCycle4Props {
   editTime?: string;
   onEditTimeChange2?: (val: string) => void;
   userStatus?: any;
+  active?: boolean;
   dark?: SingleBooleanChoiceArg<"dark">;
   className?: string;
 }
@@ -159,7 +167,9 @@ function PlasmicSettingCycle4__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          active: true
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -896,832 +906,49 @@ function PlasmicSettingCycle4__RenderFunc(props: {
 
       <div className={classNames(projectcss.all, sty.freeBox__nXb93)}>
         <section className={classNames(projectcss.all, sty.section__mc0T7)}>
-          {(() => {
-            try {
-              return $ctx.query.inApp != "true";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })() ? (
-            <div
-              className={classNames(projectcss.all, sty.freeBox__xg7PM, {
-                [sty.freeBoxdark__xg7PMRm0PC]: hasVariant(
-                  $state,
-                  "dark",
-                  "dark"
-                )
-              })}
-            >
+          <HeaderLiom
+            data-plasmic-name={"headerLiom"}
+            data-plasmic-override={overrides.headerLiom}
+            className={classNames("__wab_instance", sty.headerLiom)}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__msTaz)}>
+              <XIcon
+                data-plasmic-name={"svg"}
+                data-plasmic-override={overrides.svg}
+                className={classNames(projectcss.all, sty.svg)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runOnBack"] = true
+                    ? (() => {
+                        const actionArgs = { eventRef: $props["onBack"] };
+                        return (({ eventRef, args }) => {
+                          return eventRef?.(...(args ?? []));
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runOnBack"] != null &&
+                    typeof $steps["runOnBack"] === "object" &&
+                    typeof $steps["runOnBack"].then === "function"
+                  ) {
+                    $steps["runOnBack"] = await $steps["runOnBack"];
+                  }
+                }}
+                role={"img"}
+              />
+
               <div
-                className={classNames(projectcss.all, sty.freeBox__bJf1E)}
-                onClick={args.onBack}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__hzOs
+                )}
               >
-                <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
-                  alt={""}
-                  className={classNames(sty.img, {
-                    [sty.imgdark]: hasVariant($state, "dark", "dark")
-                  })}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"20px"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image38.svg",
-                    fullWidth: 24,
-                    fullHeight: 24,
-                    aspectRatio: 1
-                  }}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___3F9Q5,
-                    {
-                      [sty.textdark___3F9Q5Rm0PC]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
-                >
-                  {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a"}
-                </div>
-              </div>
-              <div
-                className={classNames(projectcss.all, sty.freeBox__y4YKu, {
-                  [sty.freeBoxdark__y4YKuRm0PC]: hasVariant(
-                    $state,
-                    "dark",
-                    "dark"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___7Dbc3)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["invokeGlobalAction3"] = (() => {
-                      if (
-                        $state.cycle == "" ||
-                        $state.lengh == null ||
-                        $state.lengh == ""
-                      ) {
-                        return true;
-                      }
-                      var jy = $state.lengh.year;
-                      var jm = $state.lengh.month;
-                      var jd = $state.lengh.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
-
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return true;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays <= 280 ? false : true;
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "error",
-                              (() => {
-                                try {
-                                  return (() => {
-                                    if ($state.cycle == "")
-                                      "لطفا اطلاعات درست وارد کنید";
-                                    if ($state.lengh == null)
-                                      "لطفا اطلاعات درست وارد کنید";
-                                    if ($state.lengh == "")
-                                      "لطفا اطلاعات درست وارد کنید";
-                                    var jy = $state.lengh.year;
-                                    var jm = $state.lengh.month;
-                                    var jd = $state.lengh.day;
-                                    var gy = jy <= 979 ? 621 : 1600;
-                                    jy -= jy <= 979 ? 0 : 979;
-                                    var days =
-                                      365 * jy +
-                                      parseInt(jy / 33) * 8 +
-                                      parseInt(((jy % 33) + 3) / 4) +
-                                      78 +
-                                      jd +
-                                      (jm < 7
-                                        ? (jm - 1) * 31
-                                        : (jm - 7) * 30 + 186);
-                                    gy += 400 * parseInt(days / 146097);
-                                    days %= 146097;
-                                    if (days > 36524) {
-                                      gy += 100 * parseInt(--days / 36524);
-                                      days %= 36524;
-                                      if (days >= 365) days++;
-                                    }
-                                    gy += 4 * parseInt(days / 1461);
-                                    days %= 1461;
-                                    gy += parseInt((days - 1) / 365);
-                                    if (days > 365) days = (days - 1) % 365;
-                                    var gd = days + 1;
-                                    var sal_a = [
-                                      0,
-                                      31,
-                                      (gy % 4 == 0 && gy % 100 != 0) ||
-                                      gy % 400 == 0
-                                        ? 29
-                                        : 28,
-                                      31,
-                                      30,
-                                      31,
-                                      30,
-                                      31,
-                                      31,
-                                      30,
-                                      31,
-                                      30,
-                                      31
-                                    ];
-
-                                    var gm;
-                                    for (gm = 0; gm < 13; gm++) {
-                                      var v = sal_a[gm];
-                                      if (gd <= v) break;
-                                      gd -= v;
-                                    }
-                                    const d =
-                                      gy +
-                                      "-" +
-                                      (gm <= 9 ? "0" : "") +
-                                      gm +
-                                      "-" +
-                                      (gd <= 9 ? "0" : "") +
-                                      gd +
-                                      "T10:10:10";
-                                    const specifiedDate = new Date(d);
-                                    const today = new Date();
-                                    if (today > specifiedDate) {
-                                      ("لطفا اطلاعات درست وارد کنید4");
-                                    }
-                                    const diffTime = Math.abs(
-                                      today - specifiedDate
-                                    );
-                                    const diffDays = Math.ceil(
-                                      diffTime / (1000 * 60 * 60 * 24)
-                                    );
-                                    return diffDays <= 280
-                                      ? "تاریخ زایمانی که وارد کردی برای قبل امروز است"
-                                      : $state.typeInterDate == "lastTime"
-                                      ? "تاریخ آخرین قاعدگی ای که وارد کردی برای بعد از امروز است"
-                                      : "تاریخ زایمانی که وارد کردی برای بیشتر از 9 ماه بعد است";
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              "bottom-center"
-                            ]
-                          };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction3"] != null &&
-                      typeof $steps["invokeGlobalAction3"] === "object" &&
-                      typeof $steps["invokeGlobalAction3"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction3"] = await $steps[
-                        "invokeGlobalAction3"
-                      ];
-                    }
-
-                    $steps["invokeGlobalAction2"] = (() => {
-                      if (
-                        $state.cycle == "" ||
-                        $state.lengh == null ||
-                        $state.lengh == ""
-                      ) {
-                        return false;
-                      }
-                      var jy = $state.lengh.year;
-                      var jm = $state.lengh.month;
-                      var jd = $state.lengh.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
-
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return false;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays > 280 ? false : true;
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              undefined,
-                              "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f",
-                              "bottom-center"
-                            ]
-                          };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction2"] != null &&
-                      typeof $steps["invokeGlobalAction2"] === "object" &&
-                      typeof $steps["invokeGlobalAction2"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
-                    }
-
-                    $steps["invokeGlobalAction"] = (() => {
-                      if (
-                        $state.cycle == "" ||
-                        $state.lengh == null ||
-                        $state.lengh == ""
-                      ) {
-                        return false;
-                      }
-                      var jy = $state.lengh.year;
-                      var jm = $state.lengh.month;
-                      var jd = $state.lengh.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
-
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return false;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays > 280 ? false : true;
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://n8n.staas.ir/webhook/status",
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    area: "pregnancy",
-                                    duDate:
-                                      $state.cycle[0] +
-                                      "-" +
-                                      ($state.cycle[1] <= 9 ? "0" : "") +
-                                      $state.cycle[1] +
-                                      "-" +
-                                      ($state.cycle[2] <= 9 ? "0" : "") +
-                                      $state.cycle[2] +
-                                      " 10:10:10",
-                                    userId: $ctx.query.userId.slice(
-                                      4,
-                                      +$ctx.query.userId.length - 4
-                                    )
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              (() => {
-                                try {
-                                  return {
-                                    headers: {
-                                      "Content-Type": "application/json",
-                                      Authorization:
-                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                    }
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
-                    }
-
-                    $steps["goToPage"] = (() => {
-                      if (
-                        $state.cycle == "" ||
-                        $state.lengh == null ||
-                        $state.lengh == ""
-                      ) {
-                        return false;
-                      }
-                      var jy = $state.lengh.year;
-                      var jm = $state.lengh.month;
-                      var jd = $state.lengh.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
-
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return false;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays > 280 ? false : true;
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return (
-                                  "https://apps.liom.app/pregnancy/?token=" +
-                                  $ctx.query.token +
-                                  "&userId=" +
-                                  $ctx.query.userId +
-                                  "&theme=" +
-                                  $ctx.query.theme +
-                                  "&inApp=false"
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-
-                    $steps["invokeGlobalAction4"] = (() => {
-                      if (
-                        $state.cycle == "" ||
-                        $state.lengh == null ||
-                        $state.lengh == ""
-                      ) {
-                        return false;
-                      }
-                      if (
-                        $ctx.query.userId.slice(
-                          4,
-                          $ctx.query.userId.length - 4
-                        ) == "314149"
-                      ) {
-                        return false;
-                      }
-                      var jy = $state.lengh.year;
-                      var jm = $state.lengh.month;
-                      var jd = $state.lengh.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
-
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return false;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays > 280 ? false : true;
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://api.liom.app/service/log",
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    userId:
-                                      $ctx.query.userId?.length > 0
-                                        ? $ctx.query.userId.slice(
-                                            4,
-                                            $ctx.query.userId.length - 4
-                                          )
-                                        : "guest",
-                                    pageName: "settingPage",
-                                    action: "click-saveDate",
-                                    extraData: {}
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              (() => {
-                                try {
-                                  return {
-                                    headers: {
-                                      "Content-Type": "application/json",
-                                      Authorization:
-                                        "Bearer " +
-                                        $ctx.query.token.slice(
-                                          6,
-                                          $ctx.query.token.length - 3
-                                        )
-                                    }
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction4"] != null &&
-                      typeof $steps["invokeGlobalAction4"] === "object" &&
-                      typeof $steps["invokeGlobalAction4"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction4"] = await $steps[
-                        "invokeGlobalAction4"
-                      ];
-                    }
-                  }}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___1QoRw,
-                      {
-                        [sty.textdark___1QoRwRm0PC]: hasVariant(
-                          $state,
-                          "dark",
-                          "dark"
-                        )
-                      }
-                    )}
-                  >
-                    {
-                      "\u0630\u062e\u06cc\u0631\u0647 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a"
-                    }
-                  </div>
-                </div>
+                {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a"}
               </div>
             </div>
-          ) : null}
+          </HeaderLiom>
         </section>
         <div className={classNames(projectcss.all, sty.freeBox__xJmH)}>
           <div
@@ -3733,6 +2960,31 @@ function PlasmicSettingCycle4__RenderFunc(props: {
           </div>
         </div>
       </Dialog>
+      <BackHandler
+        data-plasmic-name={"backHandler"}
+        data-plasmic-override={overrides.backHandler}
+        active={args.active}
+        className={classNames("__wab_instance", sty.backHandler)}
+        onBack={async () => {
+          const $steps = {};
+
+          $steps["runOnBack"] = true
+            ? (() => {
+                const actionArgs = { eventRef: $props["onBack"] };
+                return (({ eventRef, args }) => {
+                  return eventRef?.(...(args ?? []));
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runOnBack"] != null &&
+            typeof $steps["runOnBack"] === "object" &&
+            typeof $steps["runOnBack"].then === "function"
+          ) {
+            $steps["runOnBack"] = await $steps["runOnBack"];
+          }
+        }}
+      />
     </div>
   ) as React.ReactElement | null;
 }
@@ -3742,7 +2994,8 @@ const PlasmicDescendants = {
     "root",
     "embedHtml",
     "sideEffect",
-    "img",
+    "headerLiom",
+    "svg",
     "dateOfBirthBox",
     "lastTimeBox",
     "lastTimeBox3",
@@ -3759,11 +3012,13 @@ const PlasmicDescendants = {
     "button5",
     "dialog4",
     "pickers4",
-    "button6"
+    "button6",
+    "backHandler"
   ],
   embedHtml: ["embedHtml"],
   sideEffect: ["sideEffect"],
-  img: ["img"],
+  headerLiom: ["headerLiom", "svg"],
+  svg: ["svg"],
   dateOfBirthBox: ["dateOfBirthBox"],
   lastTimeBox: ["lastTimeBox"],
   lastTimeBox3: ["lastTimeBox3"],
@@ -3780,7 +3035,8 @@ const PlasmicDescendants = {
   button5: ["button5"],
   dialog4: ["dialog4", "pickers4", "button6"],
   pickers4: ["pickers4"],
-  button6: ["button6"]
+  button6: ["button6"],
+  backHandler: ["backHandler"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3789,7 +3045,8 @@ type NodeDefaultElementType = {
   root: "div";
   embedHtml: typeof Embed;
   sideEffect: typeof SideEffect;
-  img: typeof PlasmicImg__;
+  headerLiom: typeof HeaderLiom;
+  svg: "svg";
   dateOfBirthBox: typeof AntdInput;
   lastTimeBox: typeof AntdInput;
   lastTimeBox3: typeof AntdInput;
@@ -3807,6 +3064,7 @@ type NodeDefaultElementType = {
   dialog4: typeof Dialog;
   pickers4: typeof Pickers;
   button6: typeof Button;
+  backHandler: typeof BackHandler;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3871,7 +3129,8 @@ export const PlasmicSettingCycle4 = Object.assign(
     // Helper components rendering sub-elements
     embedHtml: makeNodeComponent("embedHtml"),
     sideEffect: makeNodeComponent("sideEffect"),
-    img: makeNodeComponent("img"),
+    headerLiom: makeNodeComponent("headerLiom"),
+    svg: makeNodeComponent("svg"),
     dateOfBirthBox: makeNodeComponent("dateOfBirthBox"),
     lastTimeBox: makeNodeComponent("lastTimeBox"),
     lastTimeBox3: makeNodeComponent("lastTimeBox3"),
@@ -3889,6 +3148,7 @@ export const PlasmicSettingCycle4 = Object.assign(
     dialog4: makeNodeComponent("dialog4"),
     pickers4: makeNodeComponent("pickers4"),
     button6: makeNodeComponent("button6"),
+    backHandler: makeNodeComponent("backHandler"),
 
     // Metadata about props expected for PlasmicSettingCycle4
     internalVariantProps: PlasmicSettingCycle4__VariantProps,
