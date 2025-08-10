@@ -7,8 +7,13 @@ import Head from "next/head";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <PlasmicRootProvider Head={Head}>
-      <Component {...pageProps} />
-    </PlasmicRootProvider>
+    <>
+      <Head>
+        <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
+      </Head>
+      <PlasmicRootProvider Head={Head}>
+        <Component {...pageProps} />
+      </PlasmicRootProvider>
+    </>
   );
 }
