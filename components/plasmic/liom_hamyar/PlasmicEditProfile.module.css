@@ -384,7 +384,7 @@
   row-gap: 16px;
   min-width: 0;
   min-height: 0;
-  padding: 100px 16px;
+  padding: 20px 16px 100px;
 }
 @media (max-width: 640px) {
   .verticalIdentity {
@@ -415,7 +415,7 @@
   text-align: right;
   padding-top: 3px;
   padding-right: 3px;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   font-weight: 700;
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -464,9 +464,9 @@
 }
 .text__af68V {
   position: relative;
-  height: auto;
+  height: 30px;
   max-width: 100%;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   font-weight: 700;
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -476,9 +476,9 @@
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre-wrap;
-  width: 100%;
-  min-width: 0;
-  padding: 0px;
+  width: auto;
+  flex-shrink: 0;
+  padding: 3px 3px 0px 0px;
 }
 .freeBox__jK8 {
   display: flex;
@@ -509,7 +509,7 @@
 .svg__gvofr {
   object-fit: cover;
   max-width: 100%;
-  color: #1d1b1e;
+  color: var(--token-0jflij2Drauk);
   width: 30px;
   height: 30px;
   flex-shrink: 0;
@@ -534,7 +534,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -574,7 +574,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -611,7 +611,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -701,9 +701,9 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  color: var(--token-ODBUExjR6VEF);
+  color: #535353;
   text-align: right;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   position: relative;
   font-weight: 700;
   white-space: pre-wrap;
@@ -757,12 +757,12 @@
 }
 .text__ka4AS {
   position: relative;
-  width: 1378px;
+  width: 100%;
   height: auto;
   max-width: 100%;
-  color: var(--token-ODBUExjR6VEF);
+  color: #535353;
   text-align: right;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   font-weight: 700;
   padding-right: 8px;
   font-family: "Roboto", sans-serif;
@@ -771,6 +771,7 @@
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre-wrap;
+  min-width: 0;
 }
 .numberOfDaysOfBleeding2 {
   display: flex;
@@ -792,7 +793,7 @@
   max-width: 100%;
   color: var(--token-ODBUExjR6VEF);
   text-align: right;
-  font-size: 16px;
+  font-size: var(--token-Wa5tmrNKVUYF);
   font-family: "Roboto", sans-serif;
   font-weight: normal;
   font-style: normal;
@@ -952,11 +953,11 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  color: var(--token-ODBUExjR6VEF);
+  color: #535353;
   text-align: right;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   font-family: "Roboto", sans-serif;
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   text-transform: none;
   line-height: 1.5;
@@ -1048,11 +1049,11 @@
   max-width: 100%;
   text-align: right;
   background: none;
-  font-size: 18px;
-  color: var(--token-ODBUExjR6VEF);
+  font-size: var(--token-LMEbRDTg0Iix);
+  color: #535353;
   padding-right: 12px;
   font-family: "Roboto", sans-serif;
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
   text-transform: none;
   line-height: 1.5;
@@ -1089,7 +1090,7 @@
 .svg__y2YdS {
   object-fit: cover;
   max-width: 100%;
-  color: #1d1b1e;
+  color: var(--token-0jflij2Drauk);
   width: 30px;
   height: 30px;
   flex-shrink: 0;
@@ -1115,11 +1116,11 @@
   max-width: 100%;
   text-align: right;
   background: none;
-  font-size: 18px;
-  color: var(--token-ODBUExjR6VEF);
+  font-size: var(--token-LMEbRDTg0Iix);
+  color: #535353;
   padding-right: 12px;
   font-family: "Roboto", sans-serif;
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
   text-transform: none;
   line-height: 1.5;
@@ -1158,7 +1159,7 @@
   max-width: 100%;
   width: 30px;
   height: 30px;
-  color: #1d1b1e;
+  color: var(--token-hb610yGAurc2);
   flex-shrink: 0;
 }
 .section__kGaIk {

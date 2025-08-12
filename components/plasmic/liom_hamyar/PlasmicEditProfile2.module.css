@@ -366,7 +366,7 @@
   row-gap: 16px;
   min-width: 0;
   min-height: 0;
-  padding: 100px 16px;
+  padding: 14px 16px 100px;
 }
 @media (max-width: 640px) {
   .verticalIdentity {
@@ -391,13 +391,13 @@
 }
 .text___1ZF {
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: 100%;
+  height: auto;
   max-width: 100%;
   text-align: right;
   padding-top: 3px;
   padding-right: 3px;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   font-weight: 700;
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -406,7 +406,7 @@
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre-wrap;
-  flex-shrink: 0;
+  min-width: 0;
 }
 .nameInput:global(.__wab_instance) {
   max-width: 100%;
@@ -448,7 +448,7 @@
   position: relative;
   height: auto;
   max-width: 100%;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   font-weight: 700;
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -516,7 +516,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -556,7 +556,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -593,7 +593,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -683,9 +683,9 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  color: var(--token-ODBUExjR6VEF);
+  color: #535353;
   text-align: right;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   position: relative;
   font-weight: 700;
   white-space: pre-wrap;
@@ -739,12 +739,12 @@
 }
 .text__rx2NG {
   position: relative;
-  width: 1378px;
+  width: 100%;
   height: auto;
   max-width: 100%;
-  color: var(--token-ODBUExjR6VEF);
+  color: #535353;
   text-align: right;
-  font-size: 18px;
+  font-size: var(--token-LMEbRDTg0Iix);
   font-weight: 700;
   padding-right: 8px;
   font-family: "Roboto", sans-serif;
@@ -753,6 +753,7 @@
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre-wrap;
+  min-width: 0;
 }
 .numberOfDaysOfBleeding2 {
   display: flex;
@@ -936,7 +937,7 @@
   max-width: 100%;
   color: var(--token-ODBUExjR6VEF);
   text-align: right;
-  font-size: 18px;
+  font-size: 16px;
   font-family: "Roboto", sans-serif;
   font-weight: normal;
   font-style: normal;
@@ -1030,7 +1031,7 @@
   max-width: 100%;
   text-align: right;
   background: none;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--token-ODBUExjR6VEF);
   padding-right: 12px;
   font-family: "Roboto", sans-serif;
@@ -1097,7 +1098,7 @@
   max-width: 100%;
   text-align: right;
   background: none;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--token-ODBUExjR6VEF);
   padding-right: 12px;
   font-family: "Roboto", sans-serif;
