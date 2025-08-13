@@ -25,6 +25,46 @@
 .root > * {
   grid-column: 4;
 }
+.diseareVer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  grid-column-start: 3 !important;
+  grid-column-end: -3 !important;
+  padding: 8px;
+}
+.diseareeHo {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 1250px;
+  height: 100%;
+  max-width: 100%;
+  margin-left: 0px;
+  min-height: 0;
+  padding: 8px 201px 8px 60px;
+}
+.freeBox___9FpqV {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 75%;
+  height: auto;
+  max-width: 100%;
+  margin-right: 194px;
+  padding: 8px 0px 8px 8px;
+}
+.checkbox:global(.__wab_instance) {
+  max-width: 100%;
+  margin-right: 2px;
+}
 .freeBox__kIfwx {
   display: flex;
   flex-direction: row;
@@ -110,45 +150,54 @@
   margin-left: 25px;
   flex-shrink: 0;
 }
-.freeBox__pwnBd {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: auto;
+.modal2:global(.__wab_instance) {
   max-width: 100%;
-  grid-column-start: 3 !important;
-  grid-column-end: -3 !important;
-  padding: 8px;
+  object-fit: cover;
 }
-.freeBox__bgO1S {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 1250px;
-  height: 100%;
+.input2:global(.__wab_instance) {
   max-width: 100%;
-  margin-left: 0px;
-  min-height: 0;
-  padding: 8px 194px 8px 141px;
+  object-fit: cover;
+  width: 821px;
 }
-.freeBox___9FpqV {
+.svg__n4Qnf {
+  object-fit: cover;
+  max-width: 100%;
+  width: 25px;
+  height: 25px;
+  color: var(--token-LNIzKl5AGPPT);
+}
+.freeBox__w8Do6 {
   display: grid;
   position: relative;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  width: 75%;
-  height: auto;
+  width: 100%;
+  height: 112px;
   max-width: 100%;
-  margin-right: 194px;
-  padding: 8px 0px 8px 8px;
+  overflow: auto;
+  min-width: 0;
+  padding: 0px 35px 0px 8px;
 }
-.checkbox:global(.__wab_instance) {
+.checkbox2:global(.__wab_instance) {
   max-width: 100%;
-  margin-right: 2px;
+}
+.text__k37Mc {
+  color: #514f4f;
+}
+.text__yqIua {
+  text-align: center;
+}
+.input3:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 821px;
+  margin-top: 34px;
+}
+.svg__qWg78 {
+  object-fit: cover;
+  max-width: 100%;
+  width: 25px;
+  height: 25px;
+  color: var(--token-LNIzKl5AGPPT);
 }
 .freeBox__voUA {
   display: flex;
@@ -175,13 +224,38 @@
   min-width: 0;
   padding: 8px 0px 8px 34px;
 }
+.modal:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .input:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-  width: 827px;
-  flex-shrink: 0;
+  width: 429px;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 .svg__y2I6 {
+  object-fit: cover;
+  max-width: 100%;
+  width: 25px;
+  height: 25px;
+  color: var(--token-LNIzKl5AGPPT);
+}
+.text__qceIo {
+  text-align: center;
+}
+.input4:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 827px;
+  margin-top: 43px;
+  margin-left: 0px;
+  margin-right: 24px;
+  flex-shrink: 0;
+}
+.svg__urAuX {
   object-fit: cover;
   max-width: 100%;
   width: 25px;
@@ -201,31 +275,11 @@
   min-width: 0;
   padding: 0px 0px 2px;
 }
-.freeBox__w8Do6 {
-  display: grid;
-  position: relative;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  width: 100%;
-  height: 112px;
-  max-width: 100%;
-  overflow: auto;
-  min-width: 0;
-  flex-shrink: 0;
-  padding: 0px 35px 0px 8px;
-}
-.checkbox2:global(.__wab_instance) {
-  max-width: 100%;
-}
-.text__k37Mc {
-  color: #514f4f;
-}
 .button:global(.__wab_instance) {
   max-width: 100%;
-  height: 26px;
+  height: 31px;
   margin-right: 0px;
   width: 50%;
-  margin-top: 25px;
-  flex-shrink: 0;
 }
 .svg__fR6M {
   position: relative;
@@ -261,22 +315,6 @@
   min-width: 0;
   padding: 51px 8px 8px;
 }
-.text__vUjXr {
-  position: relative;
-  width: 60%;
-  height: 25px;
-  max-width: 100%;
-  text-align: center;
-  background: #154bff;
-  color: #ffffff;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  align-self: center;
-  box-shadow: 0px 4px 16px 0px #00000033;
-  padding-top: 5px;
-  flex-shrink: 0;
-  border-radius: 25px;
-}
 .freeBox__cvAky {
   display: flex;
   flex-direction: column;
@@ -287,7 +325,7 @@
   justify-content: flex-start;
   align-items: center;
   overflow: auto;
-  margin-top: 3px;
+  margin-top: 0px;
   min-width: 0;
   padding: 8px 8px 0px;
 }
@@ -382,81 +420,6 @@
   min-width: 0;
 }
 .text__nbJvj {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.modal:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.freeBox__x4WWm {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  justify-content: flex-start;
-  align-items: center;
-  min-width: 0;
-  padding: 8px;
-}
-.textInput:global(.__wab_instance) {
-  max-width: 100%;
-}
-.svg__p21Fo {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.antdInput__xYhRf:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.svg__x6KY {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.input2:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-  width: 821px;
-  margin-right: 0px;
-}
-.svg__n4Qnf {
-  object-fit: cover;
-  max-width: 100%;
-  width: 25px;
-  height: 25px;
-  color: var(--token-LNIzKl5AGPPT);
-}
-.diseare:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.freeBox___25NPx {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  justify-content: flex-start;
-  align-items: center;
-  min-width: 0;
-  padding: 8px;
-}
-.button__wdzTm:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.text__oy0YE {
   position: relative;
   width: 100%;
   height: auto;

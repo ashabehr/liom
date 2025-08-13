@@ -816,7 +816,9 @@ function PlasmicNewPage__RenderFunc(props: {
                                 $state.paramsObject.user_id,
                               pageName: "shop-item",
                               action: "loadePage",
-                              extraData: {}
+                              extraData: {
+                                shopType: $state.paramsObject["shop_type"]
+                              }
                             };
                           } catch (e) {
                             if (
