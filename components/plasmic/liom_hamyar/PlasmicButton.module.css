@@ -4,7 +4,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background: #8254c6;
+  background: #154bff;
   cursor: pointer;
   transition-property: background;
   transition-duration: 0.1s;
@@ -106,6 +106,10 @@
 .rootloading {
   padding-top: 0px;
   padding-bottom: 0px;
+}
+.rootfilter {
+  box-shadow: 0px 4px 16px 0px #00000033;
+  border-radius: 25px;
 }
 .rootshowStartIcon_shape_rounded {
   padding-left: 16px;
@@ -233,6 +237,11 @@
 }
 .rootcolor_orange:active {
   background: #fa6214;
+}
+.rootfilter:hover {
+  background: var(--token-hBbVVSmAB0oc);
+  box-shadow: 0px 4px 16px 0px #00000033;
+  border-radius: 25px;
 }
 .startIconContainer {
   display: flex;

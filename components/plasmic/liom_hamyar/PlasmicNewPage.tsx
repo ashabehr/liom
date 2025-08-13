@@ -89,7 +89,6 @@ export const PlasmicNewPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicNewPage__OverridesType = {
   root?: Flex__<"div">;
-  freeBox?: Flex__<"div">;
   shopBox?: Flex__<typeof ShopBox>;
   button?: Flex__<typeof Button>;
   sideEffect?: Flex__<typeof SideEffect>;
@@ -222,6 +221,12 @@ function PlasmicNewPage__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -260,210 +265,233 @@ function PlasmicNewPage__RenderFunc(props: {
             sty.root
           )}
         >
-          <div
-            data-plasmic-name={"freeBox"}
-            data-plasmic-override={overrides.freeBox}
-            className={classNames(projectcss.all, sty.freeBox)}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__fet
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $state.title;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___0YobS
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $state.text;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-            {(() => {
-              try {
-                return !$state.shop;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
+          {(() => {
+            try {
+              return !$state.load;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
               }
-            })() ? (
-              <ShopBox
-                data-plasmic-name={"shopBox"}
-                data-plasmic-override={overrides.shopBox}
-                className={classNames("__wab_instance", sty.shopBox)}
-                onOpenChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["shopBox", "open"]).apply(
-                    null,
-                    eventArgs
-                  );
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onSelectShopChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "shopBox",
-                    "selectShop"
-                  ]).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                open={generateStateValueProp($state, ["shopBox", "open"])}
-                redirectUrl={"https://apps.liom.app/shop-item/"}
-                token={(() => {
-                  try {
-                    return $state.token;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                type={"vaginal_infection_test_sub"}
-                userId={(() => {
-                  try {
-                    return (
-                      $state.paramsObject.userId || $state.paramsObject.user_id
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-              />
-            ) : null}
-            {(() => {
-              try {
-                return $state.shop;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })() ? (
-              <Button
-                data-plasmic-name={"button"}
-                data-plasmic-override={overrides.button}
-                className={classNames("__wab_instance", sty.button)}
-                color={generateStateValueProp($state, ["button", "color"])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return location.replace(
-                                `https://tools.liom.app/self-test/?app=liom&inApp=true&type=VaginalHealthCheck&origin=liomSelfCare&token=${$state.token}`
-                              );
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__d4RNa)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__fet
+                )}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xj7Re
-                  )}
-                >
-                  {
-                    "\u0648\u0631\u0648\u062f \u0628\u0647 \u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $state.title;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___0YobS
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $state.text;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+              {(() => {
+                try {
+                  return !$state.shop;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
                   }
-                </div>
-              </Button>
-            ) : null}
-          </div>
+                  throw e;
+                }
+              })() ? (
+                <ShopBox
+                  data-plasmic-name={"shopBox"}
+                  data-plasmic-override={overrides.shopBox}
+                  className={classNames("__wab_instance", sty.shopBox)}
+                  onOpenChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "shopBox",
+                      "open"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onSelectShopChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "shopBox",
+                      "selectShop"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  open={generateStateValueProp($state, ["shopBox", "open"])}
+                  redirectUrl={"https://apps.liom.app/shop-item/"}
+                  token={(() => {
+                    try {
+                      return $state.token;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  type={(() => {
+                    try {
+                      return $state.shopItem;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  userId={(() => {
+                    try {
+                      return (
+                        $state.paramsObject.userId ||
+                        $state.paramsObject.user_id
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                />
+              ) : null}
+              {(() => {
+                try {
+                  return $state.shop;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Button
+                  data-plasmic-name={"button"}
+                  data-plasmic-override={overrides.button}
+                  className={classNames("__wab_instance", sty.button)}
+                  color={generateStateValueProp($state, ["button", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return location.replace(
+                                  `https://tools.liom.app/self-test/?app=liom&inApp=true&type=VaginalHealthCheck&origin=liomSelfCare&token=${$state.token}`
+                                );
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__xj7Re
+                    )}
+                  >
+                    {
+                      "\u0648\u0631\u0648\u062f \u0628\u0647 \u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"
+                    }
+                  </div>
+                </Button>
+              ) : null}
+            </div>
+          ) : null}
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
@@ -629,6 +657,44 @@ function PlasmicNewPage__RenderFunc(props: {
                 $steps["updateShop"] = await $steps["updateShop"];
               }
 
+              $steps["invokeGlobalAction4"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/shop-item",
+                        (() => {
+                          try {
+                            return {
+                              type: $state.paramsObject["shop_type"]
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction4"] != null &&
+                typeof $steps["invokeGlobalAction4"] === "object" &&
+                typeof $steps["invokeGlobalAction4"].then === "function"
+              ) {
+                $steps["invokeGlobalAction4"] = await $steps[
+                  "invokeGlobalAction4"
+                ];
+              }
+
               $steps["invokeGlobalAction"] =
                 $state.paramsObject.status == "true"
                   ? (() => {
@@ -654,6 +720,31 @@ function PlasmicNewPage__RenderFunc(props: {
                 ];
               }
 
+              $steps["runCode"] = $steps.invokeGlobalAction4?.data
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          $state.text = $steps.invokeGlobalAction4.data.text;
+                          $state.title = $steps.invokeGlobalAction4.data.title;
+                          return ($state.shopItem =
+                            $steps.invokeGlobalAction4.data["shop-type"]);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
               $steps["invokeGlobalAction2"] =
                 $state.paramsObject.status == "false"
                   ? (() => {
@@ -677,6 +768,35 @@ function PlasmicNewPage__RenderFunc(props: {
                 $steps["invokeGlobalAction2"] = await $steps[
                   "invokeGlobalAction2"
                 ];
+              }
+
+              $steps["updateLoad"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["load"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoad"] != null &&
+                typeof $steps["updateLoad"] === "object" &&
+                typeof $steps["updateLoad"].then === "function"
+              ) {
+                $steps["updateLoad"] = await $steps["updateLoad"];
               }
 
               $steps["invokeGlobalAction3"] = (
@@ -733,6 +853,70 @@ function PlasmicNewPage__RenderFunc(props: {
               }
             }}
           />
+
+          {(() => {
+            try {
+              return $state.load;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__sWc81)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__rGChE,
+                  "shimmer"
+                )}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__eWosC,
+                  "shimmer"
+                )}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__quzbP,
+                  "shimmer"
+                )}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__hwd5V,
+                  "shimmer"
+                )}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox___2SPwD,
+                  "shimmer"
+                )}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__aY6Lo,
+                  "shimmer"
+                )}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -740,8 +924,7 @@ function PlasmicNewPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "shopBox", "button", "sideEffect"],
-  freeBox: ["freeBox", "shopBox", "button"],
+  root: ["root", "shopBox", "button", "sideEffect"],
   shopBox: ["shopBox"],
   button: ["button"],
   sideEffect: ["sideEffect"]
@@ -751,7 +934,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  freeBox: "div";
   shopBox: typeof ShopBox;
   button: typeof Button;
   sideEffect: typeof SideEffect;
@@ -842,7 +1024,6 @@ export const PlasmicNewPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
     shopBox: makeNodeComponent("shopBox"),
     button: makeNodeComponent("button"),
     sideEffect: makeNodeComponent("sideEffect"),

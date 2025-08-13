@@ -70,13 +70,16 @@ createPlasmicElementProxy;
 
 export type PlasmicSelectionChoise__VariantMembers = {
   select: "select";
+  filter: "filter";
 };
 export type PlasmicSelectionChoise__VariantsArgs = {
   select?: SingleBooleanChoiceArg<"select">;
+  filter?: SingleBooleanChoiceArg<"filter">;
 };
 type VariantPropType = keyof PlasmicSelectionChoise__VariantsArgs;
 export const PlasmicSelectionChoise__VariantProps = new Array<VariantPropType>(
-  "select"
+  "select",
+  "filter"
 );
 
 export type PlasmicSelectionChoise__ArgsType = {
@@ -102,6 +105,7 @@ export interface DefaultSelectionChoiseProps {
   selected?: boolean;
   text?: string;
   select?: SingleBooleanChoiceArg<"select">;
+  filter?: SingleBooleanChoiceArg<"filter">;
   className?: string;
 }
 
@@ -161,6 +165,12 @@ function PlasmicSelectionChoise__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "filter",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.filter
       }
     ],
     [$props, $ctx, $refs]
@@ -187,7 +197,13 @@ function PlasmicSelectionChoise__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
-        { [sty.rootselect]: hasVariant($state, "select", "select") }
+        {
+          [sty.rootfilter]: hasVariant($state, "filter", "filter"),
+          [sty.rootselect]: hasVariant($state, "select", "select"),
+          [sty.rootselect_filter]:
+            hasVariant($state, "select", "select") &&
+            hasVariant($state, "filter", "filter")
+        }
       )}
       onClick={args.onClick}
     >
@@ -195,7 +211,11 @@ function PlasmicSelectionChoise__RenderFunc(props: {
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
         className={classNames(projectcss.all, sty.freeBox, {
-          [sty.freeBoxselect]: hasVariant($state, "select", "select")
+          [sty.freeBoxfilter]: hasVariant($state, "filter", "filter"),
+          [sty.freeBoxselect]: hasVariant($state, "select", "select"),
+          [sty.freeBoxselect_filter]:
+            hasVariant($state, "filter", "filter") &&
+            hasVariant($state, "select", "select")
         })}
         onClick={async event => {
           const $steps = {};
@@ -234,7 +254,10 @@ function PlasmicSelectionChoise__RenderFunc(props: {
             projectcss.all,
             projectcss.__wab_text,
             sty.text,
-            { [sty.textselect]: hasVariant($state, "select", "select") }
+            {
+              [sty.textfilter]: hasVariant($state, "filter", "filter"),
+              [sty.textselect]: hasVariant($state, "select", "select")
+            }
           )}
         >
           <React.Fragment>

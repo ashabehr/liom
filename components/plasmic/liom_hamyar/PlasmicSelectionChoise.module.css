@@ -14,6 +14,9 @@
 .rootselect {
   background: var(--token-55cSeNPovQFh);
 }
+.rootselect_filter {
+  background: none;
+}
 .freeBox {
   position: relative;
   width: 100%;
@@ -31,6 +34,14 @@
 }
 .freeBoxselect {
   background: #c197ff;
+}
+.freeBoxfilter {
+  box-shadow: 0px 4px 16px 0px #00000033;
+  border-radius: 25px;
+}
+.freeBoxselect_filter {
+  background: #0079ff;
+  border-radius: 25px;
 }
 .text {
   font-weight: 700;
