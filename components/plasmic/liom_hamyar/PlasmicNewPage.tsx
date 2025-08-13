@@ -227,6 +227,12 @@ function PlasmicNewPage__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "type",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -455,7 +461,7 @@ function PlasmicNewPage__RenderFunc(props: {
                             customFunction: async () => {
                               return (() => {
                                 return location.replace(
-                                  `https://tools.liom.app/self-test/?app=liom&inApp=true&type=VaginalHealthCheck&origin=liomSelfCare&token=${$state.token}`
+                                  `https://tools.liom.app/self-test/?app=liom&inApp=true&type=${$state.type}&origin=liomSelfCare&token=${$state.token}`
                                 );
                               })();
                             }
@@ -739,8 +745,10 @@ function PlasmicNewPage__RenderFunc(props: {
                         return (() => {
                           $state.text = $steps.invokeGlobalAction4.data.text;
                           $state.title = $steps.invokeGlobalAction4.data.title;
-                          return ($state.shopItem =
-                            $steps.invokeGlobalAction4.data["shop-type"]);
+                          $state.shopItem =
+                            $steps.invokeGlobalAction4.data["shop-type"];
+                          return ($state.type =
+                            $steps.invokeGlobalAction4.data["test-type"]);
                         })();
                       }
                     };
