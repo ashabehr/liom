@@ -103,6 +103,7 @@ export type PlasmicButton__VariantMembers = {
   unnamedVariant: "unnamedVariant";
   loading: "loading";
   filter: "filter";
+  unnamedVariant2: "unnamedVariant2";
 };
 export type PlasmicButton__VariantsArgs = {
   showStartIcon?: SingleBooleanChoiceArg<"showStartIcon">;
@@ -133,6 +134,7 @@ export type PlasmicButton__VariantsArgs = {
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   loading?: SingleBooleanChoiceArg<"loading">;
   filter?: SingleBooleanChoiceArg<"filter">;
+  unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
 };
 type VariantPropType = keyof PlasmicButton__VariantsArgs;
 export const PlasmicButton__VariantProps = new Array<VariantPropType>(
@@ -144,7 +146,8 @@ export const PlasmicButton__VariantProps = new Array<VariantPropType>(
   "color",
   "unnamedVariant",
   "loading",
-  "filter"
+  "filter",
+  "unnamedVariant2"
 );
 
 export type PlasmicButton__ArgsType = {
@@ -207,6 +210,7 @@ export interface DefaultButtonProps extends pp.BaseButtonProps {
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   loading?: SingleBooleanChoiceArg<"loading">;
   filter?: SingleBooleanChoiceArg<"filter">;
+  unnamedVariant2?: SingleBooleanChoiceArg<"unnamedVariant2">;
 }
 
 const $$ = {};
@@ -313,6 +317,12 @@ function PlasmicButton__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.filter
+      },
+      {
+        path: "unnamedVariant2",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant2
       }
     ],
     [$props, $ctx, $refs]

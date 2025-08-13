@@ -63,10 +63,16 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import SelectionChoise from "../../SelectionChoise"; // plasmic-import: kjK-J97SUWLJ/component
+import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
+import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
+import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -76,6 +82,8 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicFilter.module.css"; // plasmic-import: NViyjBtxiFfj/css
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -90,14 +98,18 @@ export const PlasmicFilter__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicFilter__OverridesType = {
   root?: Flex__<"div">;
-  input2?: Flex__<typeof AntdInput>;
   checkbox?: Flex__<typeof Checkbox>;
   input?: Flex__<typeof AntdInput>;
   checkbox2?: Flex__<typeof Checkbox>;
+  button?: Flex__<typeof Button>;
   name?: Flex__<"div">;
   disease?: Flex__<"div">;
   gender2?: Flex__<"div">;
   apiRequest?: Flex__<typeof ApiRequest>;
+  modal?: Flex__<typeof AntdModal>;
+  textInput?: Flex__<typeof TextInput>;
+  input2?: Flex__<typeof AntdInput>;
+  diseare?: Flex__<typeof AntdModal>;
 };
 
 export interface DefaultFilterProps {}
@@ -275,9 +287,41 @@ function PlasmicFilter__RenderFunc(props: {
         path: "input2.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``,
 
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "textInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "antdInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input_Helpers)
+      },
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "diseare.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -433,81 +477,8 @@ function PlasmicFilter__RenderFunc(props: {
             })}
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__pwnBd)}>
-            <div className={classNames(projectcss.all, sty.freeBox__bgO1S)}>
-              {(() => {
-                const child$Props = {
-                  className: classNames("__wab_instance", sty.input2),
-                  onChange: async (...eventArgs: any) => {
-                    generateStateOnChangePropForCodeComponents(
-                      $state,
-                      "value",
-                      ["input2", "value"],
-                      AntdInput_Helpers
-                    ).apply(null, eventArgs);
+            <div className={classNames(projectcss.all, sty.freeBox__bgO1S)} />
 
-                    (async event => {
-                      const $steps = {};
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/tools/getMedicineList",
-                                undefined,
-                                undefined
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-                    }).apply(null, eventArgs);
-                  },
-                  placeholder:
-                    "\u0646\u0648\u0639 \u0628\u06cc\u0645\u0627\u0631\u06cc \u062e\u0648\u062f \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f",
-                  prefix: (
-                    <SearchSvgIcon
-                      className={classNames(projectcss.all, sty.svg__n4Qnf)}
-                      role={"img"}
-                    />
-                  ),
-
-                  value: generateStateValueProp($state, ["input2", "value"])
-                };
-                initializeCodeComponentStates(
-                  $state,
-                  [
-                    {
-                      name: "value",
-                      plasmicStateName: "input2.value"
-                    }
-                  ],
-                  [],
-                  AntdInput_Helpers ?? {},
-                  child$Props
-                );
-
-                return (
-                  <AntdInput
-                    data-plasmic-name={"input2"}
-                    data-plasmic-override={overrides.input2}
-                    {...child$Props}
-                  />
-                );
-              })()}
-            </div>
             <div className={classNames(projectcss.all, sty.freeBox___9FpqV)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
@@ -861,6 +832,30 @@ function PlasmicFilter__RenderFunc(props: {
                 })();
               })}
             </div>
+            <Button
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
+              className={classNames("__wab_instance", sty.button)}
+              color={generateStateValueProp($state, ["button", "color"])}
+              filter={true}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+            >
+              {"\u062c\u0633\u062a\u062c\u0648"}
+            </Button>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox___4Uger)}>
             <div
@@ -989,6 +984,196 @@ function PlasmicFilter__RenderFunc(props: {
             shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/tools/getSignList"}
           />
+
+          <AntdModal
+            data-plasmic-name={"modal"}
+            data-plasmic-override={overrides.modal}
+            className={classNames("__wab_instance", sty.modal)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            modalScopeClassName={sty["modal__modal"]}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["modal", "open"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            open={generateStateValueProp($state, ["modal", "open"])}
+            title={"Modal title"}
+            trigger={null}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__x4WWm)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__sZoLy
+                )}
+              >
+                {"Modal content"}
+              </div>
+            </div>
+            <TextInput
+              data-plasmic-name={"textInput"}
+              data-plasmic-override={overrides.textInput}
+              className={classNames("__wab_instance", sty.textInput)}
+              onChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["textInput", "value"])(
+                    (e => e.target?.value).apply(null, eventArgs)
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              value={
+                generateStateValueProp($state, ["textInput", "value"]) ?? ""
+              }
+            />
+          </AntdModal>
+          {(() => {
+            const child$Props = {
+              className: classNames("__wab_instance", sty.input2),
+              onChange: async (...eventArgs: any) => {
+                generateStateOnChangePropForCodeComponents(
+                  $state,
+                  "value",
+                  ["input2", "value"],
+                  AntdInput_Helpers
+                ).apply(null, eventArgs);
+
+                (async event => {
+                  const $steps = {};
+
+                  $steps["updateInputValue"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["input", "value"]
+                          },
+                          operation: 0
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateInputValue"] != null &&
+                    typeof $steps["updateInputValue"] === "object" &&
+                    typeof $steps["updateInputValue"].then === "function"
+                  ) {
+                    $steps["updateInputValue"] = await $steps[
+                      "updateInputValue"
+                    ];
+                  }
+                }).apply(null, eventArgs);
+              },
+              placeholder:
+                "\u0646\u0648\u0639 \u0628\u06cc\u0645\u0627\u0631\u06cc \u062e\u0648\u062f \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f",
+              prefix: (
+                <SearchSvgIcon
+                  className={classNames(projectcss.all, sty.svg__n4Qnf)}
+                  role={"img"}
+                />
+              ),
+
+              value: generateStateValueProp($state, ["input2", "value"])
+            };
+            initializeCodeComponentStates(
+              $state,
+              [
+                {
+                  name: "value",
+                  plasmicStateName: "input2.value"
+                }
+              ],
+              [],
+              AntdInput_Helpers ?? {},
+              child$Props
+            );
+
+            return (
+              <AntdInput
+                data-plasmic-name={"input2"}
+                data-plasmic-override={overrides.input2}
+                {...child$Props}
+              />
+            );
+          })()}
+          <AntdModal
+            data-plasmic-name={"diseare"}
+            data-plasmic-override={overrides.diseare}
+            className={classNames("__wab_instance", sty.diseare)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            modalScopeClassName={sty["diseare__modal"]}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["diseare", "open"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            open={generateStateValueProp($state, ["diseare", "open"])}
+            title={"Modal title"}
+            trigger={
+              <AntdButton
+                className={classNames("__wab_instance", sty.button__wdzTm)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__oy0YE
+                  )}
+                >
+                  {"Show modal"}
+                </div>
+              </AntdButton>
+            }
+          >
+            <div className={classNames(projectcss.all, sty.freeBox___25NPx)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__lmW1A
+                )}
+              >
+                {"Modal content"}
+              </div>
+            </div>
+          </AntdModal>
         </div>
       </div>
     </React.Fragment>
@@ -998,37 +1183,49 @@ function PlasmicFilter__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "input2",
     "checkbox",
     "input",
     "checkbox2",
+    "button",
     "name",
     "disease",
     "gender2",
-    "apiRequest"
+    "apiRequest",
+    "modal",
+    "textInput",
+    "input2",
+    "diseare"
   ],
-  input2: ["input2"],
   checkbox: ["checkbox"],
   input: ["input"],
   checkbox2: ["checkbox2"],
+  button: ["button"],
   name: ["name"],
   disease: ["disease"],
   gender2: ["gender2"],
-  apiRequest: ["apiRequest"]
+  apiRequest: ["apiRequest"],
+  modal: ["modal", "textInput"],
+  textInput: ["textInput"],
+  input2: ["input2"],
+  diseare: ["diseare"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  input2: typeof AntdInput;
   checkbox: typeof Checkbox;
   input: typeof AntdInput;
   checkbox2: typeof Checkbox;
+  button: typeof Button;
   name: "div";
   disease: "div";
   gender2: "div";
   apiRequest: typeof ApiRequest;
+  modal: typeof AntdModal;
+  textInput: typeof TextInput;
+  input2: typeof AntdInput;
+  diseare: typeof AntdModal;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1116,14 +1313,18 @@ export const PlasmicFilter = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    input2: makeNodeComponent("input2"),
     checkbox: makeNodeComponent("checkbox"),
     input: makeNodeComponent("input"),
     checkbox2: makeNodeComponent("checkbox2"),
+    button: makeNodeComponent("button"),
     _name: makeNodeComponent("name"),
     disease: makeNodeComponent("disease"),
     gender2: makeNodeComponent("gender2"),
     apiRequest: makeNodeComponent("apiRequest"),
+    modal: makeNodeComponent("modal"),
+    textInput: makeNodeComponent("textInput"),
+    input2: makeNodeComponent("input2"),
+    diseare: makeNodeComponent("diseare"),
 
     // Metadata about props expected for PlasmicFilter
     internalVariantProps: PlasmicFilter__VariantProps,
