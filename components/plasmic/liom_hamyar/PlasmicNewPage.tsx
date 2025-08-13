@@ -379,7 +379,7 @@ function PlasmicNewPage__RenderFunc(props: {
                   open={generateStateValueProp($state, ["shopBox", "open"])}
                   redirectUrl={(() => {
                     try {
-                      return window.encodeURIComponent(window.location.href);
+                      return window.location.href;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||

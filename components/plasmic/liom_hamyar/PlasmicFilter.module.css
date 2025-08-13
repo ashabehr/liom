@@ -38,7 +38,7 @@
   height: auto;
   max-width: 100%;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   background: var(--token-R_Rsn0nP9oIv);
   border-bottom-right-radius: var(--token-1KusGK5GePTh);
   border-bottom-left-radius: var(--token-1KusGK5GePTh);
@@ -190,6 +190,29 @@
   text-align: right;
   white-space: pre;
   border-radius: var(--token-O5TjkXII_aat);
+}
+.freeBox__e8Nfv {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px;
+}
+.select:global(.__wab_instance) {
+  width: auto;
+  max-width: 100%;
+  object-fit: cover;
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  height: auto;
+  border-radius: 0px;
 }
 .freeBox__kIfwx {
   display: flex;

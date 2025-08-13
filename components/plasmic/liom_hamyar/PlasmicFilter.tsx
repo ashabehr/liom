@@ -64,6 +64,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { Select } from "@/fragment/components/select"; // plasmic-import: 5Mch6ak-Pshg/codeComponent
 import SelectionChoise from "../../SelectionChoise"; // plasmic-import: kjK-J97SUWLJ/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
@@ -99,6 +100,7 @@ export const PlasmicFilter__ArgProps = new Array<ArgPropType>();
 export type PlasmicFilter__OverridesType = {
   root?: Flex__<"div">;
   input3?: Flex__<typeof AntdInput>;
+  select?: Flex__<typeof Select>;
   selectionChoise?: Flex__<typeof SelectionChoise>;
   modal?: Flex__<typeof AntdModal>;
   diseareVer?: Flex__<"div">;
@@ -320,6 +322,18 @@ function PlasmicFilter__RenderFunc(props: {
         path: "checkbox3[].isChecked",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "select.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "select.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -654,6 +668,80 @@ function PlasmicFilter__RenderFunc(props: {
                 ) {
                   $steps["updateModal3Open"] = await $steps["updateModal3Open"];
                 }
+
+                $steps["invokeGlobalAction"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/tools/getMedicineList",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                text: $state.input4.value || ""
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
+
+                $steps["updateDaroo"] = $steps.invokeGlobalAction?.data
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["daroo"]
+                        },
+                        operation: 0,
+                        value: $steps.invokeGlobalAction.data.result
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDaroo"] != null &&
+                  typeof $steps["updateDaroo"] === "object" &&
+                  typeof $steps["updateDaroo"].then === "function"
+                ) {
+                  $steps["updateDaroo"] = await $steps["updateDaroo"];
+                }
               }}
             >
               <Icon259Icon
@@ -748,6 +836,40 @@ function PlasmicFilter__RenderFunc(props: {
                   })}
                 </div>
               ) : null}
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__e8Nfv)}>
+              <Select
+                data-plasmic-name={"select"}
+                data-plasmic-override={overrides.select}
+                disabled={false}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["select", "value"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                onOpenChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["select", "open"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                open={generateStateValueProp($state, ["select", "open"])}
+                options={(() => {
+                  const __composite = [
+                    { label: null, value: null },
+                    { label: null, value: null }
+                  ];
+                  __composite["0"]["label"] = "\u0645\u0631\u062f";
+                  __composite["0"]["value"] = "male";
+                  __composite["1"]["label"] = "\u0632\u0646";
+                  __composite["1"]["value"] = "female";
+                  return __composite;
+                })()}
+                placeholder={"\u062c\u0646\u0633\u06cc\u062a"}
+                triggerClassName={classNames("__wab_instance", sty.select)}
+                value={generateStateValueProp($state, ["select", "value"])}
+              />
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__kIfwx)}>
@@ -1866,6 +1988,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "input3",
+    "select",
     "selectionChoise",
     "modal",
     "diseareVer",
@@ -1882,6 +2005,7 @@ const PlasmicDescendants = {
     "apiRequest"
   ],
   input3: ["input3"],
+  select: ["select"],
   selectionChoise: ["selectionChoise"],
   modal: ["modal", "diseareVer", "checkbox", "input"],
   diseareVer: ["diseareVer", "checkbox"],
@@ -1903,6 +2027,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   input3: typeof AntdInput;
+  select: typeof Select;
   selectionChoise: typeof SelectionChoise;
   modal: typeof AntdModal;
   diseareVer: "div";
@@ -2005,6 +2130,7 @@ export const PlasmicFilter = Object.assign(
   {
     // Helper components rendering sub-elements
     input3: makeNodeComponent("input3"),
+    select: makeNodeComponent("select"),
     selectionChoise: makeNodeComponent("selectionChoise"),
     modal: makeNodeComponent("modal"),
     diseareVer: makeNodeComponent("diseareVer"),
