@@ -371,7 +371,19 @@ function PlasmicNewPage__RenderFunc(props: {
                     }
                   }}
                   open={generateStateValueProp($state, ["shopBox", "open"])}
-                  redirectUrl={"https://apps.liom.app/shop-item/"}
+                  redirectUrl={(() => {
+                    try {
+                      return window.encodeURIComponent(window.location.href);
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                   token={(() => {
                     try {
                       return $state.token;

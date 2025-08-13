@@ -4081,6 +4081,21 @@
           "id": "wTR4tkNSSGE3",
           "name": "TriangleFilledIcon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__TriangleFilled.tsx"
+        },
+        {
+          "id": "-shjOUqDsCV5",
+          "name": "Icon257Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon257.tsx"
+        },
+        {
+          "id": "L5cMR_MFxUGE",
+          "name": "Icon258Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon258.tsx"
+        },
+        {
+          "id": "S4bsf33msfQ_",
+          "name": "Icon259Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon259.tsx"
         }
       ],
       "images": [
