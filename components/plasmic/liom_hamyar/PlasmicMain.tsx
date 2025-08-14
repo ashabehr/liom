@@ -69,6 +69,8 @@ import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import SettingCycle4 from "../../SettingCycle4"; // plasmic-import: C5hqeG28n8GP/component
 import SubItemsComponnet from "../../SubItemsComponnet"; // plasmic-import: b9qrgB2b1TrW/component
 import EditProfile2 from "../../EditProfile2"; // plasmic-import: BZ95kklWU6Jb/component
+import { BackHandler } from "@/components/BackHandler"; // plasmic-import: wpIQCsQJqUoV/codeComponent
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -114,6 +116,8 @@ export type PlasmicMain__OverridesType = {
   settingCycle4?: Flex__<typeof SettingCycle4>;
   subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
   editProfile2?: Flex__<typeof EditProfile2>;
+  backHandler?: Flex__<typeof BackHandler>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultMainProps {}
@@ -156,6 +160,8 @@ function PlasmicMain__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -296,6 +302,12 @@ function PlasmicMain__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "loadBack",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -955,6 +967,103 @@ function PlasmicMain__RenderFunc(props: {
               token={generateStateValueProp($state, ["editProfile2", "token"])}
             />
           </Reveal>
+          <BackHandler
+            data-plasmic-name={"backHandler"}
+            data-plasmic-override={overrides.backHandler}
+            active={(() => {
+              try {
+                return $state.loadBack;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()}
+            className={classNames("__wab_instance", sty.backHandler)}
+            onBack={async () => {
+              const $steps = {};
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = { args: ["custom", "hi", "top-center"] };
+                    return $globalActions["Fragment.showToast"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+            }}
+          />
+
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return window.history.back();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["updateLoadBack"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loadBack"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoadBack"] != null &&
+                typeof $steps["updateLoadBack"] === "object" &&
+                typeof $steps["updateLoadBack"].then === "function"
+              ) {
+                $steps["updateLoadBack"] = await $steps["updateLoadBack"];
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -973,7 +1082,9 @@ const PlasmicDescendants = {
     "footerMain",
     "settingCycle4",
     "subItemsComponnet",
-    "editProfile2"
+    "editProfile2",
+    "backHandler",
+    "sideEffect"
   ],
   main: [
     "main",
@@ -992,7 +1103,9 @@ const PlasmicDescendants = {
   footerMain: ["footerMain"],
   settingCycle4: ["settingCycle4"],
   subItemsComponnet: ["subItemsComponnet"],
-  editProfile2: ["editProfile2"]
+  editProfile2: ["editProfile2"],
+  backHandler: ["backHandler"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1009,6 +1122,8 @@ type NodeDefaultElementType = {
   settingCycle4: typeof SettingCycle4;
   subItemsComponnet: typeof SubItemsComponnet;
   editProfile2: typeof EditProfile2;
+  backHandler: typeof BackHandler;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1106,6 +1221,8 @@ export const PlasmicMain = Object.assign(
     settingCycle4: makeNodeComponent("settingCycle4"),
     subItemsComponnet: makeNodeComponent("subItemsComponnet"),
     editProfile2: makeNodeComponent("editProfile2"),
+    backHandler: makeNodeComponent("backHandler"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicMain
     internalVariantProps: PlasmicMain__VariantProps,
