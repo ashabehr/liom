@@ -1004,6 +1004,34 @@ function PlasmicMain__RenderFunc(props: {
                   "invokeGlobalAction"
                 ];
               }
+
+              $steps["updateLoadBack"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loadBack"]
+                      },
+                      operation: 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoadBack"] != null &&
+                typeof $steps["updateLoadBack"] === "object" &&
+                typeof $steps["updateLoadBack"].then === "function"
+              ) {
+                $steps["updateLoadBack"] = await $steps["updateLoadBack"];
+              }
             }}
           />
 
@@ -1014,7 +1042,7 @@ function PlasmicMain__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["runCode"] = true
+              $steps["runCode"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1034,7 +1062,7 @@ function PlasmicMain__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
 
-              $steps["updateLoadBack"] = true
+              $steps["updateLoadBack"] = false
                 ? (() => {
                     const actionArgs = {
                       variable: {

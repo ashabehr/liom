@@ -770,7 +770,7 @@ function PlasmicFilter__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u0627\u0646\u062a\u062e\u0627\u0628 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627"
+                    "\u0627\u0646\u062a\u062e\u0627\u0628 \u062f\u0627\u0631\u0648\u0647\u0627"
                   }
                 </div>
               ) : null}
