@@ -82,6 +82,7 @@ import sty from "./PlasmicFilter.module.css"; // plasmic-import: NViyjBtxiFfj/cs
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon259Icon from "./icons/PlasmicIcon__Icon259"; // plasmic-import: S4bsf33msfQ_/icon
+import XIcon from "../fragment_icons/icons/PlasmicIcon__X"; // plasmic-import: zb1oqVXdrxPK/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
@@ -100,7 +101,7 @@ export const PlasmicFilter__ArgProps = new Array<ArgPropType>();
 export type PlasmicFilter__OverridesType = {
   root?: Flex__<"div">;
   input3?: Flex__<typeof AntdInput>;
-  select?: Flex__<typeof Select>;
+  sex?: Flex__<typeof Select>;
   selectionChoise?: Flex__<typeof SelectionChoise>;
   modal?: Flex__<typeof AntdModal>;
   diseareVer?: Flex__<"div">;
@@ -324,13 +325,13 @@ function PlasmicFilter__RenderFunc(props: {
         variableType: "boolean"
       },
       {
-        path: "select.value",
+        path: "sex.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "select.open",
+        path: "sex.open",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -837,24 +838,46 @@ function PlasmicFilter__RenderFunc(props: {
                 </div>
               ) : null}
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__e8Nfv)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__e8Nfv)}
+              style={(() => {
+                try {
+                  return (() => {
+                    if ($state.sex.value != "")
+                      return {
+                        border: "solid 2px #2563EB",
+                        "box-shadow": "0 0px 10px rgba(0, 0, 255, 0.2)"
+                      };
+                    else return {};
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            >
               <Select
-                data-plasmic-name={"select"}
-                data-plasmic-override={overrides.select}
+                data-plasmic-name={"sex"}
+                data-plasmic-override={overrides.sex}
                 disabled={false}
                 onChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["select", "value"]).apply(
+                  generateStateOnChangeProp($state, ["sex", "value"]).apply(
                     null,
                     eventArgs
                   );
                 }}
                 onOpenChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["select", "open"]).apply(
+                  generateStateOnChangeProp($state, ["sex", "open"]).apply(
                     null,
                     eventArgs
                   );
                 }}
-                open={generateStateValueProp($state, ["select", "open"])}
+                open={generateStateValueProp($state, ["sex", "open"])}
                 options={(() => {
                   const __composite = [
                     { label: null, value: null },
@@ -867,9 +890,69 @@ function PlasmicFilter__RenderFunc(props: {
                   return __composite;
                 })()}
                 placeholder={"\u062c\u0646\u0633\u06cc\u062a"}
-                triggerClassName={classNames("__wab_instance", sty.select)}
-                value={generateStateValueProp($state, ["select", "value"])}
+                triggerClassName={classNames("__wab_instance", sty.sex)}
+                value={generateStateValueProp($state, ["sex", "value"])}
               />
+
+              {(() => {
+                try {
+                  return $state.sex.value != "";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__wSmgg)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateSexValue"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["sex", "value"]
+                            },
+                            operation: 0,
+                            value: ""
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSexValue"] != null &&
+                      typeof $steps["updateSexValue"] === "object" &&
+                      typeof $steps["updateSexValue"].then === "function"
+                    ) {
+                      $steps["updateSexValue"] = await $steps["updateSexValue"];
+                    }
+                  }}
+                >
+                  <XIcon
+                    className={classNames(projectcss.all, sty.svg__iyE1)}
+                    role={"img"}
+                  />
+                </div>
+              ) : null}
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__kIfwx)}>
@@ -1988,7 +2071,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "input3",
-    "select",
+    "sex",
     "selectionChoise",
     "modal",
     "diseareVer",
@@ -2005,7 +2088,7 @@ const PlasmicDescendants = {
     "apiRequest"
   ],
   input3: ["input3"],
-  select: ["select"],
+  sex: ["sex"],
   selectionChoise: ["selectionChoise"],
   modal: ["modal", "diseareVer", "checkbox", "input"],
   diseareVer: ["diseareVer", "checkbox"],
@@ -2027,7 +2110,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   input3: typeof AntdInput;
-  select: typeof Select;
+  sex: typeof Select;
   selectionChoise: typeof SelectionChoise;
   modal: typeof AntdModal;
   diseareVer: "div";
@@ -2130,7 +2213,7 @@ export const PlasmicFilter = Object.assign(
   {
     // Helper components rendering sub-elements
     input3: makeNodeComponent("input3"),
-    select: makeNodeComponent("select"),
+    sex: makeNodeComponent("sex"),
     selectionChoise: makeNodeComponent("selectionChoise"),
     modal: makeNodeComponent("modal"),
     diseareVer: makeNodeComponent("diseareVer"),

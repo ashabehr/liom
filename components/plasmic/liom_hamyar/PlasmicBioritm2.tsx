@@ -586,7 +586,7 @@ function PlasmicBioritm2__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["params"] = true
+              $steps["params"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -612,7 +612,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                 $steps["params"] = await $steps["params"];
               }
 
-              $steps["clearParams"] = true
+              $steps["clearParams"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -643,7 +643,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                 $steps["clearParams"] = await $steps["clearParams"];
               }
 
-              $steps["setCookie"] = true
+              $steps["setCookie"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1752,7 +1752,19 @@ function PlasmicBioritm2__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
-            shouldFetch={true}
+            shouldFetch={(() => {
+              try {
+                return $state.token != "" && $state.bday != "";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()}
             url={"https://n8n.staas.ir/webhook/hamyar/biorhythm"}
           >
             {(
