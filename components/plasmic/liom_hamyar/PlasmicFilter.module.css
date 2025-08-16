@@ -732,10 +732,23 @@
   max-width: 100%;
   min-width: 0;
 }
+.freeBox__xOEts {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 0px;
+  row-gap: 10px;
+  min-width: 0;
+  padding: 0px;
+}
 .freeBox__lQi46 {
   display: flex;
   flex-direction: row;
-  position: relative;
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
@@ -743,8 +756,8 @@
   max-width: 100%;
   background: #ffffff;
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
-  margin-bottom: 0px;
   min-width: 0;
+  flex-shrink: 0;
   border-radius: 25px;
   padding: 14px;
 }

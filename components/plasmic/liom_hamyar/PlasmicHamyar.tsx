@@ -5072,7 +5072,8 @@ function PlasmicHamyar__RenderFunc(props: {
                       $steps["runCode"] =
                         $state.userdata.result.user.hamyarStatus ||
                         $state.userdata.result.user.husbandSmsSubStatus ||
-                        $state.userdata.result.user.motherSmsSubStatus
+                        $state.userdata.result.user.motherSmsSubStatus ||
+                        $state.userdata.result.man.hamyarStatus
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
@@ -5104,7 +5105,8 @@ function PlasmicHamyar__RenderFunc(props: {
                       $steps["updateDialogOpendialog"] = !(
                         $state.userdata.result.user.hamyarStatus ||
                         $state.userdata.result.user.husbandSmsSubStatus ||
-                        $state.userdata.result.user.motherSmsSubStatus
+                        $state.userdata.result.user.motherSmsSubStatus ||
+                        $state.userdata.result.man.hamyarStatus
                       )
                         ? (() => {
                             const actionArgs = {
@@ -18734,7 +18736,8 @@ function PlasmicHamyar__RenderFunc(props: {
                     $steps["runCode"] =
                       $state.userdata.result.user.hamyarStatus ||
                       $state.userdata.result.user.husbandSmsSubStatus ||
-                      $state.userdata.result.user.motherSmsSubStatus
+                      $state.userdata.result.user.motherSmsSubStatus ||
+                      $state.userdata.result.man.hamyarStatus
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
@@ -18766,7 +18769,8 @@ function PlasmicHamyar__RenderFunc(props: {
                     $steps["updateDialogOpendialog"] = !(
                       $state.userdata.result.user.hamyarStatus ||
                       $state.userdata.result.user.husbandSmsSubStatus ||
-                      $state.userdata.result.user.motherSmsSubStatus
+                      $state.userdata.result.user.motherSmsSubStatus ||
+                      $state.userdata.result.man.hamyarStatus
                     )
                       ? (() => {
                           const actionArgs = {

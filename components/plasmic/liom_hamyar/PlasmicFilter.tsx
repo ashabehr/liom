@@ -417,7 +417,20 @@ function PlasmicFilter__RenderFunc(props: {
         path: "panelUsername",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "variable",
@@ -2226,7 +2239,6 @@ function PlasmicFilter__RenderFunc(props: {
                                 sex: $state.sex.value,
                                 job: $state.job.value,
                                 education: $state.education.value,
-
                                 periodCycle: {
                                   min: 20,
                                   max: 340
@@ -2269,6 +2281,37 @@ function PlasmicFilter__RenderFunc(props: {
                 typeof $steps["updateJostjoo"].then === "function"
               ) {
                 $steps["updateJostjoo"] = await $steps["updateJostjoo"];
+              }
+
+              $steps["updatePanelUsername"] = $steps?.updateJostjoo?.data?.users
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["panelUsername"]
+                      },
+                      operation: 0,
+                      value: $steps.updateJostjoo.data.users
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updatePanelUsername"] != null &&
+                typeof $steps["updatePanelUsername"] === "object" &&
+                typeof $steps["updatePanelUsername"].then === "function"
+              ) {
+                $steps["updatePanelUsername"] = await $steps[
+                  "updatePanelUsername"
+                ];
               }
             }}
             onColorChange={async (...eventArgs: any) => {
@@ -2338,89 +2381,96 @@ function PlasmicFilter__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/tools/getSignList"}
           />
 
-          {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-            (() => {
-              try {
-                return $state.panelUsername;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return [];
+          <div className={classNames(projectcss.all, sty.freeBox__xOEts)}>
+            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+              (() => {
+                try {
+                  return $state.panelUsername;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()
-          ).map((__plasmic_item_0, __plasmic_idx_0) => {
-            const currentItem = __plasmic_item_0;
-            const currentIndex = __plasmic_idx_0;
-            return (
-              <div
-                className={classNames(projectcss.all, sty.freeBox__lQi46)}
-                key={currentIndex}
-              >
-                <div className={classNames(projectcss.all, sty.freeBox__w9GZk)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___2CtTt)}
-                  >
-                    <Icon110Icon
-                      className={classNames(projectcss.all, sty.svg__xgKa)}
-                      role={"img"}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__mcHwi)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__rrvTz
-                      )}
-                    >
-                      <React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {
-                            "\u0646\u0627\u0645 \u0648 \u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc:"
-                          }
-                        </span>
-                      </React.Fragment>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___8KRph
-                      )}
-                    >
-                      {
-                        "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc:"
-                      }
-                    </div>
-                  </div>
-                </div>
+              })()
+            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+              const currentItem = __plasmic_item_0;
+              const currentIndex = __plasmic_idx_0;
+              return (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___9Xbbu)}
+                  className={classNames(projectcss.all, sty.freeBox__lQi46)}
+                  key={currentIndex}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__aD9Lt
-                    )}
+                    className={classNames(projectcss.all, sty.freeBox__w9GZk)}
                   >
-                    {"\u062a\u0627\u0631\u06cc\u062e:"}
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___2CtTt
+                      )}
+                    >
+                      <Icon110Icon
+                        className={classNames(projectcss.all, sty.svg__xgKa)}
+                        role={"img"}
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__mcHwi)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rrvTz
+                        )}
+                      >
+                        <React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {
+                              "\u0646\u0627\u0645 \u0648 \u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc:"
+                            }
+                          </span>
+                        </React.Fragment>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___8KRph
+                        )}
+                      >
+                        {
+                          "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc:"
+                        }
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___9Xbbu)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__aD9Lt
+                      )}
+                    >
+                      {"\u062a\u0627\u0631\u06cc\u062e:"}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </React.Fragment>
