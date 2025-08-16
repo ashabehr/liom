@@ -33,7 +33,6 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -70,22 +69,22 @@ import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
-
-import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_antd_5_hostless } from ""; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from ""; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFilter.module.css"; // plasmic-import: NViyjBtxiFfj/css
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon259Icon from "./icons/PlasmicIcon__Icon259"; // plasmic-import: S4bsf33msfQ_/icon
-import XIcon from "../fragment_icons/icons/PlasmicIcon__X"; // plasmic-import: zb1oqVXdrxPK/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon110Icon from "./icons/PlasmicIcon__Icon110"; // plasmic-import: yNwSkfuj5hYK/icon
 
 createPlasmicElementProxy;
 
@@ -102,7 +101,9 @@ export type PlasmicFilter__OverridesType = {
   root?: Flex__<"div">;
   input3?: Flex__<typeof AntdInput>;
   sex?: Flex__<typeof Select>;
-  selectionChoise?: Flex__<typeof SelectionChoise>;
+  job?: Flex__<typeof Select>;
+  maritalStatus?: Flex__<typeof Select>;
+  education?: Flex__<typeof Select>;
   modal?: Flex__<typeof AntdModal>;
   diseareVer?: Flex__<"div">;
   checkbox?: Flex__<typeof Checkbox>;
@@ -179,29 +180,14 @@ function PlasmicFilter__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
-          {
-            label: "\u06f1\u06f0-\u06f1\u06f3",
-            value: "\u06f1\u06f0-\u06f1\u06f3"
-          },
-          {
-            label: "\u06f1\u06f4-\u06f1\u06f7",
-            value: "\u06f1\u06f4-\u06f1\u06f7"
-          },
-          {
-            label: "\u06f1\u06f8-\u06f2\u06f2",
-            value: "\u06f1\u06f8-\u06f2\u06f2"
-          },
-          {
-            label: "\u06f2\u06f3-\u06f2\u06f8",
-            value: "\u06f2\u06f3-\u06f2\u06f8"
-          },
-          {
-            label: "\u06f2\u06f8-\u06f3\u06f5",
-            value: "\u06f2\u06f8-\u06f3\u06f5"
-          },
+          { label: "\u06f1\u06f0-\u06f1\u06f3", value: { min: 10, max: 13 } },
+          { label: "\u06f1\u06f4-\u06f1\u06f7", value: { min: 14, max: 17 } },
+          { label: "\u06f1\u06f8-\u06f2\u06f2", value: { min: 18, max: 22 } },
+          { label: "\u06f2\u06f3-\u06f2\u06f8", value: { min: 23, max: 28 } },
+          { label: "\u06f2\u06f8-\u06f3\u06f5", value: { min: 28, max: 35 } },
           {
             label: "\u0628\u0627\u0644\u0627\u06cc \u06f3\u06f5",
-            value: "\u0628\u0627\u0644\u0627\u06cc \u06f3\u06f5"
+            value: { min: 35, max: null }
           }
         ]
       },
@@ -335,6 +321,109 @@ function PlasmicFilter__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "job.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "job.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "maritalStatus.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "maritalStatus.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "education.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "education.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "height",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            label: "\u06f1\u06f2\u06f0-\u06f1\u06f3\u06f0",
+            value: { min: 120, max: 130 }
+          },
+          {
+            label: "\u06f1\u06f3\u06f0-\u06f1\u06f4\u06f0",
+            value: { min: 130, max: 140 }
+          },
+          {
+            label: "\u06f1\u06f4\u06f0-\u06f1\u06f5\u06f0",
+            value: { min: 140, max: 150 }
+          },
+          {
+            label: "\u06f1\u06f5\u06f0-\u06f1\u06f6\u06f0",
+            value: { min: 150, max: 160 }
+          },
+          {
+            label: "\u06f1\u06f6\u06f0-\u06f1\u06f6\u06f5",
+            value: { min: 160, max: 165 }
+          },
+          {
+            label: "\u06f1\u06f6\u06f5-\u06f1\u06f7\u06f0",
+            value: { min: 165, max: 170 }
+          },
+          {
+            label: "\u06f1\u06f7\u06f0-\u06f1\u06f8\u06f0",
+            value: { min: 170, max: 180 }
+          },
+          {
+            label: "\u06f1\u06f8\u06f0-\u06f1\u06f9\u06f0",
+            value: { min: 180, max: 190 }
+          },
+          {
+            label: "\u0628\u0627\u0644\u0627\u06cc \u06f1\u06f9\u06f0",
+            value: { min: 190, max: null }
+          }
+        ]
+      },
+      {
+        path: "selectedHeight",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "selectedage",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "panelUsername",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "variable",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -346,9 +435,12 @@ function PlasmicFilter__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6BytLjmha8VC()
-  });
+  const globalVariants = _useGlobalVariants();
+  const styleTokensClassNames = _useStyleTokens();
+  const styleTokensClassNames_antd_5_hostless =
+    useStyleTokens_antd_5_hostless();
+  const styleTokensClassNames_plasmic_rich_components =
+    useStyleTokens_plasmic_rich_components();
 
   return (
     <React.Fragment>
@@ -371,9 +463,9 @@ function PlasmicFilter__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
-            plasmic_plasmic_rich_components_css.plasmic_tokens,
+            styleTokensClassNames,
+            styleTokensClassNames_antd_5_hostless,
+            styleTokensClassNames_plasmic_rich_components,
             sty.root
           )}
           onClick={async event => {
@@ -545,31 +637,6 @@ function PlasmicFilter__RenderFunc(props: {
 
               {(() => {
                 try {
-                  return $state.dataKu.length == 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__lzd4Q
-                  )}
-                >
-                  {
-                    "\u0627\u0646\u062a\u062e\u0627\u0628 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627"
-                  }
-                </div>
-              ) : null}
-              {(() => {
-                try {
                   return $state.dataKu.length != 0;
                 } catch (e) {
                   if (
@@ -628,6 +695,31 @@ function PlasmicFilter__RenderFunc(props: {
                       </div>
                     );
                   })}
+                </div>
+              ) : null}
+              {(() => {
+                try {
+                  return $state.dataKu.length == 0;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__lzd4Q
+                  )}
+                >
+                  {
+                    "\u0627\u0646\u062a\u062e\u0627\u0628 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627"
+                  }
                 </div>
               ) : null}
             </div>
@@ -838,29 +930,7 @@ function PlasmicFilter__RenderFunc(props: {
                 </div>
               ) : null}
             </div>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__e8Nfv)}
-              style={(() => {
-                try {
-                  return (() => {
-                    if ($state.sex.value != "")
-                      return {
-                        border: "solid 2px #2563EB",
-                        "box-shadow": "0 0px 10px rgba(0, 0, 255, 0.2)"
-                      };
-                    else return {};
-                  })();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__poB2S)}>
               <Select
                 data-plasmic-name={"sex"}
                 data-plasmic-override={overrides.sex}
@@ -894,80 +964,120 @@ function PlasmicFilter__RenderFunc(props: {
                 value={generateStateValueProp($state, ["sex", "value"])}
               />
 
-              {(() => {
-                try {
-                  return $state.sex.value != "";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
+              <Select
+                data-plasmic-name={"job"}
+                data-plasmic-override={overrides.job}
+                disabled={false}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["job", "value"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                onOpenChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["job", "open"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                open={generateStateValueProp($state, ["job", "open"])}
+                options={(() => {
+                  const __composite = [
+                    { label: null, value: null },
+                    { label: null, value: null }
+                  ];
+                  __composite["0"]["label"] =
+                    "\u0634\u0627\u063a\u0644 \u0647\u0633\u0646\u0645";
+                  __composite["0"]["value"] = "employed";
+                  __composite["1"]["label"] =
+                    "\u0634\u0627\u063a\u0644 \u0646\u06cc\u0633\u062a\u0645 ";
+                  __composite["1"]["value"] = "unemployed";
+                  return __composite;
+                })()}
+                placeholder={"\u0634\u063a\u0644"}
+                triggerClassName={classNames("__wab_instance", sty.job)}
+                value={generateStateValueProp($state, ["job", "value"])}
+              />
+
+              <Select
+                data-plasmic-name={"maritalStatus"}
+                data-plasmic-override={overrides.maritalStatus}
+                disabled={false}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "maritalStatus",
+                    "value"
+                  ]).apply(null, eventArgs);
+                }}
+                onOpenChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "maritalStatus",
+                    "open"
+                  ]).apply(null, eventArgs);
+                }}
+                open={generateStateValueProp($state, ["maritalStatus", "open"])}
+                options={(() => {
+                  const __composite = [
+                    { label: null, value: null },
+                    { label: null, value: null }
+                  ];
+                  __composite["0"]["label"] = "\u0645\u062a\u0627\u0647\u0644";
+                  __composite["0"]["value"] = "true";
+                  __composite["1"]["label"] = "\u0645\u062c\u0631\u062f";
+                  __composite["1"]["value"] = "false";
+                  return __composite;
+                })()}
+                placeholder={
+                  "\u0648\u0636\u0639\u06cc\u062a \u062a\u0627\u0647\u0644"
                 }
-              })() ? (
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__wSmgg)}
-                  onClick={async event => {
-                    const $steps = {};
+                triggerClassName={classNames(
+                  "__wab_instance",
+                  sty.maritalStatus
+                )}
+                value={generateStateValueProp($state, [
+                  "maritalStatus",
+                  "value"
+                ])}
+              />
 
-                    $steps["updateSexValue"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["sex", "value"]
-                            },
-                            operation: 0,
-                            value: ""
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateSexValue"] != null &&
-                      typeof $steps["updateSexValue"] === "object" &&
-                      typeof $steps["updateSexValue"].then === "function"
-                    ) {
-                      $steps["updateSexValue"] = await $steps["updateSexValue"];
-                    }
-                  }}
-                >
-                  <XIcon
-                    className={classNames(projectcss.all, sty.svg__iyE1)}
-                    role={"img"}
-                  />
-                </div>
-              ) : null}
+              <Select
+                data-plasmic-name={"education"}
+                data-plasmic-override={overrides.education}
+                disabled={false}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "education",
+                    "value"
+                  ]).apply(null, eventArgs);
+                }}
+                onOpenChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "education",
+                    "open"
+                  ]).apply(null, eventArgs);
+                }}
+                open={generateStateValueProp($state, ["education", "open"])}
+                options={(() => {
+                  const __composite = [
+                    { label: null, value: null },
+                    { label: null, value: null }
+                  ];
+                  __composite["0"]["label"] =
+                    "\u0641\u0627\u0631\u063a \u0627\u0644\u062a\u062d\u0635\u06cc\u0644\u0645";
+                  __composite["0"]["value"] = "graduate";
+                  __composite["1"]["label"] =
+                    "\u062f\u0631 \u062d\u0627\u0644 \u062a\u062d\u0635\u06cc\u0644\u0645";
+                  __composite["1"]["value"] = "studying";
+                  return __composite;
+                })()}
+                placeholder={"\u062a\u062d\u0635\u06cc\u0644\u0627\u062a"}
+                triggerClassName={classNames("__wab_instance", sty.education)}
+                value={generateStateValueProp($state, ["education", "value"])}
+              />
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__kIfwx)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__gvcFz
-              )}
-            >
-              {
-                "\u062c\u0646\u0633\u06cc\u062a \u062e\u0648\u062f \u0631\u0627 \u0645\u0634\u062e\u0635 \u06a9\u0646\u06cc\u062f."
-              }
-            </div>
-          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__kIfwx)} />
+
           <div className={classNames(projectcss.all, sty.freeBox__fjp2A)}>
             <div
               className={classNames(
@@ -1001,11 +1111,64 @@ function PlasmicFilter__RenderFunc(props: {
               const currentIndex = __plasmic_idx_0;
               return (
                 <SelectionChoise
-                  data-plasmic-name={"selectionChoise"}
-                  data-plasmic-override={overrides.selectionChoise}
-                  className={classNames("__wab_instance", sty.selectionChoise)}
+                  className={classNames(
+                    "__wab_instance",
+                    sty.selectionChoise__by5Zi
+                  )}
                   filter={true}
                   key={currentIndex}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateSelectedage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["selectedage"]
+                            },
+                            operation: 0,
+                            value: currentItem.value
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSelectedage"] != null &&
+                      typeof $steps["updateSelectedage"] === "object" &&
+                      typeof $steps["updateSelectedage"].then === "function"
+                    ) {
+                      $steps["updateSelectedage"] = await $steps[
+                        "updateSelectedage"
+                      ];
+                    }
+                  }}
+                  select={(() => {
+                    try {
+                      return $state.selectedage == currentItem.value;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()}
                   text={(() => {
                     try {
                       return currentItem.label;
@@ -1031,9 +1194,9 @@ function PlasmicFilter__RenderFunc(props: {
               projectcss.root_reset,
               projectcss.plasmic_default_styles,
               projectcss.plasmic_mixins,
-              projectcss.plasmic_tokens,
-              plasmic_antd_5_hostless_css.plasmic_tokens,
-              plasmic_plasmic_rich_components_css.plasmic_tokens
+              styleTokensClassNames,
+              styleTokensClassNames_antd_5_hostless,
+              styleTokensClassNames_plasmic_rich_components
             )}
             hideFooter={true}
             modalContentClassName={classNames({
@@ -1377,9 +1540,9 @@ function PlasmicFilter__RenderFunc(props: {
               projectcss.root_reset,
               projectcss.plasmic_default_styles,
               projectcss.plasmic_mixins,
-              projectcss.plasmic_tokens,
-              plasmic_antd_5_hostless_css.plasmic_tokens,
-              plasmic_plasmic_rich_components_css.plasmic_tokens
+              styleTokensClassNames,
+              styleTokensClassNames_antd_5_hostless,
+              styleTokensClassNames_plasmic_rich_components
             )}
             hideFooter={true}
             modalContentClassName={classNames({
@@ -1723,9 +1886,9 @@ function PlasmicFilter__RenderFunc(props: {
               projectcss.root_reset,
               projectcss.plasmic_default_styles,
               projectcss.plasmic_mixins,
-              projectcss.plasmic_tokens,
-              plasmic_antd_5_hostless_css.plasmic_tokens,
-              plasmic_plasmic_rich_components_css.plasmic_tokens
+              styleTokensClassNames,
+              styleTokensClassNames_antd_5_hostless,
+              styleTokensClassNames_plasmic_rich_components
             )}
             modalScopeClassName={sty["modal2__modal"]}
             onOpenChange={async (...eventArgs: any) => {
@@ -1924,10 +2087,120 @@ function PlasmicFilter__RenderFunc(props: {
             </div>
           </AntdModal>
           <div className={classNames(projectcss.all, sty.freeBox__voUA)}>
-            <div className={classNames(projectcss.all, sty.freeBox__lhd31)} />
+            <div className={classNames(projectcss.all, sty.freeBox__lhd31)}>
+              <div className={classNames(projectcss.all, sty.freeBox__fTzf8)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__yZ3Cw
+                  )}
+                >
+                  {
+                    "\u062d\u062f\u0648\u062f\u0627 \u0642\u062f \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f."
+                  }
+                </div>
+              </div>
+            </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__wkY3F)} />
+          <div className={classNames(projectcss.all, sty.freeBox__wkY3F)}>
+            <div className={classNames(projectcss.all, sty.freeBox__xeIzz)}>
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $state.height;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <SelectionChoise
+                    className={classNames(
+                      "__wab_instance",
+                      sty.selectionChoise___4F4Cj
+                    )}
+                    filter={true}
+                    key={currentIndex}
+                    onClick={async event => {
+                      const $steps = {};
 
+                      $steps["updateSelectedHeight"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["selectedHeight"]
+                              },
+                              operation: 0,
+                              value: currentItem.value
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateSelectedHeight"] != null &&
+                        typeof $steps["updateSelectedHeight"] === "object" &&
+                        typeof $steps["updateSelectedHeight"].then ===
+                          "function"
+                      ) {
+                        $steps["updateSelectedHeight"] = await $steps[
+                          "updateSelectedHeight"
+                        ];
+                      }
+                    }}
+                    select={(() => {
+                      try {
+                        return currentItem.value == $state.selectedHeight;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    text={(() => {
+                      try {
+                        return currentItem.label;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                  />
+                );
+              })}
+            </div>
+          </div>
           <Button
             data-plasmic-name={"button"}
             data-plasmic-override={overrides.button}
@@ -1950,12 +2223,15 @@ function PlasmicFilter__RenderFunc(props: {
                               size: 5,
                               from: 0,
                               filters: {
-                                sex: "female",
+                                sex: $state.sex.value,
+                                job: $state.job.value,
+                                education: $state.education.value,
+
                                 periodCycle: {
                                   min: 20,
                                   max: 340
                                 },
-                                height: { min: 170 },
+                                height: $state.selectedHeight,
                                 married: true
                               },
                               drugName: $state.daroo2
@@ -2061,6 +2337,90 @@ function PlasmicFilter__RenderFunc(props: {
             shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/tools/getSignList"}
           />
+
+          {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+            (() => {
+              try {
+                return $state.panelUsername;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [];
+                }
+                throw e;
+              }
+            })()
+          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+            const currentItem = __plasmic_item_0;
+            const currentIndex = __plasmic_idx_0;
+            return (
+              <div
+                className={classNames(projectcss.all, sty.freeBox__lQi46)}
+                key={currentIndex}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__w9GZk)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___2CtTt)}
+                  >
+                    <Icon110Icon
+                      className={classNames(projectcss.all, sty.svg__xgKa)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__mcHwi)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rrvTz
+                      )}
+                    >
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {
+                            "\u0646\u0627\u0645 \u0648 \u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc:"
+                          }
+                        </span>
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___8KRph
+                      )}
+                    >
+                      {
+                        "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc:"
+                      }
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___9Xbbu)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__aD9Lt
+                    )}
+                  >
+                    {"\u062a\u0627\u0631\u06cc\u062e:"}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </React.Fragment>
@@ -2072,7 +2432,9 @@ const PlasmicDescendants = {
     "root",
     "input3",
     "sex",
-    "selectionChoise",
+    "job",
+    "maritalStatus",
+    "education",
     "modal",
     "diseareVer",
     "checkbox",
@@ -2089,7 +2451,9 @@ const PlasmicDescendants = {
   ],
   input3: ["input3"],
   sex: ["sex"],
-  selectionChoise: ["selectionChoise"],
+  job: ["job"],
+  maritalStatus: ["maritalStatus"],
+  education: ["education"],
   modal: ["modal", "diseareVer", "checkbox", "input"],
   diseareVer: ["diseareVer", "checkbox"],
   checkbox: ["checkbox"],
@@ -2111,7 +2475,9 @@ type NodeDefaultElementType = {
   root: "div";
   input3: typeof AntdInput;
   sex: typeof Select;
-  selectionChoise: typeof SelectionChoise;
+  job: typeof Select;
+  maritalStatus: typeof Select;
+  education: typeof Select;
   modal: typeof AntdModal;
   diseareVer: "div";
   checkbox: typeof Checkbox;
@@ -2214,7 +2580,9 @@ export const PlasmicFilter = Object.assign(
     // Helper components rendering sub-elements
     input3: makeNodeComponent("input3"),
     sex: makeNodeComponent("sex"),
-    selectionChoise: makeNodeComponent("selectionChoise"),
+    job: makeNodeComponent("job"),
+    maritalStatus: makeNodeComponent("maritalStatus"),
+    education: makeNodeComponent("education"),
     modal: makeNodeComponent("modal"),
     diseareVer: makeNodeComponent("diseareVer"),
     checkbox: makeNodeComponent("checkbox"),
