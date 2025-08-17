@@ -1,0 +1,27 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  padding: 0px;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.svgclick {
+  color: var(--token-IdKt2w2aRFZS);
+}
+.text {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  position: relative;
+  min-width: 0;
+}

@@ -1,0 +1,52 @@
+.root {
+  display: inline-flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-self: flex-start;
+  padding: 0px;
+}
+.freeBox {
+  display: flex;
+  max-width: 100%;
+  background: var(--token-R_Rsn0nP9oIv);
+  box-shadow: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 3px;
+  border-radius: 50%;
+  padding: 8px;
+  border: 1px solid var(--token-rGxK1TpZE_rW);
+}
+.text {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-fn6i10-y5r1L);
+  font-size: 12px;
+  left: auto;
+  top: auto;
+  white-space: pre;
+  padding-top: 0px;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  color: var(--token-LNIzKl5AGPPT);
+  width: 20px;
+  height: 20px;
+  position: relative;
+  left: auto;
+  top: auto;
+  margin-bottom: 0px;
+  flex-shrink: 0;
+}
+.svgislikecomment {
+  color: var(--token-4RAe7M2gInqR);
+}

@@ -1,0 +1,264 @@
+.root {
+  display: grid;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-content: flex-start;
+  justify-items: center;
+  justify-content: flex-start;
+  align-items: center;
+  background: #f9f9f9;
+  min-width: 0;
+  min-height: 0;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+}
+.root > * {
+  grid-column: 4;
+}
+@media (max-width: 640px) {
+  .root > * {
+    grid-column: 4;
+  }
+}
+.halamanUtama {
+  background: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  padding-top: 16px;
+  row-gap: 16px;
+  min-width: 0;
+  min-height: 0;
+}
+@media (max-width: 640px) {
+  .halamanUtama {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    column-gap: 0px;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
+    padding: 16px;
+  }
+}
+.freeBox__aVeVu {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  top: auto;
+  left: auto;
+  min-width: 0;
+  padding: 0px 8px;
+}
+@media (max-width: 640px) {
+  .freeBox__aVeVu {
+    left: auto;
+    top: auto;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}
+.group35 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  top: auto;
+  left: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  row-gap: 8px;
+  min-width: 0;
+  min-height: 0;
+  padding: 8px;
+}
+.text__kNmmo {
+  display: block;
+  font-size: 24px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: var(--token-55cSeNPovQFh);
+  position: relative;
+  top: auto;
+  left: auto;
+}
+@media (max-width: 640px) {
+  .text__kNmmo {
+    font-size: 24px;
+  }
+}
+.freeBox__kX1T7 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  top: auto;
+  left: auto;
+  min-width: 0;
+  padding: 0px;
+}
+@media (max-width: 640px) {
+  .freeBox__kX1T7 {
+    height: auto;
+    padding: 0px;
+  }
+}
+.freeBox__tBcMg {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  row-gap: 4px;
+  min-width: 0;
+  padding: 0px;
+}
+@media (max-width: 640px) {
+  .freeBox__tBcMg {
+    height: auto;
+  }
+}
+.text__uPqrb {
+  display: block;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(35, 35, 35, 1);
+  width: 125px;
+  height: 15px;
+  text-align: right;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .text__uPqrb {
+    font-size: 14px;
+  }
+}
+.text__ren3Z {
+  display: block;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: var(--token-BIuTS8zmWD0f);
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 125px;
+  height: 15px;
+  text-align: right;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .text__ren3Z {
+    left: auto;
+    top: auto;
+    font-size: 12px;
+    color: var(--token-DFwge94Hey3F);
+  }
+}
+.button:global(.__wab_instance) {
+  max-width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.svg__zDrmq {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__mEOo {
+  width: auto;
+  color: var(--token-R_Rsn0nP9oIv);
+  font-weight: 500;
+  font-size: 12px;
+  padding: 4px;
+}
+@media (max-width: 640px) {
+  .text__mEOo {
+    padding: 4px;
+  }
+}
+.svg___7J5Zb {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
+  display: none;
+}
+.lineClomp:global(.__wab_instance) {
+  max-width: 100%;
+}
+.text__xzhQ6 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  min-width: 0;
+}
+.pngtreeRamadanIllustrationMuslimFamilyPraying74668381 {
+  background: url("/plasmic/liom_hamyar/images/pngtreeRamadanIllustrationMuslimFamilyPraying74668381.png") center center / contain no-repeat;
+  transform: scale(1.000000010571736, 1.000000010571736)
+    rotate(-0.7050381287891803deg) translate(0px, -0.28827667236328125px);
+  width: 200px;
+  height: 200px;
+  display: flex;
+  transform-origin: top left;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .pngtreeRamadanIllustrationMuslimFamilyPraying74668381 {
+    width: 180px;
+    height: 180px;
+    flex-shrink: 0;
+  }
+}
+.mention:global(.__wab_instance) {
+  position: relative;
+  top: auto;
+  left: auto;
+}
+@media (max-width: 640px) {
+  .mention:global(.__wab_instance) {
+    left: auto;
+    top: auto;
+  }
+}

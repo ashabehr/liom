@@ -1,0 +1,49 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  padding: 8px;
+}
+.rootmain {
+  display: flex;
+  flex-direction: row;
+  column-gap: 4px;
+  row-gap: 0px;
+}
+.rootactive_main {
+  background: none;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+  color: #8c8c8c;
+  flex-shrink: 0;
+}
+.svgmain {
+  color: #8c8c8c;
+}
+.svgactive {
+  color: #8c8c8c;
+}
+.svgactive_main {
+  color: #8c8c8c;
+}
+.text {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  color: #8c8c8c;
+  min-width: 0;
+}
+.textmain {
+  color: #8c8c8c;
+}
