@@ -271,20 +271,7 @@ function PlasmicFood__RenderFunc(props: {
         path: "rangeSlider.max",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.heghit;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return 161;
-              }
-              throw e;
-            }
-          })(),
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("max", AntdRangeSlider_Helpers)
       },
@@ -2163,20 +2150,6 @@ function PlasmicFood__RenderFunc(props: {
                                               "__wab_instance",
                                               sty.rangeSlider
                                             ),
-                                            defaultValueMax: (() => {
-                                              try {
-                                                return $state.heghit;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return 161;
-                                                }
-                                                throw e;
-                                              }
-                                            })(),
                                             draggableTrack: true,
                                             handleClassName: classNames({
                                               [sty["pcls_l4143iXcxZ2i"]]: true
@@ -2198,63 +2171,6 @@ function PlasmicFood__RenderFunc(props: {
                                                 ["rangeSlider", "max"],
                                                 AntdRangeSlider_Helpers
                                               ).apply(null, eventArgs);
-
-                                              (async value => {
-                                                const $steps = {};
-
-                                                $steps["updateHeghit"] = true
-                                                  ? (() => {
-                                                      const actionArgs = {
-                                                        variable: {
-                                                          objRoot: $state,
-                                                          variablePath: [
-                                                            "heghit"
-                                                          ]
-                                                        },
-                                                        operation: 0,
-                                                        value:
-                                                          $state.rangeSlider.max
-                                                      };
-                                                      return (({
-                                                        variable,
-                                                        value,
-                                                        startIndex,
-                                                        deleteCount
-                                                      }) => {
-                                                        if (!variable) {
-                                                          return;
-                                                        }
-                                                        const {
-                                                          objRoot,
-                                                          variablePath
-                                                        } = variable;
-
-                                                        $stateSet(
-                                                          objRoot,
-                                                          variablePath,
-                                                          value
-                                                        );
-                                                        return value;
-                                                      })?.apply(null, [
-                                                        actionArgs
-                                                      ]);
-                                                    })()
-                                                  : undefined;
-                                                if (
-                                                  $steps["updateHeghit"] !=
-                                                    null &&
-                                                  typeof $steps[
-                                                    "updateHeghit"
-                                                  ] === "object" &&
-                                                  typeof $steps["updateHeghit"]
-                                                    .then === "function"
-                                                ) {
-                                                  $steps["updateHeghit"] =
-                                                    await $steps[
-                                                      "updateHeghit"
-                                                    ];
-                                                }
-                                              }).apply(null, eventArgs);
                                             },
                                             sliderScopeClassName:
                                               sty["rangeSlider__slider"],

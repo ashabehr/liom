@@ -67,6 +67,8 @@ import { Select } from "@/fragment/components/select"; // plasmic-import: 5Mch6a
 import SelectionChoise from "../../SelectionChoise"; // plasmic-import: kjK-J97SUWLJ/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
+import RangeSlider from "../../RangeSlider"; // plasmic-import: uJUDE33VkjVO/component
+import SliderThumb from "../../SliderThumb"; // plasmic-import: pmF7IoE0FUg-/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
@@ -81,7 +83,6 @@ import sty from "./PlasmicFilter.module.css"; // plasmic-import: NViyjBtxiFfj/cs
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon259Icon from "./icons/PlasmicIcon__Icon259"; // plasmic-import: S4bsf33msfQ_/icon
-import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon110Icon from "./icons/PlasmicIcon__Icon110"; // plasmic-import: yNwSkfuj5hYK/icon
@@ -115,6 +116,8 @@ export type PlasmicFilter__OverridesType = {
   modal2?: Flex__<typeof AntdModal>;
   input2?: Flex__<typeof AntdInput>;
   checkbox2?: Flex__<typeof Checkbox>;
+  rangeSlider?: Flex__<typeof RangeSlider>;
+  sliderThumb?: Flex__<typeof SliderThumb>;
   button?: Flex__<typeof Button>;
   apiRequest?: Flex__<typeof ApiRequest>;
 };
@@ -437,6 +440,18 @@ function PlasmicFilter__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "vazn",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "rangeSlider.value",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [20, 50]
       }
     ],
     [$props, $ctx, $refs]
@@ -1230,174 +1245,136 @@ function PlasmicFilter__RenderFunc(props: {
             open={generateStateValueProp($state, ["modal", "open"])}
             title={
               <div className={classNames(projectcss.all, sty.freeBox__av4Fr)}>
-                <ChevronRightIcon
-                  className={classNames(projectcss.all, sty.svg__nyXOq)}
-                  onClick={async event => {
-                    const $steps = {};
+                <div className={classNames(projectcss.all, sty.freeBox__tbwUf)}>
+                  {(() => {
+                    const child$Props = {
+                      bordered: false,
+                      className: classNames("__wab_instance", sty.input),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["input", "value"],
+                          AntdInput_Helpers
+                        ).apply(null, eventArgs);
 
-                    $steps["updateModalOpen"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["modal", "open"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
+                        (async event => {
+                          const $steps = {};
 
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateModalOpen"] != null &&
-                      typeof $steps["updateModalOpen"] === "object" &&
-                      typeof $steps["updateModalOpen"].then === "function"
-                    ) {
-                      $steps["updateModalOpen"] = await $steps[
-                        "updateModalOpen"
-                      ];
-                    }
-                  }}
-                  role={"img"}
-                />
-
-                {(() => {
-                  const child$Props = {
-                    className: classNames("__wab_instance", sty.input),
-                    onChange: async (...eventArgs: any) => {
-                      generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "value",
-                        ["input", "value"],
-                        AntdInput_Helpers
-                      ).apply(null, eventArgs);
-
-                      (async event => {
-                        const $steps = {};
-
-                        $steps["invokeGlobalAction"] = (() => {
-                          var n = $state.input.value.length;
-                          return 1 < n < 20 && (n % 4 == 0 || n == 1);
-                        })()
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/tools/getMedicineList",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return { text: $state.input.value };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
+                          $steps["invokeGlobalAction"] = (() => {
+                            var n = $state.input.value.length;
+                            return 1 < n < 20 && (n % 4 == 0 || n == 1);
+                          })()
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://n8n.staas.ir/webhook/tools/getMedicineList",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return { text: $state.input.value };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
 
-                        $steps["updateDaroo2"] = $steps.invokeGlobalAction?.data
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["daroo2"]
-                                },
-                                operation: 0,
-                                value: $steps.invokeGlobalAction.data
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                          $steps["updateDaroo2"] = $steps.invokeGlobalAction
+                            ?.data
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["daroo2"]
+                                  },
+                                  operation: 0,
+                                  value: $steps.invokeGlobalAction.data
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateDaroo2"] != null &&
-                          typeof $steps["updateDaroo2"] === "object" &&
-                          typeof $steps["updateDaroo2"].then === "function"
-                        ) {
-                          $steps["updateDaroo2"] = await $steps["updateDaroo2"];
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateDaroo2"] != null &&
+                            typeof $steps["updateDaroo2"] === "object" &&
+                            typeof $steps["updateDaroo2"].then === "function"
+                          ) {
+                            $steps["updateDaroo2"] = await $steps[
+                              "updateDaroo2"
+                            ];
+                          }
+                        }).apply(null, eventArgs);
+                      },
+                      placeholder:
+                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627",
+                      prefix: (
+                        <SearchSvgIcon
+                          className={classNames(projectcss.all, sty.svg__y2I6)}
+                          role={"img"}
+                        />
+                      ),
+
+                      size: "large",
+                      value: generateStateValueProp($state, ["input", "value"])
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "value",
+                          plasmicStateName: "input.value"
                         }
-                      }).apply(null, eventArgs);
-                    },
-                    placeholder:
-                      "\u0627\u0646\u062a\u062e\u0627\u0628 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627",
-                    prefix: (
-                      <SearchSvgIcon
-                        className={classNames(projectcss.all, sty.svg__y2I6)}
-                        role={"img"}
+                      ],
+                      [],
+                      AntdInput_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <AntdInput
+                        data-plasmic-name={"input"}
+                        data-plasmic-override={overrides.input}
+                        {...child$Props}
                       />
-                    ),
-
-                    size: "large",
-                    value: generateStateValueProp($state, ["input", "value"])
-                  };
-                  initializeCodeComponentStates(
-                    $state,
-                    [
-                      {
-                        name: "value",
-                        plasmicStateName: "input.value"
-                      }
-                    ],
-                    [],
-                    AntdInput_Helpers ?? {},
-                    child$Props
-                  );
-
-                  return (
-                    <AntdInput
-                      data-plasmic-name={"input"}
-                      data-plasmic-override={overrides.input}
-                      {...child$Props}
-                    />
-                  );
-                })()}
+                    );
+                  })()}
+                </div>
               </div>
             }
             trigger={null}
@@ -1431,6 +1408,7 @@ function PlasmicFilter__RenderFunc(props: {
                     const child$Props = {
                       "aria-label": ``,
                       className: classNames("__wab_instance", sty.checkbox),
+                      filter: true,
                       isChecked:
                         generateStateValueProp($state, [
                           "checkbox",
@@ -1576,176 +1554,139 @@ function PlasmicFilter__RenderFunc(props: {
             open={generateStateValueProp($state, ["modal3", "open"])}
             title={
               <div className={classNames(projectcss.all, sty.freeBox___6Wxao)}>
-                <ChevronRightIcon
-                  className={classNames(projectcss.all, sty.svg__pPrwk)}
-                  onClick={async event => {
-                    const $steps = {};
+                <div className={classNames(projectcss.all, sty.freeBox__ytfWa)}>
+                  {(() => {
+                    const child$Props = {
+                      bordered: false,
+                      className: classNames("__wab_instance", sty.input4),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["input4", "value"],
+                          AntdInput_Helpers
+                        ).apply(null, eventArgs);
 
-                    $steps["updateModalOpen"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["modal3", "open"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
+                        (async event => {
+                          const $steps = {};
 
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateModalOpen"] != null &&
-                      typeof $steps["updateModalOpen"] === "object" &&
-                      typeof $steps["updateModalOpen"].then === "function"
-                    ) {
-                      $steps["updateModalOpen"] = await $steps[
-                        "updateModalOpen"
-                      ];
-                    }
-                  }}
-                  role={"img"}
-                />
-
-                {(() => {
-                  const child$Props = {
-                    className: classNames("__wab_instance", sty.input4),
-                    onChange: async (...eventArgs: any) => {
-                      generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "value",
-                        ["input4", "value"],
-                        AntdInput_Helpers
-                      ).apply(null, eventArgs);
-
-                      (async event => {
-                        const $steps = {};
-
-                        $steps["invokeGlobalAction"] = (() => {
-                          var n = $state.input4.value.length;
-                          return 1 < n < 20 && (n % 4 == 0 || n == 1);
-                        })()
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/tools/getMedicineList",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        text: $state.input4.value
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
+                          $steps["invokeGlobalAction"] = (() => {
+                            var n = $state.input4.value.length;
+                            return 1 < n < 20 && (n % 4 == 0 || n == 1);
+                          })()
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://n8n.staas.ir/webhook/tools/getMedicineList",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          text: $state.input4.value
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
 
-                        $steps["updateDaroo"] = $steps.invokeGlobalAction?.data
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["daroo"]
-                                },
-                                operation: 0,
-                                value: $steps.invokeGlobalAction.data.result
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                          $steps["updateDaroo"] = $steps.invokeGlobalAction
+                            ?.data
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["daroo"]
+                                  },
+                                  operation: 0,
+                                  value: $steps.invokeGlobalAction.data.result
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateDaroo"] != null &&
-                          typeof $steps["updateDaroo"] === "object" &&
-                          typeof $steps["updateDaroo"].then === "function"
-                        ) {
-                          $steps["updateDaroo"] = await $steps["updateDaroo"];
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateDaroo"] != null &&
+                            typeof $steps["updateDaroo"] === "object" &&
+                            typeof $steps["updateDaroo"].then === "function"
+                          ) {
+                            $steps["updateDaroo"] = await $steps["updateDaroo"];
+                          }
+                        }).apply(null, eventArgs);
+                      },
+                      placeholder:
+                        "\u062f\u0627\u0631\u0648 \u0645\u0635\u0631\u0641\u06cc \u062e\u0648\u062f \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f",
+                      prefix: (
+                        <Icon259Icon
+                          className={classNames(
+                            projectcss.all,
+                            sty.svg___6TbK2
+                          )}
+                          role={"img"}
+                        />
+                      ),
+
+                      size: "large",
+                      value: generateStateValueProp($state, ["input4", "value"])
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "value",
+                          plasmicStateName: "input4.value"
                         }
-                      }).apply(null, eventArgs);
-                    },
-                    placeholder:
-                      "\u062f\u0627\u0631\u0648 \u0645\u0635\u0631\u0641\u06cc \u062e\u0648\u062f \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f",
-                    prefix: (
-                      <Icon259Icon
-                        className={classNames(projectcss.all, sty.svg___6TbK2)}
-                        role={"img"}
+                      ],
+                      [],
+                      AntdInput_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <AntdInput
+                        data-plasmic-name={"input4"}
+                        data-plasmic-override={overrides.input4}
+                        {...child$Props}
                       />
-                    ),
-
-                    size: "large",
-                    value: generateStateValueProp($state, ["input4", "value"])
-                  };
-                  initializeCodeComponentStates(
-                    $state,
-                    [
-                      {
-                        name: "value",
-                        plasmicStateName: "input4.value"
-                      }
-                    ],
-                    [],
-                    AntdInput_Helpers ?? {},
-                    child$Props
-                  );
-
-                  return (
-                    <AntdInput
-                      data-plasmic-name={"input4"}
-                      data-plasmic-override={overrides.input4}
-                      {...child$Props}
-                    />
-                  );
-                })()}
+                    );
+                  })()}
+                </div>
               </div>
             }
             trigger={null}
@@ -2214,6 +2155,54 @@ function PlasmicFilter__RenderFunc(props: {
               })}
             </div>
           </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__qTgw3
+            )}
+          >
+            {
+              "\u0648\u0632\u0646 \u062e\u0648\u062f \u0631\u0627  \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f."
+            }
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__oPlwP)}>
+            <div className={classNames(projectcss.all, sty.freeBox__lwrHu)}>
+              <RangeSlider
+                data-plasmic-name={"rangeSlider"}
+                data-plasmic-override={overrides.rangeSlider}
+                className={classNames("__wab_instance", sty.rangeSlider)}
+                label={null}
+                maxValue={200}
+                minValue={20}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "rangeSlider",
+                    "value"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                showOutputText={true}
+                thumbs={
+                  <SliderThumb
+                    data-plasmic-name={"sliderThumb"}
+                    data-plasmic-override={overrides.sliderThumb}
+                    autoFocus={false}
+                    className={classNames("__wab_instance", sty.sliderThumb)}
+                    disabled={false}
+                  />
+                }
+                value={generateStateValueProp($state, ["rangeSlider", "value"])}
+              />
+            </div>
+          </div>
           <Button
             data-plasmic-name={"button"}
             data-plasmic-override={overrides.button}
@@ -2244,7 +2233,11 @@ function PlasmicFilter__RenderFunc(props: {
                                   max: 340
                                 },
                                 height: $state.selectedHeight,
-                                married: true
+                                married: true,
+                                weight: {
+                                  min: $state.rangeSlider.value[0],
+                                  max: $state.rangeSlider.value[1]
+                                }
                               },
                               drugName: $state.daroo2
                             };
@@ -2429,16 +2422,19 @@ function PlasmicFilter__RenderFunc(props: {
                         )}
                       >
                         <React.Fragment>
-                          <span
-                            className={
-                              "plasmic_default__all plasmic_default__span"
+                          {(() => {
+                            try {
+                              return currentItem.name;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
                             }
-                            style={{ fontWeight: 700 }}
-                          >
-                            {
-                              "\u0646\u0627\u0645 \u0648 \u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc:"
-                            }
-                          </span>
+                          })()}
                         </React.Fragment>
                       </div>
                       <div
@@ -2448,9 +2444,21 @@ function PlasmicFilter__RenderFunc(props: {
                           sty.text___8KRph
                         )}
                       >
-                        {
-                          "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc:"
-                        }
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem.username;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc:";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
                       </div>
                     </div>
                   </div>
@@ -2464,7 +2472,29 @@ function PlasmicFilter__RenderFunc(props: {
                         sty.text__aD9Lt
                       )}
                     >
-                      {"\u062a\u0627\u0631\u06cc\u062e:"}
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (() => {
+                              const gregorianDate = new Date(
+                                currentItem.updatedAt
+                              );
+                              const persianDate = new Intl.DateTimeFormat(
+                                "fa-IR"
+                              ).format(gregorianDate);
+                              return persianDate;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u062a\u0627\u0631\u06cc\u062e:";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
                     </div>
                   </div>
                 </div>
@@ -2496,6 +2526,8 @@ const PlasmicDescendants = {
     "modal2",
     "input2",
     "checkbox2",
+    "rangeSlider",
+    "sliderThumb",
     "button",
     "apiRequest"
   ],
@@ -2515,6 +2547,8 @@ const PlasmicDescendants = {
   modal2: ["modal2", "input2", "checkbox2"],
   input2: ["input2"],
   checkbox2: ["checkbox2"],
+  rangeSlider: ["rangeSlider", "sliderThumb"],
+  sliderThumb: ["sliderThumb"],
   button: ["button"],
   apiRequest: ["apiRequest"]
 } as const;
@@ -2539,6 +2573,8 @@ type NodeDefaultElementType = {
   modal2: typeof AntdModal;
   input2: typeof AntdInput;
   checkbox2: typeof Checkbox;
+  rangeSlider: typeof RangeSlider;
+  sliderThumb: typeof SliderThumb;
   button: typeof Button;
   apiRequest: typeof ApiRequest;
 };
@@ -2644,6 +2680,8 @@ export const PlasmicFilter = Object.assign(
     modal2: makeNodeComponent("modal2"),
     input2: makeNodeComponent("input2"),
     checkbox2: makeNodeComponent("checkbox2"),
+    rangeSlider: makeNodeComponent("rangeSlider"),
+    sliderThumb: makeNodeComponent("sliderThumb"),
     button: makeNodeComponent("button"),
     apiRequest: makeNodeComponent("apiRequest"),
 

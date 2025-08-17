@@ -2474,6 +2474,32 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicPopover.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "pmF7IoE0FUg-",
+          "name": "SliderThumb",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSliderThumb.tsx",
+          "importSpec": {
+            "modulePath": "SliderThumb.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSliderThumb.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "uJUDE33VkjVO",
+          "name": "RangeSlider",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicRangeSlider.tsx",
+          "importSpec": {
+            "modulePath": "RangeSlider.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicRangeSlider.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

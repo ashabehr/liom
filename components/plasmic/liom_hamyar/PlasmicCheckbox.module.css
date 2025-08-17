@@ -86,6 +86,9 @@
   height: 22px;
   flex-shrink: 0;
 }
+.svgfilter_isChecked {
+  color: var(--token-0xHMxyAHbOos);
+}
 .root .svg___focusVisibleWithin {
   outline: none;
 }
@@ -116,6 +119,9 @@
 }
 .rootcircle_isChecked:focus-within .svgcircle_isChecked {
   outline: none;
+}
+.rootfilter_isChecked:hover .svgfilter_isChecked {
+  color: var(--token-0xHMxyAHbOos);
 }
 .labelContainer {
   display: flex;

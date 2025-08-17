@@ -84,6 +84,7 @@ export type PlasmicCheckbox__VariantMembers = {
   isChecked: "isChecked";
   isIndeterminate: "isIndeterminate";
   circle: "circle";
+  filter: "filter";
 };
 export type PlasmicCheckbox__VariantsArgs = {
   noLabel?: SingleBooleanChoiceArg<"noLabel">;
@@ -91,6 +92,7 @@ export type PlasmicCheckbox__VariantsArgs = {
   isChecked?: SingleBooleanChoiceArg<"isChecked">;
   isIndeterminate?: SingleBooleanChoiceArg<"isIndeterminate">;
   circle?: SingleBooleanChoiceArg<"circle">;
+  filter?: SingleBooleanChoiceArg<"filter">;
 };
 type VariantPropType = keyof PlasmicCheckbox__VariantsArgs;
 export const PlasmicCheckbox__VariantProps = new Array<VariantPropType>(
@@ -98,7 +100,8 @@ export const PlasmicCheckbox__VariantProps = new Array<VariantPropType>(
   "isDisabled",
   "isChecked",
   "isIndeterminate",
-  "circle"
+  "circle",
+  "filter"
 );
 
 export type PlasmicCheckbox__ArgsType = {
@@ -131,6 +134,7 @@ export interface DefaultCheckboxProps extends pp.CheckboxProps {
   "aria-labelledby"?: string;
   onChange?: (isChecked: boolean) => void;
   circle?: SingleBooleanChoiceArg<"circle">;
+  filter?: SingleBooleanChoiceArg<"filter">;
 }
 
 const $$ = {};
@@ -207,6 +211,12 @@ function PlasmicCheckbox__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.circle
+      },
+      {
+        path: "filter",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.filter
       }
     ],
     [$props, $ctx, $refs]
@@ -255,6 +265,9 @@ function PlasmicCheckbox__RenderFunc(props: {
           [sty.rootcircle]: hasVariant($state, "circle", "circle"),
           [sty.rootcircle_isChecked]:
             hasVariant($state, "circle", "circle") &&
+            hasVariant($state, "isChecked", "isChecked"),
+          [sty.rootfilter_isChecked]:
+            hasVariant($state, "filter", "filter") &&
             hasVariant($state, "isChecked", "isChecked"),
           [sty.rootisChecked]: hasVariant($state, "isChecked", "isChecked"),
           [sty.rootisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
@@ -323,6 +336,10 @@ function PlasmicCheckbox__RenderFunc(props: {
             [sty.svgcircle_isChecked]:
               hasVariant($state, "circle", "circle") &&
               hasVariant($state, "isChecked", "isChecked"),
+            [sty.svgfilter]: hasVariant($state, "filter", "filter"),
+            [sty.svgfilter_isChecked]:
+              hasVariant($state, "filter", "filter") &&
+              hasVariant($state, "isChecked", "isChecked"),
             [sty.svgisChecked]: hasVariant($state, "isChecked", "isChecked"),
             [sty.svgisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
             [sty.svgisIndeterminate]: hasVariant(
@@ -367,6 +384,9 @@ function PlasmicCheckbox__RenderFunc(props: {
               ),
               [sty.slotTargetChildrencircle_isChecked]:
                 hasVariant($state, "circle", "circle") &&
+                hasVariant($state, "isChecked", "isChecked"),
+              [sty.slotTargetChildrenfilter_isChecked]:
+                hasVariant($state, "filter", "filter") &&
                 hasVariant($state, "isChecked", "isChecked"),
               [sty.slotTargetChildrenisChecked]: hasVariant(
                 $state,
