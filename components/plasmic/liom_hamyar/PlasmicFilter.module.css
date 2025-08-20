@@ -1462,9 +1462,10 @@
   position: relative;
   align-items: stretch;
   justify-content: flex-start;
-  width: 120px;
+  width: 100%;
   height: auto;
   max-width: 100%;
+  min-width: 0;
   padding: 0px;
 }
 .text__nynCb {
@@ -1472,7 +1473,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  width: 100px;
+  width: 70px;
   font-weight: 700;
   left: auto;
   top: auto;
@@ -1493,8 +1494,9 @@
   max-width: 100%;
   align-self: center;
   overflow: auto;
+  column-gap: var(--token-O5TjkXII_aat);
   min-width: 0;
-  padding: 8px;
+  padding: 0px;
 }
 .text__x40Ln {
   width: auto;
@@ -1541,12 +1543,13 @@
   max-width: 100%;
   align-self: center;
   overflow: auto;
+  column-gap: var(--token-O5TjkXII_aat);
   min-width: 0;
   padding: 0px;
 }
 .text__y9Boe {
   width: auto;
-  height: auto;
+  height: 30px;
   max-width: 100%;
   background: var(--token-R96bVFQ-7pJj);
   padding-top: var(--token-38wfsm-OP2Vm);
