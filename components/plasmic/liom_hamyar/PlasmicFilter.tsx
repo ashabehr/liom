@@ -509,7 +509,7 @@ function PlasmicFilter__RenderFunc(props: {
         path: "modal4.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "info",
@@ -2633,6 +2633,24 @@ function PlasmicFilter__RenderFunc(props: {
                   })();
                 })}
               </div>
+              {(() => {
+                try {
+                  return $state.apiRequest.data == null;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Icon115Icon
+                  className={classNames(projectcss.all, sty.svg__mtRs1)}
+                  role={"img"}
+                />
+              ) : null}
             </div>
           </AntdModal>
           <AntdModal
@@ -2943,6 +2961,24 @@ function PlasmicFilter__RenderFunc(props: {
                   })();
                 })}
               </div>
+              {(() => {
+                try {
+                  return $state.apiRequest.data == null;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Icon115Icon
+                  className={classNames(projectcss.all, sty.svg__dp3Hr)}
+                  role={"img"}
+                />
+              ) : null}
             </div>
           </AntdModal>
           <AntdModal
@@ -3757,130 +3793,117 @@ function PlasmicFilter__RenderFunc(props: {
                   >
                     {"\u0628\u06cc\u0645\u0627\u0631\u06cc;"}
                   </div>
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $state.apiRequest.data.result.list.filter(i =>
-                          $state.dataKu.some(k => i.key == k)
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__azp3)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.apiRequest.data.result.list.filter(i =>
+                            Object.keys($state.info).some(k => i.key == k)
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__x40Ln
-                        )}
-                        key={currentIndex}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem.value;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__x40Ln
+                          )}
+                          key={currentIndex}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.value;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    );
-                  })}
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__chU8)}>
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $state.daroo2;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__gGsf
+                    )}
+                  >
+                    {"\u062f\u0627\u0631\u0648:"}
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__iemWt)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.info.drugs;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__gGsf
-                        )}
-                        key={currentIndex}
-                      >
-                        {"\u062f\u0627\u0631\u0648:"}
-                      </div>
-                    );
-                  })}
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $state.apiRequest.data.result.list.filter(i =>
-                          $state.dataKu.some(k => i.key == k)
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__y9Boe
-                        )}
-                        key={currentIndex}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem.value;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__y9Boe
+                          )}
+                          key={currentIndex}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.name;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    );
-                  })}
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>

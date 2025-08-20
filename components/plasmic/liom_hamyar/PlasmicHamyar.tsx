@@ -5489,23 +5489,19 @@ function PlasmicHamyar__RenderFunc(props: {
                     src={"https://liom.storage.c2.liara.space/off3.png"}
                   />
                 </div>
-                {(
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? true
-                    : (() => {
-                        try {
-                          return !$state.userdata?.result?.man?.telegramId;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })()
-                ) ? (
+                {(() => {
+                  try {
+                    return !$state.userdata?.result?.man?.telegramId;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
                   <div
                     className={classNames(projectcss.all, sty.freeBox___4NKwk)}
                   >
