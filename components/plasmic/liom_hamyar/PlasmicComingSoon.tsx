@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -290,6 +291,18 @@ function PlasmicComingSoon__RenderFunc(props: {
         path: "button.color",
         type: "private",
         variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -1727,6 +1740,8 @@ function PlasmicComingSoon__RenderFunc(props: {
                 data-plasmic-override={overrides.button}
                 className={classNames("__wab_instance", sty.button)}
                 color={generateStateValueProp($state, ["button", "color"])}
+                load={generateStateValueProp($state, ["button", "load"])}
+                loading={generateStateValueProp($state, ["button", "loading"])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -1767,6 +1782,36 @@ function PlasmicComingSoon__RenderFunc(props: {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "loading"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);

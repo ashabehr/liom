@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -61,8 +62,8 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
@@ -105,10 +106,10 @@ export const PlasmicShopResult__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicShopResult__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
   button3?: Flex__<typeof Button>;
-  fragmentApiRequest?: Flex__<typeof ApiRequest>;
   lottie?: Flex__<typeof LottieWrapper>;
   button4?: Flex__<typeof Button>;
   modal?: Flex__<typeof AntdModal>;
@@ -204,24 +205,6 @@ function PlasmicShopResult__RenderFunc(props: {
           hasVariant($state, "failed", "failed") ? "sand" : "green"
       },
       {
-        path: "fragmentApiRequest.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "fragmentApiRequest.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "fragmentApiRequest.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "loadingbtn",
         type: "private",
         variableType: "boolean",
@@ -289,6 +272,84 @@ function PlasmicShopResult__RenderFunc(props: {
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           hasVariant($state, "failed", "failed") ? "green" : undefined
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button2.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button3.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button4.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button5.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button6.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button5.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button6.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -345,6 +406,52 @@ function PlasmicShopResult__RenderFunc(props: {
             }
           )}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect, {
+              [sty.sideEffectfailed]: hasVariant($state, "failed", "failed")
+            })}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name)
+                                try {
+                                  return JSON.parse(value)[0];
+                                } catch {
+                                  return "";
+                                }
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token") || "");
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          />
+
           <div
             className={classNames(projectcss.all, sty.freeBox__zoAdj, {
               [sty.freeBoxfailed__zoAdj1GaC]: hasVariant(
@@ -561,6 +668,8 @@ function PlasmicShopResult__RenderFunc(props: {
                     })()
                   : undefined
               }
+              load={generateStateValueProp($state, ["button", "load"])}
+              loading={generateStateValueProp($state, ["button", "loading"])}
               onClick={async event => {
                 const $steps = {};
 
@@ -636,6 +745,45 @@ function PlasmicShopResult__RenderFunc(props: {
                   $steps["updateDisable"] = await $steps["updateDisable"];
                 }
 
+                $steps["goToPage"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return "https://apps.liom.app/hamyar/";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+
                 $steps["invokeGlobalAction"] = true
                   ? (() => {
                       const actionArgs = {
@@ -689,54 +837,40 @@ function PlasmicShopResult__RenderFunc(props: {
                     "invokeGlobalAction"
                   ];
                 }
-
-                $steps["goToPage"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return (
-                              "https://apps.liom.app/hamyar/?r=" +
-                              $ctx.query.r +
-                              "&m=" +
-                              $ctx.query.m
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
-                ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
-                }
               }}
               onColorChange={async (...eventArgs: any) => {
                 ((...eventArgs) => {
                   generateStateOnChangeProp($state, ["button", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "load"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadingChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "loading"])(
                     eventArgs[0]
                   );
                 }).apply(null, eventArgs);
@@ -908,6 +1042,11 @@ function PlasmicShopResult__RenderFunc(props: {
                       role={"img"}
                     />
                   }
+                  load={generateStateValueProp($state, ["button2", "load"])}
+                  loading={generateStateValueProp($state, [
+                    "button2",
+                    "loading"
+                  ])}
                   onClick={async event => {
                     const $steps = {};
 
@@ -963,8 +1102,6 @@ function PlasmicShopResult__RenderFunc(props: {
                                     redirectUrl:
                                       "https://apps.liom.app/shop-result?r=" +
                                       $ctx.query.r +
-                                      "&m=" +
-                                      $ctx.query.m +
                                       "&buyId=" +
                                       $ctx.query.buyId +
                                       "&offCode=" +
@@ -993,9 +1130,7 @@ function PlasmicShopResult__RenderFunc(props: {
                                   return {
                                     headers: {
                                       "Content-Type": "application/json",
-                                      Authorization:
-                                        $state.fragmentApiRequest.data.result
-                                          .token
+                                      Authorization: $state.token
                                     }
                                   };
                                 } catch (e) {
@@ -1119,6 +1254,36 @@ function PlasmicShopResult__RenderFunc(props: {
                       return;
                     }
                   }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "load"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadingChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "loading"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
                   showEndIcon={
                     hasVariant($state, "failed", "failed") &&
                     hasVariant(globalVariants, "screen", "mobile")
@@ -1218,6 +1383,11 @@ function PlasmicShopResult__RenderFunc(props: {
                         })()
                       : undefined
                   }
+                  load={generateStateValueProp($state, ["button3", "load"])}
+                  loading={generateStateValueProp($state, [
+                    "button3",
+                    "loading"
+                  ])}
                   onClick={async event => {
                     const $steps = {};
 
@@ -1293,6 +1463,45 @@ function PlasmicShopResult__RenderFunc(props: {
                       $steps["updateDisable"] = await $steps["updateDisable"];
                     }
 
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return "https://apps.liom.app/hamyar/";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+
                     $steps["invokeGlobalAction"] = true
                       ? (() => {
                           const actionArgs = {
@@ -1347,54 +1556,40 @@ function PlasmicShopResult__RenderFunc(props: {
                         "invokeGlobalAction"
                       ];
                     }
-
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return (
-                                  "https://apps.liom.app/hamyar/?r=" +
-                                  $ctx.query.r +
-                                  "&m=" +
-                                  $ctx.query.m
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
                   }}
                   onColorChange={async (...eventArgs: any) => {
                     ((...eventArgs) => {
                       generateStateOnChangeProp($state, ["button3", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button3", "load"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadingChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button3", "loading"])(
                         eventArgs[0]
                       );
                     }).apply(null, eventArgs);
@@ -1430,95 +1625,6 @@ function PlasmicShopResult__RenderFunc(props: {
               </div>
             </div>
           ) : null}
-          <ApiRequest
-            data-plasmic-name={"fragmentApiRequest"}
-            data-plasmic-override={overrides.fragmentApiRequest}
-            body={
-              hasVariant($state, "failed", "failed")
-                ? (() => {
-                    try {
-                      return {
-                        refCode: $ctx.query.refCode,
-                        mobile: $ctx.query.mobile
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                : undefined
-            }
-            className={classNames("__wab_instance", sty.fragmentApiRequest, {
-              [sty.fragmentApiRequestfailed]: hasVariant(
-                $state,
-                "failed",
-                "failed"
-              ),
-              [sty.fragmentApiRequestsuccessful]: hasVariant(
-                $state,
-                "successful",
-                "successful"
-              )
-            })}
-            config={
-              hasVariant($state, "failed", "failed")
-                ? { headers: { "Content-Type": "application/json" } }
-                : undefined
-            }
-            errorDisplay={null}
-            loadingDisplay={null}
-            method={hasVariant($state, "failed", "failed") ? "GET" : "GET"}
-            onError={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "fragmentApiRequest",
-                "error"
-              ]).apply(null, eventArgs);
-            }}
-            onLoading={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "fragmentApiRequest",
-                "loading"
-              ]).apply(null, eventArgs);
-            }}
-            onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "fragmentApiRequest",
-                "data"
-              ]).apply(null, eventArgs);
-            }}
-            params={
-              hasVariant($state, "failed", "failed")
-                ? (() => {
-                    try {
-                      return {
-                        r: $ctx.query.r,
-                        m: $ctx.query.m
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                : undefined
-            }
-            shouldFetch={true}
-            url={
-              hasVariant($state, "failed", "failed")
-                ? "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"
-                : undefined
-            }
-          />
-
           <LottieWrapper
             data-plasmic-name={"lottie"}
             data-plasmic-override={overrides.lottie}
@@ -4024,6 +4130,9 @@ function PlasmicShopResult__RenderFunc(props: {
             autoplay={true}
             className={classNames("__wab_instance", sty.lottie, {
               [sty.lottiefailed]: hasVariant($state, "failed", "failed"),
+              [sty.lottiefailed_successful]:
+                hasVariant($state, "failed", "failed") &&
+                hasVariant($state, "successful", "successful"),
               [sty.lottiesuccessful]: hasVariant(
                 $state,
                 "successful",
@@ -4041,6 +4150,8 @@ function PlasmicShopResult__RenderFunc(props: {
               [sty.button4failed]: hasVariant($state, "failed", "failed")
             })}
             color={generateStateValueProp($state, ["button4", "color"])}
+            load={generateStateValueProp($state, ["button4", "load"])}
+            loading={generateStateValueProp($state, ["button4", "loading"])}
             onClick={async event => {
               const $steps = {};
 
@@ -4076,6 +4187,36 @@ function PlasmicShopResult__RenderFunc(props: {
             onColorChange={async (...eventArgs: any) => {
               ((...eventArgs) => {
                 generateStateOnChangeProp($state, ["button4", "color"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onLoadChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button4", "load"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onLoadingChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button4", "loading"])(
                   eventArgs[0]
                 );
               }).apply(null, eventArgs);
@@ -4413,6 +4554,11 @@ function PlasmicShopResult__RenderFunc(props: {
                         "button5",
                         "color"
                       ])}
+                      load={generateStateValueProp($state, ["button5", "load"])}
+                      loading={generateStateValueProp($state, [
+                        "button5",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -4463,6 +4609,38 @@ function PlasmicShopResult__RenderFunc(props: {
                           return;
                         }
                       }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button5",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button5",
+                            "loading"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
                       size={
                         hasVariant($state, "failed", "failed")
                           ? "compact"
@@ -4486,6 +4664,11 @@ function PlasmicShopResult__RenderFunc(props: {
                       color={generateStateValueProp($state, [
                         "button6",
                         "color"
+                      ])}
+                      load={generateStateValueProp($state, ["button6", "load"])}
+                      loading={generateStateValueProp($state, [
+                        "button6",
+                        "loading"
                       ])}
                       onClick={async event => {
                         const $steps = {};
@@ -4528,6 +4711,38 @@ function PlasmicShopResult__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button6",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button6",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button6",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -4587,10 +4802,10 @@ function PlasmicShopResult__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "sideEffect",
     "button",
     "button2",
     "button3",
-    "fragmentApiRequest",
     "lottie",
     "button4",
     "modal",
@@ -4598,10 +4813,10 @@ const PlasmicDescendants = {
     "button5",
     "button6"
   ],
+  sideEffect: ["sideEffect"],
   button: ["button"],
   button2: ["button2"],
   button3: ["button3"],
-  fragmentApiRequest: ["fragmentApiRequest"],
   lottie: ["lottie"],
   button4: ["button4"],
   modal: ["modal", "section", "button5", "button6"],
@@ -4614,10 +4829,10 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   button: typeof Button;
   button2: typeof Button;
   button3: typeof Button;
-  fragmentApiRequest: typeof ApiRequest;
   lottie: typeof LottieWrapper;
   button4: typeof Button;
   modal: typeof AntdModal;
@@ -4711,10 +4926,10 @@ export const PlasmicShopResult = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
     button3: makeNodeComponent("button3"),
-    fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
     lottie: makeNodeComponent("lottie"),
     button4: makeNodeComponent("button4"),
     modal: makeNodeComponent("modal"),

@@ -5739,6 +5739,11 @@
           "id": "kqt9NYSvVr25",
           "name": "UpArrowOutboxSvgrepoComSvgIcon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__UpArrowOutboxSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "tTnyDnEdVDDx",
+          "name": "JobSvgrepoCom1SvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__JobSvgrepoCom1Svg.tsx"
         }
       ],
       "images": [

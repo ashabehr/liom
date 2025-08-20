@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -703,6 +704,78 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
         path: "button13.color",
         type: "private",
         variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button12.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button8.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button11.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button14.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button10.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button13.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button12.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button8.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button11.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button14.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button10.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button13.loading",
+        type: "private",
+        variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -1568,11 +1641,51 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                               "color"
                             ])}
                             disabled={false}
+                            load={generateStateValueProp($state, [
+                              "button12",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "button12",
+                              "loading"
+                            ])}
                             onColorChange={async (...eventArgs: any) => {
                               ((...eventArgs) => {
                                 generateStateOnChangeProp($state, [
                                   "button12",
                                   "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button12",
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button12",
+                                  "loading"
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
 
@@ -1622,11 +1735,51 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                                 role={"img"}
                               />
                             }
+                            load={generateStateValueProp($state, [
+                              "button8",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "button8",
+                              "loading"
+                            ])}
                             onColorChange={async (...eventArgs: any) => {
                               ((...eventArgs) => {
                                 generateStateOnChangeProp($state, [
                                   "button8",
                                   "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button8",
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button8",
+                                  "loading"
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
 
@@ -1671,11 +1824,51 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                                 role={"img"}
                               />
                             }
+                            load={generateStateValueProp($state, [
+                              "button11",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "button11",
+                              "loading"
+                            ])}
                             onColorChange={async (...eventArgs: any) => {
                               ((...eventArgs) => {
                                 generateStateOnChangeProp($state, [
                                   "button11",
                                   "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button11",
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button11",
+                                  "loading"
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
 
@@ -2043,11 +2236,51 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                             role={"img"}
                           />
                         }
+                        load={generateStateValueProp($state, [
+                          "button14",
+                          "load"
+                        ])}
+                        loading={generateStateValueProp($state, [
+                          "button14",
+                          "loading"
+                        ])}
                         onColorChange={async (...eventArgs: any) => {
                           ((...eventArgs) => {
                             generateStateOnChangeProp($state, [
                               "button14",
                               "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button14",
+                              "load"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadingChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button14",
+                              "loading"
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
 
@@ -2087,11 +2320,51 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                             role={"img"}
                           />
                         }
+                        load={generateStateValueProp($state, [
+                          "button10",
+                          "load"
+                        ])}
+                        loading={generateStateValueProp($state, [
+                          "button10",
+                          "loading"
+                        ])}
                         onColorChange={async (...eventArgs: any) => {
                           ((...eventArgs) => {
                             generateStateOnChangeProp($state, [
                               "button10",
                               "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button10",
+                              "load"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadingChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button10",
+                              "loading"
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
 
@@ -2215,11 +2488,51 @@ function PlasmicSubscriptionPage__RenderFunc(props: {
                           "color"
                         ])}
                         disabled={false}
+                        load={generateStateValueProp($state, [
+                          "button13",
+                          "load"
+                        ])}
+                        loading={generateStateValueProp($state, [
+                          "button13",
+                          "loading"
+                        ])}
                         onColorChange={async (...eventArgs: any) => {
                           ((...eventArgs) => {
                             generateStateOnChangeProp($state, [
                               "button13",
                               "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button13",
+                              "load"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadingChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button13",
+                              "loading"
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
 

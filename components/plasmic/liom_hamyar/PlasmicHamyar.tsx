@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -1603,16 +1604,13 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (
-                !window.localStorage.getItem("telegram") &&
-                $state.userdata.result
-              );
+              return undefined;
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return false;
+                return true;
               }
               throw e;
             }
@@ -1632,6 +1630,260 @@ function PlasmicHamyar__RenderFunc(props: {
       },
       {
         path: "lineClomp2.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button9.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button14.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button10.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button15.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button3.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button2.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button7.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button4.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button5.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button6.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button19.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button12.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button8.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button11.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button13.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button16.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button18.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button17.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button9.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button14.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button10.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button15.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button7.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button5.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button6.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button19.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button12.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button8.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.loadingshop;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "button11.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.loadingshop;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "button13.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button16.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button18.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button17.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -2314,92 +2566,6 @@ function PlasmicHamyar__RenderFunc(props: {
                 $steps["updateNoPartner"] = await $steps["updateNoPartner"];
               }
 
-              $steps["shop"] = ($steps.userdata?.data?.success ? true : false)
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        "POST",
-                        "https://n8n.staas.ir/webhook/hamyar/shop",
-                        undefined,
-                        (() => {
-                          try {
-                            return {
-                              refCode: $state.userdata.result.man.refCode
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })(),
-                        (() => {
-                          try {
-                            return {
-                              headers: {
-                                "Content-Type": "application/json",
-                                Authorization: $state.userdata.result.token
-                              }
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["shop"] != null &&
-                typeof $steps["shop"] === "object" &&
-                typeof $steps["shop"].then === "function"
-              ) {
-                $steps["shop"] = await $steps["shop"];
-              }
-
-              $steps["updateShapData"] = (
-                $steps.shop?.data.success ? true : false
-              )
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["shapData"]
-                      },
-                      operation: 0,
-                      value: $steps.shop.data
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateShapData"] != null &&
-                typeof $steps["updateShapData"] === "object" &&
-                typeof $steps["updateShapData"].then === "function"
-              ) {
-                $steps["updateShapData"] = await $steps["updateShapData"];
-              }
-
               $steps["advice"] = ($steps.userdata?.data?.success ? true : false)
                 ? (() => {
                     const actionArgs = {
@@ -2670,6 +2836,92 @@ function PlasmicHamyar__RenderFunc(props: {
                 typeof $steps["log"].then === "function"
               ) {
                 $steps["log"] = await $steps["log"];
+              }
+
+              $steps["shop"] = ($steps.userdata?.data?.success ? true : false)
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/hamyar/shop",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              refCode: $state.userdata.result.man.refCode
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return {
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization: $state.userdata.result.token
+                              }
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["shop"] != null &&
+                typeof $steps["shop"] === "object" &&
+                typeof $steps["shop"].then === "function"
+              ) {
+                $steps["shop"] = await $steps["shop"];
+              }
+
+              $steps["updateShapData"] = (
+                $steps.shop?.data.success ? true : false
+              )
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["shapData"]
+                      },
+                      operation: 0,
+                      value: $steps.shop.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateShapData"] != null &&
+                typeof $steps["updateShapData"] === "object" &&
+                typeof $steps["updateShapData"].then === "function"
+              ) {
+                $steps["updateShapData"] = await $steps["updateShapData"];
               }
             }}
           />
@@ -3675,6 +3927,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                     "button9",
                                     "color"
                                   ])}
+                                  load={generateStateValueProp($state, [
+                                    "button9",
+                                    "load"
+                                  ])}
+                                  loading={generateStateValueProp($state, [
+                                    "button9",
+                                    "loading"
+                                  ])}
                                   onClick={async event => {
                                     const $steps = {};
 
@@ -3730,6 +3990,40 @@ function PlasmicHamyar__RenderFunc(props: {
                                       generateStateOnChangeProp($state, [
                                         "button9",
                                         "color"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button9",
+                                        "load"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadingChange={async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button9",
+                                        "loading"
                                       ])(eventArgs[0]);
                                     }).apply(null, eventArgs);
 
@@ -3897,6 +4191,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                     "button14",
                                     "color"
                                   ])}
+                                  load={generateStateValueProp($state, [
+                                    "button14",
+                                    "load"
+                                  ])}
+                                  loading={generateStateValueProp($state, [
+                                    "button14",
+                                    "loading"
+                                  ])}
                                   onClick={async event => {
                                     const $steps = {};
 
@@ -3952,6 +4254,40 @@ function PlasmicHamyar__RenderFunc(props: {
                                       generateStateOnChangeProp($state, [
                                         "button14",
                                         "color"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button14",
+                                        "load"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadingChange={async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button14",
+                                        "loading"
                                       ])(eventArgs[0]);
                                     }).apply(null, eventArgs);
 
@@ -4218,6 +4554,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                         "button10",
                                         "color"
                                       ])}
+                                      load={generateStateValueProp($state, [
+                                        "button10",
+                                        "load"
+                                      ])}
+                                      loading={generateStateValueProp($state, [
+                                        "button10",
+                                        "loading"
+                                      ])}
                                       onClick={async event => {
                                         const $steps = {};
 
@@ -4291,6 +4635,42 @@ function PlasmicHamyar__RenderFunc(props: {
                                           return;
                                         }
                                       }}
+                                      onLoadChange={async (
+                                        ...eventArgs: any
+                                      ) => {
+                                        ((...eventArgs) => {
+                                          generateStateOnChangeProp($state, [
+                                            "button10",
+                                            "load"
+                                          ])(eventArgs[0]);
+                                        }).apply(null, eventArgs);
+
+                                        if (
+                                          eventArgs.length > 1 &&
+                                          eventArgs[1] &&
+                                          eventArgs[1]._plasmic_state_init_
+                                        ) {
+                                          return;
+                                        }
+                                      }}
+                                      onLoadingChange={async (
+                                        ...eventArgs: any
+                                      ) => {
+                                        ((...eventArgs) => {
+                                          generateStateOnChangeProp($state, [
+                                            "button10",
+                                            "loading"
+                                          ])(eventArgs[0]);
+                                        }).apply(null, eventArgs);
+
+                                        if (
+                                          eventArgs.length > 1 &&
+                                          eventArgs[1] &&
+                                          eventArgs[1]._plasmic_state_init_
+                                        ) {
+                                          return;
+                                        }
+                                      }}
                                       size={
                                         hasVariant(
                                           globalVariants,
@@ -4347,6 +4727,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                       color={generateStateValueProp($state, [
                                         "button15",
                                         "color"
+                                      ])}
+                                      load={generateStateValueProp($state, [
+                                        "button15",
+                                        "load"
+                                      ])}
+                                      loading={generateStateValueProp($state, [
+                                        "button15",
+                                        "loading"
                                       ])}
                                       onClick={async event => {
                                         const $steps = {};
@@ -4410,6 +4798,42 @@ function PlasmicHamyar__RenderFunc(props: {
                                           generateStateOnChangeProp($state, [
                                             "button15",
                                             "color"
+                                          ])(eventArgs[0]);
+                                        }).apply(null, eventArgs);
+
+                                        if (
+                                          eventArgs.length > 1 &&
+                                          eventArgs[1] &&
+                                          eventArgs[1]._plasmic_state_init_
+                                        ) {
+                                          return;
+                                        }
+                                      }}
+                                      onLoadChange={async (
+                                        ...eventArgs: any
+                                      ) => {
+                                        ((...eventArgs) => {
+                                          generateStateOnChangeProp($state, [
+                                            "button15",
+                                            "load"
+                                          ])(eventArgs[0]);
+                                        }).apply(null, eventArgs);
+
+                                        if (
+                                          eventArgs.length > 1 &&
+                                          eventArgs[1] &&
+                                          eventArgs[1]._plasmic_state_init_
+                                        ) {
+                                          return;
+                                        }
+                                      }}
+                                      onLoadingChange={async (
+                                        ...eventArgs: any
+                                      ) => {
+                                        ((...eventArgs) => {
+                                          generateStateOnChangeProp($state, [
+                                            "button15",
+                                            "loading"
                                           ])(eventArgs[0]);
                                         }).apply(null, eventArgs);
 
@@ -9918,6 +10342,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         throw e;
                       }
                     })()}
+                    load={generateStateValueProp($state, ["button3", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button3",
+                      "loading"
+                    ])}
                     onClick={async event => {
                       const $steps = {};
 
@@ -9969,12 +10398,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                     return {
                                       id: $state.buyId,
                                       offCode: $state.discountCode,
-                                      refCode: $state.r,
+                                      refCode:
+                                        $state.userdata.result.man.refCode,
                                       redirectUrl:
                                         "https://apps.liom.app/shop-result?r=" +
-                                        $state.r +
-                                        "&m=" +
-                                        $state.m +
+                                        $state.userdata.result.man.refCode +
                                         "&buyId=" +
                                         $state.buyId +
                                         "&offCode=" +
@@ -10173,6 +10601,37 @@ function PlasmicHamyar__RenderFunc(props: {
                         generateStateOnChangeProp($state, ["button3", "color"])(
                           eventArgs[0]
                         );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button3", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button3",
+                          "loading"
+                        ])(eventArgs[0]);
                       }).apply(null, eventArgs);
 
                       if (
@@ -10488,7 +10947,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 </div>
                 {(() => {
                   try {
-                    return $state.shapData.success;
+                    return $state.shapData?.success;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -11640,6 +12099,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                             }
                                           })()
                                     }
+                                    load={generateStateValueProp($state, [
+                                      "button",
+                                      "load"
+                                    ])}
+                                    loading={generateStateValueProp($state, [
+                                      "button",
+                                      "loading"
+                                    ])}
                                     onClick={async event => {
                                       const $steps = {};
 
@@ -11745,6 +12212,40 @@ function PlasmicHamyar__RenderFunc(props: {
                                         return;
                                       }
                                     }}
+                                    onLoadChange={async (...eventArgs: any) => {
+                                      ((...eventArgs) => {
+                                        generateStateOnChangeProp($state, [
+                                          "button",
+                                          "load"
+                                        ])(eventArgs[0]);
+                                      }).apply(null, eventArgs);
+
+                                      if (
+                                        eventArgs.length > 1 &&
+                                        eventArgs[1] &&
+                                        eventArgs[1]._plasmic_state_init_
+                                      ) {
+                                        return;
+                                      }
+                                    }}
+                                    onLoadingChange={async (
+                                      ...eventArgs: any
+                                    ) => {
+                                      ((...eventArgs) => {
+                                        generateStateOnChangeProp($state, [
+                                          "button",
+                                          "loading"
+                                        ])(eventArgs[0]);
+                                      }).apply(null, eventArgs);
+
+                                      if (
+                                        eventArgs.length > 1 &&
+                                        eventArgs[1] &&
+                                        eventArgs[1]._plasmic_state_init_
+                                      ) {
+                                        return;
+                                      }
+                                    }}
                                   >
                                     {"\u062a\u0627\u06cc\u06cc\u062f"}
                                   </Button>
@@ -11810,6 +12311,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                         }
                                       })()
                                 }
+                                load={generateStateValueProp($state, [
+                                  "button2",
+                                  "load"
+                                ])}
+                                loading={generateStateValueProp($state, [
+                                  "button2",
+                                  "loading"
+                                ])}
                                 onClick={async event => {
                                   const $steps = {};
 
@@ -11958,12 +12467,13 @@ function PlasmicHamyar__RenderFunc(props: {
                                                 return {
                                                   id: $state.buyId,
                                                   offCode: $state.discountCode,
-                                                  refCode: $state.r,
+                                                  refCode:
+                                                    $state.userdata.result.man
+                                                      .refCode,
                                                   redirectUrl:
                                                     "https://apps.liom.app/shop-result?r=" +
-                                                    $state.r +
-                                                    "&m=" +
-                                                    $state.m +
+                                                    $state.userdata.result.man
+                                                      .refCode +
                                                     "&buyId=" +
                                                     $state.buyId +
                                                     "&offCode=" +
@@ -12140,6 +12650,38 @@ function PlasmicHamyar__RenderFunc(props: {
                                     generateStateOnChangeProp($state, [
                                       "button2",
                                       "color"
+                                    ])(eventArgs[0]);
+                                  }).apply(null, eventArgs);
+
+                                  if (
+                                    eventArgs.length > 1 &&
+                                    eventArgs[1] &&
+                                    eventArgs[1]._plasmic_state_init_
+                                  ) {
+                                    return;
+                                  }
+                                }}
+                                onLoadChange={async (...eventArgs: any) => {
+                                  ((...eventArgs) => {
+                                    generateStateOnChangeProp($state, [
+                                      "button2",
+                                      "load"
+                                    ])(eventArgs[0]);
+                                  }).apply(null, eventArgs);
+
+                                  if (
+                                    eventArgs.length > 1 &&
+                                    eventArgs[1] &&
+                                    eventArgs[1]._plasmic_state_init_
+                                  ) {
+                                    return;
+                                  }
+                                }}
+                                onLoadingChange={async (...eventArgs: any) => {
+                                  ((...eventArgs) => {
+                                    generateStateOnChangeProp($state, [
+                                      "button2",
+                                      "loading"
                                     ])(eventArgs[0]);
                                   }).apply(null, eventArgs);
 
@@ -12450,6 +12992,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                       }
                                     })()
                               }
+                              load={generateStateValueProp($state, [
+                                "button7",
+                                "load"
+                              ])}
+                              loading={generateStateValueProp($state, [
+                                "button7",
+                                "loading"
+                              ])}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -12499,6 +13049,38 @@ function PlasmicHamyar__RenderFunc(props: {
                                   generateStateOnChangeProp($state, [
                                     "button7",
                                     "color"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              onLoadChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button7",
+                                    "load"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              onLoadingChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button7",
+                                    "loading"
                                   ])(eventArgs[0]);
                                 }).apply(null, eventArgs);
 
@@ -12988,6 +13570,11 @@ function PlasmicHamyar__RenderFunc(props: {
                           })()
                         : undefined
                     }
+                    load={generateStateValueProp($state, ["button4", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button4",
+                      "loading"
+                    ])}
                     onClick={async event => {
                       const $steps = {};
 
@@ -13039,12 +13626,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                     return {
                                       id: $state.buyId,
                                       offCode: $state.discountCode,
-                                      refCode: $state.r,
+                                      refCode:
+                                        $state.userdata.result.man.refCode,
                                       redirectUrl:
                                         "https://apps.liom.app/shop-result?r=" +
-                                        $state.r +
-                                        "&m=" +
-                                        $state.m +
+                                        $state.userdata.result.man.refCode +
                                         "&buyId=" +
                                         $state.buyId +
                                         "&offCode=" +
@@ -13244,6 +13830,37 @@ function PlasmicHamyar__RenderFunc(props: {
                         generateStateOnChangeProp($state, ["button4", "color"])(
                           eventArgs[0]
                         );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button4", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button4",
+                          "loading"
+                        ])(eventArgs[0]);
                       }).apply(null, eventArgs);
 
                       if (
@@ -14134,6 +14751,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                           }
                                         })()
                                   }
+                                  load={generateStateValueProp($state, [
+                                    "button5",
+                                    "load"
+                                  ])}
+                                  loading={generateStateValueProp($state, [
+                                    "button5",
+                                    "loading"
+                                  ])}
                                   onClick={async event => {
                                     const $steps = {};
 
@@ -14238,6 +14863,40 @@ function PlasmicHamyar__RenderFunc(props: {
                                       return;
                                     }
                                   }}
+                                  onLoadChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button5",
+                                        "load"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadingChange={async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button5",
+                                        "loading"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
                                 >
                                   {"\u062a\u0627\u06cc\u06cc\u062f"}
                                 </Button>
@@ -14286,6 +14945,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                   throw e;
                                 }
                               })()}
+                              load={generateStateValueProp($state, [
+                                "button6",
+                                "load"
+                              ])}
+                              loading={generateStateValueProp($state, [
+                                "button6",
+                                "loading"
+                              ])}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -14381,12 +15048,13 @@ function PlasmicHamyar__RenderFunc(props: {
                                               return {
                                                 id: $state.buyId,
                                                 offCode: $state.discountCode,
-                                                refCode: $state.r,
+                                                refCode:
+                                                  $state.userdata.result.man
+                                                    .refCode,
                                                 redirectUrl:
                                                   "https://apps.liom.app/shop-result?r=" +
-                                                  $state.r +
-                                                  "&m=" +
-                                                  $state.m +
+                                                  $state.userdata.result.man
+                                                    .refCode +
                                                   "&buyId=" +
                                                   $state.buyId +
                                                   "&offCode=" +
@@ -14559,6 +15227,38 @@ function PlasmicHamyar__RenderFunc(props: {
                                   generateStateOnChangeProp($state, [
                                     "button6",
                                     "color"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              onLoadChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button6",
+                                    "load"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              onLoadingChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button6",
+                                    "loading"
                                   ])(eventArgs[0]);
                                 }).apply(null, eventArgs);
 
@@ -15035,6 +15735,11 @@ function PlasmicHamyar__RenderFunc(props: {
                     role={"img"}
                   />
                 }
+                load={generateStateValueProp($state, ["button19", "load"])}
+                loading={generateStateValueProp($state, [
+                  "button19",
+                  "loading"
+                ])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -15064,6 +15769,36 @@ function PlasmicHamyar__RenderFunc(props: {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button19", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button19", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button19", "loading"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -15625,7 +16360,7 @@ function PlasmicHamyar__RenderFunc(props: {
               data-plasmic-override={overrides.shopDialog}
               body={(() => {
                 try {
-                  return { refCode: $state.r };
+                  return { refCode: $state.userdata?.result?.man?.refCode };
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -16287,6 +17022,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                     }
                                   })()
                             }
+                            load={generateStateValueProp($state, [
+                              "button12",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "button12",
+                              "loading"
+                            ])}
                             onClick={async event => {
                               const $steps = {};
 
@@ -16384,6 +17127,38 @@ function PlasmicHamyar__RenderFunc(props: {
                                 return;
                               }
                             }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button12",
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button12",
+                                  "loading"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
                           >
                             {"\u062a\u0627\u06cc\u06cc\u062f"}
                           </Button>
@@ -16419,19 +17194,14 @@ function PlasmicHamyar__RenderFunc(props: {
                             throw e;
                           }
                         })()}
-                        loading={(() => {
-                          try {
-                            return $state.loadingshop;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
-                          }
-                        })()}
+                        load={generateStateValueProp($state, [
+                          "button8",
+                          "load"
+                        ])}
+                        loading={generateStateValueProp($state, [
+                          "button8",
+                          "loading"
+                        ])}
                         onClick={async event => {
                           const $steps = {};
 
@@ -16559,12 +17329,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                         return {
                                           id: $state.buyId,
                                           offCode: $state.discountCode,
-                                          refCode: $ctx.query.r,
+                                          refCode:
+                                            $state.userdata.result.man.refCode,
                                           redirectUrl:
                                             "https://apps.liom.app/shop-result?r=" +
-                                            $ctx.query.r +
-                                            "&m=" +
-                                            $ctx.query.m +
+                                            $state.userdata.result.man.refCode +
                                             "&buyId=" +
                                             $state.buyId +
                                             "&offCode=" +
@@ -16725,6 +17494,38 @@ function PlasmicHamyar__RenderFunc(props: {
                             generateStateOnChangeProp($state, [
                               "button8",
                               "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button8",
+                              "load"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadingChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button8",
+                              "loading"
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
 
@@ -17204,19 +18005,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         throw e;
                       }
                     })()}
-                    loading={(() => {
-                      try {
-                        return $state.loadingshop;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()}
+                    load={generateStateValueProp($state, ["button11", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button11",
+                      "loading"
+                    ])}
                     onClick={async event => {
                       const $steps = {};
 
@@ -17268,12 +18061,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                     return {
                                       id: $state.buyId,
                                       offCode: $state.discountCode,
-                                      refCode: $ctx.query.r,
+                                      refCode:
+                                        $state.userdata.result.man.refCode,
                                       redirectUrl:
                                         "https://apps.liom.app/shop-result?r=" +
-                                        $ctx.query.r +
-                                        "&m=" +
-                                        $ctx.query.m +
+                                        $state.userdata.result.man.refCode +
                                         "&buyId=" +
                                         $state.buyId +
                                         "&offCode=" +
@@ -17432,6 +18224,37 @@ function PlasmicHamyar__RenderFunc(props: {
                         generateStateOnChangeProp($state, [
                           "button11",
                           "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button11", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button11",
+                          "loading"
                         ])(eventArgs[0]);
                       }).apply(null, eventArgs);
 
@@ -18389,6 +19212,11 @@ function PlasmicHamyar__RenderFunc(props: {
                 data-plasmic-override={overrides.button13}
                 className={classNames("__wab_instance", sty.button13)}
                 color={generateStateValueProp($state, ["button13", "color"])}
+                load={generateStateValueProp($state, ["button13", "load"])}
+                loading={generateStateValueProp($state, [
+                  "button13",
+                  "loading"
+                ])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -18431,6 +19259,36 @@ function PlasmicHamyar__RenderFunc(props: {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button13", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button13", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button13", "loading"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -18492,6 +19350,8 @@ function PlasmicHamyar__RenderFunc(props: {
                   role={"img"}
                 />
               }
+              load={generateStateValueProp($state, ["button16", "load"])}
+              loading={generateStateValueProp($state, ["button16", "loading"])}
               onClick={async event => {
                 const $steps = {};
 
@@ -18521,6 +19381,36 @@ function PlasmicHamyar__RenderFunc(props: {
               onColorChange={async (...eventArgs: any) => {
                 ((...eventArgs) => {
                   generateStateOnChangeProp($state, ["button16", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button16", "load"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadingChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button16", "loading"])(
                     eventArgs[0]
                   );
                 }).apply(null, eventArgs);
@@ -18610,14 +19500,210 @@ function PlasmicHamyar__RenderFunc(props: {
             })()}
           />
 
-          {(() => {
-            const child$Props = {
-              className: classNames("__wab_instance", sty.telegram),
-              onOpendialogChange: async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "telegram",
-                  "opendialog"
-                ]).apply(null, eventArgs);
+          <Dialog
+            data-plasmic-name={"telegram"}
+            data-plasmic-override={overrides.telegram}
+            className={classNames("__wab_instance", sty.telegram)}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "telegram",
+                "opendialog"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+
+              (async val => {
+                const $steps = {};
+
+                $steps["runCode"] =
+                  $state.telegram.opendialog == false
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return window.localStorage.setItem(
+                                "telegram",
+                                true
+                              );
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }).apply(null, eventArgs);
+            }}
+            opendialog={generateStateValueProp($state, [
+              "telegram",
+              "opendialog"
+            ])}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox___5LrUb,
+                "fixed-object"
+              )}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__sg0Fm
+                )}
+              >
+                {"\u062e\u0628\u0631 \u062e\u0648\u0628! \ud83c\udf89"}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___4HjKs
+                )}
+              >
+                {
+                  " \u0627\u0632 \u0627\u06cc\u0646 \u0628\u0647 \u0628\u0639\u062f \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u067e\u06cc\u0627\u0645\u200c\u0647\u0627\u06cc \u0631\u0627\u0628\u0637\u0647 \u0631\u0648 \u062f\u0631 \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645 \u0647\u0645 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc. \u067e\u06cc\u0627\u0645\u200c\u0647\u0627 \u062c\u0630\u0627\u0628\u200c\u062a\u0631 \u0648 \u0645\u062a\u0646\u0648\u0639\u200c\u062a\u0631 \u0645\u06cc\u200c\u0634\u0646 \u0648 \u062f\u06cc\u06af\u0647 \u0628\u06cc\u0646 \u0627\u0633\u200c\u0627\u0645\u200c\u0627\u0633\u200c\u0647\u0627 \u06af\u0645 \u0646\u0645\u06cc\u200c\u0634\u0646.\r\n\u0631\u0627\u0633\u062a\u06cc\u060c \u0627\u06af\u0647 \u062a\u0644\u06af\u0631\u0627\u0645 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646\u06cc \u0648 \u067e\u06cc\u0627\u0645\u06a9 \u0631\u0648 \u0628\u0628\u0646\u062f\u06cc\u060c \u06cc\u06a9 \u0645\u0627\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0627\u06cc\u06af\u0627\u0646 \u0647\u0645 \u0647\u062f\u06cc\u0647 \u0645\u06cc\u200c\u06af\u06cc\u0631\u06cc! \ud83d\udc9c"
+                }
+              </div>
+            </div>
+            <Button
+              data-plasmic-name={"button18"}
+              data-plasmic-override={overrides.button18}
+              className={classNames("__wab_instance", sty.button18)}
+              color={generateStateValueProp($state, ["button18", "color"])}
+              load={generateStateValueProp($state, ["button18", "load"])}
+              loading={generateStateValueProp($state, ["button18", "loading"])}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] =
+                  $state.userdata.result.user.hamyarStatus ||
+                  $state.userdata.result.user.husbandSmsSubStatus ||
+                  $state.userdata.result.user.motherSmsSubStatus ||
+                  $state.userdata.result.man.hamyarStatus
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              window.open("https://t.me/liomApp_bot", "_blank");
+                              return window.localStorage.setItem(
+                                "telegram",
+                                true
+                              );
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["updateDialogOpendialog"] = !(
+                  $state.userdata.result.user.hamyarStatus ||
+                  $state.userdata.result.user.husbandSmsSubStatus ||
+                  $state.userdata.result.user.motherSmsSubStatus ||
+                  $state.userdata.result.man.hamyarStatus
+                )
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["dialog", "opendialog"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDialogOpendialog"] != null &&
+                  typeof $steps["updateDialogOpendialog"] === "object" &&
+                  typeof $steps["updateDialogOpendialog"].then === "function"
+                ) {
+                  $steps["updateDialogOpendialog"] = await $steps[
+                    "updateDialogOpendialog"
+                  ];
+                }
+
+                $steps["updateTelegramOpendialog"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["telegram", "opendialog"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateTelegramOpendialog"] != null &&
+                  typeof $steps["updateTelegramOpendialog"] === "object" &&
+                  typeof $steps["updateTelegramOpendialog"].then === "function"
+                ) {
+                  $steps["updateTelegramOpendialog"] = await $steps[
+                    "updateTelegramOpendialog"
+                  ];
+                }
+              }}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button18", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
 
                 if (
                   eventArgs.length > 1 &&
@@ -18626,348 +19712,143 @@ function PlasmicHamyar__RenderFunc(props: {
                 ) {
                   return;
                 }
-
-                (async val => {
-                  const $steps = {};
-
-                  $steps["runCode"] =
-                    $state.telegram.opendialog == false
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return window.localStorage.setItem(
-                                  "telegram",
-                                  true
-                                );
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button18", "load"])(
+                    eventArgs[0]
+                  );
                 }).apply(null, eventArgs);
-              },
-              opendialog: generateStateValueProp($state, [
-                "telegram",
-                "opendialog"
-              ])
-            };
 
-            initializePlasmicStates(
-              $state,
-              [
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadingChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button18", "loading"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              showStartIcon={true}
+              startIcon={
+                <Icon242Icon
+                  className={classNames(projectcss.all, sty.svg__rWfgL)}
+                  role={"img"}
+                />
+              }
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__sYtc0
+                )}
+              >
                 {
-                  name: "telegram.opendialog",
-                  initFunc: ({ $props, $state, $queries }) =>
-                    (() => {
+                  "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
+                }
+              </div>
+            </Button>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__gmpcN)}
+              style={(() => {
+                try {
+                  return (() => {
+                    const element =
+                      window.document.querySelector(".fixed-object");
+                    return { top: element?.offsetTop || 20 };
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            />
+
+            <div
+              className={classNames(projectcss.all, sty.freeBox__xvk)}
+              style={
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? (() => {
                       try {
-                        return (
-                          !window.localStorage.getItem("telegram") &&
-                          $state.userdata.result
-                        );
+                        return (() => {
+                          const element =
+                            window.document.querySelector(".fixed-object");
+                          const absoluteTop =
+                            element.getBoundingClientRect().top +
+                            window.scrollY;
+                          return { top: absoluteTop - 50 || "" };
+                        })();
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return false;
+                          return undefined;
                         }
                         throw e;
                       }
                     })()
-                }
-              ],
-              []
-            );
-            return (
-              <Dialog
-                data-plasmic-name={"telegram"}
-                data-plasmic-override={overrides.telegram}
-                {...child$Props}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox___5LrUb,
-                    "fixed-object"
-                  )}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__sg0Fm
-                    )}
-                  >
-                    {
-                      "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627 \u0648 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627: \u062d\u0627\u0644\u0627 \u062f\u0631 \u062a\u0644\u06af\u0631\u0627\u0645"
-                    }
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___4HjKs
-                    )}
-                  >
-                    {
-                      "\u0627\u0632 \u0627\u06cc\u0646 \u0628\u0647 \u0628\u0639\u062f\u060c \u062a\u0645\u0627\u0645 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627 \u0648 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc \u0645\u0647\u0645 \u0631\u0648 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc\u062f \u0645\u0633\u062a\u0642\u06cc\u0645 \u062a\u0648\u06cc \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645 \u0645\u0627 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f. \u062f\u06cc\u06af\u0647 \u0646\u06af\u0631\u0627\u0646 \u0627\u0632 \u062f\u0633\u062a \u062f\u0627\u062f\u0646 \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627 \u0646\u0628\u0627\u0634\u06cc\u062f \u0648 \u0639\u0644\u0627\u0648\u0647 \u0628\u0631 \u067e\u06cc\u0627\u0645\u200c\u0647\u0627\u06cc \u0642\u0628\u0644\u06cc\u060c \u0641\u06cc\u0644\u0645\u200c\u0647\u0627 \u0648 \u062a\u0635\u0627\u0648\u06cc\u0631 \u0622\u0645\u0648\u0632\u0634\u06cc \u0646\u06cc\u0632 \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0627\u0631\u0633\u0627\u0644 \u062e\u0648\u0627\u0647\u0646\u062f \u0634\u062f.\n\u0647\u0645\u06cc\u0646 \u0627\u0644\u0627\u0646 \u0631\u0628\u0627\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646!"
-                    }
-                  </div>
-                </div>
-                <Button
-                  data-plasmic-name={"button18"}
-                  data-plasmic-override={overrides.button18}
-                  className={classNames("__wab_instance", sty.button18)}
-                  color={generateStateValueProp($state, ["button18", "color"])}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] =
-                      $state.userdata.result.user.hamyarStatus ||
-                      $state.userdata.result.user.husbandSmsSubStatus ||
-                      $state.userdata.result.user.motherSmsSubStatus ||
-                      $state.userdata.result.man.hamyarStatus
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  window.open(
-                                    "https://t.me/liomApp_bot",
-                                    "_blank"
-                                  );
-                                  return window.localStorage.setItem(
-                                    "telegram",
-                                    true
-                                  );
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-
-                    $steps["updateDialogOpendialog"] = !(
-                      $state.userdata.result.user.hamyarStatus ||
-                      $state.userdata.result.user.husbandSmsSubStatus ||
-                      $state.userdata.result.user.motherSmsSubStatus ||
-                      $state.userdata.result.man.hamyarStatus
-                    )
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["dialog", "opendialog"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateDialogOpendialog"] != null &&
-                      typeof $steps["updateDialogOpendialog"] === "object" &&
-                      typeof $steps["updateDialogOpendialog"].then ===
-                        "function"
-                    ) {
-                      $steps["updateDialogOpendialog"] = await $steps[
-                        "updateDialogOpendialog"
-                      ];
-                    }
-
-                    $steps["updateTelegramOpendialog"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["telegram", "opendialog"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateTelegramOpendialog"] != null &&
-                      typeof $steps["updateTelegramOpendialog"] === "object" &&
-                      typeof $steps["updateTelegramOpendialog"].then ===
-                        "function"
-                    ) {
-                      $steps["updateTelegramOpendialog"] = await $steps[
-                        "updateTelegramOpendialog"
-                      ];
-                    }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button18", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  showStartIcon={true}
-                  startIcon={
-                    <Icon242Icon
-                      className={classNames(projectcss.all, sty.svg__rWfgL)}
-                      role={"img"}
-                    />
-                  }
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__sYtc0
-                    )}
-                  >
-                    {
-                      "\u0648\u0631\u0648\u062f \u0628\u0647 \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
-                    }
-                  </div>
-                </Button>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__gmpcN)}
-                  style={(() => {
-                    try {
-                      return (() => {
-                        const element =
-                          window.document.querySelector(".fixed-object");
-                        return { top: element?.offsetTop || 20 };
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
+                  : (() => {
+                      try {
+                        return (() => {
+                          const element =
+                            window.document.querySelector(".fixed-object");
+                          const absoluteTop =
+                            element.getBoundingClientRect().top +
+                            window.scrollY;
+                          return { top: absoluteTop - 50 || "" };
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()}
-                />
-
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__xvk)}
-                  style={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? (() => {
-                          try {
-                            return (() => {
-                              const element =
-                                window.document.querySelector(".fixed-object");
-                              const absoluteTop =
-                                element.getBoundingClientRect().top +
-                                window.scrollY;
-                              return { top: absoluteTop - 50 || "" };
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      : (() => {
-                          try {
-                            return (() => {
-                              const element =
-                                window.document.querySelector(".fixed-object");
-                              const absoluteTop =
-                                element.getBoundingClientRect().top +
-                                window.scrollY;
-                              return { top: absoluteTop - 50 || "" };
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                  }
-                >
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__sDzKv)}
-                    displayHeight={"80px"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"80px"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image98.png",
-                      fullWidth: 1170,
-                      fullHeight: 1170,
-                      aspectRatio: undefined
-                    }}
-                  />
-                </div>
-              </Dialog>
-            );
-          })()}
+                    })()
+              }
+            >
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__sDzKv)}
+                displayHeight={"80px"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"80px"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/liom_hamyar/images/image98.png",
+                  fullWidth: 1170,
+                  fullHeight: 1170,
+                  aspectRatio: undefined
+                }}
+              />
+            </div>
+          </Dialog>
           <div
             data-plasmic-name={"nopartner"}
             data-plasmic-override={overrides.nopartner}
@@ -20321,6 +21202,11 @@ function PlasmicHamyar__RenderFunc(props: {
                     )
                   })}
                   color={generateStateValueProp($state, ["button17", "color"])}
+                  load={generateStateValueProp($state, ["button17", "load"])}
+                  loading={generateStateValueProp($state, [
+                    "button17",
+                    "loading"
+                  ])}
                   onClick={async event => {
                     const $steps = {};
 
@@ -20366,6 +21252,37 @@ function PlasmicHamyar__RenderFunc(props: {
                       generateStateOnChangeProp($state, ["button17", "color"])(
                         eventArgs[0]
                       );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button17", "load"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadingChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "button17",
+                        "loading"
+                      ])(eventArgs[0]);
                     }).apply(null, eventArgs);
 
                     if (

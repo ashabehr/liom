@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -537,6 +538,211 @@ function PlasmicClinic__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "button3.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button8.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button4.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button13.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button14.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button15.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button5.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button6.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button7.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button9[].load",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button10.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button11.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button12.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button16.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button3.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button8.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button13.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button14.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button15.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button5.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button6.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button7.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button9[].loading",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "_1", "docter") ? [] : "loading"
+      },
+      {
+        path: "button10.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button11.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.btnloading;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "button12.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.btnloading;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "button16.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1601,6 +1807,11 @@ function PlasmicClinic__RenderFunc(props: {
                           role={"img"}
                         />
                       }
+                      load={generateStateValueProp($state, ["button3", "load"])}
+                      loading={generateStateValueProp($state, [
+                        "button3",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -1649,6 +1860,38 @@ function PlasmicClinic__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button3",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button3",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button3",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -1758,6 +2001,11 @@ function PlasmicClinic__RenderFunc(props: {
                           role={"img"}
                         />
                       }
+                      load={generateStateValueProp($state, ["button8", "load"])}
+                      loading={generateStateValueProp($state, [
+                        "button8",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -1806,6 +2054,38 @@ function PlasmicClinic__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button8",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button8",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button8",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -1908,6 +2188,11 @@ function PlasmicClinic__RenderFunc(props: {
                           role={"img"}
                         />
                       }
+                      load={generateStateValueProp($state, ["button4", "load"])}
+                      loading={generateStateValueProp($state, [
+                        "button4",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -1956,6 +2241,38 @@ function PlasmicClinic__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button4",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button4",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button4",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -2143,6 +2460,14 @@ function PlasmicClinic__RenderFunc(props: {
                           role={"img"}
                         />
                       }
+                      load={generateStateValueProp($state, [
+                        "button13",
+                        "load"
+                      ])}
+                      loading={generateStateValueProp($state, [
+                        "button13",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -2193,6 +2518,38 @@ function PlasmicClinic__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button13",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button13",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button13",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -2302,6 +2659,14 @@ function PlasmicClinic__RenderFunc(props: {
                           role={"img"}
                         />
                       }
+                      load={generateStateValueProp($state, [
+                        "button14",
+                        "load"
+                      ])}
+                      loading={generateStateValueProp($state, [
+                        "button14",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -2352,6 +2717,38 @@ function PlasmicClinic__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button14",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button14",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button14",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -2457,6 +2854,14 @@ function PlasmicClinic__RenderFunc(props: {
                           role={"img"}
                         />
                       }
+                      load={generateStateValueProp($state, [
+                        "button15",
+                        "load"
+                      ])}
+                      loading={generateStateValueProp($state, [
+                        "button15",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -2507,6 +2912,38 @@ function PlasmicClinic__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button15",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button15",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button15",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -2694,6 +3131,11 @@ function PlasmicClinic__RenderFunc(props: {
                           role={"img"}
                         />
                       }
+                      load={generateStateValueProp($state, ["button5", "load"])}
+                      loading={generateStateValueProp($state, [
+                        "button5",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -2742,6 +3184,38 @@ function PlasmicClinic__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button5",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button5",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button5",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -2867,6 +3341,11 @@ function PlasmicClinic__RenderFunc(props: {
                           role={"img"}
                         />
                       }
+                      load={generateStateValueProp($state, ["button6", "load"])}
+                      loading={generateStateValueProp($state, [
+                        "button6",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -2915,6 +3394,38 @@ function PlasmicClinic__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button6",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button6",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button6",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -3040,6 +3551,11 @@ function PlasmicClinic__RenderFunc(props: {
                           role={"img"}
                         />
                       }
+                      load={generateStateValueProp($state, ["button7", "load"])}
+                      loading={generateStateValueProp($state, [
+                        "button7",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -3088,6 +3604,38 @@ function PlasmicClinic__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button7",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button7",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button7",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -5898,12 +6446,56 @@ function PlasmicClinic__RenderFunc(props: {
                                 />
                               ),
 
+                              load: generateStateValueProp($state, [
+                                "button9",
+                                __plasmic_idx_0,
+                                "load"
+                              ]),
+                              loading: generateStateValueProp($state, [
+                                "button9",
+                                __plasmic_idx_0,
+                                "loading"
+                              ]),
                               onColorChange: async (...eventArgs: any) => {
                                 ((...eventArgs) => {
                                   generateStateOnChangeProp($state, [
                                     "button9",
                                     __plasmic_idx_0,
                                     "color"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              },
+                              onLoadChange: async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button9",
+                                    __plasmic_idx_0,
+                                    "load"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              },
+                              onLoadingChange: async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button9",
+                                    __plasmic_idx_0,
+                                    "loading"
                                   ])(eventArgs[0]);
                                 }).apply(null, eventArgs);
 
@@ -5926,6 +6518,16 @@ function PlasmicClinic__RenderFunc(props: {
                               [
                                 {
                                   name: "button9[].color",
+                                  initFunc: ({ $props, $state, $queries }) =>
+                                    undefined
+                                },
+                                {
+                                  name: "button9[].load",
+                                  initFunc: ({ $props, $state, $queries }) =>
+                                    false
+                                },
+                                {
+                                  name: "button9[].loading",
                                   initFunc: ({ $props, $state, $queries }) =>
                                     undefined
                                 }
@@ -5983,9 +6585,11 @@ function PlasmicClinic__RenderFunc(props: {
                     [sty.button_1_docter]: hasVariant($state, "_1", "docter")
                   })}
                   color={generateStateValueProp($state, ["button", "color"])}
-                  loading={
-                    hasVariant($state, "_1", "docter") ? undefined : true
-                  }
+                  load={generateStateValueProp($state, ["button", "load"])}
+                  loading={generateStateValueProp($state, [
+                    "button",
+                    "loading"
+                  ])}
                   onClick={async event => {
                     const $steps = {};
 
@@ -6065,6 +6669,36 @@ function PlasmicClinic__RenderFunc(props: {
                   onColorChange={async (...eventArgs: any) => {
                     ((...eventArgs) => {
                       generateStateOnChangeProp($state, ["button", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button", "load"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadingChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button", "loading"])(
                         eventArgs[0]
                       );
                     }).apply(null, eventArgs);
@@ -6557,11 +7191,51 @@ function PlasmicClinic__RenderFunc(props: {
                                 "button10",
                                 "color"
                               ])}
+                              load={generateStateValueProp($state, [
+                                "button10",
+                                "load"
+                              ])}
+                              loading={generateStateValueProp($state, [
+                                "button10",
+                                "loading"
+                              ])}
                               onColorChange={async (...eventArgs: any) => {
                                 ((...eventArgs) => {
                                   generateStateOnChangeProp($state, [
                                     "button10",
                                     "color"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              onLoadChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button10",
+                                    "load"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              onLoadingChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button10",
+                                    "loading"
                                   ])(eventArgs[0]);
                                 }).apply(null, eventArgs);
 
@@ -6630,19 +7304,14 @@ function PlasmicClinic__RenderFunc(props: {
                                 throw e;
                               }
                             })()}
-                            loading={(() => {
-                              try {
-                                return $state.btnloading;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()}
+                            load={generateStateValueProp($state, [
+                              "button11",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "button11",
+                              "loading"
+                            ])}
                             onClick={async event => {
                               const $steps = {};
 
@@ -6859,6 +7528,38 @@ function PlasmicClinic__RenderFunc(props: {
                                 generateStateOnChangeProp($state, [
                                   "button11",
                                   "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button11",
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button11",
+                                  "loading"
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
 
@@ -7119,19 +7820,11 @@ function PlasmicClinic__RenderFunc(props: {
                         throw e;
                       }
                     })()}
-                    loading={(() => {
-                      try {
-                        return $state.btnloading;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()}
+                    load={generateStateValueProp($state, ["button12", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button12",
+                      "loading"
+                    ])}
                     onClick={async event => {
                       const $steps = {};
 
@@ -7306,6 +7999,37 @@ function PlasmicClinic__RenderFunc(props: {
                         return;
                       }
                     }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button12", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button12",
+                          "loading"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
                   >
                     <div
                       className={classNames(
@@ -7376,6 +8100,11 @@ function PlasmicClinic__RenderFunc(props: {
                       "button16",
                       "color"
                     ])}
+                    load={generateStateValueProp($state, ["button16", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button16",
+                      "loading"
+                    ])}
                     onClick={async event => {
                       const $steps = {};
 
@@ -7426,6 +8155,37 @@ function PlasmicClinic__RenderFunc(props: {
                         generateStateOnChangeProp($state, [
                           "button16",
                           "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button16", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button16",
+                          "loading"
                         ])(eventArgs[0]);
                       }).apply(null, eventArgs);
 

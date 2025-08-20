@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -338,55 +339,6 @@ function PlasmicRangeSlider__RenderFunc(props: {
             data-plasmic-name={"ariaSliderTrack"}
             data-plasmic-override={overrides.ariaSliderTrack}
             className={classNames("__wab_instance", sty.ariaSliderTrack)}
-            onHoverChange={async isHovering => {
-              const $steps = {};
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          var thumbs = document.querySelectorAll(
-                            '[class*="RangeSlider__sliderThumb"]'
-                          );
-                          var min = document.getElementById("min");
-                          var max = document.getElementById("max");
-                          if (thumbs.length >= 2 && min && max) {
-                            var rectMin = thumbs[0].getBoundingClientRect();
-                            var rectMax = thumbs[1].getBoundingClientRect();
-                            var leftMin = rectMin.left + "px";
-                            var leftMax = rectMax.left + "px";
-                            console.log(
-                              "Thumb 0 left:",
-                              leftMin,
-                              " -> apply to #min"
-                            );
-                            console.log(
-                              "Thumb 1 left:",
-                              leftMax,
-                              " -> apply to #max"
-                            );
-                            min.style.position = "absolute";
-                            max.style.position = "absolute";
-                            min.style.left = leftMin;
-                            return (max.style.left = leftMax);
-                          }
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-            }}
             progressBar={
               $props.filled ? (
                 <div

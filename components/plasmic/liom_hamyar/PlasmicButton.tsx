@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -156,6 +157,9 @@ export type PlasmicButton__ArgsType = {
   target?: boolean;
   onColorChange?: (val: any) => void;
   disabled?: boolean;
+  onLoadingChange?: (val: any) => void;
+  load?: boolean;
+  onLoadChange?: (val: string) => void;
   startIcon?: React.ReactNode;
   children?: React.ReactNode;
   endIcon?: React.ReactNode;
@@ -167,6 +171,9 @@ export const PlasmicButton__ArgProps = new Array<ArgPropType>(
   "target",
   "onColorChange",
   "disabled",
+  "onLoadingChange",
+  "load",
+  "onLoadChange",
   "startIcon",
   "children",
   "endIcon"
@@ -185,6 +192,9 @@ export interface DefaultButtonProps extends pp.BaseButtonProps {
   target?: boolean;
   onColorChange?: (val: any) => void;
   disabled?: boolean;
+  onLoadingChange?: (val: any) => void;
+  load?: boolean;
+  onLoadChange?: (val: string) => void;
   shape?: SingleChoiceArg<"rounded" | "round" | "sharp">;
   size?: SingleChoiceArg<"compact" | "minimal">;
   color?: MultiChoiceArg<
@@ -302,15 +312,19 @@ function PlasmicButton__RenderFunc(props: {
       },
       {
         path: "loading",
-        type: "private",
+        type: "writable",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.loading
+
+        valueProp: "loading",
+        onChangeProp: "onLoadingChange"
       },
       {
         path: "load",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "load",
+        onChangeProp: "onLoadChange"
       },
       {
         path: "filter",
@@ -566,6 +580,11 @@ function PlasmicButton__RenderFunc(props: {
             data-plasmic-name={"svg"}
             data-plasmic-override={overrides.svg}
             className={classNames(projectcss.all, sty.svg, {
+              [sty.svgisDisabled]: hasVariant(
+                $state,
+                "isDisabled",
+                "isDisabled"
+              ),
               [sty.svgloading]: hasVariant($state, "loading", "loading"),
               [sty.svgloading_color_white]:
                 hasVariant($state, "color", "white") &&
@@ -712,6 +731,8 @@ function PlasmicButton__RenderFunc(props: {
       {(
         hasVariant($state, "loading", "loading")
           ? true
+          : hasVariant($state, "filterX", "filterX")
+          ? true
           : hasVariant($state, "showEndIcon", "showEndIcon")
           ? true
           : false
@@ -729,6 +750,11 @@ function PlasmicButton__RenderFunc(props: {
               $state,
               "color",
               "yellow"
+            ),
+            [sty.endIconContainerfilterX]: hasVariant(
+              $state,
+              "filterX",
+              "filterX"
             ),
             [sty.endIconContainerloading]: hasVariant(
               $state,

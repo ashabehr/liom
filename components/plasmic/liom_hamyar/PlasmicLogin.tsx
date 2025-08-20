@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -826,6 +827,277 @@ function PlasmicLogin__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button2.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button6.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button4.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button8.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button9.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button3.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button7.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button5.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.loadedbtn;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "button2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.loadedbtn;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "button6.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.loadedbtn;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "button4.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.loadedbtn;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "button8.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.loadedbtn;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "button9.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.loadedbtn;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "button3.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "loginPage", "emailCode")
+            ? (() => {
+                try {
+                  return $state.loadedbtn;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()
+            : hasVariant($state, "loginPage", "mobileCode")
+            ? (() => {
+                try {
+                  return $state.loadedbtn;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()
+            : undefined
+      },
+      {
+        path: "button7.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "loginPage", "emailCode")
+            ? (() => {
+                try {
+                  return $state.loadedbtn;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()
+            : hasVariant($state, "loginPage", "mobileCode")
+            ? (() => {
+                try {
+                  return $state.loadedbtn;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()
+            : undefined
+      },
+      {
+        path: "button5.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "loginPage", "email")
+            ? (() => {
+                try {
+                  return $state.loadedbtn;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return $state.loadedbtn;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()
       }
     ],
     [$props, $ctx, $refs]
@@ -3109,19 +3381,11 @@ function PlasmicLogin__RenderFunc(props: {
                           })()
                         : undefined
                     }
-                    loading={(() => {
-                      try {
-                        return $state.loadedbtn;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()}
+                    load={generateStateValueProp($state, ["button", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button",
+                      "loading"
+                    ])}
                     onClick={async event => {
                       const $steps = {};
 
@@ -3521,6 +3785,37 @@ function PlasmicLogin__RenderFunc(props: {
                         generateStateOnChangeProp($state, ["button", "color"])(
                           eventArgs[0]
                         );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button",
+                          "loading"
+                        ])(eventArgs[0]);
                       }).apply(null, eventArgs);
 
                       if (
@@ -4849,19 +5144,11 @@ function PlasmicLogin__RenderFunc(props: {
                             })()
                           : undefined
                       }
-                      loading={(() => {
-                        try {
-                          return $state.loadedbtn;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()}
+                      load={generateStateValueProp($state, ["button2", "load"])}
+                      loading={generateStateValueProp($state, [
+                        "button2",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -5375,6 +5662,38 @@ function PlasmicLogin__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button2",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button2",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button2",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -7212,19 +7531,11 @@ function PlasmicLogin__RenderFunc(props: {
                             })()
                           : undefined
                       }
-                      loading={(() => {
-                        try {
-                          return $state.loadedbtn;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()}
+                      load={generateStateValueProp($state, ["button6", "load"])}
+                      loading={generateStateValueProp($state, [
+                        "button6",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -7541,6 +7852,38 @@ function PlasmicLogin__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button6",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button6",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button6",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -9487,19 +9830,14 @@ function PlasmicLogin__RenderFunc(props: {
                               })()
                             : undefined
                         }
-                        loading={(() => {
-                          try {
-                            return $state.loadedbtn;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
-                          }
-                        })()}
+                        load={generateStateValueProp($state, [
+                          "button4",
+                          "load"
+                        ])}
+                        loading={generateStateValueProp($state, [
+                          "button4",
+                          "loading"
+                        ])}
                         onClick={async event => {
                           const $steps = {};
 
@@ -10438,6 +10776,38 @@ function PlasmicLogin__RenderFunc(props: {
                             generateStateOnChangeProp($state, [
                               "button4",
                               "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button4",
+                              "load"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadingChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button4",
+                              "loading"
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
 
@@ -11857,19 +12227,14 @@ function PlasmicLogin__RenderFunc(props: {
                               })()
                             : undefined
                         }
-                        loading={(() => {
-                          try {
-                            return $state.loadedbtn;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
-                          }
-                        })()}
+                        load={generateStateValueProp($state, [
+                          "button8",
+                          "load"
+                        ])}
+                        loading={generateStateValueProp($state, [
+                          "button8",
+                          "loading"
+                        ])}
                         onClick={async event => {
                           const $steps = {};
 
@@ -12001,6 +12366,38 @@ function PlasmicLogin__RenderFunc(props: {
                             generateStateOnChangeProp($state, [
                               "button8",
                               "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button8",
+                              "load"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadingChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button8",
+                              "loading"
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
 
@@ -12179,19 +12576,11 @@ function PlasmicLogin__RenderFunc(props: {
                             })()
                           : undefined
                       }
-                      loading={(() => {
-                        try {
-                          return $state.loadedbtn;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()}
+                      load={generateStateValueProp($state, ["button9", "load"])}
+                      loading={generateStateValueProp($state, [
+                        "button9",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -12855,6 +13244,38 @@ function PlasmicLogin__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button9",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button9",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button9",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -14382,37 +14803,11 @@ function PlasmicLogin__RenderFunc(props: {
                             })()
                           : undefined
                       }
-                      loading={
-                        hasVariant($state, "loginPage", "emailCode")
-                          ? (() => {
-                              try {
-                                return $state.loadedbtn;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()
-                          : hasVariant($state, "loginPage", "mobileCode")
-                          ? (() => {
-                              try {
-                                return $state.loadedbtn;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()
-                          : undefined
-                      }
+                      load={generateStateValueProp($state, ["button3", "load"])}
+                      loading={generateStateValueProp($state, [
+                        "button3",
+                        "loading"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -15064,6 +15459,38 @@ function PlasmicLogin__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "button3",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button3",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadingChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button3",
+                            "loading"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -16524,37 +16951,11 @@ function PlasmicLogin__RenderFunc(props: {
                           })()
                         : undefined
                     }
-                    loading={
-                      hasVariant($state, "loginPage", "emailCode")
-                        ? (() => {
-                            try {
-                              return $state.loadedbtn;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        : hasVariant($state, "loginPage", "mobileCode")
-                        ? (() => {
-                            try {
-                              return $state.loadedbtn;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        : undefined
-                    }
+                    load={generateStateValueProp($state, ["button7", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button7",
+                      "loading"
+                    ])}
                     onClick={async event => {
                       const $steps = {};
 
@@ -17042,6 +17443,37 @@ function PlasmicLogin__RenderFunc(props: {
                         generateStateOnChangeProp($state, ["button7", "color"])(
                           eventArgs[0]
                         );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button7", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button7",
+                          "loading"
+                        ])(eventArgs[0]);
                       }).apply(null, eventArgs);
 
                       if (
@@ -18058,35 +18490,11 @@ function PlasmicLogin__RenderFunc(props: {
                           })()
                         : undefined
                     }
-                    loading={
-                      hasVariant($state, "loginPage", "email")
-                        ? (() => {
-                            try {
-                              return $state.loadedbtn;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        : (() => {
-                            try {
-                              return $state.loadedbtn;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                    }
+                    load={generateStateValueProp($state, ["button5", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button5",
+                      "loading"
+                    ])}
                     onClick={async event => {
                       const $steps = {};
 
@@ -18343,6 +18751,37 @@ function PlasmicLogin__RenderFunc(props: {
                         generateStateOnChangeProp($state, ["button5", "color"])(
                           eventArgs[0]
                         );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button5", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button5",
+                          "loading"
+                        ])(eventArgs[0]);
                       }).apply(null, eventArgs);
 
                       if (

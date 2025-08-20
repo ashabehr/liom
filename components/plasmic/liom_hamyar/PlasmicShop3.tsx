@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -1987,6 +1988,129 @@ function PlasmicShop3__RenderFunc(props: {
               "\u0648\u06cc\u0698\u06af\u06cc \u0627\u06cc \u06a9\u0647 \u0642\u0635\u062f \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u0648\u0646 \u0631\u0648 \u062f\u0627\u0631\u06cc\u062f\u060c \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062f\u0627\u0631\u062f\u060c \u0636\u0645\u0646\u0627 \u0645\u06cc\u062a\u0648\u0646\u06cc \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0627\u06af\u0631 \u0627\u0645\u06a9\u0627\u0646 \u0648\u06cc\u0698\u0647 \u062f\u06cc\u06af\u0647 \u0627\u06cc \u0631\u0648 \u062f\u0648\u0633\u062a \u062f\u0627\u0631\u06cc \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc \u0648 \u0628\u0627 \u0647\u0632\u06cc\u0646\u0647 \u06a9\u0645\u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u062e\u0648\u062f\u062a \u0641\u0639\u0627\u0644\u0634 \u06a9\u0646\u06cc\u2764\ufe0f"
           }
         })
+      },
+      {
+        path: "button8.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button11.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button9.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button14.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button10.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button13.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button8.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.loadingBtn;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "button11.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.loadingBtn;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "button9.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button14.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.loadingBtn;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "button10.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button13.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -2854,20 +2978,14 @@ function PlasmicShop3__RenderFunc(props: {
                                       throw e;
                                     }
                                   })()}
-                                  loading={(() => {
-                                    try {
-                                      return $state.loadingBtn;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
+                                  load={generateStateValueProp($state, [
+                                    "button8",
+                                    "load"
+                                  ])}
+                                  loading={generateStateValueProp($state, [
+                                    "button8",
+                                    "loading"
+                                  ])}
                                   onClick={async event => {
                                     const $steps = {};
 
@@ -3146,6 +3264,40 @@ function PlasmicShop3__RenderFunc(props: {
                                       return;
                                     }
                                   }}
+                                  onLoadChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button8",
+                                        "load"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadingChange={async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button8",
+                                        "loading"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
                                   size={"compact"}
                                 >
                                   <div
@@ -3210,20 +3362,14 @@ function PlasmicShop3__RenderFunc(props: {
                                       throw e;
                                     }
                                   })()}
-                                  loading={(() => {
-                                    try {
-                                      return $state.loadingBtn;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
+                                  load={generateStateValueProp($state, [
+                                    "button11",
+                                    "load"
+                                  ])}
+                                  loading={generateStateValueProp($state, [
+                                    "button11",
+                                    "loading"
+                                  ])}
                                   onClick={async event => {
                                     const $steps = {};
 
@@ -3502,6 +3648,40 @@ function PlasmicShop3__RenderFunc(props: {
                                       return;
                                     }
                                   }}
+                                  onLoadChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button11",
+                                        "load"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadingChange={async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button11",
+                                        "loading"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
                                   size={"compact"}
                                 >
                                   <div
@@ -3537,6 +3717,14 @@ function PlasmicShop3__RenderFunc(props: {
                                     role={"img"}
                                   />
                                 }
+                                load={generateStateValueProp($state, [
+                                  "button9",
+                                  "load"
+                                ])}
+                                loading={generateStateValueProp($state, [
+                                  "button9",
+                                  "loading"
+                                ])}
                                 onClick={async event => {
                                   const $steps = {};
 
@@ -3588,6 +3776,38 @@ function PlasmicShop3__RenderFunc(props: {
                                     generateStateOnChangeProp($state, [
                                       "button9",
                                       "color"
+                                    ])(eventArgs[0]);
+                                  }).apply(null, eventArgs);
+
+                                  if (
+                                    eventArgs.length > 1 &&
+                                    eventArgs[1] &&
+                                    eventArgs[1]._plasmic_state_init_
+                                  ) {
+                                    return;
+                                  }
+                                }}
+                                onLoadChange={async (...eventArgs: any) => {
+                                  ((...eventArgs) => {
+                                    generateStateOnChangeProp($state, [
+                                      "button9",
+                                      "load"
+                                    ])(eventArgs[0]);
+                                  }).apply(null, eventArgs);
+
+                                  if (
+                                    eventArgs.length > 1 &&
+                                    eventArgs[1] &&
+                                    eventArgs[1]._plasmic_state_init_
+                                  ) {
+                                    return;
+                                  }
+                                }}
+                                onLoadingChange={async (...eventArgs: any) => {
+                                  ((...eventArgs) => {
+                                    generateStateOnChangeProp($state, [
+                                      "button9",
+                                      "loading"
                                     ])(eventArgs[0]);
                                   }).apply(null, eventArgs);
 
@@ -4109,19 +4329,14 @@ function PlasmicShop3__RenderFunc(props: {
                                 throw e;
                               }
                             })()}
-                            loading={(() => {
-                              try {
-                                return $state.loadingBtn;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()}
+                            load={generateStateValueProp($state, [
+                              "button14",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "button14",
+                              "loading"
+                            ])}
                             onClick={async event => {
                               const $steps = {};
 
@@ -4341,6 +4556,38 @@ function PlasmicShop3__RenderFunc(props: {
                                 return;
                               }
                             }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button14",
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button14",
+                                  "loading"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
                           >
                             <div
                               className={classNames(
@@ -4389,6 +4636,14 @@ function PlasmicShop3__RenderFunc(props: {
                                 role={"img"}
                               />
                             }
+                            load={generateStateValueProp($state, [
+                              "button10",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "button10",
+                              "loading"
+                            ])}
                             onClick={async event => {
                               const $steps = {};
 
@@ -4435,6 +4690,38 @@ function PlasmicShop3__RenderFunc(props: {
                                 generateStateOnChangeProp($state, [
                                   "button10",
                                   "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button10",
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button10",
+                                  "loading"
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
 
@@ -4601,6 +4888,14 @@ function PlasmicShop3__RenderFunc(props: {
                                   throw e;
                                 }
                               })()}
+                              load={generateStateValueProp($state, [
+                                "button13",
+                                "load"
+                              ])}
+                              loading={generateStateValueProp($state, [
+                                "button13",
+                                "loading"
+                              ])}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -4648,6 +4943,38 @@ function PlasmicShop3__RenderFunc(props: {
                                   generateStateOnChangeProp($state, [
                                     "button13",
                                     "color"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              onLoadChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button13",
+                                    "load"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              onLoadingChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button13",
+                                    "loading"
                                   ])(eventArgs[0]);
                                 }).apply(null, eventArgs);
 
@@ -5076,6 +5403,8 @@ function PlasmicShop3__RenderFunc(props: {
                 data-plasmic-override={overrides.button}
                 className={classNames("__wab_instance", sty.button)}
                 color={generateStateValueProp($state, ["button", "color"])}
+                load={generateStateValueProp($state, ["button", "load"])}
+                loading={generateStateValueProp($state, ["button", "loading"])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -5116,6 +5445,36 @@ function PlasmicShop3__RenderFunc(props: {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "loading"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);

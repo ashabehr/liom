@@ -84,6 +84,14 @@
     grid-column: 4;
   }
 }
+.sideEffect:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  display: none;
+}
+.sideEffectfailed:global(.__wab_instance) {
+  display: flex;
+}
 .freeBox__zoAdj {
   flex-direction: column;
   position: relative;
@@ -621,14 +629,6 @@
   right: auto;
   bottom: auto;
   display: none;
-}
-.fragmentApiRequest:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-  display: none;
-}
-.fragmentApiRequestfailed:global(.__wab_instance) {
-  display: flex;
 }
 .lottie:global(.__wab_instance) {
   max-width: 200%;

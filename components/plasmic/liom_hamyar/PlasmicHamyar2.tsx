@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -1521,6 +1522,150 @@ function PlasmicHamyar2__RenderFunc(props: {
         path: "useful[].cycle",
         type: "private",
         variableType: "text"
+      },
+      {
+        path: "button9.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button14.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button10.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button15.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button3.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button2.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button7.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button4.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button5.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button6.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button13.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button9.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button14.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button10.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button15.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button7.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button5.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button6.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button13.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -2662,6 +2807,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                                     "button9",
                                     "color"
                                   ])}
+                                  load={generateStateValueProp($state, [
+                                    "button9",
+                                    "load"
+                                  ])}
+                                  loading={generateStateValueProp($state, [
+                                    "button9",
+                                    "loading"
+                                  ])}
                                   onClick={async event => {
                                     const $steps = {};
 
@@ -2717,6 +2870,40 @@ function PlasmicHamyar2__RenderFunc(props: {
                                       generateStateOnChangeProp($state, [
                                         "button9",
                                         "color"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button9",
+                                        "load"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadingChange={async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button9",
+                                        "loading"
                                       ])(eventArgs[0]);
                                     }).apply(null, eventArgs);
 
@@ -2859,6 +3046,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                                     "button14",
                                     "color"
                                   ])}
+                                  load={generateStateValueProp($state, [
+                                    "button14",
+                                    "load"
+                                  ])}
+                                  loading={generateStateValueProp($state, [
+                                    "button14",
+                                    "loading"
+                                  ])}
                                   onClick={async event => {
                                     const $steps = {};
 
@@ -2914,6 +3109,40 @@ function PlasmicHamyar2__RenderFunc(props: {
                                       generateStateOnChangeProp($state, [
                                         "button14",
                                         "color"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button14",
+                                        "load"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadingChange={async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button14",
+                                        "loading"
                                       ])(eventArgs[0]);
                                     }).apply(null, eventArgs);
 
@@ -3180,6 +3409,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                                         "button10",
                                         "color"
                                       ])}
+                                      load={generateStateValueProp($state, [
+                                        "button10",
+                                        "load"
+                                      ])}
+                                      loading={generateStateValueProp($state, [
+                                        "button10",
+                                        "loading"
+                                      ])}
                                       onClick={async event => {
                                         const $steps = {};
 
@@ -3253,6 +3490,42 @@ function PlasmicHamyar2__RenderFunc(props: {
                                           return;
                                         }
                                       }}
+                                      onLoadChange={async (
+                                        ...eventArgs: any
+                                      ) => {
+                                        ((...eventArgs) => {
+                                          generateStateOnChangeProp($state, [
+                                            "button10",
+                                            "load"
+                                          ])(eventArgs[0]);
+                                        }).apply(null, eventArgs);
+
+                                        if (
+                                          eventArgs.length > 1 &&
+                                          eventArgs[1] &&
+                                          eventArgs[1]._plasmic_state_init_
+                                        ) {
+                                          return;
+                                        }
+                                      }}
+                                      onLoadingChange={async (
+                                        ...eventArgs: any
+                                      ) => {
+                                        ((...eventArgs) => {
+                                          generateStateOnChangeProp($state, [
+                                            "button10",
+                                            "loading"
+                                          ])(eventArgs[0]);
+                                        }).apply(null, eventArgs);
+
+                                        if (
+                                          eventArgs.length > 1 &&
+                                          eventArgs[1] &&
+                                          eventArgs[1]._plasmic_state_init_
+                                        ) {
+                                          return;
+                                        }
+                                      }}
                                       size={
                                         hasVariant(
                                           globalVariants,
@@ -3309,6 +3582,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                                       color={generateStateValueProp($state, [
                                         "button15",
                                         "color"
+                                      ])}
+                                      load={generateStateValueProp($state, [
+                                        "button15",
+                                        "load"
+                                      ])}
+                                      loading={generateStateValueProp($state, [
+                                        "button15",
+                                        "loading"
                                       ])}
                                       onClick={async event => {
                                         const $steps = {};
@@ -3372,6 +3653,42 @@ function PlasmicHamyar2__RenderFunc(props: {
                                           generateStateOnChangeProp($state, [
                                             "button15",
                                             "color"
+                                          ])(eventArgs[0]);
+                                        }).apply(null, eventArgs);
+
+                                        if (
+                                          eventArgs.length > 1 &&
+                                          eventArgs[1] &&
+                                          eventArgs[1]._plasmic_state_init_
+                                        ) {
+                                          return;
+                                        }
+                                      }}
+                                      onLoadChange={async (
+                                        ...eventArgs: any
+                                      ) => {
+                                        ((...eventArgs) => {
+                                          generateStateOnChangeProp($state, [
+                                            "button15",
+                                            "load"
+                                          ])(eventArgs[0]);
+                                        }).apply(null, eventArgs);
+
+                                        if (
+                                          eventArgs.length > 1 &&
+                                          eventArgs[1] &&
+                                          eventArgs[1]._plasmic_state_init_
+                                        ) {
+                                          return;
+                                        }
+                                      }}
+                                      onLoadingChange={async (
+                                        ...eventArgs: any
+                                      ) => {
+                                        ((...eventArgs) => {
+                                          generateStateOnChangeProp($state, [
+                                            "button15",
+                                            "loading"
                                           ])(eventArgs[0]);
                                         }).apply(null, eventArgs);
 
@@ -6725,6 +7042,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                         throw e;
                       }
                     })()}
+                    load={generateStateValueProp($state, ["button3", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button3",
+                      "loading"
+                    ])}
                     onClick={async event => {
                       const $steps = {};
 
@@ -6980,6 +7302,37 @@ function PlasmicHamyar2__RenderFunc(props: {
                         generateStateOnChangeProp($state, ["button3", "color"])(
                           eventArgs[0]
                         );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button3", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button3",
+                          "loading"
+                        ])(eventArgs[0]);
                       }).apply(null, eventArgs);
 
                       if (
@@ -8422,6 +8775,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                                           }
                                         })()
                                   }
+                                  load={generateStateValueProp($state, [
+                                    "button",
+                                    "load"
+                                  ])}
+                                  loading={generateStateValueProp($state, [
+                                    "button",
+                                    "loading"
+                                  ])}
                                   onClick={async event => {
                                     const $steps = {};
 
@@ -8526,6 +8887,40 @@ function PlasmicHamyar2__RenderFunc(props: {
                                       return;
                                     }
                                   }}
+                                  onLoadChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button",
+                                        "load"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadingChange={async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button",
+                                        "loading"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
                                 >
                                   {"\u062a\u0627\u06cc\u06cc\u062f"}
                                 </Button>
@@ -8591,6 +8986,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                                       }
                                     })()
                               }
+                              load={generateStateValueProp($state, [
+                                "button2",
+                                "load"
+                              ])}
+                              loading={generateStateValueProp($state, [
+                                "button2",
+                                "loading"
+                              ])}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -8914,6 +9317,38 @@ function PlasmicHamyar2__RenderFunc(props: {
                                   return;
                                 }
                               }}
+                              onLoadChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button2",
+                                    "load"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              onLoadingChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button2",
+                                    "loading"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
                               showEndIcon={(() => {
                                 try {
                                   return $state.loadingshop;
@@ -9198,6 +9633,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                                     }
                                   })()
                             }
+                            load={generateStateValueProp($state, [
+                              "button7",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "button7",
+                              "loading"
+                            ])}
                             onClick={async event => {
                               const $steps = {};
 
@@ -9244,6 +9687,38 @@ function PlasmicHamyar2__RenderFunc(props: {
                                 generateStateOnChangeProp($state, [
                                   "button7",
                                   "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button7",
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button7",
+                                  "loading"
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
 
@@ -9731,6 +10206,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                           })()
                         : undefined
                     }
+                    load={generateStateValueProp($state, ["button4", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button4",
+                      "loading"
+                    ])}
                     onClick={async event => {
                       const $steps = {};
 
@@ -9987,6 +10467,37 @@ function PlasmicHamyar2__RenderFunc(props: {
                         generateStateOnChangeProp($state, ["button4", "color"])(
                           eventArgs[0]
                         );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button4", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button4",
+                          "loading"
+                        ])(eventArgs[0]);
                       }).apply(null, eventArgs);
 
                       if (
@@ -10877,6 +11388,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                                           }
                                         })()
                                   }
+                                  load={generateStateValueProp($state, [
+                                    "button5",
+                                    "load"
+                                  ])}
+                                  loading={generateStateValueProp($state, [
+                                    "button5",
+                                    "loading"
+                                  ])}
                                   onClick={async event => {
                                     const $steps = {};
 
@@ -10981,6 +11500,40 @@ function PlasmicHamyar2__RenderFunc(props: {
                                       return;
                                     }
                                   }}
+                                  onLoadChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button5",
+                                        "load"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                  onLoadingChange={async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button5",
+                                        "loading"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
                                 >
                                   {"\u062a\u0627\u06cc\u06cc\u062f"}
                                 </Button>
@@ -11029,6 +11582,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                                   throw e;
                                 }
                               })()}
+                              load={generateStateValueProp($state, [
+                                "button6",
+                                "load"
+                              ])}
+                              loading={generateStateValueProp($state, [
+                                "button6",
+                                "loading"
+                              ])}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -11302,6 +11863,38 @@ function PlasmicHamyar2__RenderFunc(props: {
                                   generateStateOnChangeProp($state, [
                                     "button6",
                                     "color"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              onLoadChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button6",
+                                    "load"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                              onLoadingChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button6",
+                                    "loading"
                                   ])(eventArgs[0]);
                                 }).apply(null, eventArgs);
 
@@ -14950,6 +15543,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                 data-plasmic-override={overrides.button13}
                 className={classNames("__wab_instance", sty.button13)}
                 color={generateStateValueProp($state, ["button13", "color"])}
+                load={generateStateValueProp($state, ["button13", "load"])}
+                loading={generateStateValueProp($state, [
+                  "button13",
+                  "loading"
+                ])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -14992,6 +15590,36 @@ function PlasmicHamyar2__RenderFunc(props: {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button13", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button13", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button13", "loading"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);

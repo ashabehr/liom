@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -1588,6 +1589,144 @@ function PlasmicCalendar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "button13.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button19[].load",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "button20.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button21.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button18.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button16.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button2.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button23.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button25.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button17[].load",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "button22[].load",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button13.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button19[].loading",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "button20.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button21.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button18.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button16.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button23.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button25.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button17[].loading",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "button22[].loading",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -3835,6 +3974,11 @@ function PlasmicCalendar__RenderFunc(props: {
                 data-plasmic-override={overrides.button13}
                 className={classNames("__wab_instance", sty.button13)}
                 color={generateStateValueProp($state, ["button13", "color"])}
+                load={generateStateValueProp($state, ["button13", "load"])}
+                loading={generateStateValueProp($state, [
+                  "button13",
+                  "loading"
+                ])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -3877,6 +4021,36 @@ function PlasmicCalendar__RenderFunc(props: {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button13", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button13", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button13", "loading"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -4001,6 +4175,16 @@ function PlasmicCalendar__RenderFunc(props: {
                             __plasmic_idx_0,
                             "color"
                           ]),
+                          load: generateStateValueProp($state, [
+                            "button19",
+                            __plasmic_idx_0,
+                            "load"
+                          ]),
+                          loading: generateStateValueProp($state, [
+                            "button19",
+                            __plasmic_idx_0,
+                            "loading"
+                          ]),
                           onClick: async event => {
                             const $steps = {};
 
@@ -4098,6 +4282,40 @@ function PlasmicCalendar__RenderFunc(props: {
                               return;
                             }
                           },
+                          onLoadChange: async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button19",
+                                __plasmic_idx_0,
+                                "load"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          },
+                          onLoadingChange: async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button19",
+                                __plasmic_idx_0,
+                                "loading"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          },
                           shape: "rounded"
                         };
 
@@ -4107,6 +4325,15 @@ function PlasmicCalendar__RenderFunc(props: {
                             {
                               name: "button19[].color",
                               initFunc: ({ $props, $state, $queries }) => "line"
+                            },
+                            {
+                              name: "button19[].load",
+                              initFunc: ({ $props, $state, $queries }) => false
+                            },
+                            {
+                              name: "button19[].loading",
+                              initFunc: ({ $props, $state, $queries }) =>
+                                undefined
                             }
                           ],
                           [__plasmic_idx_0]
@@ -4239,6 +4466,11 @@ function PlasmicCalendar__RenderFunc(props: {
                       "button20",
                       "color"
                     ])}
+                    load={generateStateValueProp($state, ["button20", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button20",
+                      "loading"
+                    ])}
                     onClick={async event => {
                       const $steps = {};
 
@@ -4294,6 +4526,37 @@ function PlasmicCalendar__RenderFunc(props: {
                         return;
                       }
                     }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button20", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button20",
+                          "loading"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
                     size={"compact"}
                   >
                     <React.Fragment>
@@ -4318,6 +4581,11 @@ function PlasmicCalendar__RenderFunc(props: {
                   data-plasmic-override={overrides.button21}
                   className={classNames("__wab_instance", sty.button21)}
                   color={generateStateValueProp($state, ["button21", "color"])}
+                  load={generateStateValueProp($state, ["button21", "load"])}
+                  loading={generateStateValueProp($state, [
+                    "button21",
+                    "loading"
+                  ])}
                   onClick={async event => {
                     const $steps = {};
 
@@ -4362,6 +4630,37 @@ function PlasmicCalendar__RenderFunc(props: {
                       generateStateOnChangeProp($state, ["button21", "color"])(
                         eventArgs[0]
                       );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button21", "load"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadingChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "button21",
+                        "loading"
+                      ])(eventArgs[0]);
                     }).apply(null, eventArgs);
 
                     if (
@@ -12519,6 +12818,11 @@ function PlasmicCalendar__RenderFunc(props: {
                   )
                 })}
                 color={generateStateValueProp($state, ["button18", "color"])}
+                load={generateStateValueProp($state, ["button18", "load"])}
+                loading={generateStateValueProp($state, [
+                  "button18",
+                  "loading"
+                ])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -12576,6 +12880,36 @@ function PlasmicCalendar__RenderFunc(props: {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button18", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button18", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button18", "loading"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -17932,6 +18266,14 @@ function PlasmicCalendar__RenderFunc(props: {
                               "button16",
                               "color"
                             ])}
+                            load={generateStateValueProp($state, [
+                              "button16",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "button16",
+                              "loading"
+                            ])}
                             onClick={async event => {
                               const $steps = {};
 
@@ -18121,6 +18463,38 @@ function PlasmicCalendar__RenderFunc(props: {
                                 generateStateOnChangeProp($state, [
                                   "button16",
                                   "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button16",
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button16",
+                                  "loading"
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
 
@@ -18467,6 +18841,14 @@ function PlasmicCalendar__RenderFunc(props: {
                               "button2",
                               "color"
                             ])}
+                            load={generateStateValueProp($state, [
+                              "button2",
+                              "load"
+                            ])}
+                            loading={generateStateValueProp($state, [
+                              "button2",
+                              "loading"
+                            ])}
                             onClick={async event => {
                               const $steps = {};
 
@@ -18545,6 +18927,38 @@ function PlasmicCalendar__RenderFunc(props: {
                                 generateStateOnChangeProp($state, [
                                   "button2",
                                   "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button2",
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadingChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button2",
+                                  "loading"
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
 
@@ -27786,6 +28200,14 @@ function PlasmicCalendar__RenderFunc(props: {
                                           "button23",
                                           "color"
                                         ])}
+                                        load={generateStateValueProp($state, [
+                                          "button23",
+                                          "load"
+                                        ])}
+                                        loading={generateStateValueProp(
+                                          $state,
+                                          ["button23", "loading"]
+                                        )}
                                         onColorChange={async (
                                           ...eventArgs: any
                                         ) => {
@@ -27793,6 +28215,42 @@ function PlasmicCalendar__RenderFunc(props: {
                                             generateStateOnChangeProp($state, [
                                               "button23",
                                               "color"
+                                            ])(eventArgs[0]);
+                                          }).apply(null, eventArgs);
+
+                                          if (
+                                            eventArgs.length > 1 &&
+                                            eventArgs[1] &&
+                                            eventArgs[1]._plasmic_state_init_
+                                          ) {
+                                            return;
+                                          }
+                                        }}
+                                        onLoadChange={async (
+                                          ...eventArgs: any
+                                        ) => {
+                                          ((...eventArgs) => {
+                                            generateStateOnChangeProp($state, [
+                                              "button23",
+                                              "load"
+                                            ])(eventArgs[0]);
+                                          }).apply(null, eventArgs);
+
+                                          if (
+                                            eventArgs.length > 1 &&
+                                            eventArgs[1] &&
+                                            eventArgs[1]._plasmic_state_init_
+                                          ) {
+                                            return;
+                                          }
+                                        }}
+                                        onLoadingChange={async (
+                                          ...eventArgs: any
+                                        ) => {
+                                          ((...eventArgs) => {
+                                            generateStateOnChangeProp($state, [
+                                              "button23",
+                                              "loading"
                                             ])(eventArgs[0]);
                                           }).apply(null, eventArgs);
 
@@ -48253,6 +48711,14 @@ function PlasmicCalendar__RenderFunc(props: {
                                           "button25",
                                           "color"
                                         ])}
+                                        load={generateStateValueProp($state, [
+                                          "button25",
+                                          "load"
+                                        ])}
+                                        loading={generateStateValueProp(
+                                          $state,
+                                          ["button25", "loading"]
+                                        )}
                                         onColorChange={async (
                                           ...eventArgs: any
                                         ) => {
@@ -48260,6 +48726,42 @@ function PlasmicCalendar__RenderFunc(props: {
                                             generateStateOnChangeProp($state, [
                                               "button25",
                                               "color"
+                                            ])(eventArgs[0]);
+                                          }).apply(null, eventArgs);
+
+                                          if (
+                                            eventArgs.length > 1 &&
+                                            eventArgs[1] &&
+                                            eventArgs[1]._plasmic_state_init_
+                                          ) {
+                                            return;
+                                          }
+                                        }}
+                                        onLoadChange={async (
+                                          ...eventArgs: any
+                                        ) => {
+                                          ((...eventArgs) => {
+                                            generateStateOnChangeProp($state, [
+                                              "button25",
+                                              "load"
+                                            ])(eventArgs[0]);
+                                          }).apply(null, eventArgs);
+
+                                          if (
+                                            eventArgs.length > 1 &&
+                                            eventArgs[1] &&
+                                            eventArgs[1]._plasmic_state_init_
+                                          ) {
+                                            return;
+                                          }
+                                        }}
+                                        onLoadingChange={async (
+                                          ...eventArgs: any
+                                        ) => {
+                                          ((...eventArgs) => {
+                                            generateStateOnChangeProp($state, [
+                                              "button25",
+                                              "loading"
                                             ])(eventArgs[0]);
                                           }).apply(null, eventArgs);
 
@@ -54909,6 +55411,19 @@ function PlasmicCalendar__RenderFunc(props: {
                                               "color"
                                             ]
                                           ),
+                                          load: generateStateValueProp($state, [
+                                            "button17",
+                                            __plasmic_idx_0,
+                                            "load"
+                                          ]),
+                                          loading: generateStateValueProp(
+                                            $state,
+                                            [
+                                              "button17",
+                                              __plasmic_idx_0,
+                                              "loading"
+                                            ]
+                                          ),
                                           onColorChange: async (
                                             ...eventArgs: any
                                           ) => {
@@ -54931,6 +55446,50 @@ function PlasmicCalendar__RenderFunc(props: {
                                               return;
                                             }
                                           },
+                                          onLoadChange: async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                [
+                                                  "button17",
+                                                  __plasmic_idx_0,
+                                                  "load"
+                                                ]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+                                          },
+                                          onLoadingChange: async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                [
+                                                  "button17",
+                                                  __plasmic_idx_0,
+                                                  "loading"
+                                                ]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+                                          },
                                           size: "compact"
                                         };
 
@@ -54939,6 +55498,22 @@ function PlasmicCalendar__RenderFunc(props: {
                                           [
                                             {
                                               name: "button17[].color",
+                                              initFunc: ({
+                                                $props,
+                                                $state,
+                                                $queries
+                                              }) => undefined
+                                            },
+                                            {
+                                              name: "button17[].load",
+                                              initFunc: ({
+                                                $props,
+                                                $state,
+                                                $queries
+                                              }) => false
+                                            },
+                                            {
+                                              name: "button17[].loading",
                                               initFunc: ({
                                                 $props,
                                                 $state,
@@ -55122,6 +55697,19 @@ function PlasmicCalendar__RenderFunc(props: {
                                               "color"
                                             ]
                                           ),
+                                          load: generateStateValueProp($state, [
+                                            "button22",
+                                            __plasmic_idx_0,
+                                            "load"
+                                          ]),
+                                          loading: generateStateValueProp(
+                                            $state,
+                                            [
+                                              "button22",
+                                              __plasmic_idx_0,
+                                              "loading"
+                                            ]
+                                          ),
                                           onColorChange: async (
                                             ...eventArgs: any
                                           ) => {
@@ -55144,6 +55732,50 @@ function PlasmicCalendar__RenderFunc(props: {
                                               return;
                                             }
                                           },
+                                          onLoadChange: async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                [
+                                                  "button22",
+                                                  __plasmic_idx_0,
+                                                  "load"
+                                                ]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+                                          },
+                                          onLoadingChange: async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                [
+                                                  "button22",
+                                                  __plasmic_idx_0,
+                                                  "loading"
+                                                ]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+                                          },
                                           size: "compact"
                                         };
 
@@ -55152,6 +55784,22 @@ function PlasmicCalendar__RenderFunc(props: {
                                           [
                                             {
                                               name: "button22[].color",
+                                              initFunc: ({
+                                                $props,
+                                                $state,
+                                                $queries
+                                              }) => undefined
+                                            },
+                                            {
+                                              name: "button22[].load",
+                                              initFunc: ({
+                                                $props,
+                                                $state,
+                                                $queries
+                                              }) => false
+                                            },
+                                            {
+                                              name: "button22[].loading",
                                               initFunc: ({
                                                 $props,
                                                 $state,
@@ -58029,6 +58677,8 @@ function PlasmicCalendar__RenderFunc(props: {
                     role={"img"}
                   />
                 }
+                load={generateStateValueProp($state, ["button", "load"])}
+                loading={generateStateValueProp($state, ["button", "loading"])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -58058,6 +58708,36 @@ function PlasmicCalendar__RenderFunc(props: {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadingChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "loading"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);

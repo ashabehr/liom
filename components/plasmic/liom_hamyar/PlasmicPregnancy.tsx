@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -1205,6 +1206,40 @@ function PlasmicPregnancy__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button3[].load",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "button2.load",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3[].loading",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "button2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1328,11 +1363,47 @@ function PlasmicPregnancy__RenderFunc(props: {
                     data-plasmic-override={overrides.button}
                     className={classNames("__wab_instance", sty.button)}
                     color={generateStateValueProp($state, ["button", "color"])}
+                    load={generateStateValueProp($state, ["button", "load"])}
+                    loading={generateStateValueProp($state, [
+                      "button",
+                      "loading"
+                    ])}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
                         generateStateOnChangeProp($state, ["button", "color"])(
                           eventArgs[0]
                         );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button", "load"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadingChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button",
+                          "loading"
+                        ])(eventArgs[0]);
                       }).apply(null, eventArgs);
 
                       if (
@@ -10718,6 +10789,23 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                           "color"
                                                         ]
                                                       ),
+                                                    load: generateStateValueProp(
+                                                      $state,
+                                                      [
+                                                        "button3",
+                                                        __plasmic_idx_0,
+                                                        "load"
+                                                      ]
+                                                    ),
+                                                    loading:
+                                                      generateStateValueProp(
+                                                        $state,
+                                                        [
+                                                          "button3",
+                                                          __plasmic_idx_0,
+                                                          "loading"
+                                                        ]
+                                                      ),
                                                     onColorChange: async (
                                                       ...eventArgs: any
                                                     ) => {
@@ -10741,6 +10829,52 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                         return;
                                                       }
                                                     },
+                                                    onLoadChange: async (
+                                                      ...eventArgs: any
+                                                    ) => {
+                                                      ((...eventArgs) => {
+                                                        generateStateOnChangeProp(
+                                                          $state,
+                                                          [
+                                                            "button3",
+                                                            __plasmic_idx_0,
+                                                            "load"
+                                                          ]
+                                                        )(eventArgs[0]);
+                                                      }).apply(null, eventArgs);
+
+                                                      if (
+                                                        eventArgs.length > 1 &&
+                                                        eventArgs[1] &&
+                                                        eventArgs[1]
+                                                          ._plasmic_state_init_
+                                                      ) {
+                                                        return;
+                                                      }
+                                                    },
+                                                    onLoadingChange: async (
+                                                      ...eventArgs: any
+                                                    ) => {
+                                                      ((...eventArgs) => {
+                                                        generateStateOnChangeProp(
+                                                          $state,
+                                                          [
+                                                            "button3",
+                                                            __plasmic_idx_0,
+                                                            "loading"
+                                                          ]
+                                                        )(eventArgs[0]);
+                                                      }).apply(null, eventArgs);
+
+                                                      if (
+                                                        eventArgs.length > 1 &&
+                                                        eventArgs[1] &&
+                                                        eventArgs[1]
+                                                          ._plasmic_state_init_
+                                                      ) {
+                                                        return;
+                                                      }
+                                                    },
                                                     size: "minimal"
                                                   };
 
@@ -10749,6 +10883,22 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                     [
                                                       {
                                                         name: "button3[].color",
+                                                        initFunc: ({
+                                                          $props,
+                                                          $state,
+                                                          $queries
+                                                        }) => undefined
+                                                      },
+                                                      {
+                                                        name: "button3[].load",
+                                                        initFunc: ({
+                                                          $props,
+                                                          $state,
+                                                          $queries
+                                                        }) => false
+                                                      },
+                                                      {
+                                                        name: "button3[].loading",
                                                         initFunc: ({
                                                           $props,
                                                           $state,
@@ -20258,6 +20408,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                                             $state,
                                             ["button2", "color"]
                                           )}
+                                          load={generateStateValueProp($state, [
+                                            "button2",
+                                            "load"
+                                          ])}
+                                          loading={generateStateValueProp(
+                                            $state,
+                                            ["button2", "loading"]
+                                          )}
                                           onColorChange={async (
                                             ...eventArgs: any
                                           ) => {
@@ -20265,6 +20423,42 @@ function PlasmicPregnancy__RenderFunc(props: {
                                               generateStateOnChangeProp(
                                                 $state,
                                                 ["button2", "color"]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+                                          }}
+                                          onLoadChange={async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                ["button2", "load"]
+                                              )(eventArgs[0]);
+                                            }).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1] &&
+                                              eventArgs[1]._plasmic_state_init_
+                                            ) {
+                                              return;
+                                            }
+                                          }}
+                                          onLoadingChange={async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            ((...eventArgs) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                ["button2", "loading"]
                                               )(eventArgs[0]);
                                             }).apply(null, eventArgs);
 

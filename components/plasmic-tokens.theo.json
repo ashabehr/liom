@@ -163,7 +163,7 @@
     {
       "name": "Brand/Brand-Border",
       "type": "color",
-      "value": "#93C5FD",
+      "value": "#0078FF26",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
@@ -173,7 +173,7 @@
     {
       "name": "Brand/Brand-Foreground",
       "type": "color",
-      "value": "#7EB7FF",
+      "value": "#0070FF26",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
