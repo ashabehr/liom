@@ -1194,21 +1194,33 @@
   border-width: 1px;
   border-style: none;
 }
+.freeBox__gQ9Wi {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  border-radius: var(--token-1KusGK5GePTh);
+  padding: 8px;
+  border-width: 1px;
+}
 .freeBox__zfKz7 {
   display: flex;
   flex-direction: row;
-  position: relative;
   width: 100%;
-  height: 189px;
+  height: 181px;
   max-width: 100%;
   justify-content: flex-start;
   align-items: flex-start;
   background: none;
   min-width: 0;
+  flex-shrink: 0;
   border-radius: var(--token-1KusGK5GePTh);
-  padding: 8px;
-  border-width: 1px;
-  border-style: solid;
+  padding: 8px 8px 0px;
 }
 .freeBox__r2KCy {
   display: flex;
@@ -1426,8 +1438,9 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  row-gap: var(--token-1KusGK5GePTh);
   min-width: 0;
-  padding: 8px;
+  padding: 8px 16px 8px 8px;
 }
 .freeBox__byzEn {
   display: flex;
@@ -1435,11 +1448,36 @@
   position: relative;
   align-items: stretch;
   justify-content: flex-start;
-  width: 100%;
+  width: 120px;
   height: auto;
   max-width: 100%;
-  min-width: 0;
-  padding: 8px;
+  padding: 0px;
+}
+.text__nynCb {
+  position: relative;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  width: 100px;
+  font-weight: 700;
+  flex-shrink: 0;
+  border-radius: 25px;
+  border-width: 1px;
+  border-style: none;
+}
+.text__x40Ln {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  background: var(--token-R96bVFQ-7pJj);
+  padding-top: var(--token-38wfsm-OP2Vm);
+  padding-left: var(--token-O5TjkXII_aat);
+  padding-right: var(--token-O5TjkXII_aat);
+  text-align: right;
+  white-space: pre;
+  border-radius: var(--token-O5TjkXII_aat);
 }
 .freeBox__chU8 {
   display: flex;
@@ -1451,7 +1489,30 @@
   justify-content: flex-start;
   align-items: center;
   min-width: 0;
-  padding: 8px;
+  padding: 0px;
+}
+.text__gGsf {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-weight: 700;
+  min-width: 0;
+}
+.text__y9Boe {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  background: var(--token-R96bVFQ-7pJj);
+  padding-top: var(--token-38wfsm-OP2Vm);
+  padding-left: var(--token-O5TjkXII_aat);
+  padding-right: var(--token-O5TjkXII_aat);
+  text-align: right;
+  white-space: pre;
+  border-radius: var(--token-O5TjkXII_aat);
 }
 .text__jmlGc {
   text-align: center;

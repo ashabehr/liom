@@ -1491,6 +1491,7 @@
 }
 @media (max-width: 640px) {
   .freeBox___4NKwk {
+    display: flex;
     padding: 0px 14px;
   }
 }
