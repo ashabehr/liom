@@ -2963,7 +2963,7 @@ function PlasmicFilter__RenderFunc(props: {
               </div>
               {(() => {
                 try {
-                  return $state.daroo2.data == null;
+                  return $state.daroo.length == 0;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
