@@ -12595,46 +12595,97 @@ function PlasmicHamyar__RenderFunc(props: {
                                     ];
                                   }
 
-                                  $steps["runCode"] =
+                                  $steps["invokeGlobalAction3"] =
                                     $steps.invokeGlobalAction?.data?.success ==
                                       true &&
                                     $steps.invokeGlobalAction?.data?.result !=
                                       false
                                       ? (() => {
                                           const actionArgs = {
-                                            customFunction: async () => {
-                                              return (() => {
+                                            args: [
+                                              undefined,
+                                              (() => {
                                                 try {
-                                                  let opened = window.open(
-                                                    $steps.invokeGlobalAction
-                                                      .data.result,
-                                                    "_self"
-                                                  );
-                                                  if (!opened) {
-                                                    return window.open(
-                                                      $steps.invokeGlobalAction
-                                                        .data.result,
-                                                      "_block"
-                                                    );
-                                                  }
+                                                  return `${$steps.invokeGlobalAction?.data?.result} در حال انتقال به `;
                                                 } catch (e) {
-                                                  return (window.location.href =
-                                                    "/404");
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
                                                 }
-                                              })();
-                                            }
+                                              })()
+                                            ]
                                           };
-                                          return (({ customFunction }) => {
-                                            return customFunction();
+                                          return $globalActions[
+                                            "Fragment.showToast"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                  if (
+                                    $steps["invokeGlobalAction3"] != null &&
+                                    typeof $steps["invokeGlobalAction3"] ===
+                                      "object" &&
+                                    typeof $steps["invokeGlobalAction3"]
+                                      .then === "function"
+                                  ) {
+                                    $steps["invokeGlobalAction3"] =
+                                      await $steps["invokeGlobalAction3"];
+                                  }
+
+                                  $steps["goToPage"] =
+                                    $steps.invokeGlobalAction?.data?.success ==
+                                      true &&
+                                    $steps.invokeGlobalAction?.data?.result !=
+                                      false
+                                      ? (() => {
+                                          const actionArgs = {
+                                            destination: (() => {
+                                              try {
+                                                return $steps.invokeGlobalAction
+                                                  ?.data?.result;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          };
+                                          return (({ destination }) => {
+                                            if (
+                                              typeof destination === "string" &&
+                                              destination.startsWith("#")
+                                            ) {
+                                              document
+                                                .getElementById(
+                                                  destination.substr(1)
+                                                )
+                                                .scrollIntoView({
+                                                  behavior: "smooth"
+                                                });
+                                            } else {
+                                              __nextRouter?.push(destination);
+                                            }
                                           })?.apply(null, [actionArgs]);
                                         })()
                                       : undefined;
                                   if (
-                                    $steps["runCode"] != null &&
-                                    typeof $steps["runCode"] === "object" &&
-                                    typeof $steps["runCode"].then === "function"
+                                    $steps["goToPage"] != null &&
+                                    typeof $steps["goToPage"] === "object" &&
+                                    typeof $steps["goToPage"].then ===
+                                      "function"
                                   ) {
-                                    $steps["runCode"] = await $steps["runCode"];
+                                    $steps["goToPage"] = await $steps[
+                                      "goToPage"
+                                    ];
                                   }
 
                                   $steps["updateLoadingshop2"] = true
@@ -12707,47 +12758,6 @@ function PlasmicHamyar__RenderFunc(props: {
                                   ) {
                                     $steps["invokeGlobalAction2"] =
                                       await $steps["invokeGlobalAction2"];
-                                  }
-
-                                  $steps["invokeGlobalAction3"] =
-                                    $steps.invokeGlobalAction?.data?.success ==
-                                      true &&
-                                    $steps.invokeGlobalAction?.data?.result !=
-                                      false
-                                      ? (() => {
-                                          const actionArgs = {
-                                            args: [
-                                              undefined,
-                                              (() => {
-                                                try {
-                                                  return `${$steps.invokeGlobalAction?.data?.result} در حال انتقال به `;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()
-                                            ]
-                                          };
-                                          return $globalActions[
-                                            "Fragment.showToast"
-                                          ]?.apply(null, [...actionArgs.args]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction3"] != null &&
-                                    typeof $steps["invokeGlobalAction3"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction3"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["invokeGlobalAction3"] =
-                                      await $steps["invokeGlobalAction3"];
                                   }
                                 }}
                                 onColorChange={async (...eventArgs: any) => {
