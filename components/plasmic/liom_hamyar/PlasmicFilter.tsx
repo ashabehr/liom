@@ -83,7 +83,6 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFilter.module.css"; // plasmic-import: NViyjBtxiFfj/css
 
-import LiLogoSvgIcon from "./icons/PlasmicIcon__LiLogoSvg"; // plasmic-import: g2Wd0rn3Z11c/icon
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon259Icon from "./icons/PlasmicIcon__Icon259"; // plasmic-import: S4bsf33msfQ_/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
@@ -618,14 +617,8 @@ function PlasmicFilter__RenderFunc(props: {
             { [sty.rootmoreshow]: hasVariant($state, "moreshow", "moreshow") }
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__g01Z)}>
-            <div className={classNames(projectcss.all, sty.freeBox__ymez7)}>
-              <LiLogoSvgIcon
-                className={classNames(projectcss.all, sty.svg__fYeDc)}
-                role={"img"}
-              />
-            </div>
-          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__g01Z)} />
+
           <div
             data-plasmic-name={"asli"}
             data-plasmic-override={overrides.asli}

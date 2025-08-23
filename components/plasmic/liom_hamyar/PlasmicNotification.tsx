@@ -297,7 +297,7 @@ function PlasmicNotification__RenderFunc(props: {
                 "padding-top":
                   typeof window?.FlutterChannel?.postMessage == "function"
                     ? "8px"
-                    : "80px"
+                    : "70px"
               };
             } catch (e) {
               if (

@@ -45,30 +45,6 @@
   min-width: 0;
   padding: 8px;
 }
-.freeBox__ymez7 {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-  max-width: 100%;
-  background: #ffffff;
-  flex-shrink: 0;
-  border-radius: 50%;
-  padding: 8px;
-  border-width: 1px;
-  border-style: solid;
-}
-.svg__fYeDc {
-  object-fit: cover;
-  max-width: 100%;
-  width: 70px;
-  height: 70px;
-  color: #0a0a0a;
-  flex-shrink: 0;
-}
 .asli {
   display: flex;
   flex-direction: column;

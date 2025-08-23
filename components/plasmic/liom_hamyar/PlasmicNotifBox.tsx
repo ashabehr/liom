@@ -412,7 +412,9 @@ function PlasmicNotifBox__RenderFunc(props: {
                   <LineClomp
                     data-plasmic-name={"lineClomp"}
                     data-plasmic-override={overrides.lineClomp}
-                    className={classNames("__wab_instance", sty.lineClomp)}
+                    className={classNames("__wab_instance", sty.lineClomp, {
+                      [sty.lineClompseen]: hasVariant($state, "seen", "seen")
+                    })}
                     numberOfLine={1}
                     onLineChange={async (...eventArgs: any) => {
                       generateStateOnChangeProp($state, [

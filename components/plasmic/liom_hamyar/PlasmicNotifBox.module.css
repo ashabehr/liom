@@ -104,6 +104,9 @@
   max-width: 100%;
   width: auto;
 }
+.lineClompseen:global(.__wab_instance) {
+  max-width: 50%;
+}
 .text__nFhjh {
   position: relative;
   width: 100%;
@@ -121,7 +124,7 @@
 }
 .textseen__nFhjhofXyw {
   color: #535353b3;
-  font-size: var(--token-tjteaUKFnUfH);
+  font-size: var(--token-LMEbRDTg0Iix);
 }
 @media (max-width: 640px) {
   .textseen__nFhjhofXyw {
