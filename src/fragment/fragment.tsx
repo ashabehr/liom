@@ -397,6 +397,15 @@ export const Fragment = ({
                 }
                 sendMessage(link[1], urlLink+`&${queryString}` ,inWebViow);
             }
+              else {
+                if (
+                  typeof window !== "undefined" &&
+                  window.FlutterChannel &&
+                  typeof window.FlutterChannel.postMessage === "function"
+                ) {
+                  window.FlutterChannel.postMessage(action);
+                }
+              }
           }
       }
     }),
