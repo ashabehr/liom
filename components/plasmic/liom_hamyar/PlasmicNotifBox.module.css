@@ -19,9 +19,14 @@
   border-radius: 8px;
   padding: 0px;
 }
+@media (max-width: 640px) {
+  .root {
+    padding: var(--token-38wfsm-OP2Vm);
+  }
+}
 .rootseen {
   background: #ffffff80;
-  opacity: 0.9;
+  opacity: 0.8;
   box-shadow: 0px 4px 16px 0px #00000014;
 }
 .rootdelet {
