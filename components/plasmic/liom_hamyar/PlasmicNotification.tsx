@@ -501,22 +501,6 @@ function PlasmicNotification__RenderFunc(props: {
                       throw e;
                     }
                   })()
-                : hasVariant(globalVariants, "screen", "mobile")
-                ? (() => {
-                    try {
-                      return {
-                        userId: $state.userInfo.man.id
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
                 : (() => {
                     try {
                       return {
