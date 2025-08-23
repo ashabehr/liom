@@ -789,8 +789,7 @@ function PlasmicNotification__RenderFunc(props: {
                                   (() => {
                                     try {
                                       return {
-                                        userId:
-                                          "8a7a6c98-79bf-48de-83ea-e9b59dee33db",
+                                        userId: $state.paramsObject.userId,
                                         notifId: notifItem.id
                                       };
                                     } catch (e) {
