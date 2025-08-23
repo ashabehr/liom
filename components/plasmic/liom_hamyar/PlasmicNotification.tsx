@@ -570,85 +570,45 @@ function PlasmicNotification__RenderFunc(props: {
                           sty.freeBox__jDwMo
                         )}
                       >
-                        {(_par =>
-                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                          (() => {
-                            try {
-                              return JSON.parse(notifItem.butten);
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                          const currentItem = __plasmic_item_1;
-                          const currentIndex = __plasmic_idx_1;
-                          return (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__u7Atx
-                              )}
-                              key={currentIndex}
-                              onClick={async event => {
-                                const $steps = {};
-
-                                $steps["goToPage"] =
-                                  !currentItem.action.startsWith("#")
-                                    ? (() => {
-                                        const actionArgs = {
-                                          destination: (() => {
-                                            try {
-                                              return currentItem.action;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
-                                              }
-                                              throw e;
-                                            }
-                                          })()
-                                        };
-                                        return (({ destination }) => {
-                                          if (
-                                            typeof destination === "string" &&
-                                            destination.startsWith("#")
-                                          ) {
-                                            document
-                                              .getElementById(
-                                                destination.substr(1)
-                                              )
-                                              .scrollIntoView({
-                                                behavior: "smooth"
-                                              });
-                                          } else {
-                                            __nextRouter?.push(destination);
-                                          }
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__lxT1E
+                          )}
+                        >
+                          {(_par =>
+                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                            (() => {
+                              try {
+                                return JSON.parse(notifItem.butten);
+                              } catch (e) {
                                 if (
-                                  $steps["goToPage"] != null &&
-                                  typeof $steps["goToPage"] === "object" &&
-                                  typeof $steps["goToPage"].then === "function"
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  $steps["goToPage"] = await $steps["goToPage"];
+                                  return [];
                                 }
+                                throw e;
+                              }
+                            })()
+                          ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                            const currentItem = __plasmic_item_1;
+                            const currentIndex = __plasmic_idx_1;
+                            return (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__u7Atx
+                                )}
+                                key={currentIndex}
+                                onClick={async event => {
+                                  const $steps = {};
 
-                                $steps["invokeGlobalAction"] =
-                                  currentItem.action.startsWith("#")
-                                    ? (() => {
-                                        const actionArgs = {
-                                          args: [
-                                            (() => {
+                                  $steps["goToPage"] =
+                                    !currentItem.action.startsWith("#")
+                                      ? (() => {
+                                          const actionArgs = {
+                                            destination: (() => {
                                               try {
                                                 return currentItem.action;
                                               } catch (e) {
@@ -662,69 +622,119 @@ function PlasmicNotification__RenderFunc(props: {
                                                 throw e;
                                               }
                                             })()
-                                          ]
-                                        };
-                                        return $globalActions[
-                                          "Fragment.deepLink"
-                                        ]?.apply(null, [...actionArgs.args]);
-                                      })()
-                                    : undefined;
-                                if (
-                                  $steps["invokeGlobalAction"] != null &&
-                                  typeof $steps["invokeGlobalAction"] ===
-                                    "object" &&
-                                  typeof $steps["invokeGlobalAction"].then ===
-                                    "function"
-                                ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
-                                }
-                              }}
-                              style={(() => {
-                                try {
-                                  return {
-                                    background: currentItem.color
-                                  };
-                                } catch (e) {
+                                          };
+                                          return (({ destination }) => {
+                                            if (
+                                              typeof destination === "string" &&
+                                              destination.startsWith("#")
+                                            ) {
+                                              document
+                                                .getElementById(
+                                                  destination.substr(1)
+                                                )
+                                                .scrollIntoView({
+                                                  behavior: "smooth"
+                                                });
+                                            } else {
+                                              __nextRouter?.push(destination);
+                                            }
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
                                   if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
+                                    $steps["goToPage"] != null &&
+                                    typeof $steps["goToPage"] === "object" &&
+                                    typeof $steps["goToPage"].then ===
+                                      "function"
                                   ) {
-                                    return undefined;
+                                    $steps["goToPage"] = await $steps[
+                                      "goToPage"
+                                    ];
                                   }
-                                  throw e;
-                                }
-                              })()}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__fUm1J
-                                )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return currentItem.btnText;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "";
-                                      }
-                                      throw e;
+
+                                  $steps["invokeGlobalAction"] =
+                                    currentItem.action.startsWith("#")
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              (() => {
+                                                try {
+                                                  return currentItem.action;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.deepLink"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                  if (
+                                    $steps["invokeGlobalAction"] != null &&
+                                    typeof $steps["invokeGlobalAction"] ===
+                                      "object" &&
+                                    typeof $steps["invokeGlobalAction"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["invokeGlobalAction"] = await $steps[
+                                      "invokeGlobalAction"
+                                    ];
+                                  }
+                                }}
+                                style={(() => {
+                                  try {
+                                    return {
+                                      background: currentItem.color
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
                                     }
-                                  })()}
-                                </React.Fragment>
+                                    throw e;
+                                  }
+                                })()}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__fUm1J
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentItem.btnText;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
                               </div>
-                            </div>
-                          );
-                        })}
+                            );
+                          })}
+                        </div>
                       </div>
                     ),
                     className: classNames("__wab_instance", sty.notifBox2, {

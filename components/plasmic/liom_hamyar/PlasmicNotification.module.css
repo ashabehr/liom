@@ -236,11 +236,23 @@
   min-width: 0;
   padding: var(--token-O5TjkXII_aat) 0px 0px;
 }
+.freeBox__lxT1E {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  grid-row-gap: var(--token-O5TjkXII_aat);
+  grid-column-gap: var(--token-O5TjkXII_aat);
+  min-width: 0;
+  padding: 8px;
+}
 .freeBox__u7Atx {
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 120px;
+  width: 100%;
   height: auto;
   max-width: 100%;
   justify-content: flex-start;
@@ -248,7 +260,7 @@
   box-shadow: 2px 2px 5px 0px #00000033;
   background: var(--token-55cSeNPovQFh);
   cursor: pointer;
-  flex-shrink: 0;
+  min-width: 0;
   border-radius: var(--token-O5TjkXII_aat);
   padding: var(--token-uOLZE7OyOW-J) var(--token-B5WvIYiqPJW-);
 }

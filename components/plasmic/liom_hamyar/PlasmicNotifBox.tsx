@@ -480,54 +480,6 @@ function PlasmicNotifBox__RenderFunc(props: {
                       )}
                     </div>
                   </LineClomp>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___6Tjo,
-                      {
-                        [sty.textseen___6TjoOfXyw]: hasVariant(
-                          $state,
-                          "seen",
-                          "seen"
-                        )
-                      }
-                    )}
-                  >
-                    {hasVariant(globalVariants, "screen", "mobile") ? (
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.date;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "1403/02/05";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    ) : (
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.date;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    )}
-                  </div>
                 </div>
               </div>
               <PlasmicImg__
@@ -649,6 +601,49 @@ function PlasmicNotifBox__RenderFunc(props: {
         onClick={args.onClick}
         role={"img"}
       />
+
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text___6Tjo,
+          { [sty.textseen___6TjoOfXyw]: hasVariant($state, "seen", "seen") }
+        )}
+      >
+        {hasVariant(globalVariants, "screen", "mobile") ? (
+          <React.Fragment>
+            {(() => {
+              try {
+                return $state.date;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "1403/02/05";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            {(() => {
+              try {
+                return $state.date;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        )}
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
