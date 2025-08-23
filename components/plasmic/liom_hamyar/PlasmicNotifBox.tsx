@@ -61,7 +61,9 @@ import {
 
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import UpDonw from "../../UpDonw"; // plasmic-import: raQ4w0w0QZkZ/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -131,6 +133,9 @@ export const PlasmicNotifBox__ArgProps = new Array<ArgPropType>(
 export type PlasmicNotifBox__OverridesType = {
   root?: Flex__<"div">;
   collapse?: Flex__<typeof AntdSingleCollapse>;
+  lineClomp?: Flex__<typeof LineClomp>;
+  img?: Flex__<typeof PlasmicImg__>;
+  upDonw?: Flex__<typeof UpDonw>;
 };
 
 export interface DefaultNotifBoxProps {
@@ -251,6 +256,12 @@ function PlasmicNotifBox__RenderFunc(props: {
 
         valueProp: "delet",
         onChangeProp: "onDeletChange"
+      },
+      {
+        path: "lineClomp.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -314,7 +325,27 @@ function PlasmicNotifBox__RenderFunc(props: {
               hasVariant($state, "forAll", "forAll")
           }),
           defaultOpen: args.open,
-          expandIcon: null,
+          expandIcon: (
+            <UpDonw
+              data-plasmic-name={"upDonw"}
+              data-plasmic-override={overrides.upDonw}
+              className={classNames("__wab_instance", sty.upDonw)}
+              up={(() => {
+                try {
+                  return $state.collapse.open;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          ),
+
           expandIconPosition: "end",
           extra: null,
           ghost: true,
@@ -342,12 +373,12 @@ function PlasmicNotifBox__RenderFunc(props: {
                   <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__llEtj)}
-                    displayHeight={"30px"}
+                    displayHeight={"40px"}
                     displayMaxHeight={"100%"}
                     displayMaxWidth={"100%"}
                     displayMinHeight={"0"}
                     displayMinWidth={"0"}
-                    displayWidth={"30px"}
+                    displayWidth={"40px"}
                     loading={"lazy"}
                     src={{
                       src: "/plasmic/liom_hamyar/images/image10.ico",
@@ -378,54 +409,75 @@ function PlasmicNotifBox__RenderFunc(props: {
                     )
                   })}
                 >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nFhjh,
-                      {
-                        [sty.textseen__nFhjhofXyw]: hasVariant(
-                          $state,
-                          "seen",
-                          "seen"
-                        )
+                  <LineClomp
+                    data-plasmic-name={"lineClomp"}
+                    data-plasmic-override={overrides.lineClomp}
+                    className={classNames("__wab_instance", sty.lineClomp)}
+                    numberOfLine={1}
+                    onLineChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "lineClomp",
+                        "line"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
                       }
-                    )}
+                    }}
                   >
-                    {hasVariant(globalVariants, "screen", "mobile") ? (
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.title;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__nFhjh,
+                        {
+                          [sty.textseen__nFhjhofXyw]: hasVariant(
+                            $state,
+                            "seen",
+                            "seen"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant(globalVariants, "screen", "mobile") ? (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.title;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    ) : (
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.title;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
+                          })()}
+                        </React.Fragment>
+                      ) : (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.title;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    )}
-                  </div>
+                          })()}
+                        </React.Fragment>
+                      )}
+                    </div>
+                  </LineClomp>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -476,6 +528,27 @@ function PlasmicNotifBox__RenderFunc(props: {
                   </div>
                 </div>
               </div>
+              <PlasmicImg__
+                data-plasmic-name={"img"}
+                data-plasmic-override={overrides.img}
+                alt={""}
+                className={classNames(sty.img, {
+                  [sty.imgseen]: hasVariant($state, "seen", "seen")
+                })}
+                displayHeight={"15px"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"15px"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/liom_hamyar/images/image104.svg",
+                  fullWidth: 14,
+                  fullHeight: 14,
+                  aspectRatio: undefined
+                }}
+              />
             </div>
           ),
           onChange: async (...eventArgs: any) => {
@@ -551,17 +624,6 @@ function PlasmicNotifBox__RenderFunc(props: {
           </AntdSingleCollapse>
         );
       })()}
-      <div
-        className={classNames(projectcss.all, sty.freeBox__cebvZ, {
-          [sty.freeBoxforAll__cebvZq4BdZ]: hasVariant(
-            $state,
-            "forAll",
-            "forAll"
-          ),
-          [sty.freeBoxseen__cebvZofXyw]: hasVariant($state, "seen", "seen")
-        })}
-      />
-
       <Icon22Icon
         className={classNames(projectcss.all, sty.svg__t65Sq, {
           [sty.svgseen_forAll__t65SQofXywQ4BdZ]:
@@ -590,8 +652,11 @@ function PlasmicNotifBox__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "collapse"],
-  collapse: ["collapse"]
+  root: ["root", "collapse", "lineClomp", "img", "upDonw"],
+  collapse: ["collapse", "lineClomp", "img", "upDonw"],
+  lineClomp: ["lineClomp"],
+  img: ["img"],
+  upDonw: ["upDonw"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -599,6 +664,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   collapse: typeof AntdSingleCollapse;
+  lineClomp: typeof LineClomp;
+  img: typeof PlasmicImg__;
+  upDonw: typeof UpDonw;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -662,6 +730,9 @@ export const PlasmicNotifBox = Object.assign(
   {
     // Helper components rendering sub-elements
     collapse: makeNodeComponent("collapse"),
+    lineClomp: makeNodeComponent("lineClomp"),
+    img: makeNodeComponent("img"),
+    upDonw: makeNodeComponent("upDonw"),
 
     // Metadata about props expected for PlasmicNotifBox
     internalVariantProps: PlasmicNotifBox__VariantProps,

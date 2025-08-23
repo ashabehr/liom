@@ -1,0 +1,19 @@
+.root {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+  color: var(--token-y50Rafqey4Ec);
+  position: relative;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  transition-property: all;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 0.1s;
+}
+.rootup {
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(180deg) rotateX(0deg)
+    rotateY(0deg) rotateZ(0deg);
+}
