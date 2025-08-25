@@ -10,7 +10,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       // 📌 Import دینامیک فایل notifications
-      import("../firebase/notifications").then(
+      import("../firebase/fcm").then(
         ({ requestPermission, onMessageListener }) => {
           // گرفتن اجازه و دریافت توکن
           requestPermission().then((token) => {
