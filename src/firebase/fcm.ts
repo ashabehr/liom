@@ -2,9 +2,6 @@
 import { messaging } from "./firebase";
 import { getToken, onMessage } from "firebase/messaging";
 
-/**
- * درخواست مجوز نوتیفیکیشن و گرفتن FCM Token
- */
 export const requestPermission = async (): Promise<string | null> => {
   try {
     const permission = await Notification.requestPermission();
@@ -32,39 +29,31 @@ export const requestPermission = async (): Promise<string | null> => {
   }
 };
 
-/**
- * گوش دادن به پیام‌های Foreground
- */
-export const onMessageListener = (): Promise<any> =>
-  new Promise((resolve) => {
-    onMessage(messaging, (payload) => {
-      console.log("📩 پیام Foreground دریافت شد:", payload);
+// تابع با callback برای Foreground
+export const onMessageListener = (callback: (payload: any) => void) => {
+  onMessage(messaging, (payload) => {
+    console.log("📩 پیام Foreground دریافت شد:", payload);
 
-      const notificationTitle = payload.notification?.title || "پیام جدید";
-      const action = payload.data?.action || null;
+    const notificationTitle = payload.notification?.title || "پیام جدید";
+    const action = payload.data?.action || null;
 
-      const notificationOptions: NotificationOptions = {
-        body: payload.notification?.body,
-        icon: payload.data?.image || "/icons/icon-192x192.png",
-        data: { action },
-      };
+    const notificationOptions: NotificationOptions = {
+      body: payload.notification?.body,
+      icon: payload.data?.image || "/icons/icon-192x192.png",
+      data: { action },
+    };
 
-      // نمایش نوتیفیکیشن در حالت Foreground
-      const notification = new Notification(notificationTitle, notificationOptions);
+    const notification = new Notification(notificationTitle, notificationOptions);
+    notification.onclick = (event) => {
+      event.preventDefault();
+      handleNotificationClick(action);
+    };
 
-      // مدیریت کلیک روی نوتیفیکیشن
-      notification.onclick = (event) => {
-        event.preventDefault();
-        handleNotificationClick(action);
-      };
-
-      resolve(payload);
-    });
+    callback(payload);
   });
+};
 
-/**
- * مدیریت مسیر کلیک روی نوتیفیکیشن
- */
+// هندل مسیر کلیک روی نوتیف
 function handleNotificationClick(action: string | null) {
   let targetUrl = "/";
 
