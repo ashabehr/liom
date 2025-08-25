@@ -58,6 +58,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
+          <link rel="manifest" href="/manifest.json" />
+
       </Head>
       <PlasmicRootProvider Head={Head}>
         <Component {...pageProps} />
