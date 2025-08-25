@@ -1,4 +1,4 @@
-// fcm.ts
+// firebase/fcm.ts
 import { messaging } from "./firebase";
 import { getToken, onMessage } from "firebase/messaging";
 
@@ -39,6 +39,66 @@ export const onMessageListener = (): Promise<any> =>
   new Promise((resolve) => {
     onMessage(messaging, (payload) => {
       console.log("📩 پیام Foreground دریافت شد:", payload);
+
+      const notificationTitle = payload.notification?.title || "پیام جدید";
+      const action = payload.data?.action || null;
+
+      const notificationOptions: NotificationOptions = {
+        body: payload.notification?.body,
+        icon: payload.data?.image || "/icons/icon-192x192.png",
+        data: { action },
+      };
+
+      // نمایش نوتیفیکیشن در حالت Foreground
+      const notification = new Notification(notificationTitle, notificationOptions);
+
+      // مدیریت کلیک روی نوتیفیکیشن
+      notification.onclick = (event) => {
+        event.preventDefault();
+        handleNotificationClick(action);
+      };
+
       resolve(payload);
     });
   });
+
+/**
+ * مدیریت مسیر کلیک روی نوتیفیکیشن
+ */
+function handleNotificationClick(action: string | null) {
+  let targetUrl = "/";
+
+  if (action) {
+    const pureAction = action.replace("#", "").split("-")[0];
+    const actionParam = action.replace("#", "").split("-").slice(1).join("-");
+
+    switch (pureAction) {
+      case "healthSubscription":
+        targetUrl = "https://apps.liom.app/shop";
+        break;
+      case "calendar":
+        targetUrl = "https://apps.liom.app/shop";
+        break;
+      case "maincalendar":
+        targetUrl = "https://apps.liom.app/calendar";
+        break;
+      case "specialOffer":
+        targetUrl = "/offers/special";
+        break;
+      case "orderStatus":
+        targetUrl = `/orders/status/${actionParam}`;
+        break;
+      case "newFeature":
+        targetUrl = "/features/new";
+        break;
+      case "post":
+        targetUrl = `https://old.liom.app/social/?post=${actionParam}`;
+        break;
+      default:
+        targetUrl = "https://apps.liom.app/login";
+        break;
+    }
+  }
+
+  window.open(targetUrl, "_self");
+}
