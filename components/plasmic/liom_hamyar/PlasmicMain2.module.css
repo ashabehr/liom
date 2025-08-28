@@ -13,6 +13,11 @@
   border-radius: var(--token-O5TjkXII_aat);
   padding: var(--token-1KusGK5GePTh);
 }
+@media (max-width: 640px) {
+  .root {
+    padding: 0px;
+  }
+}
 .userPage:global(.__wab_instance) {
   flex-shrink: 0;
   display: none;
@@ -44,6 +49,11 @@
 .reports:global(.__wab_instance) {
   position: relative;
   flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .reports:global(.__wab_instance) {
+    flex-shrink: 0;
+  }
 }
 .reportspage_reports:global(.__wab_instance) {
   flex-shrink: 0;
