@@ -1341,15 +1341,31 @@ function PlasmicUserPage__RenderFunc(props: {
             className: classNames(sty.slotTargetChildren)
           })}
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__m8B5B
-          )}
-        >
-          <React.Fragment>{`تعداد: ۱۰۰`}</React.Fragment>
-        </div>
+        {(() => {
+          try {
+            return !$props.loading;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return false;
+            }
+            throw e;
+          }
+        })() ? (
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__m8B5B
+            )}
+          >
+            <React.Fragment>
+              {$props.data?.result?.total?.toLocaleString() ?? ""}
+            </React.Fragment>
+          </div>
+        ) : null}
       </div>
       <div
         data-plasmic-name={"frame48"}

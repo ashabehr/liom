@@ -159,35 +159,39 @@ function PlasmicReports__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => [
           {
             title:
-              "\u0647\u0645\u06cc\u0627\u0631 \u0622\u0642\u0627 - \u06f1\u06f0 \u0631\u0648\u0632 \u0645\u0627\u0646\u062f\u0647",
-            description:
-              "\u0644\u06cc\u0633\u062a \u0627\u0641\u0631\u0627\u062f\u06cc \u06a9\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0647\u0645\u06cc\u0627\u0631 \u0622\u0642\u0627 \u06f1\u06f0 \u0631\u0648\u0632 \u062f\u06cc\u06af\u0631 \u0628\u0647 \u067e\u0627\u06cc\u0627\u0646 \u0645\u06cc\u200c\u0631\u0633\u062f.",
-            type: "expiring_10_days",
-            api: "endHusbandSub"
-          },
-          {
-            title:
-              "\u062a\u0639\u062f\u0627\u062f \u0627\u06a9\u062a\u06cc\u0648\u0647\u0627\u06cc \u0647\u0645\u06cc\u0627\u0631",
-            description:
-              "\u0646\u0645\u0627\u06cc\u0634 \u062a\u0639\u062f\u0627\u062f \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u0628\u0627 \u0647\u0645\u06cc\u0627\u0631 \u0622\u0642\u0627 \u0648 \u0647\u0645\u06cc\u0627\u0631 \u0645\u0627\u062f\u0631 \u0641\u0639\u0627\u0644\u060c \u0628\u0647 \u062a\u0641\u06a9\u06cc\u06a9.",
-            type: "active_count",
-            api: "hamyarActiveList"
-          },
-          {
-            title:
-              "\u0627\u0634\u062a\u0631\u0627\u06a9\u200c\u0647\u0627\u06cc \u062a\u0645\u0627\u0645 \u0634\u062f\u0647",
+              "\u0627\u0634\u062a\u0631\u0627\u06a9\u200c\u0647\u0627\u06cc \u062a\u0645\u0627\u0645 \u0634\u062f\u0647 \u0647\u0645\u06cc\u0627\u0631",
             description:
               "\u062a\u0639\u062f\u0627\u062f \u0648 \u0644\u06cc\u0633\u062a \u0627\u0641\u0631\u0627\u062f\u06cc \u06a9\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9\u0634\u0627\u0646 \u0628\u0647 \u0627\u062a\u0645\u0627\u0645 \u0631\u0633\u06cc\u062f\u0647 \u0627\u0633\u062a.",
             type: "expired_subscriptions",
-            api: "endSmsSubs"
+            api: "endSmsSubs",
+            backColor: "#ed5151"
           },
           {
             title:
-              "\u0627\u0634\u062a\u0631\u0627\u06a9\u200c\u0647\u0627\u06cc \u062f\u0631 \u062d\u0627\u0644 \u0627\u062a\u0645\u0627\u0645",
+              " \u0627\u0634\u062a\u0631\u0627\u06a9\u200c\u0647\u0627\u06cc \u062f\u0631 \u062d\u0627\u0644 \u0627\u062a\u0645\u0627\u0645 \u0647\u0645\u06cc\u0627\u0631",
             description:
               "\u062a\u0639\u062f\u0627\u062f \u0648 \u0644\u06cc\u0633\u062a \u0627\u0641\u0631\u0627\u062f\u06cc \u06a9\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9\u0634\u0627\u0646 \u062f\u0631 \u062d\u0627\u0644 \u0627\u062a\u0645\u0627\u0645 \u0627\u0633\u062a (\u06f3 \u0631\u0648\u0632 \u0645\u0627\u0646\u062f\u0647).",
             type: "expiring_3_days",
-            api: "endSmsSubsByDay"
+            api: "endSmsSubsByDay",
+            backColor: "#FFA500"
+          },
+          {
+            title:
+              "\u0647\u0645\u06cc\u0627\u0631 \u0622\u0642\u0627 - \u06f1\u06f0 \u0631\u0648\u0632 \u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0627\u062a\u0645\u0627\u0645",
+            description:
+              "\u0644\u06cc\u0633\u062a \u0627\u0641\u0631\u0627\u062f\u06cc \u06a9\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0647\u0645\u06cc\u0627\u0631 \u0622\u0642\u0627 \u06f1\u06f0 \u0631\u0648\u0632 \u062f\u06cc\u06af\u0631 \u0628\u0647 \u067e\u0627\u06cc\u0627\u0646 \u0645\u06cc\u200c\u0631\u0633\u062f.",
+            type: "expiring_10_days",
+            api: "endHusbandSub",
+            backColor: ""
+          },
+          {
+            title:
+              "\u062a\u0639\u062f\u0627\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0647\u0627\u06cc \u0647\u0645\u06cc\u0627\u0631",
+            description:
+              "\u0646\u0645\u0627\u06cc\u0634 \u062a\u0639\u062f\u0627\u062f \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u0628\u0627 \u0647\u0645\u06cc\u0627\u0631 \u0622\u0642\u0627 \u0648 \u0647\u0645\u06cc\u0627\u0631 \u0645\u0627\u062f\u0631 \u0641\u0639\u0627\u0644\u060c \u0628\u0647 \u062a\u0641\u06a9\u06cc\u06a9.",
+            type: "active_count",
+            api: "hamyarActiveList",
+            backColor: ""
           },
           {
             title:
@@ -195,49 +199,56 @@ function PlasmicReports__RenderFunc(props: {
             description:
               "\u062a\u0639\u062f\u0627\u062f \u0648 \u0644\u06cc\u0633\u062a \u0627\u0641\u0631\u0627\u062f\u06cc \u06a9\u0647 \u062a\u0644\u06af\u0631\u0627\u0645\u0634\u0627\u0646 \u0641\u0639\u0627\u0644 \u0634\u062f\u0647 \u0627\u0633\u062a.",
             type: "telegram_active",
-            api: "activeTel"
+            api: "activeTel",
+            backColor: ""
           },
           {
             title:
               "\u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627\u06cc \u062f\u06cc\u0631\u0648\u0632",
             description:
               "\u062a\u0639\u062f\u0627\u062f \u0648 \u0644\u06cc\u0633\u062a \u0627\u0641\u0631\u0627\u062f\u06cc \u06a9\u0647 \u062f\u06cc\u0631\u0648\u0632 \u067e\u06cc\u0627\u0645\u06a9 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0631\u062f\u0647\u200c\u0627\u0646\u062f.",
-            type: "sms_yesterday"
+            type: "sms_yesterday",
+            backColor: ""
           },
           {
             title:
               "\u0644\u06cc\u0633\u062a \u0648 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u067e\u06cc\u0627\u0645\u200c\u0647\u0627",
             description:
               "\u0645\u0634\u0627\u0647\u062f\u0647 \u0644\u06cc\u0633\u062a \u067e\u06cc\u0627\u0645\u200c\u0647\u0627 \u0648 \u0627\u0645\u06a9\u0627\u0646 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u0622\u0646\u200c\u0647\u0627.",
-            type: "messages_edit"
+            type: "messages_edit",
+            backColor: ""
           },
           {
             title:
               "\u067e\u0646\u0644 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645",
             description:
               "\u067e\u0646\u0644 \u0645\u062f\u06cc\u0631\u06cc\u062a \u0628\u0631\u0627\u06cc \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645 \u062f\u0631 \u062a\u0644\u06af\u0631\u0627\u0645 \u06cc\u0627 \u0627\u0633\u200c\u0627\u0645\u200c\u0627\u0633.",
-            type: "message_panel"
+            type: "message_panel",
+            backColor: ""
           },
           {
             title:
               "\u0647\u0645\u06cc\u0627\u0631 \u0622\u0642\u0627 - \u0641\u0639\u0627\u0644",
             description:
               "\u0644\u06cc\u0633\u062a \u0627\u0641\u0631\u0627\u062f\u06cc \u06a9\u0647 \u0647\u0645\u06cc\u0627\u0631 \u0622\u0642\u0627 \u0641\u0639\u0627\u0644 \u062f\u0627\u0631\u0646\u062f.",
-            type: "hamyar_male_active"
+            type: "hamyar_male_active",
+            backColor: ""
           },
           {
             title:
               "\u0647\u0645\u06cc\u0627\u0631 \u0622\u0642\u0627 - \u063a\u06cc\u0631\u0641\u0639\u0627\u0644",
             description:
               "\u0644\u06cc\u0633\u062a \u0627\u0641\u0631\u0627\u062f\u06cc \u06a9\u0647 \u0647\u0645\u06cc\u0627\u0631 \u0622\u0642\u0627 \u063a\u06cc\u0631\u0641\u0639\u0627\u0644 \u0647\u0633\u062a\u0646\u062f.",
-            type: "hamyar_male_inactive"
+            type: "hamyar_male_inactive",
+            backColor: ""
           },
           {
             title:
               "\u06f3\u06f0 \u0631\u0648\u0632 \u063a\u06cc\u0631\u0641\u0639\u0627\u0644",
             description:
               "\u0644\u06cc\u0633\u062a \u0648 \u062a\u0639\u062f\u0627\u062f \u0627\u0641\u0631\u0627\u062f\u06cc \u06a9\u0647 \u06f3\u06f0 \u0631\u0648\u0632 \u0627\u0633\u062a \u0648\u0627\u0631\u062f \u0633\u06cc\u0633\u062a\u0645 \u0646\u0634\u062f\u0647\u200c\u0627\u0646\u062f.",
-            type: "inactive_30_days"
+            type: "inactive_30_days",
+            backColor: ""
           }
         ]
       },
@@ -388,6 +399,24 @@ function PlasmicReports__RenderFunc(props: {
                   $steps["runOnClick"] = await $steps["runOnClick"];
                 }
               }}
+              style={(() => {
+                try {
+                  return {
+                    "background-color":
+                      currentItem.backColor == ""
+                        ? "#f7f7f7"
+                        : currentItem.backColor
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             >
               <div
                 data-plasmic-name={"frame21"}
@@ -400,6 +429,22 @@ function PlasmicReports__RenderFunc(props: {
                     projectcss.__wab_text,
                     sty.text__yaN7K
                   )}
+                  style={(() => {
+                    try {
+                      return {
+                        color:
+                          currentItem.backColor == "" ? "#000000" : "#ffffff"
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                 >
                   <React.Fragment>
                     {(() => {
@@ -423,6 +468,22 @@ function PlasmicReports__RenderFunc(props: {
                     projectcss.__wab_text,
                     sty.text__kE66O
                   )}
+                  style={(() => {
+                    try {
+                      return {
+                        color:
+                          currentItem.backColor == "" ? "#757575" : "#ffffff"
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                 >
                   <React.Fragment>
                     {(() => {
@@ -452,6 +513,22 @@ function PlasmicReports__RenderFunc(props: {
                     projectcss.__wab_text,
                     sty.text___4Sqp1
                   )}
+                  style={(() => {
+                    try {
+                      return {
+                        color:
+                          currentItem.backColor == "" ? "#000000" : "#ffffff"
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                 >
                   {"\u0628\u0627\u0632 \u06a9\u0631\u062f\u0646"}
                 </div>
