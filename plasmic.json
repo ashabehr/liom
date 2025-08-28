@@ -4225,6 +4225,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicA.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "8wHhlRtqpYtU",
+          "name": "ComponentPregnancy",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicComponentPregnancy.tsx",
+          "importSpec": {
+            "modulePath": "ComponentPregnancy.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicComponentPregnancy.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

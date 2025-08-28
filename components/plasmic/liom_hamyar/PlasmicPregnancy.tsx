@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import ComponentPregnancy from "../../ComponentPregnancy"; // plasmic-import: 8wHhlRtqpYtU/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
@@ -115,6 +116,7 @@ export const PlasmicPregnancy__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicPregnancy__OverridesType = {
   root?: Flex__<"div">;
+  componentPregnancy?: Flex__<typeof ComponentPregnancy>;
   section?: Flex__<"section">;
   button?: Flex__<typeof Button>;
   timer?: Flex__<typeof Timer>;
@@ -1289,6 +1291,12 @@ function PlasmicPregnancy__RenderFunc(props: {
             const $steps = {};
           }}
         >
+          <ComponentPregnancy
+            data-plasmic-name={"componentPregnancy"}
+            data-plasmic-override={overrides.componentPregnancy}
+            className={classNames("__wab_instance", sty.componentPregnancy)}
+          />
+
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
@@ -28339,6 +28347,7 @@ function PlasmicPregnancy__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "componentPregnancy",
     "section",
     "button",
     "timer",
@@ -28362,6 +28371,7 @@ const PlasmicDescendants = {
     "directDialog2",
     "slideinModal"
   ],
+  componentPregnancy: ["componentPregnancy"],
   section: [
     "section",
     "button",
@@ -28412,6 +28422,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  componentPregnancy: typeof ComponentPregnancy;
   section: "section";
   button: typeof Button;
   timer: typeof Timer;
@@ -28521,6 +28532,7 @@ export const PlasmicPregnancy = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    componentPregnancy: makeNodeComponent("componentPregnancy"),
     section: makeNodeComponent("section"),
     button: makeNodeComponent("button"),
     timer: makeNodeComponent("timer"),
