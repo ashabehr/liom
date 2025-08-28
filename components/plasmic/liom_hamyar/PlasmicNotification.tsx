@@ -97,6 +97,7 @@ export const PlasmicNotification__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicNotification__OverridesType = {
   root?: Flex__<"div">;
+  section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   svg?: Flex__<"svg">;
   apiRequest?: Flex__<typeof ApiRequest>;
@@ -310,6 +311,81 @@ function PlasmicNotification__RenderFunc(props: {
             }
           })()}
         >
+          <section
+            data-plasmic-name={"section"}
+            data-plasmic-override={overrides.section}
+            className={classNames(projectcss.all, sty.section, {
+              [sty.sectionnoNotification]: hasVariant(
+                $state,
+                "noNotification",
+                "noNotification"
+              )
+            })}
+          >
+            {(() => {
+              try {
+                return typeof window?.FlutterChannel?.postMessage != "function";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <HeaderLiom
+                data-plasmic-name={"headerLiom"}
+                data-plasmic-override={overrides.headerLiom}
+                className={classNames("__wab_instance", sty.headerLiom)}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__vbUj4)}>
+                  <XIcon
+                    data-plasmic-name={"svg"}
+                    data-plasmic-override={overrides.svg}
+                    className={classNames(projectcss.all, sty.svg)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return window.history.back();
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__dXtwM
+                    )}
+                  >
+                    {"\u0627\u0639\u0644\u0627\u0646\u0627\u062a"}
+                  </div>
+                </div>
+              </HeaderLiom>
+            ) : null}
+          </section>
           <div
             className={classNames(projectcss.all, sty.freeBox__xZf, {
               [sty.freeBoxnoNotification__xZfObwoa]: hasVariant(
@@ -371,69 +447,6 @@ function PlasmicNotification__RenderFunc(props: {
                 : "Enter some text"}
             </div>
           </div>
-          {(() => {
-            try {
-              return typeof window?.FlutterChannel?.postMessage != "function";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <HeaderLiom
-              data-plasmic-name={"headerLiom"}
-              data-plasmic-override={overrides.headerLiom}
-              className={classNames("__wab_instance", sty.headerLiom)}
-            >
-              <div className={classNames(projectcss.all, sty.freeBox__vbUj4)}>
-                <XIcon
-                  data-plasmic-name={"svg"}
-                  data-plasmic-override={overrides.svg}
-                  className={classNames(projectcss.all, sty.svg)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return window.history.back();
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                  role={"img"}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__dXtwM
-                  )}
-                >
-                  {"\u0627\u0639\u0644\u0627\u0646\u0627\u062a"}
-                </div>
-              </div>
-            </HeaderLiom>
-          ) : null}
           <ApiRequest
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}
@@ -1206,7 +1219,16 @@ function PlasmicNotification__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "headerLiom", "svg", "apiRequest", "notifBox2", "sideEffect"],
+  root: [
+    "root",
+    "section",
+    "headerLiom",
+    "svg",
+    "apiRequest",
+    "notifBox2",
+    "sideEffect"
+  ],
+  section: ["section", "headerLiom", "svg"],
   headerLiom: ["headerLiom", "svg"],
   svg: ["svg"],
   apiRequest: ["apiRequest", "notifBox2"],
@@ -1218,6 +1240,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  section: "section";
   headerLiom: typeof HeaderLiom;
   svg: "svg";
   apiRequest: typeof ApiRequest;
@@ -1310,6 +1333,7 @@ export const PlasmicNotification = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     svg: makeNodeComponent("svg"),
     apiRequest: makeNodeComponent("apiRequest"),

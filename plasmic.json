@@ -4120,6 +4120,111 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicUpDonw.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "8-KHcxmihxtJ",
+          "name": "Pan",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPan.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/pan.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicPan.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/pan"
+        },
+        {
+          "id": "JBF-V8Q5mpWl",
+          "name": "MenuIcon",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMenuIcon.tsx",
+          "importSpec": {
+            "modulePath": "MenuIcon.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMenuIcon.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "u434J7t_Xxcu",
+          "name": "MenuItem2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMenuItem2.tsx",
+          "importSpec": {
+            "modulePath": "MenuItem2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMenuItem2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "YitzRDB2rU0M",
+          "name": "Menu",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMenu.tsx",
+          "importSpec": {
+            "modulePath": "Menu.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMenu.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Y_O8FNCBMxb-",
+          "name": "UserPage",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicUserPage.tsx",
+          "importSpec": {
+            "modulePath": "UserPage.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicUserPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "qh0CBDuGi8tY",
+          "name": "Main2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMain2.tsx",
+          "importSpec": {
+            "modulePath": "Main2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMain2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "pmKDqHBtiLCT",
+          "name": "Reports",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicReports.tsx",
+          "importSpec": {
+            "modulePath": "Reports.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicReports.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "h8c9QKtbHlC9",
+          "name": "A",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicA.tsx",
+          "importSpec": {
+            "modulePath": "A.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicA.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -5767,6 +5872,156 @@
           "id": "J9YAUWC4-pPC",
           "name": "DoctorSuitcaseSvgrepoComSvgIcon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__DoctorSuitcaseSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "Ok70MuCDmjob",
+          "name": "Line2Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Line2.tsx"
+        },
+        {
+          "id": "AMOmAaxyTQMU",
+          "name": "LogoutIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Logout.tsx"
+        },
+        {
+          "id": "XN3qPYKB0B6e",
+          "name": "StickynoteIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Stickynote.tsx"
+        },
+        {
+          "id": "SpmDa_1Lyb3r",
+          "name": "Icon260Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon260.tsx"
+        },
+        {
+          "id": "4mV1FUQXQxqo",
+          "name": "Icon261Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon261.tsx"
+        },
+        {
+          "id": "FbWns72AK2M4",
+          "name": "Icon262Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon262.tsx"
+        },
+        {
+          "id": "uiMUauyScroM",
+          "name": "Icon263Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon263.tsx"
+        },
+        {
+          "id": "k-XgEulbN8XQ",
+          "name": "Icon264Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon264.tsx"
+        },
+        {
+          "id": "uOsS8ihVyPQb",
+          "name": "Icon265Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon265.tsx"
+        },
+        {
+          "id": "D9XHc369DSfD",
+          "name": "Icon266Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon266.tsx"
+        },
+        {
+          "id": "Pdscbs_4Tlrk",
+          "name": "Icon267Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon267.tsx"
+        },
+        {
+          "id": "KIX_jZFHfv2N",
+          "name": "Icon268Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon268.tsx"
+        },
+        {
+          "id": "nhqlCi92__jt",
+          "name": "Icon269Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon269.tsx"
+        },
+        {
+          "id": "Y171g_Z8ZZ84",
+          "name": "Icon270Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon270.tsx"
+        },
+        {
+          "id": "cDBsZfQFOOWa",
+          "name": "Line3Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Line3.tsx"
+        },
+        {
+          "id": "eV6lRAgIfIg8",
+          "name": "EditIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Edit.tsx"
+        },
+        {
+          "id": "yKYv--EqMUqz",
+          "name": "TrashIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Trash.tsx"
+        },
+        {
+          "id": "OfZjs6GAHp3h",
+          "name": "ArrowRightIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__ArrowRight.tsx"
+        },
+        {
+          "id": "0NvROzRPfib7",
+          "name": "Trash2Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Trash2.tsx"
+        },
+        {
+          "id": "Xdi6Rpz9pNHm",
+          "name": "Group5Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Group5.tsx"
+        },
+        {
+          "id": "boYX3n5vJdri",
+          "name": "VectorIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Vector.tsx"
+        },
+        {
+          "id": "QI1Dzzn0cgub",
+          "name": "Ellipse4Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Ellipse4.tsx"
+        },
+        {
+          "id": "ne5bnoid0_5Y",
+          "name": "Polygon1Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Polygon1.tsx"
+        },
+        {
+          "id": "NfuMyFkuX93U",
+          "name": "Group7Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Group7.tsx"
+        },
+        {
+          "id": "2USnZw1ct7Ev",
+          "name": "Vector2Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Vector2.tsx"
+        },
+        {
+          "id": "5Amn_MZMeD-0",
+          "name": "Group8Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Group8.tsx"
+        },
+        {
+          "id": "sL-ROHN4SqND",
+          "name": "Vector3Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Vector3.tsx"
+        },
+        {
+          "id": "Mu3eECOcZYpq",
+          "name": "Vector4Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Vector4.tsx"
+        },
+        {
+          "id": "MnXPyL0bNwxf",
+          "name": "Vector5Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Vector5.tsx"
+        },
+        {
+          "id": "vZy72Clr16kL",
+          "name": "Icon271Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon271.tsx"
         }
       ],
       "images": [
@@ -6459,6 +6714,26 @@
           "id": "ISnEAj1Cj_i-",
           "name": "image 104",
           "filePath": "../public/plasmic/liom_hamyar/images/image104.svg"
+        },
+        {
+          "id": "rS9o1jtVGIUs",
+          "name": "Group 6",
+          "filePath": "../public/plasmic/liom_hamyar/images/group6.svg"
+        },
+        {
+          "id": "YgkX0HHDsUn_",
+          "name": "circle 2",
+          "filePath": "../public/plasmic/liom_hamyar/images/circle2.svg"
+        },
+        {
+          "id": "QenDpo5zxPxK",
+          "name": "image 105",
+          "filePath": "../public/plasmic/liom_hamyar/images/image105.svg"
+        },
+        {
+          "id": "lH0g0u1ocLCs",
+          "name": "image 106",
+          "filePath": "../public/plasmic/liom_hamyar/images/image106.svg"
         }
       ],
       "indirect": false,
@@ -6616,6 +6891,12 @@
         "name": "UnnamedGlobalGroupOfVariants5",
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
         "contextFilePath": "plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5.tsx"
+      },
+      {
+        "id": "iQd-P7x9ORW1",
+        "name": "UnnamedGlobalGroupOfVariants6",
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "contextFilePath": "plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants6.tsx"
       }
     ]
   },

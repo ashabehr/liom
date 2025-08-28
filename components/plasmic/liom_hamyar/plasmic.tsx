@@ -16,11 +16,16 @@ import {
   UnnamedGlobalGroupOfVariants5Value,
   useUnnamedGlobalGroupOfVariants5
 } from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants5"; // plasmic-import: GVtJ0WzqUh-b/globalVariant
+import {
+  UnnamedGlobalGroupOfVariants6Value,
+  useUnnamedGlobalGroupOfVariants6
+} from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants6"; // plasmic-import: iQd-P7x9ORW1/globalVariant
 import { useScreenVariants as useScreenVariantsbr2UhI7UlpvR } from "../fragment_icons/PlasmicGlobalVariant__Screen"; // plasmic-import: BR2UhI7ulpvR/globalVariant
 
 export const _useGlobalVariants = createUseGlobalVariants({
   screen: useScreenVariants_6BytLjmha8VC,
   unnamedGlobalGroupOfVariants4: useUnnamedGlobalGroupOfVariants4,
   unnamedGlobalGroupOfVariants5: useUnnamedGlobalGroupOfVariants5,
+  unnamedGlobalGroupOfVariants6: useUnnamedGlobalGroupOfVariants6,
   screen: useScreenVariantsbr2UhI7UlpvR
 });

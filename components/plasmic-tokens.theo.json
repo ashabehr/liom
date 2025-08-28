@@ -3011,6 +3011,16 @@
       }
     },
     {
+      "name": "page BG 2",
+      "type": "color",
+      "value": "#F8F8F8",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "Wgk2mIbteBUF"
+      }
+    },
+    {
       "name": "page bg",
       "type": "color",
       "value": "rgb(245,245,245)",

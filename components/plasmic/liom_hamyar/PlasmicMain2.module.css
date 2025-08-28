@@ -1,0 +1,46 @@
+.root {
+  background: var(--token-R_Rsn0nP9oIv);
+  box-shadow: 0px 4px 16px 0px #c0bcbc14;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  min-width: 0;
+  border-radius: var(--token-O5TjkXII_aat);
+  padding: var(--token-1KusGK5GePTh);
+}
+.userPage:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.userPagepage_reports:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.userPageuser:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.userPageuser_page_reports:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.apiRequest:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.reports:global(.__wab_instance) {
+  position: relative;
+  flex-shrink: 0;
+}
+.reportspage_reports:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.reportsuser:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C700%3B0%2C900%3B1%2C100%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C700%3B1%2C900&family=Inter%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inconsolata%3Aital%2Cwght%400%2C200%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Vazirmatn%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Poppins%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900%3B1%2C100%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700%3B1%2C800%3B1%2C900&family=Risque%3Aital%2Cwght%400%2C400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C700%3B0%2C900%3B1%2C100%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C700%3B1%2C900&family=Inter%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inconsolata%3Aital%2Cwght%400%2C200%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Vazirmatn%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Poppins%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900%3B1%2C100%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700%3B1%2C800%3B1%2C900&family=Risque%3Aital%2Cwght%400%2C400&family=Ubuntu%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C700%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C700&display=swap");
 
 .plasmic_tokens {
   --token-gCi4wau0q9pg: rgba(175, 47, 47, 0.15);
@@ -231,6 +231,8 @@
   --plasmic-token-size-32: var(--token--R99V_MAPZ9W);
   --token-olZbNvsx1COf: #171717;
   --plasmic-token-basic-container-background-dark: var(--token-olZbNvsx1COf);
+  --token-Wgk2mIbteBUF: #f8f8f8;
+  --plasmic-token-page-bg-2: var(--token-Wgk2mIbteBUF);
 }
 
 @media (max-width: 640px) {
@@ -256,6 +258,9 @@
   ),
 .plasmic_default_styles:where(
     .global_unnamedGlobalGroupOfVariants5_unnamedVariant
+  ),
+.plasmic_default_styles:where(
+    .global_unnamedGlobalGroupOfVariants6_unnamedVariant
   ) {
   --mixin-WzkLzR3lM3YC_font-family: "Roboto", sans-serif;
   --mixin-WzkLzR3lM3YC_font-size: 14px;
@@ -386,8 +391,9 @@
 
 .plasmic_mixins,
 .plasmic_mixins:where(.global_unnamedGlobalGroupOfVariants4_unnamedVariant),
-.plasmic_mixins:where(.global_unnamedGlobalGroupOfVariants5_unnamedVariant) {
-  --mixin-T7cKHaMQlWhs_box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+.plasmic_mixins:where(.global_unnamedGlobalGroupOfVariants5_unnamedVariant),
+.plasmic_mixins:where(.global_unnamedGlobalGroupOfVariants6_unnamedVariant) {
+  --mixin-T7cKHaMQlWhs_box-shadow: 0px 4px 16px 0px #c0bcbc14;
   --plasmic-mixin-card-shadow_box-shadow: var(--mixin-T7cKHaMQlWhs_box-shadow);
   --mixin-T7cKHaMQlWhs_white-space: pre-wrap;
   --plasmic-mixin-card-shadow_white-space: var(
@@ -413,6 +419,8 @@
   --plasmic-mixin-app-shadow-dark_white-space: var(
     --mixin-koCy18GUxpGV_white-space
   );
+  --mixin-7R0zVQDRxOLj_white-space: pre-wrap;
+  --plasmic-mixin-card_white-space: var(--mixin-7R0zVQDRxOLj_white-space);
 }
 
 :where(.all) {
