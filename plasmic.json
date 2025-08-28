@@ -4238,6 +4238,34 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicComponentPregnancy.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "3v9tn6uUJCPM",
+          "name": "NewPage2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNewPage2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/new-page-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicNewPage2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-page-2"
+        },
+        {
+          "id": "VrCIr6RFUjlL",
+          "name": "MainPagePregnancy",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMainPagePregnancy.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/main-page-pregnancy.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMainPagePregnancy.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/main-page-pregnancy"
         }
       ],
       "icons": [

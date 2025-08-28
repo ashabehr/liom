@@ -337,6 +337,19 @@ function PlasmicMain2__RenderFunc(props: {
           }
         })()}
         header={$state.items}
+        loading={(() => {
+          try {
+            return $state.apiRequest.loading;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return false;
+            }
+            throw e;
+          }
+        })()}
         onBack={async event => {
           const $steps = {};
 

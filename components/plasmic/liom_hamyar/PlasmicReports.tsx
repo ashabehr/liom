@@ -194,7 +194,8 @@ function PlasmicReports__RenderFunc(props: {
               "\u062a\u0644\u06af\u0631\u0627\u0645\u200c\u0647\u0627\u06cc \u0641\u0639\u0627\u0644",
             description:
               "\u062a\u0639\u062f\u0627\u062f \u0648 \u0644\u06cc\u0633\u062a \u0627\u0641\u0631\u0627\u062f\u06cc \u06a9\u0647 \u062a\u0644\u06af\u0631\u0627\u0645\u0634\u0627\u0646 \u0641\u0639\u0627\u0644 \u0634\u062f\u0647 \u0627\u0633\u062a.",
-            type: "telegram_active"
+            type: "telegram_active",
+            api: "activeTel"
           },
           {
             title:

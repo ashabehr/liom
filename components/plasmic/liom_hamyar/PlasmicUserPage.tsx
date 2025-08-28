@@ -86,13 +86,15 @@ export type PlasmicUserPage__ArgsType = {
   data?: any;
   onBack?: (event: any) => void;
   children?: React.ReactNode;
+  loading?: boolean;
 };
 type ArgPropType = keyof PlasmicUserPage__ArgsType;
 export const PlasmicUserPage__ArgProps = new Array<ArgPropType>(
   "header",
   "data",
   "onBack",
-  "children"
+  "children",
+  "loading"
 );
 
 export type PlasmicUserPage__OverridesType = {
@@ -114,6 +116,7 @@ export interface DefaultUserPageProps {
   data?: any;
   onBack?: (event: any) => void;
   children?: React.ReactNode;
+  loading?: boolean;
   className?: string;
 }
 
@@ -1252,7 +1255,8 @@ function PlasmicUserPage__RenderFunc(props: {
                 ]
               }
             ]
-          }
+          },
+          loading: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -1336,6 +1340,15 @@ function PlasmicUserPage__RenderFunc(props: {
             value: args.children,
             className: classNames(sty.slotTargetChildren)
           })}
+        </div>
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__m8B5B
+          )}
+        >
+          <React.Fragment>{`تعداد: ۱۰۰`}</React.Fragment>
         </div>
       </div>
       <div
@@ -1430,191 +1443,153 @@ function PlasmicUserPage__RenderFunc(props: {
             data-plasmic-override={overrides.frame46}
             className={classNames(projectcss.all, sty.frame46)}
           >
-            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-              (() => {
-                try {
-                  return $props.data.result.list;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
-                  }
-                  throw e;
+            {(() => {
+              try {
+                return $props.loading;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
                 }
-              })()
-            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-              const item = __plasmic_item_0;
-              const currentIndex = __plasmic_idx_0;
-              return (
-                <div
-                  data-plasmic-name={"frame42"}
-                  data-plasmic-override={overrides.frame42}
-                  className={classNames(projectcss.all, sty.frame42)}
-                  key={currentIndex}
-                >
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $props.header;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
+                throw e;
+              }
+            })()
+              ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
                       }
-                    })()
-                  ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                    const textItem = __plasmic_item_1;
-                    const currentIndex = __plasmic_idx_1;
-                    return (
-                      <div
-                        data-plasmic-name={"frame43"}
-                        data-plasmic-override={overrides.frame43}
-                        className={classNames(projectcss.all, sty.frame43)}
-                        key={currentIndex}
-                        style={(() => {
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__bSsdh,
+                        "shimmer"
+                      )}
+                      key={currentIndex}
+                    />
+                  );
+                })
+              : null}
+            {(() => {
+              try {
+                return !$props.loading;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()
+              ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $props.data.result.list;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const item = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <div
+                      data-plasmic-name={"frame42"}
+                      data-plasmic-override={overrides.frame42}
+                      className={classNames(projectcss.all, sty.frame42)}
+                      key={currentIndex}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
                           try {
-                            return {
-                              width: textItem.width + "px"
-                            };
+                            return $props.header;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}
-                      >
-                        {(() => {
-                          try {
-                            return textItem.type != "bool";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <LineClomp
-                            data-plasmic-name={"lineClomp"}
-                            data-plasmic-override={overrides.lineClomp}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.lineClomp
-                            )}
-                            numberOfLine={1}
-                            onLineChange={async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "lineClomp",
-                                __plasmic_idx_0,
-                                __plasmic_idx_1,
-                                "line"
-                              ]).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            }}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__eQp1V
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return (() => {
-                                      if (textItem.type === "text") {
-                                        return item.user[textItem.field];
-                                      }
-                                      if (textItem.type === "datetime") {
-                                        var t = item.user[textItem.field];
-                                        if (t) {
-                                          var d = new Date(
-                                            t.year,
-                                            t.month - 1,
-                                            t.day,
-                                            t.hour,
-                                            t.minute,
-                                            t.second,
-                                            Math.floor(t.nanosecond / 1000000)
-                                          );
-                                          var formatted =
-                                            d.toLocaleDateString("fa-IR");
-                                          return formatted;
-                                        }
-                                      }
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "27 Nov";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                          </LineClomp>
-                        ) : null}
-                        {(() => {
-                          try {
-                            return textItem.type == "bool";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
+                              return [];
                             }
                             throw e;
                           }
                         })()
-                          ? (() => {
-                              const child$Props = {
-                                children: null,
-                                className: classNames(
+                      ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                        const textItem = __plasmic_item_1;
+                        const currentIndex = __plasmic_idx_1;
+                        return (
+                          <div
+                            data-plasmic-name={"frame43"}
+                            data-plasmic-override={overrides.frame43}
+                            className={classNames(projectcss.all, sty.frame43)}
+                            key={currentIndex}
+                            style={(() => {
+                              try {
+                                return {
+                                  width: textItem.width + "px"
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                          >
+                            {(() => {
+                              try {
+                                return textItem.type != "bool";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <LineClomp
+                                data-plasmic-name={"lineClomp"}
+                                data-plasmic-override={overrides.lineClomp}
+                                className={classNames(
                                   "__wab_instance",
-                                  sty.switchbest
-                                ),
-                                isChecked:
-                                  generateStateValueProp($state, [
-                                    "switchbest",
+                                  sty.lineClomp
+                                )}
+                                numberOfLine={1}
+                                onLineChange={async (...eventArgs: any) => {
+                                  generateStateOnChangeProp($state, [
+                                    "lineClomp",
                                     __plasmic_idx_0,
                                     __plasmic_idx_1,
-                                    "isChecked"
-                                  ]) ?? false,
-                                isDisabled: true,
-                                onChange: async (...eventArgs: any) => {
-                                  ((...eventArgs) => {
-                                    generateStateOnChangeProp($state, [
-                                      "switchbest",
-                                      __plasmic_idx_0,
-                                      __plasmic_idx_1,
-                                      "isChecked"
-                                    ])(eventArgs[0]);
-                                  }).apply(null, eventArgs);
+                                    "line"
+                                  ]).apply(null, eventArgs);
 
                                   if (
                                     eventArgs.length > 1 &&
@@ -1623,48 +1598,151 @@ function PlasmicUserPage__RenderFunc(props: {
                                   ) {
                                     return;
                                   }
-                                }
-                              };
-
-                              initializePlasmicStates(
-                                $state,
-                                [
-                                  {
-                                    name: "switchbest[][].isChecked",
-                                    initFunc: ({ $props, $state, $queries }) =>
-                                      (() => {
-                                        try {
-                                          return item.user[textItem.field];
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return [];
+                                }}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__eQp1V
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return (() => {
+                                          if (textItem.type === "text") {
+                                            return item.user[textItem.field];
                                           }
-                                          throw e;
+                                          if (textItem.type === "datetime") {
+                                            var t = item.user[textItem.field];
+                                            if (t) {
+                                              var d = new Date(
+                                                t.year,
+                                                t.month - 1,
+                                                t.day,
+                                                t.hour,
+                                                t.minute,
+                                                t.second,
+                                                Math.floor(
+                                                  t.nanosecond / 1000000
+                                                )
+                                              );
+                                              var formatted =
+                                                d.toLocaleDateString("fa-IR");
+                                              return formatted;
+                                            }
+                                          }
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "27 Nov";
                                         }
-                                      })()
-                                  }
-                                ],
-                                [__plasmic_idx_0, __plasmic_idx_1]
-                              );
-                              return (
-                                <Switchbest
-                                  data-plasmic-name={"switchbest"}
-                                  data-plasmic-override={overrides.switchbest}
-                                  {...child$Props}
-                                />
-                              );
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                              </LineClomp>
+                            ) : null}
+                            {(() => {
+                              try {
+                                return textItem.type == "bool";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
                             })()
-                          : null}
-                      </div>
-                    );
-                  })}
-                </div>
-              );
-            })}
+                              ? (() => {
+                                  const child$Props = {
+                                    children: null,
+                                    className: classNames(
+                                      "__wab_instance",
+                                      sty.switchbest
+                                    ),
+                                    isChecked:
+                                      generateStateValueProp($state, [
+                                        "switchbest",
+                                        __plasmic_idx_0,
+                                        __plasmic_idx_1,
+                                        "isChecked"
+                                      ]) ?? false,
+                                    isDisabled: true,
+                                    onChange: async (...eventArgs: any) => {
+                                      ((...eventArgs) => {
+                                        generateStateOnChangeProp($state, [
+                                          "switchbest",
+                                          __plasmic_idx_0,
+                                          __plasmic_idx_1,
+                                          "isChecked"
+                                        ])(eventArgs[0]);
+                                      }).apply(null, eventArgs);
+
+                                      if (
+                                        eventArgs.length > 1 &&
+                                        eventArgs[1] &&
+                                        eventArgs[1]._plasmic_state_init_
+                                      ) {
+                                        return;
+                                      }
+                                    }
+                                  };
+
+                                  initializePlasmicStates(
+                                    $state,
+                                    [
+                                      {
+                                        name: "switchbest[][].isChecked",
+                                        initFunc: ({
+                                          $props,
+                                          $state,
+                                          $queries
+                                        }) =>
+                                          (() => {
+                                            try {
+                                              return item.user[textItem.field];
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return [];
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                      }
+                                    ],
+                                    [__plasmic_idx_0, __plasmic_idx_1]
+                                  );
+                                  return (
+                                    <Switchbest
+                                      data-plasmic-name={"switchbest"}
+                                      data-plasmic-override={
+                                        overrides.switchbest
+                                      }
+                                      {...child$Props}
+                                    />
+                                  );
+                                })()
+                              : null}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })
+              : null}
           </div>
         </div>
       </div>
