@@ -4266,6 +4266,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/main-page-pregnancy"
+        },
+        {
+          "id": "YjjiCvkREMP5",
+          "name": "TabPage",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicTabPage.tsx",
+          "importSpec": {
+            "modulePath": "TabPage.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicTabPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

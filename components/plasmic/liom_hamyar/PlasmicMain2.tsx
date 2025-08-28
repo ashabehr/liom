@@ -62,6 +62,7 @@ import {
 import UserPage from "../../UserPage"; // plasmic-import: Y_O8FNCBMxb-/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Reports from "../../Reports"; // plasmic-import: pmKDqHBtiLCT/component
+import TabPage from "../../TabPage"; // plasmic-import: YjjiCvkREMP5/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -75,11 +76,11 @@ import sty from "./PlasmicMain2.module.css"; // plasmic-import: qh0CBDuGi8tY/css
 createPlasmicElementProxy;
 
 export type PlasmicMain2__VariantMembers = {
-  page: "reports";
+  page: "reports" | "tabPage";
   user: "user";
 };
 export type PlasmicMain2__VariantsArgs = {
-  page?: SingleChoiceArg<"reports">;
+  page?: SingleChoiceArg<"reports" | "tabPage">;
   user?: SingleBooleanChoiceArg<"user">;
 };
 type VariantPropType = keyof PlasmicMain2__VariantsArgs;
@@ -97,11 +98,12 @@ export type PlasmicMain2__OverridesType = {
   userPage?: Flex__<typeof UserPage>;
   apiRequest?: Flex__<typeof ApiRequest>;
   reports?: Flex__<typeof Reports>;
+  tabPage?: Flex__<typeof TabPage>;
 };
 
 export interface DefaultMain2Props {
   header?: any;
-  page?: SingleChoiceArg<"reports">;
+  page?: SingleChoiceArg<"reports" | "tabPage">;
   user?: SingleBooleanChoiceArg<"user">;
   className?: string;
 }
@@ -278,6 +280,98 @@ function PlasmicMain2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "tabPage.reportsSelect",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "tabPage.selectedTab",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "tabPage.tabList",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u0647\u0645\u0633\u0631",
+            type: "husband-sms"
+          },
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f",
+            type: "self-sms"
+          },
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0633\u0631\u0637\u0627\u0646 \u0633\u06cc\u0646\u0647",
+            type: "breast-canser-sms"
+          },
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u0645\u0627\u062f\u0631",
+            type: "mather-sms"
+          },
+          {
+            title:
+              "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0622\u0642\u0627\u06cc\u0627\u0646",
+            type: "husband-sub"
+          },
+          {
+            title:
+              "\u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0648\u0635\u06cc\u0647 \u0647\u0627",
+            type: "special-advice"
+          }
+        ]
+      },
+      {
+        path: "reports.tabList",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u0647\u0645\u0633\u0631",
+            type: "husband-sms"
+          },
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f",
+            type: "self-sms"
+          },
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0633\u0631\u0637\u0627\u0646 \u0633\u06cc\u0646\u0647",
+            type: "breast-canser-sms"
+          },
+          {
+            title:
+              "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u0645\u0627\u062f\u0631",
+            type: "mather-sms"
+          },
+          {
+            title:
+              "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0622\u0642\u0627\u06cc\u0627\u0646",
+            type: "husband-sub"
+          },
+          {
+            title:
+              "\u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0648\u0635\u06cc\u0647 \u0647\u0627",
+            type: "special-advice"
+          }
+        ]
+      },
+      {
+        path: "reports.tabSelected",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -310,7 +404,17 @@ function PlasmicMain2__RenderFunc(props: {
         styleTokensClassNames_antd_5_hostless,
         styleTokensClassNames_plasmic_rich_components,
         sty.root,
-        { [sty.rootpage_reports]: hasVariant($state, "page", "reports") }
+        {
+          [sty.rootpage_reports]: hasVariant($state, "page", "reports"),
+          [sty.rootpage_tabPage]: hasVariant($state, "page", "tabPage"),
+          [sty.rootuser]: hasVariant($state, "user", "user"),
+          [sty.rootuser_page_reports]:
+            hasVariant($state, "user", "user") &&
+            hasVariant($state, "page", "reports"),
+          [sty.rootuser_page_tabPage]:
+            hasVariant($state, "user", "user") &&
+            hasVariant($state, "page", "tabPage")
+        }
       )}
     >
       <UserPage
@@ -318,9 +422,13 @@ function PlasmicMain2__RenderFunc(props: {
         data-plasmic-override={overrides.userPage}
         className={classNames("__wab_instance", sty.userPage, {
           [sty.userPagepage_reports]: hasVariant($state, "page", "reports"),
+          [sty.userPagepage_tabPage]: hasVariant($state, "page", "tabPage"),
           [sty.userPageuser]: hasVariant($state, "user", "user"),
           [sty.userPageuser_page_reports]:
             hasVariant($state, "page", "reports") &&
+            hasVariant($state, "user", "user"),
+          [sty.userPageuser_page_tabPage]:
+            hasVariant($state, "page", "tabPage") &&
             hasVariant($state, "user", "user")
         })}
         data={(() => {
@@ -395,6 +503,21 @@ function PlasmicMain2__RenderFunc(props: {
       <ApiRequest
         data-plasmic-name={"apiRequest"}
         data-plasmic-override={overrides.apiRequest}
+        body={(() => {
+          try {
+            return {
+              tab: $state.tabPage.tabList[$state.tabPage.selectedTab].type
+            };
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
         className={classNames("__wab_instance", sty.apiRequest)}
         errorDisplay={null}
         loadingDisplay={null}
@@ -438,7 +561,11 @@ function PlasmicMain2__RenderFunc(props: {
         data-plasmic-override={overrides.reports}
         className={classNames("__wab_instance", sty.reports, {
           [sty.reportspage_reports]: hasVariant($state, "page", "reports"),
-          [sty.reportsuser]: hasVariant($state, "user", "user")
+          [sty.reportspage_tabPage]: hasVariant($state, "page", "tabPage"),
+          [sty.reportsuser]: hasVariant($state, "user", "user"),
+          [sty.reportsuser_page_reports]:
+            hasVariant($state, "user", "user") &&
+            hasVariant($state, "page", "reports")
         })}
         onClick={async event => {
           const $steps = {};
@@ -479,20 +606,111 @@ function PlasmicMain2__RenderFunc(props: {
             return;
           }
         }}
+        onTabListChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["reports", "tabList"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onTabSelectedChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["reports", "tabSelected"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
         reportsSelect={generateStateValueProp($state, [
           "reports",
           "reportsSelect"
         ])}
+        tabList={generateStateValueProp($state, ["reports", "tabList"])}
+        tabSelected={generateStateValueProp($state, ["reports", "tabSelected"])}
+      />
+
+      <TabPage
+        data-plasmic-name={"tabPage"}
+        data-plasmic-override={overrides.tabPage}
+        className={classNames("__wab_instance", sty.tabPage, {
+          [sty.tabPagepage_tabPage]: hasVariant($state, "page", "tabPage"),
+          [sty.tabPageuser]: hasVariant($state, "user", "user"),
+          [sty.tabPageuser_page_tabPage]:
+            hasVariant($state, "user", "user") &&
+            hasVariant($state, "page", "tabPage")
+        })}
+        onReportsSelectChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["tabPage", "reportsSelect"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onSelectedTabChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["tabPage", "selectedTab"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onTabListChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["tabPage", "tabList"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        reportsSelect={generateStateValueProp($state, [
+          "tabPage",
+          "reportsSelect"
+        ])}
+        selectedTab={generateStateValueProp($state, ["tabPage", "selectedTab"])}
+        tabList={generateStateValueProp($state, ["tabPage", "tabList"])}
       />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "userPage", "apiRequest", "reports"],
+  root: ["root", "userPage", "apiRequest", "reports", "tabPage"],
   userPage: ["userPage"],
   apiRequest: ["apiRequest"],
-  reports: ["reports"]
+  reports: ["reports"],
+  tabPage: ["tabPage"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -502,6 +720,7 @@ type NodeDefaultElementType = {
   userPage: typeof UserPage;
   apiRequest: typeof ApiRequest;
   reports: typeof Reports;
+  tabPage: typeof TabPage;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -567,6 +786,7 @@ export const PlasmicMain2 = Object.assign(
     userPage: makeNodeComponent("userPage"),
     apiRequest: makeNodeComponent("apiRequest"),
     reports: makeNodeComponent("reports"),
+    tabPage: makeNodeComponent("tabPage"),
 
     // Metadata about props expected for PlasmicMain2
     internalVariantProps: PlasmicMain2__VariantProps,

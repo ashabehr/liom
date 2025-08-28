@@ -21,11 +21,19 @@
   flex-shrink: 0;
   display: none;
 }
+.userPagepage_tabPage:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
 .userPageuser:global(.__wab_instance) {
   flex-shrink: 0;
   display: flex;
 }
 .userPageuser_page_reports:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.userPageuser_page_tabPage:global(.__wab_instance) {
   flex-shrink: 0;
   display: flex;
 }
@@ -40,7 +48,29 @@
 .reportspage_reports:global(.__wab_instance) {
   flex-shrink: 0;
 }
+.reportspage_tabPage:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
 .reportsuser:global(.__wab_instance) {
   flex-shrink: 0;
   display: none;
+}
+.reportsuser_page_reports:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.tabPage:global(.__wab_instance) {
+  max-width: 100%;
+  flex-shrink: 0;
+  display: none;
+}
+.tabPagepage_tabPage:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.tabPageuser:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.tabPageuser_page_tabPage:global(.__wab_instance) {
+  flex-shrink: 0;
 }

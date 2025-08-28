@@ -274,6 +274,7 @@ function PlasmicPan__RenderFunc(props: {
               page={(() => {
                 try {
                   return $state.menu2.select;
+                  // "tabPage"
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
