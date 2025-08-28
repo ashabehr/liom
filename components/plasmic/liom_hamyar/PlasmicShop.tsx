@@ -624,8 +624,8 @@ function PlasmicShop__RenderFunc(props: {
           (() => {
             try {
               return (
-                JSON.parse(window.localStorage.getItem("userinfo")).user
-                  .mobile == false
+                // (JSON.parse(window.localStorage.getItem("userinfo"))).user.mobile==false
+                false
               );
             } catch (e) {
               if (
@@ -5593,88 +5593,57 @@ function PlasmicShop__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/hamyar/shop"}
           />
 
-          {(() => {
-            const child$Props = {
-              className: classNames("__wab_instance", sty.mobileDialog),
-              desc: "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647\u060c \u0644\u0637\u0641\u0627\u064b \u0634\u0645\u0627\u0631\u0647 \u062a\u0644\u0641\u0646 \u062e\u0648\u062f \u0631\u0627 \u062a\u0627\u06cc\u06cc\u062f \u06a9\u0646\u06cc\u062f.",
-              onOpenChange: async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "mobileDialog",
-                  "open"
-                ]).apply(null, eventArgs);
+          <MobileDialog
+            data-plasmic-name={"mobileDialog"}
+            data-plasmic-override={overrides.mobileDialog}
+            className={classNames("__wab_instance", sty.mobileDialog)}
+            desc={
+              "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647\u060c \u0644\u0637\u0641\u0627\u064b \u0634\u0645\u0627\u0631\u0647 \u062a\u0644\u0641\u0646 \u062e\u0648\u062f \u0631\u0627 \u062a\u0627\u06cc\u06cc\u062f \u06a9\u0646\u06cc\u062f."
+            }
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["mobileDialog", "open"]).apply(
+                null,
+                eventArgs
+              );
 
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onSelectShopChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "mobileDialog",
+                "selectShop"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            open={generateStateValueProp($state, ["mobileDialog", "open"])}
+            token={(() => {
+              try {
+                return $state.token;
+              } catch (e) {
                 if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  return;
+                  return undefined;
                 }
-              },
-              onSelectShopChange: async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "mobileDialog",
-                  "selectShop"
-                ]).apply(null, eventArgs);
+                throw e;
+              }
+            })()}
+          />
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              },
-              open: generateStateValueProp($state, ["mobileDialog", "open"]),
-              token: (() => {
-                try {
-                  return $state.token;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()
-            };
-
-            initializePlasmicStates(
-              $state,
-              [
-                {
-                  name: "mobileDialog.open",
-                  initFunc: ({ $props, $state, $queries }) =>
-                    (() => {
-                      try {
-                        return (
-                          JSON.parse(window.localStorage.getItem("userinfo"))
-                            .user.mobile == false
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })()
-                }
-              ],
-              []
-            );
-            return (
-              <MobileDialog
-                data-plasmic-name={"mobileDialog"}
-                data-plasmic-override={overrides.mobileDialog}
-                {...child$Props}
-              />
-            );
-          })()}
           {(() => {
             try {
               return !$state.shopPage;
