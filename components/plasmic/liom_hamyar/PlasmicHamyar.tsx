@@ -2744,7 +2744,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         (() => {
                           try {
                             return {
-                              status: $state.cyclebox.cycle,
+                              status: $state.cyclebox?.cycle || "white",
                               userId: $state.userdata.result.man.id
                             };
                           } catch (e) {
@@ -5560,7 +5560,13 @@ function PlasmicHamyar__RenderFunc(props: {
                     </div>
                   </Cyclebox>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__cIahf)}
+                    className={classNames(projectcss.all, sty.freeBox__cIahf, {
+                      [sty.freeBoxnoPartner__cIahfc7PeD]: hasVariant(
+                        $state,
+                        "noPartner",
+                        "noPartner"
+                      )
+                    })}
                   >
                     <div
                       className={classNames(projectcss.all, sty.freeBox__ead5H)}
@@ -6892,12 +6898,29 @@ function PlasmicHamyar__RenderFunc(props: {
                       ) : null}
                     </div>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__d04NJ)}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__d04NJ,
+                        {
+                          [sty.freeBoxnoPartner__d04NJc7PeD]: hasVariant(
+                            $state,
+                            "noPartner",
+                            "noPartner"
+                          )
+                        }
+                      )}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__aErc9
+                          sty.freeBox__aErc9,
+                          {
+                            [sty.freeBoxnoPartner__aErc9C7PeD]: hasVariant(
+                              $state,
+                              "noPartner",
+                              "noPartner"
+                            )
+                          }
                         )}
                       >
                         <PlasmicIcon__
@@ -6963,7 +6986,14 @@ function PlasmicHamyar__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__rYpc3
+                          sty.freeBox__rYpc3,
+                          {
+                            [sty.freeBoxnoPartner__rYpc3C7PeD]: hasVariant(
+                              $state,
+                              "noPartner",
+                              "noPartner"
+                            )
+                          }
                         )}
                       >
                         {(
@@ -9695,10 +9725,37 @@ function PlasmicHamyar__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text___4QMIr
+                            sty.text___4QMIr,
+                            {
+                              [sty.textnoPartner___4QMIrc7PeD]: hasVariant(
+                                $state,
+                                "noPartner",
+                                "noPartner"
+                              )
+                            }
                           )}
                         >
-                          {hasVariant(globalVariants, "screen", "mobile") ? (
+                          {hasVariant($state, "noPartner", "noPartner") ? (
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return "این روزا باید چیکار کنم؟";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u0627\u06cc\u0646 \u0631\u0648\u0632\u0627 \u0628\u0627\u06cc\u062f \u0686\u06cc\u06a9\u0627\u0631 \u06a9\u0646\u0645";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          ) : hasVariant(globalVariants, "screen", "mobile") ? (
                             <div
                               className={projectcss.__wab_expr_html_text}
                               dangerouslySetInnerHTML={{
@@ -9739,7 +9796,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                       e?.plasmicType ===
                                         "PlasmicUndefinedDataError"
                                     ) {
-                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                      return "\u0627\u06cc\u0646 \u0631\u0648\u0632\u0627 \u0628\u0627\u06cc\u062f \u0686\u06cc\u06a9\u0627\u0631 \u06a9\u0646\u0645";
                                     }
                                     throw e;
                                   }

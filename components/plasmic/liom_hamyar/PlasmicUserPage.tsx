@@ -1433,7 +1433,7 @@ function PlasmicUserPage__RenderFunc(props: {
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
-                  return $props.data.result;
+                  return $props.data.result.list;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

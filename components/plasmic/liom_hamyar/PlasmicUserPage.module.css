@@ -191,6 +191,7 @@
   color: rgba(0, 0, 0, 1);
   position: relative;
   text-align: center;
+  height: auto;
 }
 .switchbest:global(.__wab_instance) {
   max-width: 100%;
