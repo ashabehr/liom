@@ -272,6 +272,12 @@ function PlasmicMain2__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.user
+      },
+      {
+        path: "type",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -399,7 +405,19 @@ function PlasmicMain2__RenderFunc(props: {
           );
         }}
         shouldFetch={true}
-        url={"https://n8n.staas.ir/webhook/panel/endHusbandSub"}
+        url={(() => {
+          try {
+            return `https://n8n.staas.ir/webhook/panel/${$state.reports.reportsSelect.api}`;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
       />
 
       <Reports

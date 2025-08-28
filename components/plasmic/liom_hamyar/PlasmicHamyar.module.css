@@ -99,9 +99,6 @@
     padding: 0px;
   }
 }
-.freeBoxnoPartner__tNnSfc7PeD {
-  display: none;
-}
 .freeBox__d2GZw {
   display: flex;
   flex-direction: row;
@@ -2582,7 +2579,70 @@
     opacity: 0;
   }
 }
-.freeBox__rUzIe {
+.nopartner2 {
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  display: none;
+  padding: 8px;
+}
+.nopartner2noPartner {
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  background: var(--token-R_Rsn0nP9oIv);
+  width: 100%;
+  min-height: 200px;
+  min-width: 0;
+  display: flex;
+  border-radius: 8px;
+}
+.freeBox__csqQx {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBoxnoPartner__csqQXc7PeD {
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+.lottie__fJkW6:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.lottienoPartner__fJkW6C7PeD:global(.__wab_instance) {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+}
+.text__sJDp2 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.textnoPartner__sJDp2C7PeD {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+.freeBox__n6V4T {
+  display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
@@ -2592,41 +2652,38 @@
   align-items: center;
   row-gap: 8px;
   min-width: 0;
-  display: none;
   padding: 8px;
 }
-.freeBoxnoPartner__rUzIEc7PeD {
+.freeBoxnoPartner__n6V4Tc7PeD {
   height: 100%;
   align-items: center;
   justify-content: center;
-  min-height: 200px;
-  display: flex;
-  padding: var(--token-uOLZE7OyOW-J);
+  min-height: 0;
 }
-.text__sdQ5J {
+.text__xqm9Z {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.textnoPartner__sdQ5Jc7PeD {
+.textnoPartner__xqm9Zc7PeD {
   text-align: center;
   font-size: 16px;
   font-weight: 500;
 }
-.button21:global(.__wab_instance) {
+.button20:global(.__wab_instance) {
   max-width: 100%;
   width: 100%;
   min-width: 0;
 }
-.svg__l5Qfa {
+.svg__ck9Eq {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg__xMl9X {
+.svg__qzRfr {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
