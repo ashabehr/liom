@@ -161,6 +161,8 @@ function PlasmicReports__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -223,6 +225,12 @@ function PlasmicReports__RenderFunc(props: {
 
         valueProp: "tabSelected",
         onChangeProp: "onTabSelectedChange"
+      },
+      {
+        path: "tabData",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -350,6 +358,105 @@ function PlasmicReports__RenderFunc(props: {
                         $steps["updateTabSelected"] = await $steps[
                           "updateTabSelected"
                         ];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/panel/tab",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      type: $state.tabList?.[currentIndex]?.type
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return console.log(
+                                    $steps.invokeGlobalAction?.data ?? []
+                                  );
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["updateTabData"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["tabData"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction?.data?.[0] ?? {}
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateTabData"] != null &&
+                        typeof $steps["updateTabData"] === "object" &&
+                        typeof $steps["updateTabData"].then === "function"
+                      ) {
+                        $steps["updateTabData"] = await $steps["updateTabData"];
                       }
                     }}
                     style={(() => {
