@@ -135,6 +135,7 @@
   text-align: center;
   font-weight: 500;
   font-size: 18px;
+  white-space: pre;
   padding: 8px;
 }
 @media (max-width: 640px) {

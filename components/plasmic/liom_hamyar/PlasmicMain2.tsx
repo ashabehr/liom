@@ -512,7 +512,8 @@ function PlasmicMain2__RenderFunc(props: {
         body={(() => {
           try {
             return {
-              tab: $state.tabPage.tabList[$state.tabPage.selectedTab].type
+              type: $state.reports.tabList[$state.reports.tabSelected].type,
+              page: "0"
             };
           } catch (e) {
             if (
