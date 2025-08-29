@@ -60,4 +60,5 @@
 }
 .main2:global(.__wab_instance) {
   position: relative;
+  margin-bottom: 0px;
 }

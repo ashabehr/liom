@@ -195,6 +195,12 @@ function PlasmicPan__RenderFunc(props: {
           "\u062c\u0646\u0633\u06cc\u062a",
           "\u0632\u0645\u0627\u0646 \u067e\u0627\u06cc\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9"
         ]
+      },
+      {
+        path: "main2.page2",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "0"
       }
     ],
     [$props, $ctx, $refs]
@@ -271,6 +277,20 @@ function PlasmicPan__RenderFunc(props: {
               data-plasmic-override={overrides.main2}
               className={classNames("__wab_instance", sty.main2)}
               header={$state.header}
+              onPage2Change={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["main2", "page2"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
               page={(() => {
                 try {
                   return $state.menu2.select;
@@ -285,6 +305,7 @@ function PlasmicPan__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              page2={generateStateValueProp($state, ["main2", "page2"])}
             />
           </div>
         </div>

@@ -188,7 +188,7 @@ function PlasmicReports__RenderFunc(props: {
             title:
               "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0647\u0627\u06cc\u06cc \u06a9\u0647 \u06f3 \u0631\u0648\u0632 \u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0627\u062a\u0645\u0627\u0645",
             type: "expiring_3_days",
-            api: "endSmsSubsByDay",
+            api: "expire-3",
             backColor: "#FFA500",
             number: "",
             tag: "expire3"
@@ -197,7 +197,7 @@ function PlasmicReports__RenderFunc(props: {
             title:
               "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0647\u0627\u06cc\u06cc \u06a9\u0647 \u06f1\u06f0 \u0631\u0648\u0632 \u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0627\u062a\u0645\u0627\u0645",
             type: "expiring_10_days",
-            api: "endHusbandSub",
+            api: "expire-10",
             backColor: "",
             number: "",
             tag: "expire10"
@@ -713,6 +713,39 @@ function PlasmicReports__RenderFunc(props: {
                         $steps["updateLoading2"] = await $steps[
                           "updateLoading2"
                         ];
+                      }
+
+                      $steps["updateTitre"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["titre"]
+                              },
+                              operation: 0
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateTitre"] != null &&
+                        typeof $steps["updateTitre"] === "object" &&
+                        typeof $steps["updateTitre"].then === "function"
+                      ) {
+                        $steps["updateTitre"] = await $steps["updateTitre"];
                       }
                     }}
                     style={(() => {

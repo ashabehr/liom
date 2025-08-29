@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import UserPage from "../../UserPage"; // plasmic-import: Y_O8FNCBMxb-/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Reports from "../../Reports"; // plasmic-import: pmKDqHBtiLCT/component
@@ -89,12 +90,23 @@ export const PlasmicMain2__VariantProps = new Array<VariantPropType>(
   "user"
 );
 
-export type PlasmicMain2__ArgsType = { header?: any };
+export type PlasmicMain2__ArgsType = {
+  header?: any;
+  page2?: string;
+  onPage2Change?: (val: string) => void;
+};
 type ArgPropType = keyof PlasmicMain2__ArgsType;
-export const PlasmicMain2__ArgProps = new Array<ArgPropType>("header");
+export const PlasmicMain2__ArgProps = new Array<ArgPropType>(
+  "header",
+  "page2",
+  "onPage2Change"
+);
 
 export type PlasmicMain2__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
+  freeBox?: Flex__<"div">;
+  blockquote?: Flex__<"blockquote">;
   userPage?: Flex__<typeof UserPage>;
   apiRequest?: Flex__<typeof ApiRequest>;
   reports?: Flex__<typeof Reports>;
@@ -103,6 +115,8 @@ export type PlasmicMain2__OverridesType = {
 
 export interface DefaultMain2Props {
   header?: any;
+  page2?: string;
+  onPage2Change?: (val: string) => void;
   page?: SingleChoiceArg<"reports" | "tabPage">;
   user?: SingleBooleanChoiceArg<"user">;
   className?: string;
@@ -381,9 +395,11 @@ function PlasmicMain2__RenderFunc(props: {
       },
       {
         path: "page2",
-        type: "private",
+        type: "writable",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "0"
+
+        valueProp: "page2",
+        onChangeProp: "onPage2Change"
       }
     ],
     [$props, $ctx, $refs]
@@ -429,6 +445,165 @@ function PlasmicMain2__RenderFunc(props: {
         }
       )}
     >
+      <SideEffect
+        data-plasmic-name={"sideEffect"}
+        data-plasmic-override={overrides.sideEffect}
+        className={classNames("__wab_instance", sty.sideEffect, {
+          [sty.sideEffectuser]: hasVariant($state, "user", "user")
+        })}
+        onMount={async () => {
+          const $steps = {};
+        }}
+      />
+
+      <div
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
+        className={classNames(projectcss.all, sty.freeBox, {
+          [sty.freeBoxpage_reports]: hasVariant($state, "page", "reports"),
+          [sty.freeBoxpage_tabPage]: hasVariant($state, "page", "tabPage"),
+          [sty.freeBoxuser]: hasVariant($state, "user", "user")
+        })}
+      >
+        {(() => {
+          try {
+            return parseInt($state.page2) != 0;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
+          }
+        })() ? (
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__yW1U,
+              { [sty.textuser__yW1UBGqPs]: hasVariant($state, "user", "user") }
+            )}
+          >
+            <React.Fragment>
+              <React.Fragment>{""}</React.Fragment>
+              {
+                <blockquote
+                  data-plasmic-name={"blockquote"}
+                  data-plasmic-override={overrides.blockquote}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.blockquote,
+                    { [sty.blockquoteuser]: hasVariant($state, "user", "user") }
+                  )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updatePage2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["page2"]
+                            },
+                            operation: 0,
+                            value: (parseInt($state.page2) - 1).toString()
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updatePage2"] != null &&
+                      typeof $steps["updatePage2"] === "object" &&
+                      typeof $steps["updatePage2"].then === "function"
+                    ) {
+                      $steps["updatePage2"] = await $steps["updatePage2"];
+                    }
+                  }}
+                >
+                  {"< \u0635\u0641\u062d\u0647 \u0642\u0628\u0644\u06cc"}
+                </blockquote>
+              }
+              <React.Fragment>{""}</React.Fragment>
+            </React.Fragment>
+          </div>
+        ) : null}
+        {(
+          hasVariant($state, "user", "user")
+            ? (() => {
+                try {
+                  return $state.apiRequest.data.result.length != 0;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()
+            : true
+        ) ? (
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__fbb6B,
+              { [sty.textuser__fbb6BbGqPs]: hasVariant($state, "user", "user") }
+            )}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updatePage2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["page2"]
+                      },
+                      operation: 0,
+                      value: (parseInt($state.page2) + 1).toString()
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updatePage2"] != null &&
+                typeof $steps["updatePage2"] === "object" &&
+                typeof $steps["updatePage2"].then === "function"
+              ) {
+                $steps["updatePage2"] = await $steps["updatePage2"];
+              }
+            }}
+          >
+            {"\u0635\u0641\u062d\u0647 \u0628\u0639\u062f\u06cc >"}
+          </div>
+        ) : null}
+      </div>
       <UserPage
         data-plasmic-name={"userPage"}
         data-plasmic-override={overrides.userPage}
@@ -494,6 +669,35 @@ function PlasmicMain2__RenderFunc(props: {
           ) {
             $steps["updateUser"] = await $steps["updateUser"];
           }
+
+          $steps["updatePage2"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["page2"]
+                  },
+                  operation: 0,
+                  value: "0"
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updatePage2"] != null &&
+            typeof $steps["updatePage2"] === "object" &&
+            typeof $steps["updatePage2"].then === "function"
+          ) {
+            $steps["updatePage2"] = await $steps["updatePage2"];
+          }
         }}
       >
         <React.Fragment>
@@ -517,10 +721,16 @@ function PlasmicMain2__RenderFunc(props: {
         data-plasmic-override={overrides.apiRequest}
         body={(() => {
           try {
-            return {
-              type: $state.reports.tabList[$state.reports.tabSelected].type,
-              page: $state.page2
-            };
+            return $state.reports.reportsSelect.api.startsWith("expire")
+              ? {
+                  type: $state.reports.tabList[$state.reports.tabSelected].type,
+                  page: $state.page2,
+                  day: parseInt($state.reports.reportsSelect.api.split("-")[1])
+                }
+              : {
+                  type: $state.reports.tabList[$state.reports.tabSelected].type,
+                  page: $state.page2
+                };
           } catch (e) {
             if (
               e instanceof TypeError ||
@@ -556,7 +766,9 @@ function PlasmicMain2__RenderFunc(props: {
         shouldFetch={true}
         url={(() => {
           try {
-            return `https://n8n.staas.ir/webhook/panel/${$state.reports.reportsSelect.api}`;
+            return `https://n8n.staas.ir/webhook/panel/${
+              $state.reports.reportsSelect.api.split("-")[0]
+            }`;
           } catch (e) {
             if (
               e instanceof TypeError ||
@@ -719,7 +931,19 @@ function PlasmicMain2__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "userPage", "apiRequest", "reports", "tabPage"],
+  root: [
+    "root",
+    "sideEffect",
+    "freeBox",
+    "blockquote",
+    "userPage",
+    "apiRequest",
+    "reports",
+    "tabPage"
+  ],
+  sideEffect: ["sideEffect"],
+  freeBox: ["freeBox", "blockquote"],
+  blockquote: ["blockquote"],
   userPage: ["userPage"],
   apiRequest: ["apiRequest"],
   reports: ["reports"],
@@ -730,6 +954,9 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
+  freeBox: "div";
+  blockquote: "blockquote";
   userPage: typeof UserPage;
   apiRequest: typeof ApiRequest;
   reports: typeof Reports;
@@ -796,6 +1023,9 @@ export const PlasmicMain2 = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
+    freeBox: makeNodeComponent("freeBox"),
+    blockquote: makeNodeComponent("blockquote"),
     userPage: makeNodeComponent("userPage"),
     apiRequest: makeNodeComponent("apiRequest"),
     reports: makeNodeComponent("reports"),

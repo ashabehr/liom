@@ -18,6 +18,38 @@
     padding: 0px;
   }
 }
+.sideEffect:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.freeBox {
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  display: none;
+  padding: 8px;
+}
+.freeBoxuser {
+  display: flex;
+}
+.text__yW1U {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  min-width: 0;
+}
+.text__fbb6B {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
 .userPage:global(.__wab_instance) {
   flex-shrink: 0;
   display: none;
