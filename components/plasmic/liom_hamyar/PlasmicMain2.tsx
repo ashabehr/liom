@@ -338,32 +338,38 @@ function PlasmicMain2__RenderFunc(props: {
           {
             title:
               "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u0647\u0645\u0633\u0631",
-            type: "husbandSmsSubStatus"
+            type: "husbandSmsSubStatus",
+            number: ""
           },
           {
             title:
               "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f",
-            type: "selfHamyarSmsSubStatus"
+            type: "selfHamyarSmsSubStatus",
+            number: ""
           },
           {
             title:
               "\u067e\u06cc\u0627\u0645\u06a9 \u0633\u0631\u0637\u0627\u0646 \u0633\u06cc\u0646\u0647",
-            type: "breastCancerSmsSubStatus"
+            type: "breastCancerSmsSubStatus",
+            number: ""
           },
           {
             title:
               "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u0645\u0627\u062f\u0631",
-            type: "motherSmsSubStatus"
+            type: "motherSmsSubStatus",
+            number: ""
           },
           {
             title:
               "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0622\u0642\u0627\u06cc\u0627\u0646",
-            type: "hamyarStatusMan"
+            type: "hamyarStatusMan",
+            number: ""
           },
           {
             title:
               "\u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0648\u0635\u06cc\u0647 \u0647\u0627",
-            type: "specialAdviceSubStatus"
+            type: "specialAdviceSubStatus",
+            number: ""
           }
         ]
       },
