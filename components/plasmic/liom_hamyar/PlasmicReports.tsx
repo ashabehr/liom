@@ -289,7 +289,7 @@ function PlasmicReports__RenderFunc(props: {
         onMount={async () => {
           const $steps = {};
 
-          $steps["updateLoading"] = true
+          $steps["updateLoading"] = false
             ? (() => {
                 const actionArgs = {
                   variable: {
@@ -318,7 +318,7 @@ function PlasmicReports__RenderFunc(props: {
             $steps["updateLoading"] = await $steps["updateLoading"];
           }
 
-          $steps["invokeGlobalAction"] = true
+          $steps["invokeGlobalAction"] = false
             ? (() => {
                 const actionArgs = {
                   args: [
@@ -355,7 +355,7 @@ function PlasmicReports__RenderFunc(props: {
             $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
           }
 
-          $steps["updateTabData"] = true
+          $steps["updateTabData"] = false
             ? (() => {
                 const actionArgs = {
                   variable: {
@@ -384,7 +384,7 @@ function PlasmicReports__RenderFunc(props: {
             $steps["updateTabData"] = await $steps["updateTabData"];
           }
 
-          $steps["runCode"] = true
+          $steps["runCode"] = false
             ? (() => {
                 const actionArgs = {
                   customFunction: async () => {
@@ -411,7 +411,7 @@ function PlasmicReports__RenderFunc(props: {
             $steps["runCode"] = await $steps["runCode"];
           }
 
-          $steps["updateLoading2"] = true
+          $steps["updateLoading2"] = false
             ? (() => {
                 const actionArgs = {
                   variable: {
@@ -654,13 +654,13 @@ function PlasmicReports__RenderFunc(props: {
                               const actionArgs = {
                                 customFunction: async () => {
                                   return (() => {
-                                    if ($state.tabData?.result) {
-                                      $state.titre = $state.titre.map(item => ({
+                                    const result = $state.tabData?.result ?? {};
+                                    $state.titre = ($state.titre ?? []).map(
+                                      item => ({
                                         ...item,
-                                        number:
-                                          $state.tabData.result[item.tag] ?? ""
-                                      }));
-                                    }
+                                        number: result[item.tag] ?? ""
+                                      })
+                                    );
                                     console.log($state.tabData);
                                     return console.log($state.titre);
                                   })();
