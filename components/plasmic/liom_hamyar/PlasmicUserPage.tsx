@@ -85,16 +85,18 @@ export type PlasmicUserPage__ArgsType = {
   header?: any;
   data?: any;
   onBack?: (event: any) => void;
-  children?: React.ReactNode;
   loading?: boolean;
+  children?: React.ReactNode;
+  slot?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicUserPage__ArgsType;
 export const PlasmicUserPage__ArgProps = new Array<ArgPropType>(
   "header",
   "data",
   "onBack",
+  "loading",
   "children",
-  "loading"
+  "slot"
 );
 
 export type PlasmicUserPage__OverridesType = {
@@ -115,8 +117,9 @@ export interface DefaultUserPageProps {
   header?: any;
   data?: any;
   onBack?: (event: any) => void;
-  children?: React.ReactNode;
   loading?: boolean;
+  children?: React.ReactNode;
+  slot?: React.ReactNode;
   className?: string;
 }
 
@@ -1475,7 +1478,7 @@ function PlasmicUserPage__RenderFunc(props: {
               ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+                      return [1, 2, 3, 4, 5, 6];
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -1759,6 +1762,12 @@ function PlasmicUserPage__RenderFunc(props: {
                   );
                 })
               : null}
+            <div className={classNames(projectcss.all, sty.freeBox__d7RnW)}>
+              {renderPlasmicSlot({
+                defaultContents: null,
+                value: args.slot
+              })}
+            </div>
           </div>
         </div>
       </div>

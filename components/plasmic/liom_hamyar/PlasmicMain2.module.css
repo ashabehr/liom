@@ -22,6 +22,30 @@
   max-width: 100%;
   object-fit: cover;
 }
+.userPage:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.userPagepage_reports:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.userPagepage_tabPage:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: none;
+}
+.userPageuser:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.userPageuser_page_reports:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
+.userPageuser_page_tabPage:global(.__wab_instance) {
+  flex-shrink: 0;
+  display: flex;
+}
 .freeBox {
   flex-direction: row;
   position: relative;
@@ -49,30 +73,6 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-}
-.userPage:global(.__wab_instance) {
-  flex-shrink: 0;
-  display: none;
-}
-.userPagepage_reports:global(.__wab_instance) {
-  flex-shrink: 0;
-  display: none;
-}
-.userPagepage_tabPage:global(.__wab_instance) {
-  flex-shrink: 0;
-  display: none;
-}
-.userPageuser:global(.__wab_instance) {
-  flex-shrink: 0;
-  display: flex;
-}
-.userPageuser_page_reports:global(.__wab_instance) {
-  flex-shrink: 0;
-  display: flex;
-}
-.userPageuser_page_tabPage:global(.__wab_instance) {
-  flex-shrink: 0;
-  display: flex;
 }
 .apiRequest:global(.__wab_instance) {
   max-width: 100%;

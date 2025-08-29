@@ -105,9 +105,9 @@ export const PlasmicMain2__ArgProps = new Array<ArgPropType>(
 export type PlasmicMain2__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
+  userPage?: Flex__<typeof UserPage>;
   freeBox?: Flex__<"div">;
   blockquote?: Flex__<"blockquote">;
-  userPage?: Flex__<typeof UserPage>;
   apiRequest?: Flex__<typeof ApiRequest>;
   reports?: Flex__<typeof Reports>;
   tabPage?: Flex__<typeof TabPage>;
@@ -456,154 +456,6 @@ function PlasmicMain2__RenderFunc(props: {
         }}
       />
 
-      <div
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox, {
-          [sty.freeBoxpage_reports]: hasVariant($state, "page", "reports"),
-          [sty.freeBoxpage_tabPage]: hasVariant($state, "page", "tabPage"),
-          [sty.freeBoxuser]: hasVariant($state, "user", "user")
-        })}
-      >
-        {(() => {
-          try {
-            return parseInt($state.page2) != 0;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return true;
-            }
-            throw e;
-          }
-        })() ? (
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__yW1U,
-              { [sty.textuser__yW1UBGqPs]: hasVariant($state, "user", "user") }
-            )}
-          >
-            <React.Fragment>
-              <React.Fragment>{""}</React.Fragment>
-              {
-                <blockquote
-                  data-plasmic-name={"blockquote"}
-                  data-plasmic-override={overrides.blockquote}
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.blockquote,
-                    { [sty.blockquoteuser]: hasVariant($state, "user", "user") }
-                  )}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updatePage2"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["page2"]
-                            },
-                            operation: 0,
-                            value: (parseInt($state.page2) - 1).toString()
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updatePage2"] != null &&
-                      typeof $steps["updatePage2"] === "object" &&
-                      typeof $steps["updatePage2"].then === "function"
-                    ) {
-                      $steps["updatePage2"] = await $steps["updatePage2"];
-                    }
-                  }}
-                >
-                  {"< \u0635\u0641\u062d\u0647 \u0642\u0628\u0644\u06cc"}
-                </blockquote>
-              }
-              <React.Fragment>{""}</React.Fragment>
-            </React.Fragment>
-          </div>
-        ) : null}
-        {(
-          hasVariant($state, "user", "user")
-            ? (() => {
-                try {
-                  return $state.apiRequest.data.result.length != 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })()
-            : true
-        ) ? (
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__fbb6B,
-              { [sty.textuser__fbb6BbGqPs]: hasVariant($state, "user", "user") }
-            )}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["updatePage2"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["page2"]
-                      },
-                      operation: 0,
-                      value: (parseInt($state.page2) + 1).toString()
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updatePage2"] != null &&
-                typeof $steps["updatePage2"] === "object" &&
-                typeof $steps["updatePage2"].then === "function"
-              ) {
-                $steps["updatePage2"] = await $steps["updatePage2"];
-              }
-            }}
-          >
-            {"\u0635\u0641\u062d\u0647 \u0628\u0639\u062f\u06cc >"}
-          </div>
-        ) : null}
-      </div>
       <UserPage
         data-plasmic-name={"userPage"}
         data-plasmic-override={overrides.userPage}
@@ -699,6 +551,179 @@ function PlasmicMain2__RenderFunc(props: {
             $steps["updatePage2"] = await $steps["updatePage2"];
           }
         }}
+        slot={
+          <div
+            data-plasmic-name={"freeBox"}
+            data-plasmic-override={overrides.freeBox}
+            className={classNames(projectcss.all, sty.freeBox, {
+              [sty.freeBoxpage_reports]: hasVariant($state, "page", "reports"),
+              [sty.freeBoxpage_tabPage]: hasVariant($state, "page", "tabPage"),
+              [sty.freeBoxuser]: hasVariant($state, "user", "user")
+            })}
+          >
+            {(() => {
+              try {
+                return parseInt($state.page2) != 0;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__yW1U,
+                  {
+                    [sty.textuser__yW1UBGqPs]: hasVariant(
+                      $state,
+                      "user",
+                      "user"
+                    )
+                  }
+                )}
+              >
+                <React.Fragment>
+                  <React.Fragment>{""}</React.Fragment>
+                  {
+                    <blockquote
+                      data-plasmic-name={"blockquote"}
+                      data-plasmic-override={overrides.blockquote}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.blockquote,
+                        {
+                          [sty.blockquoteuser]: hasVariant(
+                            $state,
+                            "user",
+                            "user"
+                          )
+                        }
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updatePage2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["page2"]
+                                },
+                                operation: 0,
+                                value: (parseInt($state.page2) - 1).toString()
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updatePage2"] != null &&
+                          typeof $steps["updatePage2"] === "object" &&
+                          typeof $steps["updatePage2"].then === "function"
+                        ) {
+                          $steps["updatePage2"] = await $steps["updatePage2"];
+                        }
+                      }}
+                    >
+                      {"< \u0635\u0641\u062d\u0647 \u0642\u0628\u0644\u06cc"}
+                    </blockquote>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                </React.Fragment>
+              </div>
+            ) : null}
+            {(
+              hasVariant($state, "user", "user")
+                ? (() => {
+                    try {
+                      return $state.apiRequest.data.result.length != 0;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()
+                : true
+            ) ? (
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__fbb6B,
+                  {
+                    [sty.textuser__fbb6BbGqPs]: hasVariant(
+                      $state,
+                      "user",
+                      "user"
+                    )
+                  }
+                )}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updatePage2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["page2"]
+                          },
+                          operation: 0,
+                          value: (parseInt($state.page2) + 1).toString()
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updatePage2"] != null &&
+                    typeof $steps["updatePage2"] === "object" &&
+                    typeof $steps["updatePage2"].then === "function"
+                  ) {
+                    $steps["updatePage2"] = await $steps["updatePage2"];
+                  }
+                }}
+              >
+                {"\u0635\u0641\u062d\u0647 \u0628\u0639\u062f\u06cc >"}
+              </div>
+            ) : null}
+          </div>
+        }
       >
         <React.Fragment>
           {(() => {
@@ -934,17 +959,17 @@ const PlasmicDescendants = {
   root: [
     "root",
     "sideEffect",
+    "userPage",
     "freeBox",
     "blockquote",
-    "userPage",
     "apiRequest",
     "reports",
     "tabPage"
   ],
   sideEffect: ["sideEffect"],
+  userPage: ["userPage", "freeBox", "blockquote"],
   freeBox: ["freeBox", "blockquote"],
   blockquote: ["blockquote"],
-  userPage: ["userPage"],
   apiRequest: ["apiRequest"],
   reports: ["reports"],
   tabPage: ["tabPage"]
@@ -955,9 +980,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
+  userPage: typeof UserPage;
   freeBox: "div";
   blockquote: "blockquote";
-  userPage: typeof UserPage;
   apiRequest: typeof ApiRequest;
   reports: typeof Reports;
   tabPage: typeof TabPage;
@@ -1024,9 +1049,9 @@ export const PlasmicMain2 = Object.assign(
   {
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
+    userPage: makeNodeComponent("userPage"),
     freeBox: makeNodeComponent("freeBox"),
     blockquote: makeNodeComponent("blockquote"),
-    userPage: makeNodeComponent("userPage"),
     apiRequest: makeNodeComponent("apiRequest"),
     reports: makeNodeComponent("reports"),
     tabPage: makeNodeComponent("tabPage"),

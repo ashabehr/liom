@@ -696,7 +696,7 @@ function PlasmicReports__RenderFunc(props: {
                         $steps["runCode"] = await $steps["runCode"];
                       }
 
-                      $steps["updateLoading2"] = true
+                      $steps["updateLoading2"] = false
                         ? (() => {
                             const actionArgs = {
                               variable: {
@@ -1114,28 +1114,8 @@ function PlasmicReports__RenderFunc(props: {
           }
         })()}
         className={classNames("__wab_instance", sty.apiRequest)}
-        errorDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___0HQ3H
-            )}
-          >
-            {"Error fetching data"}
-          </div>
-        }
-        loadingDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__ja8W1
-            )}
-          >
-            {"Loading..."}
-          </div>
-        }
+        errorDisplay={null}
+        loadingDisplay={null}
         method={"POST"}
         onError={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
@@ -1158,57 +1138,26 @@ function PlasmicReports__RenderFunc(props: {
           (async data => {
             const $steps = {};
 
-            $steps["updateTabData"] =
-              ($state.apiRequest?.data?.[0] ?? {}) != {}
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["tabData"]
-                      },
-                      operation: 0,
-                      value: $state.apiRequest?.data?.[0] ?? {}
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-            if (
-              $steps["updateTabData"] != null &&
-              typeof $steps["updateTabData"] === "object" &&
-              typeof $steps["updateTabData"].then === "function"
-            ) {
-              $steps["updateTabData"] = await $steps["updateTabData"];
-            }
-
-            $steps["runCode"] =
-              ($state.apiRequest?.data?.[0] ?? {}) != {}
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const result = $state.tabData?.result ?? {};
-                          return ($state.titre = ($state.titre ?? []).map(
-                            item => ({
-                              ...item,
-                              number: result[item.tag] ?? ""
-                            })
-                          ));
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+            $steps["runCode"] = $state.apiRequest?.data?.result
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        const result = $state.apiRequest.data.result;
+                        return ($state.titre = ($state.titre ?? []).map(
+                          item => ({
+                            ...item,
+                            number: result[item.tag] ?? ""
+                          })
+                        ));
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
             if (
               $steps["runCode"] != null &&
               typeof $steps["runCode"] === "object" &&
