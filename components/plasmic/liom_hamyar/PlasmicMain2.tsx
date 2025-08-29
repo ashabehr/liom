@@ -378,6 +378,12 @@ function PlasmicMain2__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "page2",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "0"
       }
     ],
     [$props, $ctx, $refs]
@@ -513,7 +519,7 @@ function PlasmicMain2__RenderFunc(props: {
           try {
             return {
               type: $state.reports.tabList[$state.reports.tabSelected].type,
-              page: "0"
+              page: $state.page2
             };
           } catch (e) {
             if (

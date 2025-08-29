@@ -501,7 +501,7 @@ function PlasmicReports__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateLoading"] = true
+                      $steps["updateLoading"] = false
                         ? (() => {
                             const actionArgs = {
                               variable: {
