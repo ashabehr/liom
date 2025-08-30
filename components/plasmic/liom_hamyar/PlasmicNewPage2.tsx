@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -75,8 +76,9 @@ import sty from "./PlasmicNewPage2.module.css"; // plasmic-import: 3v9tn6uUJCPM/
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 import EllipseIcon from "./icons/PlasmicIcon__Ellipse"; // plasmic-import: kdRLUSQBKQTU/icon
-import Group9Icon from "./icons/PlasmicIcon__Group9"; // plasmic-import: zcKll58mqazd/icon
 import Group10Icon from "./icons/PlasmicIcon__Group10"; // plasmic-import: oY9JP2YB2Sfi/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -109,9 +111,7 @@ export type PlasmicNewPage2__OverridesType = {
   property1Bold2?: Flex__<"div">;
   group5?: Flex__<"div">;
   frame9?: Flex__<"div">;
-  frame11?: Flex__<"div">;
-  frame12?: Flex__<"div">;
-  frame13?: Flex__<"div">;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultNewPage2Props {}
@@ -156,6 +156,36 @@ function PlasmicNewPage2__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
+
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   const styleTokensClassNames = _useStyleTokens();
   const styleTokensClassNames_antd_5_hostless =
@@ -266,17 +296,8 @@ function PlasmicNewPage2__RenderFunc(props: {
                       sty.text__lbIiv
                     )}
                   >
-                    {"Today Meeting"}
+                    {"\u0645\u0646\u0627\u0633\u0628\u062a \u0647\u0627"}
                   </div>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__gb4Yl
-                  )}
-                >
-                  {"Your schedule for the day"}
                 </div>
               </div>
               <div
@@ -337,15 +358,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                                   projectcss.all,
                                   sty.group4
                                 )}
-                              >
-                                <Group9Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__l711
-                                  )}
-                                  role={"img"}
-                                />
-                              </div>
+                              />
                             </div>
                           </div>
                         </div>
@@ -402,33 +415,83 @@ function PlasmicNewPage2__RenderFunc(props: {
                       data-plasmic-override={overrides.frame9}
                       className={classNames(projectcss.all, sty.frame9)}
                     >
-                      <div
-                        data-plasmic-name={"frame11"}
-                        data-plasmic-override={overrides.frame11}
-                        className={classNames(projectcss.all, sty.frame11)}
+                      <Button
+                        data-plasmic-name={"button"}
+                        data-plasmic-override={overrides.button}
+                        className={classNames("__wab_instance", sty.button)}
+                        color={generateStateValueProp($state, [
+                          "button",
+                          "color"
+                        ])}
+                        load={generateStateValueProp($state, [
+                          "button",
+                          "load"
+                        ])}
+                        loading={generateStateValueProp($state, [
+                          "button",
+                          "loading"
+                        ])}
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button",
+                              "load"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadingChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button",
+                              "loading"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        shape={"rounded"}
+                        size={"minimal"}
                       >
                         <div
-                          data-plasmic-name={"frame12"}
-                          data-plasmic-override={overrides.frame12}
-                          className={classNames(projectcss.all, sty.frame12)}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__zhHrc
+                          )}
                         >
-                          <div
-                            data-plasmic-name={"frame13"}
-                            data-plasmic-override={overrides.frame13}
-                            className={classNames(projectcss.all, sty.frame13)}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__vLusZ
-                              )}
-                            >
-                              {"Join Meet"}
-                            </div>
-                          </div>
+                          {"\u0648\u06cc\u0631\u0627\u06cc\u0634"}
                         </div>
-                      </div>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -462,9 +525,7 @@ const PlasmicDescendants = {
     "property1Bold2",
     "group5",
     "frame9",
-    "frame11",
-    "frame12",
-    "frame13"
+    "button"
   ],
   section: ["section", "headerLiom"],
   headerLiom: ["headerLiom"],
@@ -485,9 +546,7 @@ const PlasmicDescendants = {
     "property1Bold2",
     "group5",
     "frame9",
-    "frame11",
-    "frame12",
-    "frame13"
+    "button"
   ],
   frame: ["frame", "frame2"],
   frame2: ["frame2"],
@@ -505,9 +564,7 @@ const PlasmicDescendants = {
     "property1Bold2",
     "group5",
     "frame9",
-    "frame11",
-    "frame12",
-    "frame13"
+    "button"
   ],
   frame4: [
     "frame4",
@@ -522,9 +579,7 @@ const PlasmicDescendants = {
     "property1Bold2",
     "group5",
     "frame9",
-    "frame11",
-    "frame12",
-    "frame13"
+    "button"
   ],
   frame5: [
     "frame5",
@@ -538,9 +593,7 @@ const PlasmicDescendants = {
     "property1Bold2",
     "group5",
     "frame9",
-    "frame11",
-    "frame12",
-    "frame13"
+    "button"
   ],
   frame6: [
     "frame6",
@@ -570,10 +623,8 @@ const PlasmicDescendants = {
   frame8: ["frame8", "property1Bold2", "group5"],
   property1Bold2: ["property1Bold2", "group5"],
   group5: ["group5"],
-  frame9: ["frame9", "frame11", "frame12", "frame13"],
-  frame11: ["frame11", "frame12", "frame13"],
-  frame12: ["frame12", "frame13"],
-  frame13: ["frame13"]
+  frame9: ["frame9", "button"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -598,9 +649,7 @@ type NodeDefaultElementType = {
   property1Bold2: "div";
   group5: "div";
   frame9: "div";
-  frame11: "div";
-  frame12: "div";
-  frame13: "div";
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -706,9 +755,7 @@ export const PlasmicNewPage2 = Object.assign(
     property1Bold2: makeNodeComponent("property1Bold2"),
     group5: makeNodeComponent("group5"),
     frame9: makeNodeComponent("frame9"),
-    frame11: makeNodeComponent("frame11"),
-    frame12: makeNodeComponent("frame12"),
-    frame13: makeNodeComponent("frame13"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicNewPage2
     internalVariantProps: PlasmicNewPage2__VariantProps,
