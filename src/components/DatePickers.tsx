@@ -85,9 +85,9 @@ export const DatePickers = (props: DatePickersProps) => {
       month: selectedMonth, 
       year: selectedYear,
         gregorian: {
-    day: g.gd,
-    month: g.gm,
-    year: g.gy
+    day: gregorian.gd,
+    month: gregorian.gm,
+    year: gregorian.gy
   }
 
     };
@@ -204,6 +204,7 @@ export const DatePickersMeta: CodeComponentMeta<DatePickersProps> = {
     },
   },
 };
+
 
 
 
