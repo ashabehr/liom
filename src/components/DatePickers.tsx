@@ -5,12 +5,17 @@ import { CodeComponentMeta } from '@plasmicapp/host';
 import 'rmc-picker/assets/index.css';
 
 type DatePickersProps = {
-  onChange?: (values: { day: number; month: number; year: number }) => void;
+  onChange?: (values: { 
+    day: number; 
+    month: number; 
+    year: number; 
+    gregorian: { day: number; month: number; year: number } 
+  }) => void;
   SelectedDay?: number;
   SelectedMonth?: number;
   SelectedYear?: number;
   selectedValues?: { day: number; month: number; year: number };
-  customYears?: { value: number; label: string }[]; // پراپ جدید برای ورودی سال‌ها
+  customYears?: { value: number; label: string }[];
   className?: string;
 };
 
@@ -21,7 +26,7 @@ export const DatePickers = (props: DatePickersProps) => {
     SelectedMonth = 10,
     SelectedYear = 1403,
     selectedValues = {},
-    customYears = [], // مقدار پیش‌فرض برای customYears
+    customYears = [],
     className,
   } = props;
 
@@ -44,7 +49,6 @@ export const DatePickers = (props: DatePickersProps) => {
 
   const currentYear = Jalaali.toJalaali(new Date()).jy;
 
-  // آرایه ماه‌ها
   const months = [
     { value: 1, label: 'فروردین' },
     { value: 2, label: 'اردیبهشت' },
@@ -60,7 +64,6 @@ export const DatePickers = (props: DatePickersProps) => {
     { value: 12, label: 'اسفند' },
   ].map((month) => ({ ...month, label: toPersianDigits(month.label) }));
 
-  // آرایه سال‌ها
   const years =
     customYears.length > 0
       ? customYears
@@ -76,7 +79,13 @@ export const DatePickers = (props: DatePickersProps) => {
   }, [onChange]);
 
   useEffect(() => {
-    const values = { day: selectedDay, month: selectedMonth, year: selectedYear };
+    const gregorian = Jalaali.toGregorian(selectedYear, selectedMonth, selectedDay);
+    const values = { 
+      day: selectedDay, 
+      month: selectedMonth, 
+      year: selectedYear,
+      gregorian
+    };
     if (onChangeRef.current) {
       onChangeRef.current(values);
     }
@@ -144,6 +153,7 @@ export const DatePickers = (props: DatePickersProps) => {
   );
 };
 
+
 export const DatePickersMeta: CodeComponentMeta<DatePickersProps> = {
   name: 'DatePickers',
   importPath: '@/components/DatePickers',
@@ -189,4 +199,5 @@ export const DatePickersMeta: CodeComponentMeta<DatePickersProps> = {
     },
   },
 };
+
 
