@@ -84,7 +84,12 @@ export const DatePickers = (props: DatePickersProps) => {
       day: selectedDay, 
       month: selectedMonth, 
       year: selectedYear,
-      gregorian
+        gregorian: {
+    day: g.gd,
+    month: g.gm,
+    year: g.gy
+  }
+
     };
     if (onChangeRef.current) {
       onChangeRef.current(values);
@@ -199,5 +204,6 @@ export const DatePickersMeta: CodeComponentMeta<DatePickersProps> = {
     },
   },
 };
+
 
 
