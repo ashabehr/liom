@@ -822,7 +822,11 @@ function PlasmicReports__RenderFunc(props: {
               <React.Fragment>
                 {(() => {
                   try {
-                    return $state.apiRequest.data.result.renewRate + " %";
+                    return (
+                      "نرخ اشتراک تمدید:  " +
+                      $state.apiRequest.data.result.renewRate +
+                      " %"
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

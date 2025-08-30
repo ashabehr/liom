@@ -63,7 +63,6 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
-import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -75,6 +74,9 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K
 import sty from "./PlasmicNewPage2.module.css"; // plasmic-import: 3v9tn6uUJCPM/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
+import EllipseIcon from "./icons/PlasmicIcon__Ellipse"; // plasmic-import: kdRLUSQBKQTU/icon
+import Group9Icon from "./icons/PlasmicIcon__Group9"; // plasmic-import: zcKll58mqazd/icon
+import Group10Icon from "./icons/PlasmicIcon__Group10"; // plasmic-import: oY9JP2YB2Sfi/icon
 
 createPlasmicElementProxy;
 
@@ -91,8 +93,25 @@ export type PlasmicNewPage2__OverridesType = {
   root?: Flex__<"div">;
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
-  svg?: Flex__<"svg">;
-  switchbest?: Flex__<typeof Switchbest>;
+  todayMeeting?: Flex__<"div">;
+  frame?: Flex__<"div">;
+  frame2?: Flex__<"div">;
+  frame3?: Flex__<"div">;
+  frame4?: Flex__<"div">;
+  frame5?: Flex__<"div">;
+  frame6?: Flex__<"div">;
+  frame7?: Flex__<"div">;
+  group2?: Flex__<"div">;
+  group3?: Flex__<"div">;
+  property1Bold?: Flex__<"div">;
+  group4?: Flex__<"div">;
+  frame8?: Flex__<"div">;
+  property1Bold2?: Flex__<"div">;
+  group5?: Flex__<"div">;
+  frame9?: Flex__<"div">;
+  frame11?: Flex__<"div">;
+  frame12?: Flex__<"div">;
+  frame13?: Flex__<"div">;
 };
 
 export interface DefaultNewPage2Props {}
@@ -137,24 +156,6 @@ function PlasmicNewPage2__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
-    () => [
-      {
-        path: "switchbest.isChecked",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "isChecked"
-      }
-    ],
-    [$props, $ctx, $refs]
-  );
-  const $state = useDollarState(stateSpecs, {
-    $props,
-    $ctx,
-    $queries: {},
-    $refs
-  });
 
   const styleTokensClassNames = _useStyleTokens();
   const styleTokensClassNames_antd_5_hostless =
@@ -201,9 +202,7 @@ function PlasmicNewPage2__RenderFunc(props: {
             >
               <div className={classNames(projectcss.all, sty.freeBox__gaKaO)}>
                 <XIcon
-                  data-plasmic-name={"svg"}
-                  data-plasmic-override={overrides.svg}
-                  className={classNames(projectcss.all, sty.svg)}
+                  className={classNames(projectcss.all, sty.svg__a2F2A)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -245,73 +244,194 @@ function PlasmicNewPage2__RenderFunc(props: {
             </HeaderLiom>
           </section>
           <div className={classNames(projectcss.all, sty.freeBox__xMddU)}>
-            <div className={classNames(projectcss.all, sty.freeBox__brBes)}>
-              <div className={classNames(projectcss.all, sty.freeBox__owGgE)}>
-                <div className={classNames(projectcss.all, sty.freeBox__kNd6L)}>
+            <div
+              data-plasmic-name={"todayMeeting"}
+              data-plasmic-override={overrides.todayMeeting}
+              className={classNames(projectcss.all, sty.todayMeeting)}
+            >
+              <div
+                data-plasmic-name={"frame"}
+                data-plasmic-override={overrides.frame}
+                className={classNames(projectcss.all, sty.frame)}
+              >
+                <div
+                  data-plasmic-name={"frame2"}
+                  data-plasmic-override={overrides.frame2}
+                  className={classNames(projectcss.all, sty.frame2)}
+                >
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__lX2W0
+                      sty.text__lbIiv
                     )}
                   >
-                    {"Enter some text"}
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__t35GJ
-                    )}
-                  >
-                    {"Enter some text"}
+                    {"Today Meeting"}
                   </div>
                 </div>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__eotJu
+                    sty.text__gb4Yl
                   )}
                 >
-                  {"Enter some text"}
+                  {"Your schedule for the day"}
                 </div>
-                <Switchbest
-                  data-plasmic-name={"switchbest"}
-                  data-plasmic-override={overrides.switchbest}
-                  className={classNames("__wab_instance", sty.switchbest)}
-                  isChecked={
-                    generateStateValueProp($state, [
-                      "switchbest",
-                      "isChecked"
-                    ]) ?? false
-                  }
-                  onChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, [
-                        "switchbest",
-                        "isChecked"
-                      ])(eventArgs[0]);
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                />
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__xcbh9
-                )}
+                data-plasmic-name={"frame3"}
+                data-plasmic-override={overrides.frame3}
+                className={classNames(projectcss.all, sty.frame3)}
               >
-                {"Enter some text"}
+                <div
+                  data-plasmic-name={"frame4"}
+                  data-plasmic-override={overrides.frame4}
+                  className={classNames(projectcss.all, sty.frame4)}
+                >
+                  <div
+                    data-plasmic-name={"frame5"}
+                    data-plasmic-override={overrides.frame5}
+                    className={classNames(projectcss.all, sty.frame5)}
+                  >
+                    <div
+                      data-plasmic-name={"frame6"}
+                      data-plasmic-override={overrides.frame6}
+                      className={classNames(projectcss.all, sty.frame6)}
+                    >
+                      <div
+                        data-plasmic-name={"frame7"}
+                        data-plasmic-override={overrides.frame7}
+                        className={classNames(projectcss.all, sty.frame7)}
+                      >
+                        <div
+                          data-plasmic-name={"group2"}
+                          data-plasmic-override={overrides.group2}
+                          className={classNames(projectcss.all, sty.group2)}
+                        >
+                          <div
+                            data-plasmic-name={"group3"}
+                            data-plasmic-override={overrides.group3}
+                            className={classNames(projectcss.all, sty.group3)}
+                          >
+                            <EllipseIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg___313Nm
+                              )}
+                              role={"img"}
+                            />
+
+                            <div
+                              data-plasmic-name={"property1Bold"}
+                              data-plasmic-override={overrides.property1Bold}
+                              className={classNames(
+                                projectcss.all,
+                                sty.property1Bold
+                              )}
+                            >
+                              <div
+                                data-plasmic-name={"group4"}
+                                data-plasmic-override={overrides.group4}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.group4
+                                )}
+                              >
+                                <Group9Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__l711
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__eruD
+                          )}
+                        >
+                          {"Townhall Meeting"}
+                        </div>
+                        <div
+                          data-plasmic-name={"frame8"}
+                          data-plasmic-override={overrides.frame8}
+                          className={classNames(projectcss.all, sty.frame8)}
+                        >
+                          <div
+                            data-plasmic-name={"property1Bold2"}
+                            data-plasmic-override={overrides.property1Bold2}
+                            className={classNames(
+                              projectcss.all,
+                              sty.property1Bold2
+                            )}
+                          >
+                            <div
+                              data-plasmic-name={"group5"}
+                              data-plasmic-override={overrides.group5}
+                              className={classNames(projectcss.all, sty.group5)}
+                            >
+                              <Group10Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__oJuvt
+                                )}
+                                role={"img"}
+                              />
+                            </div>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__svQTa
+                            )}
+                          >
+                            {"01:30 AM - 02:00 AM"}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      data-plasmic-name={"frame9"}
+                      data-plasmic-override={overrides.frame9}
+                      className={classNames(projectcss.all, sty.frame9)}
+                    >
+                      <div
+                        data-plasmic-name={"frame11"}
+                        data-plasmic-override={overrides.frame11}
+                        className={classNames(projectcss.all, sty.frame11)}
+                      >
+                        <div
+                          data-plasmic-name={"frame12"}
+                          data-plasmic-override={overrides.frame12}
+                          className={classNames(projectcss.all, sty.frame12)}
+                        >
+                          <div
+                            data-plasmic-name={"frame13"}
+                            data-plasmic-override={overrides.frame13}
+                            className={classNames(projectcss.all, sty.frame13)}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__vLusZ
+                              )}
+                            >
+                              {"Join Meet"}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -322,11 +442,138 @@ function PlasmicNewPage2__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "headerLiom", "svg", "switchbest"],
-  section: ["section", "headerLiom", "svg"],
-  headerLiom: ["headerLiom", "svg"],
-  svg: ["svg"],
-  switchbest: ["switchbest"]
+  root: [
+    "root",
+    "section",
+    "headerLiom",
+    "todayMeeting",
+    "frame",
+    "frame2",
+    "frame3",
+    "frame4",
+    "frame5",
+    "frame6",
+    "frame7",
+    "group2",
+    "group3",
+    "property1Bold",
+    "group4",
+    "frame8",
+    "property1Bold2",
+    "group5",
+    "frame9",
+    "frame11",
+    "frame12",
+    "frame13"
+  ],
+  section: ["section", "headerLiom"],
+  headerLiom: ["headerLiom"],
+  todayMeeting: [
+    "todayMeeting",
+    "frame",
+    "frame2",
+    "frame3",
+    "frame4",
+    "frame5",
+    "frame6",
+    "frame7",
+    "group2",
+    "group3",
+    "property1Bold",
+    "group4",
+    "frame8",
+    "property1Bold2",
+    "group5",
+    "frame9",
+    "frame11",
+    "frame12",
+    "frame13"
+  ],
+  frame: ["frame", "frame2"],
+  frame2: ["frame2"],
+  frame3: [
+    "frame3",
+    "frame4",
+    "frame5",
+    "frame6",
+    "frame7",
+    "group2",
+    "group3",
+    "property1Bold",
+    "group4",
+    "frame8",
+    "property1Bold2",
+    "group5",
+    "frame9",
+    "frame11",
+    "frame12",
+    "frame13"
+  ],
+  frame4: [
+    "frame4",
+    "frame5",
+    "frame6",
+    "frame7",
+    "group2",
+    "group3",
+    "property1Bold",
+    "group4",
+    "frame8",
+    "property1Bold2",
+    "group5",
+    "frame9",
+    "frame11",
+    "frame12",
+    "frame13"
+  ],
+  frame5: [
+    "frame5",
+    "frame6",
+    "frame7",
+    "group2",
+    "group3",
+    "property1Bold",
+    "group4",
+    "frame8",
+    "property1Bold2",
+    "group5",
+    "frame9",
+    "frame11",
+    "frame12",
+    "frame13"
+  ],
+  frame6: [
+    "frame6",
+    "frame7",
+    "group2",
+    "group3",
+    "property1Bold",
+    "group4",
+    "frame8",
+    "property1Bold2",
+    "group5"
+  ],
+  frame7: [
+    "frame7",
+    "group2",
+    "group3",
+    "property1Bold",
+    "group4",
+    "frame8",
+    "property1Bold2",
+    "group5"
+  ],
+  group2: ["group2", "group3", "property1Bold", "group4"],
+  group3: ["group3", "property1Bold", "group4"],
+  property1Bold: ["property1Bold", "group4"],
+  group4: ["group4"],
+  frame8: ["frame8", "property1Bold2", "group5"],
+  property1Bold2: ["property1Bold2", "group5"],
+  group5: ["group5"],
+  frame9: ["frame9", "frame11", "frame12", "frame13"],
+  frame11: ["frame11", "frame12", "frame13"],
+  frame12: ["frame12", "frame13"],
+  frame13: ["frame13"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -335,8 +582,25 @@ type NodeDefaultElementType = {
   root: "div";
   section: "section";
   headerLiom: typeof HeaderLiom;
-  svg: "svg";
-  switchbest: typeof Switchbest;
+  todayMeeting: "div";
+  frame: "div";
+  frame2: "div";
+  frame3: "div";
+  frame4: "div";
+  frame5: "div";
+  frame6: "div";
+  frame7: "div";
+  group2: "div";
+  group3: "div";
+  property1Bold: "div";
+  group4: "div";
+  frame8: "div";
+  property1Bold2: "div";
+  group5: "div";
+  frame9: "div";
+  frame11: "div";
+  frame12: "div";
+  frame13: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -426,8 +690,25 @@ export const PlasmicNewPage2 = Object.assign(
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
-    svg: makeNodeComponent("svg"),
-    switchbest: makeNodeComponent("switchbest"),
+    todayMeeting: makeNodeComponent("todayMeeting"),
+    frame: makeNodeComponent("frame"),
+    frame2: makeNodeComponent("frame2"),
+    frame3: makeNodeComponent("frame3"),
+    frame4: makeNodeComponent("frame4"),
+    frame5: makeNodeComponent("frame5"),
+    frame6: makeNodeComponent("frame6"),
+    frame7: makeNodeComponent("frame7"),
+    group2: makeNodeComponent("group2"),
+    group3: makeNodeComponent("group3"),
+    property1Bold: makeNodeComponent("property1Bold"),
+    group4: makeNodeComponent("group4"),
+    frame8: makeNodeComponent("frame8"),
+    property1Bold2: makeNodeComponent("property1Bold2"),
+    group5: makeNodeComponent("group5"),
+    frame9: makeNodeComponent("frame9"),
+    frame11: makeNodeComponent("frame11"),
+    frame12: makeNodeComponent("frame12"),
+    frame13: makeNodeComponent("frame13"),
 
     // Metadata about props expected for PlasmicNewPage2
     internalVariantProps: PlasmicNewPage2__VariantProps,
