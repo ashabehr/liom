@@ -33,7 +33,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             }
           });
 
-          گوش دادن به پیام‌های Foreground
           onMessageListener((payload) => {
             console.log("📩 پیام Foreground:", payload);
 
