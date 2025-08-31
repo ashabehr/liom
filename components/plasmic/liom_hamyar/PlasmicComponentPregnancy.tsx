@@ -25971,6 +25971,33 @@ function PlasmicComponentPregnancy__RenderFunc(props: {
 
               (async data => {
                 const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            try {
+                              return localStorage.setItem(
+                                "userinfo",
+                                JSON.stringify($state.getUserInfo?.[0].result)
+                              );
+                            } catch {}
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
               }).apply(null, eventArgs);
             }}
             params={(() => {

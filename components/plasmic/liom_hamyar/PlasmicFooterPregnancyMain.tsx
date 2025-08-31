@@ -358,7 +358,7 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                         variablePath: ["type"]
                       },
                       operation: 0,
-                      value: "self"
+                      value: "tools"
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -386,7 +386,7 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                         return (() => {
                           return window.sessionStorage.setItem(
                             "footer",
-                            "self"
+                            "tools"
                           );
                         })();
                       }

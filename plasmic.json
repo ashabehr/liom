@@ -4291,6 +4291,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicFooterPregnancyMain.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "9xsQ86WEmeJv",
+          "name": "MainPregnancyHeader",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMainPregnancyHeader.tsx",
+          "importSpec": {
+            "modulePath": "MainPregnancyHeader.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMainPregnancyHeader.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

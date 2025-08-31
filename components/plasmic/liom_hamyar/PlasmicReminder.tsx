@@ -143,19 +143,19 @@ export type PlasmicReminder__OverridesType = {
   todayMeeting?: Flex__<"div">;
   frame?: Flex__<"div">;
   frame2?: Flex__<"div">;
-  frame19?: Flex__<"div">;
-  frame20?: Flex__<"div">;
-  frame21?: Flex__<"div">;
-  frame22?: Flex__<"div">;
-  frame23?: Flex__<"div">;
-  group6?: Flex__<"div">;
-  group7?: Flex__<"div">;
-  frame24?: Flex__<"div">;
-  countdown3?: Flex__<typeof Countdown>;
-  frame25?: Flex__<"div">;
-  button6?: Flex__<typeof Button>;
-  popover2?: Flex__<typeof AntdPopover>;
-  switchbest4?: Flex__<typeof Switchbest>;
+  frame26?: Flex__<"div">;
+  frame27?: Flex__<"div">;
+  frame28?: Flex__<"div">;
+  frame29?: Flex__<"div">;
+  frame30?: Flex__<"div">;
+  group8?: Flex__<"div">;
+  group9?: Flex__<"div">;
+  frame31?: Flex__<"div">;
+  countdown4?: Flex__<typeof Countdown>;
+  frame32?: Flex__<"div">;
+  button7?: Flex__<typeof Button>;
+  popover3?: Flex__<typeof AntdPopover>;
+  switchbest5?: Flex__<typeof Switchbest>;
 };
 
 export interface DefaultReminderProps {
@@ -564,42 +564,42 @@ function PlasmicReminder__RenderFunc(props: {
         variableType: "boolean"
       },
       {
-        path: "countdown3[].remainingSeconds",
-        type: "private",
-        variableType: "number"
-      },
-      {
-        path: "button6[].color",
-        type: "private",
-        variableType: "text"
-      },
-      {
-        path: "button6[].loading",
-        type: "private",
-        variableType: "boolean"
-      },
-      {
-        path: "button6[].load",
-        type: "private",
-        variableType: "boolean"
-      },
-      {
-        path: "popover2[].open",
-        type: "private",
-        variableType: "boolean"
-      },
-      {
-        path: "switchbest4[].isChecked",
-        type: "private",
-        variableType: "boolean"
-      },
-      {
         path: "refresh",
         type: "writable",
         variableType: "text",
 
         valueProp: "refresh",
         onChangeProp: "onRefreshChange"
+      },
+      {
+        path: "countdown4[].remainingSeconds",
+        type: "private",
+        variableType: "number"
+      },
+      {
+        path: "button7[].color",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "button7[].loading",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "button7[].load",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "popover3[].open",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "switchbest5[].isChecked",
+        type: "private",
+        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -651,26 +651,20 @@ function PlasmicReminder__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["runCode"] = true
+                $steps["runBack"] = true
                   ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            return window.history.back();
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
+                      const actionArgs = { eventRef: $props["back"] };
+                      return (({ eventRef, args }) => {
+                        return eventRef?.(...(args ?? []));
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
+                  $steps["runBack"] != null &&
+                  typeof $steps["runBack"] === "object" &&
+                  typeof $steps["runBack"].then === "function"
                 ) {
-                  $steps["runCode"] = await $steps["runCode"];
+                  $steps["runBack"] = await $steps["runBack"];
                 }
               }}
               role={"img"}
@@ -1104,6 +1098,26 @@ function PlasmicReminder__RenderFunc(props: {
                   $steps["invokeGlobalAction2"] = await $steps[
                     "invokeGlobalAction2"
                   ];
+                }
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return ($state.refresh += "1");
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
                 }
 
                 $steps["updateButton5Load2"] = true
@@ -2251,6 +2265,37 @@ function PlasmicReminder__RenderFunc(props: {
                                 ) {
                                   $steps["update"] = await $steps["update"];
                                 }
+
+                                $steps["runCode2"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            $state.refresh += "1";
+                                            return ($props.data[
+                                              $props.data.findIndex(
+                                                i => i.id == currentItem.id
+                                              )
+                                            ].smsActive = $state.switchbest2[
+                                              currentIndex
+                                            ].isChecked
+                                              ? true
+                                              : false);
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode2"] != null &&
+                                  typeof $steps["runCode2"] === "object" &&
+                                  typeof $steps["runCode2"].then === "function"
+                                ) {
+                                  $steps["runCode2"] = await $steps["runCode2"];
+                                }
                               }).apply(null, eventArgs);
                             }
                           };
@@ -2459,54 +2504,54 @@ function PlasmicReminder__RenderFunc(props: {
             const currentIndex = __plasmic_idx_0;
             return (
               <div
-                data-plasmic-name={"frame19"}
-                data-plasmic-override={overrides.frame19}
-                className={classNames(projectcss.all, sty.frame19)}
+                data-plasmic-name={"frame26"}
+                data-plasmic-override={overrides.frame26}
+                className={classNames(projectcss.all, sty.frame26)}
                 key={currentIndex}
               >
                 <div
-                  data-plasmic-name={"frame20"}
-                  data-plasmic-override={overrides.frame20}
-                  className={classNames(projectcss.all, sty.frame20)}
+                  data-plasmic-name={"frame27"}
+                  data-plasmic-override={overrides.frame27}
+                  className={classNames(projectcss.all, sty.frame27)}
                 >
                   <div
-                    data-plasmic-name={"frame21"}
-                    data-plasmic-override={overrides.frame21}
-                    className={classNames(projectcss.all, sty.frame21)}
+                    data-plasmic-name={"frame28"}
+                    data-plasmic-override={overrides.frame28}
+                    className={classNames(projectcss.all, sty.frame28)}
                   >
                     <div
-                      data-plasmic-name={"frame22"}
-                      data-plasmic-override={overrides.frame22}
-                      className={classNames(projectcss.all, sty.frame22)}
+                      data-plasmic-name={"frame29"}
+                      data-plasmic-override={overrides.frame29}
+                      className={classNames(projectcss.all, sty.frame29)}
                     >
                       <div
-                        data-plasmic-name={"frame23"}
-                        data-plasmic-override={overrides.frame23}
-                        className={classNames(projectcss.all, sty.frame23)}
+                        data-plasmic-name={"frame30"}
+                        data-plasmic-override={overrides.frame30}
+                        className={classNames(projectcss.all, sty.frame30)}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__glafg
+                            sty.freeBox___8A1T
                           )}
                         >
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox___9WLwx
+                              sty.freeBox__zxiIk
                             )}
                           >
                             <div
-                              data-plasmic-name={"group6"}
-                              data-plasmic-override={overrides.group6}
-                              className={classNames(projectcss.all, sty.group6)}
+                              data-plasmic-name={"group8"}
+                              data-plasmic-override={overrides.group8}
+                              className={classNames(projectcss.all, sty.group8)}
                             >
                               <div
-                                data-plasmic-name={"group7"}
-                                data-plasmic-override={overrides.group7}
+                                data-plasmic-name={"group9"}
+                                data-plasmic-override={overrides.group9}
                                 className={classNames(
                                   projectcss.all,
-                                  sty.group7
+                                  sty.group9
                                 )}
                                 style={(() => {
                                   try {
@@ -2532,7 +2577,7 @@ function PlasmicReminder__RenderFunc(props: {
                                 <MenuIcon
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.menuIcon__pgJwo
+                                    sty.menuIcon__blWf5
                                   )}
                                   icons={(() => {
                                     try {
@@ -2567,7 +2612,7 @@ function PlasmicReminder__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__slQH
+                                sty.text__pzMh
                               )}
                             >
                               <React.Fragment>
@@ -2592,7 +2637,7 @@ function PlasmicReminder__RenderFunc(props: {
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__eBhr
+                              sty.text__vpAvj
                             )}
                           >
                             <React.Fragment>
@@ -2614,15 +2659,15 @@ function PlasmicReminder__RenderFunc(props: {
                           </div>
                         </div>
                         <div
-                          data-plasmic-name={"frame24"}
-                          data-plasmic-override={overrides.frame24}
-                          className={classNames(projectcss.all, sty.frame24)}
+                          data-plasmic-name={"frame31"}
+                          data-plasmic-override={overrides.frame31}
+                          className={classNames(projectcss.all, sty.frame31)}
                         >
                           {(() => {
                             const child$Props = {
                               className: classNames(
                                 "__wab_instance",
-                                sty.countdown3
+                                sty.countdown4
                               ),
                               color: (() => {
                                 try {
@@ -2657,7 +2702,7 @@ function PlasmicReminder__RenderFunc(props: {
                                 ...eventArgs: any
                               ) => {
                                 generateStateOnChangeProp($state, [
-                                  "countdown3",
+                                  "countdown4",
                                   __plasmic_idx_0,
                                   "remainingSeconds"
                                 ]).apply(null, eventArgs);
@@ -2671,7 +2716,7 @@ function PlasmicReminder__RenderFunc(props: {
                                 }
                               },
                               remainingSeconds: generateStateValueProp($state, [
-                                "countdown3",
+                                "countdown4",
                                 __plasmic_idx_0,
                                 "remainingSeconds"
                               ])
@@ -2681,7 +2726,7 @@ function PlasmicReminder__RenderFunc(props: {
                               $state,
                               [
                                 {
-                                  name: "countdown3[].remainingSeconds",
+                                  name: "countdown4[].remainingSeconds",
                                   initFunc: ({ $props, $state, $queries }) =>
                                     (() => {
                                       try {
@@ -2715,8 +2760,8 @@ function PlasmicReminder__RenderFunc(props: {
                             );
                             return (
                               <Countdown
-                                data-plasmic-name={"countdown3"}
-                                data-plasmic-override={overrides.countdown3}
+                                data-plasmic-name={"countdown4"}
+                                data-plasmic-override={overrides.countdown4}
                                 {...child$Props}
                               />
                             );
@@ -2725,14 +2770,14 @@ function PlasmicReminder__RenderFunc(props: {
                       </div>
                     </div>
                     <div
-                      data-plasmic-name={"frame25"}
-                      data-plasmic-override={overrides.frame25}
-                      className={classNames(projectcss.all, sty.frame25)}
+                      data-plasmic-name={"frame32"}
+                      data-plasmic-override={overrides.frame32}
+                      className={classNames(projectcss.all, sty.frame32)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox___9PwDv
+                          sty.freeBox__wgCcL
                         )}
                       >
                         {(() => {
@@ -2752,20 +2797,20 @@ function PlasmicReminder__RenderFunc(props: {
                               const child$Props = {
                                 className: classNames(
                                   "__wab_instance",
-                                  sty.button6
+                                  sty.button7
                                 ),
                                 color: generateStateValueProp($state, [
-                                  "button6",
+                                  "button7",
                                   __plasmic_idx_0,
                                   "color"
                                 ]),
                                 load: generateStateValueProp($state, [
-                                  "button6",
+                                  "button7",
                                   __plasmic_idx_0,
                                   "load"
                                 ]),
                                 loading: generateStateValueProp($state, [
-                                  "button6",
+                                  "button7",
                                   __plasmic_idx_0,
                                   "loading"
                                 ]),
@@ -2911,7 +2956,7 @@ function PlasmicReminder__RenderFunc(props: {
                                 onColorChange: async (...eventArgs: any) => {
                                   ((...eventArgs) => {
                                     generateStateOnChangeProp($state, [
-                                      "button6",
+                                      "button7",
                                       __plasmic_idx_0,
                                       "color"
                                     ])(eventArgs[0]);
@@ -2928,7 +2973,7 @@ function PlasmicReminder__RenderFunc(props: {
                                 onLoadChange: async (...eventArgs: any) => {
                                   ((...eventArgs) => {
                                     generateStateOnChangeProp($state, [
-                                      "button6",
+                                      "button7",
                                       __plasmic_idx_0,
                                       "load"
                                     ])(eventArgs[0]);
@@ -2945,7 +2990,7 @@ function PlasmicReminder__RenderFunc(props: {
                                 onLoadingChange: async (...eventArgs: any) => {
                                   ((...eventArgs) => {
                                     generateStateOnChangeProp($state, [
-                                      "button6",
+                                      "button7",
                                       __plasmic_idx_0,
                                       "loading"
                                     ])(eventArgs[0]);
@@ -2967,17 +3012,17 @@ function PlasmicReminder__RenderFunc(props: {
                                 $state,
                                 [
                                   {
-                                    name: "button6[].color",
+                                    name: "button7[].color",
                                     initFunc: ({ $props, $state, $queries }) =>
                                       undefined
                                   },
                                   {
-                                    name: "button6[].loading",
+                                    name: "button7[].loading",
                                     initFunc: ({ $props, $state, $queries }) =>
                                       undefined
                                   },
                                   {
-                                    name: "button6[].load",
+                                    name: "button7[].load",
                                     initFunc: ({ $props, $state, $queries }) =>
                                       false
                                   }
@@ -2986,15 +3031,15 @@ function PlasmicReminder__RenderFunc(props: {
                               );
                               return (
                                 <Button
-                                  data-plasmic-name={"button6"}
-                                  data-plasmic-override={overrides.button6}
+                                  data-plasmic-name={"button7"}
+                                  data-plasmic-override={overrides.button7}
                                   {...child$Props}
                                 >
                                   <div
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__dJOc1
+                                      sty.text__pzOf6
                                     )}
                                   >
                                     {"\u0648\u06cc\u0631\u0627\u06cc\u0634"}
@@ -3007,7 +3052,7 @@ function PlasmicReminder__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__rvlK4,
+                          sty.freeBox__gMn3U,
                           (() => {
                             try {
                               return $props.subscription &&
@@ -3031,14 +3076,14 @@ function PlasmicReminder__RenderFunc(props: {
                             arrow: true,
                             className: classNames(
                               "__wab_instance",
-                              sty.popover2
+                              sty.popover3
                             ),
                             content: (
                               <div
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__qe7Ei
+                                  sty.text__flaBg
                                 )}
                               >
                                 {
@@ -3060,24 +3105,24 @@ function PlasmicReminder__RenderFunc(props: {
                             mouseLeaveDelay: 0,
                             onOpenChange: async (...eventArgs: any) => {
                               generateStateOnChangeProp($state, [
-                                "popover2",
+                                "popover3",
                                 __plasmic_idx_0,
                                 "open"
                               ]).apply(null, eventArgs);
                             },
                             open: generateStateValueProp($state, [
-                              "popover2",
+                              "popover3",
                               __plasmic_idx_0,
                               "open"
                             ]),
                             overlayClassName: classNames({
-                              [sty["pcls_8kHyAFUqFcFV"]]: true
+                              [sty["pcls_Eack8tfl3khW"]]: true
                             }),
                             placement: "bottom",
                             popoverContentClassName: classNames({
-                              [sty["pcls_ZRvGNYd2A3_M"]]: true
+                              [sty["pcls_2UPXfv11ul0m"]]: true
                             }),
-                            popoverScopeClassName: sty["popover2__popover"],
+                            popoverScopeClassName: sty["popover3__popover"],
                             title: null,
                             trigger: "click"
                           };
@@ -3086,7 +3131,7 @@ function PlasmicReminder__RenderFunc(props: {
                             [
                               {
                                 name: "open",
-                                plasmicStateName: "popover2[].open"
+                                plasmicStateName: "popover3[].open"
                               }
                             ],
                             [__plasmic_idx_0],
@@ -3097,7 +3142,7 @@ function PlasmicReminder__RenderFunc(props: {
                             $state,
                             [
                               {
-                                name: "popover2[].open",
+                                name: "popover3[].open",
                                 initFunc: ({ $props, $state, $queries }) =>
                                   false
                               }
@@ -3106,20 +3151,20 @@ function PlasmicReminder__RenderFunc(props: {
                           );
                           return (
                             <AntdPopover
-                              data-plasmic-name={"popover2"}
-                              data-plasmic-override={overrides.popover2}
+                              data-plasmic-name={"popover3"}
+                              data-plasmic-override={overrides.popover3}
                               {...child$Props}
                             >
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__p7KF
+                                  sty.freeBox__px0Ag
                                 )}
                               >
                                 <InfoIcon
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg__smxx2
+                                    sty.svg___9Wkrp
                                   )}
                                   role={"img"}
                                 />
@@ -3128,7 +3173,7 @@ function PlasmicReminder__RenderFunc(props: {
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__bnGgz
+                                    sty.text__gsu0L
                                   )}
                                 >
                                   {
@@ -3144,31 +3189,18 @@ function PlasmicReminder__RenderFunc(props: {
                             children: null,
                             className: classNames(
                               "__wab_instance",
-                              sty.switchbest4
+                              sty.switchbest5
                             ),
                             isChecked:
                               generateStateValueProp($state, [
-                                "switchbest4",
+                                "switchbest5",
                                 __plasmic_idx_0,
                                 "isChecked"
                               ]) ?? false,
-                            isDisabled: (() => {
-                              try {
-                                return !$props.subscription;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })(),
                             onChange: async (...eventArgs: any) => {
                               ((...eventArgs) => {
                                 generateStateOnChangeProp($state, [
-                                  "switchbest4",
+                                  "switchbest5",
                                   __plasmic_idx_0,
                                   "isChecked"
                                 ])(eventArgs[0]);
@@ -3185,7 +3217,47 @@ function PlasmicReminder__RenderFunc(props: {
                               (async isChecked => {
                                 const $steps = {};
 
-                                $steps["update"] = true
+                                $steps["runShop"] = !$props.subscription
+                                  ? (() => {
+                                      const actionArgs = {
+                                        eventRef: $props["shop"]
+                                      };
+                                      return (({ eventRef, args }) => {
+                                        return eventRef?.(...(args ?? []));
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runShop"] != null &&
+                                  typeof $steps["runShop"] === "object" &&
+                                  typeof $steps["runShop"].then === "function"
+                                ) {
+                                  $steps["runShop"] = await $steps["runShop"];
+                                }
+
+                                $steps["runCode"] = !$props.subscription
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return ($state.switchbest5[
+                                            currentIndex
+                                          ].isChecked = false);
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+
+                                $steps["update"] = $props.subscription
                                   ? (() => {
                                       const actionArgs = {
                                         args: [
@@ -3197,7 +3269,7 @@ function PlasmicReminder__RenderFunc(props: {
                                               return {
                                                 id: currentItem.id,
                                                 man_id: $props.manId,
-                                                smsActive: $state.switchbest2[
+                                                smsActive: $state.switchbest5[
                                                   currentIndex
                                                 ].isChecked
                                                   ? 1
@@ -3228,6 +3300,37 @@ function PlasmicReminder__RenderFunc(props: {
                                 ) {
                                   $steps["update"] = await $steps["update"];
                                 }
+
+                                $steps["runCode2"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            $state.refresh += "1";
+                                            return ($props.data[
+                                              $props.data.findIndex(
+                                                i => i.id == currentItem.id
+                                              )
+                                            ].smsActive = $state.switchbest5[
+                                              currentIndex
+                                            ].isChecked
+                                              ? true
+                                              : false);
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode2"] != null &&
+                                  typeof $steps["runCode2"] === "object" &&
+                                  typeof $steps["runCode2"].then === "function"
+                                ) {
+                                  $steps["runCode2"] = await $steps["runCode2"];
+                                }
                               }).apply(null, eventArgs);
                             }
                           };
@@ -3236,7 +3339,7 @@ function PlasmicReminder__RenderFunc(props: {
                             $state,
                             [
                               {
-                                name: "switchbest4[].isChecked",
+                                name: "switchbest5[].isChecked",
                                 initFunc: ({ $props, $state, $queries }) =>
                                   (() => {
                                     try {
@@ -3261,8 +3364,8 @@ function PlasmicReminder__RenderFunc(props: {
                           );
                           return (
                             <Switchbest
-                              data-plasmic-name={"switchbest4"}
-                              data-plasmic-override={overrides.switchbest4}
+                              data-plasmic-name={"switchbest5"}
+                              data-plasmic-override={overrides.switchbest5}
                               {...child$Props}
                             />
                           );
@@ -3313,19 +3416,19 @@ const PlasmicDescendants = {
     "todayMeeting",
     "frame",
     "frame2",
-    "frame19",
-    "frame20",
-    "frame21",
-    "frame22",
-    "frame23",
-    "group6",
-    "group7",
-    "frame24",
-    "countdown3",
-    "frame25",
-    "button6",
-    "popover2",
-    "switchbest4"
+    "frame26",
+    "frame27",
+    "frame28",
+    "frame29",
+    "frame30",
+    "group8",
+    "group9",
+    "frame31",
+    "countdown4",
+    "frame32",
+    "button7",
+    "popover3",
+    "switchbest5"
   ],
   section: [
     "section",
@@ -3426,74 +3529,74 @@ const PlasmicDescendants = {
     "todayMeeting",
     "frame",
     "frame2",
-    "frame19",
-    "frame20",
-    "frame21",
-    "frame22",
-    "frame23",
-    "group6",
-    "group7",
-    "frame24",
-    "countdown3",
-    "frame25",
-    "button6",
-    "popover2",
-    "switchbest4"
+    "frame26",
+    "frame27",
+    "frame28",
+    "frame29",
+    "frame30",
+    "group8",
+    "group9",
+    "frame31",
+    "countdown4",
+    "frame32",
+    "button7",
+    "popover3",
+    "switchbest5"
   ],
   frame: ["frame", "frame2"],
   frame2: ["frame2"],
-  frame19: [
-    "frame19",
-    "frame20",
-    "frame21",
-    "frame22",
-    "frame23",
-    "group6",
-    "group7",
-    "frame24",
-    "countdown3",
-    "frame25",
-    "button6",
-    "popover2",
-    "switchbest4"
+  frame26: [
+    "frame26",
+    "frame27",
+    "frame28",
+    "frame29",
+    "frame30",
+    "group8",
+    "group9",
+    "frame31",
+    "countdown4",
+    "frame32",
+    "button7",
+    "popover3",
+    "switchbest5"
   ],
-  frame20: [
-    "frame20",
-    "frame21",
-    "frame22",
-    "frame23",
-    "group6",
-    "group7",
-    "frame24",
-    "countdown3",
-    "frame25",
-    "button6",
-    "popover2",
-    "switchbest4"
+  frame27: [
+    "frame27",
+    "frame28",
+    "frame29",
+    "frame30",
+    "group8",
+    "group9",
+    "frame31",
+    "countdown4",
+    "frame32",
+    "button7",
+    "popover3",
+    "switchbest5"
   ],
-  frame21: [
-    "frame21",
-    "frame22",
-    "frame23",
-    "group6",
-    "group7",
-    "frame24",
-    "countdown3",
-    "frame25",
-    "button6",
-    "popover2",
-    "switchbest4"
+  frame28: [
+    "frame28",
+    "frame29",
+    "frame30",
+    "group8",
+    "group9",
+    "frame31",
+    "countdown4",
+    "frame32",
+    "button7",
+    "popover3",
+    "switchbest5"
   ],
-  frame22: ["frame22", "frame23", "group6", "group7", "frame24", "countdown3"],
-  frame23: ["frame23", "group6", "group7", "frame24", "countdown3"],
-  group6: ["group6", "group7"],
-  group7: ["group7"],
-  frame24: ["frame24", "countdown3"],
-  countdown3: ["countdown3"],
-  frame25: ["frame25", "button6", "popover2", "switchbest4"],
-  button6: ["button6"],
-  popover2: ["popover2"],
-  switchbest4: ["switchbest4"]
+  frame29: ["frame29", "frame30", "group8", "group9", "frame31", "countdown4"],
+  frame30: ["frame30", "group8", "group9", "frame31", "countdown4"],
+  group8: ["group8", "group9"],
+  group9: ["group9"],
+  frame31: ["frame31", "countdown4"],
+  countdown4: ["countdown4"],
+  frame32: ["frame32", "button7", "popover3", "switchbest5"],
+  button7: ["button7"],
+  popover3: ["popover3"],
+  switchbest5: ["switchbest5"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3530,19 +3633,19 @@ type NodeDefaultElementType = {
   todayMeeting: "div";
   frame: "div";
   frame2: "div";
-  frame19: "div";
-  frame20: "div";
-  frame21: "div";
-  frame22: "div";
-  frame23: "div";
-  group6: "div";
-  group7: "div";
-  frame24: "div";
-  countdown3: typeof Countdown;
-  frame25: "div";
-  button6: typeof Button;
-  popover2: typeof AntdPopover;
-  switchbest4: typeof Switchbest;
+  frame26: "div";
+  frame27: "div";
+  frame28: "div";
+  frame29: "div";
+  frame30: "div";
+  group8: "div";
+  group9: "div";
+  frame31: "div";
+  countdown4: typeof Countdown;
+  frame32: "div";
+  button7: typeof Button;
+  popover3: typeof AntdPopover;
+  switchbest5: typeof Switchbest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3635,19 +3738,19 @@ export const PlasmicReminder = Object.assign(
     todayMeeting: makeNodeComponent("todayMeeting"),
     frame: makeNodeComponent("frame"),
     frame2: makeNodeComponent("frame2"),
-    frame19: makeNodeComponent("frame19"),
-    frame20: makeNodeComponent("frame20"),
-    frame21: makeNodeComponent("frame21"),
-    frame22: makeNodeComponent("frame22"),
-    frame23: makeNodeComponent("frame23"),
-    group6: makeNodeComponent("group6"),
-    group7: makeNodeComponent("group7"),
-    frame24: makeNodeComponent("frame24"),
-    countdown3: makeNodeComponent("countdown3"),
-    frame25: makeNodeComponent("frame25"),
-    button6: makeNodeComponent("button6"),
-    popover2: makeNodeComponent("popover2"),
-    switchbest4: makeNodeComponent("switchbest4"),
+    frame26: makeNodeComponent("frame26"),
+    frame27: makeNodeComponent("frame27"),
+    frame28: makeNodeComponent("frame28"),
+    frame29: makeNodeComponent("frame29"),
+    frame30: makeNodeComponent("frame30"),
+    group8: makeNodeComponent("group8"),
+    group9: makeNodeComponent("group9"),
+    frame31: makeNodeComponent("frame31"),
+    countdown4: makeNodeComponent("countdown4"),
+    frame32: makeNodeComponent("frame32"),
+    button7: makeNodeComponent("button7"),
+    popover3: makeNodeComponent("popover3"),
+    switchbest5: makeNodeComponent("switchbest5"),
 
     // Metadata about props expected for PlasmicReminder
     internalVariantProps: PlasmicReminder__VariantProps,

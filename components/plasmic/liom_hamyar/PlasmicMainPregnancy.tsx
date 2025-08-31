@@ -62,8 +62,8 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import MainPage from "../../MainPage"; // plasmic-import: mwylH28Efyne/component
-import MainHeader from "../../MainHeader"; // plasmic-import: 1YQK_N8j3twT/component
+import ComponentPregnancy from "../../ComponentPregnancy"; // plasmic-import: 8wHhlRtqpYtU/component
+import MainPregnancyHeader from "../../MainPregnancyHeader"; // plasmic-import: 9xsQ86WEmeJv/component
 import FooterPregnancyMain from "../../FooterPregnancyMain"; // plasmic-import: -kbj-rjG1hPY/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import SettingCycle4 from "../../SettingCycle4"; // plasmic-import: C5hqeG28n8GP/component
@@ -109,12 +109,12 @@ export const PlasmicMainPregnancy__ArgProps = new Array<ArgPropType>();
 export type PlasmicMainPregnancy__OverridesType = {
   root?: Flex__<"div">;
   main?: Flex__<"div">;
-  mainPage?: Flex__<typeof MainPage>;
-  mainHeader?: Flex__<typeof MainHeader>;
+  componentPregnancy?: Flex__<typeof ComponentPregnancy>;
+  mainHeader?: Flex__<typeof MainPregnancyHeader>;
   freeBox?: Flex__<"div">;
   svg?: Flex__<"svg">;
   text?: Flex__<"div">;
-  footerPregnancyMain?: Flex__<typeof FooterPregnancyMain>;
+  footerMain?: Flex__<typeof FooterPregnancyMain>;
   settingCycle4?: Flex__<typeof SettingCycle4>;
   subItemsComponnet?: Flex__<typeof SubItemsComponnet>;
   editProfile2?: Flex__<typeof EditProfile2>;
@@ -178,7 +178,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
             try {
               return [
                 { name: "calendar", namefa: "بارداری" },
-                { name: "toolse", namefa: "ابزارها" }
+                { name: "tools", namefa: "ابزارها" }
               ];
             } catch (e) {
               if (
@@ -216,7 +216,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
-        path: "footerPregnancyMain.type",
+        path: "footerMain.type",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -229,6 +229,25 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
                 return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "mainHeader.dopen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.dopen;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
               }
               throw e;
             }
@@ -291,75 +310,32 @@ function PlasmicMainPregnancy__RenderFunc(props: {
               [sty.mainsubItem]: hasVariant($state, "subItem", "subItem")
             })}
           >
-            <MainPage
-              data-plasmic-name={"mainPage"}
-              data-plasmic-override={overrides.mainPage}
-              className={classNames("__wab_instance", sty.mainPage, {
-                [sty.mainPageedit]: hasVariant($state, "edit", "edit"),
-                [sty.mainPagesubItem]: hasVariant($state, "subItem", "subItem")
-              })}
-              editTime={(() => {
-                try {
-                  return $state.settingCycle4.editTime;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              page={(() => {
-                try {
-                  return $state.footerMain.type;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
-                  }
-                  throw e;
-                }
-              })()}
-              setting={async () => {
-                const $steps = {};
-
-                $steps["updateSetting"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        vgroup: "setting",
-                        operation: 2,
-                        value: "setting"
-                      };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
-                        }
-
-                        const oldValue = $stateGet($state, vgroup);
-                        $stateSet($state, vgroup, !oldValue);
-                        return !oldValue;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateSetting"] != null &&
-                  typeof $steps["updateSetting"] === "object" &&
-                  typeof $steps["updateSetting"].then === "function"
-                ) {
-                  $steps["updateSetting"] = await $steps["updateSetting"];
-                }
-              }}
+            <ComponentPregnancy
+              data-plasmic-name={"componentPregnancy"}
+              data-plasmic-override={overrides.componentPregnancy}
+              className={classNames("__wab_instance", sty.componentPregnancy)}
             />
 
             <section className={classNames(projectcss.all, sty.section__jlfOv)}>
-              <MainHeader
+              <MainPregnancyHeader
                 data-plasmic-name={"mainHeader"}
                 data-plasmic-override={overrides.mainHeader}
                 className={classNames("__wab_instance", sty.mainHeader)}
+                dopen={generateStateValueProp($state, ["mainHeader", "dopen"])}
+                onDopenChange2={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "mainHeader",
+                    "dopen"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
                 openEdit={async () => {
                   const $steps = {};
 
@@ -478,7 +454,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                       {(() => {
                         try {
                           return $state.page.find(
-                            item => item.name == $state.footerPregnancyMain.type
+                            item => item.name == $state.footerMain.type
                           ).namefa;
                         } catch (e) {
                           if (
@@ -493,20 +469,17 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                 </div>
-              </MainHeader>
+              </MainPregnancyHeader>
             </section>
             <section
               className={classNames(projectcss.all, sty.section___7Bu3P)}
             >
               {(() => {
                 const child$Props = {
-                  className: classNames(
-                    "__wab_instance",
-                    sty.footerPregnancyMain
-                  ),
+                  className: classNames("__wab_instance", sty.footerMain),
                   footer2: (() => {
                     try {
-                      return $state.footerPregnancyMain.type;
+                      return $state.footerMain.type;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -519,7 +492,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                   })(),
                   onTypeChange: async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, [
-                      "footerPregnancyMain",
+                      "footerMain",
                       "type"
                     ]).apply(null, eventArgs);
 
@@ -531,17 +504,14 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                       return;
                     }
                   },
-                  type: generateStateValueProp($state, [
-                    "footerPregnancyMain",
-                    "type"
-                  ])
+                  type: generateStateValueProp($state, ["footerMain", "type"])
                 };
 
                 initializePlasmicStates(
                   $state,
                   [
                     {
-                      name: "footerPregnancyMain.type",
+                      name: "footerMain.type",
                       initFunc: ({ $props, $state, $queries }) =>
                         (() => {
                           try {
@@ -565,8 +535,8 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                 );
                 return (
                   <FooterPregnancyMain
-                    data-plasmic-name={"footerPregnancyMain"}
-                    data-plasmic-override={overrides.footerPregnancyMain}
+                    data-plasmic-name={"footerMain"}
+                    data-plasmic-override={overrides.footerMain}
                     {...child$Props}
                   />
                 );
@@ -943,12 +913,12 @@ const PlasmicDescendants = {
   root: [
     "root",
     "main",
-    "mainPage",
+    "componentPregnancy",
     "mainHeader",
     "freeBox",
     "svg",
     "text",
-    "footerPregnancyMain",
+    "footerMain",
     "settingCycle4",
     "subItemsComponnet",
     "editProfile2",
@@ -957,19 +927,19 @@ const PlasmicDescendants = {
   ],
   main: [
     "main",
-    "mainPage",
+    "componentPregnancy",
     "mainHeader",
     "freeBox",
     "svg",
     "text",
-    "footerPregnancyMain"
+    "footerMain"
   ],
-  mainPage: ["mainPage"],
+  componentPregnancy: ["componentPregnancy"],
   mainHeader: ["mainHeader", "freeBox", "svg", "text"],
   freeBox: ["freeBox", "svg", "text"],
   svg: ["svg"],
   text: ["text"],
-  footerPregnancyMain: ["footerPregnancyMain"],
+  footerMain: ["footerMain"],
   settingCycle4: ["settingCycle4"],
   subItemsComponnet: ["subItemsComponnet"],
   editProfile2: ["editProfile2"],
@@ -982,12 +952,12 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   main: "div";
-  mainPage: typeof MainPage;
-  mainHeader: typeof MainHeader;
+  componentPregnancy: typeof ComponentPregnancy;
+  mainHeader: typeof MainPregnancyHeader;
   freeBox: "div";
   svg: "svg";
   text: "div";
-  footerPregnancyMain: typeof FooterPregnancyMain;
+  footerMain: typeof FooterPregnancyMain;
   settingCycle4: typeof SettingCycle4;
   subItemsComponnet: typeof SubItemsComponnet;
   editProfile2: typeof EditProfile2;
@@ -1081,12 +1051,12 @@ export const PlasmicMainPregnancy = Object.assign(
   {
     // Helper components rendering sub-elements
     main: makeNodeComponent("main"),
-    mainPage: makeNodeComponent("mainPage"),
+    componentPregnancy: makeNodeComponent("componentPregnancy"),
     mainHeader: makeNodeComponent("mainHeader"),
     freeBox: makeNodeComponent("freeBox"),
     svg: makeNodeComponent("svg"),
     text: makeNodeComponent("text"),
-    footerPregnancyMain: makeNodeComponent("footerPregnancyMain"),
+    footerMain: makeNodeComponent("footerMain"),
     settingCycle4: makeNodeComponent("settingCycle4"),
     subItemsComponnet: makeNodeComponent("subItemsComponnet"),
     editProfile2: makeNodeComponent("editProfile2"),

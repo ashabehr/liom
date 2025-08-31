@@ -25664,6 +25664,21 @@ function PlasmicHamyar__RenderFunc(props: {
                 ];
               }
             }}
+            subscription={(() => {
+              try {
+                return $state?.userdata?.result?.man?.hamyarStatus
+                  ? true
+                  : false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()}
           />
         </div>
       </div>
