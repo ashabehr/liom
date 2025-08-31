@@ -70,10 +70,10 @@ function handleNotificationClick(action: string | null) {
         targetUrl = "https://apps.liom.app/shop";
         break;
       case "calendar":
-        targetUrl = "https://apps.liom.app/shop";
+        targetUrl = "https://apps.liom.app/main";
         break;
       case "maincalendar":
-        targetUrl = "https://apps.liom.app/calendar";
+        targetUrl = "https://apps.liom.app/main";
         break;
       case "specialOffer":
         targetUrl = "/offers/special";
