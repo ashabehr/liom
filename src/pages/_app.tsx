@@ -24,19 +24,19 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           });
 
           // گوش دادن به پیام‌های Foreground
-          onMessageListener((payload) => {
-            console.log("📩 پیام Foreground:", payload);
+          // onMessageListener((payload) => {
+          //   console.log("📩 پیام Foreground:", payload);
 
-            // نمایش نوتیف ساده
-            if (payload.notification?.title) {
-              new Notification(payload.notification.title, {
-                body: payload.notification.body,
-                icon:
-                  payload.notification.image ||
-                  "/icons/icon-192x192.png",
-              });
-            }
-          });
+          //   // نمایش نوتیف ساده
+          //   if (payload.notification?.title) {
+          //     new Notification(payload.notification.title, {
+          //       body: payload.notification.body,
+          //       icon:
+          //         payload.notification.image ||
+          //         "/icons/icon-192x192.png",
+          //     });
+          //   }
+          // });
         }
       );
 
