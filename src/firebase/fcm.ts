@@ -6,9 +6,13 @@ export const requestPermission = async (): Promise<string | null> => {
   try {
     const permission = await Notification.requestPermission();
     if (permission === "granted") {
+      // ⬇️ اینجا مطمئن می‌شیم SW آماده است
+      const registration = await navigator.serviceWorker.ready;
+
       const currentToken = await getToken(messaging, {
         vapidKey:
           "BDroVn6KRs9iN1laogFt-J47xc9WsWIfblgIBCi2QllonFT-PAu9up26gRlL-9uL7R1FSllN7I13eTR6IZiH72g",
+        serviceWorkerRegistration: registration, // ⬅️ این مهمه
       });
 
       if (currentToken) {
