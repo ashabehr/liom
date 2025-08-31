@@ -328,7 +328,7 @@ function PlasmicReminder__RenderFunc(props: {
               smsActive: 0
             }
           ],
-          subscription: true
+          subscription: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
